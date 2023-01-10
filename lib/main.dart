@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/login/login.dart';
+import 'package:freeu/signUp/signUp.dart';
 import 'package:freeu/login/splash.dart';
 import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
@@ -33,6 +34,7 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/', page: () => Splash()),
           GetPage(name: '/splashslider', page: () => Splashslider()),
           GetPage(name: '/login', page: () => Login()),
+          GetPage(name: '/signup', page: () => SignUp()),
         ],
       ),
       designSize: Size(390, 844),

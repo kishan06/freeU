@@ -117,7 +117,14 @@ class _SplashsliderState extends State<Splashslider> {
                       //     child:
                       //         SvgPicture.asset("assets/images/nextButton.svg")),
                       InkWell(
-                        onTap: () => Get.toNamed('/login'),
+                        onTap: () => setState(() {
+                          _controller.animateToPage(currentIndex + 1,
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.linear);
+                          if (currentIndex == 2) {
+                            Get.toNamed('/login');
+                          }
+                        }),
                         child: Stack(
                           children: [
                             SizedBox(
@@ -133,7 +140,18 @@ class _SplashsliderState extends State<Splashslider> {
                                         borderRadius:
                                             BorderRadius.circular(30.0),
                                       ))),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    setState(() {
+                                      _controller.animateToPage(
+                                          currentIndex + 1,
+                                          duration:
+                                              const Duration(milliseconds: 500),
+                                          curve: Curves.linear);
+                                      if (currentIndex == 2) {
+                                        Get.toNamed('/login');
+                                      }
+                                    });
+                                  },
                                   child: Text(
                                     'Next',
                                     style: TextStyle(
