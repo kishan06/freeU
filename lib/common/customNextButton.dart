@@ -17,23 +17,21 @@ class CustomNextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      width: 330.w,
+      height: 50.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          // ignore: deprecated_member_use
-          primary: colorchange ? Colors.white : const Color(0xFFFFB600),
+          backgroundColor: Color(0xFFFFB600),
+          //  color: Color(0xFFFFB600),
           shape: RoundedRectangleBorder(
-            side: colorchange
-                ? BorderSide(color: Color(0xFF707070))
-                : BorderSide.none,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(30),
           ),
         ),
         child: Text(
           text,
           style: TextStyle(
-            color: colorchange ? Color(0xFF303030) : Colors.white,
+            color: Color(0xFF303030),
             fontSize: 16.sm,
             fontFamily: 'Productsans',
           ),

@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/Utils/textStyle.dart';
-import 'package:freeu/login/content_model.dart';
+import 'package:freeu/login/contentModel.dart';
 import 'package:get/get.dart';
 
 class Splashslider extends StatefulWidget {
