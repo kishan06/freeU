@@ -83,13 +83,30 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
                   child: widget.leadingIcon!,
                 ),
           suffixIcon: widget.isInputPassword
-              ? IconButton(
-                  onPressed: () => setState(() => obscureText = !obscureText),
-                  icon: Icon(
-                    obscureText ? Icons.visibility_off : Icons.visibility,
-                    color: Colors.black.withOpacity(0.5),
+              ? GestureDetector(
+                  onTap: () => setState(() => obscureText = !obscureText),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(right: 20.0),
+                        child: Text(
+                          "show",
+                          style: TextStyle(
+                            color: Color(0xFFFFB600),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 )
+              //  IconButton(
+              //     onPressed: () => setState(() => obscureText = !obscureText),
+              //     icon: Icon(
+              //       obscureText ? Icons.visibility_off : Icons.visibility,
+              //       color: Colors.black.withOpacity(0.5),
+              //     ),
+              //   )
               : null,
         ),
         validator: widget.validator,

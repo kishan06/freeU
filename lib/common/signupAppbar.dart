@@ -15,6 +15,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
       : super(key: key);
 
   final String titleTxt;
+
   final bool? bottomtext;
   final bool? customProfileNavigation;
   final bool? showLeading;
@@ -62,7 +63,8 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       leading: IconButton(
         onPressed: () {
-          Get.toNamed("/login");
+          Navigator.pop(context);
+          //  Get.toNamed("/login");
         },
         icon: Icon(
           Icons.arrow_back,

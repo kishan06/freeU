@@ -25,7 +25,10 @@ class _KYC1State extends State<KYC1> {
     // ignore: prefer_const_constructors
     return Scaffold(
       backgroundColor: Color(0xFFF9F9F9),
-      appBar: CustomSignupAppBar(titleTxt: "KYC", bottomtext: false),
+      appBar: CustomSignupAppBar(
+        titleTxt: "KYC",
+        bottomtext: false,
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: Center(
@@ -76,7 +79,7 @@ class _KYC1State extends State<KYC1> {
                     hintText: "Please Enter Phone Number",
                     validatorText: "Please Enter Phone Number"),
                 SizedBox(
-                  height: 10.h,
+                  height: 20.h,
                 ),
                 Text(
                   "Email ID",
@@ -89,7 +92,7 @@ class _KYC1State extends State<KYC1> {
                 CustomTextFormField(
                     hintText: "Please Enter Email Id",
                     validatorText: "Please Enter Email Id"),
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
                 Text(
                   "Residential Status",
                   // ignore: prefer_const_constructors
@@ -102,7 +105,7 @@ class _KYC1State extends State<KYC1> {
                     items: ["1", "2", "3"],
                     controller: residentialstatustexteditingcontroller,
                     showDropDown: true),
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
                 Text(
                   "Date of Birth",
                   // ignore: prefer_const_constructors
@@ -114,7 +117,7 @@ class _KYC1State extends State<KYC1> {
                 CustomTextFormField(
                     hintText: "Please Enter Email Id",
                     validatorText: "Please Enter Email Id"),
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
                 Text(
                   "Occupation",
                   // ignore: prefer_const_constructors
@@ -126,7 +129,7 @@ class _KYC1State extends State<KYC1> {
                 CustomTextFormField(
                     hintText: "Please Enter Occupation",
                     validatorText: "Please Enter Occupation"),
-                SizedBox(height: 10.h),
+                SizedBox(height: 20.h),
                 Text(
                   "Father's Name",
                   // ignore: prefer_const_constructors
@@ -139,7 +142,12 @@ class _KYC1State extends State<KYC1> {
                     hintText: "Please Enter Father's Name",
                     validatorText: "Please Enter Father's Name"),
                 SizedBox(height: 40.h),
-                CustomNextButton(text: "Continue")
+                CustomNextButton(
+                  text: "Continue",
+                  ontap: () {
+                    Get.toNamed('/kyc2');
+                  },
+                )
               ],
             ),
           ),

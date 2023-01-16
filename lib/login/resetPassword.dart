@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/login/login.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -79,43 +80,52 @@ class _ResetPasswordState extends State<ResetPassword> {
                     SizedBox(
                       height: 3.h,
                     ),
-                    TextFormField(
+                    // TextFormField(
+                    //   inputFormatters: [
+                    //     LengthLimitingTextInputFormatter(25),
+                    //   ],
+                    //   onChanged: (value) => onPasswordChnage(value),
+                    //   keyboardType: TextInputType.text,
+                    //   controller: passwordcontroller,
+                    //   obscureText: !_passwordVisible,
+                    //   decoration: InputDecoration(
+                    //     errorMaxLines: 3,
+                    //     focusedBorder: OutlineInputBorder(
+                    //         borderSide: BorderSide(
+                    //             color: Color(0xFFFFB600), width: 2.0),
+                    //         borderRadius:
+                    //             BorderRadius.all(Radius.circular(30))),
+                    //     border: OutlineInputBorder(
+                    //       borderSide:
+                    //           BorderSide(width: 2, color: Color(0xFF707070)),
+                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
+                    //     ),
+
+                    //     suffixIcon: GestureDetector(
+                    //         onTap: (() => setState(
+                    //               () => _passwordVisible = !_passwordVisible,
+                    //             )),
+                    //         child: Column(
+                    //           mainAxisAlignment: MainAxisAlignment.center,
+                    //           children: [
+                    //             Padding(
+                    //               padding: EdgeInsets.only(right: 20.0),
+                    //               child: Text("Show",
+                    //                   style:
+                    //                       TextStyle(color: Color(0xFFFFB600))),
+                    //             ),
+                    //           ],
+                    //         )),
+                    //   ),
+                    // ),
+                    CustomTextFormField(
+                      isInputPassword: true,
+                      hintText: "Password",
+                      validatorText: "Password",
                       inputFormatters: [
                         LengthLimitingTextInputFormatter(25),
                       ],
-                      onChanged: (value) => onPasswordChnage(value),
-                      keyboardType: TextInputType.text,
-                      controller: passwordcontroller,
-                      obscureText: !_passwordVisible,
-                      decoration: InputDecoration(
-                        errorMaxLines: 3,
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color(0xFFFFB600), width: 2.0),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        border: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 2, color: Color(0xFF707070)),
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                        ),
-                        hintText: "Password",
-                        suffixIcon: GestureDetector(
-                            onTap: (() => setState(
-                                  () => _passwordVisible = !_passwordVisible,
-                                )),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(right: 20.0),
-                                  child: Text("Show",
-                                      style:
-                                          TextStyle(color: Color(0xFFFFB600))),
-                                ),
-                              ],
-                            )),
-                      ),
+                      textEditingController: passwordcontroller,
                     ),
                     SizedBox(height: 10.h),
                     Row(
@@ -234,42 +244,58 @@ class _ResetPasswordState extends State<ResetPassword> {
                     SizedBox(
                       height: 3.h,
                     ),
-                    TextFormField(
+                    // TextFormField(
+
+                    //   keyboardType: TextInputType.text,
+
+                    //   obscureText: !_confirmpasswordVisible,
+                    //   decoration: InputDecoration(
+                    //     focusedBorder: OutlineInputBorder(
+                    //         borderSide: BorderSide(
+                    //             color: Color(0xFFFFB600), width: 2.0),
+                    //         borderRadius:
+                    //             BorderRadius.all(Radius.circular(30))),
+                    //     border: OutlineInputBorder(
+                    //       borderSide:
+                    //           BorderSide(width: 2, color: Color(0xFF707070)),
+                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
+                    //     ),
+                    //     hintText: "Confirm Password",
+                    //     suffixIcon: GestureDetector(
+                    //         onTap: (() => setState(
+                    //               () => _confirmpasswordVisible =
+                    //                   !_confirmpasswordVisible,
+                    //             )),
+                    //         child: Column(
+                    //           mainAxisAlignment: MainAxisAlignment.center,
+                    //           children: [
+                    //             Padding(
+                    //               padding: EdgeInsets.only(right: 20.0),
+                    //               child: Text("Show",
+                    //                   style:
+                    //                       TextStyle(color: Color(0xFFFFB600))),
+                    //             ),
+                    //           ],
+                    //         )),
+                    //   ),
+                    //   validator: (val) {
+                    //     if (val == null || val.isEmpty) {
+                    //       return 'Password is Empty';
+                    //     }
+                    //     if (val != passwordcontroller.text) {
+                    //       return 'Password Not Matched';
+                    //     }
+                    //     return null;
+                    //   },
+                    // ),
+                    CustomTextFormField(
+                      isInputPassword: true,
+                      hintText: "Confirm Password",
+                      validatorText: "",
                       inputFormatters: [
                         LengthLimitingTextInputFormatter(25),
                       ],
-                      keyboardType: TextInputType.text,
-                      controller: confirmpasscontroller,
-                      obscureText: !_confirmpasswordVisible,
-                      decoration: InputDecoration(
-                        focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color(0xFFFFB600), width: 2.0),
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        border: OutlineInputBorder(
-                          borderSide:
-                              BorderSide(width: 2, color: Color(0xFF707070)),
-                          borderRadius: BorderRadius.all(Radius.circular(30)),
-                        ),
-                        hintText: "Confirm Password",
-                        suffixIcon: GestureDetector(
-                            onTap: (() => setState(
-                                  () => _confirmpasswordVisible =
-                                      !_confirmpasswordVisible,
-                                )),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.only(right: 20.0),
-                                  child: Text("Show",
-                                      style:
-                                          TextStyle(color: Color(0xFFFFB600))),
-                                ),
-                              ],
-                            )),
-                      ),
+                      textEditingController: confirmpasscontroller,
                       validator: (val) {
                         if (val == null || val.isEmpty) {
                           return 'Password is Empty';
@@ -279,7 +305,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         }
                         return null;
                       },
-                    ),
+                    )
                   ],
                 ),
                 SizedBox(

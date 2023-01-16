@@ -154,7 +154,10 @@ class _SecurityFirstState extends State<SecurityFirst> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xffF9F9F9),
-      appBar: CustomSignupAppBar(titleTxt: "Security First", bottomtext: false),
+      appBar: CustomSignupAppBar(
+        titleTxt: "Security First",
+        bottomtext: false,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),

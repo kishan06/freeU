@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 
 import 'package:get/get.dart';
@@ -76,23 +77,26 @@ class _LoginState extends State<Login> {
                               SizedBox(
                                 height: 6,
                               ),
-                              TextFormField(
-                                decoration: InputDecoration(
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        width: 2, color: Color(0xFFFFB600)),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(30)),
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        width: 2, color: Color(0xFF707070)),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(30)),
-                                  ),
+                              // TextFormField(
+                              //   decoration: InputDecoration(
+                              //     focusedBorder: OutlineInputBorder(
+                              //       borderSide: BorderSide(
+                              //           width: 2, color: Color(0xFFFFB600)),
+                              //       borderRadius:
+                              //           BorderRadius.all(Radius.circular(30)),
+                              //     ),
+                              //     border: OutlineInputBorder(
+                              //       borderSide: BorderSide(
+                              //           width: 2, color: Color(0xFF707070)),
+                              //       borderRadius:
+                              //           BorderRadius.all(Radius.circular(30)),
+                              //     ),
+                              //     hintText: "Enter Email or Phone Number",
+                              //   ),
+                              // ),
+                              CustomTextFormField(
                                   hintText: "Enter Email or Phone Number",
-                                ),
-                              ),
+                                  validatorText: "Enter Email or Phone Number")
                             ],
                           ),
                           Row(
@@ -122,43 +126,60 @@ class _LoginState extends State<Login> {
                               SizedBox(
                                 height: 6.h,
                               ),
-                              TextFormField(
-                                keyboardType: TextInputType.text,
-                                // controller: textEditingController,
-                                obscureText: _isObscure,
-                                decoration: InputDecoration(
-                                  focusedBorder: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        width: 2, color: Color(0xFFFFB600)),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(30)),
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderSide: BorderSide(
-                                        width: 2, color: Color(0xFFFFB600)),
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(30)),
-                                  ),
+                              // TextFormField(
+                              //   keyboardType: TextInputType.text,
+                              //   // controller: textEditingController,
+                              //   obscureText: _isObscure,
+                              //   decoration: InputDecoration(
+                              //     border: OutlineInputBorder(
+                              //       borderRadius: BorderRadius.circular(30),
+                              //       borderSide: BorderSide(
+                              //           color: Color(0xFF707070), width: 2),
+                              //     ),
+                              //     enabledBorder: OutlineInputBorder(
+                              //       borderRadius: BorderRadius.circular(30),
+                              //       borderSide: BorderSide(
+                              //           color: Color(0xFF707070), width: 2),
+                              //     ),
+                              //     focusedBorder: OutlineInputBorder(
+                              //       borderRadius: BorderRadius.circular(30),
+                              //       borderSide: BorderSide(
+                              //           color: Color(0xFFFFB600), width: 2),
+                              //     ),
+                              //     errorBorder: OutlineInputBorder(
+                              //       borderRadius: BorderRadius.circular(30),
+                              //       borderSide: const BorderSide(
+                              //           color: Colors.red, width: 2),
+                              //     ),
+                              //     focusedErrorBorder: OutlineInputBorder(
+                              //       borderRadius: BorderRadius.circular(30),
+                              //       borderSide: const BorderSide(
+                              //           color: Colors.red, width: 2),
+                              //     ),
+                              //     hintText: "Enter Password",
+                              //     suffixIcon: GestureDetector(
+                              //         onTap: (() => setState(
+                              //               () => _isObscure = !_isObscure,
+                              //             )),
+                              //         child: Column(
+                              //           mainAxisAlignment:
+                              //               MainAxisAlignment.center,
+                              //           children: [
+                              //             Padding(
+                              //               padding:
+                              //                   EdgeInsets.only(right: 20.0),
+                              //               child: Text("Show",
+                              //                   style: TextStyle(
+                              //                       color: Color(0xFFFFB600))),
+                              //             ),
+                              //           ],
+                              //         )),
+                              //   ),
+                              // ),
+                              CustomTextFormField(
+                                  isInputPassword: true,
                                   hintText: "Enter Password",
-                                  suffixIcon: GestureDetector(
-                                      onTap: (() => setState(
-                                            () => _isObscure = !_isObscure,
-                                          )),
-                                      child: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsets.only(right: 20.0),
-                                            child: Text("Show",
-                                                style: TextStyle(
-                                                    color: Color(0xFFFFB600))),
-                                          ),
-                                        ],
-                                      )),
-                                ),
-                              ),
+                                  validatorText: "Please Enter Password")
                             ],
                           ),
                           SizedBox(

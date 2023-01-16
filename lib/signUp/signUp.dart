@@ -61,88 +61,85 @@ class _SignUpState extends State<SignUp> {
           return Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Stack(children: [
-                AlertDialog(
-                  content: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            vertical: 12, horizontal: 12),
-                        child: Text("Terms And Conditions",
-                            style: blackStyle(context)),
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 12, horizontal: 6),
-                        child: Container(
-                          color: Color(0xFF143C6D),
-                          height: 150,
-                          child: SingleChildScrollView(
-                            child: Text(
-                              " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 14),
-                            ),
+              AlertDialog(
+                content: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 12),
+                      child: Text("Terms And Conditions",
+                          style: blackStyle(context)),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 12, horizontal: 6),
+                      child: Container(
+                        color: Color(0xFF143C6D),
+                        height: 150,
+                        child: SingleChildScrollView(
+                          child: Text(
+                            " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
+                            style: TextStyle(color: Colors.white, fontSize: 14),
                           ),
                         ),
                       ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Row(
-                        children: [
-                          Checkbox(
-                              activeColor: Color(0xFFF78104),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(5.0))),
-                              value: agree,
-                              onChanged: (bool? check) {
-                                setState(() {
-                                  agree = check!;
-                                });
-                              }),
-                          Flexible(
-                            child: Text(
-                              maxLines: 1,
-                              softWrap: false,
-                              'I accept Terms & Conditions',
-                              style: TextStyle(fontSize: 14.sm),
-                            ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Checkbox(
+                            activeColor: Color(0xFFF78104),
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5.0))),
+                            value: agree,
+                            onChanged: (bool? check) {
+                              setState(() {
+                                agree = check!;
+                              });
+                            }),
+                        Flexible(
+                          child: Text(
+                            maxLines: 1,
+                            softWrap: false,
+                            'I accept Terms & Conditions',
+                            style: TextStyle(fontSize: 14.sm),
                           ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Center(
-                          child: CustomNextButton(
-                        text: "Continue",
-                        ontap: () {
-                          Navigator.pop(context);
-                          Get.toNamed("/securityquestion");
-                        },
-                      )),
-                      const SizedBox(height: 16),
-                    ],
-                  ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                        child: CustomNextButton(
+                      text: "Continue",
+                      ontap: () {
+                        Navigator.pop(context);
+                        Get.toNamed("/securityquestion");
+                      },
+                    )),
+                    const SizedBox(height: 16),
+                  ],
                 ),
-                Positioned(
-                  left: 165,
-                  top: -40,
-                  child: Column(
-                    children: [
-                      SvgPicture.asset("assets/images/cancel.svg"),
-                      SizedBox(
-                        height: 20,
-                      ),
-                    ],
-                  ),
-                ),
-              ]),
+              ),
+              // Positioned(
+              //   left: 165,
+              //   top: -10,
+              //   child: Column(
+              //     children: [
+              //       SvgPicture.asset("assets/images/cancel.svg"),
+              //       SizedBox(
+              //         height: 20,
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           );
         },
@@ -160,7 +157,10 @@ class _SignUpState extends State<SignUp> {
       },
       child: Scaffold(
           backgroundColor: Color(0xFFF9F9F9),
-          appBar: CustomSignupAppBar(titleTxt: "Sign Up", bottomtext: false),
+          appBar: CustomSignupAppBar(
+            titleTxt: "Sign Up",
+            bottomtext: false,
+          ),
           body: SingleChildScrollView(
             child: Column(
               children: [

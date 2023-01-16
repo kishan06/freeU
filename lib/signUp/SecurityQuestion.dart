@@ -20,8 +20,10 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
     // ignore: prefer_const_constructors
     return Scaffold(
       backgroundColor: Color(0xFFF9F9F9),
-      appBar:
-          CustomSignupAppBar(titleTxt: "Security Questions", bottomtext: false),
+      appBar: CustomSignupAppBar(
+        titleTxt: "Security Questions",
+        bottomtext: false,
+      ),
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: Center(

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -27,8 +28,10 @@ class _forgotPasswordState extends State<forgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFFF9F9F9),
-        appBar:
-            CustomSignupAppBar(titleTxt: "Forgot Password", bottomtext: false),
+        appBar: CustomSignupAppBar(
+          titleTxt: "Forgot Password",
+          bottomtext: false,
+        ),
         body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Center(
@@ -59,41 +62,24 @@ class _forgotPasswordState extends State<forgotPassword> {
                           SizedBox(
                             height: 13.h,
                           ),
-                          TextFormField(
-                            controller: phoneController,
-                            keyboardType: TextInputType.phone,
-                            inputFormatters: <TextInputFormatter>[
-                              FilteringTextInputFormatter.digitsOnly
-                            ],
-                            decoration: InputDecoration(
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    width: 2, color: Color(0xFFFFB600)),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30)),
-                              ),
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                    width: 2, color: Color(0xFF707070)),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30)),
-                              ),
-                              hintText: "Enter your number",
-                            ),
-                            onChanged: (value) {
-                              _form.currentState?.validate();
-                            },
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "Please Enter a Phone Number";
-                              } else if (!RegExp(
-                                      r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
-                                  .hasMatch(value)) {
-                                return "Please Enter a Valid Phone Number";
-                              }
-                              return null;
-                            },
-                          ),
+                          CustomTextFormField(
+                              textEditingController: phoneController,
+                              // keyboardType: TextInputType.phone,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "Please Enter a Phone Number";
+                                } else if (!RegExp(
+                                        r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
+                                    .hasMatch(value)) {
+                                  return "Please Enter a Valid Phone Number";
+                                }
+                                return null;
+                              },
+                              hintText: "Enter your name",
+                              validatorText: "Enter your name"),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [

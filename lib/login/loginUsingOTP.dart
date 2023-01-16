@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:get/get.dart';
 
 class LoginUsingOTP extends StatefulWidget {
   const LoginUsingOTP({super.key});
@@ -19,7 +20,10 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF9F9F9),
-      appBar: CustomSignupAppBar(titleTxt: "Login with OTP", bottomtext: false),
+      appBar: CustomSignupAppBar(
+        titleTxt: "Login with OTP",
+        bottomtext: false,
+      ),
       body: SingleChildScrollView(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
