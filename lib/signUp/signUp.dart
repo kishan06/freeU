@@ -1,12 +1,16 @@
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/login/login.dart';
+
 import 'package:get/get.dart';
 
 class SignUp extends StatefulWidget {
@@ -23,13 +27,13 @@ class _SignUpState extends State<SignUp> {
   bool _isPasswordEightCar = false;
   bool _isHasOneNumber = false;
   bool _isHasSymboleOrCaptital = false;
-  bool _isEmailValid = false;
   bool isSignupBtnVisible = true;
   bool isSignupBtnLoaderVisible = false;
-
+  bool agree = false;
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   TextEditingController fullNameController = TextEditingController();
   TextEditingController emailidcontroller = TextEditingController();
+  TextEditingController phonecontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasscontroller = TextEditingController();
 
@@ -49,25 +53,120 @@ class _SignUpState extends State<SignUp> {
     });
   }
 
+  buildPin(context) {
+    return showDialog(
+      context: context,
+      builder: (context) => StatefulBuilder(
+        builder: (context, setDdState) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              AlertDialog(
+                content: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 12),
+                      child: Text("Terms And Conditions",
+                          style: blackStyle(context)),
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 12, horizontal: 6),
+                      child: Container(
+                        color: Color(0xFF143C6D),
+                        height: 150,
+                        child: SingleChildScrollView(
+                          child: Text(
+                            " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
+                            style: TextStyle(color: Colors.white, fontSize: 14),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Checkbox(
+                            activeColor: Color(0xFFF78104),
+                            shape: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(5.0))),
+                            value: agree,
+                            onChanged: (bool? check) {
+                              setState(() {
+                                agree = check!;
+                              });
+                            }),
+                        Flexible(
+                          child: Text(
+                            maxLines: 1,
+                            softWrap: false,
+                            'I accept Terms & Conditions',
+                            style: TextStyle(fontSize: 14.sm),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Center(
+                        child: CustomNextButton(
+                      text: "Continue",
+                      ontap: () {
+                        Navigator.pop(context);
+                        Get.toNamed("/securityquestion");
+                      },
+                    )),
+                    const SizedBox(height: 16),
+                  ],
+                ),
+              ),
+              // Positioned(
+              //   left: 165,
+              //   top: -10,
+              //   child: Column(
+              //     children: [
+              //       SvgPicture.asset("assets/images/cancel.svg"),
+              //       SizedBox(
+              //         height: 20,
+              //       ),
+              //     ],
+              //   ),
+              // ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: () {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Login()));
+            context, MaterialPageRoute(builder: (context) => const Login()));
         return Future.value(false);
       },
       child: Scaffold(
-          appBar:
-              const CustomSignupAppBar(titleTxt: "Sign up", bottomtext: false),
+          backgroundColor: Color(0xFFF9F9F9),
+          appBar: CustomSignupAppBar(
+            titleTxt: "Sign Up",
+            bottomtext: false,
+          ),
           body: SingleChildScrollView(
             child: Column(
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20,
-                    right: 20,
-                  ),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
                   child: Form(
                     key: _form,
                     child: Column(
@@ -97,15 +196,15 @@ class _SignUpState extends State<SignUp> {
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: emailidcontroller,
                           decoration: InputDecoration(
-                            focusedBorder: OutlineInputBorder(
+                            focusedBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.grey, width: 2.0),
                             ),
-                            enabledBorder: OutlineInputBorder(
+                            enabledBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.grey, width: 2.0),
                             ),
@@ -116,20 +215,20 @@ class _SignUpState extends State<SignUp> {
                                 fontWeight: FontWeight.w600,
                                 color: Get.isDarkMode
                                     ? Colors.white
-                                    : Color(0xFF303030).withOpacity(0.3)),
+                                    : const Color(0xFF303030).withOpacity(0.3)),
                             fillColor: Get.isDarkMode
-                                ? Color(0xFF303030).withOpacity(0.8)
+                                ? const Color(0xFF303030).withOpacity(0.8)
                                 : Colors.white,
                             filled: true,
                             errorBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.red, width: 2.0),
                             ),
                             focusedErrorBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.red, width: 2.0),
                             ),
@@ -157,6 +256,75 @@ class _SignUpState extends State<SignUp> {
                           height: 20,
                         ),
                         TextFormField(
+                          keyboardType: TextInputType.text,
+                          cursorColor: Colors.grey,
+                          style: TextStyle(
+                              fontFamily: 'Productsans',
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color:
+                                  Get.isDarkMode ? Colors.white : Colors.black),
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          controller: phonecontroller,
+                          decoration: InputDecoration(
+                            focusedBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)),
+                              borderSide:
+                                  BorderSide(color: Colors.grey, width: 2.0),
+                            ),
+                            enabledBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)),
+                              borderSide:
+                                  BorderSide(color: Colors.grey, width: 2.0),
+                            ),
+                            errorMaxLines: 3,
+                            hintText: "Phone Number*",
+                            hintStyle: blackStyle(context).copyWith(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                                color: Get.isDarkMode
+                                    ? Colors.white
+                                    : const Color(0xFF303030).withOpacity(0.3)),
+                            fillColor: Get.isDarkMode
+                                ? const Color(0xFF303030).withOpacity(0.8)
+                                : Colors.white,
+                            filled: true,
+                            errorBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)),
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                            ),
+                            focusedErrorBorder: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)),
+                              borderSide:
+                                  BorderSide(color: Colors.red, width: 2.0),
+                            ),
+                            errorStyle: const TextStyle(
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Enter Phone Number";
+                            } else if (value.length != 10) {
+                              return "Please Enter Valid Phone Number";
+                            }
+                            return null;
+                          },
+                          inputFormatters: [
+                            new LengthLimitingTextInputFormatter(10),
+                            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                          ],
+                          onSaved: (value) {},
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        TextFormField(
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           onChanged: (value) => onPasswordChnage(value),
 
@@ -175,13 +343,13 @@ class _SignUpState extends State<SignUp> {
                           decoration: InputDecoration(
                             focusedBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.grey, width: 2.0),
                             ),
                             enabledBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.grey, width: 2.0),
                             ),
@@ -191,20 +359,20 @@ class _SignUpState extends State<SignUp> {
                                 fontWeight: FontWeight.w600,
                                 color: Get.isDarkMode
                                     ? Colors.white
-                                    : Color(0xFF303030).withOpacity(0.3)),
+                                    : const Color(0xFF303030).withOpacity(0.3)),
                             fillColor: Get.isDarkMode
-                                ? Color(0xFF303030).withOpacity(0.8)
+                                ? const Color(0xFF303030).withOpacity(0.8)
                                 : Colors.white,
                             filled: true,
                             errorBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.red, width: 2.0),
                             ),
                             focusedErrorBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.red, width: 2.0),
                             ),
@@ -212,19 +380,22 @@ class _SignUpState extends State<SignUp> {
                               fontSize: 16.0,
                             ),
                             hintText: 'Password*',
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _passwordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.grey,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  _passwordVisible = !_passwordVisible;
-                                });
-                              },
-                            ),
+                            suffixIcon: GestureDetector(
+                                onTap: (() => setState(
+                                      () =>
+                                          _passwordVisible = !_passwordVisible,
+                                    )),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 20.0),
+                                      child: Text("Show",
+                                          style: TextStyle(
+                                              color: Color(0xFFFFB600))),
+                                    ),
+                                  ],
+                                )),
                           ),
 
                           validator: (val) {
@@ -252,28 +423,25 @@ class _SignUpState extends State<SignUp> {
                               width: 20,
                               height: 20,
                               child: _isPasswordEightCar
-                                  ? const Icon(
-                                      Icons.check,
-                                      color: Colors.green,
-                                      size: 15,
+                                  ? Padding(
+                                      padding: EdgeInsets.only(left: 10),
+                                      child: const Icon(
+                                        Icons.check,
+                                        color: Color(0xff143C6D),
+                                        size: 15,
+                                      ),
                                     )
-                                  : Icon(
-                                      Icons.check,
-                                      color: Get.isDarkMode
-                                          ? Colors.white
-                                          : Colors.black,
-                                      size: 15,
-                                    ),
+                                  : const SizedBox(),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
                                 'Has at least 8 characters',
                                 style: TextStyle(
-                                    fontFamily: 'Productsans',
+                                    fontFamily: 'Helvetica',
                                     fontSize: 12,
-                                    color: Get.isDarkMode
-                                        ? Colors.white
+                                    color: _isPasswordEightCar
+                                        ? Color(0xff143C6D)
                                         : Colors.black),
                               ),
                             )
@@ -291,28 +459,25 @@ class _SignUpState extends State<SignUp> {
                               width: 20,
                               height: 20,
                               child: _isHasSymboleOrCaptital
-                                  ? const Icon(
-                                      Icons.check,
-                                      color: Colors.green,
-                                      size: 15,
+                                  ? Padding(
+                                      padding: EdgeInsets.only(left: 10),
+                                      child: const Icon(
+                                        Icons.check,
+                                        color: Color(0xff143C6D),
+                                        size: 15,
+                                      ),
                                     )
-                                  : Icon(
-                                      Icons.check,
-                                      color: Get.isDarkMode
-                                          ? Colors.white
-                                          : Colors.black,
-                                      size: 15,
-                                    ),
+                                  : const SizedBox(),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
-                                'Has at least 1 uppercase letter & symbol',
+                                'Has at least 1 uppercase letter or symbol',
                                 style: TextStyle(
-                                    fontFamily: 'Productsans',
+                                    fontFamily: 'Helvetica',
                                     fontSize: 12,
-                                    color: Get.isDarkMode
-                                        ? Colors.white
+                                    color: _isHasSymboleOrCaptital
+                                        ? Color(0xff143C6D)
                                         : Colors.black),
                               ),
                             )
@@ -330,28 +495,25 @@ class _SignUpState extends State<SignUp> {
                               width: 20,
                               height: 20,
                               child: _isHasOneNumber
-                                  ? const Icon(
-                                      Icons.check,
-                                      color: Colors.green,
-                                      size: 15,
+                                  ? Padding(
+                                      padding: EdgeInsets.only(left: 10),
+                                      child: const Icon(
+                                        Icons.check,
+                                        color: Color(0xff143C6D),
+                                        size: 15,
+                                      ),
                                     )
-                                  : Icon(
-                                      Icons.check,
-                                      color: Get.isDarkMode
-                                          ? Colors.white
-                                          : Colors.black,
-                                      size: 15,
-                                    ),
+                                  : const SizedBox(),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
                                 'Has a number',
                                 style: TextStyle(
-                                    fontFamily: 'Productsans',
+                                    fontFamily: 'Helvetica',
                                     fontSize: 12,
-                                    color: Get.isDarkMode
-                                        ? Colors.white
+                                    color: _isHasOneNumber
+                                        ? Color(0xff143C6D)
                                         : Colors.black),
                               ),
                             )
@@ -376,13 +538,13 @@ class _SignUpState extends State<SignUp> {
                           decoration: InputDecoration(
                             focusedBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.grey, width: 2.0),
                             ),
                             enabledBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.grey, width: 2.0),
                             ),
@@ -392,20 +554,20 @@ class _SignUpState extends State<SignUp> {
                                 fontWeight: FontWeight.w600,
                                 color: Get.isDarkMode
                                     ? Colors.white
-                                    : Color(0xFF303030).withOpacity(0.3)),
+                                    : const Color(0xFF303030).withOpacity(0.3)),
                             fillColor: Get.isDarkMode
-                                ? Color(0xFF303030).withOpacity(0.8)
+                                ? const Color(0xFF303030).withOpacity(0.8)
                                 : Colors.white,
                             filled: true,
                             errorBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.red, width: 2.0),
                             ),
                             focusedErrorBorder: const OutlineInputBorder(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
+                                  BorderRadius.all(Radius.circular(30)),
                               borderSide:
                                   BorderSide(color: Colors.red, width: 2.0),
                             ),
@@ -415,21 +577,22 @@ class _SignUpState extends State<SignUp> {
 
                             hintText: 'Confirm Password*',
                             // Here is key idea
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                // Based on passwordVisible state choose the icon
-                                _confirmpasswordVisible
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.grey,
-                              ),
-                              onPressed: () {
-                                setState(() {
-                                  _confirmpasswordVisible =
-                                      !_confirmpasswordVisible;
-                                });
-                              },
-                            ),
+                            suffixIcon: GestureDetector(
+                                onTap: (() => setState(
+                                      () => _confirmpasswordVisible =
+                                          !_confirmpasswordVisible,
+                                    )),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsets.only(right: 20.0),
+                                      child: Text("Show",
+                                          style: TextStyle(
+                                              color: Color(0xFFFFB600))),
+                                    ),
+                                  ],
+                                )),
                           ),
                           validator: (val) {
                             if (val == null || val.isEmpty) {
@@ -449,7 +612,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.12,
+                  height: 50.h,
                 ),
                 Visibility(
                   visible: isSignupBtnVisible,
@@ -460,10 +623,12 @@ class _SignUpState extends State<SignUp> {
                       child: CustomNextButton(
                         text: "Sign up",
                         ontap: () {
-                          setState(() {
-                            isSignupBtnVisible = false;
-                            isSignupBtnLoaderVisible = true;
-                          });
+                          // setState(() {
+                          //   isSignupBtnVisible = false;
+                          //   isSignupBtnLoaderVisible = true;
+                          // });
+                          //    Get.toNamed('/securityquestion');
+                          buildPin(context);
                         },
                       ),
                     ),
@@ -471,7 +636,7 @@ class _SignUpState extends State<SignUp> {
                 ),
                 Visibility(
                     visible: isSignupBtnLoaderVisible,
-                    child: Center(child: CircularProgressIndicator())),
+                    child: const Center(child: CircularProgressIndicator())),
                 const SizedBox(
                   height: 40,
                 ),
@@ -524,12 +689,11 @@ class FullnameTextFormField extends StatelessWidget {
       decoration: InputDecoration(
         //   contentPadding: EdgeInsets.all(15),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.grey, width: 2.0),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.grey, width: 2.0),
+            borderSide: BorderSide(color: Color(0xFFFFB600), width: 2.0),
+            borderRadius: BorderRadius.all(Radius.circular(30))),
+        border: OutlineInputBorder(
+          borderSide: BorderSide(width: 2, color: Color(0xFF707070)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
         errorMaxLines: 3,
         hintText: hint,
@@ -538,16 +702,17 @@ class FullnameTextFormField extends StatelessWidget {
             fontWeight: FontWeight.w600,
             color: Get.isDarkMode
                 ? Colors.white
-                : Color(0xFF303030).withOpacity(0.3)),
-        fillColor:
-            Get.isDarkMode ? Color(0xFF303030).withOpacity(0.8) : Colors.white,
+                : const Color(0xFF303030).withOpacity(0.3)),
+        fillColor: Get.isDarkMode
+            ? const Color(0xFF303030).withOpacity(0.8)
+            : Colors.white,
         filled: true,
         errorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
           borderSide: BorderSide(color: Colors.red, width: 2.0),
         ),
         focusedErrorBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderRadius: BorderRadius.all(Radius.circular(30)),
           borderSide: BorderSide(color: Colors.red, width: 2.0),
         ),
         errorStyle: const TextStyle(
