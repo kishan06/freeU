@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 TextStyle blackStyle(BuildContext context) => TextStyle(
       color: Colors.black,
-      fontFamily: 'Product sans',
+      fontFamily: 'Poppins',
       fontSize: 16.sm,
       fontWeight: FontWeight.w500,
     );

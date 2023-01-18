@@ -56,6 +56,7 @@ class _otpVerificationState extends State<otpVerification> {
                         "We will send a verification email to the email address on your account in order to reset your password",
                         style: TextStyle(
                           fontSize: 15,
+                          fontFamily: 'Poppins',
                         ),
                       ),
                       SizedBox(
@@ -68,7 +69,9 @@ class _otpVerificationState extends State<otpVerification> {
                             "Phone",
                             // ignore: prefer_const_constructors
                             style: TextStyle(
-                                fontSize: 16, color: Color(0xff303030)),
+                                fontFamily: 'Poppins',
+                                fontSize: 16,
+                                color: Color(0xff303030)),
                           ),
                           SizedBox(
                             height: 3.h,
@@ -297,6 +300,7 @@ class _otpVerificationState extends State<otpVerification> {
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
+                                        fontFamily: 'Poppins',
                                       ),
                                     ),
                                   ),

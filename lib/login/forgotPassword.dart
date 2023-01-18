@@ -43,9 +43,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                     children: [
                       Text(
                         "We will send a verification email to the email address on your account in order to reset your password",
-                        style: TextStyle(
-                          fontSize: 12,
-                        ),
+                        style: TextStyle(fontSize: 12, fontFamily: 'Poppins'),
                       ),
                       SizedBox(
                         height: 50.h,
@@ -57,7 +55,9 @@ class _forgotPasswordState extends State<forgotPassword> {
                             "Phone",
                             // ignore: prefer_const_constructors
                             style: TextStyle(
-                                fontSize: 16, color: Color(0xff303030)),
+                                fontFamily: 'Poppins',
+                                fontSize: 16,
+                                color: Color(0xff303030)),
                           ),
                           SizedBox(
                             height: 13.h,
@@ -89,6 +89,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                                     'OTP Sent to registered mobile number',
                                     style: TextStyle(
                                       fontSize: 15,
+                                      fontFamily: 'Poppins',
                                       color: Color(0xFF143C6D),
                                     ),
                                   )),
@@ -123,9 +124,9 @@ class _forgotPasswordState extends State<forgotPassword> {
                                     child: const Text(
                                       'Proceeds',
                                       style: TextStyle(
-                                        color: Colors.black,
-                                        fontSize: 16,
-                                      ),
+                                          color: Colors.black,
+                                          fontSize: 16,
+                                          fontFamily: 'Poppins'),
                                     ),
                                   ),
                                 ),

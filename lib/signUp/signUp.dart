@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/textStyle.dart';
+import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/login/login.dart';
@@ -29,7 +30,8 @@ class _SignUpState extends State<SignUp> {
   bool _isHasSymboleOrCaptital = false;
   bool isSignupBtnVisible = true;
   bool isSignupBtnLoaderVisible = false;
-  bool agree = false;
+  bool agree = true;
+  bool isChecked = false;
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   TextEditingController fullNameController = TextEditingController();
   TextEditingController emailidcontroller = TextEditingController();
@@ -62,6 +64,9 @@ class _SignUpState extends State<SignUp> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               AlertDialog(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25),
+                ),
                 content: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -77,12 +82,22 @@ class _SignUpState extends State<SignUp> {
                       padding:
                           EdgeInsets.symmetric(vertical: 12, horizontal: 6),
                       child: Container(
-                        color: Color(0xFF143C6D),
-                        height: 150,
+                        decoration: BoxDecoration(
+                            color: Color(0xFF143C6D),
+                            borderRadius: BorderRadius.all(Radius.circular(5))),
+                        // color: Color(0xFF143C6D),
+                        height: 150.h,
                         child: SingleChildScrollView(
-                          child: Text(
-                            " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
-                            style: TextStyle(color: Colors.white, fontSize: 14),
+                          child: Padding(
+                            padding: const EdgeInsets.all(4.0),
+                            child: Text(
+                              " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontFamily: 'Poppins',
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -93,14 +108,14 @@ class _SignUpState extends State<SignUp> {
                     Row(
                       children: [
                         Checkbox(
-                            activeColor: Color(0xFFF78104),
-                            shape: RoundedRectangleBorder(
+                            activeColor: const Color(0xFFF78104),
+                            shape: const RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(5.0))),
                             value: agree,
-                            onChanged: (bool? check) {
+                            onChanged: (value) {
                               setState(() {
-                                agree = check!;
+                                agree = value ?? false;
                               });
                             }),
                         Flexible(
@@ -108,7 +123,10 @@ class _SignUpState extends State<SignUp> {
                             maxLines: 1,
                             softWrap: false,
                             'I accept Terms & Conditions',
-                            style: TextStyle(fontSize: 14.sm),
+                            style: TextStyle(
+                              fontSize: 14.sm,
+                              fontFamily: 'Poppins',
+                            ),
                           ),
                         ),
                       ],
@@ -175,229 +193,168 @@ class _SignUpState extends State<SignUp> {
                         const SizedBox(
                           height: 20,
                         ),
-                        FullnameTextFormField(
-                          controller: fullNameController,
-                          keyboardType: TextInputType.text,
-                          hint: "Full Name*",
-                          errortext: "Please Enter Full Name",
-                        ),
+                        CustomTextFormField(
+                            hintText: "Full Name", validatorText: "Full Name"),
+                        // FullnameTextFormField(
+                        //   controller: fullNameController,
+                        //   keyboardType: TextInputType.text,
+                        //   hint: "Full Name*",
+                        //   errortext: "Please Enter Full Name",
+                        // ),
                         const SizedBox(
                           height: 20,
                         ),
-                        TextFormField(
-                          keyboardType: TextInputType.text,
-                          cursorColor: Colors.grey,
-                          style: TextStyle(
-                              fontFamily: 'Productsans',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Get.isDarkMode ? Colors.white : Colors.black),
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          controller: emailidcontroller,
-                          decoration: InputDecoration(
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 2.0),
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 2.0),
-                            ),
-                            errorMaxLines: 3,
-                            hintText: "Email Id*",
-                            hintStyle: blackStyle(context).copyWith(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: Get.isDarkMode
-                                    ? Colors.white
-                                    : const Color(0xFF303030).withOpacity(0.3)),
-                            fillColor: Get.isDarkMode
-                                ? const Color(0xFF303030).withOpacity(0.8)
-                                : Colors.white,
-                            filled: true,
-                            errorBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                            ),
-                            focusedErrorBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                            ),
-                            errorStyle: const TextStyle(
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter your Email address';
-                            }
-                            if (!RegExp(
-                                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                .hasMatch(value)) {
-                              return 'Enter a Valid Email address';
-                            }
-                            return null;
-                          },
-                          inputFormatters: [
-                            LengthLimitingTextInputFormatter(50),
-                          ],
-                          onSaved: (value) {},
+                        // TextFormField(
+                        //   keyboardType: TextInputType.text,
+                        //   cursorColor: Colors.grey,
+                        //   style: TextStyle(
+                        //       fontFamily: 'Poppins',
+                        //       fontSize: 16,
+                        //       fontWeight: FontWeight.w500,
+                        //       color:
+                        //           Get.isDarkMode ? Colors.white : Colors.black),
+                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                        //   controller: emailidcontroller,
+                        //   decoration: InputDecoration(
+                        //     focusedBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.grey, width: 2.0),
+                        //     ),
+                        //     enabledBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.grey, width: 2.0),
+                        //     ),
+                        //     errorMaxLines: 3,
+                        //     hintText: "Email Id*",
+                        //     hintStyle: blackStyle(context).copyWith(
+                        //         fontSize: 16,
+                        //         fontWeight: FontWeight.w600,
+                        //         color: Get.isDarkMode
+                        //             ? Colors.white
+                        //             : const Color(0xFF303030).withOpacity(0.3)),
+                        //     fillColor: Get.isDarkMode
+                        //         ? const Color(0xFF303030).withOpacity(0.8)
+                        //         : Colors.white,
+                        //     filled: true,
+                        //     errorBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.red, width: 2.0),
+                        //     ),
+                        //     focusedErrorBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.red, width: 2.0),
+                        //     ),
+                        //     errorStyle: const TextStyle(
+                        //       fontSize: 16.0,
+                        //     ),
+                        //   ),
+                        //   validator: (value) {
+                        //     if (value!.isEmpty) {
+                        //       return 'Enter your Email address';
+                        //     }
+                        //     if (!RegExp(
+                        //             r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                        //         .hasMatch(value)) {
+                        //       return 'Enter a Valid Email address';
+                        //     }
+                        //     return null;
+                        //   },
+                        //   inputFormatters: [
+                        //     LengthLimitingTextInputFormatter(50),
+                        //   ],
+                        //   onSaved: (value) {},
+                        // ),
+                        CustomTextFormField(
+                            hintText: "Email Id", validatorText: "Email Id"),
+                        SizedBox(
+                          height: 20,
                         ),
+                        // TextFormField(
+                        //   keyboardType: TextInputType.text,
+                        //   cursorColor: Colors.grey,
+                        //   style: TextStyle(
+                        //       fontFamily: 'Poppins',
+                        //       fontSize: 16,
+                        //       fontWeight: FontWeight.w500,
+                        //       color:
+                        //           Get.isDarkMode ? Colors.white : Colors.black),
+                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                        //   controller: phonecontroller,
+                        //   decoration: InputDecoration(
+                        //     focusedBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.grey, width: 2.0),
+                        //     ),
+                        //     enabledBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.grey, width: 2.0),
+                        //     ),
+                        //     errorMaxLines: 3,
+                        //     hintText: "Phone Number*",
+                        //     hintStyle: blackStyle(context).copyWith(
+                        //         fontSize: 16,
+                        //         fontWeight: FontWeight.w600,
+                        //         color: Get.isDarkMode
+                        //             ? Colors.white
+                        //             : const Color(0xFF303030).withOpacity(0.3)),
+                        //     fillColor: Get.isDarkMode
+                        //         ? const Color(0xFF303030).withOpacity(0.8)
+                        //         : Colors.white,
+                        //     filled: true,
+                        //     errorBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.red, width: 2.0),
+                        //     ),
+                        //     focusedErrorBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.red, width: 2.0),
+                        //     ),
+                        //     errorStyle: const TextStyle(
+                        //       fontSize: 16.0,
+                        //     ),
+                        //   ),
+                        //   validator: (value) {
+                        //     if (value == null || value.isEmpty) {
+                        //       return "Please Enter Phone Number";
+                        //     } else if (value.length != 10) {
+                        //       return "Please Enter Valid Phone Number";
+                        //     }
+                        //     return null;
+                        //   },
+                        //   inputFormatters: [
+                        //     new LengthLimitingTextInputFormatter(10),
+                        //     FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                        //   ],
+                        //   onSaved: (value) {},
+                        // ),
+                        CustomTextFormField(
+                            hintText: "Phone Number",
+                            validatorText: "Phone Number"),
                         const SizedBox(
                           height: 20,
                         ),
-                        TextFormField(
-                          keyboardType: TextInputType.text,
-                          cursorColor: Colors.grey,
-                          style: TextStyle(
-                              fontFamily: 'Productsans',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color:
-                                  Get.isDarkMode ? Colors.white : Colors.black),
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          controller: phonecontroller,
-                          decoration: InputDecoration(
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 2.0),
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 2.0),
-                            ),
-                            errorMaxLines: 3,
-                            hintText: "Phone Number*",
-                            hintStyle: blackStyle(context).copyWith(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: Get.isDarkMode
-                                    ? Colors.white
-                                    : const Color(0xFF303030).withOpacity(0.3)),
-                            fillColor: Get.isDarkMode
-                                ? const Color(0xFF303030).withOpacity(0.8)
-                                : Colors.white,
-                            filled: true,
-                            errorBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                            ),
-                            focusedErrorBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                            ),
-                            errorStyle: const TextStyle(
-                              fontSize: 16.0,
-                            ),
-                          ),
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Phone Number";
-                            } else if (value.length != 10) {
-                              return "Please Enter Valid Phone Number";
-                            }
-                            return null;
-                          },
-                          inputFormatters: [
-                            new LengthLimitingTextInputFormatter(10),
-                            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
-                          ],
-                          onSaved: (value) {},
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        TextFormField(
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          onChanged: (value) => onPasswordChnage(value),
 
-                          cursorColor: Colors.grey,
-                          style: TextStyle(
-                              //color: Colors.grey,
-                              fontFamily: 'Productsans',
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              color:
-                                  Get.isDarkMode ? Colors.white : Colors.black),
-                          keyboardType: TextInputType.text,
-                          controller: passwordcontroller,
-                          obscureText:
-                              !_passwordVisible, //This will obscure text dynamically
-                          decoration: InputDecoration(
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 2.0),
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 2.0),
-                            ),
-                            errorMaxLines: 3,
-                            hintStyle: blackStyle(context).copyWith(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: Get.isDarkMode
-                                    ? Colors.white
-                                    : const Color(0xFF303030).withOpacity(0.3)),
-                            fillColor: Get.isDarkMode
-                                ? const Color(0xFF303030).withOpacity(0.8)
-                                : Colors.white,
-                            filled: true,
-                            errorBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                            ),
-                            focusedErrorBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                            ),
-                            errorStyle: const TextStyle(
-                              fontSize: 16.0,
-                            ),
-                            hintText: 'Password*',
-                            suffixIcon: GestureDetector(
-                                onTap: (() => setState(
-                                      () =>
-                                          _passwordVisible = !_passwordVisible,
-                                    )),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 20.0),
-                                      child: Text("Show",
-                                          style: TextStyle(
-                                              color: Color(0xFFFFB600))),
-                                    ),
-                                  ],
-                                )),
-                          ),
-
+                        CustomTextFormField(
+                          textEditingController: passwordcontroller,
+                          isInputPassword: true,
+                          hintText: "Password*",
+                          validatorText: "Password*",
                           validator: (val) {
                             if (val!.isEmpty) {
                               return 'Password is Empty';
@@ -438,7 +395,7 @@ class _SignUpState extends State<SignUp> {
                               child: Text(
                                 'Has at least 8 characters',
                                 style: TextStyle(
-                                    fontFamily: 'Helvetica',
+                                    fontFamily: 'Poppins',
                                     fontSize: 12,
                                     color: _isPasswordEightCar
                                         ? Color(0xff143C6D)
@@ -474,7 +431,7 @@ class _SignUpState extends State<SignUp> {
                               child: Text(
                                 'Has at least 1 uppercase letter or symbol',
                                 style: TextStyle(
-                                    fontFamily: 'Helvetica',
+                                    fontFamily: 'Poppins',
                                     fontSize: 12,
                                     color: _isHasSymboleOrCaptital
                                         ? Color(0xff143C6D)
@@ -510,7 +467,7 @@ class _SignUpState extends State<SignUp> {
                               child: Text(
                                 'Has a number',
                                 style: TextStyle(
-                                    fontFamily: 'Helvetica',
+                                    fontFamily: 'Poppins',
                                     fontSize: 12,
                                     color: _isHasOneNumber
                                         ? Color(0xff143C6D)
@@ -522,78 +479,93 @@ class _SignUpState extends State<SignUp> {
                         const SizedBox(
                           height: 20,
                         ),
-                        TextFormField(
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          cursorColor: Colors.grey,
-                          style: const TextStyle(
-                            //color: Colors.grey,
-                            fontFamily: 'Productsans',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          keyboardType: TextInputType.text,
-                          controller: confirmpasscontroller,
-                          obscureText:
-                              !_confirmpasswordVisible, //This will obscure text dynamically
-                          decoration: InputDecoration(
-                            focusedBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 2.0),
-                            ),
-                            enabledBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.grey, width: 2.0),
-                            ),
-                            errorMaxLines: 3,
-                            hintStyle: blackStyle(context).copyWith(
-                                fontSize: 16,
-                                fontWeight: FontWeight.w600,
-                                color: Get.isDarkMode
-                                    ? Colors.white
-                                    : const Color(0xFF303030).withOpacity(0.3)),
-                            fillColor: Get.isDarkMode
-                                ? const Color(0xFF303030).withOpacity(0.8)
-                                : Colors.white,
-                            filled: true,
-                            errorBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                            ),
-                            focusedErrorBorder: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30)),
-                              borderSide:
-                                  BorderSide(color: Colors.red, width: 2.0),
-                            ),
-                            errorStyle: const TextStyle(
-                              fontSize: 16.0,
-                            ),
+                        // TextFormField(
+                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                        //   cursorColor: Colors.grey,
+                        //   style: const TextStyle(
+                        //     //color: Colors.grey,
+                        //     fontFamily: 'Poppins',
+                        //     fontSize: 16,
+                        //     fontWeight: FontWeight.w400,
+                        //   ),
+                        //   keyboardType: TextInputType.text,
+                        //   controller: confirmpasscontroller,
+                        //   obscureText:
+                        //       !_confirmpasswordVisible, //This will obscure text dynamically
+                        //   decoration: InputDecoration(
+                        //     focusedBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.grey, width: 2.0),
+                        //     ),
+                        //     enabledBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.grey, width: 2.0),
+                        //     ),
+                        //     errorMaxLines: 3,
+                        //     hintStyle: blackStyle(context).copyWith(
+                        //         fontSize: 16,
+                        //         fontWeight: FontWeight.w600,
+                        //         color: Get.isDarkMode
+                        //             ? Colors.white
+                        //             : const Color(0xFF303030).withOpacity(0.3)),
+                        //     fillColor: Get.isDarkMode
+                        //         ? const Color(0xFF303030).withOpacity(0.8)
+                        //         : Colors.white,
+                        //     filled: true,
+                        //     errorBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.red, width: 2.0),
+                        //     ),
+                        //     focusedErrorBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.red, width: 2.0),
+                        //     ),
+                        //     errorStyle: const TextStyle(
+                        //       fontSize: 16.0,
+                        //     ),
 
-                            hintText: 'Confirm Password*',
-                            // Here is key idea
-                            suffixIcon: GestureDetector(
-                                onTap: (() => setState(
-                                      () => _confirmpasswordVisible =
-                                          !_confirmpasswordVisible,
-                                    )),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 20.0),
-                                      child: Text("Show",
-                                          style: TextStyle(
-                                              color: Color(0xFFFFB600))),
-                                    ),
-                                  ],
-                                )),
-                          ),
+                        //     hintText: 'Confirm Password*',
+                        //     // Here is key idea
+                        //     suffixIcon: GestureDetector(
+                        //         onTap: (() => setState(
+                        //               () => _confirmpasswordVisible =
+                        //                   !_confirmpasswordVisible,
+                        //             )),
+                        //         child: Column(
+                        //           mainAxisAlignment: MainAxisAlignment.center,
+                        //           children: [
+                        //             Padding(
+                        //               padding: EdgeInsets.only(right: 20.0),
+                        //               child: Text("Show",
+                        //                   style: TextStyle(
+                        //                       color: Color(0xFFFFB600))),
+                        //             ),
+                        //           ],
+                        //         )),
+                        //   ),
+                        //   validator: (val) {
+                        //     if (val == null || val.isEmpty) {
+                        //       return 'Password is Empty';
+                        //     }
+                        //     if (val != passwordcontroller.text) {
+                        //       return 'Password Not Matched';
+                        //     }
+                        //     return null;
+                        //   },
+                        // ),
+                        CustomTextFormField(
+                          isInputPassword: true,
+                          textEditingController: confirmpasscontroller,
+                          hintText: "Confirm Password",
+                          validatorText: "Confirm Password",
                           validator: (val) {
                             if (val == null || val.isEmpty) {
                               return 'Password is Empty';
@@ -681,7 +653,7 @@ class FullnameTextFormField extends StatelessWidget {
       cursorColor: Colors.grey,
       style: TextStyle(
           //color: Colors.grey,
-          fontFamily: 'Productsans',
+          fontFamily: 'Poppins',
           fontSize: 16,
           fontWeight: FontWeight.w500,
           color: Get.isDarkMode ? Colors.white : Colors.black),
@@ -698,6 +670,7 @@ class FullnameTextFormField extends StatelessWidget {
         errorMaxLines: 3,
         hintText: hint,
         hintStyle: blackStyle(context).copyWith(
+            fontFamily: 'Poppins',
             fontSize: 16,
             fontWeight: FontWeight.w600,
             color: Get.isDarkMode

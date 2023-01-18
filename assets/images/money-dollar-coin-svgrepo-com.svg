@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15.5" height="15.5" viewBox="0 0 15.5 15.5">
+  <g id="money-dollar-coin-svgrepo-com" transform="translate(-2.75 -2.75)">
+    <g id="Group_50952" data-name="Group 50952" transform="translate(8.5 6.5)">
+      <path id="secondary" d="M10,15h2.5A1.5,1.5,0,0,0,14,13.5h0A1.5,1.5,0,0,0,12.5,12h-1A1.5,1.5,0,0,1,10,10.5h0A1.5,1.5,0,0,1,11.5,9H14" transform="translate(-10 -8)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5"/>
+      <path id="secondary-2" data-name="secondary" d="M12,9V8m0,8V15" transform="translate(-10 -8)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5"/>
+    </g>
+    <circle id="primary" cx="7.5" cy="7.5" r="7.5" transform="translate(3 3)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="0.5"/>
+  </g>
+</svg>
