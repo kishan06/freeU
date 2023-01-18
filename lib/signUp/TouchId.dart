@@ -30,7 +30,10 @@ class _TouchIdState extends State<TouchId> {
               children: [
                 Text(
                   "Set-up Touch Id",
-                  style: TextStyle(fontSize: 22),
+                  style: TextStyle(
+                    fontSize: 22,
+                    fontFamily: 'Poppins',
+                  ),
                 ),
                 SizedBox(height: 70),
                 SizedBox(
@@ -73,7 +76,7 @@ class _TouchIdState extends State<TouchId> {
                     child: Text(
                       'will do it later',
                       style: TextStyle(
-                        fontFamily: 'Helvetica',
+                        fontFamily: 'Poppins',
                         fontSize: 14,
                         color: Color(0xFF585858),
                       ),

@@ -41,6 +41,7 @@ class _KYC4State extends State<KYC4> {
                 Text(
                   "Step 4 : Complete your KYC",
                   style: TextStyle(
+                    fontFamily: 'Poppins',
                     fontSize: 17,
                     color: Color(0xFF143C6D),
                   ),
@@ -52,6 +53,7 @@ class _KYC4State extends State<KYC4> {
                   "Bank account details",
                   style: TextStyle(
                     fontSize: 12,
+                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
                   ),
@@ -63,6 +65,7 @@ class _KYC4State extends State<KYC4> {
                   "Provide your Bank account details",
                   style: TextStyle(
                     fontSize: 8.5,
+                    fontFamily: 'Poppins',
                     color: Color(0xFF000000),
                   ),
                 ),
@@ -72,7 +75,10 @@ class _KYC4State extends State<KYC4> {
                 Text(
                   "IFSC code",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -86,7 +92,10 @@ class _KYC4State extends State<KYC4> {
                 Text(
                   "Account Number",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -100,7 +109,10 @@ class _KYC4State extends State<KYC4> {
                 Text(
                   "Upload cancelled check/\nBank statement",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -116,25 +128,25 @@ class _KYC4State extends State<KYC4> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFFFFB600), width: 2),
+                          BorderSide(color: Color(0xFFFFB600), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
                     hintStyle:
                         const TextStyle(color: Color(0x80000000), fontSize: 14),
@@ -151,7 +163,10 @@ class _KYC4State extends State<KYC4> {
                 Text(
                   "Bank Name",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -192,7 +207,9 @@ class _KYC4State extends State<KYC4> {
                                   'Thankyou for updating\n your KYC',
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      fontSize: 20, color: Colors.black),
+                                      fontFamily: 'Poppins',
+                                      fontSize: 20,
+                                      color: Colors.black),
                                 ),
                               ),
                               SizedBox(

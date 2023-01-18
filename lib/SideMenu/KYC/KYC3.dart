@@ -42,6 +42,7 @@ class _KYC3State extends State<KYC3> {
                   "Step 3 : Complete your KYC",
                   style: TextStyle(
                     fontSize: 17,
+                    fontFamily: 'Poppins',
                     color: Color(0xFF143C6D),
                   ),
                 ),
@@ -52,6 +53,7 @@ class _KYC3State extends State<KYC3> {
                   "PAN & Aadhar details",
                   style: TextStyle(
                     fontSize: 12,
+                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
                   ),
@@ -62,6 +64,7 @@ class _KYC3State extends State<KYC3> {
                 Text(
                   "Provide your PAN & Aadhar details",
                   style: TextStyle(
+                    fontFamily: 'Poppins',
                     fontSize: 8.5,
                     color: Color(0xFF000000),
                   ),
@@ -72,7 +75,10 @@ class _KYC3State extends State<KYC3> {
                 Text(
                   "PAN Number",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -86,7 +92,10 @@ class _KYC3State extends State<KYC3> {
                 Text(
                   "Upload PAN card front side",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -102,25 +111,25 @@ class _KYC3State extends State<KYC3> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFFFFB600), width: 2),
+                          BorderSide(color: Color(0xFFFFB600), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
                     hintStyle:
                         const TextStyle(color: Color(0x80000000), fontSize: 14),
@@ -137,7 +146,10 @@ class _KYC3State extends State<KYC3> {
                 Text(
                   "Aadhar Number",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -149,7 +161,10 @@ class _KYC3State extends State<KYC3> {
                 Text(
                   "Upload Aadhar card",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 13.h,
@@ -165,25 +180,25 @@ class _KYC3State extends State<KYC3> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFFFFB600), width: 2),
+                          BorderSide(color: Color(0xFFFFB600), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
                     hintStyle:
                         const TextStyle(color: Color(0x80000000), fontSize: 14),

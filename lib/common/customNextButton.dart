@@ -33,7 +33,7 @@ class CustomNextButton extends StatelessWidget {
           style: TextStyle(
             color: Color(0xFF303030),
             fontSize: 16.sm,
-            fontFamily: 'Productsans',
+            fontFamily: 'Poppins',
           ),
         ),
         onPressed: () {

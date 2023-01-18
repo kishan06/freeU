@@ -461,7 +461,9 @@ class _NavDrawerState extends State<NavDrawer> {
                                     'Log Out?',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 20, color: Colors.black),
+                                        fontFamily: 'Poppins',
+                                        fontSize: 20,
+                                        color: Colors.black),
                                   ),
                                 ),
                                 SizedBox(
@@ -472,7 +474,9 @@ class _NavDrawerState extends State<NavDrawer> {
                                     'Are you sure you want to log out?',
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
-                                        fontSize: 14, color: Color(0xFF444444)),
+                                        fontFamily: 'Poppins',
+                                        fontSize: 14,
+                                        color: Color(0xFF444444)),
                                   ),
                                 ),
                                 SizedBox(
@@ -516,10 +520,9 @@ class _NavDrawerState extends State<NavDrawer> {
                                         "Cancel",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
+                                          fontFamily: 'Poppins',
                                           fontSize: 18,
-                                          color: Get.isDarkMode
-                                              ? Colors.white
-                                              : Color(0xFF585858),
+                                          color: Color(0xFF585858),
                                         ),
                                       ),
                                     ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextDropdown extends StatefulWidget {
   const CustomTextDropdown({
@@ -34,7 +35,7 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
     return Column(
       children: [
         SizedBox(
-          height: 50,
+          height: 50.h,
           child: TextFormField(
             readOnly: true,
             onChanged: widget.onInput,
@@ -48,25 +49,27 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
             },
             controller: controller,
             decoration: InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Color(0xFF707070), width: 2),
+                borderSide: BorderSide(color: Color(0xFF707070), width: 1),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Color(0xFF707070), width: 2),
+                borderSide: BorderSide(color: Color(0xFF707070), width: 1),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: widget.outlineColor, width: 2),
+                borderSide: BorderSide(color: widget.outlineColor, width: 1),
               ),
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: Colors.red, width: 2),
+                borderSide: const BorderSide(color: Colors.red, width: 1),
               ),
               focusedErrorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: Colors.red, width: 2),
+                borderSide: const BorderSide(color: Colors.red, width: 1),
               ),
               suffixIcon: widget.showDropDown
                   ? PopupMenuButton<String>(

@@ -43,6 +43,7 @@ class _KYC2State extends State<KYC2> {
                   "Step 2 : Complete your KYC",
                   style: TextStyle(
                     fontSize: 17,
+                    fontFamily: 'Poppins',
                     color: Color(0xFF143C6D),
                   ),
                 ),
@@ -53,6 +54,7 @@ class _KYC2State extends State<KYC2> {
                   "Address Details",
                   style: TextStyle(
                     fontSize: 12,
+                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
                   ),
@@ -64,6 +66,7 @@ class _KYC2State extends State<KYC2> {
                   "Provide your current correspondance address and upload an address proof of the same",
                   style: TextStyle(
                     fontSize: 8.5,
+                    fontFamily: 'Poppins',
                     color: Color(0xFF000000),
                   ),
                 ),
@@ -73,7 +76,10 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "Country",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -88,7 +94,10 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "Pincode",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -100,7 +109,10 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "Address - Area and Street",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -116,28 +128,31 @@ class _KYC2State extends State<KYC2> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFFFFB600), width: 2),
+                          BorderSide(color: Color(0xFFFFB600), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
-                    hintStyle:
-                        const TextStyle(color: Color(0x80000000), fontSize: 14),
+                    hintStyle: const TextStyle(
+                      color: Color(0x80000000),
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                    ),
                     hintText: "",
                   ),
                   minLines: 5,
@@ -147,7 +162,10 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "City",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -160,7 +178,10 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "State / Province/ Region",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -173,7 +194,10 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "Document Type",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -186,7 +210,10 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "Document Number",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -198,7 +225,10 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "Please upload document front side",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 13.h,
@@ -214,28 +244,31 @@ class _KYC2State extends State<KYC2> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFFFFB600), width: 2),
+                          BorderSide(color: Color(0xFFFFB600), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
-                    hintStyle:
-                        const TextStyle(color: Color(0x80000000), fontSize: 14),
+                    hintStyle: const TextStyle(
+                      color: Color(0x80000000),
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                    ),
                     hintText: "",
                     suffixIcon: IconButton(
                         onPressed: () {},
@@ -249,7 +282,10 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "Please upload document back side\n(if applicable)",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 13.h,
@@ -265,28 +301,31 @@ class _KYC2State extends State<KYC2> {
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFF707070), width: 2),
+                          BorderSide(color: Color(0xFF707070), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                       borderSide:
-                          BorderSide(color: Color(0xFFFFB600), width: 2),
+                          BorderSide(color: Color(0xFFFFB600), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
                     focusedErrorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
-                      borderSide: const BorderSide(color: Colors.red, width: 2),
+                      borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
-                    hintStyle:
-                        const TextStyle(color: Color(0x80000000), fontSize: 14),
+                    hintStyle: const TextStyle(
+                      color: Color(0x80000000),
+                      fontSize: 14,
+                      fontFamily: 'Poppins',
+                    ),
                     hintText: "",
                     suffixIcon: IconButton(
                         onPressed: () {},

@@ -43,15 +43,15 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                     Text(
                       "Please enter your mobile number",
                       textAlign: TextAlign.left,
-                      style: TextStyle(fontSize: 14, color: Color(0xFF000000)),
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 14,
+                          color: Color(0xFF000000)),
                     ),
                   ],
                 ),
                 SizedBox(
-                  height: 20,
-                ),
-                SizedBox(
-                  width: 10,
+                  height: 20.h,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -105,7 +105,9 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                   height: 70.h,
                 ),
                 InkWell(
-                  onTap: () => setState(() {}),
+                  onTap: () => setState(() {
+                    Get.toNamed('/phoneverification');
+                  }),
                   child: Stack(
                     children: [
                       SizedBox(
@@ -119,7 +121,9 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                                 shape: (RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(30.0),
                                 ))),
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.toNamed('/phoneverification');
+                            },
                             child: const Text(
                               'Next',
                               style: TextStyle(
@@ -129,11 +133,11 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                           ),
                         ),
                       ),
-                      const Positioned(
+                      Positioned(
                         right: 25,
                         child: CircleAvatar(
                           backgroundColor: Colors.white,
-                          radius: 25,
+                          radius: 25.r,
                           child: Icon(
                               color: Color(0xFF6B6B6B), Icons.arrow_forward),
                         ),

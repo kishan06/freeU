@@ -55,7 +55,7 @@ class _LoginState extends State<Login> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           SizedBox(
-                            height: 80.h,
+                            height: 40.h,
                           ),
                           Image.asset(
                             'assets/images/freeulogin.png',
@@ -72,28 +72,13 @@ class _LoginState extends State<Login> {
                                 "Email / Phone",
                                 // ignore: prefer_const_constructors
                                 style: TextStyle(
-                                    fontSize: 16, color: Color(0xff303030)),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 16,
+                                    color: Color(0xff303030)),
                               ),
                               SizedBox(
                                 height: 6,
                               ),
-                              // TextFormField(
-                              //   decoration: InputDecoration(
-                              //     focusedBorder: OutlineInputBorder(
-                              //       borderSide: BorderSide(
-                              //           width: 2, color: Color(0xFFFFB600)),
-                              //       borderRadius:
-                              //           BorderRadius.all(Radius.circular(30)),
-                              //     ),
-                              //     border: OutlineInputBorder(
-                              //       borderSide: BorderSide(
-                              //           width: 2, color: Color(0xFF707070)),
-                              //       borderRadius:
-                              //           BorderRadius.all(Radius.circular(30)),
-                              //     ),
-                              //     hintText: "Enter Email or Phone Number",
-                              //   ),
-                              // ),
                               CustomTextFormField(
                                   hintText: "Enter Email or Phone Number",
                                   validatorText: "Enter Email or Phone Number")
@@ -109,6 +94,7 @@ class _LoginState extends State<Login> {
                                   child: const Text(
                                     'Login Using OTP',
                                     style: TextStyle(
+                                      fontFamily: 'Poppins',
                                       fontSize: 15,
                                       color: Color(0xFF143C6D),
                                     ),
@@ -121,61 +107,13 @@ class _LoginState extends State<Login> {
                               Text(
                                 "Password",
                                 style: TextStyle(
-                                    fontSize: 16, color: Color(0xff303030)),
+                                    fontFamily: 'Poppins',
+                                    fontSize: 16,
+                                    color: Color(0xff303030)),
                               ),
                               SizedBox(
                                 height: 6.h,
                               ),
-                              // TextFormField(
-                              //   keyboardType: TextInputType.text,
-                              //   // controller: textEditingController,
-                              //   obscureText: _isObscure,
-                              //   decoration: InputDecoration(
-                              //     border: OutlineInputBorder(
-                              //       borderRadius: BorderRadius.circular(30),
-                              //       borderSide: BorderSide(
-                              //           color: Color(0xFF707070), width: 2),
-                              //     ),
-                              //     enabledBorder: OutlineInputBorder(
-                              //       borderRadius: BorderRadius.circular(30),
-                              //       borderSide: BorderSide(
-                              //           color: Color(0xFF707070), width: 2),
-                              //     ),
-                              //     focusedBorder: OutlineInputBorder(
-                              //       borderRadius: BorderRadius.circular(30),
-                              //       borderSide: BorderSide(
-                              //           color: Color(0xFFFFB600), width: 2),
-                              //     ),
-                              //     errorBorder: OutlineInputBorder(
-                              //       borderRadius: BorderRadius.circular(30),
-                              //       borderSide: const BorderSide(
-                              //           color: Colors.red, width: 2),
-                              //     ),
-                              //     focusedErrorBorder: OutlineInputBorder(
-                              //       borderRadius: BorderRadius.circular(30),
-                              //       borderSide: const BorderSide(
-                              //           color: Colors.red, width: 2),
-                              //     ),
-                              //     hintText: "Enter Password",
-                              //     suffixIcon: GestureDetector(
-                              //         onTap: (() => setState(
-                              //               () => _isObscure = !_isObscure,
-                              //             )),
-                              //         child: Column(
-                              //           mainAxisAlignment:
-                              //               MainAxisAlignment.center,
-                              //           children: [
-                              //             Padding(
-                              //               padding:
-                              //                   EdgeInsets.only(right: 20.0),
-                              //               child: Text("Show",
-                              //                   style: TextStyle(
-                              //                       color: Color(0xFFFFB600))),
-                              //             ),
-                              //           ],
-                              //         )),
-                              //   ),
-                              // ),
                               CustomTextFormField(
                                   isInputPassword: true,
                                   hintText: "Enter Password",
@@ -198,6 +136,7 @@ class _LoginState extends State<Login> {
                               child: const Text(
                                 'Forgot Password?',
                                 style: TextStyle(
+                                  fontFamily: 'Poppins',
                                   fontSize: 15,
                                   color: Color(0xFF143C6D),
                                 ),
@@ -212,6 +151,7 @@ class _LoginState extends State<Login> {
                                   style: TextStyle(
                                     color: Color.fromARGB(159, 51, 51, 50),
                                     fontSize: 15,
+                                    fontFamily: 'Poppins',
                                   )),
                               TextButton(
                                 child: const Text(
@@ -219,6 +159,7 @@ class _LoginState extends State<Login> {
                                   style: TextStyle(
                                     color: Color(0xFF143C6D),
                                     fontSize: 15,
+                                    fontFamily: 'Poppins',
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),

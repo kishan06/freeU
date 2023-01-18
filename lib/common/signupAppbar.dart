@@ -24,7 +24,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       flexibleSpace: Container(
-        height: 50,
+        height: 50.h,
         decoration: const BoxDecoration(),
       ),
       bottom: bottomtext!
@@ -35,6 +35,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
                 style:
                     //Theme.of(context).textTheme.headline5,
                     TextStyle(
+                        fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         decorationColor: Colors.black,
                         fontSize: 12),
@@ -55,7 +56,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
           softWrap: true,
           textAlign: TextAlign.center,
           style: TextStyle(
-              //  fontFamily: 'Helvetica',
+              fontFamily: 'Poppins',
               fontSize: 17.sm,
               fontWeight: FontWeight.w400,
               color: Colors.black),

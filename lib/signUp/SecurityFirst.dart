@@ -42,6 +42,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 18,
+                      fontFamily: 'Poppins',
                     ),
                   ),
                 ),
@@ -129,7 +130,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                   ),
                   child: CustomNextButton(
                     ontap: () {
-                      Get.toNamed("/complete_profile");
+                      Get.toNamed("/completeprofile");
                     },
                     text: 'Submit',
                   ),
@@ -173,6 +174,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 22,
+                  fontFamily: 'Poppins',
                   color: Colors.black,
                 ),
               ),
@@ -204,6 +206,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     style: TextStyle(
                       color: onclickofpin ? Colors.white : Colors.black,
                       fontSize: 18,
+                      fontFamily: 'Poppins',
                     ),
                   ),
                   leading: Transform.scale(
@@ -251,6 +254,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     "Touch Id",
                     style: TextStyle(
                         color: onclickoftouchid ? Colors.white : Colors.black,
+                        fontFamily: 'Poppins',
                         fontSize: 18),
                   ),
                   leading: Transform.scale(

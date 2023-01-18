@@ -75,7 +75,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                     Text(
                       "New Password",
                       // ignore: prefer_const_constructors
-                      style: TextStyle(fontSize: 16, color: Color(0xff303030)),
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 16,
+                          color: Color(0xff303030)),
                     ),
                     SizedBox(
                       height: 3.h,
@@ -152,7 +155,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           child: Text(
                             'Has at least 8 characters',
                             style: TextStyle(
-                                fontFamily: 'Helvetica',
+                                fontFamily: 'Poppins',
                                 fontSize: 12,
                                 color: _isPasswordEightCar
                                     ? Color(0xff143C6D)
@@ -188,7 +191,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           child: Text(
                             'Has at least 1 uppercase letter or symbol',
                             style: TextStyle(
-                                fontFamily: 'Helvetica',
+                                fontFamily: 'Poppins',
                                 fontSize: 12,
                                 color: _isHasSymboleOrCaptital
                                     ? Color(0xff143C6D)
@@ -224,7 +227,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                           child: Text(
                             'Has a number',
                             style: TextStyle(
-                                fontFamily: 'Helvetica',
+                                fontFamily: 'Poppins',
                                 fontSize: 12,
                                 color: _isHasOneNumber
                                     ? Color(0xff143C6D)
@@ -239,7 +242,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                     Text(
                       "Confirm Password",
                       // ignore: prefer_const_constructors
-                      style: TextStyle(fontSize: 16, color: Color(0xff303030)),
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 16,
+                          color: Color(0xff303030)),
                     ),
                     SizedBox(
                       height: 3.h,
@@ -346,6 +352,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             'Reset Password',
                             style: TextStyle(
                               color: Colors.black,
+                              fontFamily: 'Poppins',
                               fontSize: 16,
                             ),
                           ),

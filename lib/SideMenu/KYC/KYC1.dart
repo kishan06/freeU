@@ -49,6 +49,7 @@ class _KYC1State extends State<KYC1> {
                 Text(
                   "Personal Information",
                   style: TextStyle(
+                    fontFamily: 'Poppins',
                     fontSize: 12,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
@@ -60,6 +61,7 @@ class _KYC1State extends State<KYC1> {
                 Text(
                   "Provide your personal information as per your Bank Account",
                   style: TextStyle(
+                    fontFamily: 'Poppins',
                     fontSize: 8.5,
                     color: Color(0xFF000000),
                   ),
@@ -70,7 +72,10 @@ class _KYC1State extends State<KYC1> {
                 Text(
                   "Contact Number",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -84,7 +89,10 @@ class _KYC1State extends State<KYC1> {
                 Text(
                   "Email ID",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -96,7 +104,10 @@ class _KYC1State extends State<KYC1> {
                 Text(
                   "Residential Status",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -109,7 +120,10 @@ class _KYC1State extends State<KYC1> {
                 Text(
                   "Date of Birth",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -121,7 +135,10 @@ class _KYC1State extends State<KYC1> {
                 Text(
                   "Occupation",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -133,7 +150,10 @@ class _KYC1State extends State<KYC1> {
                 Text(
                   "Father's Name",
                   // ignore: prefer_const_constructors
-                  style: TextStyle(fontSize: 14, color: Color(0xff303030)),
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14,
+                      color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
