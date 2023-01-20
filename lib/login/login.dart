@@ -69,7 +69,7 @@ class _LoginState extends State<Login> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "Email / Phone",
+                                "Email / Mobile",
                                 // ignore: prefer_const_constructors
                                 style: TextStyle(
                                     fontFamily: 'Poppins',

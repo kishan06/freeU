@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   PageController indicatorcontroller = PageController(
-    viewportFraction: 0.91,
+    viewportFraction: 0.95,
   );
   PageController categoriescontroller = PageController(
     viewportFraction: 0.55,
@@ -186,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 140.h,
+                        height: 145.h,
                         child: PageView.builder(
                           controller: indicatorcontroller,
                           itemCount: 3,
@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage> {
                             if (index1 == 0) {
                               return Padding(
                                 padding: EdgeInsets.only(
-                                    top: 10.0, left: 8, right: 8, bottom: 5),
+                                    top: 10.0, left: 8, right: 0, bottom: 5),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -212,7 +212,7 @@ class _HomePageState extends State<HomePage> {
                                         Text(
                                           'Invest for Future\nin Stable Platform\nand Make\nFast Money',
                                           style: TextStyle(
-                                              fontSize: 16.sm,
+                                              fontSize: 14.sm,
                                               fontFamily: 'Poppins'),
                                         ),
                                         SizedBox(
@@ -234,6 +234,7 @@ class _HomePageState extends State<HomePage> {
                                               child: Text(
                                                 'Invest Now',
                                                 style: TextStyle(
+                                                    fontSize: 12.sm,
                                                     color: Colors.black),
                                               )),
                                         )
@@ -256,12 +257,14 @@ class _HomePageState extends State<HomePage> {
                             } //2nd plan
                             return Padding(
                               padding: EdgeInsets.only(
-                                  top: 20.0, left: 16, right: 16, bottom: 5),
+                                  top: 10.0, left: 8, right: 0, bottom: 5),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
                                   Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Text(
@@ -289,6 +292,7 @@ class _HomePageState extends State<HomePage> {
                                             child: Text(
                                               'Invest Now',
                                               style: TextStyle(
+                                                  fontSize: 12.sm,
                                                   color: Colors.black),
                                             )),
                                       )
@@ -306,7 +310,7 @@ class _HomePageState extends State<HomePage> {
                                   )
                                 ],
                               ),
-                            ); //2nd plan
+                            );
                           },
                         ),
                       ),
@@ -327,7 +331,7 @@ class _HomePageState extends State<HomePage> {
                 height: 15.h,
               ),
               SizedBox(
-                height: 205.h,
+                height: 215.h,
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -335,7 +339,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(left: 15.0, top: 15, bottom: 10),
+                        const EdgeInsets.only(left: 12.0, top: 15, bottom: 8),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -348,7 +352,7 @@ class _HomePageState extends State<HomePage> {
                           height: 8.h,
                         ),
                         SizedBox(
-                          height: 140.h,
+                          height: 145.h,
                           child: PageView.builder(
                             padEnds: false,
                             controller: investmentcontroller,
@@ -378,11 +382,11 @@ class _HomePageState extends State<HomePage> {
                                         Text(
                                           'Chennai Office Opportunity',
                                           style: TextStyle(
-                                              fontSize: 16.sm,
+                                              fontSize: 14.sm,
                                               fontFamily: 'Poppins'),
                                         ),
                                         SizedBox(
-                                          height: 8.h,
+                                          height: 6.h,
                                         ),
                                         Row(
                                           children: [
@@ -396,7 +400,7 @@ class _HomePageState extends State<HomePage> {
                                             Text(
                                               'Perungudi, Chennai',
                                               style: TextStyle(
-                                                  fontSize: 14.sm,
+                                                  fontSize: 12.sm,
                                                   fontFamily: 'Poppins'),
                                             )
                                           ],
@@ -421,7 +425,7 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   "Invested",
                                                   style: TextStyle(
-                                                      fontSize: 14.sm,
+                                                      fontSize: 12.sm,
                                                       fontFamily: 'Poppins'),
                                                 ),
                                               ],
@@ -438,7 +442,7 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   "Current",
                                                   style: TextStyle(
-                                                      fontSize: 14.sm,
+                                                      fontSize: 12.sm,
                                                       fontFamily: 'Poppins'),
                                                 ),
                                               ],
@@ -455,7 +459,7 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   "P & L",
                                                   style: TextStyle(
-                                                      fontSize: 14.sm,
+                                                      fontSize: 12.sm,
                                                       fontFamily: 'Poppins'),
                                                 ),
                                               ],
@@ -486,11 +490,11 @@ class _HomePageState extends State<HomePage> {
                                       Text(
                                         'Chennai Office Opportunity',
                                         style: TextStyle(
-                                            fontSize: 16.sm,
+                                            fontSize: 14.sm,
                                             fontFamily: 'Poppins'),
                                       ),
                                       SizedBox(
-                                        height: 8.h,
+                                        height: 6.h,
                                       ),
                                       Row(
                                         children: [
@@ -504,7 +508,7 @@ class _HomePageState extends State<HomePage> {
                                           Text(
                                             'Perungudi, Chennai',
                                             style: TextStyle(
-                                                fontSize: 14.sm,
+                                                fontSize: 12.sm,
                                                 fontFamily: 'Poppins'),
                                           )
                                         ],
@@ -524,12 +528,12 @@ class _HomePageState extends State<HomePage> {
                                                 "₹ 25,00,000",
                                                 style: TextStyle(
                                                     fontSize: 14.sm,
-                                                    color: Color(0xFF153D6D)),
+                                                    color: Colors.white),
                                               ),
                                               Text(
                                                 "Invested",
                                                 style: TextStyle(
-                                                    fontSize: 14.sm,
+                                                    fontSize: 12.sm,
                                                     fontFamily: 'Poppins'),
                                               ),
                                             ],
@@ -541,12 +545,12 @@ class _HomePageState extends State<HomePage> {
                                                 style: TextStyle(
                                                     fontSize: 14.sm,
                                                     fontFamily: 'Poppins',
-                                                    color: Color(0xFF153D6D)),
+                                                    color: Colors.white),
                                               ),
                                               Text(
                                                 "Current",
                                                 style: TextStyle(
-                                                    fontSize: 14.sm,
+                                                    fontSize: 12.sm,
                                                     fontFamily: 'Poppins'),
                                               ),
                                             ],
@@ -558,298 +562,18 @@ class _HomePageState extends State<HomePage> {
                                                 style: TextStyle(
                                                     fontSize: 14.sm,
                                                     fontFamily: 'Poppins',
-                                                    color: Colors.red),
+                                                    color: Color(0xFF197219)),
                                               ),
                                               Text(
                                                 "P & L",
                                                 style: TextStyle(
-                                                    fontSize: 14.sm,
+                                                    fontSize: 12.sm,
                                                     fontFamily: 'Poppins'),
                                               ),
                                             ],
                                           )
                                         ],
                                       )
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              SizedBox(
-                height: 150.h,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  color: Colors.white,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15.0, top: 15, bottom: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Categories",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                        ),
-                        SizedBox(
-                          height: 8.h,
-                        ),
-                        SizedBox(
-                          height: 80.h,
-                          child: PageView.builder(
-                            padEnds: false,
-                            controller: categoriescontroller,
-                            itemCount: 2,
-                            itemBuilder: (
-                              BuildContext context,
-                              int index1,
-                            ) {
-                              bool isMyPageIndex = selectIndex == index1;
-                              if (index1 == 0) {
-                                return SizedBox(
-                                  height: 60.h,
-                                  child: Card(
-                                    elevation: 2,
-                                    color: Color(0xFFDFEDFF),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    child: Padding(
-                                        padding: EdgeInsets.only(
-                                            top: 14.0,
-                                            left: 13,
-                                            right: 13,
-                                            bottom: 5),
-                                        child: Row(
-                                          children: [
-                                            Image.asset(
-                                              "assets/images/categoryresidential.png",
-                                              height: 50.h,
-                                              width: 50.w,
-                                            ),
-                                            SizedBox(
-                                              width: 13.w,
-                                            ),
-                                            Text(
-                                              'Fractional\nReal Estate',
-                                              style: TextStyle(
-                                                  fontSize: 16.sm,
-                                                  fontFamily: 'Poppins'),
-                                            )
-                                          ],
-                                        )),
-                                  ),
-                                );
-                              } //2nd plan
-                              return SizedBox(
-                                width: 65.w,
-                                child: Card(
-                                  elevation: 2,
-                                  color: Color(0xFFDFEDFF),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 14.0,
-                                          left: 13,
-                                          right: 13,
-                                          bottom: 5),
-                                      child: Row(
-                                        children: [
-                                          Image.asset(
-                                            "assets/images/blockchain.png",
-                                            height: 50.h,
-                                            width: 50.w,
-                                          ),
-                                          SizedBox(
-                                            width: 13.w,
-                                          ),
-                                          Text(
-                                            'Peer- Peer\nlending',
-                                            style: TextStyle(
-                                                fontSize: 16.sm,
-                                                fontFamily: 'Poppins'),
-                                          )
-                                        ],
-                                      )),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              SizedBox(
-                height: 300.h,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  color: Colors.white,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15.0, top: 15, bottom: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Top Pick",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                        ),
-                        SizedBox(
-                          height: 8.h,
-                        ),
-                        SizedBox(
-                          height: 230.h,
-                          child: PageView.builder(
-                            padEnds: false,
-                            controller: pickcontroller,
-                            itemCount: 2,
-                            itemBuilder: (
-                              BuildContext context,
-                              int index1,
-                            ) {
-                              bool isMyPageIndex = selectIndex == index1;
-                              if (index1 == 0) {
-                                return Card(
-                                  elevation: 2,
-                                  color: Color(0xFFFFFAEE),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 5.0, left: 5, right: 5, bottom: 5),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Image.asset(
-                                            'assets/images/Group 13531.png'),
-                                        SizedBox(
-                                          height: 9.h,
-                                        ),
-                                        Text(
-                                          'Fractional Real Estate',
-                                          style: TextStyle(
-                                              fontSize: 12.sm,
-                                              fontFamily: 'Poppins'),
-                                        ),
-                                        SizedBox(
-                                          height: 3.h,
-                                        ),
-                                        Text(
-                                          'Vaishnavi Tech Park\nOpportunity',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontSize: 16.sm,
-                                              fontFamily: 'Poppins'),
-                                        ),
-                                        SizedBox(
-                                          height: 7.h,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(Icons.location_on_outlined),
-                                            SizedBox(
-                                              width: 4.w,
-                                            ),
-                                            Text(
-                                                'Outer Ring Road Sarjapur, Bangalore'),
-                                          ],
-                                        ),
-                                        SizedBox(
-                                          height: 8.h,
-                                        ),
-                                        SizedBox(
-                                            height: 25.h,
-                                            width: 120.w,
-                                            child: CustomNextButton(
-                                                text: 'View Details'))
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              } //2nd plan
-                              return Card(
-                                elevation: 2,
-                                color: Color(0xFFFFFAEE),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 5.0, left: 5, right: 5, bottom: 5),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                          'assets/images/Group 13531.png'),
-                                      SizedBox(
-                                        height: 9.h,
-                                      ),
-                                      Text(
-                                        'Fractional Real Estate',
-                                        style: TextStyle(
-                                            fontSize: 12.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      SizedBox(
-                                        height: 3.h,
-                                      ),
-                                      Text(
-                                        'Vaishnavi Tech Park\nOpportunity',
-                                        textAlign: TextAlign.center,
-                                        style: TextStyle(
-                                            fontSize: 16.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      SizedBox(
-                                        height: 7.h,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Icon(Icons.location_on_outlined),
-                                          SizedBox(
-                                            width: 4.w,
-                                          ),
-                                          Text(
-                                              'Outer Ring Road Sarjapur, Bangalore'),
-                                        ],
-                                      ),
-                                      SizedBox(
-                                        height: 8.h,
-                                      ),
-                                      SizedBox(
-                                          height: 25.h,
-                                          width: 120.w,
-                                          child: CustomNextButton(
-                                              text: 'View Details'))
                                     ],
                                   ),
                                 ),
@@ -905,7 +629,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "Fractional Real Estate",
                                 style: TextStyle(
-                                    fontSize: 14.sm, fontFamily: 'Poppins'),
+                                    fontSize: 12.sm, fontFamily: 'Poppins'),
                               ),
                               SizedBox(
                                 height: 5.h,
@@ -913,7 +637,7 @@ class _HomePageState extends State<HomePage> {
                               Text(
                                 "Vaishnavi Tech Park\nOpportunity",
                                 style: TextStyle(
-                                    fontSize: 16.sm,
+                                    fontSize: 14.sm,
                                     fontWeight: FontWeight.w500,
                                     fontFamily: 'Poppins'),
                               ),
@@ -930,7 +654,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     'Outer Ring Road\nSarjapur, Bangalore',
                                     style: TextStyle(
-                                        fontSize: 14.sm, fontFamily: 'Poppins'),
+                                        fontSize: 12.sm, fontFamily: 'Poppins'),
                                   ),
                                 ],
                               ),
@@ -940,7 +664,9 @@ class _HomePageState extends State<HomePage> {
                               SizedBox(
                                   height: 25.h,
                                   width: 120.w,
-                                  child: CustomNextButton(text: 'View Details'))
+                                  child: CustomNextButton(
+                                    text: 'View Details',
+                                  ))
                             ],
                           )
                         ],
@@ -948,6 +674,303 @@ class _HomePageState extends State<HomePage> {
                     ],
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              SizedBox(
+                height: 170.h,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  color: Colors.white,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 15.0, top: 12, bottom: 12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Categories",
+                          style:
+                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        SizedBox(
+                          height: 100.h,
+                          child: PageView.builder(
+                            padEnds: false,
+                            controller: categoriescontroller,
+                            itemCount: 2,
+                            itemBuilder: (
+                              BuildContext context,
+                              int index1,
+                            ) {
+                              bool isMyPageIndex = selectIndex == index1;
+                              if (index1 == 0) {
+                                return SizedBox(
+                                  height: 80.h,
+                                  child: Card(
+                                    elevation: 2,
+                                    color: Color(0xFFDFEDFF),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(15),
+                                    ),
+                                    child: Padding(
+                                        padding: EdgeInsets.only(
+                                            top: 10.0,
+                                            left: 13,
+                                            right: 13,
+                                            bottom: 5),
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/categoryresidential.png",
+                                              height: 50.h,
+                                              width: 50.w,
+                                            ),
+                                            SizedBox(
+                                              width: 13.w,
+                                            ),
+                                            Text(
+                                              'Fractional\nReal Estate',
+                                              style: TextStyle(
+                                                  fontSize: 12.sm,
+                                                  fontFamily: 'Poppins'),
+                                            )
+                                          ],
+                                        )),
+                                  ),
+                                );
+                              } //2nd plan
+                              return SizedBox(
+                                width: 65.w,
+                                child: Card(
+                                  elevation: 2,
+                                  color: Color(0xFFDFEDFF),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: Padding(
+                                      padding: EdgeInsets.only(
+                                          top: 14.0,
+                                          left: 13,
+                                          right: 13,
+                                          bottom: 5),
+                                      child: Row(
+                                        children: [
+                                          Image.asset(
+                                            "assets/images/blockchain.png",
+                                            height: 50.h,
+                                            width: 50.w,
+                                          ),
+                                          SizedBox(
+                                            width: 13.w,
+                                          ),
+                                          Text(
+                                            'Peer- Peer\nlending',
+                                            style: TextStyle(
+                                                fontSize: 16.sm,
+                                                fontFamily: 'Poppins'),
+                                          )
+                                        ],
+                                      )),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              SizedBox(
+                height: 310.h,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  color: Colors.white,
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 15.0, top: 15, bottom: 14),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Top Pick",
+                          style:
+                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                        ),
+                        SizedBox(
+                          height: 8.h,
+                        ),
+                        SizedBox(
+                          height: 235.h,
+                          child: PageView.builder(
+                            padEnds: false,
+                            controller: pickcontroller,
+                            itemCount: 2,
+                            itemBuilder: (
+                              BuildContext context,
+                              int index1,
+                            ) {
+                              bool isMyPageIndex = selectIndex == index1;
+                              if (index1 == 0) {
+                                return Card(
+                                  elevation: 2,
+                                  color: Color(0xFFFFFAEE),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(15),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 5.0, left: 5, right: 5, bottom: 5),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                          'assets/images/Group 13531.png',
+                                          height: 70.h,
+                                          width: 70.w,
+                                        ),
+                                        SizedBox(
+                                          height: 9.h,
+                                        ),
+                                        Text(
+                                          'Fractional Real Estate',
+                                          style: TextStyle(
+                                              fontSize: 12.sm,
+                                              fontFamily: 'Poppins'),
+                                        ),
+                                        SizedBox(
+                                          height: 3.h,
+                                        ),
+                                        Text(
+                                          'Vaishnavi Tech Park\nOpportunity',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 14.sm,
+                                              fontFamily: 'Poppins'),
+                                        ),
+                                        SizedBox(
+                                          height: 7.h,
+                                        ),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            Icon(Icons.location_on_outlined),
+                                            SizedBox(
+                                              width: 4.w,
+                                            ),
+                                            Text(
+                                              'Outer Ring Road Sarjapur, Bangalore',
+                                              style: TextStyle(
+                                                  fontFamily: "Poppins",
+                                                  fontSize: 8.sm),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(
+                                          height: 8.h,
+                                        ),
+                                        SizedBox(
+                                            height: 25.h,
+                                            width: 120.w,
+                                            child: CustomNextButton(
+                                                text: 'View Details'))
+                                      ],
+                                    ),
+                                  ),
+                                );
+                              } //2nd plan
+                              return Card(
+                                elevation: 2,
+                                color: Color(0xFFFFFAEE),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 5.0, left: 5, right: 5, bottom: 5),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        'assets/images/Group 13531.png',
+                                        height: 70.h,
+                                        width: 70.w,
+                                      ),
+                                      SizedBox(
+                                        height: 9.h,
+                                      ),
+                                      Text(
+                                        'Fractional Real Estate',
+                                        style: TextStyle(
+                                            fontSize: 12.sm,
+                                            fontFamily: 'Poppins'),
+                                      ),
+                                      SizedBox(
+                                        height: 3.h,
+                                      ),
+                                      Text(
+                                        'Vaishnavi Tech Park\nOpportunity',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 14.sm,
+                                            fontFamily: 'Poppins'),
+                                      ),
+                                      SizedBox(
+                                        height: 7.h,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.location_on_outlined),
+                                          SizedBox(
+                                            width: 4.w,
+                                          ),
+                                          Text(
+                                            'Outer Ring Road Sarjapur, Bangalore',
+                                            style: TextStyle(
+                                                fontFamily: "Poppins",
+                                                fontSize: 8.sm),
+                                          ),
+                                        ],
+                                      ),
+                                      SizedBox(
+                                        height: 8.h,
+                                      ),
+                                      SizedBox(
+                                          height: 25.h,
+                                          width: 120.w,
+                                          child: CustomNextButton(
+                                              text: 'View Details'))
+                                    ],
+                                  ),
+                                ),
+                              );
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10.h,
               ),
               Card(
                 shape: RoundedRectangleBorder(
@@ -983,7 +1006,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 305.h,
+                height: 325.h,
                 child: Card(
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
@@ -991,7 +1014,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(left: 12.0, top: 10, bottom: 10),
+                        const EdgeInsets.only(left: 12.0, top: 10, bottom: 5),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -1004,7 +1027,7 @@ class _HomePageState extends State<HomePage> {
                           height: 8.h,
                         ),
                         SizedBox(
-                          height: 245.h,
+                          height: 265.h,
                           child: PageView.builder(
                             padEnds: false,
                             controller: pickcontroller,
