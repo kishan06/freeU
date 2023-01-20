@@ -346,8 +346,8 @@ class _SignUpState extends State<SignUp> {
                         CustomTextFormField(
                             hintText: "Phone Number",
                             validatorText: "Phone Number"),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 20.h,
                         ),
 
                         CustomTextFormField(
@@ -396,7 +396,7 @@ class _SignUpState extends State<SignUp> {
                                 'Has at least 8 characters',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 12,
+                                    fontSize: 14.sm,
                                     color: _isPasswordEightCar
                                         ? Color(0xff143C6D)
                                         : Colors.black),
@@ -404,8 +404,8 @@ class _SignUpState extends State<SignUp> {
                             )
                           ],
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 10.h,
                         ),
                         Row(
                           children: [
@@ -432,7 +432,7 @@ class _SignUpState extends State<SignUp> {
                                 'Has at least 1 uppercase letter or symbol',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 12,
+                                    fontSize: 14.sm,
                                     color: _isHasSymboleOrCaptital
                                         ? Color(0xff143C6D)
                                         : Colors.black),
@@ -468,7 +468,7 @@ class _SignUpState extends State<SignUp> {
                                 'Has a number',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 12,
+                                    fontSize: 14.sm,
                                     color: _isHasOneNumber
                                         ? Color(0xff143C6D)
                                         : Colors.black),

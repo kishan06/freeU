@@ -42,42 +42,43 @@ class _KYC2State extends State<KYC2> {
                 Text(
                   "Step 2 : Complete your KYC",
                   style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 20.sm,
                     fontFamily: 'Poppins',
                     color: Color(0xFF143C6D),
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 20.h,
                 ),
                 Text(
                   "Address Details",
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 18.sm,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 10.h,
                 ),
                 Text(
                   "Provide your current correspondance address and upload an address proof of the same",
                   style: TextStyle(
-                    fontSize: 8.5,
+                    fontWeight: FontWeight.w300,
+                    fontSize: 16.sm,
                     fontFamily: 'Poppins',
                     color: Color(0xFF000000),
                   ),
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 20.h,
                 ),
                 Text(
                   "Country",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -89,13 +90,13 @@ class _KYC2State extends State<KYC2> {
                     controller: countrytexteditingcontroller,
                     showDropDown: true),
                 SizedBox(
-                  height: 13.h,
+                  height: 20.h,
                 ),
                 Text(
                   "Pincode",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -105,12 +106,14 @@ class _KYC2State extends State<KYC2> {
                 CustomTextFormField(
                     hintText: "Please Enter Pincode",
                     validatorText: "Please Enter Pincode"),
-                SizedBox(height: 13.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "Address - Area and Street",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -158,7 +161,9 @@ class _KYC2State extends State<KYC2> {
                   minLines: 5,
                   maxLines: null,
                 ),
-                SizedBox(height: 13.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "City",
                   // ignore: prefer_const_constructors
@@ -174,12 +179,14 @@ class _KYC2State extends State<KYC2> {
                     items: ["Mumbai", "Thane", "Palghar"],
                     controller: countrytexteditingcontroller,
                     showDropDown: true),
-                SizedBox(height: 13.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "State / Province/ Region",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -190,12 +197,14 @@ class _KYC2State extends State<KYC2> {
                     items: ["Maharashtra", "kerala", "Punjab"],
                     controller: countrytexteditingcontroller,
                     showDropDown: true),
-                SizedBox(height: 20.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "Document Type",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -206,12 +215,14 @@ class _KYC2State extends State<KYC2> {
                     items: ["PDF", "JPEG", "PNG"],
                     controller: countrytexteditingcontroller,
                     showDropDown: true),
-                SizedBox(height: 10.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "Document Number",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -221,17 +232,19 @@ class _KYC2State extends State<KYC2> {
                 CustomTextFormField(
                     hintText: "Please Enter Document Number",
                     validatorText: "Please Enter Document Number"),
-                SizedBox(height: 10.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "Please upload document front side",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
-                  height: 13.h,
+                  height: 6.h,
                 ),
                 TextFormField(
                   cursorColor: const Color(0xFFFFB600),
@@ -278,7 +291,9 @@ class _KYC2State extends State<KYC2> {
                         )),
                   ),
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "Please upload document back side\n(if applicable)",
                   // ignore: prefer_const_constructors
@@ -288,7 +303,7 @@ class _KYC2State extends State<KYC2> {
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
-                  height: 13.h,
+                  height: 6.h,
                 ),
                 TextFormField(
                   cursorColor: const Color(0xFFFFB600),

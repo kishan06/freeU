@@ -37,7 +37,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   "In what city were you born?",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -52,7 +52,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   "What is the name of your favorite pet?",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -75,7 +75,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   "What is your mother's maiden name?",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -98,7 +98,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   "What high school did you attend?",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 16,
+                      fontSize: 16.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff303030)),
                 ),
@@ -131,7 +131,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                     children: [
                       SizedBox(
                         width: double.infinity,
-                        height: 55.h,
+                        height: 50.h,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               elevation: 3,
@@ -151,7 +151,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                             Get.toNamed('/securityfirst');
                           },
                           child: const Text(
-                            'NEXT',
+                            'Next',
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 16,
@@ -174,7 +174,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   ),
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 15.h,
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -188,11 +188,11 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         );
                       },
                       child: Text(
-                        "SKIP",
+                        "Skip",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           color: Color(0xff6B6B6B),
-                          fontSize: 18,
+                          fontSize: 16.sm,
                           fontFamily: 'Poppins',
                         ),
                       )),

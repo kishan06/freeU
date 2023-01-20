@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatefulWidget {
   CustomTextFormField({
@@ -40,13 +41,14 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+        style: TextStyle(fontSize: 16),
         readOnly: widget.readonly,
         cursorColor: const Color(0xFFFFB600),
         autovalidateMode: AutovalidateMode.onUserInteraction,
         obscureText: obscureText,
         controller: widget.textEditingController,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(15),
+          contentPadding: EdgeInsets.all(20),
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(
@@ -69,7 +71,8 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
             borderRadius: BorderRadius.circular(30),
             borderSide: const BorderSide(color: Colors.red, width: 1),
           ),
-          hintStyle: const TextStyle(color: Color(0x80000000), fontSize: 14),
+          hintStyle: TextStyle(
+              color: Color(0x80000000), fontSize: 16.sm, fontFamily: "Poppins"),
           hintText: widget.hintText,
           prefixIcon: widget.leadingIcon == null
               ? null

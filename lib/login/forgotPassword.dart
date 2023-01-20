@@ -41,9 +41,13 @@ class _forgotPasswordState extends State<forgotPassword> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      SizedBox(
+                        height: 20.h,
+                      ),
                       Text(
                         "We will send a verification email to the email address on your account in order to reset your password",
-                        style: TextStyle(fontSize: 12, fontFamily: 'Poppins'),
+                        style:
+                            TextStyle(fontSize: 18.sm, fontFamily: 'Poppins'),
                       ),
                       SizedBox(
                         height: 50.h,
@@ -56,7 +60,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 16,
+                                fontSize: 18.sm,
                                 color: Color(0xff303030)),
                           ),
                           SizedBox(
@@ -78,8 +82,8 @@ class _forgotPasswordState extends State<forgotPassword> {
                                 }
                                 return null;
                               },
-                              hintText: "Enter your name",
-                              validatorText: "Enter your name"),
+                              hintText: "Enter your Phone Number",
+                              validatorText: "Enter your Phone Number"),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -106,7 +110,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                               children: [
                                 SizedBox(
                                   width: double.infinity,
-                                  height: 55.h,
+                                  height: 50.h,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         elevation: 3,
@@ -121,21 +125,21 @@ class _forgotPasswordState extends State<forgotPassword> {
                                     onPressed: () {
                                       Get.toNamed('/otpverification');
                                     },
-                                    child: const Text(
+                                    child: Text(
                                       'Proceeds',
                                       style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 16,
+                                          fontSize: 16.sm,
                                           fontFamily: 'Poppins'),
                                     ),
                                   ),
                                 ),
-                                const Positioned(
+                                Positioned(
                                   right: 0,
                                   top: 1,
                                   child: CircleAvatar(
                                     backgroundColor: Colors.white,
-                                    radius: 25,
+                                    radius: 25.r,
                                     child: Icon(
                                         color: Color(0xFF6B6B6B),
                                         Icons.arrow_forward),

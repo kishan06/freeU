@@ -1,11 +1,16 @@
 // ignore_for_file: file_names, camel_case_types, prefer_const_constructors, duplicate_ignore, unused_import
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/login/login.dart';
+import 'package:freeu/login/splashslider.dart';
 
 import 'package:get/get.dart';
 
@@ -42,35 +47,35 @@ class _KYC4State extends State<KYC4> {
                   "Step 4 : Complete your KYC",
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 17,
+                    fontSize: 20.sm,
                     color: Color(0xFF143C6D),
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 20.h,
                 ),
                 Text(
                   "Bank account details",
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 18.sm,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 10.h,
                 ),
                 Text(
                   "Provide your Bank account details",
                   style: TextStyle(
-                    fontSize: 8.5,
+                    fontSize: 16.sm,
                     fontFamily: 'Poppins',
                     color: Color(0xFF000000),
                   ),
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 20.h,
                 ),
                 Text(
                   "IFSC code",
@@ -87,7 +92,7 @@ class _KYC4State extends State<KYC4> {
                     hintText: "Please Enter IFSC code",
                     validatorText: "Please Enter IFSC code"),
                 SizedBox(
-                  height: 13,
+                  height: 20.h,
                 ),
                 Text(
                   "Account Number",
@@ -104,7 +109,7 @@ class _KYC4State extends State<KYC4> {
                     hintText: "Please Enter Account Number",
                     validatorText: "Please Enter Account Number"),
                 SizedBox(
-                  height: 13,
+                  height: 20.h,
                 ),
                 Text(
                   "Upload cancelled check/\nBank statement",
@@ -159,7 +164,9 @@ class _KYC4State extends State<KYC4> {
                         )),
                   ),
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "Bank Name",
                   // ignore: prefer_const_constructors
@@ -179,6 +186,12 @@ class _KYC4State extends State<KYC4> {
                 CustomNextButton(
                   text: "Continue",
                   ontap: () {
+                    Timer(
+                        Duration(seconds: 2),
+                        () => Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    HomePage())));
                     showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,

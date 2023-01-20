@@ -77,50 +77,12 @@ class _ResetPasswordState extends State<ResetPassword> {
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 16,
+                          fontSize: 18.sm,
                           color: Color(0xff303030)),
                     ),
                     SizedBox(
-                      height: 3.h,
+                      height: 10.h,
                     ),
-                    // TextFormField(
-                    //   inputFormatters: [
-                    //     LengthLimitingTextInputFormatter(25),
-                    //   ],
-                    //   onChanged: (value) => onPasswordChnage(value),
-                    //   keyboardType: TextInputType.text,
-                    //   controller: passwordcontroller,
-                    //   obscureText: !_passwordVisible,
-                    //   decoration: InputDecoration(
-                    //     errorMaxLines: 3,
-                    //     focusedBorder: OutlineInputBorder(
-                    //         borderSide: BorderSide(
-                    //             color: Color(0xFFFFB600), width: 2.0),
-                    //         borderRadius:
-                    //             BorderRadius.all(Radius.circular(30))),
-                    //     border: OutlineInputBorder(
-                    //       borderSide:
-                    //           BorderSide(width: 2, color: Color(0xFF707070)),
-                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                    //     ),
-
-                    //     suffixIcon: GestureDetector(
-                    //         onTap: (() => setState(
-                    //               () => _passwordVisible = !_passwordVisible,
-                    //             )),
-                    //         child: Column(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           children: [
-                    //             Padding(
-                    //               padding: EdgeInsets.only(right: 20.0),
-                    //               child: Text("Show",
-                    //                   style:
-                    //                       TextStyle(color: Color(0xFFFFB600))),
-                    //             ),
-                    //           ],
-                    //         )),
-                    //   ),
-                    // ),
                     CustomTextFormField(
                       isInputPassword: true,
                       hintText: "Password",
@@ -156,7 +118,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             'Has at least 8 characters',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 12,
+                                fontSize: 14.sm,
                                 color: _isPasswordEightCar
                                     ? Color(0xff143C6D)
                                     : Colors.black),
@@ -164,8 +126,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                         )
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Row(
                       children: [
@@ -192,7 +154,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             'Has at least 1 uppercase letter or symbol',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 12,
+                                fontSize: 14.sm,
                                 color: _isHasSymboleOrCaptital
                                     ? Color(0xff143C6D)
                                     : Colors.black),
@@ -200,8 +162,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                         )
                       ],
                     ),
-                    const SizedBox(
-                      height: 10,
+                    SizedBox(
+                      height: 10.h,
                     ),
                     Row(
                       children: [
@@ -228,7 +190,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             'Has a number',
                             style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 12,
+                                fontSize: 14.sm,
                                 color: _isHasOneNumber
                                     ? Color(0xff143C6D)
                                     : Colors.black),
@@ -244,11 +206,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 16,
+                          fontSize: 18.sm,
                           color: Color(0xff303030)),
                     ),
                     SizedBox(
-                      height: 3.h,
+                      height: 10.h,
                     ),
                     // TextFormField(
 
@@ -330,7 +292,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                     children: [
                       SizedBox(
                         width: double.infinity,
-                        height: 55.h,
+                        height: 50.h,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                               elevation: 3,
@@ -348,22 +310,22 @@ class _ResetPasswordState extends State<ResetPassword> {
                               ),
                             );
                           },
-                          child: const Text(
+                          child: Text(
                             'Reset Password',
                             style: TextStyle(
                               color: Colors.black,
                               fontFamily: 'Poppins',
-                              fontSize: 16,
+                              fontSize: 16.sm,
                             ),
                           ),
                         ),
                       ),
-                      const Positioned(
+                      Positioned(
                         right: 0,
                         top: 1,
                         child: CircleAvatar(
                           backgroundColor: Colors.white,
-                          radius: 25,
+                          radius: 25.r,
                           child: Icon(
                               color: Color(0xFF6B6B6B), Icons.arrow_forward),
                         ),

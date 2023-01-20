@@ -124,27 +124,38 @@ class _HomePageState extends State<HomePage> {
         ),
         child: BottomNavigationBar(
           elevation: 10,
-          unselectedIconTheme: IconThemeData(color: Colors.grey),
+          selectedFontSize: 16,
+          unselectedFontSize: 16,
+          unselectedIconTheme: IconThemeData(color: Colors.black),
           items: [
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/home-svgrepo-com.svg'),
+              icon: SvgPicture.asset(
+                'assets/images/home-svgrepo-com.svg',
+                height: 20,
+              ),
               label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Padding(
                   padding: const EdgeInsets.only(right: 8),
                   child: SvgPicture.asset(
-                      'assets/images/category-alt-svgrepo-com.svg')),
+                    'assets/images/category-alt-svgrepo-com.svg',
+                    height: 20,
+                  )),
               label: 'Categories',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                  'assets/images/money-dollar-coin-svgrepo-com.svg'),
+                'assets/images/money-dollar-coin-svgrepo-com.svg',
+                height: 20,
+              ),
               label: 'Investments',
             ),
             BottomNavigationBarItem(
               icon: SvgPicture.asset(
-                  'assets/images/chat-left-3-svgrepo-com (2).svg'),
+                'assets/images/chat-left-3-svgrepo-com (2).svg',
+                height: 20,
+              ),
               // Icon(
               //   Icons.home,
               //   //  color:
@@ -153,19 +164,21 @@ class _HomePageState extends State<HomePage> {
               label: 'Chat',
             ),
             BottomNavigationBarItem(
-              icon: SvgPicture.asset('assets/images/profile.svg'),
+              icon: SvgPicture.asset(
+                'assets/images/profile.svg',
+                height: 20,
+              ),
               label: 'Profile',
             ),
           ],
           currentIndex: _selectedIndex,
           unselectedItemColor: Colors.grey,
-          // selectedItemColor: Color(0xFFF78104),
-          backgroundColor: Colors.white,
+          selectedItemColor: Color(0xFFF78104),
+          backgroundColor: Colors.blue,
           onTap: (index) {
             print(index);
             _selectedTab(index);
           },
-          type: BottomNavigationBarType.fixed,
         ),
       ),
       body: SingleChildScrollView(
@@ -212,11 +225,11 @@ class _HomePageState extends State<HomePage> {
                                         Text(
                                           'Invest for Future\nin Stable Platform\nand Make\nFast Money',
                                           style: TextStyle(
-                                              fontSize: 14.sm,
+                                              fontSize: 15.sm,
                                               fontFamily: 'Poppins'),
                                         ),
                                         SizedBox(
-                                          height: 6.h,
+                                          height: 8.h,
                                         ),
                                         SizedBox(
                                           height: 30.h,
@@ -234,7 +247,8 @@ class _HomePageState extends State<HomePage> {
                                               child: Text(
                                                 'Invest Now',
                                                 style: TextStyle(
-                                                    fontSize: 12.sm,
+                                                    fontFamily: "Poppins",
+                                                    fontSize: 13.sm,
                                                     color: Colors.black),
                                               )),
                                         )
@@ -244,11 +258,11 @@ class _HomePageState extends State<HomePage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Image.asset(
-                                          'assets/images/Layer 1.png',
-                                          height: 100.h,
-                                          width: 185.w,
-                                        )
+                                        SvgPicture.asset(
+                                          "assets/images/persongraph.svg",
+                                          height: 113,
+                                          width: 205,
+                                        ),
                                       ],
                                     )
                                   ],
@@ -270,11 +284,11 @@ class _HomePageState extends State<HomePage> {
                                       Text(
                                         'Invest for Future\nin Stable Platform\nand Make\nFast Money',
                                         style: TextStyle(
-                                            fontSize: 14.sm,
+                                            fontSize: 15.sm,
                                             fontFamily: 'Poppins'),
                                       ),
                                       SizedBox(
-                                        height: 6.h,
+                                        height: 8.h,
                                       ),
                                       SizedBox(
                                         height: 30.h,
@@ -292,7 +306,8 @@ class _HomePageState extends State<HomePage> {
                                             child: Text(
                                               'Invest Now',
                                               style: TextStyle(
-                                                  fontSize: 12.sm,
+                                                  fontFamily: "Poppins",
+                                                  fontSize: 13.sm,
                                                   color: Colors.black),
                                             )),
                                       )
@@ -301,11 +316,11 @@ class _HomePageState extends State<HomePage> {
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Image.asset(
-                                        'assets/images/Layer 1.png',
-                                        height: 100.h,
-                                        width: 185.w,
-                                      )
+                                      SvgPicture.asset(
+                                        "assets/images/persongraph.svg",
+                                        height: 113,
+                                        width: 205,
+                                      ),
                                     ],
                                   )
                                 ],
@@ -339,14 +354,21 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.white,
                   child: Padding(
                     padding:
-                        const EdgeInsets.only(left: 12.0, top: 15, bottom: 8),
+                        const EdgeInsets.only(left: 15.0, top: 15, bottom: 8),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Your Invesments",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 3,
+                            ),
+                            Text(
+                              "Your Invesments",
+                              style: TextStyle(
+                                  fontSize: 17.sm, fontFamily: 'Poppins'),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 8.h,
@@ -382,7 +404,7 @@ class _HomePageState extends State<HomePage> {
                                         Text(
                                           'Chennai Office Opportunity',
                                           style: TextStyle(
-                                              fontSize: 14.sm,
+                                              fontSize: 16.sm,
                                               fontFamily: 'Poppins'),
                                         ),
                                         SizedBox(
@@ -392,7 +414,7 @@ class _HomePageState extends State<HomePage> {
                                           children: [
                                             Icon(
                                               Icons.location_on_outlined,
-                                              size: 14,
+                                              size: 17,
                                             ),
                                             SizedBox(
                                               width: 8.w,
@@ -400,13 +422,14 @@ class _HomePageState extends State<HomePage> {
                                             Text(
                                               'Perungudi, Chennai',
                                               style: TextStyle(
-                                                  fontSize: 12.sm,
+                                                  fontWeight: FontWeight.w300,
+                                                  fontSize: 14.sm,
                                                   fontFamily: 'Poppins'),
                                             )
                                           ],
                                         ),
                                         SizedBox(
-                                          height: 15.h,
+                                          height: 20.h,
                                         ),
                                         Row(
                                           mainAxisAlignment:
@@ -419,13 +442,15 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   "₹ 25,00,000",
                                                   style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
                                                       fontSize: 14.sm,
                                                       color: Colors.white),
                                                 ),
                                                 Text(
                                                   "Invested",
                                                   style: TextStyle(
-                                                      fontSize: 12.sm,
+                                                      fontSize: 14.sm,
                                                       fontFamily: 'Poppins'),
                                                 ),
                                               ],
@@ -435,6 +460,8 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   "₹ 20,000",
                                                   style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
                                                       fontSize: 14.sm,
                                                       fontFamily: 'Poppins',
                                                       color: Colors.white),
@@ -442,7 +469,7 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   "Current",
                                                   style: TextStyle(
-                                                      fontSize: 12.sm,
+                                                      fontSize: 14.sm,
                                                       fontFamily: 'Poppins'),
                                                 ),
                                               ],
@@ -452,6 +479,8 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   "+ 12 %",
                                                   style: TextStyle(
+                                                      fontWeight:
+                                                          FontWeight.w500,
                                                       fontSize: 14.sm,
                                                       fontFamily: 'Poppins',
                                                       color: Color(0xFF197219)),
@@ -459,7 +488,7 @@ class _HomePageState extends State<HomePage> {
                                                 Text(
                                                   "P & L",
                                                   style: TextStyle(
-                                                      fontSize: 12.sm,
+                                                      fontSize: 14.sm,
                                                       fontFamily: 'Poppins'),
                                                 ),
                                               ],
@@ -490,7 +519,7 @@ class _HomePageState extends State<HomePage> {
                                       Text(
                                         'Chennai Office Opportunity',
                                         style: TextStyle(
-                                            fontSize: 14.sm,
+                                            fontSize: 16.sm,
                                             fontFamily: 'Poppins'),
                                       ),
                                       SizedBox(
@@ -500,7 +529,7 @@ class _HomePageState extends State<HomePage> {
                                         children: [
                                           Icon(
                                             Icons.location_on_outlined,
-                                            size: 14,
+                                            size: 17,
                                           ),
                                           SizedBox(
                                             width: 8.w,
@@ -508,13 +537,14 @@ class _HomePageState extends State<HomePage> {
                                           Text(
                                             'Perungudi, Chennai',
                                             style: TextStyle(
-                                                fontSize: 12.sm,
+                                                fontWeight: FontWeight.w300,
+                                                fontSize: 14.sm,
                                                 fontFamily: 'Poppins'),
                                           )
                                         ],
                                       ),
                                       SizedBox(
-                                        height: 15.h,
+                                        height: 20.h,
                                       ),
                                       Row(
                                         mainAxisAlignment:
@@ -527,13 +557,14 @@ class _HomePageState extends State<HomePage> {
                                               Text(
                                                 "₹ 25,00,000",
                                                 style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
                                                     fontSize: 14.sm,
-                                                    color: Colors.white),
+                                                    color: Color(0xFF153D6D)),
                                               ),
                                               Text(
                                                 "Invested",
                                                 style: TextStyle(
-                                                    fontSize: 12.sm,
+                                                    fontSize: 14.sm,
                                                     fontFamily: 'Poppins'),
                                               ),
                                             ],
@@ -543,14 +574,15 @@ class _HomePageState extends State<HomePage> {
                                               Text(
                                                 "₹ 20,000",
                                                 style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
                                                     fontSize: 14.sm,
                                                     fontFamily: 'Poppins',
-                                                    color: Colors.white),
+                                                    color: Color(0xFF153D6D)),
                                               ),
                                               Text(
                                                 "Current",
                                                 style: TextStyle(
-                                                    fontSize: 12.sm,
+                                                    fontSize: 14.sm,
                                                     fontFamily: 'Poppins'),
                                               ),
                                             ],
@@ -558,16 +590,17 @@ class _HomePageState extends State<HomePage> {
                                           Column(
                                             children: [
                                               Text(
-                                                "+ 12 %",
+                                                "- 5.4 %",
                                                 style: TextStyle(
+                                                    fontWeight: FontWeight.w500,
                                                     fontSize: 14.sm,
                                                     fontFamily: 'Poppins',
-                                                    color: Color(0xFF197219)),
+                                                    color: Colors.red),
                                               ),
                                               Text(
                                                 "P & L",
                                                 style: TextStyle(
-                                                    fontSize: 12.sm,
+                                                    fontSize: 14.sm,
                                                     fontFamily: 'Poppins'),
                                               ),
                                             ],
@@ -620,10 +653,14 @@ class _HomePageState extends State<HomePage> {
                           Column(
                             children: [
                               Image.asset(
-                                  "assets/images/62b056e889c1b-property-image.png")
+                                "assets/images/62b056e889c1b-property-image.png",
+                                height: 151,
+                                width: 155,
+                              )
                             ],
                           ),
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
@@ -632,7 +669,7 @@ class _HomePageState extends State<HomePage> {
                                     fontSize: 12.sm, fontFamily: 'Poppins'),
                               ),
                               SizedBox(
-                                height: 5.h,
+                                height: 10.h,
                               ),
                               Text(
                                 "Vaishnavi Tech Park\nOpportunity",
@@ -642,7 +679,7 @@ class _HomePageState extends State<HomePage> {
                                     fontFamily: 'Poppins'),
                               ),
                               SizedBox(
-                                height: 10.h,
+                                height: 11.h,
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -659,14 +696,30 @@ class _HomePageState extends State<HomePage> {
                                 ],
                               ),
                               SizedBox(
-                                height: 10.h,
+                                height: 11.h,
                               ),
                               SizedBox(
-                                  height: 25.h,
-                                  width: 120.w,
-                                  child: CustomNextButton(
-                                    text: 'View Details',
-                                  ))
+                                height: 30.h,
+                                width: 120.w,
+                                child: ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    elevation: 0,
+                                    backgroundColor: Color(0xFFFFB600),
+                                    //  color: Color(0xFFFFB600),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "View Details",
+                                    style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        color: Colors.black,
+                                        fontSize: 14),
+                                  ),
+                                  onPressed: () {},
+                                ),
+                              )
                             ],
                           )
                         ],
@@ -691,10 +744,17 @@ class _HomePageState extends State<HomePage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Categories",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 3.w,
+                            ),
+                            Text(
+                              "Categories",
+                              style: TextStyle(
+                                  fontSize: 17.sm, fontFamily: 'Poppins'),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 8.h,
@@ -721,11 +781,13 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     child: Padding(
                                         padding: EdgeInsets.only(
-                                            top: 10.0,
+                                            top: 5.0,
                                             left: 13,
                                             right: 13,
                                             bottom: 5),
                                         child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
                                           children: [
                                             Image.asset(
                                               "assets/images/categoryresidential.png",
@@ -738,7 +800,7 @@ class _HomePageState extends State<HomePage> {
                                             Text(
                                               'Fractional\nReal Estate',
                                               style: TextStyle(
-                                                  fontSize: 12.sm,
+                                                  fontSize: 16.sm,
                                                   fontFamily: 'Poppins'),
                                             )
                                           ],
@@ -756,11 +818,13 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   child: Padding(
                                       padding: EdgeInsets.only(
-                                          top: 14.0,
+                                          top: 5.0,
                                           left: 13,
                                           right: 13,
                                           bottom: 5),
                                       child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Image.asset(
                                             "assets/images/blockchain.png",
@@ -799,21 +863,28 @@ class _HomePageState extends State<HomePage> {
                   ),
                   color: Colors.white,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15.0, top: 15, bottom: 14),
+                    padding: const EdgeInsets.only(
+                        left: 12.0, top: 15, bottom: 14, right: 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          "Top Pick",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 3.w,
+                            ),
+                            Text(
+                              "Top Pick",
+                              style: TextStyle(
+                                  fontSize: 17.sm, fontFamily: 'Poppins'),
+                            ),
+                          ],
                         ),
                         SizedBox(
                           height: 8.h,
                         ),
                         SizedBox(
-                          height: 235.h,
+                          height: 244.h,
                           child: PageView.builder(
                             padEnds: false,
                             controller: pickcontroller,
@@ -832,8 +903,10 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   child: Padding(
                                     padding: EdgeInsets.only(
-                                        top: 5.0, left: 5, right: 5, bottom: 5),
+                                        top: 4.0, left: 5, right: 5, bottom: 4),
                                     child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
@@ -848,7 +921,7 @@ class _HomePageState extends State<HomePage> {
                                         Text(
                                           'Fractional Real Estate',
                                           style: TextStyle(
-                                              fontSize: 12.sm,
+                                              fontSize: 14.sm,
                                               fontFamily: 'Poppins'),
                                         ),
                                         SizedBox(
@@ -858,7 +931,8 @@ class _HomePageState extends State<HomePage> {
                                           'Vaishnavi Tech Park\nOpportunity',
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                              fontSize: 14.sm,
+                                              fontWeight: FontWeight.w500,
+                                              fontSize: 16.sm,
                                               fontFamily: 'Poppins'),
                                         ),
                                         SizedBox(
@@ -872,11 +946,15 @@ class _HomePageState extends State<HomePage> {
                                             SizedBox(
                                               width: 4.w,
                                             ),
-                                            Text(
-                                              'Outer Ring Road Sarjapur, Bangalore',
-                                              style: TextStyle(
+                                            Expanded(
+                                              child: Text(
+                                                'Outer Ring Road Sarjapur, Bangalore',
+                                                overflow: TextOverflow.visible,
+                                                style: TextStyle(
                                                   fontFamily: "Poppins",
-                                                  fontSize: 8.sm),
+                                                  fontSize: 13.sm,
+                                                ),
+                                              ),
                                             ),
                                           ],
                                         ),
@@ -884,10 +962,29 @@ class _HomePageState extends State<HomePage> {
                                           height: 8.h,
                                         ),
                                         SizedBox(
-                                            height: 25.h,
-                                            width: 120.w,
-                                            child: CustomNextButton(
-                                                text: 'View Details'))
+                                          height: 30.h,
+                                          width: 120.w,
+                                          child: ElevatedButton(
+                                            style: ElevatedButton.styleFrom(
+                                              elevation: 0,
+                                              backgroundColor:
+                                                  Color(0xFFFFB600),
+                                              //  color: Color(0xFFFFB600),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(30),
+                                              ),
+                                            ),
+                                            child: Text(
+                                              "View Details",
+                                              style: TextStyle(
+                                                  fontFamily: "Poppins",
+                                                  color: Colors.black,
+                                                  fontSize: 14),
+                                            ),
+                                            onPressed: () {},
+                                          ),
+                                        )
                                       ],
                                     ),
                                   ),
@@ -901,8 +998,9 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 child: Padding(
                                   padding: EdgeInsets.only(
-                                      top: 5.0, left: 5, right: 5, bottom: 5),
+                                      top: 4.0, left: 5, right: 5, bottom: 4),
                                   child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: [
@@ -917,7 +1015,7 @@ class _HomePageState extends State<HomePage> {
                                       Text(
                                         'Fractional Real Estate',
                                         style: TextStyle(
-                                            fontSize: 12.sm,
+                                            fontSize: 14.sm,
                                             fontFamily: 'Poppins'),
                                       ),
                                       SizedBox(
@@ -927,7 +1025,8 @@ class _HomePageState extends State<HomePage> {
                                         'Vaishnavi Tech Park\nOpportunity',
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
-                                            fontSize: 14.sm,
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 16.sm,
                                             fontFamily: 'Poppins'),
                                       ),
                                       SizedBox(
@@ -941,11 +1040,15 @@ class _HomePageState extends State<HomePage> {
                                           SizedBox(
                                             width: 4.w,
                                           ),
-                                          Text(
-                                            'Outer Ring Road Sarjapur, Bangalore',
-                                            style: TextStyle(
+                                          Expanded(
+                                            child: Text(
+                                              'Outer Ring Road Sarjapur, Bangalore',
+                                              overflow: TextOverflow.visible,
+                                              style: TextStyle(
                                                 fontFamily: "Poppins",
-                                                fontSize: 8.sm),
+                                                fontSize: 13.sm,
+                                              ),
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -953,10 +1056,28 @@ class _HomePageState extends State<HomePage> {
                                         height: 8.h,
                                       ),
                                       SizedBox(
-                                          height: 25.h,
-                                          width: 120.w,
-                                          child: CustomNextButton(
-                                              text: 'View Details'))
+                                        height: 30.h,
+                                        width: 120.w,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 0,
+                                            backgroundColor: Color(0xFFFFB600),
+                                            //  color: Color(0xFFFFB600),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(30),
+                                            ),
+                                          ),
+                                          child: Text(
+                                            "View Details",
+                                            style: TextStyle(
+                                                fontFamily: "Poppins",
+                                                color: Colors.black,
+                                                fontSize: 14),
+                                          ),
+                                          onPressed: () {},
+                                        ),
+                                      )
                                     ],
                                   ),
                                 ),
@@ -1013,8 +1134,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   color: Colors.white,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 12.0, top: 10, bottom: 5),
+                    padding: const EdgeInsets.only(
+                        left: 12.0, top: 10, bottom: 5, right: 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -1040,19 +1161,19 @@ class _HomePageState extends State<HomePage> {
                               if (index1 == 0) {
                                 return Card(
                                   elevation: 2,
-                                  color: Color(0xFFFFFAEE),
+                                  color: Color(0xFFF0F7FF),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15),
                                   ),
                                   child: Padding(
                                     padding: EdgeInsets.only(
                                         top: 5.0,
-                                        left: 25,
-                                        right: 5,
+                                        left: 15,
+                                        right: 15,
                                         bottom: 5),
                                     child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Image.asset(
                                           'assets/images/12643932_5031659.png',
@@ -1060,16 +1181,24 @@ class _HomePageState extends State<HomePage> {
                                         SizedBox(
                                           height: 9.h,
                                         ),
-                                        Text(
-                                          'Retail banks wake up\nto digital',
-                                          style: TextStyle(
-                                              fontSize: 12.sm,
-                                              fontFamily: 'Poppins'),
+                                        Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Retail banks wake up\nto digital',
+                                              style: TextStyle(
+                                                  fontSize: 16.sm,
+                                                  fontFamily: 'Poppins'),
+                                            ),
+                                          ],
                                         ),
                                         // SizedBox(
                                         //   height: 9.h,
                                         // ),
                                         Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
                                           crossAxisAlignment:
                                               CrossAxisAlignment.center,
                                           children: [
@@ -1084,16 +1213,16 @@ class _HomePageState extends State<HomePage> {
                                               "October 17 , 2022",
                                               style: TextStyle(
                                                   fontFamily: 'Poppins',
-                                                  fontSize: 10.sm),
+                                                  fontSize: 14.sm),
                                             ),
                                             Spacer(),
                                             SizedBox(
-                                              height: 30.h,
+                                              height: 40.h,
                                               child: ElevatedButton(
                                                 onPressed: () {},
                                                 child: Icon(
                                                   Icons.arrow_forward,
-                                                  size: 15,
+                                                  size: 20,
                                                   color: Colors.black,
                                                 ),
                                                 style: ElevatedButton.styleFrom(
@@ -1111,16 +1240,15 @@ class _HomePageState extends State<HomePage> {
                               } //2nd plan
                               return Card(
                                 elevation: 2,
-                                color: Color(0xFFFFFAEE),
+                                color: Color(0xFFF0F7FF),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                 ),
                                 child: Padding(
                                   padding: EdgeInsets.only(
-                                      top: 5.0, left: 25, right: 5, bottom: 5),
+                                      top: 5.0, left: 15, right: 15, bottom: 5),
                                   child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       Image.asset(
                                         'assets/images/12643932_5031659.png',
@@ -1128,13 +1256,24 @@ class _HomePageState extends State<HomePage> {
                                       SizedBox(
                                         height: 9.h,
                                       ),
-                                      Text(
-                                        'Retail banks wake up\nto digital',
-                                        style: TextStyle(
-                                            fontSize: 12.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
                                       Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'Retail banks wake up\nto digital',
+                                            style: TextStyle(
+                                                fontSize: 16.sm,
+                                                fontFamily: 'Poppins'),
+                                          ),
+                                        ],
+                                      ),
+                                      // SizedBox(
+                                      //   height: 9.h,
+                                      // ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
@@ -1149,16 +1288,16 @@ class _HomePageState extends State<HomePage> {
                                             "October 17 , 2022",
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 10.sm),
+                                                fontSize: 14.sm),
                                           ),
                                           Spacer(),
                                           SizedBox(
-                                            height: 30.h,
+                                            height: 40.h,
                                             child: ElevatedButton(
                                               onPressed: () {},
                                               child: Icon(
                                                 Icons.arrow_forward,
-                                                size: 15,
+                                                size: 20,
                                                 color: Colors.black,
                                               ),
                                               style: ElevatedButton.styleFrom(

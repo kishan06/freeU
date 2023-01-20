@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
 class otpVerification extends StatefulWidget {
@@ -26,22 +27,10 @@ class _otpVerificationState extends State<otpVerification> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFFF9F9F9),
-        appBar: AppBar(
-          backgroundColor: Color(0xffffffff),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back,
-            ),
-            iconSize: 22,
-            color: Color(0xFF6B6B6B),
-          ),
-          title: Text(
-            "Forget Password",
-            style: TextStyle(color: Color(0xFF242323)),
-          ),
+        appBar: CustomSignupAppBar(
+          titleTxt: "Forgot Password",
+          showLeading: true,
+          bottomtext: false,
         ),
         body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
@@ -52,10 +41,13 @@ class _otpVerificationState extends State<otpVerification> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      SizedBox(
+                        height: 20.h,
+                      ),
                       Text(
                         "We will send a verification email to the email address on your account in order to reset your password",
                         style: TextStyle(
-                          fontSize: 15,
+                          fontSize: 18.sm,
                           fontFamily: 'Poppins',
                         ),
                       ),
@@ -65,31 +57,32 @@ class _otpVerificationState extends State<otpVerification> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            "Phone",
-                            // ignore: prefer_const_constructors
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16,
-                                color: Color(0xff303030)),
-                          ),
-                          SizedBox(
-                            height: 3.h,
-                          ),
                           TextFormField(
-                            maxLength: 10,
+                            readOnly: true,
                             controller: phoneController,
                             keyboardType: TextInputType.phone,
                             inputFormatters: <TextInputFormatter>[
                               FilteringTextInputFormatter.digitsOnly
                             ],
                             decoration: InputDecoration(
+                              focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 2, //<-- SEE HERE
+                                    color: Color(0xFFFFB600)),
+                              ),
+                              enabledBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 2, //<-- SEE HERE
+                                    color: Color(0xFFFFB600)),
+                              ),
                               border: UnderlineInputBorder(
                                 borderSide: BorderSide(
                                     width: 2, //<-- SEE HERE
                                     color: Color(0xFFFFB600)),
                               ),
-                              hintText: "Enter your number",
+                              hintText: "9987171951",
+                              hintStyle: TextStyle(
+                                  fontFamily: "Poppins", fontSize: 18.sm),
                               prefixIcon: Align(
                                 widthFactor: 1.0,
                                 heightFactor: 1.0,

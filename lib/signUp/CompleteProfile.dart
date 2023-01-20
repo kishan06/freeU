@@ -72,9 +72,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         });
                       },
                       title: Text(
-                        "Do you really want to learn Flutter?",
+                        "Dont't show this message again",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18.sm,
                           fontFamily: 'Poppins',
                         ),
                       ),
@@ -108,12 +108,12 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               ),
                             ),
                             child: SizedBox(
-                              width: 100,
+                              width: 100.h,
                               child: Text(
                                 'Yes',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 20.sm,
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF000000),
                                 ),
@@ -140,12 +140,12 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               ),
                             ),
                             child: SizedBox(
-                              width: 100,
+                              width: 80.w,
                               child: Text(
                                 'No',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
-                                  fontSize: 20,
+                                  fontSize: 20.sm,
                                   fontFamily: 'Poppins',
                                   color: Color(0xFF6B6B6B),
                                 ),
@@ -154,6 +154,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                     )
                   ],
+                ),
+                SizedBox(
+                  height: 20.h,
                 )
               ],
             ),
@@ -217,34 +220,39 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ],
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 10.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomTextFormField(
-                            hintText: "Full Name", validatorText: "Full Name"),
-                        SizedBox(height: 30.h),
+                        SizedBox(
+                          height: 56.h,
+                          child: CustomTextFormField(
+                              hintText: "Full Name",
+                              validatorText: "Full Name"),
+                        ),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Email Id", validatorText: "Email Id"),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
-                            hintText: "Phone Numbe",
-                            validatorText: "Phone Numbe"),
-                        SizedBox(height: 30.h),
+                            hintText: "Phone Number",
+                            validatorText: "Phone Number"),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Date Of Birth",
                             validatorText: "Date Of Birth"),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Occupation",
                             validatorText: "Occupation"),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 25.h),
                         TextFormField(
                           cursorColor: const Color(0xFFFFB600),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
+                            contentPadding: EdgeInsets.only(
+                                left: 20, right: 20, top: 10, bottom: 10),
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
@@ -272,20 +280,20 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               borderSide:
                                   const BorderSide(color: Colors.red, width: 1),
                             ),
-                            hintStyle: const TextStyle(
-                                color: Color(0x80000000), fontSize: 14),
-                            hintText: "",
+                            hintStyle: TextStyle(
+                                color: Color(0x80000000),
+                                fontSize: 16.sm,
+                                fontFamily: "Poppins"),
+                            hintText: "Address",
                           ),
                           minLines: 5,
                           maxLines: null,
                         ),
-                        SizedBox(
-                          height: 30,
-                        ),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Enter Aadhar Number",
                             validatorText: "Enter Aadhar Number"),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Enter Pan Number",
                             validatorText: "Enter Pan Number")
