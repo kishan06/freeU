@@ -164,8 +164,9 @@ class _NavDrawerState extends State<NavDrawer> {
                   SizedBox(
                     height: 50.h,
                     child: GestureDetector(
-                      onTap: () {},
-                      // Get.toNamed("/kyc1"),
+                      onTap: () {
+                        Get.toNamed("/howtoinvest");
+                      },
                       child: Card(
                         shape: RoundedRectangleBorder(
                           side:
@@ -438,8 +439,9 @@ class _NavDrawerState extends State<NavDrawer> {
                   SizedBox(
                     height: 50.h,
                     child: GestureDetector(
-                      onTap: () {},
-                      // Get.toNamed("/kyc1"),
+                      onTap: () {
+                        Get.toNamed("/contactus");
+                      },
                       child: Card(
                         shape: RoundedRectangleBorder(
                           side:

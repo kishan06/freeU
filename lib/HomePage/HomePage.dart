@@ -1,13 +1,8 @@
-import 'dart:ui';
-
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/SideMenu/NavDrawer.dart';
-import 'package:freeu/common/customNextButton.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class HomePage extends StatefulWidget {
@@ -42,13 +37,13 @@ class _HomePageState extends State<HomePage> {
       switch (index) {
         case 0:
           {
-            Navigator.push(
-                context, MaterialPageRoute(builder: ((context) => HomePage())));
+            Get.toNamed("/homepage");
           }
           break;
 
         case 1:
           {
+            Get.toNamed('/categoriesmain');
             // Navigator.push(context,
             //     MaterialPageRoute(builder: ((context) => SecurityFirst())));
           }
@@ -117,69 +112,56 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30.0),
-          topRight: Radius.circular(30.0),
-        ),
-        child: BottomNavigationBar(
-          elevation: 10,
-          selectedFontSize: 16,
-          unselectedFontSize: 16,
-          unselectedIconTheme: IconThemeData(color: Colors.black),
-          items: [
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/home-svgrepo-com.svg',
-                height: 20,
-              ),
-              label: 'Home',
+      bottomNavigationBar: BottomNavigationBar(
+        selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),
+        unselectedLabelStyle: TextStyle(color: Colors.grey),
+        unselectedIconTheme: IconThemeData(color: Colors.grey),
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/images/home-svgrepo-com.svg',
+              height: 20,
             ),
-            BottomNavigationBarItem(
-              icon: Padding(
-                  padding: const EdgeInsets.only(right: 8),
-                  child: SvgPicture.asset(
-                    'assets/images/category-alt-svgrepo-com.svg',
-                    height: 20,
-                  )),
-              label: 'Categories',
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/images/category-alt-svgrepo-com.svg',
+              height: 20,
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/money-dollar-coin-svgrepo-com.svg',
-                height: 20,
-              ),
-              label: 'Investments',
+            label: 'Categories',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/images/money-dollar-coin-svgrepo-com.svg',
+              height: 20,
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/chat-left-3-svgrepo-com (2).svg',
-                height: 20,
-              ),
-              // Icon(
-              //   Icons.home,
-              //   //  color:
-              //   //       Get.isDarkMode ? Color(0xFFF78104) : Color(0xFFF78104)
-              // ),
-              label: 'Chat',
+            label: 'Investments',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/images/chat-left-3-svgrepo-com (2).svg',
+              height: 20,
             ),
-            BottomNavigationBarItem(
-              icon: SvgPicture.asset(
-                'assets/images/profile.svg',
-                height: 20,
-              ),
-              label: 'Profile',
+            label: 'Chat',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/images/profile.svg',
+              height: 20,
             ),
-          ],
-          currentIndex: _selectedIndex,
-          unselectedItemColor: Colors.grey,
-          selectedItemColor: Color(0xFFF78104),
-          backgroundColor: Colors.blue,
-          onTap: (index) {
-            print(index);
-            _selectedTab(index);
-          },
-        ),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: 0,
+        unselectedItemColor: Colors.grey,
+        selectedItemColor: Color(0xFFF78104),
+        backgroundColor: Colors.white,
+        onTap: (index) {
+          print(index);
+          _selectedTab(index);
+        },
+        type: BottomNavigationBarType.fixed,
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -199,7 +181,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 145.h,
+                        height: 148.h,
                         child: PageView.builder(
                           controller: indicatorcontroller,
                           itemCount: 3,
@@ -211,7 +193,7 @@ class _HomePageState extends State<HomePage> {
                             if (index1 == 0) {
                               return Padding(
                                 padding: EdgeInsets.only(
-                                    top: 10.0, left: 8, right: 0, bottom: 5),
+                                    top: 10.0, left: 6, right: 0, bottom: 5),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -333,8 +315,8 @@ class _HomePageState extends State<HomePage> {
                         controller: indicatorcontroller,
                         count: 3,
                         effect: ExpandingDotsEffect(
-                            dotHeight: 7,
-                            dotWidth: 7,
+                            dotHeight: 7.h,
+                            dotWidth: 7.w,
                             activeDotColor: Color(0xFF153D6D),
                             dotColor: Color(0xFF153D6D).withOpacity(0.4)),
                       ),
@@ -346,22 +328,26 @@ class _HomePageState extends State<HomePage> {
                 height: 15.h,
               ),
               SizedBox(
-                height: 215.h,
+                height: 217.h,
                 child: Card(
                   shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      width: 0.5,
+                      color: Color(0xFFCFCFCF).withOpacity(1),
+                    ),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   color: Colors.white,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15.0, top: 15, bottom: 8),
+                    padding: const EdgeInsets.only(
+                        left: 12.0, top: 15, bottom: 8, right: 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           children: [
                             SizedBox(
-                              width: 3,
+                              width: 3.w,
                             ),
                             Text(
                               "Your Invesments",
@@ -374,7 +360,7 @@ class _HomePageState extends State<HomePage> {
                           height: 8.h,
                         ),
                         SizedBox(
-                          height: 145.h,
+                          height: 149.h,
                           child: PageView.builder(
                             padEnds: false,
                             controller: investmentcontroller,
@@ -624,6 +610,10 @@ class _HomePageState extends State<HomePage> {
               ),
               Card(
                 shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    width: 0.5,
+                    color: Color(0xFFCFCFCF).withOpacity(1),
+                  ),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Padding(
@@ -715,7 +705,7 @@ class _HomePageState extends State<HomePage> {
                                     style: TextStyle(
                                         fontFamily: "Poppins",
                                         color: Colors.black,
-                                        fontSize: 14),
+                                        fontSize: 14.sm),
                                   ),
                                   onPressed: () {},
                                 ),
@@ -729,18 +719,22 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 10.h,
               ),
               SizedBox(
                 height: 170.h,
                 child: Card(
                   shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      width: 0.5,
+                      color: Color(0xFFCFCFCF).withOpacity(1),
+                    ),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   color: Colors.white,
                   child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15.0, top: 12, bottom: 12),
+                    padding: EdgeInsets.only(
+                        left: 12.0, top: 12, bottom: 12, right: 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -773,6 +767,53 @@ class _HomePageState extends State<HomePage> {
                               if (index1 == 0) {
                                 return SizedBox(
                                   height: 80.h,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Get.toNamed(
+                                          '/fractionalrealestateproperty1');
+                                    },
+                                    child: Card(
+                                      elevation: 2,
+                                      color: Color(0xFFDFEDFF),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(15),
+                                      ),
+                                      child: Padding(
+                                          padding: EdgeInsets.only(
+                                              top: 5.0,
+                                              left: 10,
+                                              right: 10,
+                                              bottom: 5),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
+                                            children: [
+                                              Image.asset(
+                                                "assets/images/categoryresidential.png",
+                                                height: 50,
+                                                width: 50,
+                                              ),
+                                              SizedBox(
+                                                width: 13.w,
+                                              ),
+                                              Text(
+                                                'Fractional\nReal Estate',
+                                                style: TextStyle(
+                                                    fontSize: 16.sm,
+                                                    fontFamily: 'Poppins'),
+                                              )
+                                            ],
+                                          )),
+                                    ),
+                                  ),
+                                );
+                              } //2nd plan
+                              return SizedBox(
+                                width: 65.w,
+                                child: GestureDetector(
+                                  onTap: () {
+                                    Get.toNamed('/peerlendingasset1');
+                                  },
                                   child: Card(
                                     elevation: 2,
                                     color: Color(0xFFDFEDFF),
@@ -782,23 +823,23 @@ class _HomePageState extends State<HomePage> {
                                     child: Padding(
                                         padding: EdgeInsets.only(
                                             top: 5.0,
-                                            left: 13,
-                                            right: 13,
+                                            left: 10,
+                                            right: 10,
                                             bottom: 5),
                                         child: Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
                                             Image.asset(
-                                              "assets/images/categoryresidential.png",
-                                              height: 50.h,
-                                              width: 50.w,
+                                              "assets/images/blockchain.png",
+                                              height: 50,
+                                              width: 50,
                                             ),
                                             SizedBox(
                                               width: 13.w,
                                             ),
                                             Text(
-                                              'Fractional\nReal Estate',
+                                              'Peer- Peer\nlending',
                                               style: TextStyle(
                                                   fontSize: 16.sm,
                                                   fontFamily: 'Poppins'),
@@ -806,42 +847,6 @@ class _HomePageState extends State<HomePage> {
                                           ],
                                         )),
                                   ),
-                                );
-                              } //2nd plan
-                              return SizedBox(
-                                width: 65.w,
-                                child: Card(
-                                  elevation: 2,
-                                  color: Color(0xFFDFEDFF),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 5.0,
-                                          left: 13,
-                                          right: 13,
-                                          bottom: 5),
-                                      child: Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          Image.asset(
-                                            "assets/images/blockchain.png",
-                                            height: 50.h,
-                                            width: 50.w,
-                                          ),
-                                          SizedBox(
-                                            width: 13.w,
-                                          ),
-                                          Text(
-                                            'Peer- Peer\nlending',
-                                            style: TextStyle(
-                                                fontSize: 16.sm,
-                                                fontFamily: 'Poppins'),
-                                          )
-                                        ],
-                                      )),
                                 ),
                               );
                             },
@@ -856,14 +861,18 @@ class _HomePageState extends State<HomePage> {
                 height: 15.h,
               ),
               SizedBox(
-                height: 310.h,
+                height: 328.h,
                 child: Card(
                   shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      width: 0.5,
+                      color: Color(0xFFCFCFCF).withOpacity(1),
+                    ),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   color: Colors.white,
                   child: Padding(
-                    padding: const EdgeInsets.only(
+                    padding: EdgeInsets.only(
                         left: 12.0, top: 15, bottom: 14, right: 12),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -884,7 +893,7 @@ class _HomePageState extends State<HomePage> {
                           height: 8.h,
                         ),
                         SizedBox(
-                          height: 244.h,
+                          height: 255.h,
                           child: PageView.builder(
                             padEnds: false,
                             controller: pickcontroller,
@@ -912,8 +921,8 @@ class _HomePageState extends State<HomePage> {
                                       children: [
                                         Image.asset(
                                           'assets/images/Group 13531.png',
-                                          height: 70.h,
-                                          width: 70.w,
+                                          height: 70,
+                                          width: 70,
                                         ),
                                         SizedBox(
                                           height: 9.h,
@@ -980,7 +989,7 @@ class _HomePageState extends State<HomePage> {
                                               style: TextStyle(
                                                   fontFamily: "Poppins",
                                                   color: Colors.black,
-                                                  fontSize: 14),
+                                                  fontSize: 14.sm),
                                             ),
                                             onPressed: () {},
                                           ),
@@ -1006,8 +1015,8 @@ class _HomePageState extends State<HomePage> {
                                     children: [
                                       Image.asset(
                                         'assets/images/Group 13531.png',
-                                        height: 70.h,
-                                        width: 70.w,
+                                        height: 70,
+                                        width: 70,
                                       ),
                                       SizedBox(
                                         height: 9.h,
@@ -1073,7 +1082,7 @@ class _HomePageState extends State<HomePage> {
                                             style: TextStyle(
                                                 fontFamily: "Poppins",
                                                 color: Colors.black,
-                                                fontSize: 14),
+                                                fontSize: 14.sm),
                                           ),
                                           onPressed: () {},
                                         ),
@@ -1095,6 +1104,10 @@ class _HomePageState extends State<HomePage> {
               ),
               Card(
                 shape: RoundedRectangleBorder(
+                  side: BorderSide(
+                    width: 0.5,
+                    color: Color(0xFFCFCFCF).withOpacity(1),
+                  ),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Padding(
@@ -1130,6 +1143,10 @@ class _HomePageState extends State<HomePage> {
                 height: 325.h,
                 child: Card(
                   shape: RoundedRectangleBorder(
+                    side: BorderSide(
+                      width: 0.5,
+                      color: Color(0xFFCFCFCF).withOpacity(1),
+                    ),
                     borderRadius: BorderRadius.circular(15),
                   ),
                   color: Colors.white,
@@ -1148,7 +1165,7 @@ class _HomePageState extends State<HomePage> {
                           height: 8.h,
                         ),
                         SizedBox(
-                          height: 265.h,
+                          height: 268.h,
                           child: PageView.builder(
                             padEnds: false,
                             controller: pickcontroller,
@@ -1321,7 +1338,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 20.h,
               )
             ],
           ),

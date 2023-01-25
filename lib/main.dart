@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
+import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty1.dart';
+import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty2.dart';
+import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset1.dart';
+import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset2.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Notification.dart';
+import 'package:freeu/SideMenu/ContactUs.dart';
+import 'package:freeu/SideMenu/HowToInvest.dart';
 import 'package:freeu/SideMenu/KYC/KYC1.dart';
 import 'package:freeu/SideMenu/KYC/KYC2.dart';
 import 'package:freeu/SideMenu/KYC/KYC3.dart';
@@ -66,6 +73,17 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/kyc3', page: () => KYC3()),
           GetPage(name: '/kyc4', page: () => KYC4()),
           GetPage(name: '/notificationpage', page: () => NotificationPage()),
+          GetPage(name: '/contactus', page: () => ContactUs()),
+          GetPage(name: '/howtoinvest', page: () => HowToInvest()),
+          GetPage(name: '/categoriesmain', page: () => CategoriesMain()),
+          GetPage(
+              name: '/fractionalrealestateproperty1',
+              page: () => FractionalRealEstateProperty1()),
+          GetPage(
+              name: '/fractionalrealestateproperty2',
+              page: () => FractionalRealEstateProperty2()),
+          GetPage(name: '/peerlendingasset1', page: () => PeerLendingAsset1()),
+          GetPage(name: '/peerlendingasset2', page: () => PeerLendingAsset2()),
         ],
       ),
       designSize: Size(390, 844),

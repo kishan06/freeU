@@ -42,7 +42,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
-                  height: 6,
+                  height: 6.h,
                 ),
                 CustomTextFormField(hintText: "Answer", validatorText: ""),
                 SizedBox(
@@ -57,7 +57,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
-                  height: 6,
+                  height: 6.h,
                 ),
                 CustomTextFormField(hintText: "Answer", validatorText: ""),
                 // TextFormField(
@@ -80,7 +80,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
-                  height: 6,
+                  height: 6.h,
                 ),
                 CustomTextFormField(hintText: "Answer", validatorText: ""),
                 // TextFormField(
@@ -103,7 +103,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
-                  height: 6,
+                  height: 6.h,
                 ),
                 CustomTextFormField(hintText: "Answer", validatorText: ""),
                 // TextFormField(
@@ -150,11 +150,11 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                             // );
                             Get.toNamed('/securityfirst');
                           },
-                          child: const Text(
+                          child: Text(
                             'Next',
                             style: TextStyle(
                               color: Colors.black,
-                              fontSize: 16,
+                              fontSize: 16.sm,
                               fontFamily: 'Poppins',
                             ),
                           ),
@@ -162,7 +162,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       ),
                       const Positioned(
                         right: 0,
-                        top: 1,
+                        top: 0,
                         child: CircleAvatar(
                           backgroundColor: Colors.white,
                           radius: 25,

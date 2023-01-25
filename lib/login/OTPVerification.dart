@@ -273,7 +273,7 @@ class _otpVerificationState extends State<otpVerification> {
                               children: [
                                 SizedBox(
                                   width: double.infinity,
-                                  height: 55.h,
+                                  height: 50.h,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
                                         elevation: 3,
@@ -289,7 +289,7 @@ class _otpVerificationState extends State<otpVerification> {
                                       Get.toNamed('/resetpassword');
                                     },
                                     child: const Text(
-                                      'Proceeds',
+                                      'Proceed',
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontSize: 16,
@@ -300,7 +300,7 @@ class _otpVerificationState extends State<otpVerification> {
                                 ),
                                 const Positioned(
                                   right: 0,
-                                  top: 1,
+                                  top: 0,
                                   child: CircleAvatar(
                                     backgroundColor: Colors.white,
                                     radius: 25,

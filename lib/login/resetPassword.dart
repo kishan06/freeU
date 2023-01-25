@@ -322,7 +322,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                       ),
                       Positioned(
                         right: 0,
-                        top: 1,
+                        top: 0,
                         child: CircleAvatar(
                           backgroundColor: Colors.white,
                           radius: 25.r,

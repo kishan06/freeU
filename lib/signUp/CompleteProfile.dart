@@ -30,7 +30,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
       builder: (context) {
         return StatefulBuilder(builder: (context, setState) {
           return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -85,74 +85,125 @@ class _CompleteProfileState extends State<CompleteProfile> {
                   height: 20.h,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Expanded(
-                        flex: 1,
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                              // buildLoginPin();
-                            },
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Color(0xFFFFB600)),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
-                                ),
-                              ),
+                    SizedBox(
+                      width: 156.w,
+                      height: 50.h,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Color(0xFFFFB600)),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                              side: BorderSide(
+                                  width: 3, color: Color(0xFFFFB600)),
                             ),
-                            child: SizedBox(
-                              width: 100.h,
-                              child: Text(
-                                'Yes',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 20.sm,
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xFF000000),
-                                ),
-                              ),
-                            )),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "Yes",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 16.sm,
+                              color: Colors.black),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Expanded(
-                        flex: 1,
-                        child: TextButton(
-                            onPressed: () {
-                              Get.toNamed("/homepage");
-                              // buildLoginPin();
-                            },
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  side: BorderSide(
-                                      width: 1, color: Color(0xFF6B6B6B)),
-                                ),
+                    SizedBox(
+                      width: 156.w,
+                      height: 50.h,
+                      child: OutlinedButton(
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                              side: BorderSide(
+                                width: 3,
                               ),
                             ),
-                            child: SizedBox(
-                              width: 80.w,
-                              child: Text(
-                                'No',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 20.sm,
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xFF6B6B6B),
-                                ),
-                              ),
-                            )),
+                          ),
+                        ),
+                        onPressed: () {
+                          Get.toNamed('/homepage');
+                        },
+                        child: Text(
+                          "No",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 16.sm,
+                              color: Colors.black),
+                        ),
                       ),
                     )
+                    //   Padding(
+                    //     padding: const EdgeInsets.all(10),
+                    //     child: Expanded(
+                    //       flex: 1,
+                    //       child: TextButton(
+                    //           onPressed: () {
+                    //             Navigator.pop(context);
+                    //             // buildLoginPin();
+                    //           },
+                    //           style: ButtonStyle(
+                    //             backgroundColor: MaterialStateProperty.all<Color>(
+                    //                 Color(0xFFFFB600)),
+                    //             shape: MaterialStateProperty.all(
+                    //               RoundedRectangleBorder(
+                    //                 borderRadius: BorderRadius.circular(30.0),
+                    //                 // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //           child: SizedBox(
+                    //             width: 100.h,
+                    //             child: Text(
+                    //               'Yes',
+                    //               textAlign: TextAlign.center,
+                    //               style: TextStyle(
+                    //                 fontSize: 20.sm,
+                    //                 fontFamily: 'Poppins',
+                    //                 color: Color(0xFF000000),
+                    //               ),
+                    //             ),
+                    //           )),
+                    //     ),
+                    //   ),
+                    //   Padding(
+                    //     padding: const EdgeInsets.all(10),
+                    //     child: Expanded(
+                    //       flex: 1,
+                    //       child: TextButton(
+                    //           onPressed: () {
+                    //             Get.toNamed("/homepage");
+                    //             // buildLoginPin();
+                    //           },
+                    //           style: ButtonStyle(
+                    //             shape: MaterialStateProperty.all(
+                    //               RoundedRectangleBorder(
+                    //                 borderRadius: BorderRadius.circular(30.0),
+                    //                 side: BorderSide(
+                    //                     width: 1, color: Color(0xFF6B6B6B)),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //           child: SizedBox(
+                    //             width: 80.w,
+                    //             child: Text(
+                    //               'No',
+                    //               textAlign: TextAlign.center,
+                    //               style: TextStyle(
+                    //                 fontSize: 20.sm,
+                    //                 fontFamily: 'Poppins',
+                    //                 color: Color(0xFF6B6B6B),
+                    //               ),
+                    //             ),
+                    //           )),
+                    //     ),
+                    //   )
                   ],
                 ),
                 SizedBox(

@@ -41,7 +41,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        style: TextStyle(fontSize: 16),
+        style: TextStyle(fontSize: 16, fontFamily: "Poppins"),
         readOnly: widget.readonly,
         cursorColor: const Color(0xFFFFB600),
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -98,13 +98,6 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
                     ],
                   ),
                 )
-              //  IconButton(
-              //     onPressed: () => setState(() => obscureText = !obscureText),
-              //     icon: Icon(
-              //       obscureText ? Icons.visibility_off : Icons.visibility,
-              //       color: Colors.black.withOpacity(0.5),
-              //     ),
-              //   )
               : null,
         ),
         validator: widget.validator,

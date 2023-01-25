@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import '../common/customNextButton.dart';
 
 class TouchId extends StatefulWidget {
@@ -47,15 +48,12 @@ class _TouchIdState extends State<TouchId> {
                 const SizedBox(
                   height: 70,
                 ),
-                SizedBox(
-                    width: double.infinity,
-                    height: 60,
-                    child: CustomNextButton(
-                      text: "Set up Now!",
-                      ontap: () {
-                        // _checkBio();
-                      },
-                    )),
+                CustomNextButton(
+                  text: "Set up Now",
+                  ontap: () {
+                    // _checkBio();
+                  },
+                ),
                 const SizedBox(
                   height: 16,
                 ),
@@ -71,7 +69,7 @@ class _TouchIdState extends State<TouchId> {
                   },
                   child: GestureDetector(
                     onTap: () {
-                      // buildGuidedTour();
+                      Get.toNamed('/completeprofile');
                     },
                     child: Text(
                       'will do it later',

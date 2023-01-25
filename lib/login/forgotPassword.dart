@@ -126,7 +126,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                                       Get.toNamed('/otpverification');
                                     },
                                     child: Text(
-                                      'Proceeds',
+                                      'Proceed',
                                       style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 16.sm,
@@ -136,7 +136,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                                 ),
                                 Positioned(
                                   right: 0,
-                                  top: 1,
+                                  top: 0,
                                   child: CircleAvatar(
                                     backgroundColor: Colors.white,
                                     radius: 25.r,
