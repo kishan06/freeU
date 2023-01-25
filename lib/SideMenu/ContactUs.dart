@@ -1,31 +1,23 @@
-// ignore_for_file: file_names, camel_case_types, prefer_const_constructors, duplicate_ignore, unused_import
-
 import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/HomePage.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/login/login.dart';
-import 'package:freeu/login/splashslider.dart';
-
 import 'package:get/get.dart';
 
-class KYC4 extends StatefulWidget {
-  const KYC4({super.key});
+class ContactUs extends StatefulWidget {
+  const ContactUs({super.key});
 
   @override
-  State<KYC4> createState() => _KYC4State();
+  State<ContactUs> createState() => _ContactUsState();
 }
 
-class _KYC4State extends State<KYC4> {
-  final countrytexteditingcontroller = TextEditingController();
+class _ContactUsState extends State<ContactUs> {
   final residentialstatustexteditingcontroller = TextEditingController();
-  final addresstextEditingController = TextEditingController();
-  final uploadfronttextEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +25,7 @@ class _KYC4State extends State<KYC4> {
     return Scaffold(
       backgroundColor: Color(0xFFF9F9F9),
       appBar: CustomSignupAppBar(
-        titleTxt: "KYC",
+        titleTxt: "Contact Us",
         bottomtext: false,
       ),
       body: SingleChildScrollView(
@@ -43,91 +35,80 @@ class _KYC4State extends State<KYC4> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Step 4 : Complete your KYC",
-                  style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 20.sm,
-                    color: Color(0xFF143C6D),
-                  ),
-                ),
+                Center(child: Image.asset("assets/images/contactusfinal.png")),
                 SizedBox(
                   height: 20.h,
                 ),
                 Text(
-                  "Bank account details",
-                  style: TextStyle(
-                    fontSize: 18.sm,
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w500,
-                    color: Color(0xFF000000),
-                  ),
-                ),
-                SizedBox(
-                  height: 10.h,
-                ),
-                Text(
-                  "Provide your Bank account details",
-                  style: TextStyle(
-                    fontSize: 16.sm,
-                    fontFamily: 'Poppins',
-                    color: Color(0xFF000000),
-                  ),
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Text(
-                  "IFSC code",
+                  "Name*",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
                       fontFamily: 'Poppins',
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
                 ),
                 CustomTextFormField(
-                    hintText: "Please Enter IFSC code",
-                    validatorText: "Please Enter IFSC code"),
+                    hintText: "Please Enter Full Name",
+                    validatorText: "Please Enter Full Name"),
                 SizedBox(
                   height: 20.h,
                 ),
                 Text(
-                  "Account Number",
+                  "Email ID*",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
                       fontFamily: 'Poppins',
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
                 ),
                 CustomTextFormField(
-                    hintText: "Please Enter Account Number",
-                    validatorText: "Please Enter Account Number"),
-                SizedBox(
-                  height: 20.h,
-                ),
+                    hintText: "Please Enter Email Address",
+                    validatorText: "Please Enter Email Address"),
+                SizedBox(height: 20.h),
                 Text(
-                  "Upload cancelled check/\nBank statement",
+                  "Mobile*",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
-                      fontSize: 14,
                       fontFamily: 'Poppins',
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
                   height: 6.h,
+                ),
+                CustomTextFormField(
+                    hintText: "Please Enter Mobile Number",
+                    validatorText: "Please Enter Mobile Number"),
+                SizedBox(height: 20.h),
+                Text(
+                  "Subject",
+                  // ignore: prefer_const_constructors
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 15.sm,
+                      color: Color(0xff303030)),
+                ),
+                SizedBox(
+                  height: 6.h,
+                ),
+                CustomTextFormField(
+                    hintText: "Please Enter Subject",
+                    validatorText: "Please Enter Subject"),
+                SizedBox(
+                  height: 8.h,
                 ),
                 TextFormField(
+                  style: TextStyle(fontSize: 16, fontFamily: "Poppins"),
                   cursorColor: const Color(0xFFFFB600),
                   autovalidateMode: AutovalidateMode.onUserInteraction,
-                  controller: uploadfronttextEditingController,
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(10),
+                    contentPadding: EdgeInsets.all(20),
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
@@ -153,45 +134,22 @@ class _KYC4State extends State<KYC4> {
                       borderRadius: BorderRadius.circular(30),
                       borderSide: const BorderSide(color: Colors.red, width: 1),
                     ),
-                    hintStyle:
-                        const TextStyle(color: Color(0x80000000), fontSize: 14),
-                    hintText: "",
-                    suffixIcon: IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.file_upload_outlined,
-                          color: Colors.black,
-                        )),
-                  ),
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Text(
-                  "Bank Name",
-                  // ignore: prefer_const_constructors
-                  style: TextStyle(
-                      fontSize: 14,
+                    hintStyle: TextStyle(
+                      color: Color(0x80000000),
+                      fontSize: 16.sm,
                       fontFamily: 'Poppins',
-                      color: Color(0xff303030)),
+                    ),
+                    hintText: "Message",
+                  ),
+                  minLines: 5,
+                  maxLines: null,
                 ),
-                SizedBox(
-                  height: 6.h,
-                ),
-                CustomTextFormField(
-                    hintText: "Please Enter Bank Name",
-                    validatorText: "Please Enter Bank Name"),
-                SizedBox(height: 10.h),
                 SizedBox(height: 40.h),
                 CustomNextButton(
-                  text: "Continue",
+                  text: "Send Now",
                   ontap: () {
-                    Timer(
-                        Duration(seconds: 2),
-                        () => Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    HomePage())));
+                    Timer(Duration(seconds: 2),
+                        () => Get.offAllNamed('/homepage'));
                     showModalBottomSheet(
                       isScrollControlled: true,
                       context: context,
@@ -208,32 +166,36 @@ class _KYC4State extends State<KYC4> {
                           child: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
+                              Image.asset("assets/images/letter.png"),
                               SizedBox(
-                                height: 10,
+                                height: 28.h,
                               ),
-                              Image.asset('assets/images/kyc.png'),
-                              SizedBox(
-                                height: 30.h,
-                              ),
-                              Center(
-                                child: Text(
-                                  'Thankyou for updating\n your KYC',
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 20,
-                                      color: Colors.black),
-                                ),
+                              Text(
+                                "Thankyou for contacting.\nWill reach back to you",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    color: Color(0xFF444444),
+                                    fontSize: 20.sm,
+                                    fontFamily: "Poppins"),
                               ),
                               SizedBox(
-                                height: 10,
-                              ),
+                                height: 20,
+                              )
                             ],
                           ),
                         );
                       },
                     );
                   },
+                ),
+                SizedBox(
+                  height: 15.h,
+                ),
+                Center(
+                  child: Text(
+                    "*Required Field",
+                    style: TextStyle(fontSize: 14.sm, color: Color(0xFF6B6B6B)),
+                  ),
                 )
               ],
             ),

@@ -41,43 +41,43 @@ class _KYC3State extends State<KYC3> {
                 Text(
                   "Step 3 : Complete your KYC",
                   style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 20.sm,
                     fontFamily: 'Poppins',
                     color: Color(0xFF143C6D),
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 20.h,
                 ),
                 Text(
                   "PAN & Aadhar details",
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 18.sm,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 10.h,
                 ),
                 Text(
                   "Provide your PAN & Aadhar details",
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 8.5,
+                    fontSize: 16.sm,
                     color: Color(0xFF000000),
                   ),
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 20.h,
                 ),
                 Text(
                   "PAN Number",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
@@ -87,14 +87,14 @@ class _KYC3State extends State<KYC3> {
                     hintText: "Please Enter PAN Number",
                     validatorText: "Please Enter PAN Number"),
                 SizedBox(
-                  height: 13,
+                  height: 20.h,
                 ),
                 Text(
                   "Upload PAN card front side",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
@@ -142,13 +142,15 @@ class _KYC3State extends State<KYC3> {
                         )),
                   ),
                 ),
-                SizedBox(height: 10.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "Aadhar Number",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
@@ -157,17 +159,19 @@ class _KYC3State extends State<KYC3> {
                 CustomTextFormField(
                     hintText: "Please Enter Aadhar Number",
                     validatorText: "Please Enter Aadhar Number"),
-                SizedBox(height: 10.h),
+                SizedBox(
+                  height: 20.h,
+                ),
                 Text(
                   "Upload Aadhar card",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
-                  height: 13.h,
+                  height: 6.h,
                 ),
                 TextFormField(
                   cursorColor: const Color(0xFFFFB600),

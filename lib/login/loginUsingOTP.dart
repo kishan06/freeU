@@ -45,7 +45,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 14,
+                          fontSize: 18,
                           color: Color(0xFF000000)),
                     ),
                   ],
@@ -72,7 +72,10 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                               borderSide: BorderSide(color: Color(0xFF143C6D)),
                             ),
                             hintText: "+91",
-                            hintStyle: TextStyle(color: Colors.black)),
+                            hintStyle: TextStyle(
+                                fontSize: 16.sm,
+                                color: Colors.black,
+                                fontFamily: "Poppins")),
                       ),
                     ),
                     SizedBox(
@@ -82,6 +85,9 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                       width: 190.w,
                       height: 30.h,
                       child: TextFormField(
+                        style:
+                            TextStyle(fontSize: 16.sm, fontFamily: "Poppins"),
+                        keyboardType: TextInputType.number,
                         inputFormatters: <TextInputFormatter>[
                           FilteringTextInputFormatter.digitsOnly
                         ],
@@ -124,9 +130,11 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                             onPressed: () {
                               Get.toNamed('/phoneverification');
                             },
-                            child: const Text(
+                            child: Text(
                               'Next',
                               style: TextStyle(
+                                fontSize: 16.sm,
+                                fontFamily: 'Poppins',
                                 color: Colors.black,
                               ),
                             ),

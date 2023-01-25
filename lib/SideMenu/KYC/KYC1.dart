@@ -39,42 +39,43 @@ class _KYC1State extends State<KYC1> {
                 Text(
                   "Step 1 : Complete your KYC",
                   style: TextStyle(
-                    fontSize: 17,
+                    fontSize: 20.sm,
                     color: Color(0xFF143C6D),
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 20.h,
                 ),
                 Text(
                   "Personal Information",
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 12,
+                    fontSize: 18.sm,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
                   ),
                 ),
                 SizedBox(
-                  height: 5.h,
+                  height: 10.h,
                 ),
                 Text(
                   "Provide your personal information as per your Bank Account",
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 8.5,
+                    fontSize: 16.sm,
+                    fontWeight: FontWeight.w300,
                     color: Color(0xFF000000),
                   ),
                 ),
                 SizedBox(
-                  height: 15.h,
+                  height: 20.h,
                 ),
                 Text(
                   "Contact Number",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
@@ -91,7 +92,7 @@ class _KYC1State extends State<KYC1> {
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
@@ -106,7 +107,7 @@ class _KYC1State extends State<KYC1> {
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
@@ -122,7 +123,7 @@ class _KYC1State extends State<KYC1> {
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
@@ -137,7 +138,7 @@ class _KYC1State extends State<KYC1> {
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(
@@ -152,7 +153,7 @@ class _KYC1State extends State<KYC1> {
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
+                      fontSize: 15.sm,
                       color: Color(0xff303030)),
                 ),
                 SizedBox(

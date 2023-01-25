@@ -87,15 +87,18 @@ class _SignUpState extends State<SignUp> {
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         // color: Color(0xFF143C6D),
                         height: 150.h,
-                        child: SingleChildScrollView(
-                          child: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Text(
-                              " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 14,
-                                fontFamily: 'Poppins',
+                        child: Scrollbar(
+                          thumbVisibility: true,
+                          child: SingleChildScrollView(
+                            child: Padding(
+                              padding: const EdgeInsets.all(4.0),
+                              child: Text(
+                                " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontFamily: 'Poppins',
+                                ),
                               ),
                             ),
                           ),
@@ -190,8 +193,8 @@ class _SignUpState extends State<SignUp> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 20.h,
                         ),
                         CustomTextFormField(
                             hintText: "Full Name", validatorText: "Full Name"),
@@ -201,81 +204,29 @@ class _SignUpState extends State<SignUp> {
                         //   hint: "Full Name*",
                         //   errortext: "Please Enter Full Name",
                         // ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        // TextFormField(
-                        //   keyboardType: TextInputType.text,
-                        //   cursorColor: Colors.grey,
-                        //   style: TextStyle(
-                        //       fontFamily: 'Poppins',
-                        //       fontSize: 16,
-                        //       fontWeight: FontWeight.w500,
-                        //       color:
-                        //           Get.isDarkMode ? Colors.white : Colors.black),
-                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                        //   controller: emailidcontroller,
-                        //   decoration: InputDecoration(
-                        //     focusedBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     enabledBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     errorMaxLines: 3,
-                        //     hintText: "Email Id*",
-                        //     hintStyle: blackStyle(context).copyWith(
-                        //         fontSize: 16,
-                        //         fontWeight: FontWeight.w600,
-                        //         color: Get.isDarkMode
-                        //             ? Colors.white
-                        //             : const Color(0xFF303030).withOpacity(0.3)),
-                        //     fillColor: Get.isDarkMode
-                        //         ? const Color(0xFF303030).withOpacity(0.8)
-                        //         : Colors.white,
-                        //     filled: true,
-                        //     errorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     focusedErrorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     errorStyle: const TextStyle(
-                        //       fontSize: 16.0,
-                        //     ),
-                        //   ),
-                        //   validator: (value) {
-                        //     if (value!.isEmpty) {
-                        //       return 'Enter your Email address';
-                        //     }
-                        //     if (!RegExp(
-                        //             r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                        //         .hasMatch(value)) {
-                        //       return 'Enter a Valid Email address';
-                        //     }
-                        //     return null;
-                        //   },
-                        //   inputFormatters: [
-                        //     LengthLimitingTextInputFormatter(50),
-                        //   ],
-                        //   onSaved: (value) {},
-                        // ),
-                        CustomTextFormField(
-                            hintText: "Email Id", validatorText: "Email Id"),
                         SizedBox(
-                          height: 20,
+                          height: 20.h,
+                        ),
+                        CustomTextFormField(
+                          hintText: "Email Id",
+                          validatorText: "Email Id",
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter your Email address';
+                            }
+                            if (!RegExp(
+                                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                                .hasMatch(value)) {
+                              return 'Enter a Valid Email address';
+                            }
+                            return null;
+                          },
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(50),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.h,
                         ),
                         // TextFormField(
                         //   keyboardType: TextInputType.text,
@@ -346,8 +297,8 @@ class _SignUpState extends State<SignUp> {
                         CustomTextFormField(
                             hintText: "Phone Number",
                             validatorText: "Phone Number"),
-                        const SizedBox(
-                          height: 20,
+                        SizedBox(
+                          height: 20.h,
                         ),
 
                         CustomTextFormField(
@@ -368,8 +319,8 @@ class _SignUpState extends State<SignUp> {
                             }
                           },
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 10.h,
                         ),
                         Row(
                           children: [
@@ -382,13 +333,13 @@ class _SignUpState extends State<SignUp> {
                               child: _isPasswordEightCar
                                   ? Padding(
                                       padding: EdgeInsets.only(left: 10),
-                                      child: const Icon(
+                                      child: Icon(
                                         Icons.check,
                                         color: Color(0xff143C6D),
                                         size: 15,
                                       ),
                                     )
-                                  : const SizedBox(),
+                                  : SizedBox(),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 10),
@@ -396,7 +347,7 @@ class _SignUpState extends State<SignUp> {
                                 'Has at least 8 characters',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 12,
+                                    fontSize: 14.sm,
                                     color: _isPasswordEightCar
                                         ? Color(0xff143C6D)
                                         : Colors.black),
@@ -404,8 +355,8 @@ class _SignUpState extends State<SignUp> {
                             )
                           ],
                         ),
-                        const SizedBox(
-                          height: 10,
+                        SizedBox(
+                          height: 10.h,
                         ),
                         Row(
                           children: [
@@ -432,7 +383,7 @@ class _SignUpState extends State<SignUp> {
                                 'Has at least 1 uppercase letter or symbol',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 12,
+                                    fontSize: 14.sm,
                                     color: _isHasSymboleOrCaptital
                                         ? Color(0xff143C6D)
                                         : Colors.black),
@@ -454,7 +405,7 @@ class _SignUpState extends State<SignUp> {
                               child: _isHasOneNumber
                                   ? Padding(
                                       padding: EdgeInsets.only(left: 10),
-                                      child: const Icon(
+                                      child: Icon(
                                         Icons.check,
                                         color: Color(0xff143C6D),
                                         size: 15,
@@ -468,7 +419,7 @@ class _SignUpState extends State<SignUp> {
                                 'Has a number',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 12,
+                                    fontSize: 14.sm,
                                     color: _isHasOneNumber
                                         ? Color(0xff143C6D)
                                         : Colors.black),
@@ -479,88 +430,6 @@ class _SignUpState extends State<SignUp> {
                         const SizedBox(
                           height: 20,
                         ),
-                        // TextFormField(
-                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                        //   cursorColor: Colors.grey,
-                        //   style: const TextStyle(
-                        //     //color: Colors.grey,
-                        //     fontFamily: 'Poppins',
-                        //     fontSize: 16,
-                        //     fontWeight: FontWeight.w400,
-                        //   ),
-                        //   keyboardType: TextInputType.text,
-                        //   controller: confirmpasscontroller,
-                        //   obscureText:
-                        //       !_confirmpasswordVisible, //This will obscure text dynamically
-                        //   decoration: InputDecoration(
-                        //     focusedBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     enabledBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     errorMaxLines: 3,
-                        //     hintStyle: blackStyle(context).copyWith(
-                        //         fontSize: 16,
-                        //         fontWeight: FontWeight.w600,
-                        //         color: Get.isDarkMode
-                        //             ? Colors.white
-                        //             : const Color(0xFF303030).withOpacity(0.3)),
-                        //     fillColor: Get.isDarkMode
-                        //         ? const Color(0xFF303030).withOpacity(0.8)
-                        //         : Colors.white,
-                        //     filled: true,
-                        //     errorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     focusedErrorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     errorStyle: const TextStyle(
-                        //       fontSize: 16.0,
-                        //     ),
-
-                        //     hintText: 'Confirm Password*',
-                        //     // Here is key idea
-                        //     suffixIcon: GestureDetector(
-                        //         onTap: (() => setState(
-                        //               () => _confirmpasswordVisible =
-                        //                   !_confirmpasswordVisible,
-                        //             )),
-                        //         child: Column(
-                        //           mainAxisAlignment: MainAxisAlignment.center,
-                        //           children: [
-                        //             Padding(
-                        //               padding: EdgeInsets.only(right: 20.0),
-                        //               child: Text("Show",
-                        //                   style: TextStyle(
-                        //                       color: Color(0xFFFFB600))),
-                        //             ),
-                        //           ],
-                        //         )),
-                        //   ),
-                        //   validator: (val) {
-                        //     if (val == null || val.isEmpty) {
-                        //       return 'Password is Empty';
-                        //     }
-                        //     if (val != passwordcontroller.text) {
-                        //       return 'Password Not Matched';
-                        //     }
-                        //     return null;
-                        //   },
-                        // ),
                         CustomTextFormField(
                           isInputPassword: true,
                           textEditingController: confirmpasscontroller,

@@ -30,7 +30,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
       builder: (context) {
         return StatefulBuilder(builder: (context, setState) {
           return Container(
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 24),
+            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -72,9 +72,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         });
                       },
                       title: Text(
-                        "Do you really want to learn Flutter?",
+                        "Dont't show this message again",
                         style: TextStyle(
-                          fontSize: 18,
+                          fontSize: 18.sm,
                           fontFamily: 'Poppins',
                         ),
                       ),
@@ -85,75 +85,129 @@ class _CompleteProfileState extends State<CompleteProfile> {
                   height: 20.h,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Expanded(
-                        flex: 1,
-                        child: TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                              // buildLoginPin();
-                            },
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Color(0xFFFFB600)),
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
-                                ),
-                              ),
+                    SizedBox(
+                      width: 156.w,
+                      height: 50.h,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Color(0xFFFFB600)),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                              side: BorderSide(
+                                  width: 3, color: Color(0xFFFFB600)),
                             ),
-                            child: SizedBox(
-                              width: 100,
-                              child: Text(
-                                'Yes',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xFF000000),
-                                ),
-                              ),
-                            )),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "Yes",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 16.sm,
+                              color: Colors.black),
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(10),
-                      child: Expanded(
-                        flex: 1,
-                        child: TextButton(
-                            onPressed: () {
-                              Get.toNamed("/homepage");
-                              // buildLoginPin();
-                            },
-                            style: ButtonStyle(
-                              shape: MaterialStateProperty.all(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  side: BorderSide(
-                                      width: 1, color: Color(0xFF6B6B6B)),
-                                ),
+                    SizedBox(
+                      width: 156.w,
+                      height: 50.h,
+                      child: OutlinedButton(
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30.0),
+                              side: BorderSide(
+                                width: 3,
                               ),
                             ),
-                            child: SizedBox(
-                              width: 100,
-                              child: Text(
-                                'No',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontSize: 20,
-                                  fontFamily: 'Poppins',
-                                  color: Color(0xFF6B6B6B),
-                                ),
-                              ),
-                            )),
+                          ),
+                        ),
+                        onPressed: () {
+                          Get.toNamed('/homepage');
+                        },
+                        child: Text(
+                          "No",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 16.sm,
+                              color: Colors.black),
+                        ),
                       ),
                     )
+                    //   Padding(
+                    //     padding: const EdgeInsets.all(10),
+                    //     child: Expanded(
+                    //       flex: 1,
+                    //       child: TextButton(
+                    //           onPressed: () {
+                    //             Navigator.pop(context);
+                    //             // buildLoginPin();
+                    //           },
+                    //           style: ButtonStyle(
+                    //             backgroundColor: MaterialStateProperty.all<Color>(
+                    //                 Color(0xFFFFB600)),
+                    //             shape: MaterialStateProperty.all(
+                    //               RoundedRectangleBorder(
+                    //                 borderRadius: BorderRadius.circular(30.0),
+                    //                 // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //           child: SizedBox(
+                    //             width: 100.h,
+                    //             child: Text(
+                    //               'Yes',
+                    //               textAlign: TextAlign.center,
+                    //               style: TextStyle(
+                    //                 fontSize: 20.sm,
+                    //                 fontFamily: 'Poppins',
+                    //                 color: Color(0xFF000000),
+                    //               ),
+                    //             ),
+                    //           )),
+                    //     ),
+                    //   ),
+                    //   Padding(
+                    //     padding: const EdgeInsets.all(10),
+                    //     child: Expanded(
+                    //       flex: 1,
+                    //       child: TextButton(
+                    //           onPressed: () {
+                    //             Get.toNamed("/homepage");
+                    //             // buildLoginPin();
+                    //           },
+                    //           style: ButtonStyle(
+                    //             shape: MaterialStateProperty.all(
+                    //               RoundedRectangleBorder(
+                    //                 borderRadius: BorderRadius.circular(30.0),
+                    //                 side: BorderSide(
+                    //                     width: 1, color: Color(0xFF6B6B6B)),
+                    //               ),
+                    //             ),
+                    //           ),
+                    //           child: SizedBox(
+                    //             width: 80.w,
+                    //             child: Text(
+                    //               'No',
+                    //               textAlign: TextAlign.center,
+                    //               style: TextStyle(
+                    //                 fontSize: 20.sm,
+                    //                 fontFamily: 'Poppins',
+                    //                 color: Color(0xFF6B6B6B),
+                    //               ),
+                    //             ),
+                    //           )),
+                    //     ),
+                    //   )
                   ],
+                ),
+                SizedBox(
+                  height: 20.h,
                 )
               ],
             ),
@@ -217,34 +271,39 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ],
                     ),
                     SizedBox(
-                      height: 20.h,
+                      height: 10.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        CustomTextFormField(
-                            hintText: "Full Name", validatorText: "Full Name"),
-                        SizedBox(height: 30.h),
+                        SizedBox(
+                          height: 56.h,
+                          child: CustomTextFormField(
+                              hintText: "Full Name",
+                              validatorText: "Full Name"),
+                        ),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Email Id", validatorText: "Email Id"),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
-                            hintText: "Phone Numbe",
-                            validatorText: "Phone Numbe"),
-                        SizedBox(height: 30.h),
+                            hintText: "Phone Number",
+                            validatorText: "Phone Number"),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Date Of Birth",
                             validatorText: "Date Of Birth"),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Occupation",
                             validatorText: "Occupation"),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 25.h),
                         TextFormField(
                           cursorColor: const Color(0xFFFFB600),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(10),
+                            contentPadding: EdgeInsets.only(
+                                left: 20, right: 20, top: 10, bottom: 10),
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
@@ -272,20 +331,20 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               borderSide:
                                   const BorderSide(color: Colors.red, width: 1),
                             ),
-                            hintStyle: const TextStyle(
-                                color: Color(0x80000000), fontSize: 14),
-                            hintText: "",
+                            hintStyle: TextStyle(
+                                color: Color(0x80000000),
+                                fontSize: 16.sm,
+                                fontFamily: "Poppins"),
+                            hintText: "Address",
                           ),
                           minLines: 5,
                           maxLines: null,
                         ),
-                        SizedBox(
-                          height: 30,
-                        ),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Enter Aadhar Number",
                             validatorText: "Enter Aadhar Number"),
-                        SizedBox(height: 30.h),
+                        SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Enter Pan Number",
                             validatorText: "Enter Pan Number")

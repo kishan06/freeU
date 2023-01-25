@@ -51,20 +51,19 @@ class _PhoneVerificationState extends State<PhoneVerification> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 30),
+                  SizedBox(height: 30.h),
                   Text(
                     "OTP sent to",
                     // ignore: prefer_const_constructors
                     style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 16.sm,
+                        fontSize: 18.sm,
                         color: Color(0xff303030)),
                   ),
                   SizedBox(
-                    height: 6,
+                    height: 6.h,
                   ),
                   TextFormField(
-                    maxLength: 10,
                     controller: phoneController,
                     keyboardType: TextInputType.phone,
                     inputFormatters: <TextInputFormatter>[
@@ -105,7 +104,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                     "Enter OTP",
                     style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 16.sm,
+                        fontSize: 18.sm,
                         color: Color(0xff303030)),
                   ),
                   SizedBox(
@@ -290,7 +289,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       children: [
                         SizedBox(
                           width: double.infinity,
-                          height: 55.h,
+                          height: 50.h,
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                                 elevation: 3,

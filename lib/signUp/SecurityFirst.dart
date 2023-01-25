@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, duplicate_ignore, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/common/signupAppbar.dart';
 
@@ -36,12 +37,12 @@ class _SecurityFirstState extends State<SecurityFirst> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Center(
+                Center(
                   child: Text(
                     "Let's set your 4 Digit Pin",
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 18.sm,
                       fontFamily: 'Poppins',
                     ),
                   ),
@@ -55,7 +56,10 @@ class _SecurityFirstState extends State<SecurityFirst> {
                 const SizedBox(
                   height: 50,
                 ),
-                const Text("Choose a PIN of Your choice"),
+                Text(
+                  "Choose a PIN of Your choice",
+                  style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 15,
@@ -88,7 +92,10 @@ class _SecurityFirstState extends State<SecurityFirst> {
                 const SizedBox(
                   height: 30,
                 ),
-                const Text("Please Re-Enter the PIN"),
+                Text(
+                  "Please Re-Enter the PIN",
+                  style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                ),
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 15,
