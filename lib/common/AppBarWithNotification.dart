@@ -3,27 +3,32 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
+class CustomAppBarWithNotification extends StatelessWidget
+    with PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(50);
-  const CustomSignupAppBar(
-      {Key? key,
-      required this.titleTxt,
-      this.bottomtext,
-      this.customProfileNavigation = false,
-      this.navigateToTaxPlanning = false,
-      this.showLeading = true})
-      : super(key: key);
+  CustomAppBarWithNotification({
+    Key? key,
+    required this.titleTxt,
+    this.key2,
+    this.bottomtext,
+    this.actions = false,
+    this.customProfileNavigation = false,
+    this.navigateToTaxPlanning = false,
+    this.showLeading = true,
+  }) : super(key: key);
 
   final String titleTxt;
-
+  GlobalKey<ScaffoldState>? key2;
   final bool? bottomtext;
+  final bool? actions;
   final bool? customProfileNavigation;
   final bool? showLeading;
   final bool navigateToTaxPlanning;
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      key: key,
       flexibleSpace: Container(
         height: 50.h,
         decoration: const BoxDecoration(),
@@ -44,20 +49,20 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
               ),
               preferredSize: Size.zero)
           : null,
-      // actions: actions
-      //     ? [
-      //         IconButton(
-      //           onPressed: () {
-      //             Get.toNamed('/notificationpage');
-      //           },
-      //           icon: SvgPicture.asset(
-      //             'assets/images/notification-bell-svgrepo-com.svg',
-      //           ),
-      //           iconSize: 22,
-      //           color: const Color(0xFF303030),
-      //         ),
-      //       ]
-      //     : null,
+      actions: actions!
+          ? [
+              IconButton(
+                onPressed: () {
+                  Get.toNamed('/notificationpage');
+                },
+                icon: SvgPicture.asset(
+                  'assets/images/notification-bell-svgrepo-com.svg',
+                ),
+                iconSize: 22,
+                color: const Color(0xFF303030),
+              ),
+            ]
+          : null,
       backgroundColor: Colors.white,
       elevation: 0,
       automaticallyImplyLeading: false,
@@ -72,21 +77,22 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
               fontFamily: 'Poppins',
-              fontSize: 17.sm,
+              fontSize: 20.sm,
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),
       ),
-      leading: IconButton(
-        onPressed: () {
-          Navigator.pop(context);
-          //  Get.toNamed("/login");
-        },
-        icon: Icon(
-          Icons.arrow_back,
-        ),
-        iconSize: 22.sm,
-        color: Color(0xFF6B6B6B),
+      leading: Row(
+        children: [
+          IconButton(
+            onPressed: () {
+              key2!.currentState!.openDrawer();
+            },
+            icon: SvgPicture.asset("assets/images/menu.svg"),
+            color: Colors.black,
+            iconSize: 25,
+          ),
+        ],
       ),
     );
   }
