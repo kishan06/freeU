@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/SideMenu/NavDrawer.dart';
+import 'package:freeu/common/AppBarWithNotification.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -51,6 +52,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
         case 2:
           {
+            Get.toNamed('/investmentmain');
             // Navigator.push(context,
             //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
           }
@@ -81,36 +83,10 @@ class _CategoriesMainState extends State<CategoriesMain> {
       key: _key,
       drawer: NavDrawer(),
       backgroundColor: Color(0xFFFFFBF0),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 2,
-        shadowColor: Colors.black,
-        automaticallyImplyLeading: false,
-        titleSpacing: 0,
-        leading: Row(
-          children: [
-            IconButton(
-              onPressed: () {
-                _key.currentState!.openDrawer();
-              },
-              icon: SvgPicture.asset("assets/images/menu.svg"),
-              color: Colors.black,
-              iconSize: 25,
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Get.toNamed('/notificationpage');
-            },
-            icon: SvgPicture.asset(
-              'assets/images/notification-bell-svgrepo-com.svg',
-            ),
-            iconSize: 22,
-            color: const Color(0xFF303030),
-          ),
-        ],
+      appBar: CustomAppBarWithNotification(
+        titleTxt: "Categories",
+        bottomtext: false,
+        actions: true,
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),

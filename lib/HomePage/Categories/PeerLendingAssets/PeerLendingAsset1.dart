@@ -51,6 +51,7 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
 
         case 2:
           {
+            Get.toNamed('/investmentmain');
             // Navigator.push(context,
             //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
           }

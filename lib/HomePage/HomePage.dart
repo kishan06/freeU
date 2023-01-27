@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/SideMenu/NavDrawer.dart';
+import 'package:freeu/common/AppBarWithNotification.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -51,6 +53,7 @@ class _HomePageState extends State<HomePage> {
 
         case 2:
           {
+            Get.toNamed('/investmentmain');
             // Navigator.push(context,
             //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
           }
@@ -81,37 +84,8 @@ class _HomePageState extends State<HomePage> {
       key: _key,
       drawer: NavDrawer(),
       backgroundColor: Color(0xFFFEFEFE),
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 2,
-        shadowColor: Colors.black,
-        automaticallyImplyLeading: false,
-        titleSpacing: 0,
-        leading: Row(
-          children: [
-            IconButton(
-              onPressed: () {
-                _key.currentState!.openDrawer();
-              },
-              icon: SvgPicture.asset("assets/images/menu.svg"),
-              color: Colors.black,
-              iconSize: 25,
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Get.toNamed('/notificationpage');
-            },
-            icon: SvgPicture.asset(
-              'assets/images/notification-bell-svgrepo-com.svg',
-            ),
-            iconSize: 22,
-            color: const Color(0xFF303030),
-          ),
-        ],
-      ),
+      appBar: CustomAppBarWithNotification(
+          titleTxt: "Welcome", actions: true, bottomtext: false),
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),
         unselectedLabelStyle: TextStyle(color: Colors.grey),

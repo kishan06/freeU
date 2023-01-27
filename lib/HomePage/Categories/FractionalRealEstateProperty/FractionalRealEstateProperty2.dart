@@ -55,6 +55,7 @@ class _FractionalRealEstateProperty2State
 
         case 2:
           {
+            Get.toNamed('/investmentmain');
             // Navigator.push(context,
             //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
           }
