@@ -109,6 +109,18 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            activeIcon: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Color(0xFFFEEBBD),
+              ),
+              height: 20,
+              width: 50,
+              child: SvgPicture.asset(
+                'assets/images/category-alt-svgrepo-com.svg',
+                height: 20,
+              ),
+            ),
             icon: SvgPicture.asset(
               'assets/images/category-alt-svgrepo-com.svg',
               height: 20,
@@ -139,7 +151,7 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
         ],
         currentIndex: 1,
         unselectedItemColor: Colors.grey,
-        selectedItemColor: Color(0xFFF78104),
+        selectedItemColor: Colors.grey,
         backgroundColor: Colors.white,
         onTap: (index) {
           print(index);

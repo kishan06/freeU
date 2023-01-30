@@ -88,7 +88,9 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
         bottomtext: false,
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),
+        selectedLabelStyle: TextStyle(
+          color: Colors.grey,
+        ),
         unselectedLabelStyle: TextStyle(color: Colors.grey),
         unselectedIconTheme: IconThemeData(color: Colors.grey),
         items: [
@@ -100,6 +102,18 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            activeIcon: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Color(0xFFFEEBBD),
+              ),
+              height: 20,
+              width: 50,
+              child: SvgPicture.asset(
+                'assets/images/category-alt-svgrepo-com.svg',
+                height: 20,
+              ),
+            ),
             icon: SvgPicture.asset(
               'assets/images/category-alt-svgrepo-com.svg',
               height: 20,

@@ -7,14 +7,16 @@ import 'package:freeu/SideMenu/NavDrawer.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
-class CurrentInvestment extends StatefulWidget {
-  const CurrentInvestment({super.key});
+class PreviouslyInvestedProducts extends StatefulWidget {
+  const PreviouslyInvestedProducts({super.key});
 
   @override
-  State<CurrentInvestment> createState() => _CurrentInvestmentState();
+  State<PreviouslyInvestedProducts> createState() =>
+      _PreviouslyInvestedProductsState();
 }
 
-class _CurrentInvestmentState extends State<CurrentInvestment> {
+class _PreviouslyInvestedProductsState
+    extends State<PreviouslyInvestedProducts> {
   int selectIndex = 0;
   int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
@@ -85,7 +87,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
       drawer: NavDrawer(),
       backgroundColor: Color(0xFFFFFBF0),
       appBar: CustomSignupAppBar(
-        titleTxt: "Current Invesment",
+        titleTxt: "Previously Invested Products",
         showLeading: true,
         bottomtext: false,
       ),
@@ -144,7 +146,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
         ],
         currentIndex: 2,
         unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.grey,
+        selectedItemColor: Color(0xFFF78104),
         backgroundColor: Colors.white,
         onTap: (index) {
           print(index);
@@ -249,7 +251,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                             SizedBox(height: 10.h),
                             SizedBox(
                               height: 30.h,
-                              width: 70.w,
+                              width: 82.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
@@ -260,11 +262,12 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   ),
                                 ),
                                 child: Text(
-                                  "Sell",
+                                  "Download",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       color: Colors.black,
-                                      fontSize: 16.sm),
+                                      fontSize: 12.sm),
                                 ),
                                 onPressed: () {},
                               ),
@@ -366,7 +369,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                             SizedBox(height: 10.h),
                             SizedBox(
                               height: 30.h,
-                              width: 70.w,
+                              width: 82.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
@@ -377,11 +380,11 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   ),
                                 ),
                                 child: Text(
-                                  "Sell",
+                                  "Download",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       color: Colors.black,
-                                      fontSize: 16.sm),
+                                      fontSize: 12.sm),
                                 ),
                                 onPressed: () {},
                               ),
@@ -484,7 +487,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                             SizedBox(height: 10.h),
                             SizedBox(
                               height: 30.h,
-                              width: 70.w,
+                              width: 82.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
@@ -495,11 +498,11 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   ),
                                 ),
                                 child: Text(
-                                  "Sell",
+                                  "Download",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       color: Colors.black,
-                                      fontSize: 16.sm),
+                                      fontSize: 12.sm),
                                 ),
                                 onPressed: () {},
                               ),
@@ -601,7 +604,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                             SizedBox(height: 10.h),
                             SizedBox(
                               height: 30.h,
-                              width: 70.w,
+                              width: 82.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
@@ -612,11 +615,11 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   ),
                                 ),
                                 child: Text(
-                                  "Sell",
+                                  "Download",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       color: Colors.black,
-                                      fontSize: 16.sm),
+                                      fontSize: 12.sm),
                                 ),
                                 onPressed: () {},
                               ),
@@ -719,7 +722,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                             SizedBox(height: 10.h),
                             SizedBox(
                               height: 30.h,
-                              width: 70.w,
+                              width: 82.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
@@ -730,11 +733,11 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   ),
                                 ),
                                 child: Text(
-                                  "Sell",
+                                  "Download",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       color: Colors.black,
-                                      fontSize: 16.sm),
+                                      fontSize: 12.sm),
                                 ),
                                 onPressed: () {},
                               ),
@@ -836,7 +839,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                             SizedBox(height: 10.h),
                             SizedBox(
                               height: 30.h,
-                              width: 70.w,
+                              width: 82.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
@@ -847,11 +850,11 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   ),
                                 ),
                                 child: Text(
-                                  "Sell",
+                                  "Download",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       color: Colors.black,
-                                      fontSize: 16.sm),
+                                      fontSize: 12.sm),
                                 ),
                                 onPressed: () {},
                               ),

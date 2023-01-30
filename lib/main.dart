@@ -8,6 +8,8 @@ import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset2.da
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
 import 'package:freeu/HomePage/Investments/InvestmentMain.dart';
+import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
+import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/ContactUs.dart';
 import 'package:freeu/SideMenu/HowToInvest.dart';
@@ -88,6 +90,12 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/peerlendingasset2', page: () => PeerLendingAsset2()),
           GetPage(name: '/investmentmain', page: () => InvestmentMain()),
           GetPage(name: '/currentinvestment', page: () => CurrentInvestment()),
+          GetPage(
+              name: '/previouslyinvestedproducts',
+              page: () => PreviouslyInvestedProducts()),
+          GetPage(
+              name: '/suggestedinvestedproducts',
+              page: () => SuggestedInvestedProducts()),
         ],
       ),
       designSize: Size(390, 844),
