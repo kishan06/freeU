@@ -87,11 +87,23 @@ class _HomePageState extends State<HomePage> {
       appBar: CustomAppBarWithNotification(
           titleTxt: "Welcome", actions: true, bottomtext: false),
       bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),
+        selectedLabelStyle: TextStyle(color: Colors.black),
         unselectedLabelStyle: TextStyle(color: Colors.grey),
         unselectedIconTheme: IconThemeData(color: Colors.grey),
         items: [
           BottomNavigationBarItem(
+            activeIcon: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Color(0xFFFEEBBD),
+              ),
+              height: 20,
+              width: 50,
+              child: SvgPicture.asset(
+                'assets/images/home-svgrepo-com.svg',
+                height: 20,
+              ),
+            ),
             icon: SvgPicture.asset(
               'assets/images/home-svgrepo-com.svg',
               height: 20,
@@ -120,6 +132,15 @@ class _HomePageState extends State<HomePage> {
             label: 'Chat',
           ),
           BottomNavigationBarItem(
+            activeIcon: Container(
+              height: 20,
+              width: 50,
+              color: Color(0xFFFEEBBD),
+              child: SvgPicture.asset(
+                'assets/images/profile.svg',
+                height: 20,
+              ),
+            ),
             icon: SvgPicture.asset(
               'assets/images/profile.svg',
               height: 20,
@@ -129,7 +150,7 @@ class _HomePageState extends State<HomePage> {
         ],
         currentIndex: 0,
         unselectedItemColor: Colors.grey,
-        selectedItemColor: Color(0xFFF78104),
+        selectedItemColor: Colors.grey,
         backgroundColor: Colors.white,
         onTap: (index) {
           print(index);
