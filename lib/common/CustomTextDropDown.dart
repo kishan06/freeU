@@ -35,7 +35,7 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
     return Column(
       children: [
         SizedBox(
-          height: 50.h,
+          height: 60.h,
           child: TextFormField(
             readOnly: true,
             onChanged: widget.onInput,
@@ -77,6 +77,8 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
                         Icons.keyboard_arrow_down,
                         color: Color(0xFFFFB600),
                       ),
+                      offset: Offset.zero,
+                      position: PopupMenuPosition.under,
                       onSelected: (String value) {
                         setState(() {
                           controller.text = value;
@@ -89,7 +91,12 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
                       itemBuilder: (BuildContext context) {
                         return items.map<PopupMenuItem<String>>((String value) {
                           return PopupMenuItem(
-                              child: Text(value), value: value);
+                              child: Container(
+                                  width: 200.w,
+                                  child: Text(
+                                    value,
+                                  )),
+                              value: value);
                         }).toList();
                       },
                     )

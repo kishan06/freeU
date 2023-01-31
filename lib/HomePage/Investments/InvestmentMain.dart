@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/SideMenu/NavDrawer.dart';
+import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/AppBarWithNotification.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
@@ -59,6 +59,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
           break;
         case 3:
           {
+            Get.toNamed('/chatpage');
             // Navigator.push(
             //     context, MaterialPageRoute(builder: ((context) => Login())));
           }
@@ -84,6 +85,16 @@ class _InvestmentMainState extends State<InvestmentMain> {
       drawer: NavDrawer(),
       //  backgroundColor: Color(0xFFFFFBF0),
       appBar: AppBar(
+        title: Text(
+          'Investment',
+          softWrap: true,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 19,
+              fontWeight: FontWeight.w400,
+              color: Colors.black),
+        ),
         backgroundColor: Colors.white,
         elevation: 2,
         shadowColor: Colors.black,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/SideMenu/NavDrawer.dart';
+import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/AppBarWithNotification.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -45,29 +45,21 @@ class _CategoriesMainState extends State<CategoriesMain> {
         case 1:
           {
             Get.toNamed('/categoriesmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityFirst())));
           }
           break;
 
         case 2:
           {
             Get.toNamed('/investmentmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
           }
           break;
         case 3:
           {
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => Login())));
+            Get.toNamed('/chatpage');
           }
           break;
         case 4:
-          {
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => SignUp())));
-          }
+          {}
           break;
         default:
           {
@@ -84,6 +76,16 @@ class _CategoriesMainState extends State<CategoriesMain> {
       drawer: NavDrawer(),
       backgroundColor: Color(0xFFFFFBF0),
       appBar: AppBar(
+        title: Text(
+          'Categories',
+          softWrap: true,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 19,
+              fontWeight: FontWeight.w400,
+              color: Colors.black),
+        ),
         backgroundColor: Colors.white,
         elevation: 2,
         shadowColor: Colors.black,
