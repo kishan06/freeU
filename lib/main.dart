@@ -5,6 +5,8 @@ import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/Fractiona
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty2.dart';
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset1.dart';
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset2.dart';
+import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
+import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
 import 'package:freeu/HomePage/Investments/InvestmentMain.dart';
@@ -96,6 +98,8 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/suggestedinvestedproducts',
               page: () => SuggestedInvestedProducts()),
+          GetPage(name: '/chatpage', page: () => ChatPage()),
+          GetPage(name: '/chatdetailpage', page: () => ChatDetailPage()),
         ],
       ),
       designSize: Size(390, 844),

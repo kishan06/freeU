@@ -146,7 +146,7 @@ class _PreviouslyInvestedProductsState
         ],
         currentIndex: 2,
         unselectedItemColor: Colors.grey,
-        selectedItemColor: Color(0xFFF78104),
+        selectedItemColor: Colors.grey,
         backgroundColor: Colors.white,
         onTap: (index) {
           print(index);

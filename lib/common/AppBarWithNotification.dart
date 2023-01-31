@@ -28,7 +28,7 @@ class CustomAppBarWithNotification extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      key: key,
+      key: key2,
       flexibleSpace: Container(
         height: 50.h,
         decoration: const BoxDecoration(),
