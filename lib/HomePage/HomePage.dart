@@ -60,6 +60,7 @@ class _HomePageState extends State<HomePage> {
           break;
         case 3:
           {
+            Get.toNamed('/chatpage');
             // Navigator.push(
             //     context, MaterialPageRoute(builder: ((context) => Login())));
           }
