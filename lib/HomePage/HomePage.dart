@@ -103,6 +103,18 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.toNamed('/notificationpage');
+            },
+            icon: SvgPicture.asset(
+              'assets/images/notification-bell-svgrepo-com.svg',
+            ),
+            iconSize: 22,
+            color: const Color(0xFF303030),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle: TextStyle(color: Colors.black),

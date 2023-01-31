@@ -101,6 +101,18 @@ class _InvestmentMainState extends State<InvestmentMain> {
             ),
           ],
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.toNamed('/notificationpage');
+            },
+            icon: SvgPicture.asset(
+              'assets/images/notification-bell-svgrepo-com.svg',
+            ),
+            iconSize: 22,
+            color: const Color(0xFF303030),
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),
