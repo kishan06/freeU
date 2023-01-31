@@ -83,8 +83,37 @@ class _InvestmentMainState extends State<InvestmentMain> {
       key: _key,
       drawer: NavDrawer(),
       //  backgroundColor: Color(0xFFFFFBF0),
-      appBar: CustomAppBarWithNotification(
-          titleTxt: "Your Investments", actions: true, bottomtext: false),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 2,
+        shadowColor: Colors.black,
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+        leading: Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                _key.currentState!.openDrawer();
+              },
+              icon: SvgPicture.asset("assets/images/menu.svg"),
+              color: Colors.black,
+              iconSize: 25,
+            ),
+          ],
+        ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Get.toNamed('/notificationpage');
+            },
+            icon: SvgPicture.asset(
+              'assets/images/notification-bell-svgrepo-com.svg',
+            ),
+            iconSize: 22,
+            color: const Color(0xFF303030),
+          ),
+        ],
+      ),
       bottomNavigationBar: BottomNavigationBar(
         selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),
         unselectedLabelStyle: TextStyle(color: Colors.grey),
