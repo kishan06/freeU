@@ -80,8 +80,15 @@ class _LoginState extends State<Login> {
                                 height: 6,
                               ),
                               CustomTextFormField(
-                                  hintText: "Enter Email or Phone Number",
-                                  validatorText: "Enter Email or Phone Number")
+                                hintText: "Enter Email or Phone Number",
+                                validatorText: "Enter Email or Phone Number",
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return "Please Enter Email or Phone Number";
+                                  }
+                                  return null;
+                                },
+                              )
                             ],
                           ),
                           Row(
@@ -115,6 +122,12 @@ class _LoginState extends State<Login> {
                                 height: 6.h,
                               ),
                               CustomTextFormField(
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Please Enter Password";
+                                    }
+                                    return null;
+                                  },
                                   isInputPassword: true,
                                   hintText: "Enter Password",
                                   validatorText: "Please Enter Password")
@@ -125,22 +138,32 @@ class _LoginState extends State<Login> {
                           ),
                           CustomNextButton(
                             ontap: () {
-                              Get.toNamed("/homepage");
+                              final isValid = _form.currentState?.validate();
+                              if (isValid!) {
+                                Get.toNamed("/homepage");
+                              } else {
+                                Get.snackbar(
+                                    "Error", "Please Enter Login Credentials",
+                                    margin: EdgeInsets.all(8),
+                                    snackStyle: SnackStyle.FLOATING,
+                                    snackPosition: SnackPosition.BOTTOM);
+                              }
                             },
                             text: 'Sign in',
                           ),
                           TextButton(
-                              onPressed: () {
-                                Get.toNamed('/forgotPassword');
-                              },
-                              child: const Text(
-                                'Forgot Password?',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 15,
-                                  color: Color(0xFF143C6D),
-                                ),
-                              )),
+                            onPressed: () {
+                              Get.toNamed('/forgotPassword');
+                            },
+                            child: const Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 15,
+                                color: Color(0xFF143C6D),
+                              ),
+                            ),
+                          ),
                           SizedBox(
                             height: 50.h,
                           ),
