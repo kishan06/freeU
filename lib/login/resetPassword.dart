@@ -179,7 +179,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                         }
                       },
                     ),
-
                     SizedBox(height: 10.h),
                     Row(
                       children: [
@@ -300,50 +299,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                     SizedBox(
                       height: 10.h,
                     ),
-                    // TextFormField(
-
-                    //   keyboardType: TextInputType.text,
-
-                    //   obscureText: !_confirmpasswordVisible,
-                    //   decoration: InputDecoration(
-                    //     focusedBorder: OutlineInputBorder(
-                    //         borderSide: BorderSide(
-                    //             color: Color(0xFFFFB600), width: 2.0),
-                    //         borderRadius:
-                    //             BorderRadius.all(Radius.circular(30))),
-                    //     border: OutlineInputBorder(
-                    //       borderSide:
-                    //           BorderSide(width: 2, color: Color(0xFF707070)),
-                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                    //     ),
-                    //     hintText: "Confirm Password",
-                    //     suffixIcon: GestureDetector(
-                    //         onTap: (() => setState(
-                    //               () => _confirmpasswordVisible =
-                    //                   !_confirmpasswordVisible,
-                    //             )),
-                    //         child: Column(
-                    //           mainAxisAlignment: MainAxisAlignment.center,
-                    //           children: [
-                    //             Padding(
-                    //               padding: EdgeInsets.only(right: 20.0),
-                    //               child: Text("Show",
-                    //                   style:
-                    //                       TextStyle(color: Color(0xFFFFB600))),
-                    //             ),
-                    //           ],
-                    //         )),
-                    //   ),
-                    //   validator: (val) {
-                    //     if (val == null || val.isEmpty) {
-                    //       return 'Password is Empty';
-                    //     }
-                    //     if (val != passwordcontroller.text) {
-                    //       return 'Password Not Matched';
-                    //     }
-                    //     return null;
-                    //   },
-                    // ),
                     CustomTextFormField(
                       isInputPassword: true,
                       hintText: "Confirm Password",

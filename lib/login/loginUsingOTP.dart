@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -54,11 +55,12 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                   height: 20.h,
                 ),
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(
                       width: 30.w,
-                      height: 30.h,
+                      //   height: 20.h,
                       child: TextFormField(
                         readOnly: true,
                         decoration: InputDecoration(
@@ -83,26 +85,35 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                     ),
                     SizedBox(
                       width: 190.w,
-                      height: 30.h,
+                      //  height: 55.h,
                       child: TextFormField(
                         style:
                             TextStyle(fontSize: 16.sm, fontFamily: "Poppins"),
                         keyboardType: TextInputType.number,
                         inputFormatters: <TextInputFormatter>[
+                          LengthLimitingTextInputFormatter(10),
                           FilteringTextInputFormatter.digitsOnly
                         ],
                         decoration: InputDecoration(
-                          border: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFF143C6D)),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFF143C6D)),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xFF143C6D)),
-                          ),
-                          hintText: "",
-                        ),
+                            border: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF143C6D)),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF143C6D)),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF143C6D)),
+                            ),
+                            hintText: "",
+                            helperText: ""),
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please Enter Mobile Number";
+                          } else if (value.length < 10) {
+                            return "Please Enter Correct Mobile Number";
+                          }
+                          return null;
+                        },
                       ),
                     ),
                   ],
@@ -110,49 +121,22 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                 SizedBox(
                   height: 70.h,
                 ),
-                InkWell(
-                  onTap: () => setState(() {
-                    Get.toNamed('/phoneverification');
-                  }),
-                  child: Stack(
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50.h,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color(0xFFFFB600),
-                                shape: (RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(30.0),
-                                ))),
-                            onPressed: () {
-                              Get.toNamed('/phoneverification');
-                            },
-                            child: Text(
-                              'Next',
-                              style: TextStyle(
-                                fontSize: 16.sm,
-                                fontFamily: 'Poppins',
-                                color: Colors.black,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 25,
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 25.r,
-                          child: Icon(
-                              color: Color(0xFF6B6B6B), Icons.arrow_forward),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                CustomNextButton(
+                  text: "Next",
+                  ontap: () {
+                    final isValid = _form.currentState?.validate();
+                    if (isValid!) {
+                      setState(() {
+                        Get.toNamed('/phoneverification');
+                      });
+                    } else {
+                      Get.snackbar("Error", "Please Enter Valid Phone Number",
+                          margin: EdgeInsets.all(8),
+                          snackStyle: SnackStyle.FLOATING,
+                          snackPosition: SnackPosition.BOTTOM);
+                    }
+                  },
+                )
               ],
             )),
       )),
