@@ -155,7 +155,7 @@ class _LoginState extends State<Login> {
                                   )),
                               TextButton(
                                 child: const Text(
-                                  'Signup for free',
+                                  'Create account',
                                   style: TextStyle(
                                     color: Color(0xFF143C6D),
                                     fontSize: 15,

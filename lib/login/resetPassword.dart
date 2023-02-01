@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -83,15 +85,103 @@ class _ResetPasswordState extends State<ResetPassword> {
                     SizedBox(
                       height: 10.h,
                     ),
-                    CustomTextFormField(
-                      isInputPassword: true,
-                      hintText: "Password",
-                      validatorText: "Password",
-                      inputFormatters: [
-                        LengthLimitingTextInputFormatter(25),
-                      ],
-                      textEditingController: passwordcontroller,
+                    TextFormField(
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      onChanged: (value) => onPasswordChnage(value),
+
+                      cursorColor: Colors.grey,
+                      style: const TextStyle(
+                        //color: Colors.grey,
+                        fontFamily: 'Productsans',
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400,
+                      ),
+                      keyboardType: TextInputType.text,
+                      controller: passwordcontroller,
+                      obscureText:
+                          !_passwordVisible, //This will obscure text dynamically
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide:
+                                BorderSide(color: Color(0xFF707070), width: 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide:
+                                BorderSide(color: Color(0xFF707070), width: 1),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide:
+                                BorderSide(color: Color(0xFFFFB600), width: 1),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide:
+                                const BorderSide(color: Colors.red, width: 1),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(30),
+                            borderSide:
+                                const BorderSide(color: Colors.red, width: 1),
+                          ),
+                          errorMaxLines: 3,
+                          hintStyle: TextStyle(
+                            fontSize: 16,
+                            color: Colors.grey.withOpacity(0.8),
+                            fontFamily: 'Productsans',
+                          ),
+                          fillColor: Colors.white,
+                          filled: true,
+                          errorStyle: const TextStyle(
+                            fontSize: 16.0,
+                          ),
+                          hintText: 'Enter your password',
+                          suffixIcon: GestureDetector(
+                            onTap: () => setState(
+                                () => _passwordVisible = !_passwordVisible),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.only(right: 20.0),
+                                  child: Text(
+                                    "show",
+                                    style: TextStyle(
+                                      color: Color(0xFFFFB600),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )
+                          //  IconButton(
+                          //   icon: Text(
+                          //     "show",
+                          //     style: TextStyle(color: Color(0xFFFFB600)),
+                          //   ),
+                          //   onPressed: () {
+                          //     setState(() {
+                          //       _passwordVisible = !_passwordVisible;
+                          //     });
+                          //   },
+                          // ),
+                          ),
+                      validator: (val) {
+                        if (val!.isEmpty) {
+                          return 'Password is Empty';
+                        }
+                        if (!RegExp(
+                                r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                            .hasMatch(val)) {
+                          return 'Enter valid password';
+                        } else {
+                          return null;
+                        }
+                      },
                     ),
+
                     SizedBox(height: 10.h),
                     Row(
                       children: [

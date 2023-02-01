@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/SideMenu/NavDrawer.dart';
+import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/AppBarWithNotification.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
@@ -67,6 +67,7 @@ class _HomePageState extends State<HomePage> {
           break;
         case 4:
           {
+            Get.toNamed('/myprofile');
             // Navigator.push(
             //     context, MaterialPageRoute(builder: ((context) => SignUp())));
           }
@@ -86,6 +87,16 @@ class _HomePageState extends State<HomePage> {
       drawer: NavDrawer(),
       backgroundColor: Color(0xFFFEFEFE),
       appBar: AppBar(
+        title: Text(
+          'Welcome',
+          softWrap: true,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontFamily: 'Poppins',
+              fontSize: 19,
+              fontWeight: FontWeight.w400,
+              color: Colors.black),
+        ),
         backgroundColor: Colors.white,
         elevation: 2,
         shadowColor: Colors.black,
@@ -1150,12 +1161,17 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(
                             height: 6.h,
                           ),
-                          Text(
-                            "Know More",
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                                color: Color(0xFFFFB600)),
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed('/success');
+                            },
+                            child: Text(
+                              "Know More",
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 14.sm,
+                                  color: Color(0xFFFFB600)),
+                            ),
                           )
                         ],
                       ),

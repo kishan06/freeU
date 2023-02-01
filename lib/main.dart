@@ -8,23 +8,39 @@ import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset2.da
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
+import 'package:freeu/HomePage/Homepage2.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
 import 'package:freeu/HomePage/Investments/InvestmentMain.dart';
 import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
 import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
+import 'package:freeu/HomePage/SuccessStories.dart';
+import 'package:freeu/HomePage/SuccessStoriesDetails.dart';
 import 'package:freeu/Notification.dart';
+import 'package:freeu/SideMenu/About.dart';
 import 'package:freeu/SideMenu/ContactUs.dart';
 import 'package:freeu/SideMenu/HowToInvest.dart';
 import 'package:freeu/SideMenu/KYC/KYC1.dart';
 import 'package:freeu/SideMenu/KYC/KYC2.dart';
 import 'package:freeu/SideMenu/KYC/KYC3.dart';
 import 'package:freeu/SideMenu/KYC/KYC4.dart';
+import 'package:freeu/SideMenu/PrivacyPolicy.dart';
+import 'package:freeu/SideMenu/TermsAndCondition.dart';
+import 'package:freeu/SideMenu/faqs.dart';
+import 'package:freeu/SideMenu/InsightsInner.dart';
+import 'package:freeu/SideMenu/insights.dart';
+import 'package:freeu/SideMenu/security.dart';
+import 'package:freeu/SideMenu/UpdateRiskProfile.dart';
 import 'package:freeu/login/OTPVerification.dart';
 import 'package:freeu/login/PhoneVerification.dart';
 import 'package:freeu/login/forgotPassword.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/login/loginUsingOTP.dart';
 import 'package:freeu/login/resetPassword.dart';
+import 'package:freeu/profile/kyctabs1.dart';
+import 'package:freeu/profile/kyctabs2.dart';
+import 'package:freeu/profile/kyctabs3.dart';
+import 'package:freeu/profile/kyctabs4.dart';
+import 'package:freeu/profile/profile.dart';
 import 'package:freeu/signUp/CompleteProfile.dart';
 import 'package:freeu/signUp/SecurityFirst.dart';
 import 'package:freeu/signUp/SecurityQuestion.dart';
@@ -100,6 +116,24 @@ class _MyAppState extends State<MyApp> {
               page: () => SuggestedInvestedProducts()),
           GetPage(name: '/chatpage', page: () => ChatPage()),
           GetPage(name: '/chatdetailpage', page: () => ChatDetailPage()),
+          GetPage(name: '/homepage2', page: () => Home2()),
+          GetPage(name: '/success', page: () => Success()),
+          GetPage(
+              name: '/successstoriesdetails',
+              page: () => SuccessStoriesDetails()),
+          GetPage(name: '/myprofile', page: () => Profile()),
+          GetPage(name: '/about', page: () => About()),
+          GetPage(name: '/faqs', page: () => FAQs()),
+          GetPage(name: '/security', page: () => Security()),
+          GetPage(name: '/updaterisk', page: () => UpdateRishProfile()),
+          GetPage(name: '/insights', page: () => Insights()),
+          GetPage(name: '/insightsinner', page: () => InsightsInner()),
+          GetPage(name: '/privacypolicy', page: () => PrivacyPolicy()),
+          GetPage(name: '/termsandconditions', page: () => TermsAndCondition()),
+          GetPage(name: '/kyctab1', page: () => KYCtabs1()),
+          GetPage(name: '/kyctab2', page: () => KYCTabs2()),
+          GetPage(name: '/kyctab3', page: () => KYCTabs3()),
+          GetPage(name: '/kyctab4', page: () => KYCTabs4()),
         ],
       ),
       designSize: Size(390, 844),

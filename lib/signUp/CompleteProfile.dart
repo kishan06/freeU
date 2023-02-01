@@ -1,6 +1,9 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
 import '../common/customNextButton.dart';
@@ -43,9 +46,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                   width: double.infinity,
                   child: Text(
                     'Would you like a guided tour of our app?',
-                    textAlign: TextAlign.center,
+                    textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 18,
                       fontFamily: 'Poppins',
                       color: Color(0xff444444),
                     ),
@@ -74,7 +77,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       title: Text(
                         "Dont't show this message again",
                         style: TextStyle(
-                          fontSize: 18.sm,
+                          fontSize: 14.sm,
                           fontFamily: 'Poppins',
                         ),
                       ),
@@ -128,7 +131,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           ),
                         ),
                         onPressed: () {
-                          Get.toNamed('/homepage');
+                          Get.toNamed('/homepage2');
                         },
                         child: Text(
                           "No",
@@ -221,25 +224,12 @@ class _CompleteProfileState extends State<CompleteProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color(0xFFF9F9F9),
-        appBar: AppBar(
-          backgroundColor: Color(0xffffffff),
-          leading: IconButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: Icon(
-              Icons.arrow_back,
-            ),
-            iconSize: 22,
-            color: Color(0xFF6B6B6B),
-          ),
-          title: Text(
-            "Complete Your Profile",
-            style: TextStyle(color: Color(0xFF242323)),
-          ),
+        appBar: CustomSignupAppBar(
+          titleTxt: 'Complete Your Profile',
+          bottomtext: false,
         ),
         body: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            padding: EdgeInsets.only(left: 30, right: 30, bottom: 20, top: 10),
             child: Center(
               child: Form(
                 key: _form,
@@ -271,7 +261,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ],
                     ),
                     SizedBox(
-                      height: 10.h,
+                      height: 5.h,
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Chats/Model/ChatMessageModel.dart';
 import 'package:get/get.dart';
 
@@ -162,10 +163,10 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                       topRight: Radius.circular(30),
-                                      bottomLeft: Radius.circular(30),
+                                      topLeft: Radius.circular(30),
                                       bottomRight: Radius.circular(30),
                                     ),
-                                    color: Colors.grey.shade200),
+                                    color: Color(0xFFFFB600)),
                                 padding: EdgeInsets.all(16),
                                 child: Text(
                                   messages[index].messageContent,
@@ -190,14 +191,15 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(30),
                                     bottomLeft: Radius.circular(30),
-                                    bottomRight: Radius.circular(30),
+                                    topRight: Radius.circular(30),
                                   ),
-                                  color: Colors.blue[200],
+                                  color: Color(0xFF143C6D),
                                 ),
                                 padding: EdgeInsets.all(16),
                                 child: Text(
                                   messages[index].messageContent,
-                                  style: TextStyle(fontSize: 15),
+                                  style: TextStyle(
+                                      fontSize: 15.sm, color: Colors.white),
                                 ),
                               ),
                               SizedBox(width: 10),
@@ -230,7 +232,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         height: 30,
                         width: 30,
                         decoration: BoxDecoration(
-                          color: Colors.lightBlue,
+                          color: Color(0xFFFFB600),
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Icon(
@@ -261,7 +263,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         color: Colors.white,
                         size: 18,
                       ),
-                      backgroundColor: Colors.blue,
+                      backgroundColor: Color(0xFFFFB600),
                       elevation: 0,
                     ),
                   ],

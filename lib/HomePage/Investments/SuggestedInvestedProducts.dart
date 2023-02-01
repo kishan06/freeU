@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/SideMenu/NavDrawer.dart';
+import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -61,12 +61,14 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
           break;
         case 3:
           {
+            Get.toNamed('/chatpage');
             // Navigator.push(
             //     context, MaterialPageRoute(builder: ((context) => Login())));
           }
           break;
         case 4:
           {
+            Get.toNamed('/myprofile');
             // Navigator.push(
             //     context, MaterialPageRoute(builder: ((context) => SignUp())));
           }

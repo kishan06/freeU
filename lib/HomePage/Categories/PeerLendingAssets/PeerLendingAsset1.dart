@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/SideMenu/NavDrawer.dart';
+import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -44,28 +44,22 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
         case 1:
           {
             Get.toNamed('/categoriesmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityFirst())));
           }
           break;
 
         case 2:
           {
             Get.toNamed('/investmentmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
           }
           break;
         case 3:
           {
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => Login())));
+            Get.toNamed('/chatpage');
           }
           break;
         case 4:
           {
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => SignUp())));
+            Get.toNamed('/myprofile');
           }
           break;
         default:
