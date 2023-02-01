@@ -55,6 +55,33 @@ class _SignUpState extends State<SignUp> {
     });
   }
 
+  Future showtermsandconditions() async {
+    FocusScope.of(context).unfocus();
+    final data = await showModalBottomSheet<dynamic>(
+      isScrollControlled: true,
+      context: context,
+      builder: (context) {
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+          child: const TermsAndConditions(),
+        );
+      },
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+    );
+
+    if (data != null) {
+      setState(() {
+        design = data;
+      });
+    }
+  }
+
   buildPin(context) {
     return showDialog(
       context: context,
@@ -448,6 +475,47 @@ class _SignUpState extends State<SignUp> {
                         const SizedBox(
                           height: 20,
                         ),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 0, right: 10),
+                          child: Container(
+                            padding: const EdgeInsets.only(right: 20),
+                            child: Row(
+                              children: [
+                                Transform.scale(
+                                  scale: 1.2,
+                                  child: Theme(
+                                    data: ThemeData(
+                                      unselectedWidgetColor: Color(0xFFF78104),
+                                    ),
+                                    child: Checkbox(
+                                      activeColor: const Color(0xFFF78104),
+                                      shape: const RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(5.0))),
+                                      value: design,
+                                      onChanged: (bool? design) {
+                                        setState(() {
+                                          this.design = design!;
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ),
+                                GestureDetector(
+                                  onTap: () => showtermsandconditions(),
+                                  child: Text(
+                                    "I accept the Terms & Conditions*",
+                                    style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.black,
+                                      fontSize: 15.sm,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -576,6 +644,83 @@ class FullnameTextFormField extends StatelessWidget {
       onSaved: (value) {
         ontap?.call;
       },
+    );
+  }
+}
+
+class TermsAndConditions extends StatefulWidget {
+  const TermsAndConditions({Key? key}) : super(key: key);
+
+  @override
+  State<TermsAndConditions> createState() => _TermsAndConditionsState();
+}
+
+class _TermsAndConditionsState extends State<TermsAndConditions> {
+  bool agree = false;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+          child: Text(
+            "Terms And Conditions",
+            style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+          ),
+        ),
+        SizedBox(
+          height: 20.h,
+        ),
+        Padding(
+          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
+          child: SizedBox(
+            height: 150,
+            child: SingleChildScrollView(
+              child: Text(
+                  " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum"),
+            ),
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        // Row(
+        //   children: [
+        //     Checkbox(
+        //         activeColor: const Color(0xFFF78104),
+        //         shape: const RoundedRectangleBorder(
+        //             borderRadius: BorderRadius.all(Radius.circular(5.0))),
+        //         value: agree,
+        //         onChanged: (value) {
+        //           setState(() {
+        //             agree = value ?? false;
+        //           });
+        //         }),
+        //     Flexible(
+        //       child: Text(
+        //         maxLines: 1,
+        //         softWrap: false,
+        //         'I have read and accept Terms & Conditions',
+        //         style: TextStyle(fontSize: 14.sm),
+        //       ),
+        //     ),
+        //   ],
+        // ),
+        const SizedBox(
+          height: 10,
+        ),
+        Center(
+            child: CustomNextButton(
+          text: "Proceed",
+          ontap: () {
+            Navigator.pop(context, agree);
+          },
+        )),
+        const SizedBox(height: 16),
+      ],
     );
   }
 }

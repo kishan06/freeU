@@ -58,7 +58,9 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
           }
           break;
         case 4:
-          {}
+          {
+            Get.toNamed('/myprofile');
+          }
           break;
         default:
           {

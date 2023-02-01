@@ -59,7 +59,9 @@ class _CategoriesMainState extends State<CategoriesMain> {
           }
           break;
         case 4:
-          {}
+          {
+            Get.toNamed('/myprofile');
+          }
           break;
         default:
           {

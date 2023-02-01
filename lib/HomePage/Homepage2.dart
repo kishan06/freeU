@@ -67,6 +67,7 @@ class _Home2State extends State<Home2> {
           break;
         case 4:
           {
+            Get.toNamed('/myprofile');
             // Navigator.push(
             //     context, MaterialPageRoute(builder: ((context) => SignUp())));
           }
