@@ -48,8 +48,7 @@ class _AboutState extends State<About> {
                   'About Us',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 22,
-                      fontFamily: 'Poppins',
+                      fontSize: 20,
                       fontWeight: FontWeight.w600),
                 ),
               ),
@@ -62,7 +61,7 @@ class _AboutState extends State<About> {
                   'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using Content here, content here, making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infancy.',
                   style: TextStyle(
                     fontFamily: "Poppins",
-                    fontSize: 16,
+                    fontSize: 15,
                     color: Color(0xff131313),
                   ),
                 ),
@@ -80,7 +79,7 @@ class _AboutState extends State<About> {
                         width: 40.w,
                       ),
                       SizedBox(
-                        width: 10,
+                        width: 10.w,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -91,14 +90,14 @@ class _AboutState extends State<About> {
                             'Experience',
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              fontSize: 15,
+                              fontSize: 15.sm,
                             ),
                           ),
                           Text(
                             'Our Great team of more than\n1400 Software experts',
                             textAlign: TextAlign.left,
                             style: TextStyle(
-                              fontSize: 8,
+                              fontSize: 8.sm,
                             ),
                           ),
                         ],
@@ -149,8 +148,7 @@ class _AboutState extends State<About> {
                   'Our Great Team',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 22,
-                      fontFamily: 'Poppins',
+                      fontSize: 20,
                       fontWeight: FontWeight.w600),
                 ),
               ),
@@ -162,7 +160,7 @@ class _AboutState extends State<About> {
                 child: Text(
                   'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
                   style: TextStyle(
-                    fontSize: 16,
+                    fontSize: 15,
                     color: Color(0xff131313),
                   ),
                 ),
