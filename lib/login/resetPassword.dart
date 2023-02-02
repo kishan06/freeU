@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
+import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/login/login.dart';
+import 'package:get/get.dart';
 
 class ResetPassword extends StatefulWidget {
   const ResetPassword({super.key});
@@ -58,9 +60,9 @@ class _ResetPasswordState extends State<ResetPassword> {
         ),
       ),
       body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-          child: Center(
-              child: Form(
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        child: Center(
+          child: Form(
             key: _form,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -322,63 +324,79 @@ class _ResetPasswordState extends State<ResetPassword> {
                 SizedBox(
                   height: 60.h,
                 ),
-                InkWell(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const Login(),
-                      ),
-                    );
+                CustomNextButton(
+                  text: "Reset Password",
+                  ontap: () {
+                    final isValid = _form.currentState?.validate();
+                    if (isValid!) {
+                      Get.toNamed('/login');
+                    } else {
+                      Get.snackbar("Error", "Please Enter Password",
+                          margin: EdgeInsets.all(8),
+                          snackStyle: SnackStyle.FLOATING,
+                          snackPosition: SnackPosition.BOTTOM);
+                    }
                   },
-                  child: Stack(
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50.h,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              elevation: 3,
-                              shadowColor:
-                                  const Color.fromARGB(255, 172, 172, 173),
-                              backgroundColor: const Color(0xFFFFB600),
-                              shape: (RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0),
-                              ))),
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Login(),
-                              ),
-                            );
-                          },
-                          child: Text(
-                            'Reset Password',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'Poppins',
-                              fontSize: 16.sm,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 0,
-                        top: 0,
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 25.r,
-                          child: Icon(
-                              color: Color(0xFF6B6B6B), Icons.arrow_forward),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+                )
+                // InkWell(
+                //   onTap: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //         builder: (context) => const Login(),
+                //       ),
+                //     );
+                //   },
+                //   child: Stack(
+                //     children: [
+                //       SizedBox(
+                //         width: double.infinity,
+                //         height: 50.h,
+                //         child: ElevatedButton(
+                //           style: ElevatedButton.styleFrom(
+                //               elevation: 3,
+                //               shadowColor:
+                //                   const Color.fromARGB(255, 172, 172, 173),
+                //               backgroundColor: const Color(0xFFFFB600),
+                //               shape: (RoundedRectangleBorder(
+                //                 borderRadius: BorderRadius.circular(30.0),
+                //               ))),
+                //           onPressed: () {
+                //             Navigator.push(
+                //               context,
+                //               MaterialPageRoute(
+                //                 builder: (context) => const Login(),
+                //               ),
+                //             );
+                //           },
+                //           child: Text(
+                //             'Reset Password',
+                //             style: TextStyle(
+                //               color: Colors.black,
+                //               fontFamily: 'Poppins',
+                //               fontSize: 16.sm,
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //       Positioned(
+                //         right: 0,
+                //         top: 0,
+                //         child: CircleAvatar(
+                //           backgroundColor: Colors.white,
+                //           radius: 25.r,
+                //           child: Icon(
+                //               color: Color(0xFF6B6B6B), Icons.arrow_forward),
+                //         ),
+                //       )
+                //     ],
+                //   ),
+                // ),
               ],
             ),
-          ))),
+          ),
+        ),
+      ),
     );
   }
 }

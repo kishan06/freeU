@@ -30,8 +30,8 @@ class _SplashState extends State<Splash> {
               children: [
                 Image.asset(
                   'assets/images/freeulogo.png',
-                  height: 150.0,
-                  width: 150.0,
+                  height: 200.0,
+                  width: 200.0,
                 ),
               ]),
         ),

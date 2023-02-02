@@ -70,6 +70,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                     controller: phoneController,
                     keyboardType: TextInputType.phone,
                     inputFormatters: <TextInputFormatter>[
+                      LengthLimitingTextInputFormatter(10),
                       FilteringTextInputFormatter.digitsOnly
                     ],
                     decoration: InputDecoration(
@@ -138,7 +139,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       activeColor: Color(0xFF143C6D),
                       selectedColor: Color(0xFF143C6D),
                       shape: PinCodeFieldShape.box,
-                      borderRadius: BorderRadius.circular(5),
+                      borderRadius: BorderRadius.circular(15),
                       fieldHeight: 60.h,
                       fieldWidth: 60.w,
                       activeFillColor: Colors.white,

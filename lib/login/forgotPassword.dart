@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
+import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -39,7 +40,6 @@ class _forgotPasswordState extends State<forgotPassword> {
                   key: _form,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBox(
                         height: 20.h,
@@ -68,7 +68,6 @@ class _forgotPasswordState extends State<forgotPassword> {
                           ),
                           CustomTextFormField(
                               textEditingController: phoneController,
-                              // keyboardType: TextInputType.phone,
                               inputFormatters: <TextInputFormatter>[
                                 FilteringTextInputFormatter.digitsOnly
                               ],
@@ -84,6 +83,9 @@ class _forgotPasswordState extends State<forgotPassword> {
                               },
                               hintText: "Enter your Phone Number",
                               validatorText: "Enter your Phone Number"),
+                          SizedBox(
+                            height: 20.h,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -102,52 +104,21 @@ class _forgotPasswordState extends State<forgotPassword> {
                           SizedBox(
                             height: 60.h,
                           ),
-                          InkWell(
-                            onTap: () {
-                              Get.toNamed('/otpverification');
+                          CustomNextButton(
+                            text: "Proceed",
+                            ontap: () {
+                              final isValid = _form.currentState?.validate();
+                              if (isValid!) {
+                                Get.toNamed('/otpverification');
+                              } else {
+                                Get.snackbar(
+                                    "Error", "Please Enter Phone Number",
+                                    margin: EdgeInsets.all(8),
+                                    snackStyle: SnackStyle.FLOATING,
+                                    snackPosition: SnackPosition.BOTTOM);
+                              }
                             },
-                            child: Stack(
-                              children: [
-                                SizedBox(
-                                  width: double.infinity,
-                                  height: 50.h,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                        elevation: 3,
-                                        shadowColor: const Color.fromARGB(
-                                            255, 172, 172, 173),
-                                        backgroundColor:
-                                            const Color(0xFFFFB600),
-                                        shape: (RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30.0),
-                                        ))),
-                                    onPressed: () {
-                                      Get.toNamed('/otpverification');
-                                    },
-                                    child: Text(
-                                      'Proceed',
-                                      style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 16.sm,
-                                          fontFamily: 'Poppins'),
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                  right: 0,
-                                  top: 0,
-                                  child: CircleAvatar(
-                                    backgroundColor: Colors.white,
-                                    radius: 25.r,
-                                    child: Icon(
-                                        color: Color(0xFF6B6B6B),
-                                        Icons.arrow_forward),
-                                  ),
-                                )
-                              ],
-                            ),
-                          ),
+                          )
                         ],
                       ),
                       SizedBox(
