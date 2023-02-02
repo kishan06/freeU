@@ -174,9 +174,8 @@ class _LoginState extends State<Login> {
                               children: <Widget>[
                                 const Text("Don't have an account?",
                                     style: TextStyle(
-                                      color: Color.fromARGB(159, 51, 51, 50),
+                                      color: Color(0x9F333332),
                                       fontSize: 15,
-                                      fontFamily: 'Poppins',
                                     )),
                                 TextButton(
                                   child: const Text(
@@ -184,7 +183,6 @@ class _LoginState extends State<Login> {
                                     style: TextStyle(
                                       color: Color(0xFF143C6D),
                                       fontSize: 15,
-                                      fontFamily: 'Poppins',
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),

@@ -171,7 +171,6 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           style: TextStyle(
                             color: Color.fromARGB(159, 51, 51, 50),
                             fontSize: 15.sm,
-                            fontFamily: 'Poppins',
                           )),
                       TextButton(
                         child: Text(
@@ -179,7 +178,6 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           style: TextStyle(
                             color: Color(0xFF143C6D),
                             fontSize: 15.sm,
-                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.bold,
                           ),
                         ),
