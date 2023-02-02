@@ -561,11 +561,7 @@ class _NavDrawerState extends State<NavDrawer> {
                                     ),
                                     child: GestureDetector(
                                       onTap: () {
-                                        Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    HomePage()));
+                                        Get.toNamed("/homepage");
                                       },
                                       child: SizedBox(
                                         width: double.infinity,

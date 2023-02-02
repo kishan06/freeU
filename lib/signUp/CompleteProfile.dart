@@ -380,11 +380,11 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         ),
                         SizedBox(height: 25.h),
                         CustomTextFormField(
-                          hintText: "Enter Pan Number",
-                          validatorText: "Enter Pan Number",
+                          hintText: "Enter PAN Number",
+                          validatorText: "Enter PAN Number",
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Please Enter Pan Number";
+                              return "Please Enter PAN Number";
                             }
                             return null;
                           },

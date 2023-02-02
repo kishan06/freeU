@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:get/get.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({Key? key}) : super(key: key);
@@ -48,7 +49,7 @@ class _NotificationPageState extends State<NotificationPage> {
           backgroundColor: Color(0xffffffff),
           leading: IconButton(
             onPressed: () {
-              Navigator.pop(context);
+              Get.back();
             },
             icon: Icon(
               Icons.arrow_back,
@@ -77,31 +78,31 @@ class _NotificationPageState extends State<NotificationPage> {
                                   'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
                               date: '2 days ago',
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.h),
                             Slidebar(
                               text:
                                   'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
                               date: '2 days ago',
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.h),
                             Slidebar(
                               text:
                                   'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
                               date: '2 days ago',
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.h),
                             Slidebar(
                               text:
                                   'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
                               date: '2 days ago',
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.h),
                             Slidebar(
                               text:
                                   'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
                               date: '2 days ago',
                             ),
-                            SizedBox(height: 10),
+                            SizedBox(height: 10.h),
                             Slidebar(
                               text:
                                   'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/Utils/textStyle.dart';
+import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/login/contentModel.dart';
 import 'package:get/get.dart';
 
@@ -51,7 +52,7 @@ class _SplashsliderState extends State<Splashslider> {
       child: Scaffold(
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               height: 100,
@@ -111,60 +112,74 @@ class _SplashsliderState extends State<Splashslider> {
             SizedBox(
               height: 15.h,
             ),
-            InkWell(
-              onTap: () => setState(() {
-                _controller.animateToPage(currentIndex + 1,
-                    duration: const Duration(milliseconds: 500),
-                    curve: Curves.linear);
-                if (currentIndex == 2) {
-                  Get.toNamed('/login');
-                }
-              }),
-              child: Stack(
-                children: [
-                  SizedBox(
-                    width: double.infinity,
-                    height: 50.h,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 30),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFFFFB600),
-                            shape: (RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                            ))),
-                        onPressed: () {
-                          setState(() {
-                            _controller.animateToPage(currentIndex + 1,
-                                duration: const Duration(milliseconds: 500),
-                                curve: Curves.linear);
-                            if (currentIndex == 2) {
-                              Get.toNamed('/login');
-                            }
-                          });
-                        },
-                        child: Text(
-                          'Next',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    right: 25,
-                    child: CircleAvatar(
-                      backgroundColor: Colors.white,
-                      radius: 25.r,
-                      child:
-                          Icon(color: Color(0xFF6B6B6B), Icons.arrow_forward),
-                    ),
-                  )
-                ],
-              ),
+            CustomNextButton(
+              text: "Next",
+              ontap: () {
+                setState(() {
+                  _controller.animateToPage(currentIndex + 1,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.linear);
+                  if (currentIndex == 2) {
+                    Get.toNamed('/login');
+                  }
+                });
+              },
             ),
+            // InkWell(
+            //   onTap: () => setState(() {
+            //     _controller.animateToPage(currentIndex + 1,
+            //         duration: const Duration(milliseconds: 500),
+            //         curve: Curves.linear);
+            //     if (currentIndex == 2) {
+            //       Get.toNamed('/login');
+            //     }
+            //   }),
+            //   child: Stack(
+            //     children: [
+            //       SizedBox(
+            //         width: double.infinity,
+            //         height: 50.h,
+            //         child: Padding(
+            //           padding: const EdgeInsets.symmetric(horizontal: 30),
+            //           child: ElevatedButton(
+            //             style: ElevatedButton.styleFrom(
+            //                 backgroundColor: Color(0xFFFFB600),
+            //                 shape: (RoundedRectangleBorder(
+            //                   borderRadius: BorderRadius.circular(30.0),
+            //                 ))),
+            //             onPressed: () {
+            //               setState(() {
+            //                 _controller.animateToPage(currentIndex + 1,
+            //                     duration: const Duration(milliseconds: 500),
+            //                     curve: Curves.linear);
+            //                 if (currentIndex == 2) {
+            //                   Get.toNamed('/login');
+            //                 }
+            //               });
+            //             },
+            //             child: Text(
+            //               'Next',
+            //               style: TextStyle(
+            //                 color: Colors.black,
+            //                 fontFamily: 'Poppins',
+            //               ),
+            //             ),
+            //           ),
+            //         ),
+            //       ),
+            //       Positioned(
+            //         right: 25,
+            //         child: CircleAvatar(
+            //           backgroundColor: Colors.white,
+            //           radius: 25.r,
+            //           child:
+            //               Icon(color: Color(0xFF6B6B6B), Icons.arrow_forward),
+            //         ),
+            //       )
+            //     ],
+            //   ),
+            // ),
+
             SizedBox(
               height: 20,
             ),

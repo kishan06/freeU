@@ -119,6 +119,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           //  pinfiledshow
                           //  ?
                           PinCodeTextField(
+                    errorTextSpace: 22,
                     validator: (value) {
                       if (value != null && value.isEmpty) {
                         return "Please Enter verification code";

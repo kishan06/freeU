@@ -35,7 +35,7 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
     return Column(
       children: [
         SizedBox(
-          height: 60.h,
+          height: 55.h,
           child: TextFormField(
             readOnly: true,
             onChanged: widget.onInput,

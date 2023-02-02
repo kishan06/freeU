@@ -79,8 +79,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
       ),
       leading: IconButton(
         onPressed: () {
-          Navigator.pop(context);
-          //  Get.toNamed("/login");
+          Get.back();
         },
         icon: Icon(
           Icons.arrow_back,
