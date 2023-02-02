@@ -29,13 +29,17 @@ class _InsightsState extends State<Insights> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                CustomTextDropdown(items: [
-                  "All",
-                  "Fractional Real Estate",
-                  "Peer to Peer",
-                ], controller: insightsdrpdown, showDropDown: true),
+                CustomTextDropdown(
+                  items: [
+                    "All",
+                    "Fractional Real Estate",
+                    "Peer to Peer",
+                  ],
+                  controller: insightsdrpdown,
+                  showDropDown: true,
+                ),
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 ),
                 Row(
                   // ignore: prefer_const_literals_to_create_immutables
@@ -44,7 +48,7 @@ class _InsightsState extends State<Insights> {
                       'assets/images/img2.png',
                     ),
                     SizedBox(
-                      width: 10,
+                      width: 10.w,
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -53,43 +57,47 @@ class _InsightsState extends State<Insights> {
                         Text(
                           'Retail banks wake up\nto digital',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16.sm,
+                            fontFamily: "Poppins",
                             color: Color(0xff000000),
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 8.h,
                         ),
                         Row(
                           children: [
                             Icon(
                               Icons.calendar_today,
-                              size: 20,
+                              size: 14.sm,
                               color: Color(0xff6B6B6B),
                             ),
                             SizedBox(
-                              width: 5,
+                              width: 3.w,
                             ),
                             Text(
                               'November 11, 2022',
                               style: TextStyle(
-                                  fontSize: 14, color: Color(0xff6B6B6B)),
+                                  fontFamily: "Poppins",
+                                  fontSize: 12.sm,
+                                  color: Color(0xff6B6B6B)),
                             ),
                           ],
                         ),
                         SizedBox(
-                          height: 10,
+                          height: 8.h,
                         ),
                         Text(
                           'Lorem ipsum dolor sit amet,\nconsectetuer elit, sed diam\nnonummy nibh euismod',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontFamily: "Poppins",
+                            fontSize: 14.sm,
                             color: Color(0xFF707070),
                           ),
                         ),
                         SizedBox(
-                          height: 10.h,
+                          height: 8.h,
                         ),
                         GestureDetector(
                             child: Container(
@@ -99,11 +107,12 @@ class _InsightsState extends State<Insights> {
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 35, vertical: 10),
+                                      horizontal: 20, vertical: 5),
                                   child: Text(
                                     'Read More',
                                     style: TextStyle(
-                                      fontSize: 15,
+                                      fontFamily: "Poppins",
+                                      fontSize: 14.sm,
                                       color: Color(0xff000000),
                                     ),
                                   ),
@@ -125,7 +134,7 @@ class _InsightsState extends State<Insights> {
                         border: Border(
                       bottom: BorderSide(
                         color: Color(0xFFFDDF93),
-                        width: 3,
+                        width: 3.w,
                       ),
                     )),
                   ),
@@ -134,29 +143,29 @@ class _InsightsState extends State<Insights> {
                   children: [
                     insights(),
                     SizedBox(
-                      width: 10,
+                      width: 10.w,
                     ),
                     insights(),
                   ],
                 ),
-                SizedBox(height: 15),
+                SizedBox(height: 15.h),
                 Row(
                   children: [
                     insights(),
                     SizedBox(
-                      width: 10,
+                      width: 10.w,
                     ),
                     insights(),
                   ],
                 ),
                 SizedBox(
-                  height: 15,
+                  height: 15.h,
                 ),
                 Row(
                   children: [
                     insights(),
                     SizedBox(
-                      width: 10,
+                      width: 10.h,
                     ),
                     insights(),
                   ],
@@ -181,45 +190,49 @@ class insights extends StatelessWidget {
       children: [
         Image.asset(
           'assets/images/img1.png',
-          width: 180,
+          width: 170.w,
         ),
         SizedBox(
-          height: 10,
+          height: 10.h,
         ),
         Text(
           'Retail banks wake up\nto digital',
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 14.sm,
             color: Color(0xff000000),
             fontWeight: FontWeight.bold,
           ),
         ),
         SizedBox(
-          height: 10,
+          height: 10.h,
         ),
         Row(
           children: [
             Icon(
               Icons.calendar_today,
-              size: 18,
+              size: 18.h,
               color: Color(0xff6B6B6B),
             ),
             SizedBox(
-              width: 5,
+              width: 5.w,
             ),
             Text(
               'November 11, 2022',
-              style: TextStyle(fontSize: 12, color: Color(0xff6B6B6B)),
+              style: TextStyle(
+                  fontFamily: "Poppins",
+                  fontSize: 12.sm,
+                  color: Color(0xff6B6B6B)),
             ),
           ],
         ),
         SizedBox(
-          height: 10,
+          height: 10.h,
         ),
         Text(
           'Lorem ipsum dolor sit amet,\nconsectetuer elit, sed diam\nnonummy nibh euismod',
           style: TextStyle(
-            fontSize: 12,
+            fontFamily: "Poppins",
+            fontSize: 12.sm,
             color: Color(0xFF707070),
           ),
         ),
@@ -232,17 +245,18 @@ class insights extends StatelessWidget {
                 Text(
                   'Read More',
                   style: TextStyle(
-                    fontSize: 15,
+                    fontFamily: "Poppins",
+                    fontSize: 14.sm,
                     color: Color(0xFFFFB600),
                   ),
                 ),
                 SizedBox(
-                  width: 5,
+                  width: 5.w,
                 ),
                 Icon(
                   Icons.arrow_right_alt_outlined,
                   color: Color(0xFFFFB600),
-                  size: 20,
+                  size: 20.sm,
                 ),
               ],
             ),

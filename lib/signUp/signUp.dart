@@ -224,7 +224,7 @@ class _SignUpState extends State<SignUp> {
                           height: 20.h,
                         ),
                         CustomTextFormField(
-                            hintText: "Full Name", validatorText: "Full Name"),
+                            hintText: "Full Name*", validatorText: "Full Name"),
                         // FullnameTextFormField(
                         //   controller: fullNameController,
                         //   keyboardType: TextInputType.text,

@@ -74,6 +74,9 @@ class _MyAppState extends State<MyApp> {
         debugShowCheckedModeBanner: false,
         title: 'FreeU',
         initialRoute: '/',
+        theme: ThemeData(
+          fontFamily: "Poppins",
+        ),
         getPages: [
           GetPage(name: '/', page: () => Splash()),
           GetPage(name: '/splash', page: () => Splash()),

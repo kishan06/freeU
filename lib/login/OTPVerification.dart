@@ -267,6 +267,7 @@ class _otpVerificationState extends State<otpVerification> {
                           // ),
                           Container(
                               child: PinCodeTextField(
+                            errorTextSpace: 22,
                             validator: (value) {
                               if (value != null && value.isEmpty) {
                                 return "Please Enter verification code";

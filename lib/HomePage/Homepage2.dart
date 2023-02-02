@@ -46,30 +46,22 @@ class _Home2State extends State<Home2> {
         case 1:
           {
             Get.toNamed('/categoriesmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityFirst())));
           }
           break;
 
         case 2:
           {
             Get.toNamed('/investmentmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
           }
           break;
         case 3:
           {
             Get.toNamed('/chatpage');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => Login())));
           }
           break;
         case 4:
           {
             Get.toNamed('/myprofile');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => SignUp())));
           }
           break;
         default:
