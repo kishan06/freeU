@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, duplicate_ignore, avoid_print
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -16,6 +17,7 @@ class SecurityFirst extends StatefulWidget {
 }
 
 class _SecurityFirstState extends State<SecurityFirst> {
+  final GlobalKey<FormState> _pin = GlobalKey<FormState>();
   build4digitpin() {
     return showModalBottomSheet(
       isScrollControlled: true,
@@ -32,120 +34,156 @@ class _SecurityFirstState extends State<SecurityFirst> {
           child: Padding(
             padding: EdgeInsets.only(
                 bottom: MediaQuery.of(context).viewInsets.bottom),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Center(
-                  child: Text(
-                    "Let's set your 4 Digit Pin",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      fontSize: 18.sm,
-                      fontFamily: 'Poppins',
+            child: Form(
+              key: _pin,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Text(
+                      "Let's set your 4 Digit Pin",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 18.sm,
+                        fontFamily: 'Poppins',
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Divider(
-                  thickness: 2,
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Text(
-                  "Choose a PIN of Your choice",
-                  style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 15,
-                    right: 15,
+                  SizedBox(
+                    height: 10,
                   ),
-                  child: SizedBox(
-                    width: double.infinity,
+                  Divider(
+                    thickness: 2,
+                  ),
+                  const SizedBox(
                     height: 50,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        controller: pincontroller,
-                        textAlign: TextAlign.center,
-                        decoration: const InputDecoration(
-                          hintText: "",
-                          floatingLabelBehavior: FloatingLabelBehavior.always,
-                          border: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 2, color: Color(0xFF707070)),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
+                  ),
+                  Text(
+                    "Choose a PIN of Your choice",
+                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 15,
+                      right: 15,
+                    ),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(4),
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+                          validator: (value) {
+                            if (value != null && value.isEmpty) {
+                              return "Please Enter 4 Digit PIN";
+                            } else if (value != null && value.length < 4) {
+                              return "PIN length should be atleast 4";
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                          controller: pincontroller,
+                          textAlign: TextAlign.center,
+                          decoration: const InputDecoration(
+                            hintText: "",
+                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                            border: UnderlineInputBorder(
                               borderSide: BorderSide(
-                                  width: 2, color: Color(0xFF707070))),
+                                  width: 2, color: Color(0xFF707070)),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 2, color: Color(0xFF707070))),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Text(
-                  "Please Re-Enter the PIN",
-                  style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: 15,
-                    right: 15,
+                  const SizedBox(
+                    height: 30,
                   ),
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: 50,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: TextField(
-                        keyboardType: TextInputType.number,
-                        controller: confirmpincontroller,
-                        textAlign: TextAlign.center,
-                        decoration: const InputDecoration(
-                          hintText: "",
-                          floatingLabelBehavior: FloatingLabelBehavior.always,
-                          border: UnderlineInputBorder(
-                            borderSide:
-                                BorderSide(width: 2, color: Color(0xFF707070)),
-                          ),
-                          focusedBorder: UnderlineInputBorder(
+                  Text(
+                    "Please Re-Enter the PIN",
+                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      left: 15,
+                      right: 15,
+                    ),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 50,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextFormField(
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(4),
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
+                          validator: (val) {
+                            if (val == null || val.isEmpty) {
+                              return 'PIN is Empty';
+                            }
+                            if (val != pincontroller.text) {
+                              return 'Password Not Matched';
+                            }
+                            return null;
+                          },
+                          keyboardType: TextInputType.number,
+                          controller: confirmpincontroller,
+                          textAlign: TextAlign.center,
+                          decoration: const InputDecoration(
+                            hintText: "",
+                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                            border: UnderlineInputBorder(
                               borderSide: BorderSide(
-                                  width: 2, color: Color(0xFF707070))),
+                                  width: 2, color: Color(0xFF707070)),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 2, color: Color(0xFF707070))),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                Container(
-                  height: 50,
-                  width: double.infinity,
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
+                  const SizedBox(
+                    height: 30,
                   ),
-                  child: CustomNextButton(
-                    ontap: () {
-                      Get.toNamed("/completeprofile");
-                    },
-                    text: 'Submit',
+                  Container(
+                    height: 50,
+                    width: double.infinity,
+                    padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: CustomNextButton(
+                      ontap: () {
+                        final isValid = _pin.currentState?.validate();
+                        if (isValid!) {
+                          Get.toNamed("/completeprofile");
+                        } else {
+                          Get.snackbar("Error", "Please Enter Required Fields",
+                              margin: EdgeInsets.all(8),
+                              snackStyle: SnackStyle.FLOATING,
+                              snackPosition: SnackPosition.BOTTOM);
+                        }
+                      },
+                      text: 'Submit',
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-              ],
+                  const SizedBox(
+                    height: 30,
+                  ),
+                ],
+              ),
             ),
           ),
         );

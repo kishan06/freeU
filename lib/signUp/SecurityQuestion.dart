@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
+import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/signUp/SecurityFirst.dart';
 
@@ -17,6 +18,7 @@ class SecurityQuestion extends StatefulWidget {
 }
 
 class _SecurityQuestionState extends State<SecurityQuestion> {
+  final GlobalKey<FormState> _form = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -30,6 +32,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
         padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
         child: Center(
           child: Form(
+            key: _form,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -44,7 +47,16 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                 SizedBox(
                   height: 6.h,
                 ),
-                CustomTextFormField(hintText: "Answer", validatorText: ""),
+                CustomTextFormField(
+                  hintText: "Answer",
+                  validatorText: "Please Enter Answer",
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please Enter Answer";
+                    }
+                    return null;
+                  },
+                ),
                 SizedBox(
                   height: 30.h,
                 ),
@@ -59,7 +71,16 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                 SizedBox(
                   height: 6.h,
                 ),
-                CustomTextFormField(hintText: "Answer", validatorText: ""),
+                CustomTextFormField(
+                  hintText: "Answer",
+                  validatorText: "Please Enter Answer",
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please Enter Answer";
+                    }
+                    return null;
+                  },
+                ),
                 // TextFormField(
                 //   decoration: InputDecoration(
                 //     border: OutlineInputBorder(
@@ -82,7 +103,16 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                 SizedBox(
                   height: 6.h,
                 ),
-                CustomTextFormField(hintText: "Answer", validatorText: ""),
+                CustomTextFormField(
+                  hintText: "Answer",
+                  validatorText: "Please Enter Answer",
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please Enter Answer";
+                    }
+                    return null;
+                  },
+                ),
                 // TextFormField(
                 //   decoration: InputDecoration(
                 //     border: OutlineInputBorder(
@@ -105,7 +135,16 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                 SizedBox(
                   height: 6.h,
                 ),
-                CustomTextFormField(hintText: "Answer", validatorText: ""),
+                CustomTextFormField(
+                  hintText: "Answer",
+                  validatorText: "Please Enter Answer",
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return "Please Enter Answer";
+                    }
+                    return null;
+                  },
+                ),
                 // TextFormField(
                 //   decoration: InputDecoration(
                 //     border: OutlineInputBorder(
@@ -117,62 +156,21 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                 //   ),
                 // ),
                 SizedBox(height: 30.h),
-                InkWell(
-                  onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => Security_first(),
-                    //   ),
-                    // );
-                    Get.toNamed('/securityfirst');
+                CustomNextButton(
+                  text: "Next",
+                  ontap: () {
+                    final isValid = _form.currentState?.validate();
+                    if (isValid!) {
+                      Get.toNamed('/securityfirst');
+                    } else {
+                      Get.snackbar("Error", "Please Enter Required Fields",
+                          margin: EdgeInsets.all(8),
+                          snackStyle: SnackStyle.FLOATING,
+                          snackPosition: SnackPosition.BOTTOM);
+                    }
                   },
-                  child: Stack(
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50.h,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                              elevation: 3,
-                              shadowColor:
-                                  const Color.fromARGB(255, 172, 172, 173),
-                              backgroundColor: const Color(0xFFFFB600),
-                              shape: (RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30.0),
-                              ))),
-                          onPressed: () {
-                            // Navigator.push(
-                            //   context,
-                            //   MaterialPageRoute(
-                            //     builder: (context) => Security_first(),
-                            //   ),
-                            // );
-                            Get.toNamed('/securityfirst');
-                          },
-                          child: Text(
-                            'Next',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 16.sm,
-                              fontFamily: 'Poppins',
-                            ),
-                          ),
-                        ),
-                      ),
-                      const Positioned(
-                        right: 0,
-                        top: 0,
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          radius: 25,
-                          child: Icon(
-                              color: Color(0xFF6B6B6B), Icons.arrow_forward),
-                        ),
-                      )
-                    ],
-                  ),
                 ),
+
                 SizedBox(
                   height: 15.h,
                 ),

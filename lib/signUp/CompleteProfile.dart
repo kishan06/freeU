@@ -266,27 +266,58 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          height: 56.h,
-                          child: CustomTextFormField(
-                              hintText: "Full Name",
-                              validatorText: "Full Name"),
+                        CustomTextFormField(
+                          hintText: "Full Name",
+                          validatorText: "Full Name",
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Enter Full Name";
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(height: 25.h),
                         CustomTextFormField(
-                            hintText: "Email Id", validatorText: "Email Id"),
+                          hintText: "Email Id",
+                          validatorText: "Email Id",
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter your Email address';
+                            }
+                            if (!RegExp(
+                                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                                .hasMatch(value)) {
+                              return 'Enter a Valid Email address';
+                            }
+                            return null;
+                          },
+                        ),
                         SizedBox(height: 25.h),
                         CustomTextFormField(
-                            hintText: "Phone Number",
-                            validatorText: "Phone Number"),
+                          hintText: "Phone Number",
+                          validatorText: "Phone Number",
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Enter Phone Number";
+                            }
+                            return null;
+                          },
+                        ),
                         SizedBox(height: 25.h),
                         CustomTextFormField(
                             hintText: "Date Of Birth",
                             validatorText: "Date Of Birth"),
                         SizedBox(height: 25.h),
                         CustomTextFormField(
-                            hintText: "Occupation",
-                            validatorText: "Occupation"),
+                          hintText: "Occupation",
+                          validatorText: "Occupation",
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Enter Occupation";
+                            }
+                            return null;
+                          },
+                        ),
                         SizedBox(height: 25.h),
                         TextFormField(
                           cursorColor: const Color(0xFFFFB600),
@@ -329,15 +360,35 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           ),
                           minLines: 5,
                           maxLines: null,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Enter Address";
+                            }
+                            return null;
+                          },
                         ),
                         SizedBox(height: 25.h),
                         CustomTextFormField(
-                            hintText: "Enter Aadhar Number",
-                            validatorText: "Enter Aadhar Number"),
+                          hintText: "Enter Aadhar Number",
+                          validatorText: "Enter Aadhar Number",
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Enter Aadhar Number";
+                            }
+                            return null;
+                          },
+                        ),
                         SizedBox(height: 25.h),
                         CustomTextFormField(
-                            hintText: "Enter Pan Number",
-                            validatorText: "Enter Pan Number")
+                          hintText: "Enter Pan Number",
+                          validatorText: "Enter Pan Number",
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Enter Pan Number";
+                            }
+                            return null;
+                          },
+                        )
                       ],
                     ),
                     SizedBox(
@@ -345,7 +396,15 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     ),
                     CustomNextButton(
                       ontap: () {
-                        buildGuideTour();
+                        final isValid = _form.currentState?.validate();
+                        if (isValid!) {
+                          buildGuideTour();
+                        } else {
+                          Get.snackbar("Error", "Please Enter Required Fields",
+                              margin: EdgeInsets.all(8),
+                              snackStyle: SnackStyle.FLOATING,
+                              snackPosition: SnackPosition.BOTTOM);
+                        }
                       },
                       text: 'Submit',
                     ),

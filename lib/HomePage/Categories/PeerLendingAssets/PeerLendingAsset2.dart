@@ -1185,20 +1185,6 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
                                   ],
                                 ),
                               ),
-                              Positioned(
-                                top: -60,
-                                left: 165,
-                                child: IconButton(
-                                  onPressed: () {
-                                    Get.back();
-                                  },
-                                  icon: Icon(
-                                    Icons.cancel_sharp,
-                                    color: Colors.white,
-                                    size: 45,
-                                  ),
-                                ),
-                              ),
                             ]);
                           },
                         );

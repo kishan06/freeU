@@ -38,15 +38,14 @@ class _HowToInvestState extends State<HowToInvest> {
               Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  SizedBox(
-                    height: 140.h,
-                    width: 322.w,
+                  Flexible(
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 22.0, right: 22),
+                        padding: const EdgeInsets.only(
+                            left: 22.0, right: 22, top: 50),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -78,7 +77,7 @@ class _HowToInvestState extends State<HowToInvest> {
                     ),
                   ),
                   Positioned(
-                    bottom: 90,
+                    top: -45,
                     left: 120,
                     child: CircleAvatar(
                       backgroundColor: Color(0xFF143C6D),
@@ -96,15 +95,14 @@ class _HowToInvestState extends State<HowToInvest> {
               Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  SizedBox(
-                    height: 140.h,
-                    width: 322.w,
+                  Flexible(
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 22.0, right: 22),
+                        padding: const EdgeInsets.only(
+                            left: 22.0, right: 22, top: 50),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -136,7 +134,7 @@ class _HowToInvestState extends State<HowToInvest> {
                     ),
                   ),
                   Positioned(
-                    bottom: 90,
+                    top: -45,
                     left: 120,
                     child: CircleAvatar(
                       backgroundColor: Color(0xFFFFB600),
@@ -154,15 +152,14 @@ class _HowToInvestState extends State<HowToInvest> {
               Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  SizedBox(
-                    height: 140.h,
-                    width: 322.w,
+                  Flexible(
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 22.0, right: 22),
+                        padding: const EdgeInsets.only(
+                            left: 22.0, right: 22, top: 50),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -194,7 +191,7 @@ class _HowToInvestState extends State<HowToInvest> {
                     ),
                   ),
                   Positioned(
-                    bottom: 90,
+                    top: -45,
                     left: 120,
                     child: CircleAvatar(
                       backgroundColor: Color(0xFF143C6D),
@@ -211,15 +208,14 @@ class _HowToInvestState extends State<HowToInvest> {
               Stack(
                 clipBehavior: Clip.none,
                 children: [
-                  SizedBox(
-                    height: 140.h,
-                    width: 322.w,
+                  Flexible(
                     child: Card(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 22.0, right: 22),
+                        padding: const EdgeInsets.only(
+                            left: 22.0, right: 22, top: 50),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -251,7 +247,7 @@ class _HowToInvestState extends State<HowToInvest> {
                     ),
                   ),
                   Positioned(
-                    bottom: 90,
+                    top: -50,
                     left: 120,
                     child: CircleAvatar(
                       backgroundColor: Color(0xFFFFB600),
