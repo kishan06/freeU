@@ -203,7 +203,7 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
                             "Making India Atmanirbhar",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 20,
+                                fontSize: 20.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -388,7 +388,7 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
                             "Chennai Office Opportunity",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 20,
+                                fontSize: 20.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],

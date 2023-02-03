@@ -106,7 +106,7 @@ class _NavDrawerState extends State<NavDrawer> {
                               Text(
                                 "KYC",
                                 style: TextStyle(
-                                    fontSize: 15, fontFamily: "Poppins"),
+                                    fontSize: 15.sm, fontFamily: "Poppins"),
                               ),
                               Spacer(),
                               Icon(
@@ -147,7 +147,7 @@ class _NavDrawerState extends State<NavDrawer> {
                               Text(
                                 "Security",
                                 style: TextStyle(
-                                    fontSize: 15, fontFamily: "Poppins"),
+                                    fontSize: 15.sm, fontFamily: "Poppins"),
                               ),
                               Spacer(),
                               Icon(
@@ -516,7 +516,7 @@ class _NavDrawerState extends State<NavDrawer> {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
-                                          fontSize: 20,
+                                          fontSize: 20.sm,
                                           color: Colors.black),
                                     ),
                                   ),
@@ -529,7 +529,7 @@ class _NavDrawerState extends State<NavDrawer> {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
-                                          fontSize: 14,
+                                          fontSize: 14.sm,
                                           color: Color(0xFF444444)),
                                     ),
                                   ),
@@ -571,7 +571,7 @@ class _NavDrawerState extends State<NavDrawer> {
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                             fontFamily: 'Poppins',
-                                            fontSize: 18,
+                                            fontSize: 18.sm,
                                             color: Color(0xFF585858),
                                           ),
                                         ),

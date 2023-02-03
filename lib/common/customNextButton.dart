@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/textStyle.dart';
 
 class CustomNextButton extends StatelessWidget {
   const CustomNextButton({
@@ -22,7 +23,7 @@ class CustomNextButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          backgroundColor: Color(0xFFFFB600),
+          backgroundColor: Color(0XFF1B8DC9),
           //  color: Color(0xFFFFB600),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
@@ -31,7 +32,10 @@ class CustomNextButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              color: Colors.black, fontSize: 16.sm, fontFamily: 'Poppins'),
+            color: Colors.white,
+            fontFamily: 'Poppins',
+            fontSize: 16.sm,
+          ),
         ),
         onPressed: () {
           ontap!();

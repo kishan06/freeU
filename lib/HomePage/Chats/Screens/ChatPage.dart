@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Chats/Model/ChatUserModel.dart';
 import 'package:freeu/HomePage/Chats/Widgets/ConversationList.dart';
@@ -134,7 +135,7 @@ class _ChatPageState extends State<ChatPage> {
           textAlign: TextAlign.center,
           style: TextStyle(
               fontFamily: 'Poppins',
-              fontSize: 19,
+              fontSize: 19.sm,
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),

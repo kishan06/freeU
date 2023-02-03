@@ -203,7 +203,7 @@ class _FractionalRealEstateProperty1State
                             "Vaishnavi Tech Park Opportunity",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 20,
+                                fontSize: 18.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -326,7 +326,7 @@ class _FractionalRealEstateProperty1State
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 color: Colors.black,
-                                fontSize: 16.sm),
+                                fontSize: 14.sm),
                           ),
                           onPressed: () {
                             Get.toNamed('/fractionalrealestateproperty2');
@@ -386,7 +386,7 @@ class _FractionalRealEstateProperty1State
                             "Chennai Office Opportunity",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 20,
+                                fontSize: 20.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -567,7 +567,7 @@ class _FractionalRealEstateProperty1State
                             "Embassy Business Hub",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 20,
+                                fontSize: 20.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -749,7 +749,7 @@ class _FractionalRealEstateProperty1State
                             "TIMES SQUARE ANDHERI OPPORTUNITY",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 20,
+                                fontSize: 20.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],

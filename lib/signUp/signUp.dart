@@ -102,8 +102,8 @@ class _SignUpState extends State<SignUp> {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 12, horizontal: 12),
-                      child: Text("Terms And Conditions",
-                          style: blackStyle(context)),
+                      child:
+                          Text("Terms And Conditions", style: blackStyle16()),
                     ),
                     Padding(
                       padding:
@@ -203,425 +203,453 @@ class _SignUpState extends State<SignUp> {
             context, MaterialPageRoute(builder: (context) => const Login()));
         return Future.value(false);
       },
-      child: Scaffold(
-          backgroundColor: Color(0xFFF9F9F9),
-          appBar: CustomSignupAppBar(
-            titleTxt: "Sign Up",
-            bottomtext: false,
-          ),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                  child: Form(
-                    key: _form,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        CustomTextFormField(
-                            hintText: "Full Name*", validatorText: "Full Name"),
-                        // FullnameTextFormField(
-                        //   controller: fullNameController,
-                        //   keyboardType: TextInputType.text,
-                        //   hint: "Full Name*",
-                        //   errortext: "Please Enter Full Name",
-                        // ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        CustomTextFormField(
-                          hintText: "Email Id",
-                          validatorText: "Email Id",
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter your Email address';
-                            }
-                            if (!RegExp(
-                                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                .hasMatch(value)) {
-                              return 'Enter a Valid Email address';
-                            }
-                            return null;
-                          },
-                          inputFormatters: [
-                            LengthLimitingTextInputFormatter(50),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        // TextFormField(
-                        //   keyboardType: TextInputType.text,
-                        //   cursorColor: Colors.grey,
-                        //   style: TextStyle(
-                        //       fontFamily: 'Poppins',
-                        //       fontSize: 16,
-                        //       fontWeight: FontWeight.w500,
-                        //       color:
-                        //           Get.isDarkMode ? Colors.white : Colors.black),
-                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                        //   controller: phonecontroller,
-                        //   decoration: InputDecoration(
-                        //     focusedBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     enabledBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     errorMaxLines: 3,
-                        //     hintText: "Phone Number*",
-                        //     hintStyle: blackStyle(context).copyWith(
-                        //         fontSize: 16,
-                        //         fontWeight: FontWeight.w600,
-                        //         color: Get.isDarkMode
-                        //             ? Colors.white
-                        //             : const Color(0xFF303030).withOpacity(0.3)),
-                        //     fillColor: Get.isDarkMode
-                        //         ? const Color(0xFF303030).withOpacity(0.8)
-                        //         : Colors.white,
-                        //     filled: true,
-                        //     errorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     focusedErrorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     errorStyle: const TextStyle(
-                        //       fontSize: 16.0,
-                        //     ),
-                        //   ),
-                        //   validator: (value) {
-                        //     if (value == null || value.isEmpty) {
-                        //       return "Please Enter Phone Number";
-                        //     } else if (value.length != 10) {
-                        //       return "Please Enter Valid Phone Number";
-                        //     }
-                        //     return null;
-                        //   },
-                        //   inputFormatters: [
-                        //     new LengthLimitingTextInputFormatter(10),
-                        //     FilteringTextInputFormatter.allow(RegExp('[0-9]')),
-                        //   ],
-                        //   onSaved: (value) {},
-                        // ),
-                        CustomTextFormField(
-                            hintText: "Phone Number",
-                            validatorText: "Phone Number"),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        TextFormField(
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          onChanged: (value) => onPasswordChnage(value),
-
-                          cursorColor: Colors.grey,
-                          style: const TextStyle(
-                            //color: Colors.grey,
-                            fontFamily: 'Productsans',
-                            fontSize: 16,
-                            fontWeight: FontWeight.w400,
+      child: SafeArea(
+        child: Scaffold(
+            backgroundColor: Color(0xFFF5F8FA),
+            // appBar: CustomSignupAppBar(
+            //   titleTxt: "Sign Up",
+            //   bottomtext: false,
+            // ),
+            body: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30, vertical: 20),
+                    child: Form(
+                      key: _form,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Get.back();
+                                },
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  size: 22.sm,
+                                  color: Color(0xFF6B6B6B),
+                                ),
+                              ),
+                              SizedBox(
+                                width: 8.w,
+                              ),
+                              Text(
+                                "Sign up",
+                                style: TextStyle(
+                                    fontFamily: "Poppins", fontSize: 20.sm),
+                              )
+                            ],
                           ),
-                          keyboardType: TextInputType.text,
-                          controller: passwordcontroller,
-                          obscureText:
-                              !_passwordVisible, //This will obscure text dynamically
-                          decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide(
-                                    color: Color(0xFF707070), width: 1),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide(
-                                    color: Color(0xFF707070), width: 1),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide(
-                                    color: Color(0xFFFFB600), width: 1),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                    color: Colors.red, width: 1),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                    color: Colors.red, width: 1),
-                              ),
-                              errorMaxLines: 3,
-                              hintStyle: TextStyle(
-                                fontSize: 16,
-                                color: Colors.grey.withOpacity(0.8),
-                                fontFamily: 'Productsans',
-                              ),
-                              fillColor: Colors.white,
-                              filled: true,
-                              errorStyle: const TextStyle(
-                                fontSize: 16.0,
-                              ),
-                              hintText: 'Enter your password',
-                              suffixIcon: GestureDetector(
-                                onTap: () => setState(
-                                    () => _passwordVisible = !_passwordVisible),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 20.0),
-                                      child: Text(
-                                        "show",
-                                        style: TextStyle(
-                                          color: Color(0xFFFFB600),
+                          SizedBox(
+                            height: 35.h,
+                          ),
+                          CustomTextFormField(
+                              hintText: "Full Name*",
+                              validatorText: "Full Name"),
+                          // FullnameTextFormField(
+                          //   controller: fullNameController,
+                          //   keyboardType: TextInputType.text,
+                          //   hint: "Full Name*",
+                          //   errortext: "Please Enter Full Name",
+                          // ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          CustomTextFormField(
+                            hintText: "Email Id",
+                            validatorText: "Email Id",
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Enter your Email address';
+                              }
+                              if (!RegExp(
+                                      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                                  .hasMatch(value)) {
+                                return 'Enter a Valid Email address';
+                              }
+                              return null;
+                            },
+                            inputFormatters: [
+                              LengthLimitingTextInputFormatter(50),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          // TextFormField(
+                          //   keyboardType: TextInputType.text,
+                          //   cursorColor: Colors.grey,
+                          //   style: TextStyle(
+                          //       fontFamily: 'Poppins',
+                          //       fontSize: 16,
+                          //       fontWeight: FontWeight.w500,
+                          //       color:
+                          //           Get.isDarkMode ? Colors.white : Colors.black),
+                          //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                          //   controller: phonecontroller,
+                          //   decoration: InputDecoration(
+                          //     focusedBorder: const OutlineInputBorder(
+                          //       borderRadius:
+                          //           BorderRadius.all(Radius.circular(30)),
+                          //       borderSide:
+                          //           BorderSide(color: Colors.grey, width: 2.0),
+                          //     ),
+                          //     enabledBorder: const OutlineInputBorder(
+                          //       borderRadius:
+                          //           BorderRadius.all(Radius.circular(30)),
+                          //       borderSide:
+                          //           BorderSide(color: Colors.grey, width: 2.0),
+                          //     ),
+                          //     errorMaxLines: 3,
+                          //     hintText: "Phone Number*",
+                          //     hintStyle: blackStyle(context).copyWith(
+                          //         fontSize: 16,
+                          //         fontWeight: FontWeight.w600,
+                          //         color: Get.isDarkMode
+                          //             ? Colors.white
+                          //             : const Color(0xFF303030).withOpacity(0.3)),
+                          //     fillColor: Get.isDarkMode
+                          //         ? const Color(0xFF303030).withOpacity(0.8)
+                          //         : Colors.white,
+                          //     filled: true,
+                          //     errorBorder: const OutlineInputBorder(
+                          //       borderRadius:
+                          //           BorderRadius.all(Radius.circular(30)),
+                          //       borderSide:
+                          //           BorderSide(color: Colors.red, width: 2.0),
+                          //     ),
+                          //     focusedErrorBorder: const OutlineInputBorder(
+                          //       borderRadius:
+                          //           BorderRadius.all(Radius.circular(30)),
+                          //       borderSide:
+                          //           BorderSide(color: Colors.red, width: 2.0),
+                          //     ),
+                          //     errorStyle: const TextStyle(
+                          //       fontSize: 16.0,
+                          //     ),
+                          //   ),
+                          //   validator: (value) {
+                          //     if (value == null || value.isEmpty) {
+                          //       return "Please Enter Phone Number";
+                          //     } else if (value.length != 10) {
+                          //       return "Please Enter Valid Phone Number";
+                          //     }
+                          //     return null;
+                          //   },
+                          //   inputFormatters: [
+                          //     new LengthLimitingTextInputFormatter(10),
+                          //     FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                          //   ],
+                          //   onSaved: (value) {},
+                          // ),
+                          CustomTextFormField(
+                              hintText: "Phone Number",
+                              validatorText: "Phone Number"),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          TextFormField(
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            onChanged: (value) => onPasswordChnage(value),
+
+                            cursorColor: Colors.grey,
+                            style: TextStyle(
+                              //color: Colors.grey,
+                              fontFamily: 'Poppins',
+                              fontSize: 16.sm,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            keyboardType: TextInputType.text,
+                            controller: passwordcontroller,
+                            obscureText:
+                                !_passwordVisible, //This will obscure text dynamically
+                            decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(16),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFF707070).withOpacity(0),
+                                      width: 1),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFF707070).withOpacity(0),
+                                      width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFF707070).withOpacity(0),
+                                      width: 1),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                      color: Colors.red, width: 1),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(30),
+                                  borderSide: const BorderSide(
+                                      color: Colors.red, width: 1),
+                                ),
+                                errorMaxLines: 3,
+                                hintStyle: TextStyle(
+                                    color: Color(0x80000000),
+                                    fontSize: 16.sm,
+                                    fontFamily: "Poppins"),
+                                fillColor: Colors.white,
+                                filled: true,
+                                hintText: 'Enter your password',
+                                suffixIcon: GestureDetector(
+                                  onTap: () => setState(() =>
+                                      _passwordVisible = !_passwordVisible),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsets.only(right: 20.0),
+                                        child: Text(
+                                          "show",
+                                          style: TextStyle(
+                                            color: Color(0xFF1B8DC9),
+                                          ),
                                         ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              )),
-                          validator: (val) {
-                            if (val!.isEmpty) {
-                              return 'Password is Empty';
-                            }
-                            if (!RegExp(
-                                    r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                                .hasMatch(val)) {
-                              return 'Enter valid password';
-                            } else {
-                              return null;
-                            }
-                          },
-                        ),
+                                    ],
+                                  ),
+                                )),
+                            validator: (val) {
+                              if (val!.isEmpty) {
+                                return 'Password is Empty';
+                              }
+                              if (!RegExp(
+                                      r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                                  .hasMatch(val)) {
+                                return 'Enter valid password';
+                              } else {
+                                return null;
+                              }
+                            },
+                          ),
 
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          children: [
-                            AnimatedContainer(
-                              duration: const Duration(
-                                milliseconds: 500,
-                              ),
-                              width: 20,
-                              height: 20,
-                              child: _isPasswordEightCar
-                                  ? Padding(
-                                      padding: EdgeInsets.only(left: 10),
-                                      child: Icon(
-                                        Icons.check,
-                                        color: Color(0xff143C6D),
-                                        size: 15,
-                                      ),
-                                    )
-                                  : SizedBox(),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text(
-                                'Has at least 8 characters',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 14.sm,
-                                    color: _isPasswordEightCar
-                                        ? Color(0xff143C6D)
-                                        : Colors.black),
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          children: [
-                            AnimatedContainer(
-                              duration: const Duration(
-                                milliseconds: 500,
-                              ),
-                              width: 20,
-                              height: 20,
-                              child: _isHasSymboleOrCaptital
-                                  ? Padding(
-                                      padding: EdgeInsets.only(left: 10),
-                                      child: const Icon(
-                                        Icons.check,
-                                        color: Color(0xff143C6D),
-                                        size: 15,
-                                      ),
-                                    )
-                                  : const SizedBox(),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text(
-                                'Has at least 1 uppercase letter or symbol',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 14.sm,
-                                    color: _isHasSymboleOrCaptital
-                                        ? Color(0xff143C6D)
-                                        : Colors.black),
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            AnimatedContainer(
-                              duration: const Duration(
-                                milliseconds: 500,
-                              ),
-                              width: 20,
-                              height: 20,
-                              child: _isHasOneNumber
-                                  ? Padding(
-                                      padding: EdgeInsets.only(left: 10),
-                                      child: Icon(
-                                        Icons.check,
-                                        color: Color(0xff143C6D),
-                                        size: 15,
-                                      ),
-                                    )
-                                  : const SizedBox(),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text(
-                                'Has a number',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 14.sm,
-                                    color: _isHasOneNumber
-                                        ? Color(0xff143C6D)
-                                        : Colors.black),
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        CustomTextFormField(
-                          isInputPassword: true,
-                          textEditingController: confirmpasscontroller,
-                          hintText: "Confirm Password",
-                          validatorText: "Confirm Password",
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Password is Empty';
-                            }
-                            if (val != passwordcontroller.text) {
-                              return 'Password Not Matched';
-                            }
-                            return null;
-                          },
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 0, right: 10),
-                          child: Container(
-                            padding: const EdgeInsets.only(right: 20),
-                            child: Row(
-                              children: [
-                                Transform.scale(
-                                  scale: 1.2,
-                                  child: Theme(
-                                    data: ThemeData(
-                                      unselectedWidgetColor: Color(0xFFF78104),
-                                    ),
-                                    child: Checkbox(
-                                      activeColor: const Color(0xFFF78104),
-                                      shape: const RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(5.0))),
-                                      value: design,
-                                      onChanged: (bool? design) {
-                                        setState(() {
-                                          this.design = design!;
-                                        });
-                                      },
-                                    ),
-                                  ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Row(
+                            children: [
+                              AnimatedContainer(
+                                duration: const Duration(
+                                  milliseconds: 500,
                                 ),
-                                GestureDetector(
-                                  onTap: () => showtermsandconditions(),
-                                  child: Text(
-                                    "I accept the Terms & Conditions*",
-                                    style: TextStyle(
+                                width: 20.w,
+                                height: 20.h,
+                                child: _isPasswordEightCar
+                                    ? Padding(
+                                        padding: EdgeInsets.only(left: 10),
+                                        child: Icon(
+                                          Icons.check,
+                                          color: Color(0xff000000),
+                                          size: 15,
+                                        ),
+                                      )
+                                    : SizedBox(),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  'Has at least 8 characters',
+                                  style: TextStyle(
                                       fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 15.sm,
+                                      fontSize: 14.sm,
+                                      color: _isPasswordEightCar
+                                          ? Color(0xff000000)
+                                          : Colors.black),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Row(
+                            children: [
+                              AnimatedContainer(
+                                duration: const Duration(
+                                  milliseconds: 500,
+                                ),
+                                width: 20,
+                                height: 20,
+                                child: _isHasSymboleOrCaptital
+                                    ? Padding(
+                                        padding: EdgeInsets.only(left: 10),
+                                        child: const Icon(
+                                          Icons.check,
+                                          color: Color(0xff000000),
+                                          size: 15,
+                                        ),
+                                      )
+                                    : const SizedBox(),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  'Has at least 1 uppercase letter or symbol',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 14.sm,
+                                      color: _isHasSymboleOrCaptital
+                                          ? Color(0xff000000)
+                                          : Colors.black),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              AnimatedContainer(
+                                duration: const Duration(
+                                  milliseconds: 500,
+                                ),
+                                width: 20,
+                                height: 20,
+                                child: _isHasOneNumber
+                                    ? Padding(
+                                        padding: EdgeInsets.only(left: 10),
+                                        child: Icon(
+                                          Icons.check,
+                                          color: Color(0xff000000),
+                                          size: 15,
+                                        ),
+                                      )
+                                    : const SizedBox(),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  'Has a number',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 14.sm,
+                                      color: _isHasOneNumber
+                                          ? Color(0xff000000)
+                                          : Colors.black),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          CustomTextFormField(
+                            isInputPassword: true,
+                            textEditingController: confirmpasscontroller,
+                            hintText: "Confirm Password",
+                            validatorText: "Confirm Password",
+                            validator: (val) {
+                              if (val == null || val.isEmpty) {
+                                return 'Password is Empty';
+                              }
+                              if (val != passwordcontroller.text) {
+                                return 'Password Not Matched';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 0, right: 10),
+                            child: Container(
+                              padding: EdgeInsets.only(right: 20),
+                              child: Row(
+                                children: [
+                                  Transform.scale(
+                                    scale: 1.0,
+                                    child: Theme(
+                                      data: ThemeData(
+                                        unselectedWidgetColor:
+                                            Color(0xFF1B8DC9),
+                                      ),
+                                      child: Checkbox(
+                                        activeColor: const Color(0xFF1B8DC9),
+                                        shape: const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(1.0))),
+                                        value: design,
+                                        onChanged: (bool? design) {
+                                          setState(() {
+                                            this.design = design!;
+                                          });
+                                        },
+                                      ),
                                     ),
                                   ),
-                                ),
-                              ],
+                                  GestureDetector(
+                                    onTap: () => showtermsandconditions(),
+                                    child: Text(
+                                      "I accept the Terms & Conditions*",
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                        fontSize: 14.sm,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 50.h,
-                ),
-                Visibility(
-                  visible: isSignupBtnVisible,
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: CustomNextButton(
-                        text: "Sign up",
-                        ontap: () {
-                          final isValid = _form.currentState?.validate();
-                          if (isValid!) {
-                            Get.toNamed("/securityquestion");
-                          } else {
-                            Get.snackbar(
-                                "Error", "Please Enter All Required Fields",
-                                margin: EdgeInsets.all(8),
-                                snackStyle: SnackStyle.FLOATING,
-                                snackPosition: SnackPosition.BOTTOM);
-                          }
-                        },
+                        ],
                       ),
                     ),
                   ),
-                ),
-                Visibility(
-                    visible: isSignupBtnLoaderVisible,
-                    child: const Center(child: CircularProgressIndicator())),
-                const SizedBox(
-                  height: 40,
-                ),
-              ],
-            ),
-          )),
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  Visibility(
+                    visible: isSignupBtnVisible,
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: CustomNextButton(
+                          text: "Sign up",
+                          ontap: () {
+                            final isValid = _form.currentState?.validate();
+                            if (isValid!) {
+                              Get.toNamed("/securityquestion");
+                            } else {
+                              Get.snackbar(
+                                  "Error", "Please Enter All Required Fields",
+                                  margin: EdgeInsets.all(8),
+                                  snackStyle: SnackStyle.FLOATING,
+                                  snackPosition: SnackPosition.BOTTOM);
+                            }
+                          },
+                        ),
+                      ),
+                    ),
+                  ),
+                  Visibility(
+                      visible: isSignupBtnLoaderVisible,
+                      child: const Center(child: CircularProgressIndicator())),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                ],
+              ),
+            )),
+      ),
     );
   }
 }
@@ -676,9 +704,8 @@ class FullnameTextFormField extends StatelessWidget {
         ),
         errorMaxLines: 3,
         hintText: hint,
-        hintStyle: blackStyle(context).copyWith(
+        hintStyle: blackStyle16().copyWith(
             fontFamily: 'Poppins',
-            fontSize: 16,
             fontWeight: FontWeight.w600,
             color: Get.isDarkMode
                 ? Colors.white

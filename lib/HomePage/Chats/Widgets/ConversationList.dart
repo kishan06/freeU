@@ -1,6 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 
 class ConversationList extends StatefulWidget {
@@ -53,7 +54,7 @@ class _ConversationListState extends State<ConversationList> {
                         children: <Widget>[
                           Text(
                             widget.name,
-                            style: const TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 16.sm),
                           ),
                           const SizedBox(
                             height: 6,
@@ -61,7 +62,7 @@ class _ConversationListState extends State<ConversationList> {
                           Text(
                             widget.messageText,
                             style: TextStyle(
-                                fontSize: 13,
+                                fontSize: 13.sm,
                                 color: Colors.grey.shade800,
                                 fontWeight: widget.isMessageRead
                                     ? FontWeight.bold
@@ -77,7 +78,7 @@ class _ConversationListState extends State<ConversationList> {
             Text(
               widget.time,
               style: TextStyle(
-                  fontSize: 12,
+                  fontSize: 12.sm,
                   fontWeight: widget.isMessageRead
                       ? FontWeight.bold
                       : FontWeight.normal),
