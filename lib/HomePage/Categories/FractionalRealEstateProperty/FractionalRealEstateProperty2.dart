@@ -204,13 +204,17 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "INR 8,810 per sq. ft.",
                                         style: TextStyle(
-                                            fontSize: 17.sm,
+
+                                            fontSize: 16.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Purchase Price",
                                         style: TextStyle(
-                                            fontSize: 15.sm,
+
+                                            fontSize: 14.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Container(
@@ -223,13 +227,17 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "INR 25,00,000",
                                         style: TextStyle(
-                                            fontSize: 17.sm,
+
+                                            fontSize: 16.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Minimum investment",
                                         style: TextStyle(
-                                            fontSize: 15.sm,
+
+                                            fontSize: 14.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                     ],
@@ -239,13 +247,17 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "36,230 sq. ft.",
                                         style: TextStyle(
-                                            fontSize: 17.sm,
+
+                                            fontSize: 16.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Property Size",
                                         style: TextStyle(
-                                            fontSize: 15.sm,
+
+                                            fontSize: 14.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Container(
@@ -258,13 +270,17 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "₹ 25 Lakhs",
                                         style: TextStyle(
-                                            fontSize: 17.sm,
+
+                                            fontSize: 16.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Average yield",
                                         style: TextStyle(
-                                            fontSize: 15.sm,
+
+                                            fontSize: 14.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                     ],
@@ -403,10 +419,14 @@ class _FractionalRealEstateProperty2State
                                   Text(
                                     "Unique opportunity to participate in the “Hub & Spoke” trend",
                                     style: TextStyle(
-                                        fontFamily: "Poppins", fontSize: 16.sm),
+                                        fontFamily: "Poppins",
+                                        fontSize: 16.sm,
+                                        fontWeight: FontWeight.w500),
                                   ),
                                   SizedBox(
-                                    height: 6.h,
+
+                                    height: 8.h,
+
                                   ),
                                   Row(
                                     crossAxisAlignment:
@@ -1120,6 +1140,7 @@ class _FractionalRealEstateProperty2State
                           ),
                           onPressed: () {
                             showModalBottomSheet(
+                              backgroundColor: Colors.white,
                               isScrollControlled: true,
                               context: context,
                               shape: const RoundedRectangleBorder(
@@ -1180,7 +1201,7 @@ class _FractionalRealEstateProperty2State
                                                                 .start,
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
-                                                                .spaceAround,
+                                                                .start,
                                                         children: [
                                                           Text(
                                                             "Category",
@@ -1194,6 +1215,9 @@ class _FractionalRealEstateProperty2State
                                                                     FontWeight
                                                                         .w600),
                                                           ),
+                                                          SizedBox(
+                                                            height: 10.h,
+                                                          ),
                                                           Image.asset(
                                                               "assets/images/myrelogo.png")
                                                         ],
@@ -1204,7 +1228,7 @@ class _FractionalRealEstateProperty2State
                                                                 .start,
                                                         mainAxisAlignment:
                                                             MainAxisAlignment
-                                                                .spaceAround,
+                                                                .start,
                                                         children: [
                                                           Text(
                                                             "Product",

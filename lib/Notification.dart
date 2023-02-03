@@ -171,9 +171,9 @@ class Slidebar extends StatelessWidget {
             children: [
               Text(
                 text,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Color(0xFF000000),
-                  fontSize: 15,
+                  fontSize: 15.sm,
                   fontFamily: 'Poppins',
                 ),
               ),
@@ -183,9 +183,9 @@ class Slidebar extends StatelessWidget {
               Text(
                 date,
                 textAlign: TextAlign.start,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Color(0xFF000000),
-                  fontSize: 12,
+                  fontSize: 12.sm,
                   fontFamily: 'Poppins',
                 ),
               ),

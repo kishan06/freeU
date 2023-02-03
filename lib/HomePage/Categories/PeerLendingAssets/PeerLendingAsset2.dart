@@ -1017,6 +1017,7 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
                       ),
                       onPressed: () {
                         showModalBottomSheet(
+                          backgroundColor: Colors.white,
                           isScrollControlled: true,
                           context: context,
                           shape: const RoundedRectangleBorder(

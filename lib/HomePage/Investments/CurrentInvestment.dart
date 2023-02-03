@@ -230,7 +230,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   "5.6%",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      fontSize: 12,
+                                      fontSize: 12.sm,
                                       color: Colors.green),
                                 )
                               ],
@@ -347,7 +347,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   "2.1%",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      fontSize: 12,
+                                      fontSize: 12.sm,
                                       color: Colors.red),
                                 )
                               ],
@@ -465,7 +465,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   "5.6%",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      fontSize: 12,
+                                      fontSize: 12.sm,
                                       color: Colors.green),
                                 )
                               ],
@@ -582,7 +582,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   "2.1%",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      fontSize: 12,
+                                      fontSize: 12.sm,
                                       color: Colors.red),
                                 )
                               ],
@@ -700,7 +700,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                   "5.6%",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      fontSize: 12,
+                                      fontSize: 12.sm,
                                       color: Colors.green),
                                 )
                               ],

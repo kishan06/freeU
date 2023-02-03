@@ -85,7 +85,7 @@ class _HomePageState extends State<HomePage> {
           textAlign: TextAlign.center,
           style: TextStyle(
               fontFamily: 'Poppins',
-              fontSize: 19,
+              fontSize: 19.sm,
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),
@@ -459,7 +459,7 @@ class _HomePageState extends State<HomePage> {
                                                       fontWeight:
                                                           FontWeight.w500,
                                                       fontSize: 14.sm,
-                                                      color: Colors.white),
+                                                      color: Color(0xFFFFF0C9)),
                                                 ),
                                                 Text(
                                                   "Invested",
@@ -478,7 +478,7 @@ class _HomePageState extends State<HomePage> {
                                                           FontWeight.w500,
                                                       fontSize: 14.sm,
                                                       fontFamily: 'Poppins',
-                                                      color: Colors.white),
+                                                      color: Color(0xFFFFF0C9)),
                                                 ),
                                                 Text(
                                                   "Current",
@@ -700,7 +700,7 @@ class _HomePageState extends State<HomePage> {
                                 height: 11.h,
                               ),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Icon(Icons.location_on_outlined),
                                   SizedBox(
@@ -736,7 +736,10 @@ class _HomePageState extends State<HomePage> {
                                         fontSize: 14.sm),
                                   ),
                                   onPressed: () {
-                                    Get.toNamed('/fractionalrealestateproperty1');
+
+                                    Get.toNamed(
+                                        '/fractionalrealestateproperty1');
+
                                   },
                                 ),
                               )
@@ -981,14 +984,20 @@ class _HomePageState extends State<HomePage> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.center,
                                           children: [
-                                            Icon(Icons.location_on_outlined),
-                                            SizedBox(
-                                              width: 4.w,
-                                            ),
-                                            Expanded(
+                                            Flexible(
+                                                flex: 1,
+                                                child: Icon(
+                                                  Icons.location_on_outlined,
+                                                  size: 20.sm,
+                                                )),
+                                            // SizedBox(
+                                            //   width: 4.w,
+                                            // ),
+                                            Flexible(
+                                              flex: 3,
                                               child: Text(
                                                 'Outer Ring Road Sarjapur, Bangalore',
-                                                overflow: TextOverflow.visible,
+                                                textAlign: TextAlign.center,
                                                 style: TextStyle(
                                                   fontFamily: "Poppins",
                                                   fontSize: 13.sm,
@@ -1075,14 +1084,21 @@ class _HomePageState extends State<HomePage> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Icon(Icons.location_on_outlined),
-                                          SizedBox(
-                                            width: 4.w,
+                                          Flexible(
+                                            flex: 1,
+                                            child: Icon(
+                                              Icons.location_on_outlined,
+                                              size: 20.sm,
+                                            ),
                                           ),
-                                          Expanded(
+                                          // SizedBox(
+                                          //   width: 4.w,
+                                          // ),
+                                          Flexible(
+                                            flex: 3,
                                             child: Text(
                                               'Outer Ring Road Sarjapur, Bangalore',
-                                              overflow: TextOverflow.visible,
+                                              textAlign: TextAlign.center,
                                               style: TextStyle(
                                                 fontFamily: "Poppins",
                                                 fontSize: 13.sm,

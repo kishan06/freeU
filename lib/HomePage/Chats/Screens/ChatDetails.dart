@@ -119,7 +119,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         Text(
                           "Online",
                           style: TextStyle(
-                              color: Colors.grey.shade600, fontSize: 13),
+                              color: Colors.grey.shade600, fontSize: 13.sm),
                         ),
                       ],
                     ),
@@ -170,7 +170,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                                 padding: EdgeInsets.all(16),
                                 child: Text(
                                   messages[index].messageContent,
-                                  style: TextStyle(fontSize: 15),
+                                  style: TextStyle(fontSize: 15.sm),
                                 ),
                               ),
                             ],

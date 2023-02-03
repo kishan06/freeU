@@ -224,15 +224,15 @@ class _InvestmentMainState extends State<InvestmentMain> {
                         children: [
                           Text(
                             "₹3,43,50,000",
-                            style:
-                                TextStyle(fontFamily: "Poppins", fontSize: 16),
+                            style: TextStyle(
+                                fontFamily: "Poppins", fontSize: 16.sm),
                           ),
                           Text(
                             '+12.8%',
                             style: TextStyle(
                                 color: Colors.green,
                                 fontFamily: "Poppins",
-                                fontSize: 16),
+                                fontSize: 16.sm),
                           )
                         ],
                       ),

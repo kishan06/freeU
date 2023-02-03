@@ -22,161 +22,188 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return Scaffold(
-      backgroundColor: Color(0xFFF9F9F9),
-      appBar: CustomSignupAppBar(
-        titleTxt: "Security Questions",
-        bottomtext: false,
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        child: Center(
-          child: Form(
-            key: _form,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "In what city were you born?",
-                  // ignore: prefer_const_constructors
-                  style: TextStyle(
-                      fontSize: 16.sm,
-                      fontFamily: 'Poppins',
-                      color: Color(0xff303030)),
-                ),
-                SizedBox(
-                  height: 6.h,
-                ),
-                CustomTextFormField(
-                  hintText: "Answer",
-                  validatorText: "Please Enter Answer",
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Please Enter Answer";
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
-                Text(
-                  "What is the name of your favorite pet?",
-                  // ignore: prefer_const_constructors
-                  style: TextStyle(
-                      fontSize: 16.sm,
-                      fontFamily: 'Poppins',
-                      color: Color(0xff303030)),
-                ),
-                SizedBox(
-                  height: 6.h,
-                ),
-                CustomTextFormField(
-                  hintText: "Answer",
-                  validatorText: "Please Enter Answer",
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Please Enter Answer";
-                    }
-                    return null;
-                  },
-                ),
-                // TextFormField(
-                //   decoration: InputDecoration(
-                //     border: OutlineInputBorder(
-                //       borderSide:
-                //           BorderSide(width: 2, color: Color(0xFF707070)),
-                //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                //     ),
-                //     hintText: "Answer",
-                //   ),
-                // ),
-                SizedBox(height: 30.h),
-                Text(
-                  "What is your mother's maiden name?",
-                  // ignore: prefer_const_constructors
-                  style: TextStyle(
-                      fontSize: 16.sm,
-                      fontFamily: 'Poppins',
-                      color: Color(0xff303030)),
-                ),
-                SizedBox(
-                  height: 6.h,
-                ),
-                CustomTextFormField(
-                  hintText: "Answer",
-                  validatorText: "Please Enter Answer",
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Please Enter Answer";
-                    }
-                    return null;
-                  },
-                ),
-                // TextFormField(
-                //   decoration: InputDecoration(
-                //     border: OutlineInputBorder(
-                //       borderSide:
-                //           BorderSide(width: 2, color: Color(0xFF707070)),
-                //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                //     ),
-                //     hintText: "Answer",
-                //   ),
-                // ),
-                SizedBox(height: 30.h),
-                Text(
-                  "What high school did you attend?",
-                  // ignore: prefer_const_constructors
-                  style: TextStyle(
-                      fontSize: 16.sm,
-                      fontFamily: 'Poppins',
-                      color: Color(0xff303030)),
-                ),
-                SizedBox(
-                  height: 6.h,
-                ),
-                CustomTextFormField(
-                  hintText: "Answer",
-                  validatorText: "Please Enter Answer",
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Please Enter Answer";
-                    }
-                    return null;
-                  },
-                ),
-                // TextFormField(
-                //   decoration: InputDecoration(
-                //     border: OutlineInputBorder(
-                //       borderSide:
-                //           BorderSide(width: 2, color: Color(0xFF707070)),
-                //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                //     ),
-                //     hintText: "Answer",
-                //   ),
-                // ),
-                SizedBox(height: 30.h),
-                CustomNextButton(
-                  text: "Next",
-                  ontap: () {
-                    final isValid = _form.currentState?.validate();
-                    if (isValid!) {
-                      Get.toNamed('/securityfirst');
-                    } else {
-                      Get.snackbar("Error", "Please Enter Required Fields",
-                          margin: EdgeInsets.all(8),
-                          snackStyle: SnackStyle.FLOATING,
-                          snackPosition: SnackPosition.BOTTOM);
-                    }
-                  },
-                ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xFFF9F9F9),
+        // appBar: CustomSignupAppBar(
+        //   titleTxt: "Security Questions",
+        //   bottomtext: false,
+        // ),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          child: Center(
+            child: Form(
+              key: _form,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 22.sm,
+                          color: Color(0xFF6B6B6B),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 8.w,
+                      ),
+                      Text(
+                        "Security Questions",
+                        style:
+                            TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 35.h,
+                  ),
+                  Text(
+                    "In what city were you born?",
+                    // ignore: prefer_const_constructors
+                    style: TextStyle(
+                        fontSize: 18.sm,
+                        fontFamily: 'Poppins',
+                        color: Color(0xff303030)),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  CustomTextFormField(
+                    hintText: "Answer",
+                    validatorText: "Please Enter Answer",
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please Enter Answer";
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Text(
+                    "What is the name of your favorite pet?",
+                    // ignore: prefer_const_constructors
+                    style: TextStyle(
+                        fontSize: 18.sm,
+                        fontFamily: 'Poppins',
+                        color: Color(0xff303030)),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  CustomTextFormField(
+                    hintText: "Answer",
+                    validatorText: "Please Enter Answer",
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please Enter Answer";
+                      }
+                      return null;
+                    },
+                  ),
+                  // TextFormField(
+                  //   decoration: InputDecoration(
+                  //     border: OutlineInputBorder(
+                  //       borderSide:
+                  //           BorderSide(width: 2, color: Color(0xFF707070)),
+                  //       borderRadius: BorderRadius.all(Radius.circular(30)),
+                  //     ),
+                  //     hintText: "Answer",
+                  //   ),
+                  // ),
+                  SizedBox(height: 20.h),
+                  Text(
+                    "What is your mother's maiden name?",
+                    // ignore: prefer_const_constructors
+                    style: TextStyle(
+                        fontSize: 18.sm,
+                        fontFamily: 'Poppins',
+                        color: Color(0xff303030)),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  CustomTextFormField(
+                    hintText: "Answer",
+                    validatorText: "Please Enter Answer",
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please Enter Answer";
+                      }
+                      return null;
+                    },
+                  ),
+                  // TextFormField(
+                  //   decoration: InputDecoration(
+                  //     border: OutlineInputBorder(
+                  //       borderSide:
+                  //           BorderSide(width: 2, color: Color(0xFF707070)),
+                  //       borderRadius: BorderRadius.all(Radius.circular(30)),
+                  //     ),
+                  //     hintText: "Answer",
+                  //   ),
+                  // ),
+                  SizedBox(height: 20.h),
+                  Text(
+                    "What high school did you attend?",
+                    // ignore: prefer_const_constructors
+                    style: TextStyle(
+                        fontSize: 18.sm,
+                        fontFamily: 'Poppins',
+                        color: Color(0xff303030)),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  CustomTextFormField(
+                    hintText: "Answer",
+                    validatorText: "Please Enter Answer",
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Please Enter Answer";
+                      }
+                      return null;
+                    },
+                  ),
+                  // TextFormField(
+                  //   decoration: InputDecoration(
+                  //     border: OutlineInputBorder(
+                  //       borderSide:
+                  //           BorderSide(width: 2, color: Color(0xFF707070)),
+                  //       borderRadius: BorderRadius.all(Radius.circular(30)),
+                  //     ),
+                  //     hintText: "Answer",
+                  //   ),
+                  // ),
+                  SizedBox(height: 50.h),
+                  CustomNextButton(
+                    text: "Next",
+                    ontap: () {
+                      final isValid = _form.currentState?.validate();
+                      if (isValid!) {
+                        Get.toNamed('/securityfirst');
+                      } else {
+                        Get.snackbar("Error", "Please Enter Required Fields",
+                            margin: EdgeInsets.all(8),
+                            snackStyle: SnackStyle.FLOATING,
+                            snackPosition: SnackPosition.BOTTOM);
+                      }
+                    },
+                  ),
 
-                SizedBox(
-                  height: 15.h,
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: TextButton(
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -193,9 +220,11 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                           fontSize: 16.sm,
                           fontFamily: 'Poppins',
                         ),
-                      )),
-                )
-              ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

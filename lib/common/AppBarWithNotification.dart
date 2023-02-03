@@ -44,7 +44,7 @@ class CustomAppBarWithNotification extends StatelessWidget
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         decorationColor: Colors.black,
-                        fontSize: 12),
+                        fontSize: 12.sm),
                 // selectionColor: Colors.black
               ),
               preferredSize: Size.zero)
@@ -58,7 +58,7 @@ class CustomAppBarWithNotification extends StatelessWidget
                 icon: SvgPicture.asset(
                   'assets/images/notification-bell-svgrepo-com.svg',
                 ),
-                iconSize: 22,
+                iconSize: 22.sm,
                 color: const Color(0xFF303030),
               ),
             ]

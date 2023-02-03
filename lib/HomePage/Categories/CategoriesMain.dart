@@ -84,7 +84,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
           textAlign: TextAlign.center,
           style: TextStyle(
               fontFamily: 'Poppins',
-              fontSize: 19,
+              fontSize: 19.sm,
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),

@@ -46,19 +46,19 @@ class _SecurityFirstState extends State<SecurityFirst> {
                       "Let's set your 4 Digit Pin",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 18.sm,
+                        fontSize: 20.sm,
                         fontFamily: 'Poppins',
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: 10,
+                    height: 10.h,
                   ),
                   Divider(
                     thickness: 2,
                   ),
-                  const SizedBox(
-                    height: 50,
+                  SizedBox(
+                    height: 50.h,
                   ),
                   Text(
                     "Choose a PIN of Your choice",
@@ -198,139 +198,164 @@ class _SecurityFirstState extends State<SecurityFirst> {
   TextEditingController confirmpincontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xffF9F9F9),
-      appBar: CustomSignupAppBar(
-        titleTxt: "Security First",
-        bottomtext: false,
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              const SizedBox(
-                height: 30,
-              ),
-              const Text(
-                "Select to login Method",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 22,
-                  fontFamily: 'Poppins',
-                  color: Colors.black,
-                ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                // ignore: prefer_const_constructors
-                height: 125,
-                decoration: BoxDecoration(
-                  color: onclickofpin ? const Color(0xff143C6D) : Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(
-                    width: 1,
-                    color: Colors.black,
-                  ),
-                ),
-                alignment: const Alignment(50, 0),
-                padding: const EdgeInsets.all(5),
-                child: ListTile(
-                  trailing: SvgPicture.asset(
-                    onclickofpin
-                        ? "assets/images/four-dg-white.svg"
-                        : "assets/images/four-dg-black.svg",
-                  ),
-                  onTap: () {},
-                  title: Text(
-                    "4 Digit PIN",
-                    style: TextStyle(
-                      color: onclickofpin ? Colors.white : Colors.black,
-                      fontSize: 18,
-                      fontFamily: 'Poppins',
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xffF5F8FA),
+        // appBar: CustomSignupAppBar(
+        //   titleTxt: "Security First",
+        //   bottomtext: false,
+        // ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Icon(
+                        Icons.arrow_back,
+                        size: 22.sm,
+                        color: Color(0xFF6B6B6B),
+                      ),
                     ),
-                  ),
-                  leading: Transform.scale(
-                    scale: 1.5,
-                    child: Radio(
-                        activeColor: (Colors.white),
-                        value: "4 Digit PIN",
-                        groupValue: gender,
-                        onChanged: (value) {
-                          setState(() {
-                            print(value);
-                            onclickoftouchid = false;
-                            onclickofpin = true;
-                            gender = value.toString();
-                            build4digitpin();
-                          });
-                        }),
-                  ),
+                    SizedBox(
+                      width: 8.w,
+                    ),
+                    Text(
+                      "Security First",
+                      style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+                    )
+                  ],
                 ),
-              ),
-              const SizedBox(
-                height: 30,
-              ),
-              Container(
-                // ignore: prefer_const_constructors
-                height: 125,
-                decoration: BoxDecoration(
-                  color:
-                      onclickoftouchid ? const Color(0xff143C6D) : Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(
-                    width: 1,
-                    color: Colors.black,
-                  ),
-                ),
-                alignment: const Alignment(50, 0),
-                padding: const EdgeInsets.all(5),
-                child: ListTile(
-                  trailing: SvgPicture.asset(
-                    onclickoftouchid
-                        ? "assets/images/touch-white.svg"
-                        : "assets/images/touch-black.svg",
-                  ),
-                  title: Text(
-                    "Touch Id",
-                    style: TextStyle(
-                        color: onclickoftouchid ? Colors.white : Colors.black,
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    Text(
+                      "Select to login Method",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20.sm,
                         fontFamily: 'Poppins',
-                        fontSize: 18),
-                  ),
-                  leading: Transform.scale(
-                    scale: 1.5,
-                    child: Radio(
-                        // fillColor:
-                        //     MaterialStateProperty.all<Color>(Color(0xff143C6D)),
-                        focusColor: const Color(0xff143C6D),
-                        activeColor: (Colors.white),
-                        value: "Touch Id",
-                        groupValue: gender,
-                        onChanged: (value) {
-                          setState(() {
-                            onclickoftouchid = true;
-                            onclickofpin = false;
+                        color: Colors.black,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      // ignore: prefer_const_constructors
+                      height: 100.h, width: 258.w,
+                      decoration: BoxDecoration(
+                        color: onclickofpin
+                            ? const Color(0xff1B8DC9)
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      alignment: const Alignment(50, 0),
+                      padding: const EdgeInsets.all(5),
+                      child: ListTile(
+                        trailing: SvgPicture.asset(
+                          onclickofpin
+                              ? "assets/images/four-dg-white.svg"
+                              : "assets/images/four-dg-black.svg",
+                        ),
+                        onTap: () {},
+                        title: Text(
+                          "4 Digit PIN",
+                          style: TextStyle(
+                            color: onclickofpin ? Colors.white : Colors.black,
+                            fontSize: 18,
+                            fontFamily: 'Poppins',
+                          ),
+                        ),
+                        leading: Transform.scale(
+                          scale: 1.5,
+                          child: Radio(
+                              activeColor: (Colors.white),
+                              value: "4 Digit PIN",
+                              groupValue: gender,
+                              onChanged: (value) {
+                                setState(() {
+                                  print(value);
+                                  onclickoftouchid = false;
+                                  onclickofpin = true;
+                                  gender = value.toString();
+                                  build4digitpin();
+                                });
+                              }),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      // ignore: prefer_const_constructors
+                      height: 100.h, width: 258.w,
+                      decoration: BoxDecoration(
+                        color: onclickoftouchid
+                            ? const Color(0xff1B8DC9)
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      alignment: const Alignment(50, 0),
+                      padding: const EdgeInsets.all(5),
+                      child: ListTile(
+                        trailing: SvgPicture.asset(
+                          onclickoftouchid
+                              ? "assets/images/touch-white.svg"
+                              : "assets/images/touch-black.svg",
+                        ),
+                        title: Text(
+                          "Touch Id",
+                          style: TextStyle(
+                              color: onclickoftouchid
+                                  ? Colors.white
+                                  : Colors.black,
+                              fontFamily: 'Poppins',
+                              fontSize: 18),
+                        ),
+                        leading: Transform.scale(
+                          scale: 1.5,
+                          child: Radio(
+                              // fillColor:
+                              //     MaterialStateProperty.all<Color>(Color(0xff143C6D)),
+                              focusColor: const Color(0xff143C6D),
+                              activeColor: (Colors.white),
+                              value: "Touch Id",
+                              groupValue: gender,
+                              onChanged: (value) {
+                                setState(() {
+                                  onclickoftouchid = true;
+                                  onclickofpin = false;
 
-                            gender = value.toString();
-                            Get.toNamed("/touchid");
-                            // Navigator.push(
-                            //             context,
-                            //             MaterialPageRoute(
-                            //               builder: (context) =>
-                            //                   const touch_id(),
-                            //             ),
-                            //           )
-                          });
-                        }),
-                  ),
-                ),
-              )
-            ],
+                                  gender = value.toString();
+                                  Get.toNamed("/touchid");
+                                  // Navigator.push(
+                                  //             context,
+                                  //             MaterialPageRoute(
+                                  //               builder: (context) =>
+                                  //                   const touch_id(),
+                                  //             ),
+                                  //           )
+                                });
+                              }),
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
           ),
         ),
       ),

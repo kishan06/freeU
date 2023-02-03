@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -104,7 +105,7 @@ class stories extends StatelessWidget {
                 Text(
                   'Lorem Ipsum has been the industrys\nstandarddummy text ever since the 1500s.',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sm,
                     color: Color(0xff000000),
                   ),
                 ),
@@ -114,7 +115,7 @@ class stories extends StatelessWidget {
                 Text(
                   'Jan 09, 2023',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 14.sm,
                     color: Color(0xff000000),
                   ),
                 )
