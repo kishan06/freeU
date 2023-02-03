@@ -174,17 +174,17 @@ class _FractionalRealEstateProperty1State
                             child: SizedBox(
                               child: Card(
                                 child: Padding(
-                                  padding: EdgeInsets.all(2.0),
+                                  padding: EdgeInsets.all(3.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(Icons.location_on_outlined),
+                                      Icon(Icons.location_on_outlined, size: 17.sm,),
                                       Text(
                                         "Outer Ring Road Sarjapur, Bangalore",
                                         style: TextStyle(
                                           color: Colors.black,
                                           fontFamily: 'Poppins',
-                                          fontSize: 14.sm,
+                                          fontSize: 13.sm,
                                         ),
                                       )
                                     ],
@@ -326,8 +326,9 @@ class _FractionalRealEstateProperty1State
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 color: Colors.black,
+
                                 fontSize: 14.sm),
-                          ),
+
                           onPressed: () {
                             Get.toNamed('/fractionalrealestateproperty2');
                           },
@@ -357,16 +358,15 @@ class _FractionalRealEstateProperty1State
                             child: SizedBox(
                               child: Card(
                                 child: Padding(
-                                  padding: EdgeInsets.all(2.0),
+                                  padding: EdgeInsets.all(3.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(Icons.location_on_outlined),
+                                      Icon(Icons.location_on_outlined, size: 17.sm,),
                                       Text(
                                         "Outer Ring Road Sarjapur, Bangalore",
                                         style: TextStyle(
                                           color: Colors.black,
-                                          fontFamily: 'Poppins',
                                           fontSize: 14.sm,
                                         ),
                                       )
@@ -386,7 +386,9 @@ class _FractionalRealEstateProperty1State
                             "Chennai Office Opportunity",
                             style: TextStyle(
                                 fontFamily: "Poppins",
+
                                 fontSize: 20.sm,
+
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -538,17 +540,16 @@ class _FractionalRealEstateProperty1State
                             child: SizedBox(
                               child: Card(
                                 child: Padding(
-                                  padding: EdgeInsets.all(2.0),
+                                  padding: EdgeInsets.all(3.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(Icons.location_on_outlined),
+                                      Icon(Icons.location_on_outlined, size: 17.sm),
                                       Text(
                                         "Yelahanka, Bangalore",
                                         style: TextStyle(
                                           color: Colors.black,
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14.sm,
+                                          fontSize: 13.sm,
                                         ),
                                       )
                                     ],
@@ -567,7 +568,9 @@ class _FractionalRealEstateProperty1State
                             "Embassy Business Hub",
                             style: TextStyle(
                                 fontFamily: "Poppins",
+
                                 fontSize: 20.sm,
+
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -719,17 +722,17 @@ class _FractionalRealEstateProperty1State
                           child: SizedBox(
                             child: Card(
                               child: Padding(
-                                padding: EdgeInsets.all(2.0),
+                                padding: EdgeInsets.all(3.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Icon(Icons.location_on_outlined),
+                                    Icon(Icons.location_on_outlined, size:17.sm),
                                     Text(
                                       "Andheri, Mumbai",
                                       style: TextStyle(
                                         color: Colors.black,
                                         fontFamily: 'Poppins',
-                                        fontSize: 14.sm,
+                                        fontSize: 13.sm,
                                       ),
                                     )
                                   ],
@@ -748,8 +751,10 @@ class _FractionalRealEstateProperty1State
                           Text(
                             "TIMES SQUARE ANDHERI OPPORTUNITY",
                             style: TextStyle(
+
                                 fontFamily: "Poppins",
                                 fontSize: 20.sm,
+
                                 fontWeight: FontWeight.w500),
                           ),
                         ],

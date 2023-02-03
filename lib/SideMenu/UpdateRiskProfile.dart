@@ -36,7 +36,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                 key: _form,
                 child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset(
                         'assets/images/risk1.png',

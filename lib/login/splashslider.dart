@@ -87,7 +87,6 @@ class _SplashsliderState extends State<Splashslider> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 25,
-                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -99,8 +98,6 @@ class _SplashsliderState extends State<Splashslider> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             fontSize: 15,
-                            //fontWeight: FontWeight.,
-                            fontFamily: 'Poppins',
                           ),
                         ),
                       ),

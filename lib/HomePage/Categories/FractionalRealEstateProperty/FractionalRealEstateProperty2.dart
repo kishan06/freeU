@@ -191,7 +191,7 @@ class _FractionalRealEstateProperty2State
                             child: Padding(
                               padding: EdgeInsets.only(
                                 top: 15,
-                                bottom: 15,
+                                bottom: 10,
                               ),
                               child: Row(
                                 mainAxisAlignment:
@@ -204,13 +204,17 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "INR 8,810 per sq. ft.",
                                         style: TextStyle(
+
                                             fontSize: 16.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Purchase Price",
                                         style: TextStyle(
+
                                             fontSize: 14.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Container(
@@ -223,13 +227,17 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "INR 25,00,000",
                                         style: TextStyle(
+
                                             fontSize: 16.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Minimum investment",
                                         style: TextStyle(
+
                                             fontSize: 14.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                     ],
@@ -239,13 +247,17 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "36,230 sq. ft.",
                                         style: TextStyle(
+
                                             fontSize: 16.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Property Size",
                                         style: TextStyle(
+
                                             fontSize: 14.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Container(
@@ -258,13 +270,17 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "₹ 25 Lakhs",
                                         style: TextStyle(
+
                                             fontSize: 16.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Average yield",
                                         style: TextStyle(
+
                                             fontSize: 14.sm,
+
                                             fontFamily: 'Poppins'),
                                       ),
                                     ],
@@ -408,14 +424,18 @@ class _FractionalRealEstateProperty2State
                                         fontWeight: FontWeight.w500),
                                   ),
                                   SizedBox(
+
                                     height: 8.h,
+
                                   ),
                                   Row(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                        CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Image.asset(
                                         "assets/images/bulletpoint.png",
+                                        width: 14.w,
                                       ),
                                       SizedBox(
                                         width: 10.w,
@@ -433,7 +453,7 @@ class _FractionalRealEstateProperty2State
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                          "assets/images/bulletpoint.png", width: 14.w,),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -450,7 +470,7 @@ class _FractionalRealEstateProperty2State
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                          "assets/images/bulletpoint.png", width: 14.w,),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -470,7 +490,7 @@ class _FractionalRealEstateProperty2State
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                          "assets/images/bulletpoint.png", width: 14.w,),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -489,7 +509,7 @@ class _FractionalRealEstateProperty2State
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                          "assets/images/bulletpoint.png", width: 14.w,),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -503,12 +523,13 @@ class _FractionalRealEstateProperty2State
                                       )
                                     ],
                                   ),
+                                  SizedBox(height: 3.h,),
                                   Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                          "assets/images/bulletpoint.png", width: 14.w,),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -516,7 +537,6 @@ class _FractionalRealEstateProperty2State
                                         child: Text(
                                           "Minimum Effort required from lenders",
                                           style: TextStyle(
-                                              fontFamily: "Poppins",
                                               fontSize: 16.sm),
                                         ),
                                       )

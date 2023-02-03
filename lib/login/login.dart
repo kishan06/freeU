@@ -184,6 +184,7 @@ class _LoginState extends State<Login> {
                               fontSize: 15.sm,
                               fontFamily: 'Poppins',
                             ),
+
                           ),
                           TextButton(
                             child: Text(
@@ -193,6 +194,7 @@ class _LoginState extends State<Login> {
                                 fontSize: 15.sm,
                                 fontFamily: 'Poppins',
                               ),
+
                             ),
                             onPressed: () {
                               Get.toNamed('/signup');

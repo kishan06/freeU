@@ -22,8 +22,10 @@ class CustomNextButton extends StatelessWidget {
       height: 50.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
+
           elevation: 0,
           backgroundColor: Color(0XFF1B8DC9),
+
           //  color: Color(0xFFFFB600),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
