@@ -361,7 +361,7 @@ class _Home2State extends State<Home2> {
                           Text(
                             'Fill in your complete details\nto start investing',
                             style: TextStyle(
-                              fontSize: 12,
+                              fontSize: 12.sm,
                             ),
                           ),
                           SizedBox(
@@ -370,7 +370,7 @@ class _Home2State extends State<Home2> {
                           Text(
                             'Complete Your Profile',
                             style: TextStyle(
-                                fontSize: 18,
+                                fontSize: 18.sm,
                                 color: Color(0xFF143C6D),
                                 fontWeight: FontWeight.bold),
                           ),
@@ -382,7 +382,7 @@ class _Home2State extends State<Home2> {
                               Text(
                                 'Continue',
                                 style: TextStyle(
-                                  fontSize: 15,
+                                  fontSize: 15.sm,
                                 ),
                               ),
                               SizedBox(
@@ -426,7 +426,7 @@ class _Home2State extends State<Home2> {
                         Text(
                           'No Investments',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 18.sm,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -436,7 +436,7 @@ class _Home2State extends State<Home2> {
                         Text(
                           'Start Investing With FreeU',
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sm,
                           ),
                         ),
                         SizedBox(
@@ -454,7 +454,7 @@ class _Home2State extends State<Home2> {
                                   child: Text(
                                     'Invest Now',
                                     style: TextStyle(
-                                      fontSize: 15,
+                                      fontSize: 15.sm,
                                       color: Color(0xff000000),
                                     ),
                                   ),

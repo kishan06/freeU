@@ -53,15 +53,18 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
           fillColor: Colors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
-            borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+            borderSide:
+                BorderSide(color: Color(0xFF707070).withOpacity(0), width: 1),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
-            borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+            borderSide:
+                BorderSide(color: Color(0xFF707070).withOpacity(0), width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
-            borderSide: BorderSide(color: widget.outlineColor, width: 1),
+            borderSide:
+                BorderSide(color: Color(0xFF707070).withOpacity(0), width: 1),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(30),
@@ -91,7 +94,9 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
                         child: Text(
                           "show",
                           style: TextStyle(
+
                             color: Color(0xFF000000),
+
                           ),
                         ),
                       ),

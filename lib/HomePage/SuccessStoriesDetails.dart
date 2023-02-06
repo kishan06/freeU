@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/signupAppbar.dart';
 
 class SuccessStoriesDetails extends StatefulWidget {
@@ -39,7 +40,7 @@ class _SuccessStoriesDetailsState extends State<SuccessStoriesDetails> {
                 ),
                 Text(
                   'November 11, 2022',
-                  style: TextStyle(fontSize: 14, color: Color(0xff6B6B6B)),
+                  style: TextStyle(fontSize: 14.sm, color: Color(0xff6B6B6B)),
                 ),
                 SizedBox(
                   width: 5,
@@ -54,7 +55,7 @@ class _SuccessStoriesDetailsState extends State<SuccessStoriesDetails> {
                 ),
                 Text(
                   '11 Min Raed',
-                  style: TextStyle(fontSize: 14, color: Color(0xff6B6B6B)),
+                  style: TextStyle(fontSize: 14.sm, color: Color(0xff6B6B6B)),
                 )
               ],
             ),
@@ -64,7 +65,7 @@ class _SuccessStoriesDetailsState extends State<SuccessStoriesDetails> {
             Text(
               'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sm,
                 color: Color(0xff000000),
               ),
             ),
@@ -74,7 +75,7 @@ class _SuccessStoriesDetailsState extends State<SuccessStoriesDetails> {
             Text(
               'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sm,
                 color: Color(0xff000000),
               ),
             ),
@@ -88,7 +89,7 @@ class _SuccessStoriesDetailsState extends State<SuccessStoriesDetails> {
             Text(
               'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, cons ectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad',
               style: TextStyle(
-                fontSize: 16,
+                fontSize: 16.sm,
                 color: Color(0xff000000),
               ),
             ),

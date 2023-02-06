@@ -22,6 +22,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
+
     return Scaffold(
       backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
@@ -171,12 +172,13 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   },
                 ),
 
-                SizedBox(
-                  height: 15.h,
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: TextButton(
+
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: TextButton(
                       onPressed: () {
                         Navigator.push(
                           context,
@@ -193,9 +195,11 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                           fontSize: 16.sm,
                           fontFamily: 'Poppins',
                         ),
-                      )),
-                )
-              ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),

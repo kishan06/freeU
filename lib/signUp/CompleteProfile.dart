@@ -65,17 +65,19 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         borderRadius: BorderRadius.circular(10.0),
                         // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
                       ),
-                      activeColor: Color(0xFF143C6D),
+                      activeColor: Color(0xFF1B8DC9),
                       checkColor: Colors.white,
                       value: check3,
                       controlAffinity: ListTileControlAffinity.leading,
                       onChanged: (bool? value) {
-                        setState(() {
-                          check3 = value;
-                        });
+                        setState(
+                          () {
+                            check3 = value;
+                          },
+                        );
                       },
                       title: Text(
-                        "Dont't show this message again",
+                        "Don't show this message again",
                         style: TextStyle(
                           fontSize: 14.sm,
                           fontFamily: 'Poppins',
@@ -97,12 +99,12 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color(0xFFFFB600)),
+                              Color(0xFF1B8DC9)),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30.0),
                               side: BorderSide(
-                                  width: 3, color: Color(0xFFFFB600)),
+                                  width: 3, color: Color(0xFF1B8DC9)),
                             ),
                           ),
                         ),
@@ -112,7 +114,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           style: TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 16.sm,
-                              color: Colors.black),
+                              color: Colors.white),
                         ),
                       ),
                     ),
@@ -222,6 +224,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         backgroundColor: Color(0xFFF5F8FA),
         appBar: CustomSignupAppBar(
@@ -249,168 +252,204 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               //     builder: (context) => Security_first(),
                               //   ),
                               // );
+
                             },
-                            child: Text(
-                              "Skip",
-                              style: TextStyle(
-                                color: Color(0xff6B6B6B),
-                                fontSize: 18,
-                                fontFamily: 'Poppins',
-                              ),
-                            )),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5.h,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomTextFormField(
-                          hintText: "Full Name",
-                          validatorText: "Full Name",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Full Name";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        CustomTextFormField(
-                          hintText: "Email Id",
-                          validatorText: "Email Id",
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter your Email address';
-                            }
-                            if (!RegExp(
-                                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                .hasMatch(value)) {
-                              return 'Enter a Valid Email address';
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        CustomTextFormField(
-                          hintText: "Phone Number",
-                          validatorText: "Phone Number",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Phone Number";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        CustomTextFormField(
-                            hintText: "Date Of Birth",
-                            validatorText: "Date Of Birth"),
-                        SizedBox(height: 25.h),
-                        CustomTextFormField(
-                          hintText: "Occupation",
-                          validatorText: "Occupation",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Occupation";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        TextFormField(
-                          cursorColor: const Color(0xFFFFB600),
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.only(
-                                left: 20, right: 20, top: 10, bottom: 10),
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(
-                                  color: Color(0xFF707070), width: 1),
+                            child: Icon(
+                              Icons.arrow_back,
+                              size: 22.sm,
+                              color: Color(0xFF6B6B6B),
                             ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(
-                                  color: Color(0xFF707070), width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide: BorderSide(
-                                  color: Color(0xFFFFB600), width: 1),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide:
-                                  const BorderSide(color: Colors.red, width: 1),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
-                              borderSide:
-                                  const BorderSide(color: Colors.red, width: 1),
-                            ),
-                            hintStyle: TextStyle(
-                                color: Color(0x80000000),
-                                fontSize: 16.sm,
-                                fontFamily: "Poppins"),
-                            hintText: "Address",
                           ),
-                          minLines: 5,
-                          maxLines: null,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Address";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        CustomTextFormField(
-                          hintText: "Enter Aadhar Number",
-                          validatorText: "Enter Aadhar Number",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Aadhar Number";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        CustomTextFormField(
-                          hintText: "Enter PAN Number",
-                          validatorText: "Enter PAN Number",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter PAN Number";
-                            }
-                            return null;
-                          },
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 40.h,
-                    ),
-                    CustomNextButton(
-                      ontap: () {
-                        final isValid = _form.currentState?.validate();
-                        if (isValid!) {
-                          buildGuideTour();
-                        } else {
-                          Get.snackbar("Error", "Please Enter Required Fields",
-                              margin: EdgeInsets.all(8),
-                              snackStyle: SnackStyle.FLOATING,
-                              snackPosition: SnackPosition.BOTTOM);
-                        }
-                      },
-                      text: 'Submit',
-                    ),
-                  ],
+                          SizedBox(
+                            width: 8.w,
+                          ),
+                          Text(
+                            "Complete Your Profile",
+                            style: TextStyle(
+                                fontFamily: "Poppins", fontSize: 20.sm),
+                          )
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                              onPressed: () {
+                                Get.toNamed('/homepage');
+                                // Navigator.push(
+                                //   context,
+                                //   MaterialPageRoute(
+                                //     builder: (context) => Security_first(),
+                                //   ),
+                                // );
+                              },
+                              child: Text(
+                                "Skip",
+                                style: TextStyle(
+                                  color: Color(0xff6B6B6B),
+                                  fontSize: 14.sm,
+                                  fontFamily: 'Poppins',
+                                ),
+                              )),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomTextFormField(
+                            hintText: "Full Name",
+                            validatorText: "Full Name",
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please Enter Full Name";
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(height: 20.h),
+                          CustomTextFormField(
+                            hintText: "Email Id",
+                            validatorText: "Email Id",
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Enter your Email address';
+                              }
+                              if (!RegExp(
+                                      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                                  .hasMatch(value)) {
+                                return 'Enter a Valid Email address';
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(height: 20.h),
+                          CustomTextFormField(
+                            hintText: "Phone Number",
+                            validatorText: "Phone Number",
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please Enter Phone Number";
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(height: 20.h),
+                          CustomTextFormField(
+                              hintText: "Date Of Birth",
+                              validatorText: "Date Of Birth"),
+                          SizedBox(height: 25.h),
+                          CustomTextFormField(
+                            hintText: "Occupation",
+                            validatorText: "Occupation",
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please Enter Occupation";
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(height: 20.h),
+                          TextFormField(
+                            cursorColor: const Color(0xFF707070),
+                            autovalidateMode:
+                                AutovalidateMode.onUserInteraction,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(
+                                  left: 20, right: 20, top: 10, bottom: 10),
+                              filled: true,
+                              fillColor: Colors.white,
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                    color: Color(0xFF707070).withOpacity(0),
+                                    width: 1),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                    color: Color(0xFF707070).withOpacity(0),
+                                    width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                    color: Color(0xFF707070).withOpacity(0),
+                                    width: 1),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                    color: Colors.red, width: 1),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                    color: Colors.red, width: 1),
+                              ),
+                              hintStyle: TextStyle(
+                                  color: Color(0x80000000),
+                                  fontSize: 16.sm,
+                                  fontFamily: "Poppins"),
+                              hintText: "Address",
+                            ),
+                            minLines: 5,
+                            maxLines: null,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please Enter Address";
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(height: 20.h),
+                          CustomTextFormField(
+                            hintText: "Enter Aadhar Number",
+                            validatorText: "Enter Aadhar Number",
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please Enter Aadhar Number";
+                              }
+                              return null;
+                            },
+                          ),
+                          SizedBox(height: 20.h),
+                          CustomTextFormField(
+                            hintText: "Enter PAN Number",
+                            validatorText: "Enter PAN Number",
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please Enter PAN Number";
+                              }
+                              return null;
+                            },
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 50.h,
+                      ),
+                      CustomNextButton(
+                        ontap: () {
+                          final isValid = _form.currentState?.validate();
+                          if (isValid!) {
+                            buildGuideTour();
+                          } else {
+                            Get.snackbar(
+                                "Error", "Please Enter Required Fields",
+                                margin: EdgeInsets.all(8),
+                                snackStyle: SnackStyle.FLOATING,
+                                snackPosition: SnackPosition.BOTTOM);
+                          }
+                        },
+                        text: 'Submit',
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-            )));
+              ))),
+    );
   }
 }

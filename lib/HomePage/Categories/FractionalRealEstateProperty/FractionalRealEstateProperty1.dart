@@ -326,8 +326,9 @@ class _FractionalRealEstateProperty1State
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 color: Colors.black,
-                                fontSize: 15.sm),
-                          ),
+
+                                fontSize: 14.sm),
+
                           onPressed: () {
                             Get.toNamed('/fractionalrealestateproperty2');
                           },
@@ -385,7 +386,9 @@ class _FractionalRealEstateProperty1State
                             "Chennai Office Opportunity",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 18.sm,
+
+                                fontSize: 20.sm,
+
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -565,7 +568,9 @@ class _FractionalRealEstateProperty1State
                             "Embassy Business Hub",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 18.sm,
+
+                                fontSize: 20.sm,
+
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -746,7 +751,10 @@ class _FractionalRealEstateProperty1State
                           Text(
                             "TIMES SQUARE ANDHERI OPPORTUNITY",
                             style: TextStyle(
-                                fontSize: 18.sm,
+
+                                fontFamily: "Poppins",
+                                fontSize: 20.sm,
+
                                 fontWeight: FontWeight.w500),
                           ),
                         ],

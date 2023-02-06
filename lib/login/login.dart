@@ -45,6 +45,7 @@ class _LoginState extends State<Login> {
         }
       },
       child: Scaffold(
+
           backgroundColor: Color(0xFFF5F8FA),
           body: GestureDetector(
             onTap: () => Get.focusScope!.unfocus(),
@@ -197,12 +198,22 @@ class _LoginState extends State<Login> {
                                   },
                                 )
                               ],
+
                             ),
-                          ],
-                        ))),
+                            onPressed: () {
+                              Get.toNamed('/signup');
+                            },
+                          )
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
