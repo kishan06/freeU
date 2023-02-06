@@ -64,6 +64,9 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     "Choose a PIN of Your choice",
                     style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
                   ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(
                       left: 15,
@@ -91,6 +94,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           controller: pincontroller,
                           textAlign: TextAlign.center,
                           decoration: const InputDecoration(
+                            helperText: "",
                             hintText: "",
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             border: UnderlineInputBorder(
@@ -111,6 +115,9 @@ class _SecurityFirstState extends State<SecurityFirst> {
                   Text(
                     "Please Re-Enter the PIN",
                     style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                  ),
+                  SizedBox(
+                    height: 20.h,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(
@@ -140,6 +147,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           controller: confirmpincontroller,
                           textAlign: TextAlign.center,
                           decoration: const InputDecoration(
+                            helperText: "",
                             hintText: "",
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             border: UnderlineInputBorder(
