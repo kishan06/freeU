@@ -41,7 +41,7 @@ class _TouchIdState extends State<TouchId> {
                   width: 286,
                   height: 286,
                   child: SvgPicture.asset(
-                    'assets/images/fingerIcon.svg',
+                    'assets/images/fingericon.svg',
                     width: 140,
                   ),
                 ),

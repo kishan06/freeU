@@ -55,11 +55,10 @@ class _SplashsliderState extends State<Splashslider> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 100,
+              height: 100.h,
             ),
             Expanded(
               child: PageView.builder(
-                
                 controller: _controller,
                 itemCount: contents.length,
                 onPageChanged: (int index) {
@@ -75,11 +74,11 @@ class _SplashsliderState extends State<Splashslider> {
                         flex: 8,
                         child: SvgPicture.asset(
                           contents[i].image,
-                          height: 250,
+                          height: 250.h,
                         ),
                       ),
                       SizedBox(
-                        height: 20,
+                        height: 20.h,
                       ),
                       Expanded(
                         flex: 1,
@@ -87,7 +86,7 @@ class _SplashsliderState extends State<Splashslider> {
                           contents[i].title,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 25,
+                            fontSize: 25.sm,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -98,7 +97,7 @@ class _SplashsliderState extends State<Splashslider> {
                           contents[i].content,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 16,
+                            fontSize: 16.sm,
                           ),
                         ),
                       ),
@@ -179,7 +178,7 @@ class _SplashsliderState extends State<Splashslider> {
             // ),
 
             SizedBox(
-              height: 20,
+              height: 20.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -189,7 +188,7 @@ class _SplashsliderState extends State<Splashslider> {
                     "Skip",
                     style: TextStyle(
                       color: Color(0xFF6B6B6B),
-                      fontSize: 16,
+                      fontSize: 16.sm,
                       fontFamily: "Poppins",
                     ),
                   ),
@@ -200,7 +199,7 @@ class _SplashsliderState extends State<Splashslider> {
               ],
             ),
             SizedBox(
-              height: 32,
+              height: 32.h,
             )
           ],
         ),
