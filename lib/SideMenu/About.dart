@@ -25,7 +25,7 @@ class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "About FreeU",
         bottomtext: false,
@@ -47,9 +47,7 @@ class _AboutState extends State<About> {
                 child: Text(
                   'About Us',
                   textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
               ),
               SizedBox(
@@ -108,7 +106,7 @@ class _AboutState extends State<About> {
                       child: Row(
                     children: [
                       Image.asset(
-                        'assets/images/13536.png',
+                        'assets/images/13540.png',
                         width: 40.w,
                       ),
                       SizedBox(
@@ -147,9 +145,7 @@ class _AboutState extends State<About> {
                 child: Text(
                   'Our Great Team',
                   textAlign: TextAlign.left,
-                  style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
               ),
               SizedBox(
@@ -170,42 +166,45 @@ class _AboutState extends State<About> {
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Expanded(
-                      child: Image.asset(
-                    'assets/images/team01.png',
-                    height: 250.h,
-                    width: 100.w,
-                  )),
+                    flex: 2,
+                    child: Image.asset(
+                      'assets/images/team01.png',
+                      // height: 180.h,
+                      width: 100.w,
+                    )),
                   SizedBox(
-                    width: 5,
+                    width: 10.w,
                   ),
-                  Expanded(
+                  Flexible(
+                    flex: 4,
                       child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                          'Lorem ipsum contains the type of face more in use an aspect that allows you to have an overviewed of the rendering of the text',
-                          style: TextStyle(
-                              fontSize: 15, color: Color(0xff143C6D))),
-                      SizedBox(height: 8),
-                      Text(
-                          'When refering to Lorem ipsum, different expression are used namely fill.',
-                          style: TextStyle(
-                              fontSize: 15, color: Color(0xff143C6D))),
-                      SizedBox(height: 8),
-                      Text('- Rushabh Parekh',
-                          style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Color(0xff143C6D))),
-                      Text(
-                        '  Founder, CEO',
-                        style:
-                            TextStyle(fontSize: 13, color: Color(0xff143C6D)),
-                      )
-                    ],
-                  ))
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                              'Lorem ipsum contains the type of face more in use an aspect that allows you to have an overviewed of the rendering of the text',
+                              style: TextStyle(
+                                  fontSize: 15, color: Color(0xff143C6D))),
+                          SizedBox(height: 8),
+                          Text(
+                              'When refering to Lorem ipsum, different expression are used namely fill.',
+                              style: TextStyle(
+                                  fontSize: 15, color: Color(0xff143C6D))),
+                          SizedBox(height: 8),
+                          Text('- Rushabh Parekh',
+                              style: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.bold,
+                                  color: Color(0xff143C6D))),
+                          Text(
+                            '  Founder, CEO',
+                            style:
+                                TextStyle(fontSize: 13, color: Color(0xff143C6D)),
+                          )
+                        ],
+                      ))
                 ],
               ),
               SizedBox(

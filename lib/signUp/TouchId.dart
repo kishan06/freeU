@@ -20,7 +20,7 @@ class _TouchIdState extends State<TouchId> {
         title: Text(""),
         backgroundColor: Colors.white,
       ),
-      backgroundColor: Color(0xffF9F9F9),
+      backgroundColor: Color(0xffF5F8FA),
       body: Column(
         children: [
           SizedBox(height: 50),

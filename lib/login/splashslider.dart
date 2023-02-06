@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/login/contentModel.dart';
 import 'package:get/get.dart';
@@ -50,6 +49,7 @@ class _SplashsliderState extends State<Splashslider> {
         }
       },
       child: Scaffold(
+        backgroundColor: Color(0xffF5F8FA),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -59,6 +59,7 @@ class _SplashsliderState extends State<Splashslider> {
             ),
             Expanded(
               child: PageView.builder(
+                
                 controller: _controller,
                 itemCount: contents.length,
                 onPageChanged: (int index) {
@@ -71,7 +72,7 @@ class _SplashsliderState extends State<Splashslider> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Expanded(
-                        flex: 6,
+                        flex: 8,
                         child: SvgPicture.asset(
                           contents[i].image,
                           height: 250,
@@ -97,7 +98,7 @@ class _SplashsliderState extends State<Splashslider> {
                           contents[i].content,
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 15,
+                            fontSize: 16,
                           ),
                         ),
                       ),

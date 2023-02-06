@@ -199,7 +199,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xffF9F9F9),
+      backgroundColor: Color(0xffF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "Security First",
         bottomtext: false,

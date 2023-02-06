@@ -15,7 +15,7 @@ class _InsightsInnerState extends State<InsightsInner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "Retail banks wake up to digital",
         bottomtext: false,

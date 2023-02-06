@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,7 +45,7 @@ class _LoginState extends State<Login> {
         }
       },
       child: Scaffold(
-          backgroundColor: Color(0xFFF9F9F9),
+          backgroundColor: Color(0xFFF5F8FA),
           body: GestureDetector(
             onTap: () => Get.focusScope!.unfocus(),
             child: SingleChildScrollView(
@@ -105,7 +107,7 @@ class _LoginState extends State<Login> {
                                       style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontSize: 15,
-                                        color: Color(0xFF143C6D),
+                                        color: Color(0xFF1B8DC9),
                                       ),
                                     )),
                               ],
@@ -135,8 +137,25 @@ class _LoginState extends State<Login> {
                                     validatorText: "Please Enter Password")
                               ],
                             ),
+                            TextButton(
+                              onPressed: () {
+                                Get.toNamed('/forgotPassword');
+                              },
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: Text(
+                                  'Forgot Password?',
+                                  textAlign: TextAlign.end,
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 15,
+                                    color: Color(0xFF1B8DC9),
+                                  ),
+                                ),
+                              ),
+                            ),
                             SizedBox(
-                              height: 70.h,
+                              height: 50.h,
                             ),
                             CustomNextButton(
                               ontap: () {
@@ -153,21 +172,8 @@ class _LoginState extends State<Login> {
                               },
                               text: 'Sign in',
                             ),
-                            TextButton(
-                              onPressed: () {
-                                Get.toNamed('/forgotPassword');
-                              },
-                              child: const Text(
-                                'Forgot Password?',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 15,
-                                  color: Color(0xFF143C6D),
-                                ),
-                              ),
-                            ),
                             SizedBox(
-                              height: 50.h,
+                              height: 40.h,
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -181,7 +187,7 @@ class _LoginState extends State<Login> {
                                   child: const Text(
                                     'Create account',
                                     style: TextStyle(
-                                      color: Color(0xFF143C6D),
+                                      color: Color(0xFF1B8DC9),
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold,
                                     ),

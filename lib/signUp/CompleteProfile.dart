@@ -223,7 +223,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFF9F9F9),
+        backgroundColor: Color(0xFFF5F8FA),
         appBar: CustomSignupAppBar(
           titleTxt: 'Complete Your Profile',
           bottomtext: false,

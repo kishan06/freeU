@@ -22,8 +22,8 @@ class CustomNextButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: 5,
-          shadowColor: Color.fromARGB(181, 239, 239, 245),
-          backgroundColor: Color(0xFFFFB600),
+          shadowColor: Color.fromARGB(255, 220, 220, 226),
+          backgroundColor: Color(0xFF1B8DC9),
           //  color: Color(0xFFFFB600),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30),
@@ -32,7 +32,7 @@ class CustomNextButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-              color: Colors.black, fontSize: 16.sm, fontFamily: 'Poppins'),
+              color: Color(0xFFFFFFFF), fontSize: 16.sm,),
         ),
         onPressed: () {
           ontap!();

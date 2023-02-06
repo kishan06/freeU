@@ -22,7 +22,7 @@ class _HowToInvestState extends State<HowToInvest> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "How To Invest",
         bottomtext: false,
@@ -40,6 +40,8 @@ class _HowToInvestState extends State<HowToInvest> {
                 children: [
                   Flexible(
                     child: Card(
+                      elevation: 5,
+                      shadowColor: Color(0xB5EFEFF5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
@@ -54,18 +56,18 @@ class _HowToInvestState extends State<HowToInvest> {
                               "1. Create An Account",
                               style: TextStyle(
                                   fontFamily: "Poppins",
-                                  fontSize: 20.sm,
+                                  fontSize: 18.sm,
                                   fontWeight: FontWeight.w600),
                             ),
                             SizedBox(
                               height: 4.h,
                             ),
                             Text(
-                              "Lorem Ipsum has been the industry's standard\n dummy text ever since the 1500s, when an unknown",
+                              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 14.sm,
+                                fontSize: 13.sm,
                               ),
                             ),
                             SizedBox(
@@ -90,13 +92,15 @@ class _HowToInvestState extends State<HowToInvest> {
               ),
               SvgPicture.asset("assets/images/arrow.svg"),
               SizedBox(
-                height: 45,
+                height: 46.h,
               ),
               Stack(
                 clipBehavior: Clip.none,
                 children: [
                   Flexible(
                     child: Card(
+                      elevation: 5,
+                      shadowColor: Color(0xB5EFEFF5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
@@ -111,7 +115,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               "2. Choose an asset",
                               style: TextStyle(
                                   fontFamily: "Poppins",
-                                  fontSize: 20.sm,
+                                  fontSize: 18.sm,
                                   fontWeight: FontWeight.w600),
                             ),
                             SizedBox(
@@ -122,7 +126,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 14.sm,
+                                fontSize: 13.sm,
                               ),
                             ),
                             SizedBox(
@@ -147,13 +151,15 @@ class _HowToInvestState extends State<HowToInvest> {
               ),
               SvgPicture.asset("assets/images/arrow.svg"),
               SizedBox(
-                height: 45,
+                height: 46.h,
               ),
               Stack(
                 clipBehavior: Clip.none,
                 children: [
                   Flexible(
                     child: Card(
+                      elevation: 5,
+                      shadowColor: Color(0xB5EFEFF5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
@@ -168,7 +174,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               "3. Invest",
                               style: TextStyle(
                                   fontFamily: "Poppins",
-                                  fontSize: 20.sm,
+                                  fontSize: 18.sm,
                                   fontWeight: FontWeight.w600),
                             ),
                             SizedBox(
@@ -179,7 +185,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 14.sm,
+                                fontSize: 13.sm,
                               ),
                             ),
                             SizedBox(
@@ -203,13 +209,15 @@ class _HowToInvestState extends State<HowToInvest> {
               ),
               SvgPicture.asset("assets/images/arrow.svg"),
               SizedBox(
-                height: 45,
+                height: 46.h,
               ),
               Stack(
                 clipBehavior: Clip.none,
                 children: [
                   Flexible(
                     child: Card(
+                      elevation: 5,
+                      shadowColor: Color(0xB5EFEFF5),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(18),
                       ),
@@ -224,7 +232,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               "4. Easy returns",
                               style: TextStyle(
                                   fontFamily: "Poppins",
-                                  fontSize: 20.sm,
+                                  fontSize: 18.sm,
                                   fontWeight: FontWeight.w600),
                             ),
                             SizedBox(
@@ -235,7 +243,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 14.sm,
+                                fontSize: 13.sm,
                               ),
                             ),
                             SizedBox(
@@ -247,7 +255,7 @@ class _HowToInvestState extends State<HowToInvest> {
                     ),
                   ),
                   Positioned(
-                    top: -50,
+                    top: -45,
                     left: 120,
                     child: CircleAvatar(
                       backgroundColor: Color(0xFFFFB600),

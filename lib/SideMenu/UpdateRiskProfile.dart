@@ -24,7 +24,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF9F9F9),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "Update Risk Profile",
         bottomtext: false,
@@ -35,7 +35,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
             child: Form(
                 key: _form,
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Image.asset(
@@ -79,13 +79,15 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                       SizedBox(
                         height: 20.h,
                       ),
-                      Text(
-                        "How would you describe your level of familiarity ?",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Color(0xff303030)),
+                      SizedBox(
+                        width: double.infinity,
+                        child: Text(
+                          "How would you describe your level of familiarity ?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              fontSize: 15,
+                              color: Color(0xff303030)),
+                        ),
                       ),
                       SizedBox(
                         height: 6,
@@ -101,6 +103,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                       ),
                       Text(
                         "What is the primary reason you're interested in investing?",
+                        textAlign: TextAlign.left,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 16,
@@ -119,13 +122,16 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                       SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        "What is your annual income ?",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Color(0xff303030)),
+                      SizedBox(
+                        width: double.infinity,
+                        child: Text(
+                          "What is your annual income ?",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 16,
+                              color: Color(0xff303030)),
+                        ),
                       ),
                       SizedBox(
                         height: 6,
@@ -139,12 +145,14 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                       SizedBox(
                         height: 20,
                       ),
-                      Text(
-                        "How long do you plan to invest?",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Color(0xff303030)),
+                      SizedBox(
+                        width: double.infinity,
+                        child: Text(
+                          "How long do you plan to invest?",
+                          textAlign: TextAlign.left,
+                          style:
+                              TextStyle(fontSize: 16, color: Color(0xff303030)),
+                        ),
                       ),
                       SizedBox(
                         height: 6,

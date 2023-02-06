@@ -204,7 +204,7 @@ class _SignUpState extends State<SignUp> {
         return Future.value(false);
       },
       child: Scaffold(
-          backgroundColor: Color(0xFFF9F9F9),
+          backgroundColor: Color(0xFFF5F8FA),
           appBar: CustomSignupAppBar(
             titleTxt: "Sign Up",
             bottomtext: false,
