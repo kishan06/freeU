@@ -178,7 +178,10 @@ class _FractionalRealEstateProperty1State
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(Icons.location_on_outlined, size: 17.sm,),
+                                      Icon(
+                                        Icons.location_on_outlined,
+                                        size: 17.sm,
+                                      ),
                                       Text(
                                         "Outer Ring Road Sarjapur, Bangalore",
                                         style: TextStyle(
@@ -321,19 +324,18 @@ class _FractionalRealEstateProperty1State
                               borderRadius: BorderRadius.circular(30),
                             ),
                           ),
+                          onPressed: () {
+                            Get.toNamed('/fractionalrealestateproperty2');
+                          },
                           child: Text(
                             "View Details",
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 color: Colors.black,
-
                                 fontSize: 14.sm),
-
-                          onPressed: () {
-                            Get.toNamed('/fractionalrealestateproperty2');
-                          },
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -362,7 +364,10 @@ class _FractionalRealEstateProperty1State
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(Icons.location_on_outlined, size: 17.sm,),
+                                      Icon(
+                                        Icons.location_on_outlined,
+                                        size: 17.sm,
+                                      ),
                                       Text(
                                         "Outer Ring Road Sarjapur, Bangalore",
                                         style: TextStyle(
@@ -386,9 +391,7 @@ class _FractionalRealEstateProperty1State
                             "Chennai Office Opportunity",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-
                                 fontSize: 20.sm,
-
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -544,7 +547,8 @@ class _FractionalRealEstateProperty1State
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(Icons.location_on_outlined, size: 17.sm),
+                                      Icon(Icons.location_on_outlined,
+                                          size: 17.sm),
                                       Text(
                                         "Yelahanka, Bangalore",
                                         style: TextStyle(
@@ -568,9 +572,7 @@ class _FractionalRealEstateProperty1State
                             "Embassy Business Hub",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-
                                 fontSize: 20.sm,
-
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -726,7 +728,8 @@ class _FractionalRealEstateProperty1State
                                 child: Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Icon(Icons.location_on_outlined, size:17.sm),
+                                    Icon(Icons.location_on_outlined,
+                                        size: 17.sm),
                                     Text(
                                       "Andheri, Mumbai",
                                       style: TextStyle(
@@ -751,10 +754,8 @@ class _FractionalRealEstateProperty1State
                           Text(
                             "TIMES SQUARE ANDHERI OPPORTUNITY",
                             style: TextStyle(
-
                                 fontFamily: "Poppins",
                                 fontSize: 20.sm,
-
                                 fontWeight: FontWeight.w500),
                           ),
                         ],

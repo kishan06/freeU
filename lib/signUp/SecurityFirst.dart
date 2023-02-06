@@ -206,7 +206,6 @@ class _SecurityFirstState extends State<SecurityFirst> {
   TextEditingController confirmpincontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Color(0xffF5F8FA),
       appBar: CustomSignupAppBar(
@@ -261,140 +260,11 @@ class _SecurityFirstState extends State<SecurityFirst> {
                       color: onclickofpin ? Colors.white : Colors.black,
                       fontSize: 18,
                       fontFamily: 'Poppins',
-
                     ),
-                    SizedBox(
-                      width: 8.w,
-                    ),
-                    Text(
-                      "Security First",
-                      style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
-                    )
-                  ],
+                  ),
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    Text(
-                      "Select to login Method",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20.sm,
-                        fontFamily: 'Poppins',
-                        color: Colors.black,
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Container(
-                      // ignore: prefer_const_constructors
-                      height: 100.h, width: 258.w,
-                      decoration: BoxDecoration(
-                        color: onclickofpin
-                            ? const Color(0xff1B8DC9)
-                            : Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      alignment: const Alignment(50, 0),
-                      padding: const EdgeInsets.all(5),
-                      child: ListTile(
-                        trailing: SvgPicture.asset(
-                          onclickofpin
-                              ? "assets/images/four-dg-white.svg"
-                              : "assets/images/four-dg-black.svg",
-                        ),
-                        onTap: () {},
-                        title: Text(
-                          "4 Digit PIN",
-                          style: TextStyle(
-                            color: onclickofpin ? Colors.white : Colors.black,
-                            fontSize: 18,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                        leading: Transform.scale(
-                          scale: 1.5,
-                          child: Radio(
-                              activeColor: (Colors.white),
-                              value: "4 Digit PIN",
-                              groupValue: gender,
-                              onChanged: (value) {
-                                setState(() {
-                                  print(value);
-                                  onclickoftouchid = false;
-                                  onclickofpin = true;
-                                  gender = value.toString();
-                                  build4digitpin();
-                                });
-                              }),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Container(
-                      // ignore: prefer_const_constructors
-                      height: 100.h, width: 258.w,
-                      decoration: BoxDecoration(
-                        color: onclickoftouchid
-                            ? const Color(0xff1B8DC9)
-                            : Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      alignment: const Alignment(50, 0),
-                      padding: const EdgeInsets.all(5),
-                      child: ListTile(
-                        trailing: SvgPicture.asset(
-                          onclickoftouchid
-                              ? "assets/images/touch-white.svg"
-                              : "assets/images/touch-black.svg",
-                        ),
-                        title: Text(
-                          "Touch Id",
-                          style: TextStyle(
-                              color: onclickoftouchid
-                                  ? Colors.white
-                                  : Colors.black,
-                              fontFamily: 'Poppins',
-                              fontSize: 18),
-                        ),
-                        leading: Transform.scale(
-                          scale: 1.5,
-                          child: Radio(
-                              // fillColor:
-                              //     MaterialStateProperty.all<Color>(Color(0xff143C6D)),
-                              focusColor: const Color(0xff143C6D),
-                              activeColor: (Colors.white),
-                              value: "Touch Id",
-                              groupValue: gender,
-                              onChanged: (value) {
-                                setState(() {
-                                  onclickoftouchid = true;
-                                  onclickofpin = false;
-
-                                  gender = value.toString();
-                                  Get.toNamed("/touchid");
-                                  // Navigator.push(
-                                  //             context,
-                                  //             MaterialPageRoute(
-                                  //               builder: (context) =>
-                                  //                   const touch_id(),
-                                  //             ),
-                                  //           )
-                                });
-                              }),
-                        ),
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
+              )
+            ],
           ),
         ),
       ),
