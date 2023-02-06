@@ -270,8 +270,8 @@ class _HomePageState extends State<HomePage> {
                                       children: [
                                         SvgPicture.asset(
                                           "assets/images/persongraph.svg",
-                                          height: 113,
-                                          width: 205,
+                                          height: 100,
+                                          width: 200,
                                         ),
                                       ],
                                     )
@@ -654,7 +654,7 @@ class _HomePageState extends State<HomePage> {
                           Text(
                             "Recommended",
                             style: TextStyle(
-                                fontSize: 17.sm, fontFamily: 'Poppins'),
+                                fontSize: 17.sm, ),
                           ),
                           SizedBox(
                             height: 15.h,
@@ -709,7 +709,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     'Outer Ring Road\nSarjapur, Bangalore',
                                     style: TextStyle(
-                                        fontSize: 12.sm, fontFamily: 'Poppins'),
+                                        fontSize: 12.sm, ),
                                   ),
                                 ],
                               ),
@@ -736,8 +736,10 @@ class _HomePageState extends State<HomePage> {
                                         fontSize: 14.sm),
                                   ),
                                   onPressed: () {
+
                                     Get.toNamed(
                                         '/fractionalrealestateproperty1');
+
                                   },
                                 ),
                               )

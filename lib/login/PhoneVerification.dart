@@ -28,7 +28,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F9F9),
+      backgroundColor: const Color(0xFFF5F8FA),
       appBar: AppBar(
         backgroundColor: const Color(0xffffffff),
         leading: IconButton(
@@ -74,18 +74,24 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       FilteringTextInputFormatter.digitsOnly
                     ],
                     decoration: InputDecoration(
+                        // enabled: false,
                       border: OutlineInputBorder(
                         borderSide:
                             BorderSide(width: 2, color: Color(0xFF707070)),
                         borderRadius: BorderRadius.all(Radius.circular(30)),
                       ),
-                      hintText: "Enter your number",
+                      hintText: "8467399899",
                       suffixIcon: Align(
                         widthFactor: 1.0,
                         heightFactor: 1.0,
-                        child: Icon(
-                          Icons.create_outlined,
-                          color: Color(0xff143C6D),
+                        child: GestureDetector(
+                          onTap: () {
+                            Get.toNamed('/loginUsingOTP');
+                          },
+                          child: Icon(
+                            Icons.create_outlined,
+                            color: Color(0xff143C6D),
+                          ),
                         ),
                       ),
                     ),
@@ -171,7 +177,6 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           style: TextStyle(
                             color: Color.fromARGB(159, 51, 51, 50),
                             fontSize: 15.sm,
-                            fontFamily: 'Poppins',
                           )),
                       TextButton(
                         child: Text(
@@ -179,7 +184,6 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           style: TextStyle(
                             color: Color(0xFF143C6D),
                             fontSize: 15.sm,
-                            fontFamily: 'Poppins',
                             fontWeight: FontWeight.bold,
                           ),
                         ),

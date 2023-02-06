@@ -206,31 +206,62 @@ class _SecurityFirstState extends State<SecurityFirst> {
   TextEditingController confirmpincontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xffF5F8FA),
-        // appBar: CustomSignupAppBar(
-        //   titleTxt: "Security First",
-        //   bottomtext: false,
-        // ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 22.sm,
-                        color: Color(0xFF6B6B6B),
-                      ),
+
+    return Scaffold(
+      backgroundColor: Color(0xffF5F8FA),
+      appBar: CustomSignupAppBar(
+        titleTxt: "Security First",
+        bottomtext: false,
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const SizedBox(
+                height: 30,
+              ),
+              const Text(
+                "Select to login Method",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 22,
+                  fontFamily: 'Poppins',
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Container(
+                // ignore: prefer_const_constructors
+                height: 125,
+                decoration: BoxDecoration(
+                  color: onclickofpin ? const Color(0xff143C6D) : Colors.white,
+                  borderRadius: BorderRadius.circular(30),
+                  border: Border.all(
+                    width: 1,
+                    color: Colors.black,
+                  ),
+                ),
+                alignment: const Alignment(50, 0),
+                padding: const EdgeInsets.all(5),
+                child: ListTile(
+                  trailing: SvgPicture.asset(
+                    onclickofpin
+                        ? "assets/images/four-dg-white.svg"
+                        : "assets/images/four-dg-black.svg",
+                  ),
+                  onTap: () {},
+                  title: Text(
+                    "4 Digit PIN",
+                    style: TextStyle(
+                      color: onclickofpin ? Colors.white : Colors.black,
+                      fontSize: 18,
+                      fontFamily: 'Poppins',
+
                     ),
                     SizedBox(
                       width: 8.w,

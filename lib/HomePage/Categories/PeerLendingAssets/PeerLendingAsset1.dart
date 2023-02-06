@@ -174,17 +174,16 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
                             child: SizedBox(
                               child: Card(
                                 child: Padding(
-                                  padding: EdgeInsets.all(2.0),
+                                  padding: EdgeInsets.all(3.0),
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Icon(Icons.location_on_outlined),
+                                      Icon(Icons.location_on_outlined, size: 17.sm,),
                                       Text(
                                         "Gurgaon - Haryana",
                                         style: TextStyle(
                                           color: Colors.black,
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14.sm,
+                                          fontSize: 13.sm,
                                         ),
                                       )
                                     ],
@@ -202,8 +201,10 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
                           Text(
                             "Making India Atmanirbhar",
                             style: TextStyle(
+
                                 fontFamily: "Poppins",
                                 fontSize: 20.sm,
+
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -326,7 +327,7 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 color: Colors.black,
-                                fontSize: 16.sm),
+                                fontSize: 14.sm),
                           ),
                           onPressed: () {
                             Get.toNamed('/peerlendingasset2');

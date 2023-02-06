@@ -203,36 +203,178 @@ class _SignUpState extends State<SignUp> {
             context, MaterialPageRoute(builder: (context) => const Login()));
         return Future.value(false);
       },
-      child: SafeArea(
-        child: Scaffold(
-            backgroundColor: Color(0xFFF5F8FA),
-            // appBar: CustomSignupAppBar(
-            //   titleTxt: "Sign Up",
-            //   bottomtext: false,
-            // ),
-            body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30, vertical: 20),
-                    child: Form(
-                      key: _form,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              GestureDetector(
-                                onTap: () {
-                                  Get.back();
-                                },
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  size: 22.sm,
-                                  color: Color(0xFF6B6B6B),
-                                ),
+
+      child: Scaffold(
+          backgroundColor: Color(0xFFF5F8FA),
+          appBar: CustomSignupAppBar(
+            titleTxt: "Sign Up",
+            bottomtext: false,
+          ),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                  child: Form(
+                    key: _form,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        CustomTextFormField(
+                            hintText: "Full Name*", validatorText: "Full Name"),
+                        // FullnameTextFormField(
+                        //   controller: fullNameController,
+                        //   keyboardType: TextInputType.text,
+                        //   hint: "Full Name*",
+                        //   errortext: "Please Enter Full Name",
+                        // ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        CustomTextFormField(
+                          hintText: "Email Id",
+                          validatorText: "Email Id",
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Enter your Email address';
+                            }
+                            if (!RegExp(
+                                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                                .hasMatch(value)) {
+                              return 'Enter a Valid Email address';
+                            }
+                            return null;
+                          },
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(50),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        // TextFormField(
+                        //   keyboardType: TextInputType.text,
+                        //   cursorColor: Colors.grey,
+                        //   style: TextStyle(
+                        //       fontFamily: 'Poppins',
+                        //       fontSize: 16,
+                        //       fontWeight: FontWeight.w500,
+                        //       color:
+                        //           Get.isDarkMode ? Colors.white : Colors.black),
+                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
+                        //   controller: phonecontroller,
+                        //   decoration: InputDecoration(
+                        //     focusedBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.grey, width: 2.0),
+                        //     ),
+                        //     enabledBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.grey, width: 2.0),
+                        //     ),
+                        //     errorMaxLines: 3,
+                        //     hintText: "Phone Number*",
+                        //     hintStyle: blackStyle(context).copyWith(
+                        //         fontSize: 16,
+                        //         fontWeight: FontWeight.w600,
+                        //         color: Get.isDarkMode
+                        //             ? Colors.white
+                        //             : const Color(0xFF303030).withOpacity(0.3)),
+                        //     fillColor: Get.isDarkMode
+                        //         ? const Color(0xFF303030).withOpacity(0.8)
+                        //         : Colors.white,
+                        //     filled: true,
+                        //     errorBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.red, width: 2.0),
+                        //     ),
+                        //     focusedErrorBorder: const OutlineInputBorder(
+                        //       borderRadius:
+                        //           BorderRadius.all(Radius.circular(30)),
+                        //       borderSide:
+                        //           BorderSide(color: Colors.red, width: 2.0),
+                        //     ),
+                        //     errorStyle: const TextStyle(
+                        //       fontSize: 16.0,
+                        //     ),
+                        //   ),
+                        //   validator: (value) {
+                        //     if (value == null || value.isEmpty) {
+                        //       return "Please Enter Phone Number";
+                        //     } else if (value.length != 10) {
+                        //       return "Please Enter Valid Phone Number";
+                        //     }
+                        //     return null;
+                        //   },
+                        //   inputFormatters: [
+                        //     new LengthLimitingTextInputFormatter(10),
+                        //     FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                        //   ],
+                        //   onSaved: (value) {},
+                        // ),
+                        CustomTextFormField(
+                            hintText: "Phone Number",
+                            validatorText: "Phone Number"),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          onChanged: (value) => onPasswordChnage(value),
+
+                          cursorColor: Colors.grey,
+                          style: const TextStyle(
+                            //color: Colors.grey,
+                            fontFamily: 'Productsans',
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          keyboardType: TextInputType.text,
+                          controller: passwordcontroller,
+                          obscureText:
+                              !_passwordVisible, //This will obscure text dynamically
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                    color: Color(0xFF707070), width: 1),
+                              ),
+                              enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                    color: Color(0xFF707070), width: 1),
+                              ),
+                              focusedBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: BorderSide(
+                                    color: Color(0xFFFFB600), width: 1),
+                              ),
+                              errorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                    color: Colors.red, width: 1),
+                              ),
+                              focusedErrorBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide: const BorderSide(
+                                    color: Colors.red, width: 1),
+                              ),
+                              errorMaxLines: 3,
+                              hintStyle: TextStyle(
+                                fontSize: 16,
+                                color: Colors.grey.withOpacity(0.8),
+                                fontFamily: 'Productsans',
+
                               ),
                               SizedBox(
                                 width: 8.w,
