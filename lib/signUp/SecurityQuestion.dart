@@ -172,34 +172,32 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   },
                 ),
 
-
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => SecurityFirst(),
-                          ),
-                        );
-                      },
-                      child: Text(
-                        "Skip",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          color: Color(0xff6B6B6B),
-                          fontSize: 16.sm,
-                          fontFamily: 'Poppins',
+                SizedBox(
+                  height: 20.h,
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SecurityFirst(),
                         ),
+                      );
+                    },
+                    child: Text(
+                      "Skip",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color(0xff6B6B6B),
+                        fontSize: 16.sm,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
