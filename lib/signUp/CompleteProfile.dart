@@ -224,25 +224,35 @@ class _CompleteProfileState extends State<CompleteProfile> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          backgroundColor: Color(0xFFF9F9F9),
-          body: SingleChildScrollView(
-              padding:
-                  EdgeInsets.only(left: 30, right: 30, bottom: 20, top: 10),
-              child: Center(
-                child: Form(
-                  key: _form,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          GestureDetector(
-                            onTap: () {
-                              Get.back();
+
+    return Scaffold(
+        backgroundColor: Color(0xFFF5F8FA),
+        appBar: CustomSignupAppBar(
+          titleTxt: 'Complete Your Profile',
+          bottomtext: false,
+        ),
+        body: SingleChildScrollView(
+            padding: EdgeInsets.only(left: 30, right: 30, bottom: 20, top: 10),
+            child: Center(
+              child: Form(
+                key: _form,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        TextButton(
+                            onPressed: () {
+                              Get.toNamed('/homepage');
+                              // Navigator.push(
+                              //   context,
+                              //   MaterialPageRoute(
+                              //     builder: (context) => Security_first(),
+                              //   ),
+                              // );
+
                             },
                             child: Icon(
                               Icons.arrow_back,

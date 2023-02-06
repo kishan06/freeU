@@ -78,7 +78,7 @@ class _ProfileState extends State<Profile> {
       length: 3,
       child: Scaffold(
         key: _key,
-        backgroundColor: Color(0xFFF9F9F9),
+        backgroundColor: Color(0xFF),
         appBar: AppBar(
           backgroundColor: Colors.white,
           elevation: 2,

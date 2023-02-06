@@ -23,7 +23,7 @@ class _SplashState extends State<Splash> {
 
     return Scaffold(
       body: Container(
-        color: Color(0xFF143C6D),
+        color: Color(0xFF1B8DC9),
         child: Center(
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -31,8 +31,8 @@ class _SplashState extends State<Splash> {
               children: [
                 Image.asset(
                   'assets/images/freeulogo.png',
-                  height: 210.h,
-                  width: 210.w,
+                  height: 240.h,
+                  width: 240.w,
                 ),
               ]),
         ),

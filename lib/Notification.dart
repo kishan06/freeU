@@ -44,7 +44,7 @@ class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFF9F9F9),
+        backgroundColor: Color(0xFFF5F8FA),
         appBar: AppBar(
           backgroundColor: Color(0xffffffff),
           leading: IconButton(

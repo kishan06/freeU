@@ -23,6 +23,11 @@ class CustomNextButton extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
 
+          elevation: 5,
+          shadowColor: Color.fromARGB(255, 220, 220, 226),
+          backgroundColor: Color(0xFF1B8DC9),
+
+
           elevation: 0,
           backgroundColor: Color(0XFF1B8DC9),
 
@@ -34,10 +39,14 @@ class CustomNextButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
+
+              color: Color(0xFFFFFFFF), fontSize: 16.sm,),
+
             color: Colors.white,
             fontFamily: 'Poppins',
             fontSize: 16.sm,
           ),
+
         ),
         onPressed: () {
           ontap!();
