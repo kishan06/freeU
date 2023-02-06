@@ -33,7 +33,7 @@ class _LoginState extends State<Login> {
           final message = "Press back again to exit";
           Fluttertoast.showToast(
             msg: message,
-            fontSize: 18,
+            fontSize: 18.sm,
           );
 
           return false;
@@ -77,11 +77,11 @@ class _LoginState extends State<Login> {
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 16,
+                                fontSize: 16.sm,
                                 color: Color(0xff303030)),
                           ),
                           SizedBox(
-                            height: 6,
+                            height: 6.h,
                           ),
                           CustomTextFormField(
                             hintText: "Enter Email or Phone Number",
@@ -99,17 +99,18 @@ class _LoginState extends State<Login> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           TextButton(
-                              onPressed: () {
-                                Get.toNamed('/loginUsingOTP');
-                              },
-                              child: const Text(
-                                'Login Using OTP',
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 15,
-                                  color: Color(0xFF1B8DC9),
-                                ),
-                              )),
+                            onPressed: () {
+                              Get.toNamed('/loginUsingOTP');
+                            },
+                            child: Text(
+                              'Login Using OTP',
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                                color: Color(0xFF1B8DC9),
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                       Column(
@@ -119,7 +120,7 @@ class _LoginState extends State<Login> {
                             "Password",
                             style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 16,
+                                fontSize: 16.sm,
                                 color: Color(0xff303030)),
                           ),
                           SizedBox(
@@ -148,7 +149,7 @@ class _LoginState extends State<Login> {
                             textAlign: TextAlign.end,
                             style: TextStyle(
                               fontFamily: 'Poppins',
-                              fontSize: 15,
+                              fontSize: 14.sm,
                               color: Color(0xFF1B8DC9),
                             ),
                           ),
@@ -173,29 +174,28 @@ class _LoginState extends State<Login> {
                         text: 'Sign in',
                       ),
                       SizedBox(
-                        height: 40.h,
+                        height: 30.h,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          const Text("Don't have an account?",
+                          Text("Don't have an account?",
                               style: TextStyle(
                                 color: Color(0x9F333332),
-                                fontSize: 15,
+                                fontSize: 14.sm,
                               )),
-                          TextButton(
-                            child: const Text(
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed('/signup');
+                            },
+                            child: Text(
                               'Create account',
                               style: TextStyle(
                                 color: Color(0xFF1B8DC9),
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 14.sm,
                               ),
                             ),
-                            onPressed: () {
-                              Get.toNamed('/signup');
-                            },
-                          )
+                          ),
                         ],
                       ),
                     ],

@@ -41,7 +41,9 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-        style: TextStyle(fontSize: 16, ),
+        style: TextStyle(
+          fontSize: 16,
+        ),
         readOnly: widget.readonly,
         cursorColor: const Color(0xFF1B8DC9),
         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -94,9 +96,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
                         child: Text(
                           "show",
                           style: TextStyle(
-
-                            color: Color(0xFF000000),
-
+                            color: Color(0xFF1B8DC9),
                           ),
                         ),
                       ),
