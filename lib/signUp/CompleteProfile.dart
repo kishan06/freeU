@@ -434,6 +434,9 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     },
                     text: 'Submit',
                   ),
+                  SizedBox(
+                    height: 20.h,
+                  )
                 ],
               ),
             ),

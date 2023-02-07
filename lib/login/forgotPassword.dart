@@ -27,105 +27,125 @@ class _forgotPasswordState extends State<forgotPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
-        appBar: CustomSignupAppBar(
-          titleTxt: "Forgot Password",
-          bottomtext: false,
-        ),
-        body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-          child: Center(
-              child: Form(
-                  key: _form,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Text(
-                        "We will send a verification email to the email address on your account in order to reset your password",
-                        style:
-                            TextStyle(fontSize: 18.sm, fontFamily: 'Poppins'),
-                      ),
-                      SizedBox(
-                        height: 50.h,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Phone",
-                            // ignore: prefer_const_constructors
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 18.sm,
-                                color: Color(0xff303030)),
-                          ),
-                          SizedBox(
-                            height: 13.h,
-                          ),
-                          CustomTextFormField(
-                              textEditingController: phoneController,
-                              inputFormatters: <TextInputFormatter>[
-                                FilteringTextInputFormatter.digitsOnly
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: Color(0xFFF5F8FA),
+          body: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            child: Center(
+                child: Form(
+                    key: _form,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            GestureDetector(
+                                onTap: () {
+                                  Get.back();
+                                },
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  size: 24,
+                                  color: Color(0xFF6B6B6B),
+                                )),
+                            SizedBox(
+                              width: 5.h,
+                            ),
+                            Text(
+                              "Forgot Password",
+                              style: TextStyle(
+                                  fontFamily: "Poppins", fontSize: 20.sm),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Text(
+                          "We will send a verification email to the email address on your account in order to reset your password",
+                          style:
+                              TextStyle(fontSize: 16.sm, fontFamily: 'Poppins'),
+                        ),
+                        SizedBox(
+                          height: 50.h,
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Phone",
+                              // ignore: prefer_const_constructors
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 16.sm,
+                                  color: Color(0xff303030)),
+                            ),
+                            SizedBox(
+                              height: 13.h,
+                            ),
+                            CustomTextFormField(
+                                textEditingController: phoneController,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Please Enter a Phone Number";
+                                  } else if (!RegExp(
+                                          r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
+                                      .hasMatch(value)) {
+                                    return "Please Enter a Valid Phone Number";
+                                  }
+                                  return null;
+                                },
+                                hintText: "Enter your Phone Number",
+                                validatorText: "Enter your Phone Number"),
+                            SizedBox(
+                              height: 20.h,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                TextButton(
+                                    onPressed: () {},
+                                    child: Text(
+                                      'OTP Sent to registered mobile number',
+                                      style: TextStyle(
+                                        fontSize: 14.sm,
+                                        fontFamily: 'Poppins',
+                                        color: Color(0xFF143C6D),
+                                      ),
+                                    )),
                               ],
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "Please Enter a Phone Number";
-                                } else if (!RegExp(
-                                        r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
-                                    .hasMatch(value)) {
-                                  return "Please Enter a Valid Phone Number";
+                            ),
+                            SizedBox(
+                              height: 60.h,
+                            ),
+                            CustomNextButton(
+                              text: "Proceed",
+                              ontap: () {
+                                final isValid = _form.currentState?.validate();
+                                if (isValid!) {
+                                  Get.toNamed('/otpverification');
+                                } else {
+                                  Get.snackbar(
+                                      "Error", "Please Enter Phone Number",
+                                      margin: EdgeInsets.all(8),
+                                      snackStyle: SnackStyle.FLOATING,
+                                      snackPosition: SnackPosition.BOTTOM);
                                 }
-                                return null;
                               },
-                              hintText: "Enter your Phone Number",
-                              validatorText: "Enter your Phone Number"),
-                          SizedBox(
-                            height: 20.h,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              TextButton(
-                                  onPressed: () {},
-                                  child: const Text(
-                                    'OTP Sent to registered mobile number',
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      fontFamily: 'Poppins',
-                                      color: Color(0xFF143C6D),
-                                    ),
-                                  )),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 60.h,
-                          ),
-                          CustomNextButton(
-                            text: "Proceed",
-                            ontap: () {
-                              final isValid = _form.currentState?.validate();
-                              if (isValid!) {
-                                Get.toNamed('/otpverification');
-                              } else {
-                                Get.snackbar(
-                                    "Error", "Please Enter Phone Number",
-                                    margin: EdgeInsets.all(8),
-                                    snackStyle: SnackStyle.FLOATING,
-                                    snackPosition: SnackPosition.BOTTOM);
-                              }
-                            },
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 40.h,
-                      )
-                    ],
-                  ))),
-        ));
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 40.h,
+                        )
+                      ],
+                    ))),
+          )),
+    );
   }
 }
