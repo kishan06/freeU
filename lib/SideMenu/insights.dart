@@ -30,7 +30,7 @@ class _InsightsState extends State<Insights> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CustomTextDropdown(
-                  items: [
+                  item: [
                     "All",
                     "Fractional Real Estate",
                     "Peer to Peer",

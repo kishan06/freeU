@@ -103,7 +103,7 @@ class _KYCtabs1State extends State<KYCtabs1> {
                   height: 6.h,
                 ),
                 CustomTextDropdown(
-                    items: ["1", "2", "3"],
+                    item: ["1", "2", "3"],
                     controller: residentialstatustexteditingcontroller,
                     showDropDown: true),
                 SizedBox(height: 20.h),

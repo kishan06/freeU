@@ -2,10 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:get/get.dart';
 
 class UpdateRishProfile extends StatefulWidget {
   const UpdateRishProfile({super.key});
@@ -23,171 +25,198 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
-      appBar: CustomSignupAppBar(
-        titleTxt: "Update Risk Profile",
-        bottomtext: false,
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        child: Center(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xFFF5F8FA),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: Center(
             child: Form(
-                key: _form,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
+              key: _form,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.asset(
-                        'assets/images/risk1.png',
-                        // width: 120.w,
-                      ),
+                      GestureDetector(
+                          onTap: () {
+                            Get.back();
+                          },
+                          child: Icon(
+                            Icons.arrow_back,
+                            size: 24,
+                            color: Color(0xFF6B6B6B),
+                          )),
                       SizedBox(
-                        height: 20.h,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          "Enter your First name ?",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 16,
-                              color: Color(0xff303030)),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      CustomTextFormField(hintText: "", validatorText: ""),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          "Enter your age?",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 16,
-                              color: Color(0xff303030)),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      CustomTextFormField(hintText: "", validatorText: ""),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          "How would you describe your level of familiarity ?",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: Color(0xff303030)),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      CustomTextDropdown(items: [
-                        "Beginner",
-                        "Competent",
-                        "Proficient",
-                        "Expert"
-                      ], controller: famailiarity, showDropDown: true),
-                      SizedBox(
-                        height: 20,
+                        width: 10.h,
                       ),
                       Text(
-                        "What is the primary reason you're interested in investing?",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Color(0xff303030)),
+                        "Update Risk Profile",
+                        style:
+                            TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
                       ),
-                      SizedBox(
-                        height: 6,
+                    ],
+                  ),
+                  SvgPicture.asset(
+                    'assets/images/risk.svg',
+                    // width: 120.w,
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      "Enter your First name ?",
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 16.sm,
+                          color: Color(0xff303030)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  CustomTextFormField(hintText: "", validatorText: ""),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      "Enter your age?",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16.sm,
+                        color: Color(0xff303030),
                       ),
-                      CustomTextDropdown(items: [
-                        "Building Wealth",
-                        "Petirement",
-                        "Major Purchase",
-                        "Business Investment"
-                            "Holiday"
-                      ], controller: investing, showDropDown: true),
-                      SizedBox(
-                        height: 20,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  CustomTextFormField(hintText: "", validatorText: ""),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      "How would you describe your level of familiarity ?",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 16.sm,
+                        color: Color(0xff303030),
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          "What is your annual income ?",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 16,
-                              color: Color(0xff303030)),
-                        ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  CustomTextDropdown(
+                      item: ["Beginner", "Competent", "Proficient", "Expert"],
+                      controller: famailiarity,
+                      showDropDown: true),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Text(
+                    "What is the primary reason you're interested in investing?",
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16.sm,
+                      color: Color(0xff303030),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  CustomTextDropdown(item: [
+                    "Building Wealth",
+                    "Petirement",
+                    "Major Purchase",
+                    "Business Investment"
+                        "Holiday"
+                  ], controller: investing, showDropDown: true),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      "What is your annual income ?",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                          fontFamily: 'Poppins',
+                          fontSize: 16.sm,
+                          color: Color(0xff303030)),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  CustomTextDropdown(item: [
+                    "Below 25 Lacs",
+                    "26 to 35 Lacs",
+                    "36 to 50 Lacs",
+                    "Above 50 Lacs"
+                  ], controller: income, showDropDown: true),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    child: Text(
+                      "How long do you plan to invest?",
+                      textAlign: TextAlign.left,
+                      style: TextStyle(
+                        fontSize: 16.sm,
+                        color: Color(0xff303030),
                       ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      CustomTextDropdown(items: [
-                        "Below 25 Lacs",
-                        "26 to 35 Lacs",
-                        "36 to 50 Lacs",
-                        "Above 50 Lacs"
-                      ], controller: income, showDropDown: true),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          "How long do you plan to invest?",
-                          textAlign: TextAlign.left,
-                          style:
-                              TextStyle(fontSize: 16, color: Color(0xff303030)),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      CustomTextDropdown(items: [
-                        "Less than 3 years",
-                        "3 - 5 years",
-                        "6 - 10 years"
-                      ], controller: invest, showDropDown: true),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      Text(
-                        "How much do you hope to invest on a monthly/yearly basis?",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 16,
-                            color: Color(0xff303030)),
-                      ),
-                      SizedBox(
-                        height: 6,
-                      ),
-                      CustomTextDropdown(items: [
-                        "5 Lakhs to 10 Lakhs",
-                        "10 Lakhs to 25 Lakhs",
-                      ], controller: basis, showDropDown: true),
-                      SizedBox(
-                        height: 60.h,
-                      ),
-                      CustomNextButton(
-                          ontap: (() {
-                            Navigator.pop(context);
-                          }),
-                          text: "Update"),
-                    ]))),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  CustomTextDropdown(item: [
+                    "Less than 3 years",
+                    "3 - 5 years",
+                    "6 - 10 years"
+                  ], controller: invest, showDropDown: true),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Text(
+                    "How much do you hope to invest on a monthly/yearly basis?",
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 16.sm,
+                      color: Color(0xff303030),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  CustomTextDropdown(item: [
+                    "5 Lakhs to 10 Lakhs",
+                    "10 Lakhs to 25 Lakhs",
+                  ], controller: basis, showDropDown: true),
+                  SizedBox(
+                    height: 60.h,
+                  ),
+                  CustomNextButton(
+                      ontap: (() {
+                        Navigator.pop(context);
+                      }),
+                      text: "Update"),
+                ],
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

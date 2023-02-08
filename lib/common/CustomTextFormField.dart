@@ -42,7 +42,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
         style: TextStyle(
-          fontSize: 16,
+          fontSize: 15.sm,
         ),
         readOnly: widget.readonly,
         cursorColor: const Color(0xFF1B8DC9),
@@ -77,7 +77,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
             borderSide: const BorderSide(color: Colors.red, width: 1),
           ),
           hintStyle: TextStyle(
-              color: Color(0x80000000), fontSize: 16.sm, fontFamily: "Poppins"),
+              color: Color(0x80000000), fontSize: 15.sm, fontFamily: "Poppins"),
           hintText: widget.hintText,
           prefixIcon: widget.leadingIcon == null
               ? null

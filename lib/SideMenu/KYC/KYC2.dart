@@ -86,7 +86,7 @@ class _KYC2State extends State<KYC2> {
                   height: 6.h,
                 ),
                 CustomTextDropdown(
-                    items: ["India", "Australia", "Canada"],
+                    item: ["India", "Australia", "Canada"],
                     controller: countrytexteditingcontroller,
                     showDropDown: true),
                 SizedBox(
@@ -176,7 +176,7 @@ class _KYC2State extends State<KYC2> {
                   height: 6.h,
                 ),
                 CustomTextDropdown(
-                    items: ["Mumbai", "Thane", "Palghar"],
+                    item: ["Mumbai", "Thane", "Palghar"],
                     controller: countrytexteditingcontroller,
                     showDropDown: true),
                 SizedBox(
@@ -194,7 +194,7 @@ class _KYC2State extends State<KYC2> {
                   height: 6.h,
                 ),
                 CustomTextDropdown(
-                    items: ["Maharashtra", "kerala", "Punjab"],
+                    item: ["Maharashtra", "kerala", "Punjab"],
                     controller: countrytexteditingcontroller,
                     showDropDown: true),
                 SizedBox(
@@ -212,7 +212,7 @@ class _KYC2State extends State<KYC2> {
                   height: 6.h,
                 ),
                 CustomTextDropdown(
-                    items: ["PDF", "JPEG", "PNG"],
+                    item: ["PDF", "JPEG", "PNG"],
                     controller: countrytexteditingcontroller,
                     showDropDown: true),
                 SizedBox(
