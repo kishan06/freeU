@@ -8,8 +8,6 @@ import 'package:freeu/common/customNextButton.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
-
-
 class KYCTabs2 extends StatefulWidget {
   const KYCTabs2({super.key});
 
@@ -79,7 +77,7 @@ class _KYCTabs2State extends State<KYCTabs2> {
                 height: 6.h,
               ),
               CustomTextDropdown(
-                  items: ["India", "Australia", "Canada"],
+                  item: ["India", "Australia", "Canada"],
                   controller: countrytexteditingcontroller,
                   showDropDown: true),
               SizedBox(
@@ -162,7 +160,7 @@ class _KYCTabs2State extends State<KYCTabs2> {
                 height: 6.h,
               ),
               CustomTextDropdown(
-                  items: ["Mumbai", "Thane", "Palghar"],
+                  item: ["Mumbai", "Thane", "Palghar"],
                   controller: countrytexteditingcontroller,
                   showDropDown: true),
               SizedBox(height: 13.h),
@@ -178,7 +176,7 @@ class _KYCTabs2State extends State<KYCTabs2> {
                 height: 6.h,
               ),
               CustomTextDropdown(
-                  items: ["Maharashtra", "kerala", "Punjab"],
+                  item: ["Maharashtra", "kerala", "Punjab"],
                   controller: countrytexteditingcontroller,
                   showDropDown: true),
               SizedBox(height: 20.h),
@@ -194,7 +192,7 @@ class _KYCTabs2State extends State<KYCTabs2> {
                 height: 6.h,
               ),
               CustomTextDropdown(
-                  items: ["PDF", "JPEG", "PNG"],
+                  item: ["PDF", "JPEG", "PNG"],
                   controller: countrytexteditingcontroller,
                   showDropDown: true),
               SizedBox(height: 10.h),

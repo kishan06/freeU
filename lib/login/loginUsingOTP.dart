@@ -97,7 +97,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                               ),
                               hintText: "+91",
                               hintStyle: TextStyle(
-                                  fontSize: 16.sm,
+                                  fontSize: 15.sm,
                                   color: Colors.black,
                                   fontFamily: "Poppins")),
                         ),

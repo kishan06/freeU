@@ -103,7 +103,7 @@ class _otpVerificationState extends State<otpVerification> {
                                 ),
                                 hintText: "9987171951",
                                 hintStyle: TextStyle(
-                                    fontFamily: "Poppins", fontSize: 18.sm),
+                                    fontFamily: "Poppins", fontSize: 15.sm),
                                 prefixIcon: Align(
                                   widthFactor: 1.0,
                                   heightFactor: 1.0,

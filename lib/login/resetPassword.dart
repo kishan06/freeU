@@ -97,10 +97,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                         onChanged: (value) => onPasswordChnage(value),
 
                         cursorColor: Colors.grey,
-                        style: const TextStyle(
+                        style: TextStyle(
                           //color: Colors.grey,
                           fontFamily: 'Productsans',
-                          fontSize: 16,
+                          fontSize: 16.sm,
                           fontWeight: FontWeight.w400,
                         ),
                         keyboardType: TextInputType.text,
@@ -108,6 +108,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         obscureText:
                             !_passwordVisible, //This will obscure text dynamically
                         decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(12),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(30),
                               borderSide: BorderSide(
@@ -138,7 +139,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             ),
                             errorMaxLines: 3,
                             hintStyle: TextStyle(
-                              fontSize: 16,
+                              fontSize: 15.sm,
                               color: Colors.grey.withOpacity(0.8),
                               fontFamily: 'Productsans',
                             ),

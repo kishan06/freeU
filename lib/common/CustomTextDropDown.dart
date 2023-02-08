@@ -1,3 +1,4 @@
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -7,7 +8,7 @@ class CustomTextDropdown extends StatefulWidget {
     this.hinttext,
     this.prefix,
     this.errortext,
-    this.items,
+    this.item,
     this.outlineColor = const Color(0xFFFFB600),
     required this.controller,
     required this.showDropDown,
@@ -19,7 +20,7 @@ class CustomTextDropdown extends StatefulWidget {
   final String? hinttext;
   final bool showDropDown;
   final Color outlineColor;
-  final List<String>? items;
+  final List<String>? item;
   final void Function(String)? onInput;
   @override
   State<CustomTextDropdown> createState() => _CustomTextDropdownState();
@@ -30,80 +31,137 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
 
   @override
   Widget build(BuildContext context) {
-    var items =
-        widget.items ?? ['Reetik', 'Hemant', 'Salman', 'Kisan', 'Chinmay'];
+    final List<String> items =
+        widget.item ?? ['Reetik', 'Hemant', 'Salman', 'Kisan', 'Chinmay'];
+    String? selectedValue;
     return Column(
       children: [
+        // SizedBox(
+        //   height: 55.h,
+        //   child: TextFormField(
+        //     readOnly: true,
+        //     onChanged: widget.onInput,
+        //     textAlignVertical: TextAlignVertical.top,
+        //     keyboardType: TextInputType.text,
+        //     validator: (value) {
+        //       if (value == null || value.isEmpty) {
+        //         return widget.errortext ?? "Please Enter Data";
+        //       }
+        //       return null;
+        //     },
+        //     controller: controller,
+        //     decoration: InputDecoration(
+        //       filled: true,
+        //       fillColor: Colors.white,
+        //       border: OutlineInputBorder(
+        //         borderRadius: BorderRadius.circular(30),
+        //         borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+        //       ),
+        //       enabledBorder: OutlineInputBorder(
+        //         borderRadius: BorderRadius.circular(30),
+        //         borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+        //       ),
+        //       focusedBorder: OutlineInputBorder(
+        //         borderRadius: BorderRadius.circular(30),
+        //         borderSide: BorderSide(color: widget.outlineColor, width: 1),
+        //       ),
+        //       errorBorder: OutlineInputBorder(
+        //         borderRadius: BorderRadius.circular(30),
+        //         borderSide: const BorderSide(color: Colors.red, width: 1),
+        //       ),
+        //       focusedErrorBorder: OutlineInputBorder(
+        //         borderRadius: BorderRadius.circular(30),
+        //         borderSide: const BorderSide(color: Colors.red, width: 1),
+        //       ),
+        //       suffixIcon: widget.showDropDown
+        //           ? PopupMenuButton<String>(
+        //               icon: const Icon(
+        //                 Icons.keyboard_arrow_down,
+        //                 color: Color(0xFFFFB600),
+        //               ),
+        //               offset: Offset.zero,
+        //               position: PopupMenuPosition.under,
+        //               onSelected: (String value) {
+        //                 setState(() {
+        //                   controller.text = value;
+        //                 });
+        //               },
+        //               shape: const RoundedRectangleBorder(
+        //                   borderRadius: BorderRadius.all(
+        //                 Radius.circular(10.0),
+        //               )),
+        //               itemBuilder: (BuildContext context) {
+        //                 return items.map<PopupMenuItem<String>>((String value) {
+        //                   return PopupMenuItem(
+        //                       child: Container(
+        //                           width: 200.w,
+        //                           child: Text(
+        //                             value,
+        //                           )),
+        //                       value: value);
+        //                 }).toList();
+        //               },
+        //             )
+        //           : null,
+        //     ),
+        //   ),
+        // ),
         SizedBox(
           height: 55.h,
-          child: TextFormField(
-            readOnly: true,
-            onChanged: widget.onInput,
-            textAlignVertical: TextAlignVertical.top,
-            keyboardType: TextInputType.text,
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return widget.errortext ?? "Please Enter Data";
-              }
-              return null;
-            },
-            controller: controller,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton2(
+              buttonDecoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+                border: Border.all(
+                  color: Colors.black26.withOpacity(0),
+                ),
+                color: Colors.white,
               ),
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+              dropdownDecoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(
+                  color: Colors.black26,
+                ),
+                color: Colors.white,
               ),
-              focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: BorderSide(color: widget.outlineColor, width: 1),
-              ),
-              errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: Colors.red, width: 1),
-              ),
-              focusedErrorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30),
-                borderSide: const BorderSide(color: Colors.red, width: 1),
-              ),
-              suffixIcon: widget.showDropDown
-                  ? PopupMenuButton<String>(
-                      icon: const Icon(
-                        Icons.keyboard_arrow_down,
-                        color: Color(0xFFFFB600),
+              hint: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      'Select Item',
+                      style: TextStyle(
+                        fontSize: 14.sm,
+                        color: Colors.black,
                       ),
-                      offset: Offset.zero,
-                      position: PopupMenuPosition.under,
-                      onSelected: (String value) {
-                        setState(() {
-                          controller.text = value;
-                        });
-                      },
-                      shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(
-                        Radius.circular(10.0),
-                      )),
-                      itemBuilder: (BuildContext context) {
-                        return items.map<PopupMenuItem<String>>((String value) {
-                          return PopupMenuItem(
-                              child: Container(
-                                  width: 200.w,
-                                  child: Text(
-                                    value,
-                                  )),
-                              value: value);
-                        }).toList();
-                      },
-                    )
-                  : null,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+              buttonPadding: const EdgeInsets.only(left: 10, right: 14),
+              value: selectedValue,
+              onChanged: (value) {
+                setState(() {
+                  selectedValue = value;
+                });
+              },
+              isExpanded: true,
+              items: items
+                  .map((item) => DropdownMenuItem<String>(
+                        value: item,
+                        child: Text(
+                          item,
+                          style: TextStyle(
+                            fontSize: 14.sm,
+                            color: Colors.black,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ))
+                  .toList(),
             ),
           ),
-        ),
+        )
       ],
     );
   }

@@ -21,252 +21,269 @@ class _HowToInvestState extends State<HowToInvest> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
-      appBar: CustomSignupAppBar(
-        titleTxt: "How To Invest",
-        bottomtext: false,
-      ),
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        child: Center(
-          child: Column(
-            children: [
-              SizedBox(
-                height: 70.h,
-              ),
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Flexible(
-                    child: Card(
-                      elevation: 5,
-                      shadowColor: Color(0xB5EFEFF5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 22.0, right: 22, top: 50),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "1. Create An Account",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 18.sm,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(
-                              height: 4.h,
-                            ),
-                            Text(
-                              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 13.sm,
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Color(0xFFF5F8FA),
+        body: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          child: Center(
+            child: Column(
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    GestureDetector(
+                        onTap: () {
+                          Get.back();
+                        },
+                        child: Icon(
+                          Icons.arrow_back,
+                          size: 24,
+                          color: Color(0xFF6B6B6B),
+                        )),
+                    SizedBox(
+                      width: 5.h,
+                    ),
+                    Text(
+                      "How To Invest",
+                      style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 70.h,
+                ),
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Flexible(
+                      child: Card(
+                        elevation: 5,
+                        shadowColor: Color(0xB5EFEFF5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 22.0, right: 22, top: 50),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "1. Create An Account",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 18.sm,
+                                    fontWeight: FontWeight.w600),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            )
-                          ],
+                              SizedBox(
+                                height: 4.h,
+                              ),
+                              Text(
+                                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 13.sm,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: -45,
-                    left: 120,
-                    child: CircleAvatar(
-                      backgroundColor: Color(0xFF143C6D),
-                      radius: 45.r,
-                      child: SvgPicture.asset(
-                          "assets/images/add-user-account-man-svgrepo-com.svg"),
-                    ),
-                  ),
-                ],
-              ),
-              SvgPicture.asset("assets/images/arrow.svg"),
-              SizedBox(
-                height: 46.h,
-              ),
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Flexible(
-                    child: Card(
-                      elevation: 5,
-                      shadowColor: Color(0xB5EFEFF5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                    Positioned(
+                      top: -45,
+                      left: 120,
+                      child: CircleAvatar(
+                        backgroundColor: Color(0xFF143C6D),
+                        radius: 45.r,
+                        child: SvgPicture.asset("assets/images/adduser.svg"),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 22.0, right: 22, top: 50),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "2. Choose an asset",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 18.sm,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(
-                              height: 4.h,
-                            ),
-                            Text(
-                              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 13.sm,
+                    ),
+                  ],
+                ),
+                SvgPicture.asset("assets/images/downarrow.svg"),
+                SizedBox(
+                  height: 46.h,
+                ),
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Flexible(
+                      child: Card(
+                        elevation: 5,
+                        shadowColor: Color(0xB5EFEFF5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 22.0, right: 22, top: 50),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "2. Choose an asset",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 18.sm,
+                                    fontWeight: FontWeight.w600),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            )
-                          ],
+                              SizedBox(
+                                height: 4.h,
+                              ),
+                              Text(
+                                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 13.sm,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: -45,
-                    left: 120,
-                    child: CircleAvatar(
-                      backgroundColor: Color(0xFFFFB600),
-                      radius: 45.r,
-                      child: SvgPicture.asset(
-                          "assets/images/select-svgrepo-com.svg"),
-                    ),
-                  ),
-                ],
-              ),
-              SvgPicture.asset("assets/images/arrow.svg"),
-              SizedBox(
-                height: 46.h,
-              ),
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Flexible(
-                    child: Card(
-                      elevation: 5,
-                      shadowColor: Color(0xB5EFEFF5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                    Positioned(
+                      top: -45,
+                      left: 120,
+                      child: CircleAvatar(
+                        backgroundColor: Color(0xFFFFB600),
+                        radius: 45.r,
+                        child: SvgPicture.asset("assets/images/arrow.svg"),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 22.0, right: 22, top: 50),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "3. Invest",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 18.sm,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(
-                              height: 4.h,
-                            ),
-                            Text(
-                              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 13.sm,
+                    ),
+                  ],
+                ),
+                SvgPicture.asset("assets/images/downarrow.svg"),
+                SizedBox(
+                  height: 46.h,
+                ),
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Flexible(
+                      child: Card(
+                        elevation: 5,
+                        shadowColor: Color(0xB5EFEFF5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 22.0, right: 22, top: 50),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "3. Invest",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 18.sm,
+                                    fontWeight: FontWeight.w600),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            )
-                          ],
+                              SizedBox(
+                                height: 4.h,
+                              ),
+                              Text(
+                                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 13.sm,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: -45,
-                    left: 120,
-                    child: CircleAvatar(
-                      backgroundColor: Color(0xFF143C6D),
-                      radius: 45.r,
-                      child: SvgPicture.asset("assets/images/Group 3167.svg"),
-                    ),
-                  ),
-                ],
-              ),
-              SvgPicture.asset("assets/images/arrow.svg"),
-              SizedBox(
-                height: 46.h,
-              ),
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Flexible(
-                    child: Card(
-                      elevation: 5,
-                      shadowColor: Color(0xB5EFEFF5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                    Positioned(
+                      top: -45,
+                      left: 120,
+                      child: CircleAvatar(
+                        backgroundColor: Color(0xFF143C6D),
+                        radius: 45.r,
+                        child: SvgPicture.asset("assets/images/invest.svg"),
                       ),
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                            left: 22.0, right: 22, top: 50),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "4. Easy returns",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 18.sm,
-                                  fontWeight: FontWeight.w600),
-                            ),
-                            SizedBox(
-                              height: 4.h,
-                            ),
-                            Text(
-                              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 13.sm,
+                    ),
+                  ],
+                ),
+                SvgPicture.asset("assets/images/downarrow.svg"),
+                SizedBox(
+                  height: 46.h,
+                ),
+                Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Flexible(
+                      child: Card(
+                        elevation: 5,
+                        shadowColor: Color(0xB5EFEFF5),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 22.0, right: 22, top: 50),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text(
+                                "4. Easy returns",
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 18.sm,
+                                    fontWeight: FontWeight.w600),
                               ),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            )
-                          ],
+                              SizedBox(
+                                height: 4.h,
+                              ),
+                              Text(
+                                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 13.sm,
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: -45,
-                    left: 120,
-                    child: CircleAvatar(
-                      backgroundColor: Color(0xFFFFB600),
-                      radius: 45.r,
-                      child: SvgPicture.asset(
-                          "assets/images/return-arrow-svgrepo-com 2.svg"),
+                    Positioned(
+                      top: -45,
+                      left: 120,
+                      child: CircleAvatar(
+                        backgroundColor: Color(0xFFFFB600),
+                        radius: 45.r,
+                        child:
+                            SvgPicture.asset("assets/images/returnarrow.svg"),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
