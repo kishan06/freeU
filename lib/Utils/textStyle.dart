@@ -13,9 +13,14 @@ TextStyle blackStyle14() => TextStyle(
       fontSize: 14.sm,
     );
 
+TextStyle blackStyle15() => TextStyle(
+      color: Colors.black,
+      fontFamily: 'Poppins',
+      fontSize: 15.sm,
+    );
+
 TextStyle blackStyle16() => TextStyle(
       color: Colors.black,
       fontFamily: 'Poppins',
       fontSize: 16.sm,
-      fontWeight: FontWeight.w500,
     );

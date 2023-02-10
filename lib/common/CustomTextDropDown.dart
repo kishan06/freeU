@@ -111,7 +111,7 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
           child: DropdownButtonHideUnderline(
             child: DropdownButton2(
               buttonDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(5),
                 border: Border.all(
                   color: Colors.black26.withOpacity(0),
                 ),
