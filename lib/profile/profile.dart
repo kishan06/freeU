@@ -686,8 +686,8 @@ class _riskprofileState extends State<riskprofile> {
                         "Building Wealth",
                         "Petirement",
                         "Major Purchase",
-                        "Business Investment"
-                            "Holiday"
+                        "Business Investment",
+                        "Holiday"
                       ], controller: investing, showDropDown: true),
                       SizedBox(
                         height: 20,

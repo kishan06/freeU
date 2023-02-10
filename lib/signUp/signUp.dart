@@ -367,61 +367,62 @@ class _SignUpState extends State<SignUp> {
                           obscureText:
                               !_passwordVisible, //This will obscure text dynamically
                           decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(12),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide(
-                                    color: Color(0xFF707070).withOpacity(0),
-                                    width: 1),
-                              ),
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide(
-                                    color: Color(0xFF707070).withOpacity(0),
-                                    width: 1),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: BorderSide(
-                                    color: Color(0xFF707070).withOpacity(0),
-                                    width: 1),
-                              ),
-                              errorBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                    color: Colors.red, width: 1),
-                              ),
-                              focusedErrorBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(30),
-                                borderSide: const BorderSide(
-                                    color: Colors.red, width: 1),
-                              ),
-                              errorMaxLines: 3,
-                              hintStyle: TextStyle(
-                                  color: Color(0x80000000),
-                                  fontSize: 15.sm,
-                                  fontFamily: "Poppins"),
-                              fillColor: Colors.white,
-                              filled: true,
-                              hintText: 'Enter your password',
-                              suffixIcon: GestureDetector(
-                                onTap: () => setState(
-                                    () => _passwordVisible = !_passwordVisible),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsets.only(right: 20.0),
-                                      child: Text(
-                                        "show",
-                                        style: TextStyle(
-                                          color: Color(0xFF1B8DC9),
-                                        ),
+                            contentPadding: EdgeInsets.all(12),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(
+                                  color: Color(0xFF707070).withOpacity(0),
+                                  width: 1),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(
+                                  color: Color(0xFF707070).withOpacity(0),
+                                  width: 1),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide: BorderSide(
+                                  color: Color(0xFF707070).withOpacity(0),
+                                  width: 1),
+                            ),
+                            errorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide:
+                                  const BorderSide(color: Colors.red, width: 1),
+                            ),
+                            focusedErrorBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(30),
+                              borderSide:
+                                  const BorderSide(color: Colors.red, width: 1),
+                            ),
+                            errorMaxLines: 3,
+                            hintStyle: TextStyle(
+                                color: Color(0x80000000),
+                                fontSize: 15.sm,
+                                fontFamily: "Poppins"),
+                            fillColor: Colors.white,
+                            filled: true,
+                            hintText: 'Enter your password',
+                            suffixIcon: GestureDetector(
+                              onTap: () => setState(
+                                  () => _passwordVisible = !_passwordVisible),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.only(right: 20.0),
+                                    child: Text(
+                                      "show",
+                                      style: TextStyle(
+                                        color: Color(0xFF1B8DC9),
                                       ),
                                     ),
-                                  ],
-                                ),
-                              )),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                           validator: (val) {
                             if (val!.isEmpty) {
                               return 'Password is Empty';

@@ -13,6 +13,8 @@ class CustomTextFormField extends StatefulWidget {
     this.readonly = false,
     this.isInputPassword = false,
     this.outlineColor = const Color(0xFFFFB600),
+    this.keyboardType,
+    this.texttype,
   }) : super(key: key);
 
   final dynamic validator;
@@ -24,6 +26,8 @@ class CustomTextFormField extends StatefulWidget {
   final bool readonly;
   final dynamic inputFormatters;
   final Color outlineColor;
+  final TextInputType? keyboardType;
+  final TextInputType? texttype;
 
   @override
   State<CustomTextFormField> createState() => _CustomtextFormFieldState();
@@ -54,26 +58,26 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(10),
             borderSide:
                 BorderSide(color: Color(0xFF707070).withOpacity(0), width: 1),
           ),
           enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(10),
             borderSide:
                 BorderSide(color: Color(0xFF707070).withOpacity(0), width: 1),
           ),
           focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(10),
             borderSide:
                 BorderSide(color: Color(0xFF707070).withOpacity(0), width: 1),
           ),
           errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: Colors.red, width: 1),
           ),
           focusedErrorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(30),
+            borderRadius: BorderRadius.circular(10),
             borderSide: const BorderSide(color: Colors.red, width: 1),
           ),
           hintStyle: TextStyle(
@@ -88,23 +92,39 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
           suffixIcon: widget.isInputPassword
               ? GestureDetector(
                   onTap: () => setState(() => obscureText = !obscureText),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(right: 20.0),
-                        child: Text(
-                          "show",
-                          style: TextStyle(
-                            color: Color(0xFF1B8DC9),
-                          ),
+                  child: obscureText
+                      ? Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(right: 20.0),
+                              child: Text(
+                                "show",
+                                style: TextStyle(
+                                  color: Color(0xFF1B8DC9),
+                                ),
+                              ),
+                            ),
+                          ],
+                        )
+                      : Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.only(right: 20.0),
+                              child: Text(
+                                "hide",
+                                style: TextStyle(
+                                  color: Color(0xFF1B8DC9),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                      ),
-                    ],
-                  ),
                 )
               : null,
         ),
+        keyboardType: widget.texttype,
         validator: widget.validator,
         inputFormatters: widget.inputFormatters);
   }

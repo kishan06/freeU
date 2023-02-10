@@ -206,7 +206,7 @@ class _FractionalRealEstateProperty1State
                             "Vaishnavi Tech Park Opportunity",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 18.sm,
+                                fontSize: 17.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -391,7 +391,7 @@ class _FractionalRealEstateProperty1State
                             "Chennai Office Opportunity",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 20.sm,
+                                fontSize: 17.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -572,7 +572,7 @@ class _FractionalRealEstateProperty1State
                             "Embassy Business Hub",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 20.sm,
+                                fontSize: 17.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
@@ -755,7 +755,7 @@ class _FractionalRealEstateProperty1State
                             "TIMES SQUARE ANDHERI OPPORTUNITY",
                             style: TextStyle(
                                 fontFamily: "Poppins",
-                                fontSize: 20.sm,
+                                fontSize: 17.sm,
                                 fontWeight: FontWeight.w500),
                           ),
                         ],
