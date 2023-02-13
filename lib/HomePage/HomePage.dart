@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/textStyle.dart';
+import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
+import 'package:freeu/common/bottombar.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -122,78 +124,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: TextStyle(color: Colors.black),
-        unselectedLabelStyle: TextStyle(color: Colors.grey),
-        unselectedIconTheme: IconThemeData(color: Colors.grey),
-        items: [
-          BottomNavigationBarItem(
-            activeIcon: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color(0xFFFEEBBD),
-              ),
-              height: 20,
-              width: 50,
-              child: SvgPicture.asset(
-                'assets/images/home-svgrepo-com.svg',
-                height: 20,
-              ),
-            ),
-            icon: SvgPicture.asset(
-              'assets/images/home-svgrepo-com.svg',
-              height: 20,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/category-alt-svgrepo-com.svg',
-              height: 20,
-            ),
-            label: 'Categories',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/money-dollar-coin-svgrepo-com.svg',
-              height: 20,
-            ),
-            label: 'Investments',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/chat-left-3-svgrepo-com (2).svg',
-              height: 20,
-            ),
-            label: 'Chat',
-          ),
-          BottomNavigationBarItem(
-            activeIcon: Container(
-              height: 20,
-              width: 50,
-              color: Color(0xFFFEEBBD),
-              child: SvgPicture.asset(
-                'assets/images/profile.svg',
-                height: 20,
-              ),
-            ),
-            icon: SvgPicture.asset(
-              'assets/images/profile.svg',
-              height: 20,
-            ),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: 0,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.grey,
-        backgroundColor: Colors.white,
-        onTap: (index) {
-          print(index);
-          _selectedTab(index);
-        },
-        type: BottomNavigationBarType.fixed,
-      ),
+      bottomNavigationBar:
+          CreateBottomBar(stateBottomNav, "BottombarHomepage", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 16.0, right: 16),
@@ -576,7 +508,7 @@ class _HomePageState extends State<HomePage> {
                                           CrossAxisAlignment.center,
                                       children: [
                                         Image.asset(
-                                          "assets/images/categoryresidential.png",
+                                          "assets/images/real-estate.png",
                                           height: 50,
                                           width: 50,
                                         ),
@@ -820,9 +752,6 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              SizedBox(
-                height: 15.h,
-              ),
               Padding(
                 padding:
                     EdgeInsets.only(left: 12.0, top: 15, bottom: 14, right: 12),
@@ -877,7 +806,7 @@ class _HomePageState extends State<HomePage> {
                                       height: 3.h,
                                     ),
                                     Card(
-                                      color: Color.fromARGB(255, 134, 207, 247),
+                                      color: Color.fromRGBO(27, 141, 201, 0.3),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(5),
                                       ),
@@ -1066,206 +995,79 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 325.h,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      width: 0.5,
-                      color: Color(0xFFCFCFCF).withOpacity(1),
-                    ),
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                        left: 12.0, top: 10, bottom: 5, right: 12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                height: 10.h,
+              ),
+              Padding(
+                padding:
+                    EdgeInsets.only(left: 12.0, top: 15, bottom: 14, right: 12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       children: [
+                        SizedBox(
+                          width: 3.w,
+                        ),
                         Text(
-                          "Blogs",
+                          "Trending news",
                           style:
                               TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
                         ),
-                        SizedBox(
-                          height: 8.h,
-                        ),
-                        SizedBox(
-                          height: 268.h,
-                          child: PageView.builder(
-                            padEnds: false,
-                            controller: pickcontroller,
-                            itemCount: 2,
-                            itemBuilder: (
-                              BuildContext context,
-                              int index1,
-                            ) {
-                              bool isMyPageIndex = selectIndex == index1;
-                              if (index1 == 0) {
-                                return Card(
-                                  elevation: 2,
-                                  color: Color(0xFFF0F7FF),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 5.0,
-                                        left: 15,
-                                        right: 15,
-                                        bottom: 5),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Image.asset(
-                                          'assets/images/12643932_5031659.png',
-                                        ),
-                                        SizedBox(
-                                          height: 9.h,
-                                        ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Retail banks wake up\nto digital',
-                                              style: TextStyle(
-                                                  fontSize: 16.sm,
-                                                  fontFamily: 'Poppins'),
-                                            ),
-                                          ],
-                                        ),
-                                        // SizedBox(
-                                        //   height: 9.h,
-                                        // ),
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.start,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.calendar_today_outlined,
-                                              size: 12,
-                                            ),
-                                            SizedBox(
-                                              width: 3.w,
-                                            ),
-                                            Text(
-                                              "October 17 , 2022",
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 14.sm),
-                                            ),
-                                            Spacer(),
-                                            SizedBox(
-                                              height: 40.h,
-                                              child: ElevatedButton(
-                                                onPressed: () {},
-                                                child: Icon(
-                                                  Icons.arrow_forward,
-                                                  size: 20,
-                                                  color: Colors.black,
-                                                ),
-                                                style: ElevatedButton.styleFrom(
-                                                    shape: CircleBorder(),
-                                                    backgroundColor:
-                                                        Color(0xFFFFB600)),
-                                              ),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              } //2nd plan
-                              return Card(
-                                elevation: 2,
-                                color: Color(0xFFF0F7FF),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 5.0, left: 15, right: 15, bottom: 5),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                        'assets/images/12643932_5031659.png',
-                                      ),
-                                      SizedBox(
-                                        height: 9.h,
-                                      ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'Retail banks wake up\nto digital',
-                                            style: TextStyle(
-                                                fontSize: 16.sm,
-                                                fontFamily: 'Poppins'),
-                                          ),
-                                        ],
-                                      ),
-                                      // SizedBox(
-                                      //   height: 9.h,
-                                      // ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.start,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.calendar_today_outlined,
-                                            size: 12,
-                                          ),
-                                          SizedBox(
-                                            width: 3.w,
-                                          ),
-                                          Text(
-                                            "October 17 , 2022",
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 14.sm),
-                                          ),
-                                          Spacer(),
-                                          SizedBox(
-                                            height: 40.h,
-                                            child: ElevatedButton(
-                                              onPressed: () {},
-                                              child: Icon(
-                                                Icons.arrow_forward,
-                                                size: 20,
-                                                color: Colors.black,
-                                              ),
-                                              style: ElevatedButton.styleFrom(
-                                                  shape: CircleBorder(),
-                                                  backgroundColor:
-                                                      Color(0xFFFFB600)),
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
                       ],
                     ),
-                  ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Card(
+                      elevation: 2,
+                      color: Color(0xFFFFFFFF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            top: 14.0, left: 15, right: 15, bottom: 15),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              height: 71.h,
+                              width: 70.w,
+                              child:
+                                  Image.asset("assets/images/na_april_69.jpg"),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Retail banks wake up to digital",
+                                  style: blackStyle14(),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.calendar_today_outlined,
+                                      size: 14,
+                                    ),
+                                    Text(
+                                      "October 17 , 2022",
+                                      style: blackStyle12(),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-              SizedBox(
-                height: 20.h,
-              )
             ],
           ),
         ),

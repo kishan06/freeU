@@ -68,7 +68,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         color: Color(0xff303030)),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 10.h,
                   ),
                   CustomTextFormField(
                     hintText: "Answer",
@@ -92,7 +92,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         color: Color(0xff303030)),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 10.h,
                   ),
                   CustomTextFormField(
                     hintText: "Answer",
@@ -126,7 +126,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         color: Color(0xff303030)),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 10.h,
                   ),
                   CustomTextFormField(
                     hintText: "Answer",
@@ -160,7 +160,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         color: Color(0xff303030)),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 10.h,
                   ),
                   CustomTextFormField(
                     hintText: "Answer",

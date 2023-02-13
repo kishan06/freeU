@@ -28,7 +28,7 @@ class CustomNextButton extends StatelessWidget {
 
           //  color: Color(0xFFFFB600),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(5),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
         onPressed: () {

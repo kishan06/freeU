@@ -3,7 +3,9 @@ import 'package:accordion/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
+import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -93,69 +95,7 @@ class _FractionalRealEstateProperty2State
         showLeading: true,
         bottomtext: false,
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),
-        unselectedLabelStyle: TextStyle(color: Colors.grey),
-        unselectedIconTheme: IconThemeData(color: Colors.grey),
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/home-svgrepo-com.svg',
-              height: 20,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            activeIcon: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color(0xFFFEEBBD),
-              ),
-              height: 20,
-              width: 50,
-              child: SvgPicture.asset(
-                'assets/images/category-alt-svgrepo-com.svg',
-                height: 20,
-              ),
-            ),
-            icon: SvgPicture.asset(
-              'assets/images/category-alt-svgrepo-com.svg',
-              height: 20,
-            ),
-            label: 'Categories',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/money-dollar-coin-svgrepo-com.svg',
-              height: 20,
-            ),
-            label: 'Investments',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/chat-left-3-svgrepo-com (2).svg',
-              height: 20,
-            ),
-            label: 'Chat',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/profile.svg',
-              height: 20,
-            ),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: 1,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.grey,
-        backgroundColor: Colors.white,
-        onTap: (index) {
-          print(index);
-          _selectedTab(index);
-        },
-        type: BottomNavigationBarType.fixed,
-      ),
+      bottomNavigationBar: CreateBottomBar(stateBottomNav, "", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 16.0, right: 16),
@@ -204,17 +144,13 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "INR 8,810 per sq. ft.",
                                         style: TextStyle(
-
                                             fontSize: 16.sm,
-
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Purchase Price",
                                         style: TextStyle(
-
                                             fontSize: 14.sm,
-
                                             fontFamily: 'Poppins'),
                                       ),
                                       Container(
@@ -227,17 +163,13 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "INR 25,00,000",
                                         style: TextStyle(
-
                                             fontSize: 16.sm,
-
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Minimum investment",
                                         style: TextStyle(
-
                                             fontSize: 14.sm,
-
                                             fontFamily: 'Poppins'),
                                       ),
                                     ],
@@ -247,17 +179,13 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "36,230 sq. ft.",
                                         style: TextStyle(
-
                                             fontSize: 16.sm,
-
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Property Size",
                                         style: TextStyle(
-
                                             fontSize: 14.sm,
-
                                             fontFamily: 'Poppins'),
                                       ),
                                       Container(
@@ -270,17 +198,13 @@ class _FractionalRealEstateProperty2State
                                       Text(
                                         "₹ 25 Lakhs",
                                         style: TextStyle(
-
                                             fontSize: 16.sm,
-
                                             fontFamily: 'Poppins'),
                                       ),
                                       Text(
                                         "Average yield",
                                         style: TextStyle(
-
                                             fontSize: 14.sm,
-
                                             fontFamily: 'Poppins'),
                                       ),
                                     ],
@@ -424,14 +348,12 @@ class _FractionalRealEstateProperty2State
                                         fontWeight: FontWeight.w500),
                                   ),
                                   SizedBox(
-
                                     height: 8.h,
-
                                   ),
                                   Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
-                                        mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Image.asset(
                                         "assets/images/bulletpoint.png",
@@ -453,7 +375,9 @@ class _FractionalRealEstateProperty2State
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png", width: 14.w,),
+                                        "assets/images/bulletpoint.png",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -470,7 +394,9 @@ class _FractionalRealEstateProperty2State
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png", width: 14.w,),
+                                        "assets/images/bulletpoint.png",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -490,7 +416,9 @@ class _FractionalRealEstateProperty2State
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png", width: 14.w,),
+                                        "assets/images/bulletpoint.png",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -509,7 +437,9 @@ class _FractionalRealEstateProperty2State
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png", width: 14.w,),
+                                        "assets/images/bulletpoint.png",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -523,21 +453,24 @@ class _FractionalRealEstateProperty2State
                                       )
                                     ],
                                   ),
-                                  SizedBox(height: 3.h,),
+                                  SizedBox(
+                                    height: 3.h,
+                                  ),
                                   Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
                                       Image.asset(
-                                          "assets/images/bulletpoint.png", width: 14.w,),
+                                        "assets/images/bulletpoint.png",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
                                       Flexible(
                                         child: Text(
                                           "Minimum Effort required from lenders",
-                                          style: TextStyle(
-                                              fontSize: 16.sm),
+                                          style: TextStyle(fontSize: 16.sm),
                                         ),
                                       )
                                     ],

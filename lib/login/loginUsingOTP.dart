@@ -19,10 +19,10 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
-        body: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Color(0xFFF5F8FA),
+      body: SafeArea(
+        child: SingleChildScrollView(
             child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Form(
@@ -39,7 +39,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                           },
                           child: Icon(
                             Icons.arrow_back,
-                            size: 24,
+                            size: 24.sm,
                             color: Color(0xFF6B6B6B),
                           )),
                       SizedBox(
@@ -65,7 +65,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                             fontFamily: 'Poppins',
-                            fontSize: 18,
+                            fontSize: 18.sm,
                             color: Color(0xFF000000)),
                       ),
                     ],
@@ -117,6 +117,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                             FilteringTextInputFormatter.digitsOnly
                           ],
                           decoration: InputDecoration(
+                              contentPadding: EdgeInsets.only(left: 10),
                               border: UnderlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Color(0xFF143C6D)),

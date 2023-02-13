@@ -228,7 +228,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
       backgroundColor: Color(0xFFF5F8FA),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(left: 30, right: 30, bottom: 20, top: 10),
+          padding: EdgeInsets.only(left: 30, right: 30, bottom: 20, top: 20),
           child: Center(
             child: Form(
               key: _form,
@@ -351,30 +351,30 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           filled: true,
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
                                 color: Color(0xFF707070).withOpacity(0),
                                 width: 1),
                           ),
                           enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
                                 color: Color(0xFF707070).withOpacity(0),
                                 width: 1),
                           ),
                           focusedBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide: BorderSide(
                                 color: Color(0xFF707070).withOpacity(0),
                                 width: 1),
                           ),
                           errorBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide:
                                 const BorderSide(color: Colors.red, width: 1),
                           ),
                           focusedErrorBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(30),
+                            borderRadius: BorderRadius.circular(10),
                             borderSide:
                                 const BorderSide(color: Colors.red, width: 1),
                           ),

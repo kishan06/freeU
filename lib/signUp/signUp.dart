@@ -203,10 +203,10 @@ class _SignUpState extends State<SignUp> {
             context, MaterialPageRoute(builder: (context) => const Login()));
         return Future.value(false);
       },
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: Color(0xFFF5F8FA),
-          body: GestureDetector(
+      child: Scaffold(
+        backgroundColor: Color(0xFFF5F8FA),
+        body: SafeArea(
+          child: GestureDetector(
             onTap: () => Get.focusScope!.unfocus(),
             child: SingleChildScrollView(
               child: Column(children: [
@@ -218,9 +218,6 @@ class _SignUpState extends State<SignUp> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                          height: 20.h,
-                        ),
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
@@ -230,7 +227,7 @@ class _SignUpState extends State<SignUp> {
                                 },
                                 child: Icon(
                                   Icons.arrow_back,
-                                  size: 24,
+                                  size: 24.sm,
                                   color: Color(0xFF6B6B6B),
                                 )),
                             SizedBox(
@@ -243,7 +240,6 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ],
                         ),
-
                         SizedBox(
                           height: 35.h,
                         ),
@@ -369,30 +365,30 @@ class _SignUpState extends State<SignUp> {
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(12),
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
                                   color: Color(0xFF707070).withOpacity(0),
                                   width: 1),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
                                   color: Color(0xFF707070).withOpacity(0),
                                   width: 1),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
                                   color: Color(0xFF707070).withOpacity(0),
                                   width: 1),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide:
                                   const BorderSide(color: Colors.red, width: 1),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide:
                                   const BorderSide(color: Colors.red, width: 1),
                             ),
@@ -438,7 +434,7 @@ class _SignUpState extends State<SignUp> {
                         ),
 
                         SizedBox(
-                          height: 10.h,
+                          height: 20.h,
                         ),
                         Row(
                           children: [
@@ -546,7 +542,7 @@ class _SignUpState extends State<SignUp> {
                           ],
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 25,
                         ),
                         CustomTextFormField(
                           isInputPassword: true,

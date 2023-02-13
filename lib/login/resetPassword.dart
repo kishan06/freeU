@@ -40,10 +40,10 @@ class _ResetPasswordState extends State<ResetPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
-        body: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Color(0xFFF5F8FA),
+      body: SafeArea(
+        child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Center(
             child: Form(
@@ -90,7 +90,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             color: Color(0xff303030)),
                       ),
                       SizedBox(
-                        height: 10.h,
+                        height: 15.h,
                       ),
                       TextFormField(
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -110,30 +110,30 @@ class _ResetPasswordState extends State<ResetPassword> {
                         decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(12),
                             border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
                                   color: Color(0xFF707070).withOpacity(0),
                                   width: 1),
                             ),
                             enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
                                   color: Color(0xFF707070).withOpacity(0),
                                   width: 1),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
                                   color: Color(0xFF707070).withOpacity(0),
                                   width: 1),
                             ),
                             errorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide:
                                   const BorderSide(color: Colors.red, width: 1),
                             ),
                             focusedErrorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(30),
+                              borderRadius: BorderRadius.circular(10),
                               borderSide:
                                   const BorderSide(color: Colors.red, width: 1),
                             ),
@@ -160,7 +160,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                     child: Text(
                                       "show",
                                       style: TextStyle(
-                                        color: Color(0xFF000000),
+                                        color: Color(0xFF1B8DC9),
                                       ),
                                     ),
                                   ),
@@ -192,15 +192,15 @@ class _ResetPasswordState extends State<ResetPassword> {
                           }
                         },
                       ),
-                      SizedBox(height: 10.h),
+                      SizedBox(height: 20.h),
                       Row(
                         children: [
                           AnimatedContainer(
                             duration: const Duration(
                               milliseconds: 500,
                             ),
-                            width: 20,
-                            height: 20,
+                            width: 20.w,
+                            height: 20.h,
                             child: _isPasswordEightCar
                                 ? Padding(
                                     padding: EdgeInsets.only(left: 10),
@@ -235,8 +235,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                             duration: const Duration(
                               milliseconds: 500,
                             ),
-                            width: 20,
-                            height: 20,
+                            width: 20.w,
+                            height: 20.h,
                             child: _isHasSymboleOrCaptital
                                 ? Padding(
                                     padding: EdgeInsets.only(left: 10),
@@ -271,8 +271,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                             duration: const Duration(
                               milliseconds: 500,
                             ),
-                            width: 20,
-                            height: 20,
+                            width: 20.w,
+                            height: 20.h,
                             child: _isHasOneNumber
                                 ? Padding(
                                     padding: EdgeInsets.only(left: 10),
@@ -299,7 +299,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         ],
                       ),
                       SizedBox(
-                        height: 40.h,
+                        height: 30.h,
                       ),
                       Text(
                         "Confirm Password",
@@ -310,7 +310,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             color: Color(0xff303030)),
                       ),
                       SizedBox(
-                        height: 10.h,
+                        height: 15.h,
                       ),
                       CustomTextFormField(
                         isInputPassword: true,
