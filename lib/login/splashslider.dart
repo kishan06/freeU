@@ -50,158 +50,169 @@ class _SplashsliderState extends State<Splashslider> {
       },
       child: Scaffold(
         backgroundColor: Color(0xffF5F8FA),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 100.h,
-            ),
-            Expanded(
-              child: PageView.builder(
-                controller: _controller,
-                itemCount: contents.length,
-                onPageChanged: (int index) {
-                  setState(() {
-                    currentIndex = index;
-                  });
-                },
-                itemBuilder: (_, i) {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        flex: 8,
-                        child: SvgPicture.asset(
-                          contents[i].image,
-                          height: 250.h,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          contents[i].title,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 25.sm,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Expanded(
-                        flex: 1,
-                        child: Text(
-                          contents[i].content,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 16.sm,
-                          ),
-                        ),
-                      ),
-                    ],
-                  );
-                },
+        body: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 100.h,
               ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            CustomNextButton(
-              text: "Next",
-              ontap: () {
-                setState(() {
-                  _controller.animateToPage(currentIndex + 1,
-                      duration: const Duration(milliseconds: 500),
-                      curve: Curves.linear);
-                  if (currentIndex == 2) {
-                    Get.toNamed('/login');
-                  }
-                });
-              },
-            ),
-            // InkWell(
-            //   onTap: () => setState(() {
-            //     _controller.animateToPage(currentIndex + 1,
-            //         duration: const Duration(milliseconds: 500),
-            //         curve: Curves.linear);
-            //     if (currentIndex == 2) {
-            //       Get.toNamed('/login');
-            //     }
-            //   }),
-            //   child: Stack(
-            //     children: [
-            //       SizedBox(
-            //         width: double.infinity,
-            //         height: 50.h,
-            //         child: Padding(
-            //           padding: const EdgeInsets.symmetric(horizontal: 30),
-            //           child: ElevatedButton(
-            //             style: ElevatedButton.styleFrom(
-            //                 backgroundColor: Color(0xFFFFB600),
-            //                 shape: (RoundedRectangleBorder(
-            //                   borderRadius: BorderRadius.circular(30.0),
-            //                 ))),
-            //             onPressed: () {
-            //               setState(() {
-            //                 _controller.animateToPage(currentIndex + 1,
-            //                     duration: const Duration(milliseconds: 500),
-            //                     curve: Curves.linear);
-            //                 if (currentIndex == 2) {
-            //                   Get.toNamed('/login');
-            //                 }
-            //               });
-            //             },
-            //             child: Text(
-            //               'Next',
-            //               style: TextStyle(
-            //                 color: Colors.black,
-            //                 fontFamily: 'Poppins',
-            //               ),
-            //             ),
-            //           ),
-            //         ),
-            //       ),
-            //       Positioned(
-            //         right: 25,
-            //         child: CircleAvatar(
-            //           backgroundColor: Colors.white,
-            //           radius: 25.r,
-            //           child:
-            //               Icon(color: Color(0xFF6B6B6B), Icons.arrow_forward),
-            //         ),
-            //       )
-            //     ],
-            //   ),
-            // ),
-
-            SizedBox(
-              height: 20.h,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  child: Text(
-                    "Skip",
-                    style: TextStyle(
-                      color: Color(0xFF6B6B6B),
-                      fontSize: 16.sm,
-                      fontFamily: "Poppins",
-                    ),
-                  ),
-                  onTap: () {
-                    Get.toNamed('/login');
+              Expanded(
+                child: PageView.builder(
+                  controller: _controller,
+                  itemCount: contents.length,
+                  onPageChanged: (int index) {
+                    setState(() {
+                      currentIndex = index;
+                    });
+                  },
+                  itemBuilder: (_, i) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Expanded(
+                          flex: 8,
+                          child: SvgPicture.asset(
+                            contents[i].image,
+                            height: 250.h,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            contents[i].title,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 24.sm,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          flex: 1,
+                          child: Text(
+                            contents[i].content,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              fontSize: 15.sm,
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
                   },
                 ),
-              ],
-            ),
-            SizedBox(
-              height: 32.h,
-            )
-          ],
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              CustomNextButton(
+                text: "Next",
+                ontap: () {
+                  setState(() {
+                    _controller.animateToPage(currentIndex + 1,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.linear);
+                    if (currentIndex == 2) {
+                      Get.toNamed('/login');
+                    }
+                  });
+                },
+              ),
+              // InkWell(
+              //   onTap: () => setState(() {
+              //     _controller.animateToPage(currentIndex + 1,
+              //         duration: const Duration(milliseconds: 500),
+              //         curve: Curves.linear);
+              //     if (currentIndex == 2) {
+              //       Get.toNamed('/login');
+              //     }
+              //   }),
+              //   child: Stack(
+              //     children: [
+              //       SizedBox(
+              //         width: double.infinity,
+              //         height: 50.h,
+              //         child: Padding(
+              //           padding: const EdgeInsets.symmetric(horizontal: 30),
+              //           child: ElevatedButton(
+              //             style: ElevatedButton.styleFrom(
+              //                 backgroundColor: Color(0xFFFFB600),
+              //                 shape: (RoundedRectangleBorder(
+              //                   borderRadius: BorderRadius.circular(30.0),
+              //                 ))),
+              //             onPressed: () {
+              //               setState(() {
+              //                 _controller.animateToPage(currentIndex + 1,
+              //                     duration: const Duration(milliseconds: 500),
+              //                     curve: Curves.linear);
+              //                 if (currentIndex == 2) {
+              //                   Get.toNamed('/login');
+              //                 }
+              //               });
+              //             },
+              //             child: Text(
+              //               'Next',
+              //               style: TextStyle(
+              //                 color: Colors.black,
+              //                 fontFamily: 'Poppins',
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //       ),
+              //       Positioned(
+              //         right: 25,
+              //         child: CircleAvatar(
+              //           backgroundColor: Colors.white,
+              //           radius: 25.r,
+              //           child:
+              //               Icon(color: Color(0xFF6B6B6B), Icons.arrow_forward),
+              //         ),
+              //       )
+              //     ],
+              //   ),
+              // ),
+
+              SizedBox(
+                height: 20.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  currentIndex < 2
+                      ? GestureDetector(
+                          child: Text(
+                            "Skip",
+                            style: TextStyle(
+                              color: Color(0xFF6B6B6B),
+                              fontSize: 16.sm,
+                              fontFamily: "Poppins",
+                            ),
+                          ),
+                          onTap: () {
+                            Get.toNamed('/login');
+                          },
+                        )
+                      : Text(
+                          "",
+                          style: TextStyle(
+                            color: Color(0xFFFFFFFF),
+                            fontSize: 16.sm,
+                            fontFamily: "Poppins",
+                          ),
+                        )
+                ],
+              ),
+              SizedBox(
+                height: 32.h,
+              )
+            ],
+          ),
         ),
       ),
     );

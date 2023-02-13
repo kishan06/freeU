@@ -50,6 +50,8 @@ import 'package:freeu/login/splash.dart';
 import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
 
+int bottomIndex = 0;
+
 void main() {
   runApp(MyApp());
 }

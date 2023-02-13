@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
@@ -28,10 +29,10 @@ class _otpVerificationState extends State<otpVerification> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          backgroundColor: Color(0xFFF5F8FA),
-          body: SingleChildScrollView(
+    return Scaffold(
+        backgroundColor: Color(0xFFF5F8FA),
+        body: SafeArea(
+          child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             child: Center(
                 child: Form(
@@ -88,8 +89,9 @@ class _otpVerificationState extends State<otpVerification> {
                               decoration: InputDecoration(
                                 focusedBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
-                                      width: 1, //<-- SEE HERE
-                                      color: Color(0xFF6B6B6B)),
+                                    width: 1, //<-- SEE HERE
+                                    color: Color(0xFF6B6B6B),
+                                  ),
                                 ),
                                 enabledBorder: UnderlineInputBorder(
                                   borderSide: BorderSide(
@@ -283,8 +285,21 @@ class _otpVerificationState extends State<otpVerification> {
                             //     )
                             //   ],
                             // ),
+                            Text(
+                              "Enter OTP",
+                              style: blackStyle16().copyWith(
+                                color: Color(0xff303030),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
                             Container(
                                 child: PinCodeTextField(
+                              showCursor: true,
+                              cursorColor: Color(0xFF143C6D),
+                              textStyle: TextStyle(
+                                  fontSize: 18.sm, color: Color(0xFF143C6D)),
                               errorTextSpace: 22,
                               validator: (value) {
                                 if (value != null && value.isEmpty) {
@@ -302,9 +317,9 @@ class _otpVerificationState extends State<otpVerification> {
                               pinTheme: PinTheme(
                                 selectedFillColor: Colors.white,
                                 inactiveFillColor: Colors.white,
-                                inactiveColor: Color(0xFF707070),
-                                activeColor: Color(0xFF143C6D),
-                                selectedColor: Color(0xFF143C6D),
+                                inactiveColor: Color(0xFF707070).withOpacity(0),
+                                activeColor: Color(0xFF707070).withOpacity(0),
+                                selectedColor: Color(0xFF707070).withOpacity(0),
                                 shape: PinCodeFieldShape.box,
                                 borderRadius: BorderRadius.circular(15),
                                 fieldHeight: 60.h,
@@ -400,7 +415,7 @@ class _otpVerificationState extends State<otpVerification> {
                         )
                       ],
                     ))),
-          )),
-    );
+          ),
+        ));
   }
 }

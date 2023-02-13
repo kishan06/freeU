@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/AppBarWithNotification.dart';
+import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -126,69 +128,8 @@ class _InvestmentMainState extends State<InvestmentMain> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),
-        unselectedLabelStyle: TextStyle(color: Colors.grey),
-        unselectedIconTheme: IconThemeData(color: Colors.grey),
-        items: [
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/home-svgrepo-com.svg',
-              height: 20,
-            ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/category-alt-svgrepo-com.svg',
-              height: 20,
-            ),
-            label: 'Categories',
-          ),
-          BottomNavigationBarItem(
-            activeIcon: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color(0xFFFEEBBD),
-              ),
-              height: 20,
-              width: 50,
-              child: SvgPicture.asset(
-                'assets/images/money-dollar-coin-svgrepo-com.svg',
-                height: 20,
-              ),
-            ),
-            icon: SvgPicture.asset(
-              'assets/images/money-dollar-coin-svgrepo-com.svg',
-              height: 20,
-            ),
-            label: 'Investments',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/chat-left-3-svgrepo-com (2).svg',
-              height: 20,
-            ),
-            label: 'Chat',
-          ),
-          BottomNavigationBarItem(
-            icon: SvgPicture.asset(
-              'assets/images/profile.svg',
-              height: 20,
-            ),
-            label: 'Profile',
-          ),
-        ],
-        currentIndex: 2,
-        unselectedItemColor: Colors.grey,
-        selectedItemColor: Colors.grey,
-        backgroundColor: Colors.white,
-        onTap: (index) {
-          print(index);
-          _selectedTab(index);
-        },
-        type: BottomNavigationBarType.fixed,
-      ),
+      bottomNavigationBar:
+          CreateBottomBar(stateBottomNav, "Bottombarinvestment", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 16.0, right: 16),

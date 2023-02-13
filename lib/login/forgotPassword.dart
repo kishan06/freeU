@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -27,10 +28,10 @@ class _forgotPasswordState extends State<forgotPassword> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-          backgroundColor: Color(0xFFF5F8FA),
-          body: SingleChildScrollView(
+    return Scaffold(
+        backgroundColor: Color(0xFFF5F8FA),
+        body: SafeArea(
+          child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             child: Center(
                 child: Form(
@@ -61,12 +62,11 @@ class _forgotPasswordState extends State<forgotPassword> {
                           ],
                         ),
                         SizedBox(
-                          height: 20.h,
+                          height: 26.h,
                         ),
                         Text(
                           "We will send a verification email to the email address on your account in order to reset your password",
-                          style:
-                              TextStyle(fontSize: 16.sm, fontFamily: 'Poppins'),
+                          style: blackStyle16(),
                         ),
                         SizedBox(
                           height: 50.h,
@@ -77,31 +77,34 @@ class _forgotPasswordState extends State<forgotPassword> {
                             Text(
                               "Phone",
                               // ignore: prefer_const_constructors
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 16.sm,
-                                  color: Color(0xff303030)),
+                              style: blackStyle16().copyWith(
+                                color: Color(0xff303030),
+                              ),
                             ),
                             SizedBox(
                               height: 13.h,
                             ),
-                            CustomTextFormField(
-                                textEditingController: phoneController,
-                                inputFormatters: <TextInputFormatter>[
-                                  FilteringTextInputFormatter.digitsOnly
-                                ],
-                                validator: (value) {
-                                  if (value!.isEmpty) {
-                                    return "Please Enter a Phone Number";
-                                  } else if (!RegExp(
-                                          r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
-                                      .hasMatch(value)) {
-                                    return "Please Enter a Valid Phone Number";
-                                  }
-                                  return null;
-                                },
-                                hintText: "Enter your Phone Number",
-                                validatorText: "Enter your Phone Number"),
+                            Column(
+                              children: [
+                                CustomTextFormField(
+                                    textEditingController: phoneController,
+                                    inputFormatters: <TextInputFormatter>[
+                                      FilteringTextInputFormatter.digitsOnly
+                                    ],
+                                    validator: (value) {
+                                      if (value!.isEmpty) {
+                                        return "Please Enter a Phone Number";
+                                      } else if (!RegExp(
+                                              r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
+                                          .hasMatch(value)) {
+                                        return "Please Enter a Valid Phone Number";
+                                      }
+                                      return null;
+                                    },
+                                    hintText: "Enter your Phone Number",
+                                    validatorText: "Enter your Phone Number"),
+                              ],
+                            ),
                             SizedBox(
                               height: 20.h,
                             ),
@@ -109,19 +112,20 @@ class _forgotPasswordState extends State<forgotPassword> {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 TextButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      'OTP Sent to registered mobile number',
-                                      style: TextStyle(
-                                        fontSize: 14.sm,
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF143C6D),
-                                      ),
-                                    )),
+                                  onPressed: () {},
+                                  child: Text(
+                                    'OTP Sent to registered mobile number',
+                                    style: TextStyle(
+                                      fontSize: 14.sm,
+                                      fontFamily: 'Poppins',
+                                      color: Color(0xFF143C6D),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                             SizedBox(
-                              height: 60.h,
+                              height: 80.h,
                             ),
                             CustomNextButton(
                               text: "Proceed",
@@ -145,7 +149,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                         )
                       ],
                     ))),
-          )),
-    );
+          ),
+        ));
   }
 }

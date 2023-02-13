@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -27,10 +28,10 @@ class _PhoneVerificationState extends State<PhoneVerification> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: const Color(0xFFF5F8FA),
-        body: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: const Color(0xFFF5F8FA),
+      body: SafeArea(
+        child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Center(
             child: Form(
@@ -60,17 +61,20 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 50.h),
+                    SizedBox(height: 60.h),
                     Text(
                       "OTP sent to",
                       // ignore: prefer_const_constructors
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16.sm,
-                          color: Color(0xff303030)),
+                      style: blackStyle16().copyWith(
+                        color: Color(0xff303030),
+                      ),
+                      // TextStyle(
+                      //     fontFamily: 'Poppins',
+                      //     fontSize: 16.sm,
+                      //     color: Color(0xff303030)),
                     ),
                     SizedBox(
-                      height: 6.h,
+                      height: 10.h,
                     ),
                     TextFormField(
                       controller: phoneController,
@@ -80,29 +84,32 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                         FilteringTextInputFormatter.digitsOnly
                       ],
                       decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(15),
                         filled: true,
                         fillColor: Colors.white,
                         focusColor: Color(0xFFF2F2F2),
                         // enabled: false,
                         border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
                               color: Color(0xFF707070).withOpacity(0),
                               width: 1),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
                               color: Color(0xFF707070).withOpacity(0),
                               width: 1),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(30),
+                          borderRadius: BorderRadius.circular(10),
                           borderSide: BorderSide(
                               color: Color(0xFF707070).withOpacity(0),
                               width: 1),
                         ),
                         hintText: "8467399899",
+                        hintStyle:
+                            blackStyle15().copyWith(color: Color(0xFF707070)),
                         suffixIcon: Align(
                           widthFactor: 1.0,
                           heightFactor: 1.0,
@@ -134,19 +141,22 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                     SizedBox(height: 30.h),
                     Text(
                       "Enter OTP",
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 16.sm,
-                          color: Color(0xff303030)),
+                      style: blackStyle16().copyWith(
+                        color: Color(0xff303030),
+                      ),
                     ),
                     SizedBox(
-                      height: 6.h,
+                      height: 10.h,
                     ),
                     Container(
                         child:
                             //  pinfiledshow
                             //  ?
                             PinCodeTextField(
+                      showCursor: true,
+                      cursorColor: Color(0xFF143C6D),
+                      textStyle:
+                          TextStyle(fontSize: 18.sm, color: Color(0xFF143C6D)),
                       errorTextSpace: 22,
                       validator: (value) {
                         if (value != null && value.isEmpty) {
@@ -164,11 +174,11 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       pinTheme: PinTheme(
                         selectedFillColor: Colors.white,
                         inactiveFillColor: Colors.white,
-                        inactiveColor: Color(0xFF707070),
-                        activeColor: Color(0xFF143C6D),
-                        selectedColor: Color(0xFF143C6D),
+                        inactiveColor: Color(0xFF707070).withOpacity(0),
+                        activeColor: Color(0xFF707070).withOpacity(0),
+                        selectedColor: Color(0xFF707070).withOpacity(0),
                         shape: PinCodeFieldShape.box,
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(10),
                         fieldHeight: 60.h,
                         fieldWidth: 60.w,
                         activeFillColor: Colors.white,

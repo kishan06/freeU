@@ -1,6 +1,7 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../common/customNextButton.dart';
@@ -17,13 +18,14 @@ class _TouchIdState extends State<TouchId> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        shadowColor: Color.fromARGB(1, 255, 255, 255),
         title: Text(""),
         backgroundColor: Colors.white,
       ),
-      backgroundColor: Color(0xffF5F8FA),
+      backgroundColor: Color(0xFFF5F8FA),
       body: Column(
         children: [
-          SizedBox(height: 50),
+          SizedBox(height: 50.h),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -32,21 +34,21 @@ class _TouchIdState extends State<TouchId> {
                 Text(
                   "Set-up Touch Id",
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 22.sm,
                     fontFamily: 'Poppins',
                   ),
                 ),
-                SizedBox(height: 70),
+                SizedBox(height: 70.h),
                 SizedBox(
-                  width: 286,
-                  height: 286,
+                  width: 286.w,
+                  height: 286.h,
                   child: SvgPicture.asset(
                     'assets/images/fingericon.svg',
-                    width: 140,
+                    width: 140.h,
                   ),
                 ),
-                const SizedBox(
-                  height: 70,
+                SizedBox(
+                  height: 70.h,
                 ),
                 CustomNextButton(
                   text: "Set up Now",
@@ -54,30 +56,19 @@ class _TouchIdState extends State<TouchId> {
                     // _checkBio();
                   },
                 ),
-                const SizedBox(
-                  height: 16,
+                SizedBox(
+                  height: 16.h,
                 ),
-                InkWell(
+                GestureDetector(
                   onTap: () {
-                    // Navigator.pushReplacement(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (builder) =>
-                    //         const SuccessScreen(),
-                    //   ),
-                    // );
+                    Get.toNamed('/completeprofile');
                   },
-                  child: GestureDetector(
-                    onTap: () {
-                      Get.toNamed('/completeprofile');
-                    },
-                    child: Text(
-                      'will do it later',
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 14,
-                        color: Color(0xFF585858),
-                      ),
+                  child: Text(
+                    'will do it later',
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 14.sm,
+                      color: Color(0xFF585858),
                     ),
                   ),
                 ),

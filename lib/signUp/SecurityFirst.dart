@@ -24,8 +24,8 @@ class _SecurityFirstState extends State<SecurityFirst> {
       context: context,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
+          topLeft: Radius.circular(20),
+          topRight: Radius.circular(20),
         ),
       ),
       builder: (context) {
@@ -61,7 +61,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     height: 50.h,
                   ),
                   Text(
-                    "Choose a PIN of Your choice",
+                    "",
                     style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
                   ),
                   SizedBox(
@@ -93,17 +93,20 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           keyboardType: TextInputType.number,
                           controller: pincontroller,
                           textAlign: TextAlign.center,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             helperText: "",
-                            hintText: "",
+                            hintText: "Choose a PIN of Your choice",
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             border: UnderlineInputBorder(
                               borderSide: BorderSide(
                                   width: 2, color: Color(0xFF707070)),
                             ),
                             focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    width: 2, color: Color(0xFF707070))),
+                              borderSide: BorderSide(
+                                width: 2,
+                                color: Color(0xFF707070),
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -113,7 +116,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     height: 30,
                   ),
                   Text(
-                    "Please Re-Enter the PIN",
+                    "",
                     style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
                   ),
                   SizedBox(
@@ -146,17 +149,22 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           keyboardType: TextInputType.number,
                           controller: confirmpincontroller,
                           textAlign: TextAlign.center,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             helperText: "",
-                            hintText: "",
+                            hintText: "Please Re-Enter the PIN",
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             border: UnderlineInputBorder(
                               borderSide: BorderSide(
-                                  width: 2, color: Color(0xFF707070)),
+                                width: 2,
+                                color: Color(0xFF707070),
+                              ),
                             ),
                             focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                                    width: 2, color: Color(0xFF707070))),
+                              borderSide: BorderSide(
+                                width: 2,
+                                color: Color(0xFF707070),
+                              ),
+                            ),
                           ),
                         ),
                       ),
@@ -206,14 +214,10 @@ class _SecurityFirstState extends State<SecurityFirst> {
   TextEditingController confirmpincontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        backgroundColor: Color(0xffF5F8FA),
-        // appBar: CustomSignupAppBar(
-        //   titleTxt: "Security First",
-        //   bottomtext: false,
-        // ),
-        body: SingleChildScrollView(
+    return Scaffold(
+      backgroundColor: Color(0xffF5F8FA),
+      body: SafeArea(
+        child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
             child: Column(
@@ -256,7 +260,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                         color: Colors.black,
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       height: 30,
                     ),
                     Container(
@@ -266,7 +270,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                         color: onclickofpin
                             ? const Color(0xff1B8DC9)
                             : Colors.white,
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       alignment: const Alignment(50, 0),
                       padding: const EdgeInsets.all(5),
@@ -303,17 +307,18 @@ class _SecurityFirstState extends State<SecurityFirst> {
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 30,
+                    SizedBox(
+                      height: 40,
                     ),
                     Container(
                       // ignore: prefer_const_constructors
-                      height: 100.h, width: 258.w,
+                      height: 100.h,
+                      width: 258.w,
                       decoration: BoxDecoration(
                         color: onclickoftouchid
                             ? const Color(0xff1B8DC9)
                             : Colors.white,
-                        borderRadius: BorderRadius.circular(30),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       alignment: const Alignment(50, 0),
                       padding: const EdgeInsets.all(5),
@@ -348,13 +353,6 @@ class _SecurityFirstState extends State<SecurityFirst> {
 
                                   gender = value.toString();
                                   Get.toNamed("/touchid");
-                                  // Navigator.push(
-                                  //             context,
-                                  //             MaterialPageRoute(
-                                  //               builder: (context) =>
-                                  //                   const touch_id(),
-                                  //             ),
-                                  //           )
                                 });
                               }),
                         ),
