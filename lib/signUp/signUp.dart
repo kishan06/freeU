@@ -608,7 +608,7 @@ class _SignUpState extends State<SignUp> {
                   ),
                 ),
                 SizedBox(
-                  height: 50.h,
+                  height: 30.h,
                 ),
                 Visibility(
                   visible: isSignupBtnVisible,

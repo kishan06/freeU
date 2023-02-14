@@ -44,78 +44,95 @@ class _NotificationPageState extends State<NotificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
-        appBar: AppBar(
-          backgroundColor: Color(0xffffffff),
-          leading: IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(
-              Icons.arrow_back,
-            ),
-            iconSize: 22,
-            color: Color(0xFF6B6B6B),
+      backgroundColor: Color(0xFFF5F8FA),
+      appBar: AppBar(
+        backgroundColor: Color(0xffffffff),
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
           ),
-          title: Text(
-            "Notification",
-            style: TextStyle(color: Color(0xFF242323)),
+          iconSize: 22,
+          color: Color(0xFF6B6B6B),
+        ),
+        title: Text(
+          "Notification",
+          style: TextStyle(color: Color(0xFF242323)),
+        ),
+      ),
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+          child: CustomScrollView(
+            slivers: [
+              SliverToBoxAdapter(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.95,
+                      child: ListView(
+                        shrinkWrap: false,
+                        children: [
+                          Slidebar(
+                            text:
+                                'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                            date: '2 days ago',
+                          ),
+                          SizedBox(height: 10.h),
+                          Slidebar(
+                            text:
+                                'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                            date: '2 days ago',
+                          ),
+                          SizedBox(height: 10.h),
+                          Slidebar(
+                            text:
+                                'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                            date: '2 days ago',
+                          ),
+                          SizedBox(height: 10.h),
+                          Slidebar(
+                            text:
+                                'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                            date: '2 days ago',
+                          ),
+                          SizedBox(height: 10.h),
+                          Slidebar(
+                            text:
+                                'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                            date: '2 days ago',
+                          ),
+                          SizedBox(height: 10.h),
+                          Slidebar(
+                            text:
+                                'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                            date: '2 days ago',
+                          ),
+                          SizedBox(height: 10.h),
+                          Slidebar(
+                            text:
+                                'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                            date: '2 days ago',
+                          ),
+                          SizedBox(height: 10.h),
+                          Slidebar(
+                            text:
+                                'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                            date: '2 days ago',
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
-        body: SafeArea(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-            child: CustomScrollView(
-              slivers: [
-                SliverToBoxAdapter(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.8,
-                          child: ListView(shrinkWrap: false, children: [
-                            Slidebar(
-                              text:
-                                  'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                              date: '2 days ago',
-                            ),
-                            SizedBox(height: 10.h),
-                            Slidebar(
-                              text:
-                                  'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                              date: '2 days ago',
-                            ),
-                            SizedBox(height: 10.h),
-                            Slidebar(
-                              text:
-                                  'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                              date: '2 days ago',
-                            ),
-                            SizedBox(height: 10.h),
-                            Slidebar(
-                              text:
-                                  'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                              date: '2 days ago',
-                            ),
-                            SizedBox(height: 10.h),
-                            Slidebar(
-                              text:
-                                  'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                              date: '2 days ago',
-                            ),
-                            SizedBox(height: 10.h),
-                            Slidebar(
-                              text:
-                                  'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                              date: '2 days ago',
-                            ),
-                          ])),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ));
+      ),
+    );
   }
 }
 
@@ -157,42 +174,44 @@ class Slidebar extends StatelessWidget {
         ],
       ),
       child: ListTile(
-          title: Container(
-        decoration: BoxDecoration(
+        title: Container(
+          decoration: BoxDecoration(
             border: Border.all(
               color: Color(0xFF707070),
             ),
-            borderRadius: BorderRadius.circular(10)),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                text,
-                style: TextStyle(
-                  color: Color(0xFF000000),
-                  fontSize: 15.sm,
-                  fontFamily: 'Poppins',
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    fontSize: 15.sm,
+                    fontFamily: 'Poppins',
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 10.h,
-              ),
-              Text(
-                date,
-                textAlign: TextAlign.start,
-                style: TextStyle(
-                  color: Color(0xFF000000),
-                  fontSize: 12.sm,
-                  fontFamily: 'Poppins',
+                SizedBox(
+                  height: 10.h,
                 ),
-              ),
-            ],
+                Text(
+                  date,
+                  textAlign: TextAlign.start,
+                  style: TextStyle(
+                    color: Color(0xFF000000),
+                    fontSize: 12.sm,
+                    fontFamily: 'Poppins',
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
-      )),
+      ),
     );
   }
 }

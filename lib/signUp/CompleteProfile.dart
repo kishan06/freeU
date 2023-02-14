@@ -40,7 +40,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 10,
+                  height: 10.h,
                 ),
                 SizedBox(
                   width: double.infinity,
@@ -48,7 +48,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     'Would you like a guided tour of our app?',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 18,
+                      fontSize: 18.sm,
                       fontFamily: 'Poppins',
                       color: Color(0xff444444),
                     ),
@@ -96,36 +96,11 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     SizedBox(
                       width: 156.w,
                       height: 50.h,
-                      child: ElevatedButton(
-                        style: ButtonStyle(
-                          backgroundColor: MaterialStateProperty.all<Color>(
-                              Color(0xFF1B8DC9)),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
-                              side: BorderSide(
-                                  width: 3, color: Color(0xFF1B8DC9)),
-                            ),
-                          ),
-                        ),
-                        onPressed: () {},
-                        child: Text(
-                          "Yes",
-                          style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 16.sm,
-                              color: Colors.white),
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 156.w,
-                      height: 50.h,
                       child: OutlinedButton(
                         style: ButtonStyle(
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30.0),
+                              borderRadius: BorderRadius.circular(10.0),
                               side: BorderSide(
                                 width: 3,
                               ),
@@ -143,7 +118,32 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               color: Colors.black),
                         ),
                       ),
-                    )
+                    ),
+                    SizedBox(
+                      width: 156.w,
+                      height: 50.h,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all<Color>(
+                              Color(0xFF1B8DC9)),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10.0),
+                              side: BorderSide(
+                                  width: 3, color: Color(0xFF1B8DC9)),
+                            ),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "Yes",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 16.sm,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ),
                     //   Padding(
                     //     padding: const EdgeInsets.all(10),
                     //     child: Expanded(
@@ -264,7 +264,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          Get.toNamed('/homepage');
+                          Get.toNamed('/homepage2');
                           // Navigator.push(
                           //   context,
                           //   MaterialPageRoute(
