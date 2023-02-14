@@ -93,7 +93,7 @@ class _SplashsliderState extends State<Splashslider> {
                           ),
                         ),
                         Expanded(
-                          flex: 1,
+                          flex: 2,
                           child: Text(
                             contents[i].content,
                             textAlign: TextAlign.center,

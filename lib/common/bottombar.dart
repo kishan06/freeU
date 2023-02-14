@@ -63,11 +63,19 @@ class _CustomBottomBarState extends ResumableState<CreateBottomBar> {
         backgroundColor: Theme.of(context).bottomAppBarColor,
         type: BottomNavigationBarType.fixed,
         currentIndex: bottomIndex,
-        unselectedLabelStyle: TextStyle(color: Colors.grey),
-        selectedLabelStyle: TextStyle(color: Color(0xFFF78104)),
+        unselectedLabelStyle: TextStyle(
+            color: Colors.grey,
+            fontSize: 12,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w300),
+        selectedLabelStyle: TextStyle(
+            color: Colors.grey,
+            fontSize: 12,
+            fontFamily: "Poppins",
+            fontWeight: FontWeight.w300),
         items: getBottomBarList(),
         unselectedItemColor: Colors.grey,
-        selectedItemColor: Color(0xFFF78104),
+        selectedItemColor: Colors.grey,
         onTap: onTabTapped);
   }
 
