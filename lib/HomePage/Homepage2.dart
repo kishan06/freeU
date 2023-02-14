@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/HomePage.dart';
+import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/bottombar.dart';
@@ -79,7 +80,7 @@ class _Home2State extends State<Home2> {
     return Scaffold(
       key: _key,
       drawer: NavDrawer(),
-      backgroundColor: Color(0xFFFEFEFE),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 2,
@@ -127,7 +128,7 @@ class _Home2State extends State<Home2> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  color: Color(0xFFAFD2FC),
+                  color: Color(0xFFCFEFFF),
                   child: Column(
                     children: [
                       SizedBox(
@@ -276,7 +277,7 @@ class _Home2State extends State<Home2> {
               ),
               Card(
                 elevation: 2,
-                color: Color(0xFFefe2c2),
+                color: Colors.white,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
@@ -292,9 +293,7 @@ class _Home2State extends State<Home2> {
                         children: [
                           Text(
                             'Fill in your complete details\nto start investing',
-                            style: TextStyle(
-                              fontSize: 12.sm,
-                            ),
+                            style: blackStyle12(),
                           ),
                           SizedBox(
                             height: 5,
@@ -303,8 +302,8 @@ class _Home2State extends State<Home2> {
                             'Complete Your Profile',
                             style: TextStyle(
                                 fontSize: 18.sm,
-                                color: Color(0xFF143C6D),
-                                fontWeight: FontWeight.bold),
+                                color: Color(0xFF1B8DC9),
+                                fontWeight: FontWeight.w500),
                           ),
                           SizedBox(
                             height: 5,
@@ -329,8 +328,11 @@ class _Home2State extends State<Home2> {
                         ],
                       ),
                       Column(
-                        children: [Image.asset('assets/images/img3 (2).png')],
-                      )
+                        children: [
+                          SvgPicture.asset(
+                              'assets/images/complete-ok-accept-good-tick-svgrepo-com.svg'),
+                        ],
+                      ),
                     ],
                   ),
                 ),
@@ -340,7 +342,7 @@ class _Home2State extends State<Home2> {
               ),
               Card(
                 elevation: 2,
-                color: Color(0xFFfffaee),
+                color: Color(0xFFDFEDFF),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
                 ),
@@ -359,7 +361,7 @@ class _Home2State extends State<Home2> {
                           'No Investments',
                           style: TextStyle(
                             fontSize: 18.sm,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                         SizedBox(
@@ -368,7 +370,7 @@ class _Home2State extends State<Home2> {
                         Text(
                           'Start Investing With FreeU',
                           style: TextStyle(
-                            fontSize: 16.sm,
+                            fontSize: 14.sm,
                           ),
                         ),
                         SizedBox(
@@ -376,15 +378,17 @@ class _Home2State extends State<Home2> {
                         ),
                         GestureDetector(
                             child: Container(
+                                width: double.infinity,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  color: Color(0xFFFFB600),
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Color(0xFF1B8DC9),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
                                       horizontal: 35, vertical: 10),
                                   child: Text(
                                     'Invest Now',
+                                    textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontSize: 15.sm,
                                       color: Color(0xff000000),
@@ -406,114 +410,103 @@ class _Home2State extends State<Home2> {
               SizedBox(
                 height: 10.h,
               ),
-              SizedBox(
-                height: 170.h,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  color: Colors.white,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 15.0, top: 12, bottom: 12),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Categories",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                        ),
-                        SizedBox(
-                          height: 8.h,
-                        ),
-                        SizedBox(
-                          height: 100.h,
-                          child: PageView.builder(
-                            padEnds: false,
-                            controller: categoriescontroller,
-                            itemCount: 2,
-                            itemBuilder: (
-                              BuildContext context,
-                              int index1,
-                            ) {
-                              bool isMyPageIndex = selectIndex == index1;
-                              if (index1 == 0) {
-                                return SizedBox(
-                                  height: 80.h,
-                                  child: Card(
-                                    elevation: 2,
-                                    color: Color(0xFFDFEDFF),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    child: Padding(
-                                        padding: EdgeInsets.only(
-                                            top: 10.0,
-                                            left: 13,
-                                            right: 13,
-                                            bottom: 5),
-                                        child: Row(
-                                          children: [
-                                            Image.asset(
-                                              "assets/images/categoryresidential.png",
-                                              height: 50.h,
-                                              width: 50.w,
-                                            ),
-                                            SizedBox(
-                                              width: 13.w,
-                                            ),
-                                            Text(
-                                              'Fractional\nReal Estate',
-                                              style: TextStyle(
-                                                  fontSize: 12.sm,
-                                                  fontFamily: 'Poppins'),
-                                            )
-                                          ],
-                                        )),
-                                  ),
-                                );
-                              } //2nd plan
-                              return SizedBox(
-                                width: 65.w,
-                                child: Card(
-                                  elevation: 2,
-                                  color: Color(0xFFDFEDFF),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Padding(
-                                      padding: EdgeInsets.only(
-                                          top: 14.0,
-                                          left: 13,
-                                          right: 13,
-                                          bottom: 5),
-                                      child: Row(
-                                        children: [
-                                          Image.asset(
-                                            "assets/images/blockchain.png",
-                                            height: 50.h,
-                                            width: 50.w,
-                                          ),
-                                          SizedBox(
-                                            width: 13.w,
-                                          ),
-                                          Text(
-                                            'Peer- Peer\nlending',
-                                            style: TextStyle(
-                                                fontSize: 16.sm,
-                                                fontFamily: 'Poppins'),
-                                          )
-                                        ],
-                                      )),
-                                ),
-                              );
-                            },
-                          ),
-                        ),
-                      ],
+              Padding(
+                padding: const EdgeInsets.only(left: 5.0, top: 12, bottom: 12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Categories",
+                      style: TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
                     ),
-                  ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    SizedBox(
+                      height: 100.h,
+                      child: PageView.builder(
+                        padEnds: false,
+                        controller: categoriescontroller,
+                        itemCount: 2,
+                        itemBuilder: (
+                          BuildContext context,
+                          int index1,
+                        ) {
+                          bool isMyPageIndex = selectIndex == index1;
+                          if (index1 == 0) {
+                            return SizedBox(
+                              height: 80.h,
+                              child: Card(
+                                elevation: 2,
+                                color: Color(0xFFDFEDFF),
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(15),
+                                ),
+                                child: Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 10.0,
+                                        left: 13,
+                                        right: 13,
+                                        bottom: 5),
+                                    child: Row(
+                                      children: [
+                                        Image.asset(
+                                          "assets/images/real-estate.png",
+                                          height: 50.h,
+                                          width: 50.w,
+                                        ),
+                                        SizedBox(
+                                          width: 13.w,
+                                        ),
+                                        Text(
+                                          'Fractional\nReal Estate',
+                                          style: TextStyle(
+                                              fontSize: 16.sm,
+                                              fontFamily: 'Poppins'),
+                                        )
+                                      ],
+                                    )),
+                              ),
+                            );
+                          } //2nd plan
+                          return SizedBox(
+                            width: 65.w,
+                            child: Card(
+                              elevation: 2,
+                              color: Color(0xFFDFEDFF),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Padding(
+                                  padding: EdgeInsets.only(
+                                      top: 14.0,
+                                      left: 13,
+                                      right: 13,
+                                      bottom: 5),
+                                  child: Row(
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/blockchain.png",
+                                        height: 50.h,
+                                        width: 50.w,
+                                      ),
+                                      SizedBox(
+                                        width: 13.w,
+                                      ),
+                                      Text(
+                                        'Peer- Peer\nlending',
+                                        style: TextStyle(
+                                            fontSize: 16.sm,
+                                            fontFamily: 'Poppins'),
+                                      )
+                                    ],
+                                  )),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
@@ -558,184 +551,126 @@ class _Home2State extends State<Home2> {
                 ),
               ),
               SizedBox(
-                height: 325.h,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
+                height: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      Text(
+                        "Trending news",
+                        style:
+                            TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                      ),
+                    ],
                   ),
-                  color: Colors.white,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 12.0, top: 10, bottom: 5),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Blogs",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                        ),
-                        SizedBox(
-                          height: 8.h,
-                        ),
-                        SizedBox(
-                          height: 265.h,
-                          child: PageView.builder(
-                            padEnds: false,
-                            controller: pickcontroller,
-                            itemCount: 2,
-                            itemBuilder: (
-                              BuildContext context,
-                              int index1,
-                            ) {
-                              bool isMyPageIndex = selectIndex == index1;
-                              if (index1 == 0) {
-                                return Card(
-                                  elevation: 2,
-                                  color: Color(0xFFFFFAEE),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(15),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 5.0,
-                                        left: 25,
-                                        right: 5,
-                                        bottom: 5),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Image.asset(
-                                          'assets/images/12643932_5031659.png',
-                                        ),
-                                        SizedBox(
-                                          height: 9.h,
-                                        ),
-                                        Text(
-                                          'Retail banks wake up\nto digital',
-                                          style: TextStyle(
-                                              fontSize: 12.sm,
-                                              fontFamily: 'Poppins'),
-                                        ),
-                                        // SizedBox(
-                                        //   height: 9.h,
-                                        // ),
-                                        Row(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.calendar_today_outlined,
-                                              size: 12,
-                                            ),
-                                            SizedBox(
-                                              width: 3.w,
-                                            ),
-                                            Text(
-                                              "October 17 , 2022",
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 10.sm),
-                                            ),
-                                            Spacer(),
-                                            SizedBox(
-                                              height: 30.h,
-                                              child: ElevatedButton(
-                                                onPressed: () {},
-                                                child: Icon(
-                                                  Icons.arrow_forward,
-                                                  size: 15,
-                                                  color: Colors.black,
-                                                ),
-                                                style: ElevatedButton.styleFrom(
-                                                    shape: CircleBorder(),
-                                                    backgroundColor:
-                                                        Color(0xFFFFB600)),
-                                              ),
-                                            )
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              } //2nd plan
-                              return Card(
-                                elevation: 2,
-                                color: Color(0xFFFFFAEE),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
-                                ),
-                                child: Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 5.0, left: 25, right: 5, bottom: 5),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Image.asset(
-                                        'assets/images/12643932_5031659.png',
-                                      ),
-                                      SizedBox(
-                                        height: 9.h,
-                                      ),
-                                      Text(
-                                        'Retail banks wake up\nto digital',
-                                        style: TextStyle(
-                                            fontSize: 12.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
-                                        children: [
-                                          Icon(
-                                            Icons.calendar_today_outlined,
-                                            size: 12,
-                                          ),
-                                          SizedBox(
-                                            width: 3.w,
-                                          ),
-                                          Text(
-                                            "October 17 , 2022",
-                                            style: TextStyle(
-                                                fontFamily: 'Poppins',
-                                                fontSize: 10.sm),
-                                          ),
-                                          Spacer(),
-                                          SizedBox(
-                                            height: 30.h,
-                                            child: ElevatedButton(
-                                              onPressed: () {},
-                                              child: Icon(
-                                                Icons.arrow_forward,
-                                                size: 15,
-                                                color: Colors.black,
-                                              ),
-                                              style: ElevatedButton.styleFrom(
-                                                  shape: CircleBorder(),
-                                                  backgroundColor:
-                                                      Color(0xFFFFB600)),
-                                            ),
-                                          )
-                                        ],
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              );
-                            },
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  Card(
+                    elevation: 2,
+                    color: Color(0xFFFFFFFF),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          top: 14.0, left: 10, right: 15, bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            height: 71.h,
+                            width: 80.w,
+                            child: Image.asset("assets/images/na_april_69.jpg"),
                           ),
-                        ),
-                      ],
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Retail banks wake up to digital",
+                                style: blackStyle14(),
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.calendar_today_outlined,
+                                    size: 14,
+                                  ),
+                                  Text(
+                                    "October 17 , 2022",
+                                    style: blackStyle12(),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  Card(
+                    elevation: 2,
+                    color: Color(0xFFFFFFFF),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          top: 14.0, left: 10, right: 15, bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            height: 71.h,
+                            width: 80.w,
+                            child: Image.asset("assets/images/na_april_69.jpg"),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Retail banks wake up to digital",
+                                style: blackStyle14(),
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.calendar_today_outlined,
+                                    size: 14,
+                                  ),
+                                  Text(
+                                    "October 17 , 2022",
+                                    style: blackStyle12(),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  )
+                ],
               ),
-              SizedBox(
-                height: 20,
-              )
             ],
           ),
         ),

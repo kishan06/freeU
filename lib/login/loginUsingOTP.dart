@@ -52,7 +52,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 30.h),
+                  SizedBox(height: 60.h),
                   SvgPicture.asset('assets/images/loginusingotp.svg'),
                   SizedBox(
                     height: 30.h,
