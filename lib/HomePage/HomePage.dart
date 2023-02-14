@@ -290,108 +290,36 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 15.h,
               ),
-              Padding(
-                padding: const EdgeInsets.only(
-                    left: 12.0, top: 15, bottom: 8, right: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 3.w,
-                        ),
-                        Text(
-                          "Your Investments",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    SizedBox(
-                      height: 149.h,
-                      child: PageView.builder(
-                        padEnds: false,
-                        controller: investmentcontroller,
-                        itemCount: 2,
-                        itemBuilder: (
-                          BuildContext context,
-                          int index1,
-                        ) {
-                          bool isMyPageIndex = selectIndex == index1;
-                          if (index1 == 0) {
-                            return Card(
-                              elevation: 2,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(15),
-                                        bottomLeft: Radius.circular(15),
-                                      ),
-                                      color: Color(0xFF1B8DC9),
-                                    ),
-                                    width: 15,
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  Flexible(
-                                    flex: 1,
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Flexible(
-                                          flex: 3,
-                                          child: Text(
-                                            "Chennai Office Opportunity",
-                                            style: blackStyle15().copyWith(
-                                                fontWeight: FontWeight.w300),
-                                          ),
-                                        ),
-                                        Spacer(),
-                                        Flexible(
-                                          flex: 2,
-                                          child: Text(
-                                            "₹ 25,00,000",
-                                            style: blackStyle14().copyWith(
-                                                fontWeight: FontWeight.w500),
-                                          ),
-                                        ),
-                                        Flexible(
-                                          flex: 2,
-                                          child: Text(
-                                            "Invested",
-                                            style: blackStyle12(),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Flexible(
-                                    flex: 1,
-                                    child: SizedBox(
-                                        height: 200,
-                                        width: 200,
-                                        child: DougnutChart()),
-                                  ),
-                                  SizedBox(
-                                    width: 10.w,
-                                  )
-                                ],
-                              ),
-                            );
-                          } //2nd plan
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      Text(
+                        "Your Investments",
+                        style:
+                            TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  SizedBox(
+                    height: 149.h,
+                    child: PageView.builder(
+                      padEnds: false,
+                      controller: investmentcontroller,
+                      itemCount: 2,
+                      itemBuilder: (
+                        BuildContext context,
+                        int index1,
+                      ) {
+                        bool isMyPageIndex = selectIndex == index1;
+                        if (index1 == 0) {
                           return Card(
                             elevation: 2,
                             shape: RoundedRectangleBorder(
@@ -460,18 +388,85 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                           );
-                        },
-                      ),
+                        } //2nd plan
+                        return Card(
+                          elevation: 2,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Row(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(15),
+                                    bottomLeft: Radius.circular(15),
+                                  ),
+                                  color: Color(0xFF1B8DC9),
+                                ),
+                                width: 15,
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Flexible(
+                                flex: 1,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      flex: 3,
+                                      child: Text(
+                                        "Chennai Office Opportunity",
+                                        style: blackStyle15().copyWith(
+                                            fontWeight: FontWeight.w300),
+                                      ),
+                                    ),
+                                    Spacer(),
+                                    Flexible(
+                                      flex: 2,
+                                      child: Text(
+                                        "₹ 25,00,000",
+                                        style: blackStyle14().copyWith(
+                                            fontWeight: FontWeight.w500),
+                                      ),
+                                    ),
+                                    Flexible(
+                                      flex: 2,
+                                      child: Text(
+                                        "Invested",
+                                        style: blackStyle12(),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Flexible(
+                                flex: 1,
+                                child: SizedBox(
+                                    height: 200,
+                                    width: 200,
+                                    child: DougnutChart()),
+                              ),
+                              SizedBox(
+                                width: 10.w,
+                              )
+                            ],
+                          ),
+                        );
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               SizedBox(
-                height: 10.h,
+                height: 25.h,
               ),
               Padding(
                 padding:
-                    EdgeInsets.only(left: 12.0, top: 12, bottom: 12, right: 12),
+                    EdgeInsets.only(left: 6.0, top: 12, bottom: 12, right: 6),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -495,7 +490,7 @@ class _HomePageState extends State<HomePage> {
                                 elevation: 2,
                                 color: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Padding(
                                     padding: EdgeInsets.only(
@@ -536,7 +531,7 @@ class _HomePageState extends State<HomePage> {
                                 elevation: 2,
                                 color: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Padding(
                                     padding: EdgeInsets.only(
@@ -575,110 +570,38 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 10.h,
+                height: 20.h,
               ),
-              Padding(
-                padding:
-                    EdgeInsets.only(left: 12.0, top: 15, bottom: 14, right: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 3.w,
-                        ),
-                        Text(
-                          "Top Pick",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    SizedBox(
-                      height: 285.h,
-                      child: PageView.builder(
-                        padEnds: false,
-                        controller: pickcontroller,
-                        itemCount: 2,
-                        itemBuilder: (
-                          BuildContext context,
-                          int index1,
-                        ) {
-                          bool isMyPageIndex = selectIndex == index1;
-                          if (index1 == 0) {
-                            return Card(
-                              elevation: 2,
-                              color: Color(0xFFFFFFFF),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 14.0, left: 15, right: 15, bottom: 6),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Fractional Real Estate',
-                                      style: blackStyle14().copyWith(
-                                          fontWeight: FontWeight.w300),
-                                    ),
-                                    SizedBox(
-                                      height: 10.h,
-                                    ),
-                                    Image.asset(
-                                      'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
-                                    ),
-                                    SizedBox(
-                                      height: 9.h,
-                                    ),
-                                    Text(
-                                      'Vaishnavi Tech Park Opportunity',
-                                      style: blackStyle15(),
-                                    ),
-                                    SizedBox(
-                                      height: 7.h,
-                                    ),
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Flexible(
-                                          child: Icon(
-                                            Icons.location_on_outlined,
-                                            size: 18.sm,
-                                            color: Color(0xFF707070),
-                                          ),
-                                        ),
-                                        // SizedBox(
-                                        //   width: 4.w,
-                                        // ),
-                                        Flexible(
-                                          flex: 4,
-                                          child: Text(
-                                            'Outer Ring Road Sarjapur, Bangalore',
-                                            style: blackStyle12().copyWith(
-                                              color: Color(0xFF707070),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 8.h,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          } //2nd plan
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      Text(
+                        "Top Pick",
+                        style:
+                            TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  SizedBox(
+                    height: 285.h,
+                    child: PageView.builder(
+                      padEnds: false,
+                      controller: pickcontroller,
+                      itemCount: 2,
+                      itemBuilder: (
+                        BuildContext context,
+                        int index1,
+                      ) {
+                        bool isMyPageIndex = selectIndex == index1;
+                        if (index1 == 0) {
                           return Card(
                             elevation: 2,
                             color: Color(0xFFFFFFFF),
@@ -746,126 +669,112 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           );
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding:
-                    EdgeInsets.only(left: 12.0, top: 15, bottom: 14, right: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 3.w,
-                        ),
-                        Text(
-                          "Recommended",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 285.h,
-                      child: PageView.builder(
-                        padEnds: false,
-                        controller: recommendedcontroller,
-                        itemCount: 2,
-                        itemBuilder: (
-                          BuildContext context,
-                          int index1,
-                        ) {
-                          bool isMyPageIndex = selectIndex == index1;
-                          if (index1 == 0) {
-                            return Card(
-                              elevation: 2,
-                              color: Color(0xFFFFFFFF),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 14.0, left: 15, right: 15, bottom: 6),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                        } //2nd plan
+                        return Card(
+                          elevation: 2,
+                          color: Color(0xFFFFFFFF),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                top: 14.0, left: 15, right: 15, bottom: 6),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Fractional Real Estate',
+                                  style: blackStyle14()
+                                      .copyWith(fontWeight: FontWeight.w300),
+                                ),
+                                SizedBox(
+                                  height: 10.h,
+                                ),
+                                Image.asset(
+                                  'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
+                                ),
+                                SizedBox(
+                                  height: 9.h,
+                                ),
+                                Text(
+                                  'Vaishnavi Tech Park Opportunity',
+                                  style: blackStyle15(),
+                                ),
+                                SizedBox(
+                                  height: 7.h,
+                                ),
+                                Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Image.asset(
-                                      'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
-                                    ),
-                                    SizedBox(
-                                      height: 3.h,
-                                    ),
-                                    Card(
-                                      color: Color.fromRGBO(27, 141, 201, 0.3),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                      ),
-                                      child: Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(6, 3, 6, 3),
-                                        child: Text(
-                                          'Fractional Real Estate',
-                                          style: blackStyle12(),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
                                     Flexible(
-                                      child: Text(
-                                        'Vaishnavi Tech Park Opportunity',
-                                        style: blackStyle16(),
+                                      child: Icon(
+                                        Icons.location_on_outlined,
+                                        size: 18.sm,
+                                        color: Color(0xFF707070),
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Flexible(
-                                          child: Icon(
-                                            Icons.location_on_outlined,
-                                            size: 18.sm,
-                                            color: Color(0xFF707070),
-                                          ),
+                                    // SizedBox(
+                                    //   width: 4.w,
+                                    // ),
+                                    Flexible(
+                                      flex: 4,
+                                      child: Text(
+                                        'Outer Ring Road Sarjapur, Bangalore',
+                                        style: blackStyle12().copyWith(
+                                          color: Color(0xFF707070),
                                         ),
-                                        // SizedBox(
-                                        //   width: 4.w,
-                                        // ),
-                                        Flexible(
-                                          flex: 4,
-                                          child: Text(
-                                            'Outer Ring Road Sarjapur, Bangalore',
-                                            style: blackStyle12().copyWith(
-                                              color: Color(0xFF707070),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 8.h,
+                                      ),
                                     ),
                                   ],
                                 ),
-                              ),
-                            );
-                          } //2nd plan
+                                SizedBox(
+                                  height: 8.h,
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 3.w,
+                      ),
+                      Text(
+                        "Recommended",
+                        style:
+                            TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 300.h,
+                    child: PageView.builder(
+                      padEnds: false,
+                      controller: recommendedcontroller,
+                      itemCount: 2,
+                      itemBuilder: (
+                        BuildContext context,
+                        int index1,
+                      ) {
+                        bool isMyPageIndex = selectIndex == index1;
+                        if (index1 == 0) {
                           return Card(
                             elevation: 2,
                             color: Color(0xFFFFFFFF),
@@ -886,7 +795,7 @@ class _HomePageState extends State<HomePage> {
                                     height: 3.h,
                                   ),
                                   Card(
-                                    color: Color.fromARGB(255, 134, 207, 247),
+                                    color: Color.fromRGBO(27, 141, 201, 0.3),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5),
                                     ),
@@ -943,14 +852,90 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           );
-                        },
-                      ),
+                        } //2nd plan
+                        return Card(
+                          elevation: 2,
+                          color: Color(0xFFFFFFFF),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                top: 14.0, left: 15, right: 15, bottom: 6),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
+                                ),
+                                SizedBox(
+                                  height: 3.h,
+                                ),
+                                Card(
+                                  color: Color.fromARGB(255, 134, 207, 247),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(5),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
+                                    child: Text(
+                                      'Fractional Real Estate',
+                                      style: blackStyle12(),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5.h,
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    'Vaishnavi Tech Park Opportunity',
+                                    style: blackStyle16(),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 5.h,
+                                ),
+                                Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Flexible(
+                                      child: Icon(
+                                        Icons.location_on_outlined,
+                                        size: 18.sm,
+                                        color: Color(0xFF707070),
+                                      ),
+                                    ),
+                                    // SizedBox(
+                                    //   width: 4.w,
+                                    // ),
+                                    Flexible(
+                                      flex: 4,
+                                      child: Text(
+                                        'Outer Ring Road Sarjapur, Bangalore',
+                                        style: blackStyle12().copyWith(
+                                          color: Color(0xFF707070),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                SizedBox(
+                                  height: 8.h,
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               SizedBox(
-                height: 10.h,
+                height: 20.h,
               ),
               Card(
                 shape: RoundedRectangleBorder(
@@ -995,78 +980,125 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
               SizedBox(
-                height: 10.h,
+                height: 20.h,
               ),
-              Padding(
-                padding:
-                    EdgeInsets.only(left: 12.0, top: 15, bottom: 14, right: 12),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(
-                          width: 3.w,
-                        ),
-                        Text(
-                          "Trending news",
-                          style:
-                              TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 8.h,
-                    ),
-                    Card(
-                      elevation: 2,
-                      color: Color(0xFFFFFFFF),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: 3.w,
                       ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            top: 14.0, left: 15, right: 15, bottom: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
+                      Text(
+                        "Trending news",
+                        style:
+                            TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 8.h,
+                  ),
+                  Card(
+                    elevation: 2,
+                    color: Color(0xFFFFFFFF),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          top: 14.0, left: 10, right: 15, bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            height: 71.h,
+                            width: 80.w,
+                            child: Image.asset("assets/images/na_april_69.jpg"),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Retail banks wake up to digital",
+                                style: blackStyle14(),
                               ),
-                              height: 71.h,
-                              width: 70.w,
-                              child:
-                                  Image.asset("assets/images/na_april_69.jpg"),
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Retail banks wake up to digital",
-                                  style: blackStyle14(),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.calendar_today_outlined,
-                                      size: 14,
-                                    ),
-                                    Text(
-                                      "October 17 , 2022",
-                                      style: blackStyle12(),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ],
-                        ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.calendar_today_outlined,
+                                    size: 14,
+                                  ),
+                                  Text(
+                                    "October 17 , 2022",
+                                    style: blackStyle12(),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                  SizedBox(
+                    height: 6.h,
+                  ),
+                  Card(
+                    elevation: 2,
+                    color: Color(0xFFFFFFFF),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                          top: 14.0, left: 10, right: 15, bottom: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            height: 71.h,
+                            width: 80.w,
+                            child: Image.asset("assets/images/na_april_69.jpg"),
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Retail banks wake up to digital",
+                                style: blackStyle14(),
+                              ),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.calendar_today_outlined,
+                                    size: 14,
+                                  ),
+                                  Text(
+                                    "October 17 , 2022",
+                                    style: blackStyle12(),
+                                  ),
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  )
+                ],
               ),
             ],
           ),

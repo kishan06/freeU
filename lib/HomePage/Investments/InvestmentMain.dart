@@ -155,10 +155,9 @@ class _InvestmentMainState extends State<InvestmentMain> {
                         Radius.circular(10),
                       ),
                     ),
-                    height: 60.h,
-                    width: 105.w,
                     child: Padding(
-                      padding: EdgeInsets.only(left: 8.0),
+                      padding: EdgeInsets.only(
+                          left: 8.0, right: 8.0, top: 4.0, bottom: 4.0),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,

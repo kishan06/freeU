@@ -128,7 +128,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      backgroundColor: Color(0xFFFFFBF0),
+      backgroundColor: Color(0xFFF5F8FA),
       drawer: NavDrawer(),
       appBar: AppBar(
         title: Text(
@@ -193,7 +193,7 @@ class _ChatPageState extends State<ChatPage> {
                         size: 20,
                       ),
                       filled: true,
-                      fillColor: Colors.grey.shade200,
+                      fillColor: Colors.white,
                       contentPadding: EdgeInsets.all(8),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20),

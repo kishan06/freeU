@@ -75,6 +75,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
         Get.focusScope?.unfocus();
       },
       child: Scaffold(
+        backgroundColor: Color(0xFFF5F8FA),
         appBar: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
@@ -166,7 +167,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                                       topLeft: Radius.circular(30),
                                       bottomRight: Radius.circular(30),
                                     ),
-                                    color: Color(0xFFFFB600)),
+                                    color: Color(0xFFCFEFFF)),
                                 padding: EdgeInsets.all(16),
                                 child: Text(
                                   messages[index].messageContent,
@@ -193,7 +194,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                                     bottomLeft: Radius.circular(30),
                                     topRight: Radius.circular(30),
                                   ),
-                                  color: Color(0xFF143C6D),
+                                  color: Color(0xFF1B8DC9),
                                 ),
                                 padding: EdgeInsets.all(16),
                                 child: Text(
@@ -232,7 +233,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         height: 30,
                         width: 30,
                         decoration: BoxDecoration(
-                          color: Color(0xFFFFB600),
+                          color: Color(0xFFCFEFFF),
                           borderRadius: BorderRadius.circular(30),
                         ),
                         child: Icon(
@@ -263,7 +264,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         color: Colors.white,
                         size: 18,
                       ),
-                      backgroundColor: Color(0xFFFFB600),
+                      backgroundColor: Color(0xFFCFEFFF),
                       elevation: 0,
                     ),
                   ],

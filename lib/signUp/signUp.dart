@@ -411,7 +411,7 @@ class _SignUpState extends State<SignUp> {
                                     child: Text(
                                       "show",
                                       style: TextStyle(
-                                        color: Color(0xFF1B8DC9),
+                                        color: Colors.black,
                                       ),
                                     ),
                                   ),
