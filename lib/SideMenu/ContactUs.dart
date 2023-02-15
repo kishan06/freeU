@@ -124,7 +124,18 @@ class _ContactUsState extends State<ContactUs> {
                       hintText: "Please Enter Subject",
                       validatorText: "Please Enter Subject"),
                   SizedBox(
-                    height: 8.h,
+                    height: 20.h,
+                  ),
+                  Text(
+                    "Message",
+                    // ignore: prefer_const_constructors
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 15.sm,
+                        color: Color(0xff303030)),
+                  ),
+                  SizedBox(
+                    height: 6.h,
                   ),
                   TextFormField(
                     style: TextStyle(fontSize: 16, fontFamily: "Poppins"),

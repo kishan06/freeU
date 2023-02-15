@@ -156,7 +156,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                                 height: 40,
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.circular(100),
-                                  child: Image.asset('assets/images/1.jpg'),
+                                  child: Image.asset('assets/images/chat-icon.png'),
                                 ),
                               ),
                               SizedBox(width: 10),

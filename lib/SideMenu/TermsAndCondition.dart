@@ -40,9 +40,9 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                   '1. Terms',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 20,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
@@ -78,9 +78,9 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                   '2. Limitations',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 20,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
@@ -116,9 +116,9 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                   '3. Revisions and Errata',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 20,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
@@ -141,9 +141,9 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                   '4. Site Terms of Use Modifications',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 20,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(

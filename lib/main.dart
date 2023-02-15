@@ -30,6 +30,7 @@ import 'package:freeu/SideMenu/InsightsInner.dart';
 import 'package:freeu/SideMenu/insights.dart';
 import 'package:freeu/SideMenu/security.dart';
 import 'package:freeu/SideMenu/UpdateRiskProfile.dart';
+import 'package:freeu/SideMenu/user_logged.dart';
 import 'package:freeu/login/OTPVerification.dart';
 import 'package:freeu/login/PhoneVerification.dart';
 import 'package:freeu/login/forgotPassword.dart';
@@ -139,6 +140,7 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/kyctab2', page: () => KYCTabs2()),
           GetPage(name: '/kyctab3', page: () => KYCTabs3()),
           GetPage(name: '/kyctab4', page: () => KYCTabs4()),
+          GetPage(name: '/userlogged', page: () => User()),
         ],
       ),
       designSize: Size(390, 844),

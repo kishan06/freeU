@@ -59,6 +59,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                       ),
                     ],
                   ),
+                  SizedBox(height: 25.h,),
                   SvgPicture.asset(
                     'assets/images/risk.svg',
                     // width: 120.w,
@@ -208,10 +209,50 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                     height: 60.h,
                   ),
                   CustomNextButton(
-                      ontap: (() {
-                        Navigator.pop(context);
-                      }),
-                      text: "Update"),
+                      ontap: () {
+                  showModalBottomSheet(
+                    isScrollControlled: true,
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(30),
+                        topRight: Radius.circular(30),
+                      ),
+                    ),
+                    builder: (context) {
+                      return Container(
+                        margin: const EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 24),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Image.asset('assets/images/kyc.png'),
+                            SizedBox(
+                              height: 30.h,
+                            ),
+                            Center(
+                              child: Text(
+                                'Thankyou for updating\n your KYC',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20,
+                                    color: Colors.black),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  );
+                },
+                      text: "Submit"),
                 ],
               ),
             ),

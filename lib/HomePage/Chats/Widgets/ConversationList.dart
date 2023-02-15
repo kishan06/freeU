@@ -35,9 +35,13 @@ class _ConversationListState extends State<ConversationList> {
         padding:
             const EdgeInsets.only(left: 16, right: 16, top: 10, bottom: 10),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
-              child: Row(
+              child: Row
+              
+              (
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   CircleAvatar(
                     backgroundImage: AssetImage(widget.imageUrl),
@@ -54,10 +58,10 @@ class _ConversationListState extends State<ConversationList> {
                         children: <Widget>[
                           Text(
                             widget.name,
-                            style: TextStyle(fontSize: 16.sm),
+                            style: TextStyle(fontSize: 17.sm),
                           ),
                           const SizedBox(
-                            height: 6,
+                            height: 7,
                           ),
                           Text(
                             widget.messageText,
@@ -83,9 +87,13 @@ class _ConversationListState extends State<ConversationList> {
                       ? FontWeight.bold
                       : FontWeight.normal),
             ),
+             
           ],
+          
         ),
+        
       ),
+      
     );
   }
 }

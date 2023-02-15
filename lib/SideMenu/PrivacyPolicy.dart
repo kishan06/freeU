@@ -40,9 +40,9 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   '1. What Information Does the Service Collect?',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 20,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
@@ -78,9 +78,9 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   '2. Information You Provide About a Third Party',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 20,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
@@ -116,9 +116,9 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   '3. Revisions and Errata',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 20,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
@@ -141,9 +141,9 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   '4. How Do We Use the Information Collected?',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                      fontSize: 19,
+                      fontSize: 20,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(

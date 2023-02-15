@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, avoid_print, duplicate_ignore, prefer_const_literals_to_create_immutables, unused_import
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/SideMenu/user_logged.dart';
@@ -12,6 +15,8 @@ import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/profile/kyctabs2.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/get_navigation.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../common/CustomTextDropDown.dart';
 
@@ -103,13 +108,13 @@ class _ProfileState extends State<Profile> {
           leading: Row(
             children: [
               IconButton(
-                onPressed: () {
-                  _key.currentState!.openDrawer();
-                },
-                icon: SvgPicture.asset("assets/images/menu.svg"),
-                color: Colors.black,
-                iconSize: 25,
-              ),
+              onPressed: () {
+                _key.currentState!.openDrawer();
+              },
+              icon: SvgPicture.asset("assets/images/menu.svg"),
+              color: Colors.black,
+              iconSize: 25,
+            ),
             ],
           ),
           bottom: const TabBar(
@@ -157,6 +162,100 @@ class profiletab extends StatefulWidget {
 
 class _profiletabState extends State<profiletab> {
   bool isSwitched = false;
+  File? _image;
+
+  Future getImage(ImageSource source) async {
+    try {
+      final image = await ImagePicker().pickImage(source: source);
+      if (image == null) return;
+      final imageTemporary = File(image.path);
+      // final imagePermanent = await saveFilePermanently(image.path);
+
+      setState(() {
+        this._image = imageTemporary;
+      });
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+  Future<File> saveFilePermanently(String imagePath) async {
+    final directory = await getApplicationDocumentsDirectory();
+    return File(imagePath).copy(imagePath);
+  }
+
+  builduploadprofile() {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      builder: (context) {
+        return Container(
+          height: 100,
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          child: Padding(
+            padding: EdgeInsets.only(
+                bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    GestureDetector(
+                      onTap: () => getImage(ImageSource.camera),
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.camera,
+                            size: 30,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Camera',
+                            style: TextStyle(fontSize: 15),
+                          )
+                        ],
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () => getImage(ImageSource.camera),
+                      child: Column(
+                        children: [
+                          Icon(
+                            Icons.image,
+                            size: 30,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'Gallery',
+                            style: TextStyle(fontSize: 15),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -169,38 +268,38 @@ class _profiletabState extends State<profiletab> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  width: double.infinity,
-                  child: SizedBox(
-                    height: 115,
-                    width: 115,
-                    child: Stack(
+                Center(
+                  child: Stack(
                       clipBehavior: Clip.none,
-                      fit: StackFit.expand,
+                      alignment: Alignment.center,
                       children: [
-                        CircleAvatar(
-                          backgroundImage: AssetImage(
-                            "assets/images/team02.png",
-                          ),
+                        ClipOval(
+                          child: SizedBox.fromSize(
+                              size: Size.fromRadius(70),
+                              child: _image != null
+                                  ? Image.file(
+                                      _image!,
+                                      width: 200,
+                                      height: 200,
+                                      fit: BoxFit.cover,
+                                    )
+                                  : Image.asset('assets/images/user.png')),
                         ),
                         Positioned(
-                            right: -16,
-                            bottom: 0,
-                            child: SizedBox(
-                                height: 46,
-                                width: 46,
-                                child: FlatButton(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(50),
-                                    side: BorderSide(color: Color(0xFF0E0A0A)),
-                                  ),
-                                  color: Color(0xFF17181A),
-                                  onPressed: () {},
-                                  child: Center(child: Icon(Icons.camera)),
-                                )))
-                      ],
-                    ),
-                  ),
+                          top: 110,
+                          right: 10,
+                          child: GestureDetector(
+                            onTap: () {
+                              builduploadprofile();
+                            },
+                            child: CircleAvatar(
+                              child: Icon(
+                                Icons.edit,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ]),
                 ),
                 Container(
                   width: double.infinity,
@@ -315,17 +414,17 @@ class _profiletabState extends State<profiletab> {
                     filled: true,
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
                           color: Color(0xFF707070).withOpacity(0), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
                           color: Color(0xFF707070).withOpacity(0), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(30),
+                      borderRadius: BorderRadius.circular(10),
                       borderSide: BorderSide(
                           color: Color(0xFF707070).withOpacity(0), width: 1),
                     ),
@@ -344,6 +443,11 @@ class _profiletabState extends State<profiletab> {
                   minLines: 5,
                   maxLines: null,
                 ),
+                SizedBox(height: 30.h,),
+                CustomNextButton(text: 'Submit',
+                ontap: (() {
+                  
+                }),)
               ],
             ),
           ),
