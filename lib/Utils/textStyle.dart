@@ -24,3 +24,10 @@ TextStyle blackStyle16() => TextStyle(
       fontFamily: 'Poppins',
       fontSize: 16.sm,
     );
+
+TextStyle blackStyle20() => TextStyle(
+      color: Colors.black,
+      fontWeight: FontWeight.w400,
+      fontFamily: 'Poppins',
+      fontSize: 20.sm,
+    );

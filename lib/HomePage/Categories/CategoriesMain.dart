@@ -78,7 +78,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
     return Scaffold(
       key: _key,
       drawer: NavDrawer(),
-      backgroundColor: Color(0xFFFFFBF0),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: AppBar(
         title: Text(
           'Categories',
@@ -90,8 +90,8 @@ class _CategoriesMainState extends State<CategoriesMain> {
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),
-        backgroundColor: Colors.white,
-        elevation: 2,
+        backgroundColor: Color(0xFFF5F8FA),
+        elevation: 0,
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,

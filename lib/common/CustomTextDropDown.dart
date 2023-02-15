@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextDropdown extends StatefulWidget {
-  const CustomTextDropdown({
+  CustomTextDropdown({
     Key? key,
     this.hinttext,
     this.prefix,
@@ -12,6 +12,7 @@ class CustomTextDropdown extends StatefulWidget {
     this.outlineColor = const Color(0xFFFFB600),
     required this.controller,
     required this.showDropDown,
+    this.selectedValue,
     this.onInput,
   }) : super(key: key);
   final String? errortext;
@@ -22,6 +23,7 @@ class CustomTextDropdown extends StatefulWidget {
   final Color outlineColor;
   final List<String>? item;
   final void Function(String)? onInput;
+  String? selectedValue;
   @override
   State<CustomTextDropdown> createState() => _CustomTextDropdownState();
 }
@@ -31,9 +33,9 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> items =
-        widget.item ?? ['Reetik', 'Hemant', 'Salman', 'Kisan', 'Chinmay'];
-    String? selectedValue;
+    // final List<String> items =
+    //     widget.item ?? ['Reetik', 'Hemant', 'Salman', 'Kisan', 'Chinmay'];
+
     return Column(
       children: [
         // SizedBox(
@@ -128,7 +130,7 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
                 children: [
                   Expanded(
                     child: Text(
-                      'Select Item',
+                      widget.selectedValue ?? "Select",
                       style: TextStyle(
                         fontSize: 14.sm,
                         color: Colors.black,
@@ -139,14 +141,14 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
                 ],
               ),
               buttonPadding: const EdgeInsets.only(left: 10, right: 14),
-              value: selectedValue,
+              value: widget.selectedValue,
               onChanged: (value) {
                 setState(() {
-                  selectedValue = value;
+                  widget.selectedValue = value;
                 });
               },
               isExpanded: true,
-              items: items
+              items: widget.item!
                   .map((item) => DropdownMenuItem<String>(
                         value: item,
                         child: Text(

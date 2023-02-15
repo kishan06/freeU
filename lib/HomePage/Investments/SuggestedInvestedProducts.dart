@@ -88,13 +88,14 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
     return Scaffold(
       key: _key,
       drawer: NavDrawer(),
-      backgroundColor: Color(0xFFFFFBF0),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "Suggested Invested Products",
         showLeading: true,
         bottomtext: false,
       ),
-      bottomNavigationBar: CreateBottomBar(stateBottomNav, "", context),
+      bottomNavigationBar:
+          CreateBottomBar(stateBottomNav, "bottombar", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 16.0, right: 16),
@@ -137,7 +138,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               "Vaishnavi Tech Park",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -149,7 +152,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -157,7 +160,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -189,30 +194,37 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
-                            SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 15.h,
+                            ),
+                            SizedBox(
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
-                                onPressed: () {},
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -255,7 +267,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               "Making India Atmanirbhar",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -267,7 +281,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -275,7 +289,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -307,29 +323,37 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
-                            SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 15.h,
+                            ),
+                            SizedBox(
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
-                                onPressed: () {},
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -373,7 +397,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               "Vaishnavi Tech Park",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -385,7 +411,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -393,7 +419,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -425,29 +453,37 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
-                            SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 15.h,
+                            ),
+                            SizedBox(
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
-                                onPressed: () {},
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -490,7 +526,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               "Making India Atmanirbhar",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -502,7 +540,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -510,7 +548,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -542,29 +582,37 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
-                            SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 15.h,
+                            ),
+                            SizedBox(
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
-                                onPressed: () {},
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -608,7 +656,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               "Vaishnavi Tech Park",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -620,7 +670,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -628,7 +678,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -660,29 +712,37 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
-                            SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 15.h,
+                            ),
+                            SizedBox(
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
-                                onPressed: () {},
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -725,7 +785,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               "Making India Atmanirbhar",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -737,7 +799,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -745,7 +807,9 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -777,29 +841,37 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
-                            SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 15.h,
+                            ),
+                            SizedBox(
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
-                                onPressed: () {},
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )

@@ -84,6 +84,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFF5F8FA),
       key: _key,
       drawer: NavDrawer(),
       //  backgroundColor: Color(0xFFFFFBF0),
@@ -98,8 +99,8 @@ class _InvestmentMainState extends State<InvestmentMain> {
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),
-        backgroundColor: Colors.white,
-        elevation: 2,
+        backgroundColor: Color(0xFFF5F8FA),
+        elevation: 0,
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
@@ -189,7 +190,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                 ),
                 child: Padding(
                   padding:
-                      EdgeInsets.only(left: 12, right: 12, top: 15, bottom: 15),
+                      EdgeInsets.only(left: 11, right: 11, top: 15, bottom: 15),
                   child: Column(
                     children: [
                       Row(
@@ -210,7 +211,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                               "View All",
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 18.sm,
+                                fontSize: 16.sm,
                               ),
                             ),
                           )
@@ -224,34 +225,34 @@ class _InvestmentMainState extends State<InvestmentMain> {
                         children: [
                           Flexible(
                             fit: FlexFit.tight,
-                            flex: 3,
+                            flex: 4,
                             child: Text(
                               "Product",
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 18.sm,
+                                fontSize: 16.sm,
                               ),
                             ),
                           ),
                           Flexible(
                             fit: FlexFit.tight,
-                            flex: 3,
+                            flex: 4,
                             child: Text(
                               "Profit & Loss",
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 18.sm,
+                                fontSize: 16.sm,
                               ),
                             ),
                           ),
                           Flexible(
                             fit: FlexFit.tight,
-                            flex: 0,
+                            flex: 2,
                             child: Text(
                               "Action",
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 18.sm,
+                                fontSize: 16.sm,
                               ),
                             ),
                           )
@@ -270,6 +271,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                               "Embassy Business Hub",
                               style: TextStyle(
                                 fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
                                 fontSize: 14.sm,
                               ),
                             ),
@@ -280,31 +282,32 @@ class _InvestmentMainState extends State<InvestmentMain> {
                             child: Text(
                               "+₹25,000",
                               style: TextStyle(
+                                fontWeight: FontWeight.w300,
                                 fontFamily: 'Poppins',
                                 fontSize: 14.sm,
                               ),
                             ),
                           ),
                           Flexible(
-                            fit: FlexFit.tight,
-                            flex: 0,
+                            fit: FlexFit.loose,
+                            flex: 2,
                             child: SizedBox(
-                              height: 22.h,
-                              width: 55.w,
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
                                 child: Text(
                                   "Sell",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       fontSize: 14.sm),
                                 ),
                                 onPressed: () {
@@ -327,6 +330,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                             child: Text(
                               "Embassy Business Hub",
                               style: TextStyle(
+                                fontWeight: FontWeight.w300,
                                 fontFamily: 'Poppins',
                                 fontSize: 14.sm,
                               ),
@@ -338,31 +342,32 @@ class _InvestmentMainState extends State<InvestmentMain> {
                             child: Text(
                               "+₹25,000",
                               style: TextStyle(
+                                fontWeight: FontWeight.w300,
                                 fontFamily: 'Poppins',
                                 fontSize: 14.sm,
                               ),
                             ),
                           ),
                           Flexible(
-                            fit: FlexFit.tight,
-                            flex: 0,
+                            fit: FlexFit.loose,
+                            flex: 2,
                             child: SizedBox(
-                              height: 22.h,
-                              width: 55.w,
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
                                 child: Text(
                                   "Sell",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       fontSize: 14.sm),
                                 ),
                                 onPressed: () {
@@ -385,6 +390,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                             child: Text(
                               "Embassy Business Hub",
                               style: TextStyle(
+                                fontWeight: FontWeight.w300,
                                 fontFamily: 'Poppins',
                                 fontSize: 14.sm,
                               ),
@@ -397,30 +403,31 @@ class _InvestmentMainState extends State<InvestmentMain> {
                               "+₹25,000",
                               style: TextStyle(
                                 fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w300,
                                 fontSize: 14.sm,
                               ),
                             ),
                           ),
                           Flexible(
-                            fit: FlexFit.tight,
-                            flex: 0,
+                            fit: FlexFit.loose,
+                            flex: 2,
                             child: SizedBox(
-                              height: 22.h,
-                              width: 55.w,
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
                                 child: Text(
                                   "Sell",
                                   style: TextStyle(
                                       fontFamily: "Poppins",
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       fontSize: 14.sm),
                                 ),
                                 onPressed: () {
@@ -440,308 +447,257 @@ class _InvestmentMainState extends State<InvestmentMain> {
               ),
               Card(
                 shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Color(0xFFFFB600),
-                  ),
                   borderRadius: BorderRadius.circular(15),
                 ),
                 child: Padding(
                   padding:
-                      EdgeInsets.only(left: 12, right: 12, top: 15, bottom: 15),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Previously Invested Products",
+                      EdgeInsets.only(left: 11, right: 11, top: 15, bottom: 15),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Previously Invested Products",
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 18.sm,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed('/previouslyinvestedproducts');
+                            },
+                            child: Text(
+                              "View All",
                               style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 18.sm,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            SizedBox(
-                              width: 60.w,
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed('/previouslyinvestedproducts');
-                              },
-                              child: Text(
-                                "View All",
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 18.sm,
-                                ),
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sm,
                               ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: 340.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 2,
-                                  child: Text(
-                                    "Product",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.loose,
-                                  flex: 4,
-                                  child: Text(
-                                    "Profit & Loss",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 2,
-                                  child: Text(
-                                    "Tenure",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 0,
-                                  child: Text(
-                                    "Action",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.sm,
-                                    ),
-                                  ),
-                                )
-                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Product",
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sm,
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: 340.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 4,
-                                  child: Text(
-                                    "Embassy Business Hub",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 3,
-                                  child: Text(
-                                    "+₹25,000",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 2,
-                                  child: Text(
-                                    "3-6 months",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                    fit: FlexFit.tight,
-                                    flex: 0,
-                                    child: GestureDetector(
-                                      onTap: () {},
-                                      child: Container(
-                                        height: 25.h,
-                                        width: 70.w,
-                                        decoration: BoxDecoration(
-                                            color: Color(0xFFFFB600),
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(15))),
-                                        child: Center(
-                                            child: Text(
-                                          "Download",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 14.sm),
-                                        )),
-                                      ),
-                                    )),
-                              ],
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Profit & Loss",
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sm,
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: 340.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 4,
-                                  child: Text(
-                                    "Embassy Business Hub",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 3,
-                                  child: Text(
-                                    "+₹25,000",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 2,
-                                  child: Text(
-                                    "3-6 months",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                GestureDetector(
-                                  onTap: () {},
-                                  child: Container(
-                                    height: 25.h,
-                                    width: 70.w,
-                                    decoration: BoxDecoration(
-                                        color: Color(0xFFFFB600),
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(15))),
-                                    child: Center(
-                                        child: Text(
-                                      "Download",
-                                      style: TextStyle(
-                                          fontFamily: "Poppins",
-                                          fontSize: 14.sm),
-                                    )),
-                                  ),
-                                )
-                              ],
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 2,
+                            child: Text(
+                              "Action",
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sm,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Embassy Business Hub",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: 340.w,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 4,
-                                  child: Text(
-                                    "Embassy\nBusiness Hub",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 3,
-                                  child: Text(
-                                    "+₹25,000",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 2,
-                                  child: Text(
-                                    "3-6 months",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                    fit: FlexFit.tight,
-                                    flex: 0,
-                                    child: GestureDetector(
-                                      onTap: () {},
-                                      child: Container(
-                                        height: 25.h,
-                                        width: 70.w,
-                                        decoration: BoxDecoration(
-                                            color: Color(0xFFFFB600),
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(15))),
-                                        child: Center(
-                                            child: Text(
-                                          "Download",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 14.sm),
-                                        )),
-                                      ),
-                                    )),
-                              ],
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 3,
+                            child: Text(
+                              "+₹25,000",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                          Flexible(
+                            fit: FlexFit.loose,
+                            flex: 2,
+                            child: SizedBox(
+                              height: 35.h,
+                              width: 70.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  backgroundColor: Color(0xFF1B8DC9),
+                                  //  color: Color(0xFFFFB600),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
+                                ),
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 1,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Embassy Business Hub",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 3,
+                            child: Text(
+                              "+₹25,000",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            fit: FlexFit.loose,
+                            flex: 2,
+                            child: SizedBox(
+                              height: 35.h,
+                              width: 70.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  backgroundColor: Color(0xFF1B8DC9),
+                                  //  color: Color(0xFFFFB600),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
+                                ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 1,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Embassy Business Hub",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 3,
+                            child: Text(
+                              "+₹25,000",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            fit: FlexFit.loose,
+                            flex: 2,
+                            child: SizedBox(
+                              height: 35.h,
+                              width: 70.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  backgroundColor: Color(0xFF1B8DC9),
+                                  //  color: Color(0xFFFFB600),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
+                                ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -754,336 +710,253 @@ class _InvestmentMainState extends State<InvestmentMain> {
                 ),
                 child: Padding(
                   padding:
-                      EdgeInsets.only(left: 12, right: 12, top: 15, bottom: 15),
-                  child: SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Suggested Invested Products",
+                      EdgeInsets.only(left: 11, right: 11, top: 15, bottom: 15),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Suggested Invested Products",
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 18.sm,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed('/suggestedinvestedproducts');
+                            },
+                            child: Text(
+                              "View All",
                               style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 18.sm,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                            SizedBox(
-                              width: 55.w,
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed('/suggestedinvestedproducts');
-                              },
-                              child: Text(
-                                "View All",
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 18.sm,
-                                ),
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sm,
                               ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: 360.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 2,
-                                  child: Text(
-                                    "Product",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.loose,
-                                  flex: 4,
-                                  child: Text(
-                                    "Profit & Loss",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 2,
-                                  child: Text(
-                                    "Tenure",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 18.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 0,
-                                  child: Padding(
-                                    padding: EdgeInsets.only(right: 18.0),
-                                    child: Text(
-                                      "Action",
-                                      style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 18.sm,
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Product",
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sm,
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: 343.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 3,
-                                  child: Text(
-                                    "Embassy Business Hub",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.loose,
-                                  flex: 3,
-                                  child: Text(
-                                    "+₹25,000",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.loose,
-                                  flex: 3,
-                                  child: Text(
-                                    "3-6 months",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 0,
-                                  child: SizedBox(
-                                    height: 25.h,
-                                    width: 60.w,
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        elevation: 0,
-                                        backgroundColor: Color(0xFFFFB600),
-                                        //  color: Color(0xFFFFB600),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                        ),
-                                      ),
-                                      child: Text(
-                                        "Yes",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            color: Colors.black,
-                                            fontSize: 16.sm),
-                                      ),
-                                      onPressed: () {
-                                        // Get.toNamed(
-                                        //     '/fractionalrealestateproperty2');
-                                      },
-                                    ),
-                                  ),
-                                ),
-                              ],
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Profit & Loss",
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sm,
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: 343.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 3,
-                                  child: Text(
-                                    "Embassy Business Hub",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.loose,
-                                  flex: 3,
-                                  child: Text(
-                                    "+₹25,000",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.loose,
-                                  flex: 3,
-                                  child: Text(
-                                    "3-6 months",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 0,
-                                  child: SizedBox(
-                                    height: 25.h,
-                                    width: 60.w,
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        elevation: 0,
-                                        backgroundColor: Color(0xFFFFB600),
-                                        //  color: Color(0xFFFFB600),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                        ),
-                                      ),
-                                      child: Text(
-                                        "Yes",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            color: Colors.black,
-                                            fontSize: 16.sm),
-                                      ),
-                                      onPressed: () {
-                                        // Get.toNamed(
-                                        //     '/fractionalrealestateproperty2');
-                                      },
-                                    ),
-                                  ),
-                                ),
-                              ],
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 2,
+                            child: Text(
+                              "Action",
+                              style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sm,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 15,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Embassy Business Hub",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
                             ),
                           ),
-                        ),
-                        Divider(
-                          thickness: 1,
-                        ),
-                        SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: SizedBox(
-                            width: 343.w,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 3,
-                                  child: Text(
-                                    "Embassy Business Hub",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.loose,
-                                  flex: 3,
-                                  child: Text(
-                                    "+₹25,000",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.loose,
-                                  flex: 3,
-                                  child: Text(
-                                    "3-6 months",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                    ),
-                                  ),
-                                ),
-                                Flexible(
-                                  fit: FlexFit.tight,
-                                  flex: 0,
-                                  child: SizedBox(
-                                    height: 25.h,
-                                    width: 60.w,
-                                    child: ElevatedButton(
-                                      style: ElevatedButton.styleFrom(
-                                        elevation: 0,
-                                        backgroundColor: Color(0xFFFFB600),
-                                        //  color: Color(0xFFFFB600),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                        ),
-                                      ),
-                                      child: Text(
-                                        "Yes",
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            color: Colors.black,
-                                            fontSize: 16.sm),
-                                      ),
-                                      onPressed: () {
-                                        // Get.toNamed(
-                                        //     '/fractionalrealestateproperty2');
-                                      },
-                                    ),
-                                  ),
-                                ),
-                              ],
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 3,
+                            child: Text(
+                              "+₹25,000",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
-                    ),
+                          Flexible(
+                            fit: FlexFit.loose,
+                            flex: 2,
+                            child: SizedBox(
+                              height: 35.h,
+                              width: 70.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  backgroundColor: Color(0xFF1B8DC9),
+                                  //  color: Color(0xFFFFB600),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.thumb_up_alt_outlined,
+                                  color: Colors.white,
+                                ),
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 1,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Embassy Business Hub",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 3,
+                            child: Text(
+                              "+₹25,000",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            fit: FlexFit.loose,
+                            flex: 2,
+                            child: SizedBox(
+                              height: 35.h,
+                              width: 70.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  backgroundColor: Color(0xFF1B8DC9),
+                                  //  color: Color(0xFFFFB600),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.thumb_up_alt_outlined,
+                                  color: Colors.white,
+                                ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        thickness: 1,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 4,
+                            child: Text(
+                              "Embassy Business Hub",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            fit: FlexFit.tight,
+                            flex: 3,
+                            child: Text(
+                              "+₹25,000",
+                              style: TextStyle(
+                                fontWeight: FontWeight.w300,
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                              ),
+                            ),
+                          ),
+                          Flexible(
+                            fit: FlexFit.loose,
+                            flex: 2,
+                            child: SizedBox(
+                              height: 35.h,
+                              width: 70.w,
+                              child: ElevatedButton(
+                                style: ElevatedButton.styleFrom(
+                                  elevation: 0,
+                                  backgroundColor: Color(0xFF1B8DC9),
+                                  //  color: Color(0xFFFFB600),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                child: Icon(
+                                  Icons.thumb_up_alt_outlined,
+                                  color: Colors.white,
+                                ),
+                                onPressed: () {
+                                  Get.toNamed('/fractionalrealestateproperty2');
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),

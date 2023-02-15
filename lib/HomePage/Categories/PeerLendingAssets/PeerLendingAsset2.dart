@@ -79,7 +79,7 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
     return Scaffold(
       key: _key,
       drawer: NavDrawer(),
-      backgroundColor: Color(0xFFFFFBF0),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "Peer - Peer lending assets",
         showLeading: true,
@@ -92,7 +92,7 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
           // ClipRRect(
           //   borderRadius: BorderRadius.all(Radius.circular(30.r)),
           //  child:
-          CreateBottomBar(stateBottomNav, "", context),
+          CreateBottomBar(stateBottomNav, "bottombar", context),
       //   ),
       // ),
       body: SingleChildScrollView(

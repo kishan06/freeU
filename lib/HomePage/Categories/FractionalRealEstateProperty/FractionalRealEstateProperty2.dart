@@ -89,13 +89,14 @@ class _FractionalRealEstateProperty2State
     return Scaffold(
       key: _key,
       drawer: NavDrawer(),
-      backgroundColor: Color(0xFFFFFBF0),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "Fractional Real Estate properties",
         showLeading: true,
         bottomtext: false,
       ),
-      bottomNavigationBar: CreateBottomBar(stateBottomNav, "", context),
+      bottomNavigationBar:
+          CreateBottomBar(stateBottomNav, "bottombar", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 16.0, right: 16),
@@ -355,8 +356,8 @@ class _FractionalRealEstateProperty2State
                                         CrossAxisAlignment.center,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                        "assets/images/bulletpoint.png",
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
                                         width: 14.w,
                                       ),
                                       SizedBox(
@@ -374,8 +375,8 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                        "assets/images/bulletpoint.png",
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
                                         width: 14.w,
                                       ),
                                       SizedBox(
@@ -393,8 +394,8 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                        "assets/images/bulletpoint.png",
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
                                         width: 14.w,
                                       ),
                                       SizedBox(
@@ -415,8 +416,8 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                        "assets/images/bulletpoint.png",
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
                                         width: 14.w,
                                       ),
                                       SizedBox(
@@ -436,8 +437,8 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                        "assets/images/bulletpoint.png",
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
                                         width: 14.w,
                                       ),
                                       SizedBox(
@@ -460,8 +461,8 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                        "assets/images/bulletpoint.png",
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
                                         width: 14.w,
                                       ),
                                       SizedBox(
@@ -508,8 +509,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -525,8 +528,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -542,8 +547,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -562,8 +569,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -581,8 +590,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -600,8 +611,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -648,8 +661,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -665,8 +680,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -682,8 +699,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -702,8 +721,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -721,8 +742,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -740,8 +763,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -788,8 +813,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -805,8 +832,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -822,8 +851,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -842,8 +873,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -861,8 +894,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -880,8 +915,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -928,8 +965,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -945,8 +984,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -962,8 +1003,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -982,8 +1025,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -1001,8 +1046,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -1020,8 +1067,10 @@ class _FractionalRealEstateProperty2State
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      Image.asset(
-                                          "assets/images/bulletpoint.png"),
+                                      SvgPicture.asset(
+                                        "assets/images/bullet point.svg",
+                                        width: 14.w,
+                                      ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
@@ -1049,226 +1098,209 @@ class _FractionalRealEstateProperty2State
                   SizedBox(
                     height: 10,
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(
-                        height: 40.h,
-                        width: 120.w,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Color(0xFFFFB600),
-                            //  color: Color(0xFFFFB600),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                    child: SizedBox(
+                      height: 40.h,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          backgroundColor: Color(0xFF1B8DC9),
+                          //  color: Color(0xFFFFB600),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
                           ),
-                          child: Text(
-                            "Invest Now",
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                color: Colors.black,
-                                fontSize: 14.sm),
-                          ),
-                          onPressed: () {
-                            showModalBottomSheet(
-                              backgroundColor: Colors.white,
-                              isScrollControlled: true,
-                              context: context,
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(30),
-                                  topRight: Radius.circular(30),
-                                ),
+                        ),
+                        child: Text(
+                          "Invest Now",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              color: Colors.white,
+                              fontSize: 14.sm),
+                        ),
+                        onPressed: () {
+                          showModalBottomSheet(
+                            backgroundColor: Colors.white,
+                            isScrollControlled: true,
+                            context: context,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(30),
+                                topRight: Radius.circular(30),
                               ),
-                              builder: (context) {
-                                return Stack(
-                                    clipBehavior: Clip.none,
+                            ),
+                            builder: (context) {
+                              return Stack(clipBehavior: Clip.none, children: [
+                                Container(
+                                  margin: const EdgeInsets.symmetric(
+                                      horizontal: 16, vertical: 24),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    mainAxisSize: MainAxisSize.min,
                                     children: [
-                                      Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 16, vertical: 24),
-                                        child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Center(
-                                              child: Text(
-                                                "Thank You For Showing Your Interest",
-                                                style: TextStyle(
-                                                    color: Color(0xFF444444),
-                                                    fontFamily: "Poppins",
-                                                    fontSize: 20.sm,
-                                                    fontWeight:
-                                                        FontWeight.w600),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 20.h,
-                                            ),
-                                            SizedBox(
-                                              height: 100,
-                                              width: 330,
-                                              child: Card(
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(10),
-                                                ),
-                                                color: Color(0xFFF9F9F9),
-                                                child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      left: 20.0,
-                                                      right: 30,
-                                                      top: 12,
-                                                      bottom: 12),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            "Category",
-                                                            style: TextStyle(
-                                                                color: Color(
-                                                                    0xFF444444),
-                                                                fontFamily:
-                                                                    "Poppins",
-                                                                fontSize: 18.sm,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                          ),
-                                                          SizedBox(
-                                                            height: 10.h,
-                                                          ),
-                                                          Image.asset(
-                                                              "assets/images/myrelogo.png")
-                                                        ],
-                                                      ),
-                                                      Column(
-                                                        crossAxisAlignment:
-                                                            CrossAxisAlignment
-                                                                .start,
-                                                        mainAxisAlignment:
-                                                            MainAxisAlignment
-                                                                .start,
-                                                        children: [
-                                                          Text(
-                                                            "Product",
-                                                            style: TextStyle(
-                                                                color: Color(
-                                                                    0xFF444444),
-                                                                fontFamily:
-                                                                    "Poppins",
-                                                                fontSize: 18.sm,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600),
-                                                          ),
-                                                          Text(
-                                                            "Vaishnavi Tech\nPark Opportunity",
-                                                            style: TextStyle(
-                                                              color: Color(
-                                                                  0xFF444444),
-                                                              fontFamily:
-                                                                  "Poppins",
-                                                              fontSize: 16.sm,
-                                                            ),
-                                                          )
-                                                        ],
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 15.h,
-                                            ),
-                                            SizedBox(
-                                              height: 100,
-                                              width: 330,
-                                              child: Card(
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(10),
-                                                ),
-                                                color: Color(0xFFF9F9F9),
-                                                child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      left: 12.0,
-                                                      right: 12,
-                                                      top: 12,
-                                                      bottom: 12),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
-                                                    children: [
-                                                      Image.asset(
-                                                          "assets/images/freeulogoblue.png"),
-                                                      Text(
-                                                        "A FreeU Advisory Team\nwill get back to you\nsoon via call or email",
-                                                        style: TextStyle(
+                                      Center(
+                                        child: Text(
+                                          "Thank You For Showing Your Interest",
+                                          style: TextStyle(
+                                              color: Color(0xFF444444),
+                                              fontFamily: "Poppins",
+                                              fontSize: 18.sm,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 20.h,
+                                      ),
+                                      SizedBox(
+                                        height: 100,
+                                        width: 330,
+                                        child: Card(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          color: Color(0xFFF9F9F9),
+                                          child: Padding(
+                                            padding: EdgeInsets.only(
+                                                left: 20.0,
+                                                right: 30,
+                                                top: 12,
+                                                bottom: 12),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "Category",
+                                                      style: TextStyle(
                                                           color:
                                                               Color(0xFF444444),
                                                           fontFamily: "Poppins",
-                                                          fontSize: 16.sm,
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
+                                                          fontSize: 14.sm,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                    ),
+                                                    SizedBox(
+                                                      height: 10.h,
+                                                    ),
+                                                    Image.asset(
+                                                        "assets/images/myrelogo.png")
+                                                  ],
                                                 ),
-                                              ),
+                                                Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.start,
+                                                  children: [
+                                                    Text(
+                                                      "Product",
+                                                      style: TextStyle(
+                                                          color:
+                                                              Color(0xFF444444),
+                                                          fontFamily: "Poppins",
+                                                          fontSize: 14.sm,
+                                                          fontWeight:
+                                                              FontWeight.w500),
+                                                    ),
+                                                    Text(
+                                                      "Vaishnavi Tech\nPark Opportunity",
+                                                      style: TextStyle(
+                                                        color:
+                                                            Color(0xFF444444),
+                                                        fontFamily: "Poppins",
+                                                        fontSize: 12.sm,
+                                                      ),
+                                                    )
+                                                  ],
+                                                )
+                                              ],
                                             ),
-                                            SizedBox(
-                                              height: 25.h,
-                                            ),
-                                            SizedBox(
-                                              width: 250.w,
-                                              height: 50.h,
-                                              child: ElevatedButton(
-                                                style: ElevatedButton.styleFrom(
-                                                  elevation: 0,
-                                                  backgroundColor:
-                                                      Color(0xFFFFB600),
-                                                  //  color: Color(0xFFFFB600),
-                                                  shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            30),
-                                                  ),
-                                                ),
-                                                child: Text(
-                                                  "Show more products",
-                                                  style: TextStyle(
-                                                      fontFamily: "Poppins",
-                                                      color: Colors.black,
-                                                      fontSize: 18.sm),
-                                                ),
-                                                onPressed: () {},
-                                              ),
-                                            ),
-                                          ],
+                                          ),
                                         ),
                                       ),
-                                    ]);
-                              },
-                            );
-                          },
-                        ),
+                                      SizedBox(
+                                        height: 15.h,
+                                      ),
+                                      SizedBox(
+                                        height: 100,
+                                        width: 330,
+                                        child: Card(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                          ),
+                                          color: Color(0xFFF9F9F9),
+                                          child: Padding(
+                                            padding: EdgeInsets.only(
+                                                left: 12.0,
+                                                right: 12,
+                                                top: 12,
+                                                bottom: 12),
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              children: [
+                                                Image.asset(
+                                                    "assets/images/freeulogoblue.png"),
+                                                Text(
+                                                  "A FreeU Advisory Team\nwill get back to you\nsoon via call or email",
+                                                  style: TextStyle(
+                                                    color: Color(0xFF444444),
+                                                    fontFamily: "Poppins",
+                                                    fontSize: 12.sm,
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 25.h,
+                                      ),
+                                      SizedBox(
+                                        width: 250.w,
+                                        height: 50.h,
+                                        child: ElevatedButton(
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 0,
+                                            backgroundColor: Color(0xFF1B8DC9),
+                                            //  color: Color(0xFFFFB600),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
+                                            ),
+                                          ),
+                                          child: Text(
+                                            "Show more products",
+                                            style: TextStyle(
+                                                fontFamily: "Poppins",
+                                                color: Colors.white,
+                                                fontSize: 18.sm),
+                                          ),
+                                          onPressed: () {},
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ]);
+                            },
+                          );
+                        },
                       ),
-                    ],
+                    ),
                   ),
                   SizedBox(
                     height: 20,
