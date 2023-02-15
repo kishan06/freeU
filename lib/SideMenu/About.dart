@@ -69,72 +69,69 @@ class _AboutState extends State<About> {
               ),
               Row(
                 children: [
-                  Expanded(
-                      child: Row(
+                  Image.asset(
+                    'assets/images/13536.png',
+                    width: 60.w,
+                  ),
+                  SizedBox(
+                    width: 15.w,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      Image.asset(
-                        'assets/images/13536.png',
-                        width: 40.w,
+                      Text(
+                        'Experience',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 18.sm,
+                        ),
                       ),
-                      SizedBox(
-                        width: 10.w,
+                      Text(
+                        'Our Great team of more than\n1400 Software experts',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 14.sm,
+                        ),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          Text(
-                            'Experience',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 15.sm,
-                            ),
-                          ),
-                          Text(
-                            'Our Great team of more than\n1400 Software experts',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 8.sm,
-                            ),
-                          ),
-                        ],
-                      )
                     ],
-                  )),
-                  Expanded(
-                      child: Row(
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              Row(
+                children: [
+                  Image.asset(
+                    'assets/images/13540.png',
+                    width: 60.w,
+                  ),
+                  SizedBox(
+                    width: 15,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    // ignore: prefer_const_literals_to_create_immutables
                     children: [
-                      Image.asset(
-                        'assets/images/13540.png',
-                        width: 40.w,
+                      Text(
+                        'Quick Support',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
                       ),
-                      SizedBox(
-                        width: 10,
+                      Text(
+                        "We'll help you test bold new\nideas while Sharing your",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 14,
+                        ),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        // ignore: prefer_const_literals_to_create_immutables
-                        children: [
-                          Text(
-                            'Quick Support',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 15,
-                            ),
-                          ),
-                          Text(
-                            "We'll help you test bold new\nideas while Sharing your",
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 8,
-                            ),
-                          ),
-                        ],
-                      )
                     ],
-                  ))
+                  )
                 ],
               ),
               SizedBox(
@@ -169,27 +166,22 @@ class _AboutState extends State<About> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Expanded(
-                    flex: 2,
-                    child: Image.asset(
-                      'assets/images/team01.png',
-                      // height: 180.h,
-                      width: 100.w,
-                    )),
+                      flex: 2,
+                      child: Image.asset(
+                        'assets/images/team01.png',
+                        // height: 180.h,
+                        width: 100.w,
+                      )),
                   SizedBox(
                     width: 10.w,
                   ),
                   Flexible(
-                    flex: 4,
+                      flex: 4,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
                               'Lorem ipsum contains the type of face more in use an aspect that allows you to have an overviewed of the rendering of the text',
-                              style: TextStyle(
-                                  fontSize: 15, color: Color(0xff143C6D))),
-                          SizedBox(height: 8),
-                          Text(
-                              'When refering to Lorem ipsum, different expression are used namely fill.',
                               style: TextStyle(
                                   fontSize: 15, color: Color(0xff143C6D))),
                           SizedBox(height: 8),
@@ -200,8 +192,8 @@ class _AboutState extends State<About> {
                                   color: Color(0xff143C6D))),
                           Text(
                             '  Founder, CEO',
-                            style:
-                                TextStyle(fontSize: 13, color: Color(0xff143C6D)),
+                            style: TextStyle(
+                                fontSize: 13, color: Color(0xff143C6D)),
                           )
                         ],
                       ))
@@ -222,7 +214,7 @@ class _AboutState extends State<About> {
                 ),
               ),
               SizedBox(
-                height: 5,
+                height: 10,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -230,11 +222,20 @@ class _AboutState extends State<About> {
                   Expanded(
                     child: Container(
                         padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Color(0xFF707070),
-                            ),
-                            borderRadius: BorderRadius.circular(10)),
+                        decoration: const BoxDecoration(
+                          // borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                          color: Color(0xFFffffff),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(255, 189, 187, 187),
+                              blurRadius: 20.0, // soften the shadow
+                              spreadRadius: 1.0, //extend the shadow
+                            )
+                          ],
+                        ),
                         child: Column(
                           children: [
                             Image.asset('assets/images/team02.png'),
@@ -244,28 +245,40 @@ class _AboutState extends State<About> {
                             Text(
                               'Priyanka Joshi',
                               style: TextStyle(
-                                  fontSize: 10, fontWeight: FontWeight.bold),
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 5,
                             ),
                             Text(
                               'CX Consultant',
                               style: TextStyle(
-                                fontSize: 10,
+                                fontSize: 14,
                               ),
                             )
                           ],
                         )),
                   ),
                   SizedBox(
-                    width: 5.w,
+                    width: 25.w,
                   ),
                   Expanded(
                     child: Container(
                         padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Color(0xFF707070),
-                            ),
-                            borderRadius: BorderRadius.circular(10)),
+                        decoration: const BoxDecoration(
+                          // borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                          color: Color(0xFFffffff),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color.fromARGB(255, 189, 187, 187),
+                              blurRadius: 20.0, // soften the shadow
+                              spreadRadius: 1.0, //extend the shadow
+                            )
+                          ],
+                        ),
                         child: Column(
                           children: [
                             Image.asset('assets/images/team03.png'),
@@ -273,45 +286,17 @@ class _AboutState extends State<About> {
                               height: 8,
                             ),
                             Text(
-                              'Priyanka Joshi',
+                              'Raj shinde',
                               style: TextStyle(
-                                  fontSize: 10, fontWeight: FontWeight.bold),
+                                  fontSize: 16, fontWeight: FontWeight.bold),
                             ),
-                            Text(
-                              'CX Consultant',
-                              style: TextStyle(
-                                fontSize: 10,
-                              ),
-                            )
-                          ],
-                        )),
-                  ),
-                  SizedBox(
-                    width: 5.w,
-                  ),
-                  Expanded(
-                    child: Container(
-                        padding: EdgeInsets.all(8),
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Color(0xFF707070),
-                            ),
-                            borderRadius: BorderRadius.circular(10)),
-                        child: Column(
-                          children: [
-                            Image.asset('assets/images/team04.png'),
                             SizedBox(
-                              height: 8,
+                              height: 5,
                             ),
                             Text(
-                              'Priyanka Joshi',
+                              'UI Developer',
                               style: TextStyle(
-                                  fontSize: 10, fontWeight: FontWeight.bold),
-                            ),
-                            Text(
-                              'CX Consultant',
-                              style: TextStyle(
-                                fontSize: 10,
+                                fontSize: 14,
                               ),
                             )
                           ],

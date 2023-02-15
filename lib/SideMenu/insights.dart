@@ -70,7 +70,7 @@ class _InsightsState extends State<Insights> {
                           children: [
                             Icon(
                               Icons.calendar_today,
-                              size: 14.sm,
+                              size: 13.sm,
                               color: Color(0xff6B6B6B),
                             ),
                             SizedBox(
@@ -102,18 +102,18 @@ class _InsightsState extends State<Insights> {
                         GestureDetector(
                             child: Container(
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(30),
-                                  color: Color(0xFFFFB600),
+                                  borderRadius: BorderRadius.circular(10),
+                                  color: Color(0xFF1B8DC9),
                                 ),
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 5),
+                                      horizontal: 20, vertical: 7),
                                   child: Text(
                                     'Read More',
                                     style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 14.sm,
-                                      color: Color(0xff000000),
+                                      color: Color(0xffffffff),
                                     ),
                                   ),
                                 )),
@@ -210,7 +210,7 @@ class insights extends StatelessWidget {
           children: [
             Icon(
               Icons.calendar_today,
-              size: 18.h,
+              size: 14.h,
               color: Color(0xff6B6B6B),
             ),
             SizedBox(
@@ -247,7 +247,7 @@ class insights extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: "Poppins",
                     fontSize: 14.sm,
-                    color: Color(0xFFFFB600),
+                    color: Color(0xFF1B8DC9),
                   ),
                 ),
                 SizedBox(
@@ -255,7 +255,7 @@ class insights extends StatelessWidget {
                 ),
                 Icon(
                   Icons.arrow_right_alt_outlined,
-                  color: Color(0xFFFFB600),
+                  color: Color(0xFF1B8DC9),
                   size: 20.sm,
                 ),
               ],

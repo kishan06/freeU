@@ -159,15 +159,9 @@ class _ChatPageState extends State<ChatPage> {
           ],
         ),
         actions: [
-          IconButton(
-            onPressed: () {
-              Get.toNamed('/notificationpage');
-            },
-            icon: SvgPicture.asset(
-              'assets/images/notification-bell-svgrepo-com.svg',
-            ),
-            iconSize: 22,
-            color: const Color(0xFF303030),
+          Icon(
+            Icons.more_vert_rounded,
+            color: Colors.black87,
           ),
         ],
       ),

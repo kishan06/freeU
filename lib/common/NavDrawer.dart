@@ -49,7 +49,7 @@ class _NavDrawerState extends State<NavDrawer> {
                   SizedBox(
                     height: 56.h,
                     child: GestureDetector(
-                      //  onTap: () => Get.toNamed("/kyc1"),
+                       onTap: () => Get.toNamed("/userlogged"),
                       child: Card(
                         shape: RoundedRectangleBorder(
                           side:
@@ -68,7 +68,8 @@ class _NavDrawerState extends State<NavDrawer> {
                               Text(
                                 "Kartikey Adani",
                                 style: TextStyle(
-                                    fontSize: 15.sm, fontFamily: "Poppins"),
+                                  fontSize: 15.sm,
+                                ),
                               ),
                               Spacer(),
                               Icon(
@@ -508,28 +509,27 @@ class _NavDrawerState extends State<NavDrawer> {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   SizedBox(
-                                    height: 50.h,
+                                    height: 30.h,
                                   ),
-                                  Center(
-                                    child: Text(
-                                      'Log Out?',
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 20.sm,
-                                          color: Colors.black),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
+                                  // Center(
+                                  //   child: Text(
+                                  //     'Log Out?',
+                                  //     textAlign: TextAlign.center,
+                                  //     style: TextStyle(
+                                  //         fontFamily: 'Poppins',
+                                  //         fontSize: 20.sm,
+                                  //         color: Colors.black),
+                                  //   ),
+                                  // ),
+                                  // SizedBox(
+                                  //   height: 10.h,
+                                  // ),
                                   Center(
                                     child: Text(
                                       'Are you sure you want to log out?',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          fontFamily: 'Poppins',
-                                          fontSize: 14.sm,
+                                          fontSize: 15.sm,
                                           color: Color(0xFF444444)),
                                     ),
                                   ),
@@ -546,6 +546,7 @@ class _NavDrawerState extends State<NavDrawer> {
                                         height: 50.h,
                                         child: CustomNextButton(
                                           text: "Log out",
+                                          
                                           ontap: () {
                                             Get.offAll(Login());
                                           },
@@ -563,16 +564,38 @@ class _NavDrawerState extends State<NavDrawer> {
                                       onTap: () {
                                         Get.toNamed("/homepage");
                                       },
-                                      child: SizedBox(
+                                      child: Container(
                                         width: double.infinity,
                                         height: 50.h,
-                                        child: Text(
-                                          "Cancel",
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 18.sm,
-                                            color: Color(0xFF585858),
+                                        decoration: const BoxDecoration(
+                                          // borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(10),
+                                          ),
+                                          color: Color(0xFFffffff),
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: Colors.grey,
+                                              blurRadius:
+                                                  20.0, // soften the shadow
+                                              spreadRadius:
+                                                  2.0, //extend the shadow
+                                              offset: Offset(
+                                                3.0, // Move to right 5  horizontally
+                                                3.0, // Move to bottom 5 Vertically
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                        child: Center(
+                                          child: Text(
+                                            "Cancel",
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 16.sm,
+                                              color: Color(0xFF585858),
+                                            ),
                                           ),
                                         ),
                                       ),
