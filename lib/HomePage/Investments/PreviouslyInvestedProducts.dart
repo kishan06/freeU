@@ -95,7 +95,8 @@ class _PreviouslyInvestedProductsState
         showLeading: true,
         bottomtext: false,
       ),
-      bottomNavigationBar: CreateBottomBar(stateBottomNav, "", context),
+      bottomNavigationBar:
+          CreateBottomBar(stateBottomNav, "bottombar", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 16.0, right: 16),

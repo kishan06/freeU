@@ -82,11 +82,15 @@ class _Home2State extends State<Home2> {
       drawer: NavDrawer(),
       backgroundColor: Color(0xFFF5F8FA),
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 2,
+        backgroundColor: Color(0xFFF5F8FA),
+        elevation: 0,
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
+        title: Text(
+          "Welcome",
+          style: blackStyle20(),
+        ),
         leading: Row(
           children: [
             IconButton(
@@ -299,7 +303,7 @@ class _Home2State extends State<Home2> {
                             height: 5,
                           ),
                           Text(
-                            'Complete Your Profile',
+                            'Complete Your KYC',
                             style: TextStyle(
                                 fontSize: 18.sm,
                                 color: Color(0xFF1B8DC9),
@@ -391,7 +395,7 @@ class _Home2State extends State<Home2> {
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       fontSize: 15.sm,
-                                      color: Color(0xff000000),
+                                      color: Color(0xffFFFFFF),
                                     ),
                                   ),
                                 )),
@@ -437,8 +441,8 @@ class _Home2State extends State<Home2> {
                             return SizedBox(
                               height: 80.h,
                               child: Card(
-                                elevation: 2,
-                                color: Color(0xFFDFEDFF),
+                                elevation: 0,
+                                color: Color(0xFFF5F8FA),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(15),
                                 ),
@@ -452,6 +456,7 @@ class _Home2State extends State<Home2> {
                                       children: [
                                         Image.asset(
                                           "assets/images/real-estate.png",
+                                          color: Color(0xFFF5F8FA),
                                           height: 50.h,
                                           width: 50.w,
                                         ),
@@ -461,6 +466,7 @@ class _Home2State extends State<Home2> {
                                         Text(
                                           'Fractional\nReal Estate',
                                           style: TextStyle(
+                                              color: Color(0xFFF5F8FA),
                                               fontSize: 16.sm,
                                               fontFamily: 'Poppins'),
                                         )
@@ -472,8 +478,8 @@ class _Home2State extends State<Home2> {
                           return SizedBox(
                             width: 65.w,
                             child: Card(
-                              elevation: 2,
-                              color: Color(0xFFDFEDFF),
+                              elevation: 0,
+                              color: Color(0xFFF5F8FA),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(15),
                               ),
@@ -487,6 +493,7 @@ class _Home2State extends State<Home2> {
                                     children: [
                                       Image.asset(
                                         "assets/images/blockchain.png",
+                                        color: Color(0xFFF5F8FA),
                                         height: 50.h,
                                         width: 50.w,
                                       ),
@@ -496,6 +503,7 @@ class _Home2State extends State<Home2> {
                                       Text(
                                         'Peer- Peer\nlending',
                                         style: TextStyle(
+                                            color: Color(0xFFF5F8FA),
                                             fontSize: 16.sm,
                                             fontFamily: 'Poppins'),
                                       )
@@ -540,7 +548,7 @@ class _Home2State extends State<Home2> {
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 14.sm,
-                                  color: Color(0xFFFFB600)),
+                                  color: Color(0xFF1B8DC9)),
                             ),
                           )
                         ],

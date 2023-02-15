@@ -592,12 +592,12 @@ class _riskprofileState extends State<riskprofile> {
                       SizedBox(
                         height: 6.h,
                       ),
-                      CustomTextDropdown(item: [
-                        "Beginner",
-                        "Competent",
-                        "Proficient",
-                        "Expert"
-                      ], controller: famailiarity, showDropDown: true),
+                      CustomTextDropdown(
+                        item: ["Beginner", "Competent", "Proficient", "Expert"],
+                        controller: famailiarity,
+                        showDropDown: true,
+                        // selectedValue: "select it",
+                      ),
                       SizedBox(
                         height: 20.h,
                       ),

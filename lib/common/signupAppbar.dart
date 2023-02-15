@@ -58,7 +58,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
       //         ),
       //       ]
       //     : null,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFF5F8FA),
       elevation: 0,
       automaticallyImplyLeading: false,
 

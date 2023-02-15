@@ -86,24 +86,23 @@ class _CustomBottomBarState extends ResumableState<CreateBottomBar> {
   getBottomBarList() {
     List<BottomNavigationBarItem> bottomItemsList = [];
     List<SvgPicture> bottomiconslist = [];
+    List<SvgPicture> bottomiconslistselected = [];
     var bottomItem;
     var text;
+    var selectedtext;
     for (int i = 0; i < bottomList.length; i++) {
       var iconname = bottomList[i];
       for (int j = 0; j < imagelist.length; j++) {
         text = imagelist[j];
         bottomiconslist.add(text);
       }
+      for (int k = 0; k < imagelist.length; k++) {
+        selectedtext = imagelistselected[k];
+        bottomiconslistselected.add(selectedtext);
+      }
       bottomItem = BottomNavigationBarItem(
           icon: bottomNavigationIcon(bottomiconslist.elementAt(i)),
-          activeIcon: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                color: Color(0xFFFEEBBD),
-              ),
-              height: 20,
-              width: 50,
-              child: bottomiconslist.elementAt(i)), //colorCode.primaryColor),
+          activeIcon: bottomiconslistselected.elementAt(i),
           label: iconname);
       bottomItemsList.add(bottomItem);
     }

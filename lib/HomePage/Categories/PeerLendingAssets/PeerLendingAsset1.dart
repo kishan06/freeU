@@ -77,13 +77,14 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
     return Scaffold(
       key: _key,
       drawer: NavDrawer(),
-      backgroundColor: Color(0xFFFFFBF0),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "Peer - Peer lending assets",
         showLeading: true,
         bottomtext: false,
       ),
-      bottomNavigationBar: CreateBottomBar(stateBottomNav, "", context),
+      bottomNavigationBar:
+          CreateBottomBar(stateBottomNav, "bottombar", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 16.0, right: 16),
@@ -93,187 +94,165 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
               SizedBox(
                 height: 15.h,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Color(0xFF153D6D),
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed("/fractionalrealestateproperty2");
+                },
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(5),
                   ),
-                  borderRadius: BorderRadius.circular(5),
-                ),
-                child: Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: Column(
-                    children: [
-                      Stack(children: [
-                        Image.asset("assets/images/faircent.png"),
-                        Positioned(
-                            right: 2,
-                            bottom: 2,
-                            child: SizedBox(
-                              child: Card(
-                                child: Padding(
-                                  padding: EdgeInsets.all(3.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(
-                                        Icons.location_on_outlined,
-                                        size: 17.sm,
-                                      ),
-                                      Text(
-                                        "Gurgaon - Haryana",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 13.sm,
+                  child: Padding(
+                    padding: EdgeInsets.all(15.0),
+                    child: Column(
+                      children: [
+                        Stack(children: [
+                          Image.asset("assets/images/faircent.png"),
+                          Positioned(
+                              right: 2,
+                              bottom: 2,
+                              child: SizedBox(
+                                child: Card(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(3.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Icon(
+                                          Icons.location_on_outlined,
+                                          size: 17.sm,
                                         ),
-                                      )
-                                    ],
+                                        Text(
+                                          "Gurgaon - Haryana",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 13.sm,
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ))
-                      ]),
-                      SizedBox(
-                        height: 15.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Making India Atmanirbhar",
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 20.sm,
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      Divider(
-                        thickness: 1,
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "24 Months",
-                            style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 16.sm,
-                            ),
-                          ),
-                          Text(
-                            "Fair 0-20%",
-                            style: TextStyle(
-                              color: Color(0XFF143C6D),
-                              fontFamily: "Poppins",
-                              fontSize: 16.sm,
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Purpose: Education\nMonthly Income",
-                            style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 16.sm,
-                            ),
-                          ),
-                          Text(
-                            "₹1,06,000",
-                            style: TextStyle(
-                              color: Color(0XFF143C6D),
-                              fontFamily: "Poppins",
-                              fontSize: 16.sm,
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Asset value",
-                            style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 16.sm,
-                            ),
-                          ),
-                          Text(
-                            "₹ 1,50,000",
-                            style: TextStyle(
-                              color: Color(0XFF143C6D),
-                              fontFamily: "Poppins",
-                              fontSize: 16.sm,
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Return Target",
-                            style: TextStyle(
-                              fontFamily: "Poppins",
-                              fontSize: 16.sm,
-                            ),
-                          ),
-                          Text(
-                            "₹ 2,606",
-                            style: TextStyle(
-                              color: Color(0XFF143C6D),
-                              fontFamily: "Poppins",
-                              fontSize: 16.sm,
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      SizedBox(
-                        height: 40.h,
-                        width: 140.w,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Color(0xFFFFB600),
-                            //  color: Color(0xFFFFB600),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                          ),
-                          child: Text(
-                            "View Details",
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                color: Colors.black,
-                                fontSize: 14.sm),
-                          ),
-                          onPressed: () {
-                            Get.toNamed('/peerlendingasset2');
-                          },
+                              ))
+                        ]),
+                        SizedBox(
+                          height: 15.h,
                         ),
-                      )
-                    ],
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Making India Atmanirbhar",
+                              style: TextStyle(
+                                  fontFamily: "Poppins",
+                                  fontSize: 20.sm,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 6.h,
+                        ),
+                        Divider(
+                          thickness: 1,
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "24 Months",
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 16.sm,
+                              ),
+                            ),
+                            Text(
+                              "Fair 0-20%",
+                              style: TextStyle(
+                                color: Color(0XFF143C6D),
+                                fontFamily: "Poppins",
+                                fontSize: 16.sm,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Purpose: Education\nMonthly Income",
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 16.sm,
+                              ),
+                            ),
+                            Text(
+                              "₹1,06,000",
+                              style: TextStyle(
+                                color: Color(0XFF143C6D),
+                                fontFamily: "Poppins",
+                                fontSize: 16.sm,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Asset value",
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 16.sm,
+                              ),
+                            ),
+                            Text(
+                              "₹ 1,50,000",
+                              style: TextStyle(
+                                color: Color(0XFF143C6D),
+                                fontFamily: "Poppins",
+                                fontSize: 16.sm,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "Return Target",
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 16.sm,
+                              ),
+                            ),
+                            Text(
+                              "₹ 2,606",
+                              style: TextStyle(
+                                color: Color(0XFF143C6D),
+                                fontFamily: "Poppins",
+                                fontSize: 16.sm,
+                              ),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -282,9 +261,6 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
               ),
               Card(
                 shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Color(0xFF153D6D),
-                  ),
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Padding(
@@ -432,30 +408,6 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
                       SizedBox(
                         height: 20.h,
                       ),
-                      SizedBox(
-                        height: 40.h,
-                        width: 140.w,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Color(0xFFFFB600),
-                            //  color: Color(0xFFFFB600),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                          ),
-                          child: Text(
-                            "View Details",
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                color: Colors.black,
-                                fontSize: 14.sm),
-                          ),
-                          onPressed: () {
-                            Get.toNamed('/peerlendingasset2');
-                          },
-                        ),
-                      )
                     ],
                   ),
                 ),
@@ -465,9 +417,6 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
               ),
               Card(
                 shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    color: Color(0xFF153D6D),
-                  ),
                   borderRadius: BorderRadius.circular(5),
                 ),
                 child: Padding(
@@ -615,30 +564,6 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
                       SizedBox(
                         height: 20.h,
                       ),
-                      SizedBox(
-                        height: 40.h,
-                        width: 140.w,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 0,
-                            backgroundColor: Color(0xFFFFB600),
-                            //  color: Color(0xFFFFB600),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(30),
-                            ),
-                          ),
-                          child: Text(
-                            "View Details",
-                            style: TextStyle(
-                                fontFamily: "Poppins",
-                                color: Colors.black,
-                                fontSize: 14.sm),
-                          ),
-                          onPressed: () {
-                            Get.toNamed('/peerlendingasset2');
-                          },
-                        ),
-                      )
                     ],
                   ),
                 ),

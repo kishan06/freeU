@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage> {
     viewportFraction: 0.9,
   );
   PageController pickcontroller = PageController(
-    viewportFraction: 0.75,
+    viewportFraction: 0.70,
   );
   PageController recommendedcontroller = PageController(
     viewportFraction: 0.99,
@@ -94,8 +94,8 @@ class _HomePageState extends State<HomePage> {
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),
-        backgroundColor: Colors.white,
-        elevation: 2,
+        backgroundColor: Color(0xFFF5F8FA),
+        elevation: 0,
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
@@ -322,6 +322,7 @@ class _HomePageState extends State<HomePage> {
                         if (index1 == 0) {
                           return Card(
                             elevation: 2,
+                            shadowColor: Colors.black.withOpacity(0.2),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
@@ -494,10 +495,10 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 child: Padding(
                                     padding: EdgeInsets.only(
-                                        top: 5.0,
+                                        top: 10.0,
                                         left: 10,
                                         right: 10,
-                                        bottom: 5),
+                                        bottom: 10),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -535,10 +536,10 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 child: Padding(
                                     padding: EdgeInsets.only(
-                                        top: 5.0,
+                                        top: 10.0,
                                         left: 10,
                                         right: 10,
-                                        bottom: 5),
+                                        bottom: 10),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
@@ -618,7 +619,7 @@ class _HomePageState extends State<HomePage> {
                                   Text(
                                     'Fractional Real Estate',
                                     style: blackStyle14()
-                                        .copyWith(fontWeight: FontWeight.w300),
+                                        .copyWith(fontWeight: FontWeight.w400),
                                   ),
                                   SizedBox(
                                     height: 10.h,
@@ -795,7 +796,7 @@ class _HomePageState extends State<HomePage> {
                                     height: 3.h,
                                   ),
                                   Card(
-                                    color: Color.fromRGBO(27, 141, 201, 0.3),
+                                    color: Color(0xFFCFEFFF),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(5),
                                     ),
@@ -954,9 +955,11 @@ class _HomePageState extends State<HomePage> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Our Success Stories",
-                              style: TextStyle(
-                                  fontSize: 17.sm, fontFamily: 'Poppins')),
+                          Text(
+                            "Our Success Stories",
+                            style: TextStyle(
+                                fontSize: 17.sm, fontFamily: 'Poppins'),
+                          ),
                           SizedBox(
                             height: 6.h,
                           ),
@@ -967,11 +970,12 @@ class _HomePageState extends State<HomePage> {
                             child: Text(
                               "Know More",
                               style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 14.sm,
-                                  color: Color(0xFFFFB600)),
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                                color: Color(0xFF1B8DC9),
+                              ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                       SvgPicture.asset('assets/images/success.svg')
@@ -1007,40 +1011,55 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                           top: 14.0, left: 10, right: 15, bottom: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
+                          Expanded(
+                            flex: 2,
+                            child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                            ),
-                            height: 71.h,
-                            width: 80.w,
-                            child: Image.asset("assets/images/na_april_69.jpg"),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Retail banks wake up to digital",
-                                style: blackStyle14(),
+                              child: Image.asset(
+                                "assets/images/na_april_69.jpg",
+                                height: 70,
+                                width: 90,
                               ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.calendar_today_outlined,
-                                    size: 14,
-                                  ),
-                                  Text(
-                                    "October 17 , 2022",
-                                    style: blackStyle12(),
-                                  ),
-                                ],
-                              )
-                            ],
+                            ),
+                          ),
+                          const Expanded(
+                            flex: 0,
+                            child: SizedBox(
+                              width: 20,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Retail banks wake up to digital",
+                                  style: blackStyle14(),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.calendar_today_outlined,
+                                      size: 14,
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "October 17 , 2022",
+                                      style: blackStyle12(),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -1056,40 +1075,55 @@ class _HomePageState extends State<HomePage> {
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Padding(
-                      padding: EdgeInsets.only(
+                      padding: const EdgeInsets.only(
                           top: 14.0, left: 10, right: 15, bottom: 10),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            decoration: BoxDecoration(
+                          Expanded(
+                            flex: 2,
+                            child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                            ),
-                            height: 71.h,
-                            width: 80.w,
-                            child: Image.asset("assets/images/na_april_69.jpg"),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Retail banks wake up to digital",
-                                style: blackStyle14(),
+                              child: Image.asset(
+                                "assets/images/na_april_69.jpg",
+                                height: 70,
+                                width: 90,
                               ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.calendar_today_outlined,
-                                    size: 14,
-                                  ),
-                                  Text(
-                                    "October 17 , 2022",
-                                    style: blackStyle12(),
-                                  ),
-                                ],
-                              )
-                            ],
+                            ),
+                          ),
+                          const Expanded(
+                            flex: 0,
+                            child: SizedBox(
+                              width: 20,
+                            ),
+                          ),
+                          Expanded(
+                            flex: 5,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Retail banks wake up to digital",
+                                  style: blackStyle14(),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.calendar_today_outlined,
+                                      size: 14,
+                                    ),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
+                                    Text(
+                                      "October 17 , 2022",
+                                      style: blackStyle12(),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ],
                       ),
