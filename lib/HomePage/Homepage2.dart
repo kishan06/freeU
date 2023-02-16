@@ -179,7 +179,9 @@ class _Home2State extends State<Home2> {
                                                       BorderRadius.circular(30),
                                                 ),
                                               ),
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Get.toNamed('/categoriesmain');
+                                              },
                                               child: Text(
                                                 'Invest Now',
                                                 style: TextStyle(
@@ -237,7 +239,9 @@ class _Home2State extends State<Home2> {
                                                     BorderRadius.circular(30),
                                               ),
                                             ),
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              Get.toNamed('/categoriesmain');
+                                            },
                                             child: Text(
                                               'Invest Now',
                                               style: TextStyle(
@@ -314,10 +318,15 @@ class _Home2State extends State<Home2> {
                           ),
                           Row(
                             children: [
-                              Text(
-                                'Continue',
-                                style: TextStyle(
-                                  fontSize: 15.sm,
+                              GestureDetector(
+                                onTap: () {
+                                  Get.toNamed('/kyc1');
+                                },
+                                child: Text(
+                                  'Continue',
+                                  style: TextStyle(
+                                    fontSize: 15.sm,
+                                  ),
                                 ),
                               ),
                               SizedBox(
@@ -579,98 +588,110 @@ class _Home2State extends State<Home2> {
                   SizedBox(
                     height: 8.h,
                   ),
-                  Card(
-                    elevation: 2,
-                    color: Color(0xFFFFFFFF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          top: 14.0, left: 10, right: 15, bottom: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            height: 71.h,
-                            width: 80.w,
-                            child: Image.asset("assets/images/na_april_69.jpg"),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Retail banks wake up to digital",
-                                style: blackStyle14(),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/insightsinner');
+                    },
+                    child: Card(
+                      elevation: 2,
+                      color: Color(0xFFFFFFFF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            top: 14.0, left: 10, right: 15, bottom: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.calendar_today_outlined,
-                                    size: 14,
-                                  ),
-                                  Text(
-                                    "October 17 , 2022",
-                                    style: blackStyle12(),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
+                              height: 71.h,
+                              width: 80.w,
+                              child:
+                                  Image.asset("assets/images/na_april_69.jpg"),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Retail banks wake up to digital",
+                                  style: blackStyle14(),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.calendar_today_outlined,
+                                      size: 14,
+                                    ),
+                                    Text(
+                                      "October 17 , 2022",
+                                      style: blackStyle12(),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(
                     height: 6.h,
                   ),
-                  Card(
-                    elevation: 2,
-                    color: Color(0xFFFFFFFF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Padding(
-                      padding: EdgeInsets.only(
-                          top: 14.0, left: 10, right: 15, bottom: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            height: 71.h,
-                            width: 80.w,
-                            child: Image.asset("assets/images/na_april_69.jpg"),
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Retail banks wake up to digital",
-                                style: blackStyle14(),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/insightsinner');
+                    },
+                    child: Card(
+                      elevation: 2,
+                      color: Color(0xFFFFFFFF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                            top: 14.0, left: 10, right: 15, bottom: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
                               ),
-                              Row(
-                                children: [
-                                  Icon(
-                                    Icons.calendar_today_outlined,
-                                    size: 14,
-                                  ),
-                                  Text(
-                                    "October 17 , 2022",
-                                    style: blackStyle12(),
-                                  ),
-                                ],
-                              )
-                            ],
-                          ),
-                        ],
+                              height: 71.h,
+                              width: 80.w,
+                              child:
+                                  Image.asset("assets/images/na_april_69.jpg"),
+                            ),
+                            Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  "Retail banks wake up to digital",
+                                  style: blackStyle14(),
+                                ),
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.calendar_today_outlined,
+                                      size: 14,
+                                    ),
+                                    Text(
+                                      "October 17 , 2022",
+                                      style: blackStyle12(),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),

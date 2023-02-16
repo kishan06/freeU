@@ -28,11 +28,12 @@ class _SuccessStoriesDetailsState extends State<SuccessStoriesDetails> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
                 Icon(
                   Icons.calendar_today,
-                  size: 20,
+                  size: 15.sm,
                   color: Color(0xff6B6B6B),
                 ),
                 SizedBox(
@@ -47,7 +48,7 @@ class _SuccessStoriesDetailsState extends State<SuccessStoriesDetails> {
                 ),
                 Icon(
                   Icons.circle,
-                  size: 20,
+                  size: 12.sm,
                   color: Color(0xff6B6B6B),
                 ),
                 SizedBox(

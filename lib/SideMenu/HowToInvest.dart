@@ -28,6 +28,7 @@ class _HowToInvestState extends State<HowToInvest> {
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
           child: Center(
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -56,43 +57,41 @@ class _HowToInvestState extends State<HowToInvest> {
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Flexible(
-                      child: Card(
-                        elevation: 5,
-                        shadowColor: Color(0xB5EFEFF5),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 22.0, right: 22, top: 50),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "1. Create An Account",
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 18.sm,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(
-                                height: 4.h,
-                              ),
-                              Text(
-                                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
+                    Card(
+                      elevation: 5,
+                      shadowColor: Color(0xB5EFEFF5),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 22.0, right: 22, top: 50),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "1. Create An Account",
+                              style: TextStyle(
                                   fontFamily: "Poppins",
-                                  fontSize: 13.sm,
-                                ),
+                                  fontSize: 18.sm,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            SizedBox(
+                              height: 4.h,
+                            ),
+                            Text(
+                              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 13.sm,
                               ),
-                              SizedBox(
-                                height: 10.h,
-                              )
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            )
+                          ],
                         ),
                       ),
                     ),
@@ -114,43 +113,41 @@ class _HowToInvestState extends State<HowToInvest> {
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Flexible(
-                      child: Card(
-                        elevation: 5,
-                        shadowColor: Color(0xB5EFEFF5),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 22.0, right: 22, top: 50),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "2. Choose an asset",
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 18.sm,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(
-                                height: 4.h,
-                              ),
-                              Text(
-                                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
+                    Card(
+                      elevation: 5,
+                      shadowColor: Color(0xB5EFEFF5),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 22.0, right: 22, top: 50),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "2. Choose an asset",
+                              style: TextStyle(
                                   fontFamily: "Poppins",
-                                  fontSize: 13.sm,
-                                ),
+                                  fontSize: 18.sm,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            SizedBox(
+                              height: 4.h,
+                            ),
+                            Text(
+                              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 13.sm,
                               ),
-                              SizedBox(
-                                height: 10.h,
-                              )
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            )
+                          ],
                         ),
                       ),
                     ),
@@ -172,43 +169,41 @@ class _HowToInvestState extends State<HowToInvest> {
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Flexible(
-                      child: Card(
-                        elevation: 5,
-                        shadowColor: Color(0xB5EFEFF5),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 22.0, right: 22, top: 50),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "3. Invest",
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 18.sm,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(
-                                height: 4.h,
-                              ),
-                              Text(
-                                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
+                    Card(
+                      elevation: 5,
+                      shadowColor: Color(0xB5EFEFF5),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 22.0, right: 22, top: 50),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "3. Invest",
+                              style: TextStyle(
                                   fontFamily: "Poppins",
-                                  fontSize: 13.sm,
-                                ),
+                                  fontSize: 18.sm,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            SizedBox(
+                              height: 4.h,
+                            ),
+                            Text(
+                              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 13.sm,
                               ),
-                              SizedBox(
-                                height: 10.h,
-                              )
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            )
+                          ],
                         ),
                       ),
                     ),
@@ -230,43 +225,41 @@ class _HowToInvestState extends State<HowToInvest> {
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Flexible(
-                      child: Card(
-                        elevation: 5,
-                        shadowColor: Color(0xB5EFEFF5),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 22.0, right: 22, top: 50),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                "4. Easy returns",
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 18.sm,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                              SizedBox(
-                                height: 4.h,
-                              ),
-                              Text(
-                                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
+                    Card(
+                      elevation: 5,
+                      shadowColor: Color(0xB5EFEFF5),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 22.0, right: 22, top: 50),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Text(
+                              "4. Easy returns",
+                              style: TextStyle(
                                   fontFamily: "Poppins",
-                                  fontSize: 13.sm,
-                                ),
+                                  fontSize: 18.sm,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            SizedBox(
+                              height: 4.h,
+                            ),
+                            Text(
+                              "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontFamily: "Poppins",
+                                fontSize: 13.sm,
                               ),
-                              SizedBox(
-                                height: 10.h,
-                              )
-                            ],
-                          ),
+                            ),
+                            SizedBox(
+                              height: 10.h,
+                            )
+                          ],
                         ),
                       ),
                     ),

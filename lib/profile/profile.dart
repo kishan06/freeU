@@ -108,13 +108,13 @@ class _ProfileState extends State<Profile> {
           leading: Row(
             children: [
               IconButton(
-              onPressed: () {
-                _key.currentState!.openDrawer();
-              },
-              icon: SvgPicture.asset("assets/images/menu.svg"),
-              color: Colors.black,
-              iconSize: 25,
-            ),
+                onPressed: () {
+                  _key.currentState!.openDrawer();
+                },
+                icon: SvgPicture.asset("assets/images/menu.svg"),
+                color: Colors.black,
+                iconSize: 25,
+              ),
             ],
           ),
           bottom: const TabBar(
@@ -229,7 +229,7 @@ class _profiletabState extends State<profiletab> {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () => getImage(ImageSource.camera),
+                      onTap: () => getImage(ImageSource.gallery),
                       child: Column(
                         children: [
                           Icon(
@@ -443,11 +443,13 @@ class _profiletabState extends State<profiletab> {
                   minLines: 5,
                   maxLines: null,
                 ),
-                SizedBox(height: 30.h,),
-                CustomNextButton(text: 'Submit',
-                ontap: (() {
-                  
-                }),)
+                SizedBox(
+                  height: 30.h,
+                ),
+                CustomNextButton(
+                  text: 'Submit',
+                  ontap: (() {}),
+                )
               ],
             ),
           ),
