@@ -139,7 +139,9 @@ class _PreviouslyInvestedProductsState
                               "Vaishnavi Tech Park",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -151,7 +153,7 @@ class _PreviouslyInvestedProductsState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -159,7 +161,9 @@ class _PreviouslyInvestedProductsState
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -193,28 +197,31 @@ class _PreviouslyInvestedProductsState
                             ),
                             SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
                                 onPressed: () {},
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -257,7 +264,9 @@ class _PreviouslyInvestedProductsState
                               "Making India Atmanirbhar",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -269,7 +278,7 @@ class _PreviouslyInvestedProductsState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -277,7 +286,9 @@ class _PreviouslyInvestedProductsState
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -311,27 +322,31 @@ class _PreviouslyInvestedProductsState
                             ),
                             SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
                                 onPressed: () {},
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -375,7 +390,9 @@ class _PreviouslyInvestedProductsState
                               "Vaishnavi Tech Park",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -387,7 +404,7 @@ class _PreviouslyInvestedProductsState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -395,7 +412,9 @@ class _PreviouslyInvestedProductsState
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -429,27 +448,31 @@ class _PreviouslyInvestedProductsState
                             ),
                             SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
                                 onPressed: () {},
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -492,7 +515,9 @@ class _PreviouslyInvestedProductsState
                               "Making India Atmanirbhar",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -504,7 +529,7 @@ class _PreviouslyInvestedProductsState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -512,7 +537,9 @@ class _PreviouslyInvestedProductsState
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -546,27 +573,31 @@ class _PreviouslyInvestedProductsState
                             ),
                             SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
                                 onPressed: () {},
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -610,7 +641,9 @@ class _PreviouslyInvestedProductsState
                               "Vaishnavi Tech Park",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -622,7 +655,7 @@ class _PreviouslyInvestedProductsState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -630,7 +663,9 @@ class _PreviouslyInvestedProductsState
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -664,27 +699,31 @@ class _PreviouslyInvestedProductsState
                             ),
                             SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
                                 onPressed: () {},
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )
@@ -727,7 +766,9 @@ class _PreviouslyInvestedProductsState
                               "Making India Atmanirbhar",
                               textAlign: TextAlign.center,
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             )
                           ],
                         ),
@@ -739,7 +780,7 @@ class _PreviouslyInvestedProductsState
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              "Profit & Loss",
+                              "P & L",
                               style: TextStyle(
                                   fontFamily: "Poppins", fontSize: 16.sm),
                             ),
@@ -747,7 +788,9 @@ class _PreviouslyInvestedProductsState
                             Text(
                               "₹25,000",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 14.sm),
+                                  fontWeight: FontWeight.w300,
+                                  fontFamily: "Poppins",
+                                  fontSize: 14.sm),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -781,27 +824,31 @@ class _PreviouslyInvestedProductsState
                             ),
                             SizedBox(height: 10.h),
                             SizedBox(
-                              height: 30.h,
-                              width: 82.w,
+                              height: 35.h,
+                              width: 70.w,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   elevation: 0,
-                                  backgroundColor: Color(0xFFFFB600),
+                                  backgroundColor: Color(0xFF1B8DC9),
                                   //  color: Color(0xFFFFB600),
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(30),
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
                                 ),
-                                child: Text(
-                                  "Download",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.black,
-                                      fontSize: 12.sm),
+                                child: Icon(
+                                  Icons.file_download_outlined,
+                                  color: Colors.white,
                                 ),
+                                // Text(
+                                //   "Sell",
+                                //   style: TextStyle(
+                                //       fontFamily: "Poppins",
+                                //       color: Colors.white,
+                                //       fontSize: 14.sm),
+                                // ),
                                 onPressed: () {},
                               ),
-                            )
+                            ),
                           ],
                         ),
                       )

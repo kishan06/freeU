@@ -220,9 +220,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                                 //       color: Colors.white,
                                 //       fontSize: 14.sm),
                                 // ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ],
@@ -349,9 +347,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                                 //       color: Colors.white,
                                 //       fontSize: 14.sm),
                                 // ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ],
@@ -479,9 +475,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                                 //       color: Colors.white,
                                 //       fontSize: 14.sm),
                                 // ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ],
@@ -608,9 +602,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                                 //       color: Colors.white,
                                 //       fontSize: 14.sm),
                                 // ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ],
@@ -738,9 +730,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                                 //       color: Colors.white,
                                 //       fontSize: 14.sm),
                                 // ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ],
@@ -867,9 +857,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                                 //       color: Colors.white,
                                 //       fontSize: 14.sm),
                                 // ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ],

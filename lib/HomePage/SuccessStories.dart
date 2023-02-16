@@ -103,7 +103,7 @@ class stories extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Lorem Ipsum has been the industrys\nstandarddummy text ever since the 1500s.',
+                  'Lorem Ipsum has been the industrys\nstandarddummy text ever since the\n1500s.',
                   style: TextStyle(
                     fontSize: 14.sm,
                     color: Color(0xff000000),

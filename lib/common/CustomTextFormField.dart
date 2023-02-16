@@ -115,7 +115,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
                               child: Text(
                                 "hide",
                                 style: TextStyle(
-                                  color: Color(0xFF1B8DC9),
+                                  color: Colors.black,
                                 ),
                               ),
                             ),

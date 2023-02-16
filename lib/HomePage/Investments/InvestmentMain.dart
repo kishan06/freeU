@@ -310,9 +310,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                       color: Colors.white,
                                       fontSize: 14.sm),
                                 ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -370,9 +368,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                       color: Colors.white,
                                       fontSize: 14.sm),
                                 ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -430,9 +426,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                       color: Colors.white,
                                       fontSize: 14.sm),
                                 ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -575,9 +569,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                 //       color: Colors.white,
                                 //       fontSize: 14.sm),
                                 // ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -632,9 +624,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                   Icons.file_download_outlined,
                                   color: Colors.white,
                                 ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -689,9 +679,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                   Icons.file_download_outlined,
                                   color: Colors.white,
                                 ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -834,9 +822,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                 //       color: Colors.white,
                                 //       fontSize: 14.sm),
                                 // ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -891,9 +877,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                   Icons.thumb_up_alt_outlined,
                                   color: Colors.white,
                                 ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -948,9 +932,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                   Icons.thumb_up_alt_outlined,
                                   color: Colors.white,
                                 ),
-                                onPressed: () {
-                                  Get.toNamed('/fractionalrealestateproperty2');
-                                },
+                                onPressed: () {},
                               ),
                             ),
                           ),
@@ -960,6 +942,9 @@ class _InvestmentMainState extends State<InvestmentMain> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 15.h,
+              )
             ],
           ),
         ),

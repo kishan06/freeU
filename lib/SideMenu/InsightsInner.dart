@@ -32,7 +32,7 @@ class _InsightsInnerState extends State<InsightsInner> {
               children: [
                 Icon(
                   Icons.calendar_today,
-                  size: 18.sm,
+                  size: 14.sm,
                   color: Color(0xff6B6B6B),
                 ),
                 SizedBox(
@@ -42,7 +42,7 @@ class _InsightsInnerState extends State<InsightsInner> {
                   'November 11, 2022',
                   style: TextStyle(
                       fontFamily: "Poppins",
-                      fontSize: 14.sm,
+                      fontSize: 15.sm,
                       color: Color(0xff6B6B6B)),
                 ),
                 SizedBox(
@@ -50,7 +50,7 @@ class _InsightsInnerState extends State<InsightsInner> {
                 ),
                 Icon(
                   Icons.circle,
-                  size: 16.sm,
+                  size: 12.sm,
                   color: Color(0xff6B6B6B),
                 ),
                 SizedBox(

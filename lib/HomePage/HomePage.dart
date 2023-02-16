@@ -188,7 +188,9 @@ class _HomePageState extends State<HomePage> {
                                                       BorderRadius.circular(5),
                                                 ),
                                               ),
-                                              onPressed: () {},
+                                              onPressed: () {
+                                                Get.toNamed('/categoriesmain');
+                                              },
                                               child: Text(
                                                 'Invest Now',
                                                 style: TextStyle(
@@ -247,7 +249,9 @@ class _HomePageState extends State<HomePage> {
                                                     BorderRadius.circular(5),
                                               ),
                                             ),
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              Get.toNamed('/categoriesmain');
+                                            },
                                             child: Text(
                                               'Invest Now',
                                               style: TextStyle(
@@ -336,10 +340,10 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                     color: Color(0xFF1B8DC9),
                                   ),
-                                  width: 15,
+                                  width: 15.w,
                                 ),
                                 SizedBox(
-                                  width: 10,
+                                  width: 30.w,
                                 ),
                                 Flexible(
                                   flex: 1,
@@ -349,6 +353,9 @@ class _HomePageState extends State<HomePage> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
+                                      SizedBox(
+                                        height: 6.h,
+                                      ),
                                       Flexible(
                                         flex: 3,
                                         child: Text(
@@ -370,9 +377,12 @@ class _HomePageState extends State<HomePage> {
                                         flex: 2,
                                         child: Text(
                                           "Invested",
-                                          style: blackStyle12(),
+                                          style: blackStyle14(),
                                         ),
                                       ),
+                                      SizedBox(
+                                        height: 6.h,
+                                      )
                                     ],
                                   ),
                                 ),
@@ -392,6 +402,7 @@ class _HomePageState extends State<HomePage> {
                         } //2nd plan
                         return Card(
                           elevation: 2,
+                          shadowColor: Colors.black.withOpacity(0.2),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
@@ -405,10 +416,10 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   color: Color(0xFF1B8DC9),
                                 ),
-                                width: 15,
+                                width: 15.w,
                               ),
                               SizedBox(
-                                width: 10,
+                                width: 30.w,
                               ),
                               Flexible(
                                 flex: 1,
@@ -417,6 +428,9 @@ class _HomePageState extends State<HomePage> {
                                       MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    SizedBox(
+                                      height: 6.h,
+                                    ),
                                     Flexible(
                                       flex: 3,
                                       child: Text(
@@ -438,9 +452,12 @@ class _HomePageState extends State<HomePage> {
                                       flex: 2,
                                       child: Text(
                                         "Invested",
-                                        style: blackStyle12(),
+                                        style: blackStyle14(),
                                       ),
                                     ),
+                                    SizedBox(
+                                      height: 6.h,
+                                    )
                                   ],
                                 ),
                               ),
@@ -467,7 +484,7 @@ class _HomePageState extends State<HomePage> {
               ),
               Padding(
                 padding:
-                    EdgeInsets.only(left: 6.0, top: 12, bottom: 12, right: 6),
+                    EdgeInsets.only(left: 4.0, top: 12, bottom: 12, right: 4.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -480,7 +497,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Flexible(
                             child: GestureDetector(
@@ -687,7 +704,7 @@ class _HomePageState extends State<HomePage> {
                                 Text(
                                   'Fractional Real Estate',
                                   style: blackStyle14()
-                                      .copyWith(fontWeight: FontWeight.w300),
+                                      .copyWith(fontWeight: FontWeight.w400),
                                 ),
                                 SizedBox(
                                   height: 10.h,
@@ -776,7 +793,96 @@ class _HomePageState extends State<HomePage> {
                       ) {
                         bool isMyPageIndex = selectIndex == index1;
                         if (index1 == 0) {
-                          return Card(
+                          return GestureDetector(
+                            onTap: () {
+                              Get.toNamed("/fractionalrealestateproperty2");
+                            },
+                            child: Card(
+                              elevation: 2,
+                              color: Color(0xFFFFFFFF),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(15),
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.only(
+                                    top: 14.0, left: 15, right: 15, bottom: 6),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Image.asset(
+                                      'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
+                                    ),
+                                    SizedBox(
+                                      height: 3.h,
+                                    ),
+                                    Card(
+                                      color: Color(0xFFCFEFFF),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(5),
+                                      ),
+                                      child: Padding(
+                                        padding:
+                                            EdgeInsets.fromLTRB(6, 3, 6, 3),
+                                        child: Text(
+                                          'Fractional Real Estate',
+                                          style: blackStyle12(),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5.h,
+                                    ),
+                                    Flexible(
+                                      child: Text(
+                                        'Vaishnavi Tech Park Opportunity',
+                                        style: blackStyle16(),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 5.h,
+                                    ),
+                                    Row(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Flexible(
+                                          child: Icon(
+                                            Icons.location_on_outlined,
+                                            size: 18.sm,
+                                            color: Color(0xFF707070),
+                                          ),
+                                        ),
+                                        // SizedBox(
+                                        //   width: 4.w,
+                                        // ),
+                                        Flexible(
+                                          flex: 4,
+                                          child: Text(
+                                            'Outer Ring Road Sarjapur, Bangalore',
+                                            style: blackStyle12().copyWith(
+                                              color: Color(0xFF707070),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: 8.h,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          );
+                        } //2nd plan
+                        return GestureDetector(
+                          onTap: () {
+                            Get.toNamed("/fractionalrealestateproperty2");
+                          },
+                          child: Card(
                             elevation: 2,
                             color: Color(0xFFFFFFFF),
                             shape: RoundedRectangleBorder(
@@ -851,82 +957,6 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ],
                               ),
-                            ),
-                          );
-                        } //2nd plan
-                        return Card(
-                          elevation: 2,
-                          color: Color(0xFFFFFFFF),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                top: 14.0, left: 15, right: 15, bottom: 6),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Image.asset(
-                                  'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
-                                ),
-                                SizedBox(
-                                  height: 3.h,
-                                ),
-                                Card(
-                                  color: Color.fromARGB(255, 134, 207, 247),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(5),
-                                  ),
-                                  child: Padding(
-                                    padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
-                                    child: Text(
-                                      'Fractional Real Estate',
-                                      style: blackStyle12(),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Flexible(
-                                  child: Text(
-                                    'Vaishnavi Tech Park Opportunity',
-                                    style: blackStyle16(),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 5.h,
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Flexible(
-                                      child: Icon(
-                                        Icons.location_on_outlined,
-                                        size: 18.sm,
-                                        color: Color(0xFF707070),
-                                      ),
-                                    ),
-                                    // SizedBox(
-                                    //   width: 4.w,
-                                    // ),
-                                    Flexible(
-                                      flex: 4,
-                                      child: Text(
-                                        'Outer Ring Road Sarjapur, Bangalore',
-                                        style: blackStyle12().copyWith(
-                                          color: Color(0xFF707070),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  height: 8.h,
-                                ),
-                              ],
                             ),
                           ),
                         );
@@ -1004,128 +1034,140 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 8.h,
                   ),
-                  Card(
-                    elevation: 2,
-                    color: Color(0xFFFFFFFF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 14.0, left: 10, right: 15, bottom: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            flex: 2,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                "assets/images/na_april_69.jpg",
-                                height: 70,
-                                width: 90,
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/insightsinner');
+                    },
+                    child: Card(
+                      elevation: 2,
+                      color: Color(0xFFFFFFFF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 14.0, left: 10, right: 15, bottom: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              flex: 2,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  "assets/images/na_april_69.jpg",
+                                  height: 70,
+                                  width: 90,
+                                ),
                               ),
                             ),
-                          ),
-                          const Expanded(
-                            flex: 0,
-                            child: SizedBox(
-                              width: 20,
+                            const Expanded(
+                              flex: 0,
+                              child: SizedBox(
+                                width: 20,
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            flex: 5,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Retail banks wake up to digital",
-                                  style: blackStyle14(),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.calendar_today_outlined,
-                                      size: 14,
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "October 17 , 2022",
-                                      style: blackStyle12(),
-                                    ),
-                                  ],
-                                )
-                              ],
+                            Expanded(
+                              flex: 5,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Retail banks wake up to digital",
+                                    style: blackStyle14(),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.calendar_today_outlined,
+                                        size: 14,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        "October 17 , 2022",
+                                        style: blackStyle12(),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(
                     height: 6.h,
                   ),
-                  Card(
-                    elevation: 2,
-                    color: Color(0xFFFFFFFF),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 14.0, left: 10, right: 15, bottom: 10),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            flex: 2,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(10),
-                              child: Image.asset(
-                                "assets/images/na_april_69.jpg",
-                                height: 70,
-                                width: 90,
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/insightsinner');
+                    },
+                    child: Card(
+                      elevation: 2,
+                      color: Color(0xFFFFFFFF),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            top: 14.0, left: 10, right: 15, bottom: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              flex: 2,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(10),
+                                child: Image.asset(
+                                  "assets/images/na_april_69.jpg",
+                                  height: 70,
+                                  width: 90,
+                                ),
                               ),
                             ),
-                          ),
-                          const Expanded(
-                            flex: 0,
-                            child: SizedBox(
-                              width: 20,
+                            const Expanded(
+                              flex: 0,
+                              child: SizedBox(
+                                width: 20,
+                              ),
                             ),
-                          ),
-                          Expanded(
-                            flex: 5,
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Retail banks wake up to digital",
-                                  style: blackStyle14(),
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(
-                                      Icons.calendar_today_outlined,
-                                      size: 14,
-                                    ),
-                                    SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      "October 17 , 2022",
-                                      style: blackStyle12(),
-                                    ),
-                                  ],
-                                )
-                              ],
+                            Expanded(
+                              flex: 5,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Retail banks wake up to digital",
+                                    style: blackStyle14(),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.calendar_today_outlined,
+                                        size: 14,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        "October 17 , 2022",
+                                        style: blackStyle12(),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -1151,24 +1193,34 @@ class DougnutChart extends StatelessWidget {
       ChartData('David', 20),
       ChartData('Steve', 20),
     ];
-    return SfCircularChart(
-      centerY: '55',
-      centerX: '50',
-      palette: <Color>[
-        Color.fromARGB(255, 113, 201, 248),
-        Color(0xFF1B8DC9),
-      ],
-      series: <CircularSeries>[
-        // Render pie chart
-        DoughnutSeries<ChartData, String>(
+    return SfCircularChart(centerY: '55', centerX: '50', palette: <Color>[
+      Color.fromARGB(255, 113, 201, 248),
+      Color(0xFF1B8DC9),
+    ], annotations: <CircularChartAnnotation>[
+      CircularChartAnnotation(
+          widget: Container(
+              child: PhysicalModel(
+                  child: Container(),
+                  shape: BoxShape.circle,
+                  elevation: 10,
+                  shadowColor: Colors.black,
+                  color: const Color.fromRGBO(230, 230, 230, 1)))),
+      CircularChartAnnotation(
+        widget: Container(
+          child: const Text(
+            '50%',
+            style: TextStyle(color: Colors.black, fontSize: 16),
+          ),
+        ),
+      ),
+    ], series: <CircularSeries>[
+      DoughnutSeries<ChartData, String>(
           dataSource: chartData,
-          pointColorMapper: (ChartData data, _) => data.color,
           xValueMapper: (ChartData data, _) => data.x,
           yValueMapper: (ChartData data, _) => data.y,
-          innerRadius: '40%',
-        )
-      ],
-    );
+          // Radius of doughnut
+          radius: '100%')
+    ]);
   }
 }
 
@@ -1177,4 +1229,8 @@ class ChartData {
   final String x;
   final double y;
   final Color? color;
+}
+
+void dataLabel(DataLabelRenderArgs args) {
+  args.text = '50';
 }
