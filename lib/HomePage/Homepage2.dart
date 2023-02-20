@@ -565,6 +565,7 @@ class _Home2State extends State<Home2> {
               Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
+                    color: Color(0xFFCFEFFF),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.06),
@@ -594,9 +595,10 @@ class _Home2State extends State<Home2> {
                             child: Text(
                               "Know More",
                               style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 14.sm,
-                                  color: Color(0xFF1B8DC9)),
+                                fontFamily: 'Poppins',
+                                fontSize: 14.sm,
+                                color: Color(0xFF1B8DC9),
+                              ),
                             ),
                           )
                         ],
