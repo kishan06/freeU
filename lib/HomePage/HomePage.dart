@@ -187,25 +187,26 @@ class _HomePageState extends State<HomePage> {
                                         SizedBox(
                                           height: 30.h,
                                           child: ElevatedButton(
-                                              style: ElevatedButton.styleFrom(
-                                                elevation: 0,
-                                                backgroundColor: Colors.white,
-                                                // color: Color(0xFFFF),
-                                                shape: RoundedRectangleBorder(
-                                                  borderRadius:
-                                                      BorderRadius.circular(5),
-                                                ),
+                                            style: ElevatedButton.styleFrom(
+                                              elevation: 0,
+                                              backgroundColor: Colors.white,
+                                              // color: Color(0xFFFF),
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(5),
                                               ),
-                                              onPressed: () {
-                                                Get.toNamed('/categoriesmain');
-                                              },
-                                              child: Text(
-                                                'Invest Now',
-                                                style: TextStyle(
-                                                    fontFamily: "Poppins",
-                                                    fontSize: 13.sm,
-                                                    color: Colors.black),
-                                              )),
+                                            ),
+                                            onPressed: () {
+                                              Get.toNamed('/categoriesmain');
+                                            },
+                                            child: Text(
+                                              'Invest Now',
+                                              style: TextStyle(
+                                                  fontFamily: "Poppins",
+                                                  fontSize: 13.sm,
+                                                  color: Colors.black),
+                                            ),
+                                          ),
                                         )
                                       ],
                                     ),
@@ -248,25 +249,26 @@ class _HomePageState extends State<HomePage> {
                                       SizedBox(
                                         height: 30.h,
                                         child: ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              elevation: 0,
-                                              backgroundColor: Colors.white,
-                                              // color: Color(0xFFFF),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
-                                              ),
+                                          style: ElevatedButton.styleFrom(
+                                            elevation: 0,
+                                            backgroundColor: Colors.white,
+                                            // color: Color(0xFFFF),
+                                            shape: RoundedRectangleBorder(
+                                              borderRadius:
+                                                  BorderRadius.circular(5),
                                             ),
-                                            onPressed: () {
-                                              Get.toNamed('/categoriesmain');
-                                            },
-                                            child: Text(
-                                              'Invest Now',
-                                              style: TextStyle(
-                                                  fontFamily: "Poppins",
-                                                  fontSize: 13.sm,
-                                                  color: Colors.black),
-                                            )),
+                                          ),
+                                          onPressed: () {
+                                            Get.toNamed('/categoriesmain');
+                                          },
+                                          child: Text(
+                                            'Invest Now',
+                                            style: TextStyle(
+                                                fontFamily: "Poppins",
+                                                fontSize: 13.sm,
+                                                color: Colors.black),
+                                          ),
+                                        ),
                                       )
                                     ],
                                   ),
@@ -290,10 +292,11 @@ class _HomePageState extends State<HomePage> {
                         controller: indicatorcontroller,
                         count: 3,
                         effect: ExpandingDotsEffect(
-                            dotHeight: 7.h,
-                            dotWidth: 7.w,
-                            activeDotColor: Color(0xFF153D6D),
-                            dotColor: Color(0xFF153D6D).withOpacity(0.4)),
+                          dotHeight: 7.h,
+                          dotWidth: 7.w,
+                          activeDotColor: Color(0xFF153D6D),
+                          dotColor: Color(0xFF153D6D).withOpacity(0.4),
+                        ),
                       ),
                     ],
                   ),
@@ -393,9 +396,10 @@ class _HomePageState extends State<HomePage> {
                               Flexible(
                                 flex: 1,
                                 child: SizedBox(
-                                    height: 200,
-                                    width: 200,
-                                    child: DougnutChart()),
+                                  height: 200,
+                                  width: 200,
+                                  child: DougnutChart(),
+                                ),
                               ),
                               SizedBox(
                                 width: 10.w,
@@ -609,36 +613,38 @@ class _HomePageState extends State<HomePage> {
                                       )
                                     ]),
                                 child: Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Image.asset(
-                                          "assets/images/real-estate.png",
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SizedBox(
-                                          width: 13.w,
-                                        ),
-                                        Text(
-                                          'Fractional Real Estate',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontSize: 16.sm,
-                                              fontFamily: 'Poppins'),
-                                        )
-                                      ],
-                                    )),
+                                  padding: EdgeInsets.all(10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/real-estate.png",
+                                        height: 50,
+                                        width: 50,
+                                      ),
+                                      SizedBox(
+                                        width: 13.w,
+                                      ),
+                                      Text(
+                                        'Fractional Real Estate',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 16.sm,
+                                            fontFamily: 'Poppins'),
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                           Expanded(
-                              flex: 0,
-                              child: SizedBox(
-                                width: 10,
-                              )),
+                            flex: 0,
+                            child: SizedBox(
+                              width: 10,
+                            ),
+                          ),
                           Expanded(
                             flex: 1,
                             child: GestureDetector(
@@ -659,28 +665,29 @@ class _HomePageState extends State<HomePage> {
                                   ],
                                 ),
                                 child: Padding(
-                                    padding: EdgeInsets.all(10),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      children: [
-                                        Image.asset(
-                                          "assets/images/blockchain.png",
-                                          height: 50,
-                                          width: 50,
-                                        ),
-                                        SizedBox(
-                                          width: 13.w,
-                                        ),
-                                        Text(
-                                          'Peer- Peer\n lending',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontSize: 16.sm,
-                                              fontFamily: 'Poppins'),
-                                        )
-                                      ],
-                                    )),
+                                  padding: EdgeInsets.all(10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: [
+                                      Image.asset(
+                                        "assets/images/blockchain.png",
+                                        height: 50,
+                                        width: 50,
+                                      ),
+                                      SizedBox(
+                                        width: 13.w,
+                                      ),
+                                      Text(
+                                        'Peer- Peer\n lending',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                            fontSize: 16.sm,
+                                            fontFamily: 'Poppins'),
+                                      )
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
                           ),
@@ -822,31 +829,31 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                     Positioned(
-                                        bottom: 0,
-                                        left: 0,
-                                        right: 0,
-                                        child: Container(
-                                          height: 40,
-                                          decoration: BoxDecoration(
-                                            color:
-                                                Colors.black.withOpacity(0.4),
-                                          ),
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 8.0),
-                                            child: Align(
-                                              alignment: Alignment.centerLeft,
-                                              child: Text(
-                                                'Fractional Real Estate',
-                                                style: blackStyle14().copyWith(
-                                                  fontWeight: FontWeight.w400,
-                                                  color: Colors.white,
-                                                  fontSize: 16,
-                                                ),
+                                      bottom: 0,
+                                      left: 0,
+                                      right: 0,
+                                      child: Container(
+                                        height: 40,
+                                        decoration: BoxDecoration(
+                                          color: Colors.black.withOpacity(0.4),
+                                        ),
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 8.0),
+                                          child: Align(
+                                            alignment: Alignment.centerLeft,
+                                            child: Text(
+                                              'Fractional Real Estate',
+                                              style: blackStyle14().copyWith(
+                                                fontWeight: FontWeight.w400,
+                                                color: Colors.white,
+                                                fontSize: 16,
                                               ),
                                             ),
                                           ),
-                                        ))
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 ),
                                 SizedBox(height: 10),
@@ -1371,8 +1378,8 @@ class _HomePageState extends State<HomePage> {
               ),
               Container(
                 decoration: BoxDecoration(
-                    color: Color(0xFFCFEFFF),
                     borderRadius: BorderRadius.circular(15),
+                    color: Color(0xFFCFEFFF),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.06),
@@ -1628,13 +1635,16 @@ class DougnutChart extends StatelessWidget {
       Color(0xFF1B8DC9),
     ], annotations: <CircularChartAnnotation>[
       CircularChartAnnotation(
-          widget: Container(
-              child: PhysicalModel(
-                  child: Container(),
-                  shape: BoxShape.circle,
-                  elevation: 10,
-                  shadowColor: Colors.black,
-                  color: const Color.fromRGBO(230, 230, 230, 1)))),
+        widget: Container(
+          child: PhysicalModel(
+            child: Container(),
+            shape: BoxShape.circle,
+            elevation: 10,
+            shadowColor: Colors.black,
+            color: const Color.fromRGBO(230, 230, 230, 1),
+          ),
+        ),
+      ),
       CircularChartAnnotation(
         widget: Container(
           child: const Text(
