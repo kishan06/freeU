@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -136,11 +138,17 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(
                 height: 167.h,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  color: Color(0xFFCFEFFF),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFFCFEFFF),
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.06),
+                          blurRadius: 10,
+                          spreadRadius: 2,
+                        )
+                      ]),
                   child: Column(
                     children: [
                       SizedBox(
@@ -302,110 +310,31 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         width: 3.w,
                       ),
-                      Text(
-                        "Your Investments",
-                        style:
-                            TextStyle(fontSize: 20, fontFamily: 'Poppins',color: Color(0xFF1B8DC9),fontWeight: FontWeight.w500),
-                      ),
+                      titleText("Your Investments"),
                     ],
                   ),
                   SizedBox(
                     height: 8.h,
                   ),
                   SizedBox(
-                    height: 149.h,
-                    child: PageView.builder(
-                      padEnds: false,
-                      controller: investmentcontroller,
+                    height: 150.h,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
                       itemCount: 2,
-                      itemBuilder: (
-                        BuildContext context,
-                        int index1,
-                      ) {
-                        bool isMyPageIndex = selectIndex == index1;
-                        if (index1 == 0) {
-                          return Card(
-                            elevation: 2,
-                            shadowColor: Colors.black.withOpacity(0.2),
-                            shape: RoundedRectangleBorder(
+                      itemBuilder: (context, index) => Container(
+                        margin: EdgeInsets.all(5),
+                        width: Get.width * 0.85,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xFFFFFFFF),
                               borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Row(
-                              children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(15),
-                                      bottomLeft: Radius.circular(15),
-                                    ),
-                                    color: Color(0xFF1B8DC9),
-                                  ),
-                                  width: 15.w,
-                                ),
-                                SizedBox(
-                                  width: 30.w,
-                                ),
-                                Flexible(
-                                  flex: 1,
-                                  child: Column(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SizedBox(
-                                        height: 6.h,
-                                      ),
-                                      Flexible(
-                                        flex: 3,
-                                        child: Text(
-                                          "Chennai Office Opportunity",
-                                          style: blackStyle15().copyWith(
-                                              fontWeight: FontWeight.w300),
-                                        ),
-                                      ),
-                                      Spacer(),
-                                      Flexible(
-                                        flex: 2,
-                                        child: Text(
-                                          "₹ 25,00,000",
-                                          style: blackStyle14().copyWith(
-                                              fontWeight: FontWeight.w500),
-                                        ),
-                                      ),
-                                      Flexible(
-                                        flex: 2,
-                                        child: Text(
-                                          "Invested",
-                                          style: blackStyle14(),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 6.h,
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Flexible(
-                                  flex: 1,
-                                  child: SizedBox(
-                                      height: 200,
-                                      width: 200,
-                                      child: DougnutChart()),
-                                ),
-                                SizedBox(
-                                  width: 10.w,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.06),
+                                  blurRadius: 10,
+                                  spreadRadius: 2,
                                 )
-                              ],
-                            ),
-                          );
-                        } //2nd plan
-                        return Card(
-                          elevation: 2,
-                          shadowColor: Colors.black.withOpacity(0.2),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
+                              ]),
                           child: Row(
                             children: [
                               Container(
@@ -473,10 +402,175 @@ class _HomePageState extends State<HomePage> {
                               )
                             ],
                           ),
-                        );
-                      },
+                        ),
+                      ),
                     ),
                   ),
+                  // SizedBox(
+                  //   height: 149.h,
+                  //   child: PageView.builder(
+                  //     padEnds: false,
+                  //     controller: investmentcontroller,
+                  //     itemCount: 2,
+                  //     itemBuilder: (
+                  //       BuildContext context,
+                  //       int index1,
+                  //     ) {
+                  //       bool isMyPageIndex = selectIndex == index1;
+                  //       if (index1 == 0) {
+                  //         return Card(
+                  //           elevation: 2,
+                  //           shadowColor: Colors.black.withOpacity(0.2),
+                  //           shape: RoundedRectangleBorder(
+                  //             borderRadius: BorderRadius.circular(15),
+                  //           ),
+                  //           child: Row(
+                  //             children: [
+                  //               Container(
+                  //                 decoration: BoxDecoration(
+                  //                   borderRadius: BorderRadius.only(
+                  //                     topLeft: Radius.circular(15),
+                  //                     bottomLeft: Radius.circular(15),
+                  //                   ),
+                  //                   color: Color(0xFF1B8DC9),
+                  //                 ),
+                  //                 width: 15.w,
+                  //               ),
+                  //               SizedBox(
+                  //                 width: 30.w,
+                  //               ),
+                  //               Flexible(
+                  //                 flex: 1,
+                  //                 child: Column(
+                  //                   mainAxisAlignment:
+                  //                       MainAxisAlignment.spaceEvenly,
+                  //                   crossAxisAlignment:
+                  //                       CrossAxisAlignment.start,
+                  //                   children: [
+                  //                     SizedBox(
+                  //                       height: 6.h,
+                  //                     ),
+                  //                     Flexible(
+                  //                       flex: 3,
+                  //                       child: Text(
+                  //                         "Chennai Office Opportunity",
+                  //                         style: blackStyle15().copyWith(
+                  //                             fontWeight: FontWeight.w300),
+                  //                       ),
+                  //                     ),
+                  //                     Spacer(),
+                  //                     Flexible(
+                  //                       flex: 2,
+                  //                       child: Text(
+                  //                         "₹ 25,00,000",
+                  //                         style: blackStyle14().copyWith(
+                  //                             fontWeight: FontWeight.w500),
+                  //                       ),
+                  //                     ),
+                  //                     Flexible(
+                  //                       flex: 2,
+                  //                       child: Text(
+                  //                         "Invested",
+                  //                         style: blackStyle14(),
+                  //                       ),
+                  //                     ),
+                  //                     SizedBox(
+                  //                       height: 6.h,
+                  //                     )
+                  //                   ],
+                  //                 ),
+                  //               ),
+                  //               Flexible(
+                  //                 flex: 1,
+                  //                 child: SizedBox(
+                  //                     height: 200,
+                  //                     width: 200,
+                  //                     child: DougnutChart()),
+                  //               ),
+                  //               SizedBox(
+                  //                 width: 10.w,
+                  //               )
+                  //             ],
+                  //           ),
+                  //         );
+                  //       } //2nd plan
+                  //       return Card(
+                  //         elevation: 2,
+                  //         shadowColor: Colors.black.withOpacity(0.2),
+                  //         shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(15),
+                  //         ),
+                  //         child: Row(
+                  //           children: [
+                  //             Container(
+                  //               decoration: BoxDecoration(
+                  //                 borderRadius: BorderRadius.only(
+                  //                   topLeft: Radius.circular(15),
+                  //                   bottomLeft: Radius.circular(15),
+                  //                 ),
+                  //                 color: Color(0xFF1B8DC9),
+                  //               ),
+                  //               width: 15.w,
+                  //             ),
+                  //             SizedBox(
+                  //               width: 30.w,
+                  //             ),
+                  //             Flexible(
+                  //               flex: 1,
+                  //               child: Column(
+                  //                 mainAxisAlignment:
+                  //                     MainAxisAlignment.spaceEvenly,
+                  //                 crossAxisAlignment: CrossAxisAlignment.start,
+                  //                 children: [
+                  //                   SizedBox(
+                  //                     height: 6.h,
+                  //                   ),
+                  //                   Flexible(
+                  //                     flex: 3,
+                  //                     child: Text(
+                  //                       "Chennai Office Opportunity",
+                  //                       style: blackStyle15().copyWith(
+                  //                           fontWeight: FontWeight.w300),
+                  //                     ),
+                  //                   ),
+                  //                   Spacer(),
+                  //                   Flexible(
+                  //                     flex: 2,
+                  //                     child: Text(
+                  //                       "₹ 25,00,000",
+                  //                       style: blackStyle14().copyWith(
+                  //                           fontWeight: FontWeight.w500),
+                  //                     ),
+                  //                   ),
+                  //                   Flexible(
+                  //                     flex: 2,
+                  //                     child: Text(
+                  //                       "Invested",
+                  //                       style: blackStyle14(),
+                  //                     ),
+                  //                   ),
+                  //                   SizedBox(
+                  //                     height: 6.h,
+                  //                   )
+                  //                 ],
+                  //               ),
+                  //             ),
+                  //             Flexible(
+                  //               flex: 1,
+                  //               child: SizedBox(
+                  //                   height: 200,
+                  //                   width: 200,
+                  //                   child: DougnutChart()),
+                  //             ),
+                  //             SizedBox(
+                  //               width: 10.w,
+                  //             )
+                  //           ],
+                  //         ),
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
                 ],
               ),
               SizedBox(
@@ -488,10 +582,7 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Categories",
-                      style: TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                    ),
+                    titleText('Categories'),
                     SizedBox(
                       height: 8.h,
                     ),
@@ -500,29 +591,31 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
-                             flex: 1,
+                            flex: 1,
                             child: GestureDetector(
                               onTap: () {
                                 Get.toNamed('/fractionalrealestateproperty1');
                               },
-                              child: Card(
-                                elevation: 2,
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
+                              child: Container(
+                                // elevation: 2,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.06),
+                                        spreadRadius: 2,
+                                        blurRadius: 10,
+                                      )
+                                    ]),
                                 child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 10.0,
-                                        left: 10,
-                                        right: 10,
-                                        bottom: 10),
+                                    padding: EdgeInsets.all(10),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
                                         Image.asset(
-                                          "assets/images/residential@2x.png",
+                                          "assets/images/real-estate.png",
                                           height: 50,
                                           width: 50,
                                         ),
@@ -541,31 +634,38 @@ class _HomePageState extends State<HomePage> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 20,),
+                          Expanded(
+                              flex: 0,
+                              child: SizedBox(
+                                width: 10,
+                              )),
                           Expanded(
                             flex: 1,
                             child: GestureDetector(
                               onTap: () {
                                 Get.toNamed('/peerlendingasset1');
                               },
-                              child: Card(
-                                elevation: 2,
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
+                              child: Container(
+                                // elevation: 2,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
                                   borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.06),
+                                      spreadRadius: 2,
+                                      blurRadius: 10,
+                                    )
+                                  ],
                                 ),
                                 child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 10.0,
-                                        left: 10,
-                                        right: 10,
-                                        bottom: 10),
+                                    padding: EdgeInsets.all(10),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
                                         Image.asset(
-                                          "assets/images/blockchain@2x.png",
+                                          "assets/images/blockchain.png",
                                           height: 50,
                                           width: 50,
                                         ),
@@ -583,7 +683,7 @@ class _HomePageState extends State<HomePage> {
                                     )),
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -601,63 +701,171 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         width: 3.w,
                       ),
-                      Text(
-                        "Top Pick",
-                        style:
-                            TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                      ),
+                      titleText("Top Pick"),
                     ],
                   ),
                   SizedBox(
                     height: 8.h,
                   ),
+
+                  // SizedBox(
+                  //   height: 290,
+                  //   child: Container(
+                  //     decoration: BoxDecoration(
+                  //         color: Colors.white,
+                  //         borderRadius: BorderRadius.circular(10),
+                  //         boxShadow: [
+                  //           BoxShadow(
+                  //             color: Colors.black.withOpacity(0.15),
+                  //             spreadRadius: 2,
+                  //             blurRadius: 10,
+                  //           )
+                  //         ]),
+                  //     child: Padding(
+                  //       padding: EdgeInsets.only(top: 0),
+                  //       child: Column(
+                  //         mainAxisAlignment: MainAxisAlignment.start,
+                  //         crossAxisAlignment: CrossAxisAlignment.start,
+                  //         children: [
+                  //           Image.asset(
+                  //             'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
+                  //             fit: BoxFit.cover,
+                  //             width: double.infinity,
+                  //           ),
+                  //           SizedBox(
+                  //             height: 10,
+                  //           ),
+                  //           Text(
+                  //             'Vaishnavi Tech Park Opportunity',
+                  //             style: blackStyle15(),
+                  //           ),
+                  //           SizedBox(
+                  //             height: 7.h,
+                  //           ),
+                  //           Row(
+                  //             crossAxisAlignment: CrossAxisAlignment.start,
+                  //             mainAxisAlignment: MainAxisAlignment.start,
+                  //             children: [
+                  //               Flexible(
+                  //                 child: Icon(
+                  //                   Icons.location_on_outlined,
+                  //                   size: 18.sm,
+                  //                   color: Color(0xFF707070),
+                  //                 ),
+                  //               ),
+                  //               // SizedBox(
+                  //               //   width: 4.w,
+                  //               // ),
+                  //               Flexible(
+                  //                 flex: 4,
+                  //                 child: Text(
+                  //                   'Outer Ring Road Sarjapur, Bangalore',
+                  //                   style: blackStyle12().copyWith(
+                  //                     color: Color(0xFF707070),
+                  //                   ),
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //           SizedBox(
+                  //             height: 8.h,
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ),
+                  //   ),
+                  // )
+                  //
+                  //
+                  //
+                  //
+                  //
+                  //
                   SizedBox(
-                    height: 285.h,
-                    child: PageView.builder(
-                      padEnds: false,
-                      controller: pickcontroller,
+                    height: 310.h,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
                       itemCount: 2,
-                      itemBuilder: (
-                        BuildContext context,
-                        int index1,
-                      ) {
-                        bool isMyPageIndex = selectIndex == index1;
-                        if (index1 == 0) {
-                          return Card(
-                            elevation: 2,
-                            color: Color(0xFFFFFFFF),
-                            shape: RoundedRectangleBorder(
+                      itemBuilder: (context, index) => Container(
+                        margin: EdgeInsets.all(10),
+                        width: Get.width * 0.65,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Color(0xFFFFFFFF),
                               borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                  top: 14.0, left: 15, right: 15, bottom: 6),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Fractional Real Estate',
-                                    style: blackStyle14()
-                                        .copyWith(fontWeight: FontWeight.w400),
-                                  ),
-                                  SizedBox(
-                                    height: 10.h,
-                                  ),
-                                  Image.asset(
-                                    'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
-                                  ),
-                                  SizedBox(
-                                    height: 9.h,
-                                  ),
-                                  Text(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.06),
+                                  blurRadius: 10,
+                                  spreadRadius: 2,
+                                )
+                              ]),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                top: 0.0, left: 0, right: 0, bottom: 6),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      child: Image.asset(
+                                        'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
+                                        fit: BoxFit.cover,
+                                        width: double.infinity,
+                                        height: 150,
+                                      ),
+                                    ),
+                                    Positioned(
+                                        bottom: 0,
+                                        left: 0,
+                                        right: 0,
+                                        child: Container(
+                                          height: 40,
+                                          decoration: BoxDecoration(
+                                            color:
+                                                Colors.black.withOpacity(0.4),
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0),
+                                            child: Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Text(
+                                                'Fractional Real Estate',
+                                                style: blackStyle14().copyWith(
+                                                  fontWeight: FontWeight.w400,
+                                                  color: Colors.white,
+                                                  fontSize: 16,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ))
+                                  ],
+                                ),
+                                SizedBox(height: 10),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Text(
                                     'Vaishnavi Tech Park Opportunity',
-                                    style: blackStyle15(),
+                                    style:
+                                        blackStyle15().copyWith(fontSize: 16),
                                   ),
-                                  SizedBox(
-                                    height: 7.h,
-                                  ),
-                                  Row(
+                                ),
+                                SizedBox(
+                                  height: 7.h,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -665,7 +873,7 @@ class _HomePageState extends State<HomePage> {
                                       Flexible(
                                         child: Icon(
                                           Icons.location_on_outlined,
-                                          size: 18.sm,
+                                          size: 22,
                                           color: Color(0xFF707070),
                                         ),
                                       ),
@@ -674,81 +882,18 @@ class _HomePageState extends State<HomePage> {
                                       // ),
                                       Flexible(
                                         flex: 4,
-                                        child: Text(
-                                          'Outer Ring Road Sarjapur, Bangalore',
-                                          style: blackStyle12().copyWith(
-                                            color: Color(0xFF707070),
+                                        child: Align(
+                                          alignment: Alignment.topLeft,
+                                          child: Text(
+                                            'Outer Ring Road Sarjapur, Bangalore',
+                                            style: blackStyle12().copyWith(
+                                                color: Color(0xFF707070),
+                                                fontSize: 14),
                                           ),
                                         ),
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: 8.h,
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        } //2nd plan
-                        return Card(
-                          elevation: 2,
-                          color: Color(0xFFFFFFFF),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.only(
-                                top: 14.0, left: 15, right: 15, bottom: 6),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Fractional Real Estate',
-                                  style: blackStyle14()
-                                      .copyWith(fontWeight: FontWeight.w400),
-                                ),
-                                SizedBox(
-                                  height: 10.h,
-                                ),
-                                Image.asset(
-                                  'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
-                                ),
-                                SizedBox(
-                                  height: 9.h,
-                                ),
-                                Text(
-                                  'Vaishnavi Tech Park Opportunity',
-                                  style: blackStyle15(),
-                                ),
-                                SizedBox(
-                                  height: 7.h,
-                                ),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Flexible(
-                                      child: Icon(
-                                        Icons.location_on_outlined,
-                                        size: 18.sm,
-                                        color: Color(0xFF707070),
-                                      ),
-                                    ),
-                                    // SizedBox(
-                                    //   width: 4.w,
-                                    // ),
-                                    Flexible(
-                                      flex: 4,
-                                      child: Text(
-                                        'Outer Ring Road Sarjapur, Bangalore',
-                                        style: blackStyle12().copyWith(
-                                          color: Color(0xFF707070),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
                                 ),
                                 SizedBox(
                                   height: 8.h,
@@ -756,10 +901,161 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ),
                           ),
-                        );
-                      },
+                        ),
+                      ),
                     ),
                   ),
+                  // SizedBox(
+                  //   height: 290,
+                  //   child: ListView.builder(
+                  //     // controller: pickcontroller,
+                  //     scrollDirection: Axis.horizontal,
+                  //     itemCount: 2,
+                  //     itemBuilder: (
+                  //       BuildContext context,
+                  //       int index1,
+                  //     ) {
+                  //       bool isMyPageIndex = selectIndex == index1;
+                  //       if (index1 == 0) {
+                  //         return Card(
+                  //           elevation: 2,
+                  //           color: Color(0xFFFFFFFF),
+                  //           shape: RoundedRectangleBorder(
+                  //             borderRadius: BorderRadius.circular(15),
+                  //           ),
+                  //           child: Padding(
+                  //             padding: EdgeInsets.only(
+                  //                 top: 14.0, left: 15, right: 15, bottom: 6),
+                  //             child: Column(
+                  //               mainAxisAlignment: MainAxisAlignment.start,
+                  //               crossAxisAlignment: CrossAxisAlignment.start,
+                  //               children: [
+                  //                 Text(
+                  //                   'Fractional Real Estate',
+                  //                   style: blackStyle14()
+                  //                       .copyWith(fontWeight: FontWeight.w400),
+                  //                 ),
+                  //                 SizedBox(
+                  //                   height: 10,
+                  //                 ),
+                  //                 Image.asset(
+                  //                   'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
+                  //                   fit: BoxFit.cover,
+                  //                   width: double.infinity,
+                  //                 ),
+                  //                 SizedBox(
+                  //                   height: 10,
+                  //                 ),
+                  //                 Text(
+                  //                   'Vaishnavi Tech Park Opportunity',
+                  //                   style: blackStyle15(),
+                  //                 ),
+                  //                 SizedBox(
+                  //                   height: 8,
+                  //                 ),
+                  //                 Row(
+                  //                   crossAxisAlignment:
+                  //                       CrossAxisAlignment.start,
+                  //                   mainAxisAlignment: MainAxisAlignment.start,
+                  //                   children: [
+                  //                     Flexible(
+                  //                       child: Icon(
+                  //                         Icons.location_on_outlined,
+                  //                         size: 18.sm,
+                  //                         color: Color(0xFF707070),
+                  //                       ),
+                  //                     ),
+                  //                     // SizedBox(
+                  //                     //   width: 4.w,
+                  //                     // ),
+                  //                     Flexible(
+                  //                       flex: 4,
+                  //                       child: Text(
+                  //                         'Outer Ring Road Sarjapur, Bangalore',
+                  //                         style: blackStyle12().copyWith(
+                  //                           color: Color(0xFF707070),
+                  //                         ),
+                  //                       ),
+                  //                     ),
+                  //                   ],
+                  //                 ),
+                  //                 SizedBox(
+                  //                   height: 8.h,
+                  //                 ),
+                  //               ],
+                  //             ),
+                  //           ),
+                  //         );
+                  //       } //2nd plan
+                  //       return Card(
+                  //         elevation: 2,
+                  //         color: Color(0xFFFFFFFF),
+                  //         shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(15),
+                  //         ),
+                  //         child: Padding(
+                  //           padding: EdgeInsets.only(
+                  //               top: 14.0, left: 15, right: 15, bottom: 6),
+                  //           child: Column(
+                  //             mainAxisAlignment: MainAxisAlignment.center,
+                  //             crossAxisAlignment: CrossAxisAlignment.start,
+                  //             children: [
+                  //               Text(
+                  //                 'Fractional Real Estate',
+                  //                 style: blackStyle14()
+                  //                     .copyWith(fontWeight: FontWeight.w400),
+                  //               ),
+                  //               SizedBox(
+                  //                 height: 10.h,
+                  //               ),
+                  //               Image.asset(
+                  //                 'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
+                  //               ),
+                  //               SizedBox(
+                  //                 height: 9.h,
+                  //               ),
+                  //               Text(
+                  //                 'Vaishnavi Tech Park Opportunity',
+                  //                 style: blackStyle15(),
+                  //               ),
+                  //               SizedBox(
+                  //                 height: 7.h,
+                  //               ),
+                  //               Row(
+                  //                 crossAxisAlignment: CrossAxisAlignment.start,
+                  //                 mainAxisAlignment: MainAxisAlignment.start,
+                  //                 children: [
+                  //                   Flexible(
+                  //                     child: Icon(
+                  //                       Icons.location_on_outlined,
+                  //                       size: 18.sm,
+                  //                       color: Color(0xFF707070),
+                  //                     ),
+                  //                   ),
+                  //                   // SizedBox(
+                  //                   //   width: 4.w,
+                  //                   // ),
+                  //                   Flexible(
+                  //                     flex: 4,
+                  //                     child: Text(
+                  //                       'Outer Ring Road Sarjapur, Bangalore',
+                  //                       style: blackStyle12().copyWith(
+                  //                         color: Color(0xFF707070),
+                  //                       ),
+                  //                     ),
+                  //                   ),
+                  //                 ],
+                  //               ),
+                  //               SizedBox(
+                  //                 height: 8.h,
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       );
+                  //     },
+                  //   ),
+                  // ),
                 ],
               ),
               SizedBox(
@@ -773,11 +1069,7 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         width: 3.w,
                       ),
-                      Text(
-                        "Recommended",
-                        style:
-                            TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                      ),
+                      titleText("Recommended"),
                     ],
                   ),
                   SizedBox(
@@ -785,130 +1077,56 @@ class _HomePageState extends State<HomePage> {
                   ),
                   SizedBox(
                     width: double.infinity,
-                    height: 300.h,
-                    child: PageView.builder(
-                      padEnds: false,
-                      controller: recommendedcontroller,
+                    height: 320,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
                       itemCount: 2,
-                      itemBuilder: (
-                        BuildContext context,
-                        int index1,
-                      ) {
-                        bool isMyPageIndex = selectIndex == index1;
-                        if (index1 == 0) {
-                          return GestureDetector(
-                            onTap: () {
-                              Get.toNamed("/fractionalrealestateproperty2");
-                            },
-                            child: Card(
-                              elevation: 2,
+                      itemBuilder: (context, index) => GestureDetector(
+                        onTap: () {
+                          Get.toNamed("/fractionalrealestateproperty2");
+                        },
+                        child: Container(
+                          margin: EdgeInsets.all(10),
+                          width: Get.width * 0.85,
+                          decoration: BoxDecoration(
                               color: Color(0xFFFFFFFF),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Padding(
-                                padding: EdgeInsets.only(
-                                    top: 14.0, left: 15, right: 15, bottom: 6),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Image.asset(
-                                      'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
-                                    ),
-                                    SizedBox(
-                                      height: 3.h,
-                                    ),
-                                    Card(
-                                      color: Color(0xFFCFEFFF),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(5),
-                                      ),
-                                      child: Padding(
-                                        padding:
-                                            EdgeInsets.fromLTRB(6, 3, 6, 3),
-                                        child: Text(
-                                          'Fractional Real Estate',
-                                          style: blackStyle12(),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    Flexible(
-                                      child: Text(
-                                        'Vaishnavi Tech Park Opportunity',
-                                        style: blackStyle16(),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      children: [
-                                        Flexible(
-                                          child: Icon(
-                                            Icons.location_on_outlined,
-                                            size: 18.sm,
-                                            color: Color(0xFF707070),
-                                          ),
-                                        ),
-                                        // SizedBox(
-                                        //   width: 4.w,
-                                        // ),
-                                        Flexible(
-                                          flex: 4,
-                                          child: Text(
-                                            'Outer Ring Road Sarjapur, Bangalore',
-                                            style: blackStyle12().copyWith(
-                                              color: Color(0xFF707070),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    SizedBox(
-                                      height: 8.h,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                          );
-                        } //2nd plan
-                        return GestureDetector(
-                          onTap: () {
-                            Get.toNamed("/fractionalrealestateproperty2");
-                          },
-                          child: Card(
-                            elevation: 2,
-                            color: Color(0xFFFFFFFF),
-                            shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
-                            ),
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                  top: 14.0, left: 15, right: 15, bottom: 6),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Image.asset(
-                                    'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
-                                  ),
-                                  SizedBox(
-                                    height: 3.h,
-                                  ),
-                                  Card(
-                                    color: Color(0xFFCFEFFF),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5),
-                                    ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.06),
+                                  blurRadius: 10,
+                                  spreadRadius: 2,
+                                )
+                              ]),
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                                top: 0.0, left: 0, right: 0, bottom: 6),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
+                                  fit: BoxFit.cover,
+                                  width: double.infinity,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 5.0),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: Color(0xFFCFEFFF),
+                                        borderRadius: BorderRadius.circular(5),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.06),
+                                            blurRadius: 10,
+                                            spreadRadius: 2,
+                                          )
+                                        ]),
                                     child: Padding(
                                       padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
                                       child: Text(
@@ -917,19 +1135,20 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
-                                    height: 5.h,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child: Text(
+                                    'Vaishnavi Tech Park Opportunity',
+                                    style: blackStyle16(),
                                   ),
-                                  Flexible(
-                                    child: Text(
-                                      'Vaishnavi Tech Park Opportunity',
-                                      style: blackStyle16(),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 5.h,
-                                  ),
-                                  Row(
+                                ),
+                                SizedBox(
+                                  height: 8,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(left: 10.0),
+                                  child: Row(
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
@@ -955,30 +1174,219 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                     ],
                                   ),
-                                  SizedBox(
-                                    height: 8.h,
-                                  ),
-                                ],
-                              ),
+                                ),
+                                SizedBox(
+                                  height: 8.h,
+                                ),
+                              ],
                             ),
                           ),
-                        );
-                      },
+                        ),
+                      ),
                     ),
+                    // child: PageView.builder(
+                    //   padEnds: false,
+                    //   controller: recommendedcontroller,
+                    //   itemCount: 2,
+                    //   itemBuilder: (
+                    //     BuildContext context,
+                    //     int index1,
+                    //   ) {
+                    //     bool isMyPageIndex = selectIndex == index1;
+                    //     if (index1 == 0) {
+                    //       return GestureDetector(
+                    //         onTap: () {
+                    //           Get.toNamed("/fractionalrealestateproperty2");
+                    //         },
+                    //         child: Card(
+                    //           elevation: 2,
+                    //           color: Color(0xFFFFFFFF),
+                    //           shape: RoundedRectangleBorder(
+                    //             borderRadius: BorderRadius.circular(15),
+                    //           ),
+                    //           child: Padding(
+                    //             padding: EdgeInsets.only(
+                    //                 top: 14.0, left: 15, right: 15, bottom: 6),
+                    //             child: Column(
+                    //               mainAxisAlignment: MainAxisAlignment.center,
+                    //               crossAxisAlignment: CrossAxisAlignment.start,
+                    //               children: [
+                    //                 Image.asset(
+                    //                   'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
+                    //                 ),
+                    //                 SizedBox(
+                    //                   height: 3.h,
+                    //                 ),
+                    //                 Card(
+                    //                   color: Color(0xFFCFEFFF),
+                    //                   shape: RoundedRectangleBorder(
+                    //                     borderRadius: BorderRadius.circular(5),
+                    //                   ),
+                    //                   child: Padding(
+                    //                     padding:
+                    //                         EdgeInsets.fromLTRB(6, 3, 6, 3),
+                    //                     child: Text(
+                    //                       'Fractional Real Estate',
+                    //                       style: blackStyle12(),
+                    //                     ),
+                    //                   ),
+                    //                 ),
+                    //                 SizedBox(
+                    //                   height: 5.h,
+                    //                 ),
+                    //                 Flexible(
+                    //                   child: Text(
+                    //                     'Vaishnavi Tech Park Opportunity',
+                    //                     style: blackStyle16(),
+                    //                   ),
+                    //                 ),
+                    //                 SizedBox(
+                    //                   height: 5.h,
+                    //                 ),
+                    //                 Row(
+                    //                   crossAxisAlignment:
+                    //                       CrossAxisAlignment.start,
+                    //                   mainAxisAlignment:
+                    //                       MainAxisAlignment.start,
+                    //                   children: [
+                    //                     Flexible(
+                    //                       child: Icon(
+                    //                         Icons.location_on_outlined,
+                    //                         size: 18.sm,
+                    //                         color: Color(0xFF707070),
+                    //                       ),
+                    //                     ),
+                    //                     // SizedBox(
+                    //                     //   width: 4.w,
+                    //                     // ),
+                    //                     Flexible(
+                    //                       flex: 4,
+                    //                       child: Text(
+                    //                         'Outer Ring Road Sarjapur, Bangalore',
+                    //                         style: blackStyle12().copyWith(
+                    //                           color: Color(0xFF707070),
+                    //                         ),
+                    //                       ),
+                    //                     ),
+                    //                   ],
+                    //                 ),
+                    //                 SizedBox(
+                    //                   height: 8.h,
+                    //                 ),
+                    //               ],
+                    //             ),
+                    //           ),
+                    //         ),
+                    //       );
+                    //     } //2nd plan
+                    //     return GestureDetector(
+                    //       onTap: () {
+                    //         Get.toNamed("/fractionalrealestateproperty2");
+                    //       },
+                    //       child: Card(
+                    //         elevation: 2,
+                    //         color: Color(0xFFFFFFFF),
+                    //         shape: RoundedRectangleBorder(
+                    //           borderRadius: BorderRadius.circular(15),
+                    //         ),
+                    //         child: Padding(
+                    //           padding: EdgeInsets.only(
+                    //               top: 14.0, left: 15, right: 15, bottom: 6),
+                    //           child: Column(
+                    //             mainAxisAlignment: MainAxisAlignment.center,
+                    //             crossAxisAlignment: CrossAxisAlignment.start,
+                    //             children: [
+                    //               Image.asset(
+                    //                 'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
+                    //               ),
+                    //               SizedBox(
+                    //                 height: 3.h,
+                    //               ),
+                    //               Card(
+                    //                 color: Color(0xFFCFEFFF),
+                    //                 shape: RoundedRectangleBorder(
+                    //                   borderRadius: BorderRadius.circular(5),
+                    //                 ),
+                    //                 child: Padding(
+                    //                   padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
+                    //                   child: Text(
+                    //                     'Fractional Real Estate',
+                    //                     style: blackStyle12(),
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //               SizedBox(
+                    //                 height: 5.h,
+                    //               ),
+                    //               Flexible(
+                    //                 child: Text(
+                    //                   'Vaishnavi Tech Park Opportunity',
+                    //                   style: blackStyle16(),
+                    //                 ),
+                    //               ),
+                    //               SizedBox(
+                    //                 height: 5.h,
+                    //               ),
+                    //               Row(
+                    //                 crossAxisAlignment:
+                    //                     CrossAxisAlignment.start,
+                    //                 mainAxisAlignment: MainAxisAlignment.start,
+                    //                 children: [
+                    //                   Flexible(
+                    //                     child: Icon(
+                    //                       Icons.location_on_outlined,
+                    //                       size: 18.sm,
+                    //                       color: Color(0xFF707070),
+                    //                     ),
+                    //                   ),
+                    //                   // SizedBox(
+                    //                   //   width: 4.w,
+                    //                   // ),
+                    //                   Flexible(
+                    //                     flex: 4,
+                    //                     child: Text(
+                    //                       'Outer Ring Road Sarjapur, Bangalore',
+                    //                       style: blackStyle12().copyWith(
+                    //                         color: Color(0xFF707070),
+                    //                       ),
+                    //                     ),
+                    //                   ),
+                    //                 ],
+                    //               ),
+                    //               SizedBox(
+                    //                 height: 8.h,
+                    //               ),
+                    //             ],
+                    //           ),
+                    //         ),
+                    //       ),
+                    //     );
+                    //   },
+                    // ),
                   ),
                 ],
               ),
               SizedBox(
                 height: 20.h,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  side: BorderSide(
-                    width: 0.5,
-                    color: Color(0xFFCFCFCF).withOpacity(1),
-                  ),
-                  borderRadius: BorderRadius.circular(15),
-                ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFFCFEFFF),
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.06),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ]),
+                // shape: RoundedRectangleBorder(
+                //   side: BorderSide(
+                //     width: 0.5,
+                //     color: Color(0xFFCFCFCF).withOpacity(1),
+                //   ),
+                //   borderRadius: BorderRadius.circular(15),
+                // ),
                 child: Padding(
                   padding: EdgeInsets.only(
                       top: 11.0, bottom: 11, right: 15, left: 20),
@@ -1027,11 +1435,7 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         width: 3.w,
                       ),
-                      Text(
-                        "Trending news",
-                        style:
-                            TextStyle(fontSize: 17.sm, fontFamily: 'Poppins'),
-                      ),
+                      titleText("Trending news"),
                     ],
                   ),
                   SizedBox(
@@ -1041,55 +1445,68 @@ class _HomePageState extends State<HomePage> {
                     onTap: () {
                       Get.toNamed('/insightsinner');
                     },
-                    child: Card(
-                      elevation: 2,
-                      color: Color(0xFFFFFFFF),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.06),
+                              blurRadius: 10,
+                              spreadRadius: 2,
+                            ),
+                          ]),
                       child: Padding(
-                        padding: EdgeInsets.only(
-                            top: 10, left: 10, right: 15, bottom: 10),
+                        padding: const EdgeInsets.only(
+                            top: 14.0, left: 10, right: 15, bottom: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
+                            Expanded(
+                              flex: 2,
+                              child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                              ),
-                              // height: 70.h,
-                              child:
-                                  Image.asset(
-                                    "assets/images/na_april_69.jpg",
-                                    fit: BoxFit.fitHeight,
-                                    height: 70,
-                                  ),
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Retail banks wake up to digital",
-                                  style: blackStyle14(),
+                                child: Image.asset(
+                                  "assets/images/na_april_69.jpg",
+                                  height: 70,
+                                  width: 90,
                                 ),
-                                SizedBox(height: 5.h,),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Icons.calendar_today_outlined,
-                                      size: 14,
-                                    ),
-                                    SizedBox(width: 5,),
-                                    Text(
-                                      "October 17 , 2022",
-                                      style: blackStyle12(),
-                                    ),
-                                  ],
-                                )
-                              ],
+                              ),
+                            ),
+                            const Expanded(
+                              flex: 0,
+                              child: SizedBox(
+                                width: 20,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 5,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Retail banks wake up to digital",
+                                    style: blackStyle14(),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.calendar_today_outlined,
+                                        size: 14,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        "October 17 , 2022",
+                                        style: blackStyle12(),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -1097,61 +1514,74 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 10.h,
                   ),
                   GestureDetector(
                     onTap: () {
                       Get.toNamed('/insightsinner');
                     },
-                    child: Card(
-                      elevation: 2,
-                      color: Color(0xFFFFFFFF),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(15),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.06),
+                              blurRadius: 10,
+                              spreadRadius: 2,
+                            ),
+                          ]),
                       child: Padding(
-                        padding: EdgeInsets.only(
-                            top: 10, left: 10, right: 15, bottom: 10),
+                        padding: const EdgeInsets.only(
+                            top: 14.0, left: 10, right: 15, bottom: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              decoration: BoxDecoration(
+                            Expanded(
+                              flex: 2,
+                              child: ClipRRect(
                                 borderRadius: BorderRadius.circular(10),
-                              ),
-                              // height: 70.h,
-                              child:
-                                  Image.asset(
-                                    "assets/images/na_april_69.jpg",
-                                    fit: BoxFit.fitHeight,
-                                    height: 70,
-                                  ),
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Retail banks wake up to digital",
-                                  style: blackStyle14(),
+                                child: Image.asset(
+                                  "assets/images/na_april_69.jpg",
+                                  height: 70,
+                                  width: 90,
                                 ),
-                                SizedBox(height: 5.h,),
-                                Row(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Icon(
-                                      Icons.calendar_today_outlined,
-                                      size: 14,
-                                    ),
-                                    SizedBox(width: 5,),
-                                    Text(
-                                      "October 17 , 2022",
-                                      style: blackStyle12(),
-                                    ),
-                                  ],
-                                )
-                              ],
+                              ),
+                            ),
+                            const Expanded(
+                              flex: 0,
+                              child: SizedBox(
+                                width: 20,
+                              ),
+                            ),
+                            Expanded(
+                              flex: 5,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Retail banks wake up to digital",
+                                    style: blackStyle14(),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Icon(
+                                        Icons.calendar_today_outlined,
+                                        size: 14,
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(
+                                        "October 17 , 2022",
+                                        style: blackStyle12(),
+                                      ),
+                                    ],
+                                  )
+                                ],
+                              ),
                             ),
                           ],
                         ),
@@ -1166,6 +1596,19 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  titleText(String title) {
+    return Text(
+      // "Your Investments",
+      title,
+      style: TextStyle(
+        fontSize: 20,
+        fontFamily: 'Poppins',
+        color: Color(0xFF1B8DC9),
+        fontWeight: FontWeight.w500,
       ),
     );
   }

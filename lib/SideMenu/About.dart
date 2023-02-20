@@ -294,7 +294,7 @@ class _AboutState extends State<About> {
                               height: 5,
                             ),
                             Text(
-                              'UI Developer',
+                              'Flutter Developer',
                               style: TextStyle(
                                 fontSize: 14,
                               ),
