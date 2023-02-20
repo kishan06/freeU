@@ -210,502 +210,459 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
               Column(
                 children: [
                   Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: Color(0xFFD5F0FD),
-              ),
-              child: Padding(
-                padding: EdgeInsets.all(15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Text(
-                      "Vaishnavi Tech Park Opportunity",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontFamily: 'Poppins',
-                        fontSize: 16.sm,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      color: Color(0xFFD5F0FD),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(15),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Text(
+                            "Vaishnavi Tech Park Opportunity",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Poppins',
+                              fontSize: 16.sm,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 15.h,
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Icon(
+                                Icons.location_on_outlined,
+                                size: 18,
+                              ),
+                              Text(
+                                "Outer Ring Road Sarjapur, Bangalore",
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 14.sm,
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                  child: ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                      child: Image.asset(
+                                          'assets/images/real_estate.jpg',
+                                          width: 80,
+                                          height: 80,
+                                          fit: BoxFit.cover))),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                child: ClipRRect(
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10)),
+                                    child: Image.asset(
+                                        'assets/images/real_estate.jpg',
+                                        width: 80,
+                                        height: 80,
+                                        fit: BoxFit.cover)),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                  child: ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.all(Radius.circular(10)),
+                                      child: Image.asset(
+                                          'assets/images/real_estate.jpg',
+                                          width: 50,
+                                          height: 80,
+                                          fit: BoxFit.cover))),
+                            ],
+                          ),
+                        ],
                       ),
                     ),
-                    SizedBox(
-                      height: 15.h,
-                    ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Icon(
-                          Icons.location_on_outlined,
-                          size: 18,
-                        ),
-                        Text(
-                          "Outer Ring Road Sarjapur, Bangalore",
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: 'Poppins',
-                            fontSize: 14.sm,
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                            child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                                child: Image.asset(
-                                    'assets/images/real_estate.jpg',
-                                    width: 80,
-                                    height: 80,
-                                    fit: BoxFit.cover))),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                          child: ClipRRect(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              child: Image.asset(
-                                  'assets/images/real_estate.jpg',
-                                  width: 80,
-                                  height: 80,
-                                  fit: BoxFit.cover)),
-                        ),
-                        SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                            child: ClipRRect(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10)),
-                                child: Image.asset(
-                                    'assets/images/real_estate.jpg',
-                                    width: 50,
-                                    height: 80,
-                                    fit: BoxFit.cover))),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-              ),
+                  ),
                   SizedBox(
                     height: 15.h,
                   ),
                   Accordion(
-                        paddingListBottom: 0,
-                        paddingListTop: 0,
-                        paddingListHorizontal: 0,
-                        disableScrolling: true,
+                    paddingListBottom: 0,
+                    paddingListTop: 0,
+                    paddingListHorizontal: 0,
+                    disableScrolling: true,
 
-                        maxOpenSections: 1,
-                        scaleWhenAnimating: true,
-                        openAndCloseAnimation: true,
-                        // headerPadding:
-                        //     const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
-                        sectionOpeningHapticFeedback:
-                            SectionHapticFeedback.heavy,
-                        sectionClosingHapticFeedback:
-                            SectionHapticFeedback.light,
-                        children: [
-                          AccordionSection(
-                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                            leftIcon:
-                                SvgPicture.asset('assets/images/13474.svg'),
-                            isOpen: true,
-                            headerBackgroundColor: Color(0xFFffffff),
-                            headerBackgroundColorOpened: Color(0xFFffffff),
-                            contentBackgroundColor: Color(0xFFffffff),
-                            contentBorderColor: Color(0xFFffffff),
-                            contentBorderRadius: 10,
-                            headerBorderRadius: 10,
-                            rightIcon:
-                                Icon(Icons.keyboard_arrow_down, size: 20),
-                            header: Text(
-                              'Why Faircent Double?',
+                    maxOpenSections: 1,
+                    scaleWhenAnimating: true,
+                    openAndCloseAnimation: true,
+                    // headerPadding:
+                    //     const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
+                    sectionOpeningHapticFeedback: SectionHapticFeedback.heavy,
+                    sectionClosingHapticFeedback: SectionHapticFeedback.light,
+                    children: [
+                      AccordionSection(
+                        scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                        leftIcon: SvgPicture.asset('assets/images/13474.svg'),
+                        isOpen: true,
+                        headerBackgroundColor: Color(0xFFffffff),
+                        headerBackgroundColorOpened: Color(0xFFffffff),
+                        contentBackgroundColor: Color(0xFFffffff),
+                        contentBorderColor: Color(0xFFffffff),
+                        contentBorderRadius: 10,
+                        headerBorderRadius: 10,
+                        rightIcon: Icon(Icons.keyboard_arrow_down, size: 20),
+                        header: Text(
+                          'Why Faircent Double?',
+                          style: TextStyle(
+                              color: Color(0xFF143C6D),
+                              fontFamily: "Poppins",
+                              fontSize: 18.sm),
+                        ),
+                        content: Column(
+                          children: [
+                            Text(
+                              "Unique opportunity to participate in the “Hub & Spoke” trend",
                               style: TextStyle(
-                                  color: Color(0xFF143C6D),
                                   fontFamily: "Poppins",
-                                  fontSize: 18.sm),
+                                  fontSize: 16.sm,
+                                  fontWeight: FontWeight.w500),
                             ),
-                            content: Column(
-                              children: [
-                                Text(
-                                  "Unique opportunity to participate in the “Hub & Spoke” trend",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 16.sm,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                                SizedBox(
-                                  height: 8.h,
-                                ),
-                                common_ctn(
-                                  text: "Analytics Based Collection",
-                                ),
-                                common_ctn(
-                                  text: "Flat Returns instead of reducing",
-                                ),
-                                common_ctn(
-                                  text:
-                                      "Various plans available to manage\nliquidity",
-                                ),
-                                common_ctn(
-                                  text: "No Lender Processing Fee",
-                                ),
-                                common_ctn(
-                                  text:
-                                      'Portfolio management fee linked\nto performance',
-                                ),
-                                common_ctn(
-                                  text: "Minimum Effort required from\nlenders",
-                                ),
-                              ],
+                            SizedBox(
+                              height: 8.h,
                             ),
-                            contentHorizontalPadding: 20,
-                            // onOpenSection: () => print('onOpenSection ...'),
-                            // onCloseSection: () => print('onCloseSection ...'),
-                          ),
-                          AccordionSection(
-                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                            leftIcon: SvgPicture.asset(
-                              "assets/images/home.svg",
+                            common_ctn(
+                              text: "Analytics Based Collection",
                             ),
-                            isOpen: true,
-                            headerBackgroundColor: Color(0xFFFFFFFF),
-                            headerBackgroundColorOpened: Color(0xFFFFFFFF),
-                            contentBackgroundColor: Color(0xFFFFFFFF),
-                            contentBorderColor: Color(0xFFFFFFFF),
-                            contentBorderRadius: 10,
-                            headerBorderRadius: 10,
-                            rightIcon:
-                                Icon(Icons.keyboard_arrow_down, size: 20),
-                            header: Text(
-                              'Borrowers Attributes',
-                              style: TextStyle(
-                                  color: Color(0xFF143C6D),
-                                  fontFamily: "Poppins",
-                                  fontSize: 18.sm),
+                            common_ctn(
+                              text: "Flat Returns instead of reducing",
                             ),
-                            content: Column(
-                              children: [
-                                common_ctn(
-                                  text: "Analytics Based Collection",
-                                ),
-                                common_ctn(
-                                  text: "Flat Returns instead of reducing",
-                                ),
-                                common_ctn(
-                                  text:
-                                      "Various plans available to manage\nliquidity",
-                                ),
-                                common_ctn(
-                                  text: "No Lender Processing Fee",
-                                ),
-                                common_ctn(
-                                  text:
-                                      'Portfolio management fee linked\nto performance',
-                                ),
-                                common_ctn(
-                                  text: "Minimum Effort required from\nlenders",
-                                ),
-                              ],
+                            common_ctn(
+                              text:
+                                  "Various plans available to manage\nliquidity",
                             ),
-                            contentHorizontalPadding: 20,
-                            // onOpenSection: () => print('onOpenSection ...'),
-                            // onCloseSection: () => print('onCloseSection ...'),
-                          ),
-                          AccordionSection(
-                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                            leftIcon: SvgPicture.asset(
-                              "assets/images/pricetag.svg",
+                            common_ctn(
+                              text: "No Lender Processing Fee",
                             ),
-                            isOpen: true,
-                            headerBackgroundColor: Color(0xFFFFFFFF),
-                            headerBackgroundColorOpened: Color(0xFFFFFFFF),
-                            contentBackgroundColor: Color(0xFFFFFFFF),
-                            contentBorderColor: Color(0xFFFFFFFF),
-                            contentBorderRadius: 10,
-                            headerBorderRadius: 10,
-                            rightIcon:
-                                Icon(Icons.keyboard_arrow_down, size: 20),
-                            header: Text(
-                              'Portfolio Performation',
-                              style: TextStyle(
-                                  color: Color(0xFF143C6D),
-                                  fontFamily: "Poppins",
-                                  fontSize: 18.sm),
+                            common_ctn(
+                              text:
+                                  'Portfolio management fee linked\nto performance',
                             ),
-                            content: Column(
-                              children: [
-                                common_ctn(
-                                  text: "Analytics Based Collection",
-                                ),
-                                common_ctn(
-                                  text: "Flat Returns instead of reducing",
-                                ),
-                                common_ctn(
-                                  text:
-                                      "Various plans available to manage\nliquidity",
-                                ),
-                                common_ctn(
-                                  text: "No Lender Processing Fee",
-                                ),
-                                common_ctn(
-                                  text:
-                                      'Portfolio management fee linked\nto performance',
-                                ),
-                                common_ctn(
-                                  text: "Minimum Effort required from\nlenders",
-                                ),
-                              ],
+                            common_ctn(
+                              text: "Minimum Effort required from\nlenders",
                             ),
-                            contentHorizontalPadding: 20,
-                            // onOpenSection: () => print('onOpenSection ...'),
-                            // onCloseSection: () => print('onCloseSection ...'),
-                          ),
-                          AccordionSection(
-                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                            leftIcon: SvgPicture.asset(
-                              "assets/images/location.svg",
-                            ),
-                            isOpen: true,
-                            headerBackgroundColor: Color(0xFFFFFFFF),
-                            headerBackgroundColorOpened: Color(0xFFFFFFFF),
-                            contentBackgroundColor: Color(0xFFFFFFFF),
-                            contentBorderColor: Color(0xFFFFFFFF),
-                            contentBorderRadius: 10,
-                            headerBorderRadius: 10,
-                            rightIcon:
-                                Icon(Icons.keyboard_arrow_down, size: 20),
-                            header: Text(
-                              'Location',
-                              style: TextStyle(
-                                  color: Color(0xFF143C6D),
-                                  fontFamily: "Poppins",
-                                  fontSize: 18.sm),
-                            ),
-                            content: Column(
-                              children: [
-                                common_ctn(
-                                  text: "Analytics Based Collection",
-                                ),
-                                common_ctn(
-                                  text: "Flat Returns instead of reducing",
-                                ),
-                                common_ctn(
-                                  text:
-                                      "Various plans available to manage\nliquidity",
-                                ),
-                                common_ctn(
-                                  text: "No Lender Processing Fee",
-                                ),
-                                common_ctn(
-                                  text:
-                                      'Portfolio management fee linked\nto performance',
-                                ),
-                                common_ctn(
-                                  text: "Minimum Effort required from\nlenders",
-                                ),
-                              ],
-                            ),
-                            contentHorizontalPadding: 20,
-                            // onOpenSection: () => print('onOpenSection ...'),
-                            // onCloseSection: () => print('onCloseSection ...'),
-                          ),
-                          AccordionSection(
-                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                            leftIcon: SvgPicture.asset(
-                              "assets/images/floorplan.svg",
-                            ),
-                            isOpen: true,
-                            headerBackgroundColor: Color(0xFFFFFFFF),
-                            headerBackgroundColorOpened: Color(0xFFFFFFFF),
-                            contentBackgroundColor: Color(0xFFFFFFFF),
-                            contentBorderColor: Color(0xFFFFFFFF),
-                            contentBorderRadius: 10,
-                            headerBorderRadius: 10,
-                            rightIcon:
-                                Icon(Icons.keyboard_arrow_down, size: 20),
-                            header: Text(
-                              'Floor Plan',
-                              style: TextStyle(
-                                  color: Color(0xFF143C6D),
-                                  fontFamily: "Poppins",
-                                  fontSize: 18.sm),
-                            ),
-                            content: Column(
-                              children: [
-                                common_ctn(
-                                  text: "Analytics Based Collection",
-                                ),
-                                common_ctn(
-                                  text: "Flat Returns instead of reducing",
-                                ),
-                                common_ctn(
-                                  text:
-                                      "Various plans available to manage\nliquidity",
-                                ),
-                                common_ctn(
-                                  text: "No Lender Processing Fee",
-                                ),
-                                common_ctn(
-                                  text:
-                                      'Portfolio management fee linked\nto performance',
-                                ),
-                                common_ctn(
-                                  text: "Minimum Effort required from\nlenders",
-                                ),
-                              ],
-                            ),
-                            contentHorizontalPadding: 20,
-                            // onOpenSection: () => print('onOpenSection ...'),
-                            // onCloseSection: () => print('onCloseSection ...'),
-                          ),
-                        ],
+                          ],
+                        ),
+                        contentHorizontalPadding: 20,
+                        // onOpenSection: () => print('onOpenSection ...'),
+                        // onCloseSection: () => print('onCloseSection ...'),
                       ),
+                      AccordionSection(
+                        scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                        leftIcon: SvgPicture.asset(
+                          "assets/images/home.svg",
+                        ),
+                        isOpen: true,
+                        headerBackgroundColor: Color(0xFFFFFFFF),
+                        headerBackgroundColorOpened: Color(0xFFFFFFFF),
+                        contentBackgroundColor: Color(0xFFFFFFFF),
+                        contentBorderColor: Color(0xFFFFFFFF),
+                        contentBorderRadius: 10,
+                        headerBorderRadius: 10,
+                        rightIcon: Icon(Icons.keyboard_arrow_down, size: 20),
+                        header: Text(
+                          'Borrowers Attributes',
+                          style: TextStyle(
+                              color: Color(0xFF143C6D),
+                              fontFamily: "Poppins",
+                              fontSize: 18.sm),
+                        ),
+                        content: Column(
+                          children: [
+                            common_ctn(
+                              text: "Analytics Based Collection",
+                            ),
+                            common_ctn(
+                              text: "Flat Returns instead of reducing",
+                            ),
+                            common_ctn(
+                              text:
+                                  "Various plans available to manage\nliquidity",
+                            ),
+                            common_ctn(
+                              text: "No Lender Processing Fee",
+                            ),
+                            common_ctn(
+                              text:
+                                  'Portfolio management fee linked\nto performance',
+                            ),
+                            common_ctn(
+                              text: "Minimum Effort required from\nlenders",
+                            ),
+                          ],
+                        ),
+                        contentHorizontalPadding: 20,
+                        // onOpenSection: () => print('onOpenSection ...'),
+                        // onCloseSection: () => print('onCloseSection ...'),
+                      ),
+                      AccordionSection(
+                        scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                        leftIcon: SvgPicture.asset(
+                          "assets/images/pricetag.svg",
+                        ),
+                        isOpen: true,
+                        headerBackgroundColor: Color(0xFFFFFFFF),
+                        headerBackgroundColorOpened: Color(0xFFFFFFFF),
+                        contentBackgroundColor: Color(0xFFFFFFFF),
+                        contentBorderColor: Color(0xFFFFFFFF),
+                        contentBorderRadius: 10,
+                        headerBorderRadius: 10,
+                        rightIcon: Icon(Icons.keyboard_arrow_down, size: 20),
+                        header: Text(
+                          'Portfolio Performation',
+                          style: TextStyle(
+                              color: Color(0xFF143C6D),
+                              fontFamily: "Poppins",
+                              fontSize: 18.sm),
+                        ),
+                        content: Column(
+                          children: [
+                            common_ctn(
+                              text: "Analytics Based Collection",
+                            ),
+                            common_ctn(
+                              text: "Flat Returns instead of reducing",
+                            ),
+                            common_ctn(
+                              text:
+                                  "Various plans available to manage\nliquidity",
+                            ),
+                            common_ctn(
+                              text: "No Lender Processing Fee",
+                            ),
+                            common_ctn(
+                              text:
+                                  'Portfolio management fee linked\nto performance',
+                            ),
+                            common_ctn(
+                              text: "Minimum Effort required from\nlenders",
+                            ),
+                          ],
+                        ),
+                        contentHorizontalPadding: 20,
+                        // onOpenSection: () => print('onOpenSection ...'),
+                        // onCloseSection: () => print('onCloseSection ...'),
+                      ),
+                      AccordionSection(
+                        scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                        leftIcon: SvgPicture.asset(
+                          "assets/images/location.svg",
+                        ),
+                        isOpen: true,
+                        headerBackgroundColor: Color(0xFFFFFFFF),
+                        headerBackgroundColorOpened: Color(0xFFFFFFFF),
+                        contentBackgroundColor: Color(0xFFFFFFFF),
+                        contentBorderColor: Color(0xFFFFFFFF),
+                        contentBorderRadius: 10,
+                        headerBorderRadius: 10,
+                        rightIcon: Icon(Icons.keyboard_arrow_down, size: 20),
+                        header: Text(
+                          'Location',
+                          style: TextStyle(
+                              color: Color(0xFF143C6D),
+                              fontFamily: "Poppins",
+                              fontSize: 18.sm),
+                        ),
+                        content: Column(
+                          children: [
+                            common_ctn(
+                              text: "Analytics Based Collection",
+                            ),
+                            common_ctn(
+                              text: "Flat Returns instead of reducing",
+                            ),
+                            common_ctn(
+                              text:
+                                  "Various plans available to manage\nliquidity",
+                            ),
+                            common_ctn(
+                              text: "No Lender Processing Fee",
+                            ),
+                            common_ctn(
+                              text:
+                                  'Portfolio management fee linked\nto performance',
+                            ),
+                            common_ctn(
+                              text: "Minimum Effort required from\nlenders",
+                            ),
+                          ],
+                        ),
+                        contentHorizontalPadding: 20,
+                        // onOpenSection: () => print('onOpenSection ...'),
+                        // onCloseSection: () => print('onCloseSection ...'),
+                      ),
+                      AccordionSection(
+                        scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                        leftIcon: SvgPicture.asset(
+                          "assets/images/floorplan.svg",
+                        ),
+                        isOpen: true,
+                        headerBackgroundColor: Color(0xFFFFFFFF),
+                        headerBackgroundColorOpened: Color(0xFFFFFFFF),
+                        contentBackgroundColor: Color(0xFFFFFFFF),
+                        contentBorderColor: Color(0xFFFFFFFF),
+                        contentBorderRadius: 10,
+                        headerBorderRadius: 10,
+                        rightIcon: Icon(Icons.keyboard_arrow_down, size: 20),
+                        header: Text(
+                          'Floor Plan',
+                          style: TextStyle(
+                              color: Color(0xFF143C6D),
+                              fontFamily: "Poppins",
+                              fontSize: 18.sm),
+                        ),
+                        content: Column(
+                          children: [
+                            common_ctn(
+                              text: "Analytics Based Collection",
+                            ),
+                            common_ctn(
+                              text: "Flat Returns instead of reducing",
+                            ),
+                            common_ctn(
+                              text:
+                                  "Various plans available to manage\nliquidity",
+                            ),
+                            common_ctn(
+                              text: "No Lender Processing Fee",
+                            ),
+                            common_ctn(
+                              text:
+                                  'Portfolio management fee linked\nto performance',
+                            ),
+                            common_ctn(
+                              text: "Minimum Effort required from\nlenders",
+                            ),
+                          ],
+                        ),
+                        contentHorizontalPadding: 20,
+                        // onOpenSection: () => print('onOpenSection ...'),
+                        // onCloseSection: () => print('onCloseSection ...'),
+                      ),
+                    ],
+                  ),
                 ],
               ),
               SizedBox(
                 height: 10,
               ),
               CustomNextButton(
-                      ontap: () {
-                        showModalBottomSheet(
-                          backgroundColor: Colors.white,
-                          isScrollControlled: true,
-                          context: context,
-                          shape: const RoundedRectangleBorder(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              topRight: Radius.circular(30),
-                            ),
-                          ),
-                          builder: (context) {
-                            return Stack(clipBehavior: Clip.none, children: [
-                              Container(
-                                margin: const EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 24),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Center(
-                                      child: Text(
-                                        "Thank You For Showing Your Interest",
-                                        style: TextStyle(
-                                            color: Color(0xFF444444),
-                                            fontFamily: "Poppins",
-                                            fontSize: 18.sm,
-                                            fontWeight: FontWeight.w600),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 20.h,
-                                    ),
-                                    SizedBox(
-                                      height: 100,
-                                      width: 330,
-                                      child: Card(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
+                  ontap: () {
+                    showModalBottomSheet(
+                      backgroundColor: Colors.white,
+                      isScrollControlled: true,
+                      context: context,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(30),
+                          topRight: Radius.circular(30),
+                        ),
+                      ),
+                      builder: (context) {
+                        return Stack(clipBehavior: Clip.none, children: [
+                          Container(
+                            margin: const EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 24),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Center(
+                                  child: Text(
+                                    "Thank You For Showing Your Interest",
+                                    style: TextStyle(
+                                        color: Color(0xFF444444),
+                                        fontFamily: "Poppins",
+                                        fontSize: 18.sm,
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 20.h,
+                                ),
+                                SizedBox(
+                                  height: 100,
+                                  width: 330,
+                                  child: Container(
+                                    decoration: BoxDecoration(
                                         color: Color(0xFFF9F9F9),
-                                        child: Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 20.0,
-                                              right: 30,
-                                              top: 12,
-                                              bottom: 12),
-                                          child: Row(
+                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.06),
+                                            blurRadius: 10,
+                                            spreadRadius: 2,
+                                          ),
+                                        ]),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 20.0,
+                                          right: 30,
+                                          top: 12,
+                                          bottom: 12),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.start,
                                             children: [
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "Category",
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xFF444444),
-                                                        fontFamily: "Poppins",
-                                                        fontSize: 14.sm,
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                  ),
-                                                  SizedBox(
-                                                    height: 10.h,
-                                                  ),
-                                                  Image.asset(
-                                                      "assets/images/myrelogo.png")
-                                                ],
+                                              Text(
+                                                "Category",
+                                                style: TextStyle(
+                                                    color: Color(0xFF444444),
+                                                    fontFamily: "Poppins",
+                                                    fontSize: 14.sm,
+                                                    fontWeight:
+                                                        FontWeight.w500),
                                               ),
-                                              Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    "Product",
-                                                    style: TextStyle(
-                                                        color:
-                                                            Color(0xFF444444),
-                                                        fontFamily: "Poppins",
-                                                        fontSize: 14.sm,
-                                                        fontWeight:
-                                                            FontWeight.w500),
-                                                  ),
-                                                  Text(
-                                                    "Vaishnavi Tech\nPark Opportunity",
-                                                    style: TextStyle(
-                                                      color: Color(0xFF444444),
-                                                      fontFamily: "Poppins",
-                                                      fontSize: 12.sm,
-                                                    ),
-                                                  )
-                                                ],
-                                              )
+                                              SizedBox(
+                                                height: 10.h,
+                                              ),
+                                              Image.asset(
+                                                  "assets/images/myrelogo.png")
                                             ],
                                           ),
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 15.h,
-                                    ),
-                                    SizedBox(
-                                      height: 100,
-                                      width: 330,
-                                      child: Card(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        color: Color(0xFFF9F9F9),
-                                        child: Padding(
-                                          padding: EdgeInsets.only(
-                                              left: 12.0,
-                                              right: 12,
-                                              top: 12,
-                                              bottom: 12),
-                                          child: Row(
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
+                                                MainAxisAlignment.start,
                                             children: [
-                                              Image.asset(
-                                                  "assets/images/freeulogoblue.png"),
                                               Text(
-                                                "A FreeU Advisory Team\nwill get back to you\nsoon via call or email",
+                                                "Product",
+                                                style: TextStyle(
+                                                    color: Color(0xFF444444),
+                                                    fontFamily: "Poppins",
+                                                    fontSize: 14.sm,
+                                                    fontWeight:
+                                                        FontWeight.w500),
+                                              ),
+                                              Text(
+                                                "Vaishnavi Tech\nPark Opportunity",
                                                 style: TextStyle(
                                                   color: Color(0xFF444444),
                                                   fontFamily: "Poppins",
@@ -713,44 +670,89 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
                                                 ),
                                               )
                                             ],
-                                          ),
-                                        ),
+                                          )
+                                        ],
                                       ),
                                     ),
-                                    SizedBox(
-                                      height: 25.h,
-                                    ),
-                                    SizedBox(
-                                      width: 250.w,
-                                      height: 50.h,
-                                      child: ElevatedButton(
-                                        style: ElevatedButton.styleFrom(
-                                          elevation: 0,
-                                          backgroundColor: Color(0xFF1B8DC9),
-                                          //  color: Color(0xFFFFB600),
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                        ),
-                                        child: Text(
-                                          "Show more products",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              color: Colors.white,
-                                              fontSize: 18.sm),
-                                        ),
-                                        onPressed: () {},
-                                      ),
-                                    ),
-                                  ],
+                                  ),
                                 ),
-                              ),
-                            ]);
-                          },
-                        );
+                                SizedBox(
+                                  height: 15.h,
+                                ),
+                                SizedBox(
+                                  height: 100,
+                                  width: 330,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: Color(0xFFF9F9F9),
+                                        borderRadius: BorderRadius.circular(10),
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color:
+                                                Colors.black.withOpacity(0.06),
+                                            blurRadius: 10,
+                                            spreadRadius: 2,
+                                          ),
+                                        ]),
+                                    color: Color(0xFFF9F9F9),
+                                    child: Padding(
+                                      padding: EdgeInsets.only(
+                                          left: 12.0,
+                                          right: 12,
+                                          top: 12,
+                                          bottom: 12),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Image.asset(
+                                              "assets/images/freeulogoblue.png"),
+                                          Text(
+                                            "A FreeU Advisory Team\nwill get back to you\nsoon via call or email",
+                                            style: TextStyle(
+                                              color: Color(0xFF444444),
+                                              fontFamily: "Poppins",
+                                              fontSize: 12.sm,
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 25.h,
+                                ),
+                                SizedBox(
+                                  width: 250.w,
+                                  height: 50.h,
+                                  child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(
+                                      elevation: 0,
+                                      backgroundColor: Color(0xFF1B8DC9),
+                                      //  color: Color(0xFFFFB600),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                      ),
+                                    ),
+                                    child: Text(
+                                      "Show more products",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins",
+                                          color: Colors.white,
+                                          fontSize: 18.sm),
+                                    ),
+                                    onPressed: () {},
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ]);
                       },
-                      text: 'Invest Now'),
+                    );
+                  },
+                  text: 'Invest Now'),
               SizedBox(
                 height: 20,
               )
@@ -761,6 +763,7 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
     );
   }
 }
+
 class common_ctn extends StatelessWidget {
   const common_ctn({
     Key? key,

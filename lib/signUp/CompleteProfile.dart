@@ -297,7 +297,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             return "Please Enter Full Name";
                           }
                           return null;
-                        }, 
+                        },
                       ),
                       SizedBox(height: 20.h),
                       CustomTextFormField(
@@ -313,15 +313,15 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             return 'Enter a Valid Email address';
                           }
                           return null;
-                        }, 
+                        },
                       ),
                       SizedBox(height: 20.h),
                       CustomTextFormField(
-                        keyboardType: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[
-                            LengthLimitingTextInputFormatter(10),
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
+                        texttype: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          LengthLimitingTextInputFormatter(10),
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
                         hintText: "Phone Number",
                         validatorText: "Phone Number",
                         validator: (value) {
@@ -333,7 +333,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                       SizedBox(height: 20.h),
                       CustomTextFormField(
-                        keyboardType: TextInputType.number,
+                          texttype: TextInputType.number,
                           hintText: "Date Of Birth",
                           validatorText: "Date Of Birth"),
                       SizedBox(height: 25.h),
@@ -419,7 +419,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             return "Please Enter PAN Number";
                           }
                           return null;
-                        }, 
+                        },
                       )
                     ],
                   ),

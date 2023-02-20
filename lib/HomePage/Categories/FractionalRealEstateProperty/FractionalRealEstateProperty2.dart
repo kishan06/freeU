@@ -612,12 +612,19 @@ class _FractionalRealEstateProperty2State
                                     SizedBox(
                                       height: 100,
                                       width: 330,
-                                      child: Card(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        color: Color(0xFFF9F9F9),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: Color(0xFFF9F9F9),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black
+                                                    .withOpacity(0.06),
+                                                blurRadius: 10,
+                                                spreadRadius: 2,
+                                              ),
+                                            ]),
                                         child: Padding(
                                           padding: EdgeInsets.only(
                                               left: 20.0,
@@ -688,12 +695,19 @@ class _FractionalRealEstateProperty2State
                                     SizedBox(
                                       height: 100,
                                       width: 330,
-                                      child: Card(
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(10),
-                                        ),
-                                        color: Color(0xFFF9F9F9),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                            color: Color(0xFFF9F9F9),
+                                            borderRadius:
+                                                BorderRadius.circular(10),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black
+                                                    .withOpacity(0.06),
+                                                blurRadius: 10,
+                                                spreadRadius: 2,
+                                              ),
+                                            ]),
                                         child: Padding(
                                           padding: EdgeInsets.only(
                                               left: 12.0,

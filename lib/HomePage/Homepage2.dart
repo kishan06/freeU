@@ -22,7 +22,7 @@ class _Home2State extends State<Home2> {
   final int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   PageController indicatorcontroller = PageController(
-    viewportFraction: 0.95,
+    viewportFraction: 0.97,
   );
   PageController categoriescontroller = PageController(
     viewportFraction: 0.55,
@@ -128,15 +128,21 @@ class _Home2State extends State<Home2> {
               ),
               SizedBox(
                 height: 167.h,
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  color: Color(0xFFCFEFFF),
+                child: Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFFCFEFFF),
+                      borderRadius: BorderRadius.circular(5),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.06),
+                          blurRadius: 10,
+                          spreadRadius: 2,
+                        ),
+                      ]),
                   child: Column(
                     children: [
                       SizedBox(
-                        height: 145.h,
+                        height: 148.h,
                         child: PageView.builder(
                           controller: indicatorcontroller,
                           itemCount: 3,
@@ -144,10 +150,11 @@ class _Home2State extends State<Home2> {
                             BuildContext context,
                             int index1,
                           ) {
+                            bool isMyPageIndex = selectIndex == index1;
                             if (index1 == 0) {
                               return Padding(
                                 padding: EdgeInsets.only(
-                                    top: 10.0, left: 8, right: 0, bottom: 5),
+                                    top: 10.0, left: 6, right: 0, bottom: 5),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
@@ -165,7 +172,7 @@ class _Home2State extends State<Home2> {
                                               fontFamily: 'Poppins'),
                                         ),
                                         SizedBox(
-                                          height: 6.h,
+                                          height: 8.h,
                                         ),
                                         SizedBox(
                                           height: 30.h,
@@ -176,7 +183,7 @@ class _Home2State extends State<Home2> {
                                                 // color: Color(0xFFFF),
                                                 shape: RoundedRectangleBorder(
                                                   borderRadius:
-                                                      BorderRadius.circular(30),
+                                                      BorderRadius.circular(5),
                                                 ),
                                               ),
                                               onPressed: () {
@@ -185,7 +192,8 @@ class _Home2State extends State<Home2> {
                                               child: Text(
                                                 'Invest Now',
                                                 style: TextStyle(
-                                                    fontSize: 12.sm,
+                                                    fontFamily: "Poppins",
+                                                    fontSize: 13.sm,
                                                     color: Colors.black),
                                               )),
                                         )
@@ -195,11 +203,11 @@ class _Home2State extends State<Home2> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       children: [
-                                        Image.asset(
-                                          'assets/images/Layer 1.png',
-                                          height: 100.h,
-                                          width: 185.w,
-                                        )
+                                        SvgPicture.asset(
+                                          "assets/images/persongraph.svg",
+                                          height: 100,
+                                          width: 200,
+                                        ),
                                       ],
                                     )
                                   ],
@@ -208,7 +216,7 @@ class _Home2State extends State<Home2> {
                             } //2nd plan
                             return Padding(
                               padding: EdgeInsets.only(
-                                  top: 10.0, left: 8, right: 0, bottom: 5),
+                                  top: 10.0, left: 6, right: 0, bottom: 5),
                               child: Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -225,7 +233,7 @@ class _Home2State extends State<Home2> {
                                             fontFamily: 'Poppins'),
                                       ),
                                       SizedBox(
-                                        height: 6.h,
+                                        height: 8.h,
                                       ),
                                       SizedBox(
                                         height: 30.h,
@@ -236,7 +244,7 @@ class _Home2State extends State<Home2> {
                                               // color: Color(0xFFFF),
                                               shape: RoundedRectangleBorder(
                                                 borderRadius:
-                                                    BorderRadius.circular(30),
+                                                    BorderRadius.circular(5),
                                               ),
                                             ),
                                             onPressed: () {
@@ -245,7 +253,8 @@ class _Home2State extends State<Home2> {
                                             child: Text(
                                               'Invest Now',
                                               style: TextStyle(
-                                                  fontSize: 12.sm,
+                                                  fontFamily: "Poppins",
+                                                  fontSize: 13.sm,
                                                   color: Colors.black),
                                             )),
                                       )
@@ -254,11 +263,11 @@ class _Home2State extends State<Home2> {
                                   Column(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      Image.asset(
-                                        'assets/images/Layer 1.png',
-                                        height: 100.h,
-                                        width: 185.w,
-                                      )
+                                      SvgPicture.asset(
+                                        "assets/images/persongraph.svg",
+                                        height: 100,
+                                        width: 200,
+                                      ),
                                     ],
                                   )
                                 ],
@@ -271,8 +280,8 @@ class _Home2State extends State<Home2> {
                         controller: indicatorcontroller,
                         count: 3,
                         effect: ExpandingDotsEffect(
-                            dotHeight: 7,
-                            dotWidth: 7,
+                            dotHeight: 7.h,
+                            dotWidth: 7.w,
                             activeDotColor: Color(0xFF153D6D),
                             dotColor: Color(0xFF153D6D).withOpacity(0.4)),
                       ),
@@ -283,12 +292,17 @@ class _Home2State extends State<Home2> {
               SizedBox(
                 height: 15.h,
               ),
-              Card(
-                elevation: 2,
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFFFFFFFF),
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.06),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ]),
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -353,12 +367,17 @@ class _Home2State extends State<Home2> {
               SizedBox(
                 height: 10.h,
               ),
-              Card(
-                elevation: 2,
-                color: Color(0xFFDFEDFF),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
+              Container(
+                decoration: BoxDecoration(
+                    color: Color(0xFFFFFFFF),
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.06),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ]),
                 child: Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -441,29 +460,31 @@ class _Home2State extends State<Home2> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Expanded(
-                             flex: 1,
+                            flex: 1,
                             child: GestureDetector(
                               onTap: () {
                                 Get.toNamed('/fractionalrealestateproperty1');
                               },
-                              child: Card(
-                                elevation: 2,
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                ),
+                              child: Container(
+                                // elevation: 2,
+                                decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(10),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.06),
+                                        spreadRadius: 2,
+                                        blurRadius: 10,
+                                      )
+                                    ]),
                                 child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 10.0,
-                                        left: 10,
-                                        right: 10,
-                                        bottom: 10),
+                                    padding: EdgeInsets.all(10),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
                                         Image.asset(
-                                          "assets/images/residential@2x.png",
+                                          "assets/images/real-estate.png",
                                           height: 50,
                                           width: 50,
                                         ),
@@ -482,31 +503,38 @@ class _Home2State extends State<Home2> {
                               ),
                             ),
                           ),
-                          SizedBox(width: 20,),
+                          Expanded(
+                              flex: 0,
+                              child: SizedBox(
+                                width: 10,
+                              )),
                           Expanded(
                             flex: 1,
                             child: GestureDetector(
                               onTap: () {
                                 Get.toNamed('/peerlendingasset1');
                               },
-                              child: Card(
-                                elevation: 2,
-                                color: Colors.white,
-                                shape: RoundedRectangleBorder(
+                              child: Container(
+                                // elevation: 2,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
                                   borderRadius: BorderRadius.circular(10),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.black.withOpacity(0.06),
+                                      spreadRadius: 2,
+                                      blurRadius: 10,
+                                    )
+                                  ],
                                 ),
                                 child: Padding(
-                                    padding: EdgeInsets.only(
-                                        top: 10.0,
-                                        left: 10,
-                                        right: 10,
-                                        bottom: 10),
+                                    padding: EdgeInsets.all(10),
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
                                         Image.asset(
-                                          "assets/images/blockchain@2x.png",
+                                          "assets/images/blockchain.png",
                                           height: 50,
                                           width: 50,
                                         ),
@@ -524,7 +552,7 @@ class _Home2State extends State<Home2> {
                                     )),
                               ),
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -534,10 +562,16 @@ class _Home2State extends State<Home2> {
               SizedBox(
                 height: 10.h,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
+              Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.06),
+                        blurRadius: 10,
+                        spreadRadius: 2,
+                      ),
+                    ]),
                 child: Padding(
                   padding: EdgeInsets.only(
                       top: 11.0, bottom: 11, right: 15, left: 20),
@@ -597,12 +631,17 @@ class _Home2State extends State<Home2> {
                     onTap: () {
                       Get.toNamed('/insightsinner');
                     },
-                    child: Card(
-                      elevation: 2,
-                      color: Color(0xFFFFFFFF),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.06),
+                              blurRadius: 10,
+                              spreadRadius: 2,
+                            ),
+                          ]),
                       child: Padding(
                         padding: EdgeInsets.only(
                             top: 10, left: 10, right: 15, bottom: 10),
@@ -615,15 +654,15 @@ class _Home2State extends State<Home2> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               // height: 70.h,
-                              child:
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                                    child: Image.asset(
-                                      "assets/images/na_april_69.jpg",
-                                      fit: BoxFit.fitHeight,
-                                      height: 70,
-                                    ),
-                                  ),
+                              child: ClipRRect(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                child: Image.asset(
+                                  "assets/images/na_april_69.jpg",
+                                  fit: BoxFit.fitHeight,
+                                  height: 70,
+                                ),
+                              ),
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -633,7 +672,9 @@ class _Home2State extends State<Home2> {
                                   "Retail banks wake up to digital",
                                   style: blackStyle14(),
                                 ),
-                                SizedBox(height: 5.h,),
+                                SizedBox(
+                                  height: 5.h,
+                                ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -641,7 +682,9 @@ class _Home2State extends State<Home2> {
                                       Icons.calendar_today_outlined,
                                       size: 14,
                                     ),
-                                    SizedBox(width: 5,),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
                                     Text(
                                       "October 17 , 2022",
                                       style: blackStyle12(),
@@ -662,12 +705,17 @@ class _Home2State extends State<Home2> {
                     onTap: () {
                       Get.toNamed('/insightsinner');
                     },
-                    child: Card(
-                      elevation: 2,
-                      color: Color(0xFFFFFFFF),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: Color(0xFFFFFFFF),
+                          borderRadius: BorderRadius.circular(10),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.06),
+                              blurRadius: 10,
+                              spreadRadius: 2,
+                            ),
+                          ]),
                       child: Padding(
                         padding: EdgeInsets.only(
                             top: 10, left: 10, right: 15, bottom: 10),
@@ -680,15 +728,15 @@ class _Home2State extends State<Home2> {
                                 borderRadius: BorderRadius.circular(10),
                               ),
                               // height: 70.h,
-                              child:
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.all(Radius.circular(10)),
-                                    child: Image.asset(
-                                      "assets/images/na_april_69.jpg",
-                                      fit: BoxFit.fitHeight,
-                                      height: 70,
-                                    ),
-                                  ),
+                              child: ClipRRect(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                child: Image.asset(
+                                  "assets/images/na_april_69.jpg",
+                                  fit: BoxFit.fitHeight,
+                                  height: 70,
+                                ),
+                              ),
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -698,7 +746,9 @@ class _Home2State extends State<Home2> {
                                   "Retail banks wake up to digital",
                                   style: blackStyle14(),
                                 ),
-                                SizedBox(height: 5.h,),
+                                SizedBox(
+                                  height: 5.h,
+                                ),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -706,7 +756,9 @@ class _Home2State extends State<Home2> {
                                       Icons.calendar_today_outlined,
                                       size: 14,
                                     ),
-                                    SizedBox(width: 5,),
+                                    SizedBox(
+                                      width: 5,
+                                    ),
                                     Text(
                                       "October 17 , 2022",
                                       style: blackStyle12(),

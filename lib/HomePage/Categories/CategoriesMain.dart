@@ -140,10 +140,20 @@ class _CategoriesMainState extends State<CategoriesMain> {
                       onTap: () {
                         Get.toNamed('/fractionalrealestateproperty1');
                       },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color(0xFFFFFFFF),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.06),
+                                blurRadius: 10,
+                                spreadRadius: 2,
+                              ),
+                            ]),
+                        // shape: RoundedRectangleBorder(
+                        //   borderRadius: BorderRadius.circular(10),
+                        // ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -172,10 +182,17 @@ class _CategoriesMainState extends State<CategoriesMain> {
                       onTap: () {
                         Get.toNamed('/peerlendingasset1');
                       },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Color(0xFFFFFFFF),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black.withOpacity(0.06),
+                                blurRadius: 10,
+                                spreadRadius: 2,
+                              ),
+                            ]),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
