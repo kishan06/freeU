@@ -87,10 +87,11 @@ class _forgotPasswordState extends State<forgotPassword> {
                             Column(
                               children: [
                                 CustomTextFormField(
-                                    keyboardType: TextInputType.number,
+                                    keyboardType: TextInputType.phone,
                                     textEditingController: phoneController,
                                     inputFormatters: <TextInputFormatter>[
-                                      FilteringTextInputFormatter.digitsOnly
+                                      FilteringTextInputFormatter.digitsOnly,
+                                      LengthLimitingTextInputFormatter(10),
                                     ],
                                     validator: (value) {
                                       if (value!.isEmpty) {

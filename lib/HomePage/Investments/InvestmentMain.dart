@@ -1,11 +1,11 @@
+// ignore_for_file: file_names, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/AppBarWithNotification.dart';
 import 'package:freeu/common/bottombar.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
 class InvestmentMain extends StatefulWidget {
@@ -17,7 +17,6 @@ class InvestmentMain extends StatefulWidget {
 
 class _InvestmentMainState extends State<InvestmentMain> {
   int selectIndex = 0;
-  int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   PageController indicatorcontroller = PageController(
     viewportFraction: 0.95,
@@ -31,55 +30,6 @@ class _InvestmentMainState extends State<InvestmentMain> {
   PageController pickcontroller = PageController(
     viewportFraction: 0.75,
   );
-
-  void _selectedTab(int index) {
-    setState(() {
-      // _lastSelected = 'TAB: $index';
-      // print(_lastSelected);
-
-      switch (index) {
-        case 0:
-          {
-            Get.toNamed("/homepage");
-          }
-          break;
-
-        case 1:
-          {
-            Get.toNamed('/categoriesmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityFirst())));
-          }
-          break;
-
-        case 2:
-          {
-            Get.toNamed('/investmentmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
-          }
-          break;
-        case 3:
-          {
-            Get.toNamed('/chatpage');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => Login())));
-          }
-          break;
-        case 4:
-          {
-            Get.toNamed('/myprofile');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => SignUp())));
-          }
-          break;
-        default:
-          {
-            throw Error();
-          }
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -310,7 +260,82 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                       color: Colors.white,
                                       fontSize: 14.sm),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    context: context,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(30),
+                                        topRight: Radius.circular(30),
+                                      ),
+                                    ),
+                                    builder: (context) {
+                                      return Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 16, vertical: 30),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(
+                                              'Thank You For Selling Product',
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Color(0xff444444),
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                            SizedBox(
+                                              height: 30,
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 20),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(10)),
+                                                  color: Color.fromARGB(
+                                                      255, 240, 239, 239),
+                                                ),
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      10.0),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Image.asset(
+                                                          'assets/images/freeulogin.png',
+                                                          width: 50,
+                                                          height: 50,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Text(
+                                                          'A FreeU Advisory Team will get back to you soon via call or email',
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 30,
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
                               ),
                             ),
                           ),
@@ -368,7 +393,82 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                       color: Colors.white,
                                       fontSize: 14.sm),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    context: context,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(30),
+                                        topRight: Radius.circular(30),
+                                      ),
+                                    ),
+                                    builder: (context) {
+                                      return Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 16, vertical: 30),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(
+                                              'Thank You For Selling Product',
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Color(0xff444444),
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                            SizedBox(
+                                              height: 30,
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 20),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(10)),
+                                                  color: Color.fromARGB(
+                                                      255, 240, 239, 239),
+                                                ),
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      10.0),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Image.asset(
+                                                          'assets/images/freeulogin.png',
+                                                          width: 50,
+                                                          height: 50,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Text(
+                                                          'A FreeU Advisory Team will get back to you soon via call or email',
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 30,
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
                               ),
                             ),
                           ),
@@ -426,7 +526,82 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                       color: Colors.white,
                                       fontSize: 14.sm),
                                 ),
-                                onPressed: () {},
+                                onPressed: () {
+                                  showModalBottomSheet(
+                                    isScrollControlled: true,
+                                    context: context,
+                                    shape: const RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(30),
+                                        topRight: Radius.circular(30),
+                                      ),
+                                    ),
+                                    builder: (context) {
+                                      return Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 16, vertical: 30),
+                                        child: Column(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Text(
+                                              'Thank You For Selling Product',
+                                              style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Color(0xff444444),
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                            SizedBox(
+                                              height: 30,
+                                            ),
+                                            Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 20),
+                                              child: Container(
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.all(
+                                                          Radius.circular(10)),
+                                                  color: Color.fromARGB(
+                                                      255, 240, 239, 239),
+                                                ),
+                                                child: Padding(
+                                                  padding: const EdgeInsets.all(
+                                                      10.0),
+                                                  child: Row(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .center,
+                                                    children: [
+                                                      Expanded(
+                                                        child: Image.asset(
+                                                          'assets/images/freeulogin.png',
+                                                          width: 50,
+                                                          height: 50,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Text(
+                                                          'A FreeU Advisory Team will get back to you soon via call or email',
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                            SizedBox(
+                                              height: 30,
+                                            ),
+                                          ],
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
                               ),
                             ),
                           ),
@@ -562,13 +737,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                   Icons.file_download_outlined,
                                   color: Colors.white,
                                 ),
-                                // Text(
-                                //   "Sell",
-                                //   style: TextStyle(
-                                //       fontFamily: "Poppins",
-                                //       color: Colors.white,
-                                //       fontSize: 14.sm),
-                                // ),
+                                
                                 onPressed: () {},
                               ),
                             ),

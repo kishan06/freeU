@@ -84,7 +84,8 @@ class _otpVerificationState extends State<otpVerification> {
                               controller: phoneController,
                               keyboardType: TextInputType.phone,
                               inputFormatters: <TextInputFormatter>[
-                                FilteringTextInputFormatter.digitsOnly
+                                FilteringTextInputFormatter.digitsOnly,
+                                LengthLimitingTextInputFormatter(10),
                               ],
                               decoration: InputDecoration(
                                 focusedBorder: UnderlineInputBorder(

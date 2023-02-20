@@ -1,9 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, file_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
 import '../common/customNextButton.dart';
@@ -297,7 +297,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             return "Please Enter Full Name";
                           }
                           return null;
-                        },
+                        }, 
                       ),
                       SizedBox(height: 20.h),
                       CustomTextFormField(
@@ -313,10 +313,15 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             return 'Enter a Valid Email address';
                           }
                           return null;
-                        },
+                        }, 
                       ),
                       SizedBox(height: 20.h),
                       CustomTextFormField(
+                        keyboardType: TextInputType.number,
+                          inputFormatters: <TextInputFormatter>[
+                            LengthLimitingTextInputFormatter(10),
+                            FilteringTextInputFormatter.digitsOnly
+                          ],
                         hintText: "Phone Number",
                         validatorText: "Phone Number",
                         validator: (value) {
@@ -328,6 +333,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                       SizedBox(height: 20.h),
                       CustomTextFormField(
+                        keyboardType: TextInputType.number,
                           hintText: "Date Of Birth",
                           validatorText: "Date Of Birth"),
                       SizedBox(height: 25.h),
@@ -413,7 +419,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             return "Please Enter PAN Number";
                           }
                           return null;
-                        },
+                        }, 
                       )
                     ],
                   ),

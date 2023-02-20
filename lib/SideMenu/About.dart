@@ -40,18 +40,18 @@ class _AboutState extends State<About> {
                 width: 100.w,
               ),
               SizedBox(
-                height: 15.h,
+                height: 20.h,
               ),
               SizedBox(
                 width: double.infinity,
                 child: Text(
                   'About Us',
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
-                height: 5,
+                height: 10,
               ),
               SizedBox(
                 width: double.infinity,
@@ -65,7 +65,7 @@ class _AboutState extends State<About> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 25,
               ),
               Row(
                 children: [
@@ -100,7 +100,7 @@ class _AboutState extends State<About> {
                 ],
               ),
               SizedBox(
-                height: 10.h,
+                height: 25.h,
               ),
               Row(
                 children: [
@@ -135,18 +135,18 @@ class _AboutState extends State<About> {
                 ],
               ),
               SizedBox(
-                height: 15.h,
+                height: 25.h,
               ),
               SizedBox(
                 width: double.infinity,
                 child: Text(
                   'Our Great Team',
                   textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
-                height: 5,
+                height: 10,
               ),
               SizedBox(
                 width: double.infinity,
@@ -159,7 +159,7 @@ class _AboutState extends State<About> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 20,
               ),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -173,7 +173,7 @@ class _AboutState extends State<About> {
                         width: 100.w,
                       )),
                   SizedBox(
-                    width: 10.w,
+                    width: 15.w,
                   ),
                   Flexible(
                       flex: 4,
@@ -200,7 +200,7 @@ class _AboutState extends State<About> {
                 ],
               ),
               SizedBox(
-                height: 15,
+                height: 20,
               ),
               SizedBox(
                 width: double.infinity,
@@ -210,11 +210,11 @@ class _AboutState extends State<About> {
                   style: TextStyle(
                       fontSize: 22,
                       fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600),
+                      fontWeight: FontWeight.w500),
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 20,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -230,7 +230,7 @@ class _AboutState extends State<About> {
                           color: Color(0xFFffffff),
                           boxShadow: [
                             BoxShadow(
-                              color: Color.fromARGB(255, 189, 187, 187),
+                              color: Color(0xFFBDBBBB),
                               blurRadius: 20.0, // soften the shadow
                               spreadRadius: 1.0, //extend the shadow
                             )
@@ -260,7 +260,7 @@ class _AboutState extends State<About> {
                         )),
                   ),
                   SizedBox(
-                    width: 25.w,
+                    width: 30.w,
                   ),
                   Expanded(
                     child: Container(
@@ -305,15 +305,15 @@ class _AboutState extends State<About> {
                 ],
               ),
               SizedBox(
-                height: 15,
+                height: 25,
               ),
               Text(
                 'Business Partners /\nAssociated Professionals',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 21,
                     fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600),
+                    fontWeight: FontWeight.w500),
               ),
               SizedBox(
                 height: 167.h,
@@ -359,7 +359,7 @@ class _AboutState extends State<About> {
                       effect: ExpandingDotsEffect(
                           dotHeight: 5,
                           dotWidth: 5,
-                          radius: 10,
+                          radius: 50,
                           activeDotColor: Color(0xFF153D6D),
                           dotColor: Color(0xFF153D6D).withOpacity(0.4)),
                     ),

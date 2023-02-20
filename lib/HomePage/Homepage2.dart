@@ -301,7 +301,7 @@ class _Home2State extends State<Home2> {
                         children: [
                           Text(
                             'Fill in your complete details\nto start investing',
-                            style: blackStyle12(),
+                            style: blackStyle14(),
                           ),
                           SizedBox(
                             height: 5,
@@ -424,7 +424,8 @@ class _Home2State extends State<Home2> {
                 height: 10.h,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 5.0, top: 12, bottom: 12),
+                padding:
+                    EdgeInsets.only(left: 4.0, top: 12, bottom: 12, right: 4.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -436,91 +437,95 @@ class _Home2State extends State<Home2> {
                       height: 8.h,
                     ),
                     SizedBox(
-                      height: 100.h,
-                      child: PageView.builder(
-                        padEnds: false,
-                        controller: categoriescontroller,
-                        itemCount: 2,
-                        itemBuilder: (
-                          BuildContext context,
-                          int index1,
-                        ) {
-                          bool isMyPageIndex = selectIndex == index1;
-                          if (index1 == 0) {
-                            return SizedBox(
-                              height: 80.h,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                             flex: 1,
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed('/fractionalrealestateproperty1');
+                              },
                               child: Card(
-                                elevation: 0,
-                                color: Color(0xFFF5F8FA),
+                                elevation: 2,
+                                color: Colors.white,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(15),
+                                  borderRadius: BorderRadius.circular(10),
                                 ),
                                 child: Padding(
                                     padding: EdgeInsets.only(
                                         top: 10.0,
-                                        left: 13,
-                                        right: 13,
-                                        bottom: 5),
-                                    child: Row(
+                                        left: 10,
+                                        right: 10,
+                                        bottom: 10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
                                         Image.asset(
-                                          "assets/images/real-estate.png",
-                                          color: Color(0xFFF5F8FA),
-                                          height: 50.h,
-                                          width: 50.w,
+                                          "assets/images/residential@2x.png",
+                                          height: 50,
+                                          width: 50,
                                         ),
                                         SizedBox(
                                           width: 13.w,
                                         ),
                                         Text(
-                                          'Fractional\nReal Estate',
+                                          'Fractional Real Estate',
+                                          textAlign: TextAlign.center,
                                           style: TextStyle(
-                                              color: Color(0xFFF5F8FA),
                                               fontSize: 16.sm,
                                               fontFamily: 'Poppins'),
                                         )
                                       ],
                                     )),
                               ),
-                            );
-                          } //2nd plan
-                          return SizedBox(
-                            width: 65.w,
-                            child: Card(
-                              elevation: 0,
-                              color: Color(0xFFF5F8FA),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
-                              ),
-                              child: Padding(
-                                  padding: EdgeInsets.only(
-                                      top: 14.0,
-                                      left: 13,
-                                      right: 13,
-                                      bottom: 5),
-                                  child: Row(
-                                    children: [
-                                      Image.asset(
-                                        "assets/images/blockchain.png",
-                                        color: Color(0xFFF5F8FA),
-                                        height: 50.h,
-                                        width: 50.w,
-                                      ),
-                                      SizedBox(
-                                        width: 13.w,
-                                      ),
-                                      Text(
-                                        'Peer- Peer\nlending',
-                                        style: TextStyle(
-                                            color: Color(0xFFF5F8FA),
-                                            fontSize: 16.sm,
-                                            fontFamily: 'Poppins'),
-                                      )
-                                    ],
-                                  )),
                             ),
-                          );
-                        },
+                          ),
+                          SizedBox(width: 20,),
+                          Expanded(
+                            flex: 1,
+                            child: GestureDetector(
+                              onTap: () {
+                                Get.toNamed('/peerlendingasset1');
+                              },
+                              child: Card(
+                                elevation: 2,
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                child: Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 10.0,
+                                        left: 10,
+                                        right: 10,
+                                        bottom: 10),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                          "assets/images/blockchain@2x.png",
+                                          height: 50,
+                                          width: 50,
+                                        ),
+                                        SizedBox(
+                                          width: 13.w,
+                                        ),
+                                        Text(
+                                          'Peer- Peer\n lending',
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              fontSize: 16.sm,
+                                              fontFamily: 'Poppins'),
+                                        )
+                                      ],
+                                    )),
+                              ),
+                            ),
+                          )
+                        ],
                       ),
                     ),
                   ],
@@ -596,37 +601,47 @@ class _Home2State extends State<Home2> {
                       elevation: 2,
                       color: Color(0xFFFFFFFF),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(
-                            top: 14.0, left: 10, right: 15, bottom: 10),
+                            top: 10, left: 10, right: 15, bottom: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              height: 71.h,
-                              width: 80.w,
+                              // height: 70.h,
                               child:
-                                  Image.asset("assets/images/na_april_69.jpg"),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    child: Image.asset(
+                                      "assets/images/na_april_69.jpg",
+                                      fit: BoxFit.fitHeight,
+                                      height: 70,
+                                    ),
+                                  ),
                             ),
                             Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   "Retail banks wake up to digital",
                                   style: blackStyle14(),
                                 ),
+                                SizedBox(height: 5.h,),
                                 Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Icon(
                                       Icons.calendar_today_outlined,
                                       size: 14,
                                     ),
+                                    SizedBox(width: 5,),
                                     Text(
                                       "October 17 , 2022",
                                       style: blackStyle12(),
@@ -651,37 +666,47 @@ class _Home2State extends State<Home2> {
                       elevation: 2,
                       color: Color(0xFFFFFFFF),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(15),
+                        borderRadius: BorderRadius.circular(10),
                       ),
                       child: Padding(
                         padding: EdgeInsets.only(
-                            top: 14.0, left: 10, right: 15, bottom: 10),
+                            top: 10, left: 10, right: 15, bottom: 10),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
                               ),
-                              height: 71.h,
-                              width: 80.w,
+                              // height: 70.h,
                               child:
-                                  Image.asset("assets/images/na_april_69.jpg"),
+                                  ClipRRect(
+                                    borderRadius: BorderRadius.all(Radius.circular(10)),
+                                    child: Image.asset(
+                                      "assets/images/na_april_69.jpg",
+                                      fit: BoxFit.fitHeight,
+                                      height: 70,
+                                    ),
+                                  ),
                             ),
                             Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   "Retail banks wake up to digital",
                                   style: blackStyle14(),
                                 ),
+                                SizedBox(height: 5.h,),
                                 Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Icon(
                                       Icons.calendar_today_outlined,
                                       size: 14,
                                     ),
+                                    SizedBox(width: 5,),
                                     Text(
                                       "October 17 , 2022",
                                       style: blackStyle12(),

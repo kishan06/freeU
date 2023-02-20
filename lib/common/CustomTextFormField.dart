@@ -14,7 +14,7 @@ class CustomTextFormField extends StatefulWidget {
     this.isInputPassword = false,
     this.outlineColor = const Color(0xFFFFB600),
     this.keyboardType,
-    this.texttype,
+    this.texttype, 
   }) : super(key: key);
 
   final dynamic validator;

@@ -89,7 +89,7 @@ class _PreviouslyInvestedProductsState
     return Scaffold(
       key: _key,
       drawer: NavDrawer(),
-      backgroundColor: Color(0xFFFFFBF0),
+      backgroundColor: Color(0xFFF5F8FA),
       appBar: CustomSignupAppBar(
         titleTxt: "Previously Invested Products",
         showLeading: true,
@@ -106,758 +106,284 @@ class _PreviouslyInvestedProductsState
               SizedBox(
                 height: 15.h,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                          flex: 0,
-                          child: SvgPicture.asset(
-                              "assets/images/Ellipse 7489.svg")),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Product",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            Text(
-                              "Vaishnavi Tech Park",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "P & L",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            Text(
-                              "₹25,000",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.arrow_upward_rounded,
-                                  size: 15,
-                                  color: Colors.green,
-                                ),
-                                Text(
-                                  "5.6%",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 12,
-                                      color: Colors.green),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Action",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.file_download_outlined,
-                                  color: Colors.white,
-                                ),
-                                // Text(
-                                //   "Sell",
-                                //   style: TextStyle(
-                                //       fontFamily: "Poppins",
-                                //       color: Colors.white,
-                                //       fontSize: 14.sm),
-                                // ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              common_card_green(),
               SizedBox(
-                height: 10.h,
+                height: 10,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                          flex: 0,
-                          child: SvgPicture.asset(
-                              "assets/images/Ellipse 7489.svg")),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Product",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            Text(
-                              "Making India Atmanirbhar",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "P & L",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            Text(
-                              "₹25,000",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.arrow_downward_rounded,
-                                  size: 15,
-                                  color: Colors.red,
-                                ),
-                                Text(
-                                  "2.1%",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 12,
-                                      color: Colors.red),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Action",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.file_download_outlined,
-                                  color: Colors.white,
-                                ),
-                                // Text(
-                                //   "Sell",
-                                //   style: TextStyle(
-                                //       fontFamily: "Poppins",
-                                //       color: Colors.white,
-                                //       fontSize: 14.sm),
-                                // ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              common_card_red(),
               SizedBox(
-                height: 10.h,
+                height: 10,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                          flex: 0,
-                          child: SvgPicture.asset(
-                              "assets/images/Ellipse 7489.svg")),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Product",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            Text(
-                              "Vaishnavi Tech Park",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "P & L",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            Text(
-                              "₹25,000",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.arrow_upward_rounded,
-                                  size: 15,
-                                  color: Colors.green,
-                                ),
-                                Text(
-                                  "5.6%",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 12,
-                                      color: Colors.green),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Action",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.file_download_outlined,
-                                  color: Colors.white,
-                                ),
-                                // Text(
-                                //   "Sell",
-                                //   style: TextStyle(
-                                //       fontFamily: "Poppins",
-                                //       color: Colors.white,
-                                //       fontSize: 14.sm),
-                                // ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              common_card_green(),
               SizedBox(
-                height: 10.h,
+                height: 10,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                          flex: 0,
-                          child: SvgPicture.asset(
-                              "assets/images/Ellipse 7489.svg")),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Product",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            Text(
-                              "Making India Atmanirbhar",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "P & L",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            Text(
-                              "₹25,000",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.arrow_downward_rounded,
-                                  size: 15,
-                                  color: Colors.red,
-                                ),
-                                Text(
-                                  "2.1%",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 12,
-                                      color: Colors.red),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Action",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.file_download_outlined,
-                                  color: Colors.white,
-                                ),
-                                // Text(
-                                //   "Sell",
-                                //   style: TextStyle(
-                                //       fontFamily: "Poppins",
-                                //       color: Colors.white,
-                                //       fontSize: 14.sm),
-                                // ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              common_card_red(),
               SizedBox(
-                height: 10.h,
+                height: 10,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                          flex: 0,
-                          child: SvgPicture.asset(
-                              "assets/images/Ellipse 7489.svg")),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Product",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            Text(
-                              "Vaishnavi Tech Park",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "P & L",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            Text(
-                              "₹25,000",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.arrow_upward_rounded,
-                                  size: 15,
-                                  color: Colors.green,
-                                ),
-                                Text(
-                                  "5.6%",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 12,
-                                      color: Colors.green),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Action",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.file_download_outlined,
-                                  color: Colors.white,
-                                ),
-                                // Text(
-                                //   "Sell",
-                                //   style: TextStyle(
-                                //       fontFamily: "Poppins",
-                                //       color: Colors.white,
-                                //       fontSize: 14.sm),
-                                // ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
+              common_card_green(),
               SizedBox(
-                height: 10.h,
+                height: 10,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Flexible(
-                          flex: 0,
-                          child: SvgPicture.asset(
-                              "assets/images/Ellipse 7489.svg")),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Product",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(
-                              height: 10.h,
-                            ),
-                            Text(
-                              "Making India Atmanirbhar",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "P & L",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            Text(
-                              "₹25,000",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w300,
-                                  fontFamily: "Poppins",
-                                  fontSize: 14.sm),
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.arrow_downward_rounded,
-                                  size: 15,
-                                  color: Colors.red,
-                                ),
-                                Text(
-                                  "2.1%",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 12,
-                                      color: Colors.red),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Action",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sm),
-                            ),
-                            SizedBox(height: 10.h),
-                            SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.file_download_outlined,
-                                  color: Colors.white,
-                                ),
-                                // Text(
-                                //   "Sell",
-                                //   style: TextStyle(
-                                //       fontFamily: "Poppins",
-                                //       color: Colors.white,
-                                //       fontSize: 14.sm),
-                                // ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
+              common_card_red(),
+              SizedBox(
+                height: 10,
+              ),
+              common_card_green(),
+              SizedBox(
+                height: 10,
+              ),
+              common_card_red(),
+              SizedBox(
+                height: 10,
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class common_card_green extends StatelessWidget {
+  const common_card_green({
+    Key? key,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+        padding: EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+                flex: 0,
+                child: SvgPicture.asset(
+                  "assets/images/Ellipse 7489.svg",
+                  height: 60,
+                )),
+            Flexible(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Product",
+                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    "Making India Atmanirbhar",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "Poppins",
+                        fontSize: 14.sm),
+                  )
+                ],
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "P & L",
+                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                  ),
+                  SizedBox(height: 10.h),
+                  Text(
+                    "₹25,000",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "Poppins",
+                        fontSize: 14.sm),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.arrow_upward,
+                        size: 15,
+                        color: Colors.green,
+                      ),
+                      Text(
+                        "5.6%",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 12.sm,
+                            color: Colors.green),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Action",
+                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                  ),
+                  SizedBox(height: 10.h),
+                  SizedBox(
+                    height: 35.h,
+                    width: 70.w,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        backgroundColor: Color(0xFF1B8DC9),
+                        //  color: Color(0xFFFFB600),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Icon(
+                        Icons.file_download_outlined,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class common_card_red extends StatelessWidget {
+  const common_card_red({
+    Key? key,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      child: Padding(
+        padding: EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Flexible(
+                flex: 0,
+                child: SvgPicture.asset(
+                  "assets/images/Ellipse 7489.svg",
+                  height: 60,
+                )),
+            Flexible(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Product",
+                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    "Making India Atmanirbhar",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "Poppins",
+                        fontSize: 14.sm),
+                  )
+                ],
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "P & L",
+                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                  ),
+                  SizedBox(height: 10.h),
+                  Text(
+                    "₹25,000",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w300,
+                        fontFamily: "Poppins",
+                        fontSize: 14.sm),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Icons.arrow_downward,
+                        size: 15,
+                        color: Colors.red,
+                      ),
+                      Text(
+                        "5.6%",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 12.sm,
+                            color: Colors.red),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Flexible(
+              flex: 1,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Action",
+                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+                  ),
+                  SizedBox(height: 10.h),
+                  SizedBox(
+                    height: 35.h,
+                    width: 70.w,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        backgroundColor: Color(0xFF1B8DC9),
+                        //  color: Color(0xFFFFB600),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Icon(
+                        Icons.file_download_outlined,
+                        color: Colors.white,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+              ),
+            )
+          ],
         ),
       ),
     );

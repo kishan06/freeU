@@ -147,7 +147,10 @@ class _CategoriesMainState extends State<CategoriesMain> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset("assets/images/real-estate.png"),
+                            Image.asset(
+                              "assets/images/residential@2x.png",
+                              height: 60.h,
+                            ),
                             SizedBox(
                               height: 5.h,
                             ),
@@ -176,7 +179,10 @@ class _CategoriesMainState extends State<CategoriesMain> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Image.asset("assets/images/blockchain.png"),
+                            Image.asset(
+                              "assets/images/blockchain@2x.png",
+                              height: 60.h,
+                            ),
                             SizedBox(
                               height: 5.h,
                             ),

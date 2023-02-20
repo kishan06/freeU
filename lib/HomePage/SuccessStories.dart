@@ -93,33 +93,41 @@ class stories extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Image.asset('assets/images/51025.png'),
+            Image.asset(
+              'assets/images/51025.png',
+              fit: BoxFit.fitHeight,
+              height: 100,
+            ),
             SizedBox(
               width: 10,
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Lorem Ipsum has been the industrys\nstandarddummy text ever since the\n1500s.',
-                  style: TextStyle(
-                    fontSize: 14.sm,
-                    color: Color(0xff000000),
+            Flexible(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Lorem Ipsum has been the industrys standard dummy dummy sdummy text ever since the 1500s.',
+                    style: TextStyle(
+                      fontSize: 13.sm,
+                      color: Color(0xff000000),
+                    ),
                   ),
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                Text(
-                  'Jan 09, 2023',
-                  style: TextStyle(
-                    fontSize: 14.sm,
-                    color: Color(0xff000000),
+                  SizedBox(
+                    height: 15,
                   ),
-                )
-              ],
+                  Text(
+                    'Jan 09, 2023',
+                    style: TextStyle(
+                      fontSize: 14.sm,
+                      color: Color(0xff000000),
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),
