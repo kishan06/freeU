@@ -57,11 +57,18 @@ class _HowToInvestState extends State<HowToInvest> {
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Card(
-                      elevation: 5,
-                      shadowColor: Color(0xB5EFEFF5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x48B9B9BE),
+                            blurRadius: 20.0,
+                            spreadRadius: 0,
+                            // offset: Offset(10, 10, 10, 10),
+                          )
+                        ],
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -113,11 +120,18 @@ class _HowToInvestState extends State<HowToInvest> {
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Card(
-                      elevation: 5,
-                      shadowColor: Color(0xB5EFEFF5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                    Container(
+                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x48B9B9BE),
+                            blurRadius: 20.0,
+                            spreadRadius: 0,
+                            // offset: Offset(10, 10, 10, 10),
+                          )
+                        ],
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -169,11 +183,18 @@ class _HowToInvestState extends State<HowToInvest> {
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Card(
-                      elevation: 5,
-                      shadowColor: Color(0xB5EFEFF5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                    Container(
+                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x48B9B9BE),
+                            blurRadius: 20.0,
+                            spreadRadius: 0,
+                            // offset: Offset(10, 10, 10, 10),
+                          )
+                        ],
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -225,11 +246,18 @@ class _HowToInvestState extends State<HowToInvest> {
                 Stack(
                   clipBehavior: Clip.none,
                   children: [
-                    Card(
-                      elevation: 5,
-                      shadowColor: Color(0xB5EFEFF5),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
+                    Container(
+                       decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x48B9B9BE),
+                            blurRadius: 20.0,
+                            spreadRadius: 0,
+                            // offset: Offset(10, 10, 10, 10),
+                          )
+                        ],
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(

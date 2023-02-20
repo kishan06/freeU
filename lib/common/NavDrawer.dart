@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -47,14 +49,16 @@ class _NavDrawerState extends State<NavDrawer> {
                 children: <Widget>[
                   SizedBox(height: 20.h),
                   SizedBox(
-                    height: 56.h,
+                    height: 50.h,
                     child: GestureDetector(
-                       onTap: () => Get.toNamed("/userlogged"),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      onTap: () => Get.toNamed("/userlogged"),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -74,7 +78,7 @@ class _NavDrawerState extends State<NavDrawer> {
                               Spacer(),
                               Icon(
                                 Icons.edit_outlined,
-                                size: 15,
+                                size: 18,
                               )
                             ],
                           ),
@@ -86,14 +90,16 @@ class _NavDrawerState extends State<NavDrawer> {
                     height: 20.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () => Get.toNamed("/kyc1"),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -121,20 +127,22 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed('/security');
                       },
                       // Get.toNamed("/kyc1"),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -153,7 +161,7 @@ class _NavDrawerState extends State<NavDrawer> {
                               Spacer(),
                               Icon(
                                 Icons.arrow_forward_ios_outlined,
-                                size: 15,
+                                size: 18,
                               )
                             ],
                           ),
@@ -162,19 +170,21 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed("/howtoinvest");
                       },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -202,20 +212,22 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed('/updaterisk');
                       },
                       // Get.toNamed("/kyc1"),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -243,19 +255,21 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed("/about");
                       },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -283,19 +297,21 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed('/insights');
                       },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -323,19 +339,21 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed('/faqs');
                       },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -363,20 +381,22 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed("/privacypolicy");
                       },
                       // Get.toNamed("/kyc1"),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -404,20 +424,22 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed('/termsandconditions');
                       },
                       // Get.toNamed("/kyc1"),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -446,19 +468,21 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         Get.toNamed("/contactus");
                       },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
@@ -486,10 +510,10 @@ class _NavDrawerState extends State<NavDrawer> {
                     ),
                   ),
                   SizedBox(
-                    height: 5.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 45.h,
                     child: GestureDetector(
                       onTap: () {
                         showModalBottomSheet(
@@ -546,7 +570,6 @@ class _NavDrawerState extends State<NavDrawer> {
                                         height: 50.h,
                                         child: CustomNextButton(
                                           text: "Log out",
-                                          
                                           ontap: () {
                                             Get.offAll(Login());
                                           },
@@ -607,11 +630,13 @@ class _NavDrawerState extends State<NavDrawer> {
                           },
                         );
                       },
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                          side:
-                              BorderSide(color: Color(0xFF707070), width: 0.2),
-                          borderRadius: BorderRadius.circular(10),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15)
+                          ),
+                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
                           padding: EdgeInsets.only(left: 8.0, right: 8.0),
