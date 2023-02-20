@@ -134,42 +134,51 @@ class _InvestmentMainState extends State<InvestmentMain> {
               SizedBox(
                 height: 15.h,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Current Investment",
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sm,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/currentinvestment');
+                    },
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16.sm,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  color: Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x48B9B9BE),
+                      blurRadius: 20.0,
+                      spreadRadius: 0,
+                      // offset: Offset(-20, -20,),
+                    )
+                  ],
                 ),
                 child: Padding(
                   padding:
                       EdgeInsets.only(left: 11, right: 11, top: 15, bottom: 15),
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Current Investment",
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 18.sm,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed('/currentinvestment');
-                            },
-                            child: Text(
-                              "View All",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15.h,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -612,44 +621,53 @@ class _InvestmentMainState extends State<InvestmentMain> {
                 ),
               ),
               SizedBox(
-                height: 15,
+                height: 30,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Previously Invested Products",
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sm,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/previouslyinvestedproducts');
+                    },
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16.sm,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 15.h,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  color: Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x48B9B9BE),
+                      blurRadius: 20.0,
+                      spreadRadius: 0,
+                      // offset: Offset(-20, -20,),
+                    )
+                  ],
                 ),
                 child: Padding(
                   padding:
                       EdgeInsets.only(left: 11, right: 11, top: 15, bottom: 15),
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Previously Invested Products",
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 18.sm,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed('/previouslyinvestedproducts');
-                            },
-                            child: Text(
-                              "View All",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15.h,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -737,7 +755,6 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                   Icons.file_download_outlined,
                                   color: Colors.white,
                                 ),
-                                
                                 onPressed: () {},
                               ),
                             ),
@@ -859,44 +876,52 @@ class _InvestmentMainState extends State<InvestmentMain> {
                 ),
               ),
               SizedBox(
+                height: 30,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Suggested Invested Products",
+                    style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sm,
+                        fontWeight: FontWeight.w500),
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed('/suggestedinvestedproducts');
+                    },
+                    child: Text(
+                      "View All",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 16.sm,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
                 height: 15,
               ),
-              Card(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  color: Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x48B9B9BE),
+                      blurRadius: 20.0,
+                      spreadRadius: 0,
+                      // offset: Offset(-20, -20,),
+                    )
+                  ],
                 ),
                 child: Padding(
-                  padding:
-                      EdgeInsets.only(left: 11, right: 11, top: 15, bottom: 15),
+                  padding: EdgeInsets.all(10),
                   child: Column(
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            "Suggested Invested Products",
-                            style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 18.sm,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          GestureDetector(
-                            onTap: () {
-                              Get.toNamed('/suggestedinvestedproducts');
-                            },
-                            child: Text(
-                              "View All",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15.h,
-                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

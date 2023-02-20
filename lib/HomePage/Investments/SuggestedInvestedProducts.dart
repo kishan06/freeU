@@ -105,17 +105,17 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
               SizedBox(
                 height: 15.h,
               ),
-            common_card_green(),
+            common_crd_green(),
             SizedBox(height: 10,),
-            common_card_red(),
+            common_crd_red(),
             SizedBox(height: 10,),
-            common_card_green(),
+            common_crd_green(),
             SizedBox(height: 10,),
-            common_card_red(),
+            common_crd_red(),
             SizedBox(height: 10,),
-            common_card_green(),
+            common_crd_green(),
             SizedBox(height: 10,),
-            common_card_red(),
+            common_crd_red(),
             SizedBox(height: 10,),
               ],
           ),
@@ -125,15 +125,17 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
   }
 }
 
-class common_card_green extends StatelessWidget {
-  const common_card_green({
+class common_crd_green extends StatelessWidget {
+  const common_crd_green({
     Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        border: Border.all(color: Color(0xffECECEC).withOpacity(1), width: 1),
+        color: Color(0xFFFFFFFF),
       ),
       child: Padding(
         padding: EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
@@ -247,15 +249,17 @@ class common_card_green extends StatelessWidget {
   }
 }
 
-class common_card_red extends StatelessWidget {
-  const common_card_red({
+class common_crd_red extends StatelessWidget {
+  const common_crd_red({
     Key? key,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        border: Border.all(color: Color(0xffECECEC).withOpacity(1), width: 1),
+        color: Color(0xFFFFFFFF),
       ),
       child: Padding(
         padding: EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
