@@ -72,7 +72,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
               fontFamily: 'Poppins',
-              fontSize: 17.sm,
+              fontSize: 18.sm,
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),

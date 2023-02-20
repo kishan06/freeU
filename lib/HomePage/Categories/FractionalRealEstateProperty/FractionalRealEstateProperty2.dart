@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/bottombar.dart';
+import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -99,1209 +100,659 @@ class _FractionalRealEstateProperty2State
           CreateBottomBar(stateBottomNav, "bottombar", context),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.only(left: 16.0, right: 16),
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              ClipRRect(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+                child: Image.asset(
+                  'assets/images/real_estate.jpg',
+                  fit: BoxFit.cover,
+                  width: 400,
+                  height: 210,
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  color: Color(0xFFD5F0FD),
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(
+                        top: 15,
+                        bottom: 10,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Text(
+                                "INR 8,810 per sq. ft.",
+                                style: TextStyle(
+                                    fontSize: 16.sm, fontFamily: 'Poppins'),
+                              ),
+                              Text(
+                                "Purchase Price",
+                                style: TextStyle(
+                                    fontSize: 14.sm, fontFamily: 'Poppins'),
+                              ),
+                              Container(
+                                width: 130.w,
+                                child: Divider(
+                                  color: Color(0xFF153D6D),
+                                  thickness: 1,
+                                ),
+                              ),
+                              Text(
+                                "INR 25,00,000",
+                                style: TextStyle(
+                                    fontSize: 16.sm, fontFamily: 'Poppins'),
+                              ),
+                              Text(
+                                "Minimum investment",
+                                style: TextStyle(
+                                    fontSize: 14.sm, fontFamily: 'Poppins'),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Column(
+                            children: [
+                              Text(
+                                "36,230 sq. ft.",
+                                style: TextStyle(
+                                    fontSize: 16.sm, fontFamily: 'Poppins'),
+                              ),
+                              Text(
+                                "Property Size",
+                                style: TextStyle(
+                                    fontSize: 14.sm, fontFamily: 'Poppins'),
+                              ),
+                              Container(
+                                width: 130.w,
+                                child: Divider(
+                                  color: Color(0xFF153D6D),
+                                  thickness: 1,
+                                ),
+                              ),
+                              Text(
+                                "₹ 25 Lakhs",
+                                style: TextStyle(
+                                    fontSize: 16.sm, fontFamily: 'Poppins'),
+                              ),
+                              Text(
+                                "Average yield",
+                                style: TextStyle(
+                                    fontSize: 14.sm, fontFamily: 'Poppins'),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  color: Color(0xFFD5F0FD),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(15),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Text(
+                        "Vaishnavi Tech Park Opportunity",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontFamily: 'Poppins',
+                          fontSize: 16.sm,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 15.h,
+                      ),
+                      Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.location_on_outlined,
+                            size: 18,
+                          ),
+                          Text(
+                            "Outer Ring Road Sarjapur, Bangalore",
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontFamily: 'Poppins',
+                              fontSize: 14.sm,
+                            ),
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                              child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  child: Image.asset(
+                                      'assets/images/real_estate.jpg',
+                                      width: 80,
+                                      height: 80,
+                                      fit: BoxFit.cover))),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            child: ClipRRect(
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(10)),
+                                child: Image.asset(
+                                    'assets/images/real_estate.jpg',
+                                    width: 80,
+                                    height: 80,
+                                    fit: BoxFit.cover)),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                              child: ClipRRect(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10)),
+                                  child: Image.asset(
+                                      'assets/images/real_estate.jpg',
+                                      width: 50,
+                                      height: 80,
+                                      fit: BoxFit.cover))),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 15,
+              ),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Stack(
-                    clipBehavior: Clip.none,
+                  Column(
                     children: [
-                      Center(
-                        child: Image.asset(
-                          "assets/images/Group 51037.png",
-                          height: 216.h,
-                          width: 358.w,
-                        ),
-                      ),
-                      Positioned(
-                        left: 16,
-                        top: 150,
-                        child: SizedBox(
-                          height: 150.h,
-                          width: 328,
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                      Accordion(
+                        paddingListBottom: 0,
+                        paddingListTop: 0,
+                        paddingListHorizontal: 0,
+                        disableScrolling: true,
+
+                        maxOpenSections: 1,
+                        scaleWhenAnimating: true,
+                        openAndCloseAnimation: true,
+                        // headerPadding:
+                        //     const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
+                        sectionOpeningHapticFeedback:
+                            SectionHapticFeedback.heavy,
+                        sectionClosingHapticFeedback:
+                            SectionHapticFeedback.light,
+                        children: [
+                          AccordionSection(
+                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                            leftIcon:
+                                SvgPicture.asset('assets/images/13474.svg'),
+                            isOpen: true,
+                            headerBackgroundColor: Color(0xFFffffff),
+                            headerBackgroundColorOpened: Color(0xFFffffff),
+                            contentBackgroundColor: Color(0xFFffffff),
+                            contentBorderColor: Color(0xFFffffff),
+                            contentBorderRadius: 10,
+                            headerBorderRadius: 10,
+                            rightIcon:
+                                Icon(Icons.keyboard_arrow_down, size: 20),
+                            header: Text(
+                              'Overview',
+                              style: TextStyle(
+                                  color: Color(0xFF143C6D),
+                                  fontFamily: "Poppins",
+                                  fontSize: 18.sm),
                             ),
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: 15,
-                                bottom: 10,
-                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "INR 8,810 per sq. ft.",
-                                        style: TextStyle(
-                                            fontSize: 16.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      Text(
-                                        "Purchase Price",
-                                        style: TextStyle(
-                                            fontSize: 14.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      Container(
-                                        width: 130.w,
-                                        child: Divider(
-                                          color: Color(0xFF153D6D),
-                                          thickness: 2,
-                                        ),
-                                      ),
-                                      Text(
-                                        "INR 25,00,000",
-                                        style: TextStyle(
-                                            fontSize: 16.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      Text(
-                                        "Minimum investment",
-                                        style: TextStyle(
-                                            fontSize: 14.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        "36,230 sq. ft.",
-                                        style: TextStyle(
-                                            fontSize: 16.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      Text(
-                                        "Property Size",
-                                        style: TextStyle(
-                                            fontSize: 14.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      Container(
-                                        width: 130.w,
-                                        child: Divider(
-                                          color: Color(0xFF153D6D),
-                                          thickness: 2,
-                                        ),
-                                      ),
-                                      Text(
-                                        "₹ 25 Lakhs",
-                                        style: TextStyle(
-                                            fontSize: 16.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      Text(
-                                        "Average yield",
-                                        style: TextStyle(
-                                            fontSize: 14.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                  SizedBox(
-                    height: 100,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 15, right: 15),
-                    child: Column(
-                      children: [
-                        Card(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Padding(
-                            padding: EdgeInsets.all(15),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                            content: Column(
                               children: [
                                 Text(
-                                  "Vaishnavi Tech Park Opportunity",
+                                  "Unique opportunity to participate in the “Hub & Spoke” trend",
                                   style: TextStyle(
-                                    color: Colors.black,
-                                    fontFamily: 'Poppins',
-                                    fontSize: 16.sm,
-                                  ),
+                                      fontFamily: "Poppins",
+                                      fontSize: 16.sm,
+                                      fontWeight: FontWeight.w500),
                                 ),
                                 SizedBox(
-                                  height: 15.h,
+                                  height: 8.h,
                                 ),
-                                Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Icon(
-                                      Icons.location_on_outlined,
-                                      size: 18,
-                                    ),
-                                    Text(
-                                      "Outer Ring Road Sarjapur, Bangalore",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                        fontFamily: 'Poppins',
-                                        fontSize: 14.sm,
-                                      ),
-                                    )
-                                  ],
+                                common_ctn(
+                                  text: "Analytics Based Collection",
                                 ),
-                                SizedBox(
-                                  height: 15.h,
+                                common_ctn(
+                                  text: "Flat Returns instead of reducing",
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    SizedBox(
-                                      height: 75.h,
-                                      width: 92.w,
-                                      child: Card(
-                                        child: Image.asset(
-                                            "assets/images/Group 13472.png"),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 75.h,
-                                      width: 92.w,
-                                      child: Card(
-                                        child: Image.asset(
-                                            "assets/images/Group 13472.png"),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 75.h,
-                                      width: 92.w,
-                                      child: Card(
-                                        child: Image.asset(
-                                            "assets/images/Group 13472.png"),
-                                      ),
-                                    )
-                                  ],
+                                common_ctn(
+                                  text:
+                                      "Various plans available to manage\nliquidity",
+                                ),
+                                common_ctn(
+                                  text: "No Lender Processing Fee",
+                                ),
+                                common_ctn(
+                                  text:
+                                      'Portfolio management fee linked\nto performance',
+                                ),
+                                common_ctn(
+                                  text: "Minimum Effort required from\nlenders",
                                 ),
                               ],
                             ),
+                            contentHorizontalPadding: 20,
+                            // onOpenSection: () => print('onOpenSection ...'),
+                            // onCloseSection: () => print('onCloseSection ...'),
                           ),
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Accordion(
-                          paddingListBottom: 0,
-                          paddingListTop: 0,
-                          paddingListHorizontal: 0,
-                          disableScrolling: true,
-
-                          maxOpenSections: 1,
-                          scaleWhenAnimating: true,
-                          openAndCloseAnimation: true,
-                          // headerPadding:
-                          //     const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
-                          sectionOpeningHapticFeedback:
-                              SectionHapticFeedback.heavy,
-                          sectionClosingHapticFeedback:
-                              SectionHapticFeedback.light,
-                          children: [
-                            AccordionSection(
-                              scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                              leftIcon: SvgPicture.asset(
-                                "assets/images/overview.svg",
-                              ),
-                              isOpen: true,
-                              headerBackgroundColor: Color(0xFFFFFFFF),
-                              headerBackgroundColorOpened: Color(0xFFFFFFFF),
-                              contentBackgroundColor: Color(0xFFFFFFFF),
-                              contentBorderColor: Color(0xFFFFFFFF),
-                              contentBorderRadius: 0,
-                              headerBorderRadius: 0,
-                              rightIcon:
-                                  Icon(Icons.keyboard_arrow_down, size: 20),
-                              header: Text(
-                                'Overview',
-                                style: TextStyle(
-                                    color: Color(0xFF143C6D),
-                                    fontFamily: "Poppins",
-                                    fontSize: 18.sm),
-                              ),
-                              content: Column(
-                                children: [
-                                  Text(
-                                    "Unique opportunity to participate in the “Hub & Spoke” trend",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins",
-                                        fontSize: 16.sm,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  SizedBox(
-                                    height: 8.h,
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Analytics Based Collection",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Flat Returns instead of reducing",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Various plans available to manage liquidity",
-                                          softWrap: true,
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "No Lender Processing Fee",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Portfolio management fee linked to performance",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 3.h,
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Minimum Effort required from lenders",
-                                          style: TextStyle(fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              contentHorizontalPadding: 20,
-                              // onOpenSection: () => print('onOpenSection ...'),
-                              // onCloseSection: () => print('onCloseSection ...'),
+                          AccordionSection(
+                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                            leftIcon: SvgPicture.asset(
+                              "assets/images/home.svg",
                             ),
-                            AccordionSection(
-                              scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                              leftIcon: SvgPicture.asset(
-                                "assets/images/home.svg",
-                              ),
-                              isOpen: true,
-                              headerBackgroundColor: Color(0xFFFFFFFF),
-                              headerBackgroundColorOpened: Color(0xFFFFFFFF),
-                              contentBackgroundColor: Color(0xFFFFFFFF),
-                              contentBorderColor: Color(0xFFFFFFFF),
-                              contentBorderRadius: 0,
-                              headerBorderRadius: 0,
-                              rightIcon:
-                                  Icon(Icons.keyboard_arrow_down, size: 20),
-                              header: Text(
-                                'Tenant',
-                                style: TextStyle(
-                                    color: Color(0xFF143C6D),
-                                    fontFamily: "Poppins",
-                                    fontSize: 18.sm),
-                              ),
-                              content: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Analytics Based Collection",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Flat Returns instead of reducing",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Various plans available to manage liquidity",
-                                          softWrap: true,
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "No Lender Processing Fee",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Portfolio management fee linked to performance",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Minimum Effort required from lenders",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              contentHorizontalPadding: 20,
-                              // onOpenSection: () => print('onOpenSection ...'),
-                              // onCloseSection: () => print('onCloseSection ...'),
+                            isOpen: true,
+                            headerBackgroundColor: Color(0xFFFFFFFF),
+                            headerBackgroundColorOpened: Color(0xFFFFFFFF),
+                            contentBackgroundColor: Color(0xFFFFFFFF),
+                            contentBorderColor: Color(0xFFFFFFFF),
+                            contentBorderRadius: 10,
+                            headerBorderRadius: 10,
+                            rightIcon:
+                                Icon(Icons.keyboard_arrow_down, size: 20),
+                            header: Text(
+                              'Tenant',
+                              style: TextStyle(
+                                  color: Color(0xFF143C6D),
+                                  fontFamily: "Poppins",
+                                  fontSize: 18.sm),
                             ),
-                            AccordionSection(
-                              scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                              leftIcon: SvgPicture.asset(
-                                "assets/images/pricetag.svg",
-                              ),
-                              isOpen: true,
-                              headerBackgroundColor: Color(0xFFFFFFFF),
-                              headerBackgroundColorOpened: Color(0xFFFFFFFF),
-                              contentBackgroundColor: Color(0xFFFFFFFF),
-                              contentBorderColor: Color(0xFFFFFFFF),
-                              contentBorderRadius: 0,
-                              headerBorderRadius: 0,
-                              rightIcon:
-                                  Icon(Icons.keyboard_arrow_down, size: 20),
-                              header: Text(
-                                'Pricing',
-                                style: TextStyle(
-                                    color: Color(0xFF143C6D),
-                                    fontFamily: "Poppins",
-                                    fontSize: 18.sm),
-                              ),
-                              content: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Analytics Based Collection",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Flat Returns instead of reducing",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Various plans available to manage liquidity",
-                                          softWrap: true,
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "No Lender Processing Fee",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Portfolio management fee linked to performance",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Minimum Effort required from lenders",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              contentHorizontalPadding: 20,
-                              // onOpenSection: () => print('onOpenSection ...'),
-                              // onCloseSection: () => print('onCloseSection ...'),
+                            content: Column(
+                              children: [
+                                common_ctn(
+                                  text: "Analytics Based Collection",
+                                ),
+                                common_ctn(
+                                  text: "Flat Returns instead of reducing",
+                                ),
+                                common_ctn(
+                                  text:
+                                      "Various plans available to manage\nliquidity",
+                                ),
+                                common_ctn(
+                                  text: "No Lender Processing Fee",
+                                ),
+                                common_ctn(
+                                  text:
+                                      'Portfolio management fee linked\nto performance',
+                                ),
+                                common_ctn(
+                                  text: "Minimum Effort required from\nlenders",
+                                ),
+                              ],
                             ),
-                            AccordionSection(
-                              scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                              leftIcon: SvgPicture.asset(
-                                "assets/images/location.svg",
-                              ),
-                              isOpen: true,
-                              headerBackgroundColor: Color(0xFFFFFFFF),
-                              headerBackgroundColorOpened: Color(0xFFFFFFFF),
-                              contentBackgroundColor: Color(0xFFFFFFFF),
-                              contentBorderColor: Color(0xFFFFFFFF),
-                              contentBorderRadius: 0,
-                              headerBorderRadius: 0,
-                              rightIcon:
-                                  Icon(Icons.keyboard_arrow_down, size: 20),
-                              header: Text(
-                                'Location',
-                                style: TextStyle(
-                                    color: Color(0xFF143C6D),
-                                    fontFamily: "Poppins",
-                                    fontSize: 18.sm),
-                              ),
-                              content: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Analytics Based Collection",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Flat Returns instead of reducing",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Various plans available to manage liquidity",
-                                          softWrap: true,
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "No Lender Processing Fee",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Portfolio management fee linked to performance",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Minimum Effort required from lenders",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              contentHorizontalPadding: 20,
-                              // onOpenSection: () => print('onOpenSection ...'),
-                              // onCloseSection: () => print('onCloseSection ...'),
+                            contentHorizontalPadding: 20,
+                            // onOpenSection: () => print('onOpenSection ...'),
+                            // onCloseSection: () => print('onCloseSection ...'),
+                          ),
+                          AccordionSection(
+                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                            leftIcon: SvgPicture.asset(
+                              "assets/images/pricetag.svg",
                             ),
-                            AccordionSection(
-                              scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                              leftIcon: SvgPicture.asset(
-                                "assets/images/floorplan.svg",
-                              ),
-                              isOpen: true,
-                              headerBackgroundColor: Color(0xFFFFFFFF),
-                              headerBackgroundColorOpened: Color(0xFFFFFFFF),
-                              contentBackgroundColor: Color(0xFFFFFFFF),
-                              contentBorderColor: Color(0xFFFFFFFF),
-                              contentBorderRadius: 0,
-                              headerBorderRadius: 0,
-                              rightIcon:
-                                  Icon(Icons.keyboard_arrow_down, size: 20),
-                              header: Text(
-                                'Floor Plan',
-                                style: TextStyle(
-                                    color: Color(0xFF143C6D),
-                                    fontFamily: "Poppins",
-                                    fontSize: 18.sm),
-                              ),
-                              content: Column(
-                                children: [
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Analytics Based Collection",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        "Flat Returns instead of reducing",
-                                        style: TextStyle(
-                                            fontFamily: "Poppins",
-                                            fontSize: 16.sm),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Various plans available to manage liquidity",
-                                          softWrap: true,
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "No Lender Processing Fee",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Portfolio management fee linked to performance",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/bullet point.svg",
-                                        width: 14.w,
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Flexible(
-                                        child: Text(
-                                          "Minimum Effort required from lenders",
-                                          style: TextStyle(
-                                              fontFamily: "Poppins",
-                                              fontSize: 16.sm),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              contentHorizontalPadding: 20,
-                              // onOpenSection: () => print('onOpenSection ...'),
-                              // onCloseSection: () => print('onCloseSection ...'),
+                            isOpen: true,
+                            headerBackgroundColor: Color(0xFFFFFFFF),
+                            headerBackgroundColorOpened: Color(0xFFFFFFFF),
+                            contentBackgroundColor: Color(0xFFFFFFFF),
+                            contentBorderColor: Color(0xFFFFFFFF),
+                            contentBorderRadius: 10,
+                            headerBorderRadius: 10,
+                            rightIcon:
+                                Icon(Icons.keyboard_arrow_down, size: 20),
+                            header: Text(
+                              'Pricing',
+                              style: TextStyle(
+                                  color: Color(0xFF143C6D),
+                                  fontFamily: "Poppins",
+                                  fontSize: 18.sm),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
+                            content: Column(
+                              children: [
+                                common_ctn(
+                                  text: "Analytics Based Collection",
+                                ),
+                                common_ctn(
+                                  text: "Flat Returns instead of reducing",
+                                ),
+                                common_ctn(
+                                  text:
+                                      "Various plans available to manage\nliquidity",
+                                ),
+                                common_ctn(
+                                  text: "No Lender Processing Fee",
+                                ),
+                                common_ctn(
+                                  text:
+                                      'Portfolio management fee linked\nto performance',
+                                ),
+                                common_ctn(
+                                  text: "Minimum Effort required from\nlenders",
+                                ),
+                              ],
+                            ),
+                            contentHorizontalPadding: 20,
+                            // onOpenSection: () => print('onOpenSection ...'),
+                            // onCloseSection: () => print('onCloseSection ...'),
+                          ),
+                          AccordionSection(
+                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                            leftIcon: SvgPicture.asset(
+                              "assets/images/location.svg",
+                            ),
+                            isOpen: true,
+                            headerBackgroundColor: Color(0xFFFFFFFF),
+                            headerBackgroundColorOpened: Color(0xFFFFFFFF),
+                            contentBackgroundColor: Color(0xFFFFFFFF),
+                            contentBorderColor: Color(0xFFFFFFFF),
+                            contentBorderRadius: 10,
+                            headerBorderRadius: 10,
+                            rightIcon:
+                                Icon(Icons.keyboard_arrow_down, size: 20),
+                            header: Text(
+                              'Location',
+                              style: TextStyle(
+                                  color: Color(0xFF143C6D),
+                                  fontFamily: "Poppins",
+                                  fontSize: 18.sm),
+                            ),
+                            content: Column(
+                              children: [
+                                common_ctn(
+                                  text: "Analytics Based Collection",
+                                ),
+                                common_ctn(
+                                  text: "Flat Returns instead of reducing",
+                                ),
+                                common_ctn(
+                                  text:
+                                      "Various plans available to manage\nliquidity",
+                                ),
+                                common_ctn(
+                                  text: "No Lender Processing Fee",
+                                ),
+                                common_ctn(
+                                  text:
+                                      'Portfolio management fee linked\nto performance',
+                                ),
+                                common_ctn(
+                                  text: "Minimum Effort required from\nlenders",
+                                ),
+                              ],
+                            ),
+                            contentHorizontalPadding: 20,
+                            // onOpenSection: () => print('onOpenSection ...'),
+                            // onCloseSection: () => print('onCloseSection ...'),
+                          ),
+                          AccordionSection(
+                            scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+                            leftIcon: SvgPicture.asset(
+                              "assets/images/floorplan.svg",
+                            ),
+                            isOpen: true,
+                            headerBackgroundColor: Color(0xFFFFFFFF),
+                            headerBackgroundColorOpened: Color(0xFFFFFFFF),
+                            contentBackgroundColor: Color(0xFFFFFFFF),
+                            contentBorderColor: Color(0xFFFFFFFF),
+                            contentBorderRadius: 10,
+                            headerBorderRadius: 10,
+                            rightIcon:
+                                Icon(Icons.keyboard_arrow_down, size: 20),
+                            header: Text(
+                              'Floor Plan',
+                              style: TextStyle(
+                                  color: Color(0xFF143C6D),
+                                  fontFamily: "Poppins",
+                                  fontSize: 18.sm),
+                            ),
+                            content: Column(
+                              children: [
+                                common_ctn(
+                                  text: "Analytics Based Collection",
+                                ),
+                                common_ctn(
+                                  text: "Flat Returns instead of reducing",
+                                ),
+                                common_ctn(
+                                  text:
+                                      "Various plans available to manage\nliquidity",
+                                ),
+                                common_ctn(
+                                  text: "No Lender Processing Fee",
+                                ),
+                                common_ctn(
+                                  text:
+                                      'Portfolio management fee linked\nto performance',
+                                ),
+                                common_ctn(
+                                  text: "Minimum Effort required from\nlenders",
+                                ),
+                              ],
+                            ),
+                            contentHorizontalPadding: 20,
+                            // onOpenSection: () => print('onOpenSection ...'),
+                            // onCloseSection: () => print('onCloseSection ...'),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: 10,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                    child: SizedBox(
-                      height: 40.h,
-                      width: double.infinity,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          elevation: 0,
-                          backgroundColor: Color(0xFF1B8DC9),
-                          //  color: Color(0xFFFFB600),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10),
-                          ),
-                        ),
-                        child: Text(
-                          "Invest Now",
-                          style: TextStyle(
-                              fontFamily: "Poppins",
-                              color: Colors.white,
-                              fontSize: 14.sm),
-                        ),
-                        onPressed: () {
-                          showModalBottomSheet(
-                            backgroundColor: Colors.white,
-                            isScrollControlled: true,
-                            context: context,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(30),
-                                topRight: Radius.circular(30),
-                              ),
+                  CustomNextButton(
+                      ontap: () {
+                        showModalBottomSheet(
+                          backgroundColor: Colors.white,
+                          isScrollControlled: true,
+                          context: context,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30),
                             ),
-                            builder: (context) {
-                              return Stack(clipBehavior: Clip.none, children: [
-                                Container(
-                                  margin: const EdgeInsets.symmetric(
-                                      horizontal: 16, vertical: 24),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Center(
-                                        child: Text(
-                                          "Thank You For Showing Your Interest",
-                                          style: TextStyle(
-                                              color: Color(0xFF444444),
-                                              fontFamily: "Poppins",
-                                              fontSize: 18.sm,
-                                              fontWeight: FontWeight.w600),
+                          ),
+                          builder: (context) {
+                            return Stack(clipBehavior: Clip.none, children: [
+                              Container(
+                                margin: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 24),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Center(
+                                      child: Text(
+                                        "Thank You For Showing Your Interest",
+                                        style: TextStyle(
+                                            color: Color(0xFF444444),
+                                            fontFamily: "Poppins",
+                                            fontSize: 18.sm,
+                                            fontWeight: FontWeight.w600),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 20.h,
+                                    ),
+                                    SizedBox(
+                                      height: 100,
+                                      width: 330,
+                                      child: Card(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 20.h,
-                                      ),
-                                      SizedBox(
-                                        height: 100,
-                                        width: 330,
-                                        child: Card(
-                                          shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(10),
-                                          ),
-                                          color: Color(0xFFF9F9F9),
-                                          child: Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 20.0,
-                                                right: 30,
-                                                top: 12,
-                                                bottom: 12),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      "Category",
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xFF444444),
-                                                          fontFamily: "Poppins",
-                                                          fontSize: 14.sm,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
-                                                    SizedBox(
-                                                      height: 10.h,
-                                                    ),
-                                                    Image.asset(
-                                                        "assets/images/myrelogo.png")
-                                                  ],
-                                                ),
-                                                Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  children: [
-                                                    Text(
-                                                      "Product",
-                                                      style: TextStyle(
-                                                          color:
-                                                              Color(0xFF444444),
-                                                          fontFamily: "Poppins",
-                                                          fontSize: 14.sm,
-                                                          fontWeight:
-                                                              FontWeight.w500),
-                                                    ),
-                                                    Text(
-                                                      "Vaishnavi Tech\nPark Opportunity",
-                                                      style: TextStyle(
+                                        color: Color(0xFFF9F9F9),
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 20.0,
+                                              right: 30,
+                                              top: 12,
+                                              bottom: 12),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Category",
+                                                    style: TextStyle(
                                                         color:
                                                             Color(0xFF444444),
                                                         fontFamily: "Poppins",
-                                                        fontSize: 12.sm,
-                                                      ),
-                                                    )
-                                                  ],
-                                                )
-                                              ],
-                                            ),
+                                                        fontSize: 14.sm,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                  ),
+                                                  SizedBox(
+                                                    height: 10.h,
+                                                  ),
+                                                  Image.asset(
+                                                      "assets/images/myrelogo.png")
+                                                ],
+                                              ),
+                                              Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    "Product",
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xFF444444),
+                                                        fontFamily: "Poppins",
+                                                        fontSize: 14.sm,
+                                                        fontWeight:
+                                                            FontWeight.w500),
+                                                  ),
+                                                  Text(
+                                                    "Vaishnavi Tech\nPark Opportunity",
+                                                    style: TextStyle(
+                                                      color: Color(0xFF444444),
+                                                      fontFamily: "Poppins",
+                                                      fontSize: 12.sm,
+                                                    ),
+                                                  )
+                                                ],
+                                              )
+                                            ],
                                           ),
                                         ),
                                       ),
-                                      SizedBox(
-                                        height: 15.h,
+                                    ),
+                                    SizedBox(
+                                      height: 15.h,
+                                    ),
+                                    SizedBox(
+                                      height: 100,
+                                      width: 330,
+                                      child: Card(
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(10),
+                                        ),
+                                        color: Color(0xFFF9F9F9),
+                                        child: Padding(
+                                          padding: EdgeInsets.only(
+                                              left: 12.0,
+                                              right: 12,
+                                              top: 12,
+                                              bottom: 12),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Image.asset(
+                                                  "assets/images/freeulogoblue.png"),
+                                              Text(
+                                                "A FreeU Advisory Team\nwill get back to you\nsoon via call or email",
+                                                style: TextStyle(
+                                                  color: Color(0xFF444444),
+                                                  fontFamily: "Poppins",
+                                                  fontSize: 12.sm,
+                                                ),
+                                              )
+                                            ],
+                                          ),
+                                        ),
                                       ),
-                                      SizedBox(
-                                        height: 100,
-                                        width: 330,
-                                        child: Card(
+                                    ),
+                                    SizedBox(
+                                      height: 25.h,
+                                    ),
+                                    SizedBox(
+                                      width: 250.w,
+                                      height: 50.h,
+                                      child: ElevatedButton(
+                                        style: ElevatedButton.styleFrom(
+                                          elevation: 0,
+                                          backgroundColor: Color(0xFF1B8DC9),
+                                          //  color: Color(0xFFFFB600),
                                           shape: RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(10),
                                           ),
-                                          color: Color(0xFFF9F9F9),
-                                          child: Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 12.0,
-                                                right: 12,
-                                                top: 12,
-                                                bottom: 12),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Image.asset(
-                                                    "assets/images/freeulogoblue.png"),
-                                                Text(
-                                                  "A FreeU Advisory Team\nwill get back to you\nsoon via call or email",
-                                                  style: TextStyle(
-                                                    color: Color(0xFF444444),
-                                                    fontFamily: "Poppins",
-                                                    fontSize: 12.sm,
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
                                         ),
-                                      ),
-                                      SizedBox(
-                                        height: 25.h,
-                                      ),
-                                      SizedBox(
-                                        width: 250.w,
-                                        height: 50.h,
-                                        child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                            elevation: 0,
-                                            backgroundColor: Color(0xFF1B8DC9),
-                                            //  color: Color(0xFFFFB600),
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                            ),
-                                          ),
-                                          child: Text(
-                                            "Show more products",
-                                            style: TextStyle(
-                                                fontFamily: "Poppins",
-                                                color: Colors.white,
-                                                fontSize: 18.sm),
-                                          ),
-                                          onPressed: () {},
+                                        child: Text(
+                                          "Show more products",
+                                          style: TextStyle(
+                                              fontFamily: "Poppins",
+                                              color: Colors.white,
+                                              fontSize: 18.sm),
                                         ),
+                                        onPressed: () {},
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ]);
-                            },
-                          );
-                        },
-                      ),
-                    ),
-                  ),
+                              ),
+                            ]);
+                          },
+                        );
+                      },
+                      text: 'Invest Now'),
                   SizedBox(
                     height: 20,
                   )
@@ -1311,6 +762,38 @@ class _FractionalRealEstateProperty2State
           ),
         ),
       ),
+    );
+  }
+}
+
+class common_ctn extends StatelessWidget {
+  const common_ctn({
+    Key? key,
+    required this.text,
+  }) : super(key: key);
+
+  final String text;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 5),
+          child: SvgPicture.asset(
+            "assets/images/bullet point.svg",
+            width: 13.w,
+          ),
+        ),
+        SizedBox(
+          width: 10.w,
+        ),
+        Text(
+          text,
+          style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+        )
+      ],
     );
   }
 }

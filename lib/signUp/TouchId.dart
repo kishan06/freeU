@@ -17,15 +17,10 @@ class _TouchIdState extends State<TouchId> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        shadowColor: Color.fromARGB(1, 255, 255, 255),
-        title: Text(""),
-        backgroundColor: Colors.white,
-      ),
       backgroundColor: Color(0xFFF5F8FA),
       body: Column(
         children: [
-          SizedBox(height: 50.h),
+          SizedBox(height: 100.h),
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -43,8 +38,8 @@ class _TouchIdState extends State<TouchId> {
                   width: 286.w,
                   height: 286.h,
                   child: SvgPicture.asset(
-                    'assets/images/fingericon.svg',
-                    width: 140.h,
+                    'assets/images/fingerIcon.svg',
+                    // width: 140.h,
                   ),
                 ),
                 SizedBox(

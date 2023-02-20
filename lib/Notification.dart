@@ -65,7 +65,7 @@ class _NotificationPageState extends State<NotificationPage> {
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: EdgeInsets.all(10),
           child: CustomScrollView(
             slivers: [
               SliverToBoxAdapter(
@@ -122,7 +122,6 @@ class _NotificationPageState extends State<NotificationPage> {
                                         style: TextStyle(
                                           color: Color(0xFF000000),
                                           fontSize: 15.sm,
-                                          fontWeight: FontWeight.w600,
                                           fontFamily: 'Poppins',
                                         ),
                                       ),
@@ -135,7 +134,6 @@ class _NotificationPageState extends State<NotificationPage> {
                                         style: TextStyle(
                                           color: Color(0xFF000000),
                                           fontSize: 12.sm,
-                                          fontWeight: FontWeight.w600,
                                           fontFamily: 'Poppins',
                                         ),
                                       ),
@@ -193,6 +191,8 @@ class _NotificationPageState extends State<NotificationPage> {
                                 'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
                             date: '2 days ago',
                           ),
+
+                          SizedBox(height: 70.h,)
                         ],
                       ),
                     ),
@@ -229,6 +229,7 @@ class Slidebar extends StatelessWidget {
             foregroundColor: Colors.white,
             icon: Icons.delete,
             label: 'Delete',
+            // borderRadius: BorderRadius.),
           ),
         ],
       ),

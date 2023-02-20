@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -87,670 +89,796 @@ class _FractionalRealEstateProperty1State
       ),
       bottomNavigationBar:
           CreateBottomBar(stateBottomNav, "bottomabar", context),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.only(left: 16.0, right: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                height: 15.h,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Get.toNamed("/fractionalrealestateproperty2");
-                },
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: Column(
-                      children: [
-                        Stack(children: [
-                          Image.asset("assets/images/myre.png"),
-                          Positioned(
-                              right: 2,
-                              bottom: 2,
-                              child: SizedBox(
-                                child: Card(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(3.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(
-                                          Icons.location_on_outlined,
-                                          size: 17.sm,
-                                        ),
-                                        Text(
-                                          "Outer Ring Road Sarjapur, Bangalore",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontFamily: 'Poppins',
-                                            fontSize: 13.sm,
-                                          ),
-                                        )
-                                      ],
+      body: Padding(
+        padding: EdgeInsets.only(left: 16.0, right: 16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount:4,
+                itemBuilder: (context, index) => Container(
+                  margin: EdgeInsets.only(bottom: 10, top: 20),
+                  child: GestureDetector(
+                  onTap: () {
+                    Get.toNamed("/fractionalrealestateproperty2");
+                  },
+                  child: Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          color: Color(0xFFD5F0FD),
+                        ),
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(10),
+                                topRight: Radius.circular(10),
+                              ),
+                              child: Image.asset(
+                                'assets/images/real_estate.jpg',
+                                fit: BoxFit.cover,
+                                width: 400,
+                                height: 200,
+                              ),
+                            ),
+                            Padding(
+                          padding: const EdgeInsets.all(15),
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Vaishnavi Tech Park Opportunity",
+                                    style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontSize: 17.sm,
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                              Divider(
+                                thickness: 1.5,
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Target IRR",
+                                    style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 16.sm,
                                     ),
                                   ),
-                                ),
-                              ))
-                        ]),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Vaishnavi Tech Park Opportunity",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 17.sm,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 6.h,
-                        ),
-                        Divider(
-                          thickness: 1,
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Target IRR",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
+                                  Text(
+                                    "16.2 %",
+                                    style: TextStyle(
+                                      color: Color(0XFF143C6D),
+                                      fontFamily: "Poppins",
+                                      fontSize: 16.sm,
+                                    ),
+                                  )
+                                ],
                               ),
-                            ),
-                            Text(
-                              "16.2 %",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
+                              SizedBox(
+                                height: 10.h,
                               ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Average Rental Yield",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "9 %",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Asset value",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "₹ 35,40,00,000",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Return Target",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "₹ 27,15,00,000",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Get.toNamed("/fractionalrealestateproperty2");
-                },
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: Column(
-                      children: [
-                        Stack(children: [
-                          Image.asset("assets/images/strata.png"),
-                          Positioned(
-                              right: 2,
-                              bottom: 2,
-                              child: SizedBox(
-                                child: Card(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(3.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(
-                                          Icons.location_on_outlined,
-                                          size: 17.sm,
-                                        ),
-                                        Text(
-                                          "Outer Ring Road Sarjapur, Bangalore",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 14.sm,
-                                          ),
-                                        )
-                                      ],
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Average Rental Yield",
+                                    style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 16.sm,
                                     ),
                                   ),
-                                ),
-                              ))
-                        ]),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Chennai Office Opportunity",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 17.sm,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 6.h,
-                        ),
-                        Divider(),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Target IRR",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
+                                  Text(
+                                    "9 %",
+                                    style: TextStyle(
+                                      color: Color(0XFF143C6D),
+                                      fontFamily: "Poppins",
+                                      fontSize: 16.sm,
+                                    ),
+                                  )
+                                ],
                               ),
-                            ),
-                            Text(
-                              "12.4 %",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
+                              SizedBox(
+                                height: 10.h,
                               ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Average Rental Yield",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "12.4 %",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Asset value",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "₹ 27,15,00,000",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Return Target",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "₹ 27,15,00,000",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Get.toNamed("/fractionalrealestateproperty2");
-                },
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: Column(
-                      children: [
-                        Stack(children: [
-                          Image.asset("assets/images/propertyshare.png"),
-                          Positioned(
-                              right: 2,
-                              bottom: 2,
-                              child: SizedBox(
-                                child: Card(
-                                  child: Padding(
-                                    padding: EdgeInsets.all(3.0),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(Icons.location_on_outlined,
-                                            size: 17.sm),
-                                        Text(
-                                          "Yelahanka, Bangalore",
-                                          style: TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 13.sm,
-                                          ),
-                                        )
-                                      ],
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    "Asset value",
+                                    style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 16.sm,
                                     ),
                                   ),
-                                ),
-                              ))
-                        ]),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Embassy Business Hub",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 17.sm,
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 6.h,
-                        ),
-                        Divider(),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Target IRR",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
+                                  Text(
+                                    "₹ 35,40,00,000",
+                                    style: TextStyle(
+                                      color: Color(0XFF143C6D),
+                                      fontFamily: "Poppins",
+                                      fontSize: 16.sm,
+                                    ),
+                                  )
+                                ],
                               ),
-                            ),
-                            Text(
-                              "12.4 %",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Average Rental Yield",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "12.4 %",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Asset value",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "₹ 27,15,00,000",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Return Target",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "₹ 27,15,00,000",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 15,
-              ),
-              GestureDetector(
-                onTap: () {
-                  Get.toNamed("/fractionalrealestateproperty2");
-                },
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.all(15.0),
-                    child: Column(
-                      children: [
-                        Stack(children: [
-                          Image.asset("assets/images/hbits.png"),
-                          Positioned(
-                            right: 2,
-                            bottom: 2,
-                            child: SizedBox(
-                              child: Card(
-                                child: Padding(
-                                  padding: EdgeInsets.all(3.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Icon(Icons.location_on_outlined,
-                                          size: 17.sm),
-                                      Text(
-                                        "Andheri, Mumbai",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontFamily: 'Poppins',
-                                          fontSize: 13.sm,
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
+                            ],
                           ),
-                        ]),
-                        SizedBox(
-                          height: 15.h,
                         ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              "TIMES SQUARE ANDHERI OPPORTUNITY",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 17.sm,
-                                  fontWeight: FontWeight.w500),
-                            ),
                           ],
                         ),
-                        SizedBox(
-                          height: 6.h,
-                        ),
-                        Divider(),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Target IRR",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "13.1 %",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Average Rental Yield",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "10.35 %",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Asset value",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "₹ 30.52 Crore",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Return Target",
-                              style: TextStyle(
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                            Text(
-                              "₹ 27,15,00,000",
-                              style: TextStyle(
-                                color: Color(0XFF143C6D),
-                                fontFamily: "Poppins",
-                                fontSize: 16.sm,
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                      ],
-                    ),
+                      ),
+                      
+                    ],
                   ),
-                ),
               ),
-              SizedBox(
-                height: 20.h,
-              )
-            ],
-          ),
+                ),),
+            ),
+            // GestureDetector(
+            //   onTap: () {
+            //     Get.toNamed("/fractionalrealestateproperty2");
+            //   },
+            //   child: Card(
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(20),
+            //     ),
+            //     child: Column(
+            //       children: [
+            //         Stack(children: [
+            //           Image.asset(
+            //             "assets/images/myre.png",
+            //             width: Get.size.width * 0.9,
+            //           ),
+            //           Positioned(
+            //               right: 2,
+            //               bottom: 2,
+            //               child: SizedBox(
+            //                 child: Card(
+            //                   child: Padding(
+            //                     padding: EdgeInsets.all(3.0),
+            //                     child: Row(
+            //                       mainAxisSize: MainAxisSize.min,
+            //                       children: [
+            //                         Icon(
+            //                           Icons.location_on_outlined,
+            //                           size: 17.sm,
+            //                         ),
+            //                         Text(
+            //                           "Outer Ring Road Sarjapur, Bangalore",
+            //                           style: TextStyle(
+            //                             color: Colors.black,
+            //                             fontFamily: 'Poppins',
+            //                             fontSize: 13.sm,
+            //                           ),
+            //                         )
+            //                       ],
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ))
+            //         ]),
+            //         SizedBox(
+            //           height: 15.h,
+            //         ),
+            //         Row(
+            //           mainAxisAlignment: MainAxisAlignment.start,
+            //           children: [
+            //             Text(
+            //               "Vaishnavi Tech Park Opportunity",
+            //               style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 17.sm,
+            //                   fontWeight: FontWeight.w500),
+            //             ),
+            //           ],
+            //         ),
+            //         SizedBox(
+            //           height: 6.h,
+            //         ),
+            //         Divider(
+            //           thickness: 1,
+            //         ),
+            //         SizedBox(
+            //           height: 10.h,
+            //         ),
+            //         Row(
+            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //           children: [
+            //             Text(
+            //               "Target IRR",
+            //               style: TextStyle(
+            //                 fontFamily: "Poppins",
+            //                 fontSize: 16.sm,
+            //               ),
+            //             ),
+            //             Text(
+            //               "16.2 %",
+            //               style: TextStyle(
+            //                 color: Color(0XFF143C6D),
+            //                 fontFamily: "Poppins",
+            //                 fontSize: 16.sm,
+            //               ),
+            //             )
+            //           ],
+            //         ),
+            //         SizedBox(
+            //           height: 10.h,
+            //         ),
+            //         Row(
+            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //           children: [
+            //             Text(
+            //               "Average Rental Yield",
+            //               style: TextStyle(
+            //                 fontFamily: "Poppins",
+            //                 fontSize: 16.sm,
+            //               ),
+            //             ),
+            //             Text(
+            //               "9 %",
+            //               style: TextStyle(
+            //                 color: Color(0XFF143C6D),
+            //                 fontFamily: "Poppins",
+            //                 fontSize: 16.sm,
+            //               ),
+            //             )
+            //           ],
+            //         ),
+            //         SizedBox(
+            //           height: 10.h,
+            //         ),
+            //         Row(
+            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //           children: [
+            //             Text(
+            //               "Asset value",
+            //               style: TextStyle(
+            //                 fontFamily: "Poppins",
+            //                 fontSize: 16.sm,
+            //               ),
+            //             ),
+            //             Text(
+            //               "₹ 35,40,00,000",
+            //               style: TextStyle(
+            //                 color: Color(0XFF143C6D),
+            //                 fontFamily: "Poppins",
+            //                 fontSize: 16.sm,
+            //               ),
+            //             )
+            //           ],
+            //         ),
+            //         SizedBox(
+            //           height: 10.h,
+            //         ),
+            //         Row(
+            //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //           children: [
+            //             Text(
+            //               "Return Target",
+            //               style: TextStyle(
+            //                 fontFamily: "Poppins",
+            //                 fontSize: 16.sm,
+            //               ),
+            //             ),
+            //             Text(
+            //               "₹ 27,15,00,000",
+            //               style: TextStyle(
+            //                 color: Color(0XFF143C6D),
+            //                 fontFamily: "Poppins",
+            //                 fontSize: 16.sm,
+            //               ),
+            //             )
+            //           ],
+            //         ),
+            //         SizedBox(
+            //           height: 20.h,
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            SizedBox(
+              height: 15,
+            ),
+            // GestureDetector(
+            //   onTap: () {
+            //     Get.toNamed("/fractionalrealestateproperty2");
+            //   },
+            //   child: Card(
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(5),
+            //     ),
+            //     child: Padding(
+            //       padding: EdgeInsets.all(15.0),
+            //       child: Column(
+            //         children: [
+            //           Stack(children: [
+            //             Image.asset("assets/images/strata.png"),
+            //             Positioned(
+            //                 right: 2,
+            //                 bottom: 2,
+            //                 child: SizedBox(
+            //                   child: Card(
+            //                     child: Padding(
+            //                       padding: EdgeInsets.all(3.0),
+            //                       child: Row(
+            //                         mainAxisSize: MainAxisSize.min,
+            //                         children: [
+            //                           Icon(
+            //                             Icons.location_on_outlined,
+            //                             size: 17.sm,
+            //                           ),
+            //                           Text(
+            //                             "Outer Ring Road Sarjapur, Bangalore",
+            //                             style: TextStyle(
+            //                               color: Colors.black,
+            //                               fontSize: 14.sm,
+            //                             ),
+            //                           )
+            //                         ],
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ))
+            //           ]),
+            //           SizedBox(
+            //             height: 15.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.start,
+            //             children: [
+            //               Text(
+            //                 "Chennai Office Opportunity",
+            //                 style: TextStyle(
+            //                     fontFamily: "Poppins",
+            //                     fontSize: 17.sm,
+            //                     fontWeight: FontWeight.w500),
+            //               ),
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 6.h,
+            //           ),
+            //           Divider(),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Target IRR",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "12.4 %",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Average Rental Yield",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "12.4 %",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Asset value",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "₹ 27,15,00,000",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Return Target",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "₹ 27,15,00,000",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 20.h,
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 15,
+            // ),
+            // GestureDetector(
+            //   onTap: () {
+            //     Get.toNamed("/fractionalrealestateproperty2");
+            //   },
+            //   child: Card(
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(5),
+            //     ),
+            //     child: Padding(
+            //       padding: EdgeInsets.all(15.0),
+            //       child: Column(
+            //         children: [
+            //           Stack(children: [
+            //             Image.asset("assets/images/propertyshare.png"),
+            //             Positioned(
+            //                 right: 2,
+            //                 bottom: 2,
+            //                 child: SizedBox(
+            //                   child: Card(
+            //                     child: Padding(
+            //                       padding: EdgeInsets.all(3.0),
+            //                       child: Row(
+            //                         mainAxisSize: MainAxisSize.min,
+            //                         children: [
+            //                           Icon(Icons.location_on_outlined,
+            //                               size: 17.sm),
+            //                           Text(
+            //                             "Yelahanka, Bangalore",
+            //                             style: TextStyle(
+            //                               color: Colors.black,
+            //                               fontSize: 13.sm,
+            //                             ),
+            //                           )
+            //                         ],
+            //                       ),
+            //                     ),
+            //                   ),
+            //                 ))
+            //           ]),
+            //           SizedBox(
+            //             height: 15.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.start,
+            //             children: [
+            //               Text(
+            //                 "Embassy Business Hub",
+            //                 style: TextStyle(
+            //                     fontFamily: "Poppins",
+            //                     fontSize: 17.sm,
+            //                     fontWeight: FontWeight.w500),
+            //               ),
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 6.h,
+            //           ),
+            //           Divider(),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Target IRR",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "12.4 %",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Average Rental Yield",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "12.4 %",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Asset value",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "₹ 27,15,00,000",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Return Target",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "₹ 27,15,00,000",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 20.h,
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            // SizedBox(
+            //   height: 15,
+            // ),
+            // GestureDetector(
+            //   onTap: () {
+            //     Get.toNamed("/fractionalrealestateproperty2");
+            //   },
+            //   child: Card(
+            //     shape: RoundedRectangleBorder(
+            //       borderRadius: BorderRadius.circular(5),
+            //     ),
+            //     child: Padding(
+            //       padding: EdgeInsets.all(15.0),
+            //       child: Column(
+            //         children: [
+            //           Stack(children: [
+            //             Image.asset("assets/images/hbits.png"),
+            //             Positioned(
+            //               right: 2,
+            //               bottom: 2,
+            //               child: SizedBox(
+            //                 child: Card(
+            //                   child: Padding(
+            //                     padding: EdgeInsets.all(3.0),
+            //                     child: Row(
+            //                       mainAxisSize: MainAxisSize.min,
+            //                       children: [
+            //                         Icon(Icons.location_on_outlined,
+            //                             size: 17.sm),
+            //                         Text(
+            //                           "Andheri, Mumbai",
+            //                           style: TextStyle(
+            //                             color: Colors.black,
+            //                             fontFamily: 'Poppins',
+            //                             fontSize: 13.sm,
+            //                           ),
+            //                         )
+            //                       ],
+            //                     ),
+            //                   ),
+            //                 ),
+            //               ),
+            //             ),
+            //           ]),
+            //           SizedBox(
+            //             height: 15.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.start,
+            //             children: [
+            //               Text(
+            //                 "TIMES SQUARE ANDHERI OPPORTUNITY",
+            //                 style: TextStyle(
+            //                     fontFamily: "Poppins",
+            //                     fontSize: 17.sm,
+            //                     fontWeight: FontWeight.w500),
+            //               ),
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 6.h,
+            //           ),
+            //           Divider(),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Target IRR",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "13.1 %",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Average Rental Yield",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "10.35 %",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Asset value",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "₹ 30.52 Crore",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 10.h,
+            //           ),
+            //           Row(
+            //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            //             children: [
+            //               Text(
+            //                 "Return Target",
+            //                 style: TextStyle(
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               ),
+            //               Text(
+            //                 "₹ 27,15,00,000",
+            //                 style: TextStyle(
+            //                   color: Color(0XFF143C6D),
+            //                   fontFamily: "Poppins",
+            //                   fontSize: 16.sm,
+            //                 ),
+            //               )
+            //             ],
+            //           ),
+            //           SizedBox(
+            //             height: 20.h,
+            //           ),
+            //         ],
+            //       ),
+            //     ),
+            //   ),
+            // ),
+            SizedBox(
+              height: 20.h,
+            )
+          ],
         ),
       ),
     );

@@ -58,7 +58,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     thickness: 2,
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 30.h,
                   ),
                   Text(
                     "",
@@ -92,7 +92,8 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           },
                           keyboardType: TextInputType.number,
                           controller: pincontroller,
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.left,
+                          cursorHeight: 10,
                           decoration: InputDecoration(
                             helperText: "",
                             hintText: "Choose a PIN of Your choice",
@@ -148,7 +149,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           },
                           keyboardType: TextInputType.number,
                           controller: confirmpincontroller,
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.left,
                           decoration: InputDecoration(
                             helperText: "",
                             hintText: "Please Re-Enter the PIN",
@@ -178,6 +179,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     width: double.infinity,
                     padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                     decoration: BoxDecoration(
+
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: CustomNextButton(
@@ -265,7 +267,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     ),
                     Container(
                       // ignore: prefer_const_constructors
-                      height: 100.h, width: 258.w,
+                      height: 100.h, width: Get.size.width*0.9,
                       decoration: BoxDecoration(
                         color: onclickofpin
                             ? const Color(0xff1B8DC9)
@@ -313,7 +315,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     Container(
                       // ignore: prefer_const_constructors
                       height: 100.h,
-                      width: 258.w,
+                      width: 350.w,
                       decoration: BoxDecoration(
                         color: onclickoftouchid
                             ? const Color(0xff1B8DC9)

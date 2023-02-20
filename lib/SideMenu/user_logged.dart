@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_literals_to_create_immutables, import_of_legacy_library_into_null_safe, unused_field, avoid_print, depend_on_referenced_packages
+// ignore_for_file: prefer_const_constructors, camel_case_types, non_constant_identifier_names, prefer_typing_uninitialized_variables, prefer_const_literals_to_create_immutables, import_of_legacy_library_into_null_safe, unused_field, avoid_print, depend_on_referenced_packages, unused_local_variable
 
 import 'dart:io';
 
@@ -31,7 +31,7 @@ class _UserState extends State<User> {
       // final imagePermanent = await saveFilePermanently(image.path);
 
       setState(() {
-        this._image = imageTemporary;
+        _image = imageTemporary;
       });
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
@@ -129,40 +129,37 @@ class _UserState extends State<User> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
         Center(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 40),
-            child: Stack(
-                clipBehavior: Clip.none,
-                alignment: Alignment.center,
-                children: [
-                  ClipOval(
-                    child: SizedBox.fromSize(
-                        size: Size.fromRadius(70),
-                        child: _image != null
-                            ? Image.file(
-                                _image!,
-                                width: 200,
-                                height: 200,
-                                fit: BoxFit.cover,
-                              )
-                            : Image.asset('assets/images/user.png')),
-                  ),
-                  Positioned(
-                    top: 110,
-                    right: 10,
-                    child: GestureDetector(
-                      onTap: () {
-                        builduploadprofile();
-                      },
-                      child: CircleAvatar(
-                        child: Icon(
-                          Icons.edit,
-                        ),
+          child: Stack(
+              clipBehavior: Clip.none,
+              alignment: Alignment.center,
+              children: [
+                ClipOval(
+                  child: SizedBox.fromSize(
+                      size: Size.fromRadius(70),
+                      child: _image != null
+                          ? Image.file(
+                              _image!,
+                              width: 200,
+                              height: 200,
+                              fit: BoxFit.cover,
+                            )
+                          : Image.asset('assets/images/user.png')),
+                ),
+                Positioned(
+                  top: 110,
+                  right: 10,
+                  child: GestureDetector(
+                    onTap: () {
+                      builduploadprofile();
+                    },
+                    child: CircleAvatar(
+                      child: Icon(
+                        Icons.edit,
                       ),
                     ),
                   ),
-                ]),
-          ),
+                ),
+              ]),
         ),
         SizedBox(
           height: 20,

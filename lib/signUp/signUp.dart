@@ -1,15 +1,12 @@
 // ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/login/login.dart';
 
 import 'package:get/get.dart';
@@ -62,6 +59,7 @@ class _SignUpState extends State<SignUp> {
       context: context,
       builder: (context) {
         return Container(
+          height:Get.size.height*0.8,
           margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
           child: const TermsAndConditions(),
         );
@@ -113,14 +111,14 @@ class _SignUpState extends State<SignUp> {
                             color: Color(0xFF143C6D),
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         // color: Color(0xFF143C6D),
-                        height: 150.h,
+                        height: 400.h,
                         child: Scrollbar(
                           thumbVisibility: true,
                           child: SingleChildScrollView(
                             child: Padding(
                               padding: const EdgeInsets.all(4.0),
                               child: Text(
-                                " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
+                                " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremLorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremLorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremLorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremLorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 14,
@@ -590,13 +588,27 @@ class _SignUpState extends State<SignUp> {
                                 ),
                                 GestureDetector(
                                   onTap: () => showtermsandconditions(),
-                                  child: Text(
-                                    "I accept the Terms & Conditions*",
-                                    style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 14.sm,
-                                    ),
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "I accept the ",
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 14.sm,
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(bottom: 2),
+                                        child: Text(
+                                          "Terms & Conditions*",
+                                          style: TextStyle(
+                                            fontSize: 14.sm,
+                                            color: Color(0xff1B8DC9),
+                                            // decoration: TextDecoration.underline
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ],
@@ -751,68 +763,60 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
   bool agree = false;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
-          child: Text(
-            "Terms And Conditions",
-            style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
-          ),
-        ),
-        SizedBox(
-          height: 20.h,
-        ),
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 12, horizontal: 12),
-          child: SizedBox(
-            height: 150,
-            child: SingleChildScrollView(
-              child: Text(
-                  " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum"),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              "Terms And Conditions",
+              style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
             ),
-          ),
+            
+            Text(
+              "Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum sumloren sumloren sumloren sumloren sumloren sumloren sum"),
+            const SizedBox(
+              height: 10,
+            ),
+            // Row(
+            //   children: [
+            //     Checkbox(
+            //         activeColor: const Color(0xFFF78104),
+            //         shape: const RoundedRectangleBorder(
+            //             borderRadius: BorderRadius.all(Radius.circular(5.0))),
+            //         value: agree,
+            //         onChanged: (value) {
+            //           setState(() {
+            //             agree = value ?? false;
+            //           });
+            //         }),
+            //     Flexible(
+            //       child: Text(
+            //         maxLines: 1,
+            //         softWrap: false,
+            //         'I have read and accept Terms & Conditions',
+            //         style: TextStyle(fontSize: 14.sm),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            const SizedBox(
+              height: 10,
+            ),
+            Center(
+                child: CustomNextButton(
+              text: "Proceed",
+              ontap: () {
+                Navigator.pop(context, agree);
+              },
+            )),
+            const SizedBox(height: 16),
+          ],
         ),
-        const SizedBox(
-          height: 10,
-        ),
-        // Row(
-        //   children: [
-        //     Checkbox(
-        //         activeColor: const Color(0xFFF78104),
-        //         shape: const RoundedRectangleBorder(
-        //             borderRadius: BorderRadius.all(Radius.circular(5.0))),
-        //         value: agree,
-        //         onChanged: (value) {
-        //           setState(() {
-        //             agree = value ?? false;
-        //           });
-        //         }),
-        //     Flexible(
-        //       child: Text(
-        //         maxLines: 1,
-        //         softWrap: false,
-        //         'I have read and accept Terms & Conditions',
-        //         style: TextStyle(fontSize: 14.sm),
-        //       ),
-        //     ),
-        //   ],
-        // ),
-        const SizedBox(
-          height: 10,
-        ),
-        Center(
-            child: CustomNextButton(
-          text: "Proceed",
-          ontap: () {
-            Navigator.pop(context, agree);
-          },
-        )),
-        const SizedBox(height: 16),
-      ],
+      ),
     );
   }
 }
