@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/login/login.dart';
 import 'package:get/get.dart';
 
@@ -41,10 +42,14 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
+      ),
+      backgroundColor: Color(0xFFFFFFFF),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           child: Center(
             child: Form(
               key: _form,
@@ -55,22 +60,12 @@ class _ResetPasswordState extends State<ResetPassword> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: Icon(
-                            Icons.arrow_back,
-                            size: 24,
-                            color: Color(0xFF6B6B6B),
-                          )),
-                      SizedBox(
-                        width: 5.w,
-                      ),
                       Text(
                         "Reset Password",
-                        style:
-                            TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w500),
                       ),
                     ],
                   ),
@@ -99,8 +94,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                         cursorColor: Colors.grey,
                         style: TextStyle(
                           //color: Colors.grey,
-                          fontFamily: 'Productsans',
-                          fontSize: 16.sm,
+                          // fontFamily: 'Productsans',
+                          fontSize: 15.sp,
                           fontWeight: FontWeight.w400,
                         ),
                         keyboardType: TextInputType.text,
@@ -112,20 +107,17 @@ class _ResetPasswordState extends State<ResetPassword> {
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                  color: Color(0xFF707070).withOpacity(0),
-                                  width: 1),
+                                  color: Color(0xFF707070), width: 1),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                  color: Color(0xFF707070).withOpacity(0),
-                                  width: 1),
+                                  color: Color(0xFF707070), width: 1),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
-                                  color: Color(0xFF707070).withOpacity(0),
-                                  width: 1),
+                                  color: Color(0xFF707070), width: 1),
                             ),
                             errorBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
@@ -139,15 +131,14 @@ class _ResetPasswordState extends State<ResetPassword> {
                             ),
                             errorMaxLines: 3,
                             hintStyle: TextStyle(
-                              fontSize: 15.sm,
-                              color: Colors.grey.withOpacity(0.8),
-                              fontFamily: 'Productsans',
-                            ),
+                                color: Color(0x80000000),
+                                fontSize: 16.sp,
+                                fontFamily: "Poppins"),
                             fillColor: Colors.white,
                             filled: true,
-                            errorStyle: const TextStyle(
-                              fontSize: 16.0,
-                            ),
+                            //  errorStyle: const TextStyle(
+                            //    fontSize: 16.0,
+                            //   ),
                             hintText: 'Enter your password',
                             suffixIcon: GestureDetector(
                               onTap: () => setState(

@@ -44,21 +44,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
               ),
               preferredSize: Size.zero)
           : null,
-      // actions: actions
-      //     ? [
-      //         IconButton(
-      //           onPressed: () {
-      //             Get.toNamed('/notificationpage');
-      //           },
-      //           icon: SvgPicture.asset(
-      //             'assets/images/notification-bell-svgrepo-com.svg',
-      //           ),
-      //           iconSize: 22,
-      //           color: const Color(0xFF303030),
-      //         ),
-      //       ]
-      //     : null,
-      backgroundColor: Color(0xFFF5F8FA),
+      backgroundColor: Color(0xFFFFFFFF),
       elevation: 0,
       automaticallyImplyLeading: false,
 
@@ -77,16 +63,21 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
               color: Colors.black),
         ),
       ),
-      leading: IconButton(
-        onPressed: () {
-          Get.back();
-        },
-        icon: Icon(
-          Icons.arrow_back,
+      leading: Row(children: [
+        SizedBox(
+          width: 25,
         ),
-        iconSize: 22.sm,
-        color: Color(0xFF6B6B6B),
-      ),
+        GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back_rounded,
+            size: 30.sp,
+            color: Colors.black,
+          ),
+        ),
+      ]),
     );
   }
 }

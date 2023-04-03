@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CustomTextFormField extends StatefulWidget {
   CustomTextFormField({
@@ -46,7 +47,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
         style: TextStyle(
-          fontSize: 15.sm,
+          fontSize: 15.sp,
         ),
         readOnly: widget.readonly,
         cursorColor: const Color(0xFF1B8DC9),
@@ -59,18 +60,15 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
           fillColor: Colors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide:
-                BorderSide(color: Color(0xFF707070).withOpacity(0), width: 1),
+            borderSide: BorderSide(color: Color(0xFF707070), width: 1),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide:
-                BorderSide(color: Color(0xFF707070).withOpacity(0), width: 1),
+            borderSide: BorderSide(color: Color(0xFF707070), width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide:
-                BorderSide(color: Color(0xFF707070).withOpacity(0), width: 1),
+            borderSide: BorderSide(color: Color(0xFF707070), width: 1),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
@@ -81,7 +79,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
             borderSide: const BorderSide(color: Colors.red, width: 1),
           ),
           hintStyle: TextStyle(
-              color: Color(0x80000000), fontSize: 15.sm, fontFamily: "Poppins"),
+              color: Color(0x80000000), fontSize: 16.sp, fontFamily: "Poppins"),
           hintText: widget.hintText,
           prefixIcon: widget.leadingIcon == null
               ? null
@@ -98,11 +96,9 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(right: 20.0),
-                              child: Text(
-                                "show",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
+                              child: SvgPicture.asset(
+                                "assets/images/eye-closed-svgrepo-com.svg",
+                                color: Color(0XFF959595),
                               ),
                             ),
                           ],
@@ -112,11 +108,9 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(right: 20.0),
-                              child: Text(
-                                "hide",
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
+                              child: Icon(
+                                Icons.remove_red_eye_outlined,
+                                color: Color(0xFF959595),
                               ),
                             ),
                           ],

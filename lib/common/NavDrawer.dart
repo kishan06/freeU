@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/login/login.dart';
 import 'package:get/get.dart';
@@ -54,10 +53,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       onTap: () => Get.toNamed("/userlogged"),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -95,10 +94,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       onTap: () => Get.toNamed("/kyc1"),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -138,10 +137,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       // Get.toNamed("/kyc1"),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -180,10 +179,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -223,10 +222,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       // Get.toNamed("/kyc1"),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -265,10 +264,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -307,10 +306,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -349,10 +348,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -392,10 +391,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       // Get.toNamed("/kyc1"),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -435,10 +434,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       // Get.toNamed("/kyc1"),
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -478,10 +477,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(
@@ -632,10 +631,10 @@ class _NavDrawerState extends State<NavDrawer> {
                       },
                       child: Container(
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(15)
-                          ),
-                          border: Border.all(color: Color(0xff707070).withOpacity(1), width: 1),
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          border: Border.all(
+                              color: Color(0xff707070).withOpacity(1),
+                              width: 1),
                           // color: Color(0xFF1B8DC9),
                         ),
                         child: Padding(

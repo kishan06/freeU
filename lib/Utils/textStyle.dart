@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 TextStyle blackStyle12() => TextStyle(
       color: Colors.black,
       fontFamily: 'Poppins',
-      fontSize: 12.sm,
+      fontSize: 12.sp,
     );
 
 TextStyle blackStyle14() => TextStyle(
@@ -22,12 +22,18 @@ TextStyle blackStyle15() => TextStyle(
 TextStyle blackStyle16() => TextStyle(
       color: Colors.black,
       fontFamily: 'Poppins',
-      fontSize: 16.sm,
+      fontSize: 16.sp,
+    );
+
+TextStyle blackStyle18() => TextStyle(
+      color: Colors.black,
+      fontFamily: 'Poppins',
+      fontSize: 18.sp,
     );
 
 TextStyle blackStyle20() => TextStyle(
       color: Colors.black,
       fontWeight: FontWeight.w400,
       fontFamily: 'Poppins',
-      fontSize: 20.sm,
+      fontSize: 20.sp,
     );

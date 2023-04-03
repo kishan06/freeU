@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
 import '../common/customNextButton.dart';
@@ -62,10 +63,10 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     // SizedBox(width: 5),
                     CheckboxListTile(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
+                        borderRadius: BorderRadius.circular(20.0),
                         // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
                       ),
-                      activeColor: Color(0xFF1B8DC9),
+                      activeColor: Color(0xFF143C6D),
                       checkColor: Colors.white,
                       value: check3,
                       controlAffinity: ListTileControlAffinity.leading,
@@ -125,12 +126,15 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                              Color(0xFF1B8DC9)),
+                            Color(0xFF143C6D),
+                          ),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
                               side: BorderSide(
-                                  width: 3, color: Color(0xFF1B8DC9)),
+                                //   width: 1,
+                                color: Color(0xFF143C6D),
+                              ),
                             ),
                           ),
                         ),
@@ -225,10 +229,14 @@ class _CompleteProfileState extends State<CompleteProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
+      ),
+      backgroundColor: Color(0xFFFFFFFFF),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.only(left: 30, right: 30, bottom: 20, top: 20),
+          padding: EdgeInsets.only(left: 30, right: 30, bottom: 20, top: 10),
           child: Center(
             child: Form(
               key: _form,
@@ -239,23 +247,12 @@ class _CompleteProfileState extends State<CompleteProfile> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      GestureDetector(
-                        onTap: () {
-                          Get.back();
-                        },
-                        child: Icon(
-                          Icons.arrow_back,
-                          size: 22.sm,
-                          color: Color(0xFF6B6B6B),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 8.w,
-                      ),
                       Text(
                         "Complete Your Profile",
-                        style:
-                            TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w500,
+                            fontSize: 25.sp),
                       )
                     ],
                   ),
@@ -358,21 +355,18 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           fillColor: Colors.white,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                                color: Color(0xFF707070).withOpacity(0),
-                                width: 1),
+                            borderSide:
+                                BorderSide(color: Color(0xFF707070), width: 1),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                                color: Color(0xFF707070).withOpacity(0),
-                                width: 1),
+                            borderSide:
+                                BorderSide(color: Color(0xFF707070), width: 1),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(
-                                color: Color(0xFF707070).withOpacity(0),
-                                width: 1),
+                            borderSide:
+                                BorderSide(color: Color(0xFF707070), width: 1),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
