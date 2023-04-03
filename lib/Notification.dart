@@ -42,11 +42,12 @@ class _NotificationPageState extends State<NotificationPage> {
   }
 
   String? selectedOption;
+  List<Map<String, String>> _data = [];
   @override
-  Widget build(BuildContext context) {
-    List<Map<String, String>> data = [
+  void initState() {
+    _data = [
       {
-        "image": "",
+        "image": "assets/images/Group 51531.svg",
         "title": "Lorem Ipsum is simply dummy text of the printing .",
         "subtitle": "2 days ago",
       },
@@ -56,12 +57,12 @@ class _NotificationPageState extends State<NotificationPage> {
         "subtitle": "2 days ago",
       },
       {
-        "image": "",
+        "image": "assets/images/Group 51533.svg",
         "title": "Lorem Ipsum is simply dummy text of the printing .",
         "subtitle": "2 days ago",
       },
       {
-        "image": "",
+        "image": "assets/images/Group 51534.svg",
         "title": "Lorem Ipsum is simply dummy text of the printing .",
         "subtitle": "2 days ago",
       },
@@ -71,6 +72,14 @@ class _NotificationPageState extends State<NotificationPage> {
         "subtitle": "2 days ago",
       },
     ];
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    //var result = data.removeLast();
+
+    //data.remove(1);
 
     return Scaffold(
       backgroundColor: Color(0xFFF5F8FA),
@@ -116,17 +125,110 @@ class _NotificationPageState extends State<NotificationPage> {
                       height: 15,
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.95,
+                      height: MediaQuery.of(context).size.height * 0.57,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16),
                         child: ListView.separated(
                           shrinkWrap: true,
-                          itemCount: 5,
+                          itemCount: _data.length,
                           itemBuilder: (BuildContext context, int index) {
-                            return Slidebar(
-                              image: data[index]['image']!,
-                              title: data[index]['title']!,
-                              subtitle: data[index]['subtitle']!,
+                            return Dismissible(
+                              background: slideRightBackground(),
+                              key: UniqueKey(),
+                              onDismissed: (direction) {
+                                setState(() {
+                                  _data.removeAt(index);
+                                  //_data[index].remove(index);
+                                });
+                              },
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          flex: 2,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(8.24),
+                                            child: SvgPicture.asset(
+                                              _data[index]['image']!,
+                                              width: 80,
+                                              height: 80,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 5,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 8.0),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  _data[index]['title'] ?? "",
+                                                  style: TextStyle(
+                                                    fontSize: 16.sm,
+                                                    fontWeight: FontWeight.w500,
+                                                    color: Colors.black,
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 8,
+                                                ),
+                                                Text(
+                                                  _data[index]['subtitle']!,
+                                                  style: TextStyle(
+                                                    color: Color(0xFF444444),
+                                                    fontSize: 14.sm,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        Expanded(
+                                          flex: 0,
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                                right: 7.0),
+                                            child: InkWell(
+                                              onTap: () {
+                                                print("ontap pressed");
+                                                setState(() {
+                                                  // String? value1 =
+                                                  //     _data[index]['title'];
+                                                  // _data.removeWhere(value);
+
+                                                  _data.removeAt(index);
+                                                  // data[index]['title']!,
+                                                });
+                                              },
+
+                                              //(() => ontap()),
+                                              child: SvgPicture.asset(
+                                                "assets/images/delete-svgrepo-com.svg",
+
+                                                width: 15,
+                                                height: 19,
+                                                //fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             );
                             // );
                           },
@@ -302,16 +404,49 @@ class _NotificationPageState extends State<NotificationPage> {
   }
 }
 
+Widget slideRightBackground() {
+  return Container(
+    color: Colors.red,
+    child: Align(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+          Icon(
+            Icons.close_outlined,
+            color: Colors.white,
+          ),
+          Text(
+            "Remove",
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w700,
+            ),
+            textAlign: TextAlign.left,
+          ),
+          SizedBox(
+            width: 20,
+          ),
+        ],
+      ),
+      alignment: Alignment.centerLeft,
+    ),
+  );
+}
+
 class Slidebar extends StatelessWidget {
   const Slidebar({
     Key? key,
     required this.title,
     required this.subtitle,
     required this.image,
+    required this.ontap,
   }) : super(key: key);
   final String title;
   final String subtitle;
   final String image;
+  //final void Function()? onTap;
+  final GestureTapCallback ontap;
+  // final onatap
   @override
   Widget build(BuildContext context) {
     return Slidable(
@@ -396,6 +531,7 @@ class Slidebar extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 7.0),
                     child: InkWell(
+                      onTap: (() => ontap()),
                       child: SvgPicture.asset(
                         "assets/images/delete-svgrepo-com.svg",
 
