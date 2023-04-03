@@ -12,11 +12,58 @@ Widget text30BlackM(String text){
   );
 }
 
+Widget text20Black(String text){
+  return Text(text,
+    style: TextStyle(
+      fontSize: 20.sp,
+      color: AppColors.black,
+      // fontWeight: FontWeight.w500
+    ),
+  );
+}
+
 Widget text18Grey(String text){
   return Text(text,
     style: TextStyle(
       fontSize: 18.sp,
       color: AppColors.grey616161,
+    ),
+  );
+}
+
+Widget text14Grey272424(String text){
+  return Text(text,
+    style: TextStyle(
+      fontSize: 14.sp,
+      color: AppColors.grey272424,
+    ),
+  );
+}
+
+Widget text14Grey707070(String text){
+  return Text(text,
+    style: TextStyle(
+      fontSize: 14.sp,
+      color: AppColors.grey707070,
+    ),
+  );
+}
+
+Widget text14Black(String text){
+  return Text(text,
+    style: TextStyle(
+      fontSize: 14.sp,
+      color: AppColors.black,
+    ),
+  );
+}
+
+Widget text16White(String text,{TextAlign? textAlign}){
+  return Text(text,
+    textAlign: textAlign,
+    style: TextStyle(
+      fontSize: 16.sp,
+      color: AppColors.white,
     ),
   );
 }
