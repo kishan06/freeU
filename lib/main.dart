@@ -31,6 +31,7 @@ import 'package:freeu/SideMenu/insights.dart';
 import 'package:freeu/SideMenu/security.dart';
 import 'package:freeu/SideMenu/UpdateRiskProfile.dart';
 import 'package:freeu/SideMenu/user_logged.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/login/OTPVerification.dart';
 import 'package:freeu/login/PhoneVerification.dart';
 import 'package:freeu/login/forgotPassword.dart';
@@ -54,6 +55,7 @@ import 'package:get/get.dart';
 int bottomIndex = 0;
 
 void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
@@ -78,12 +80,13 @@ class _MyAppState extends State<MyApp> {
         title: 'FreeU',
         initialRoute: '/',
         theme: ThemeData(
+          scaffoldBackgroundColor: AppColors.white,
           fontFamily: "Poppins",
         ),
         getPages: [
-          GetPage(name: '/', page: () => Splash()),
-          GetPage(name: '/splash', page: () => Splash()),
-          GetPage(name: '/splashslider', page: () => Splashslider()),
+          // GetPage(name: '/', page: () => Splash()),
+          // GetPage(name: '/splash', page: () => Splash()),
+          GetPage(name: '/', page: () => Splashslider()),
           GetPage(name: '/login', page: () => Login()),
           GetPage(name: '/signup', page: () => SignUp()),
           GetPage(name: '/loginUsingOTP', page: () => LoginUsingOTP()),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 
 class CustomNextButton extends StatelessWidget {
@@ -24,11 +25,11 @@ class CustomNextButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           elevation: 5,
           shadowColor: Color.fromARGB(255, 220, 220, 226),
-          backgroundColor: Color(0xFF1B8DC9),
+          backgroundColor: AppColors.blue143C6D,
 
           //  color: Color(0xFFFFB600),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(10.h),
           ),
         ),
         onPressed: () {
@@ -37,8 +38,8 @@ class CustomNextButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: Color(0xFFFFFFFF),
-            fontSize: 16.sm,
+            color: AppColors.white,
+            fontSize: 18.sp,
           ),
         ),
       ),
