@@ -24,10 +24,14 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
     // ignore: prefer_const_constructors
 
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
+      ),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           child: Center(
             child: Form(
               key: _form,
@@ -37,22 +41,12 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: Icon(
-                            Icons.arrow_back,
-                            size: 24,
-                            color: Color(0xFF6B6B6B),
-                          )),
-                      SizedBox(
-                        width: 5.h,
-                      ),
                       Text(
-                        "Security Questions",
-                        style:
-                            TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+                        "Security questions",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w500,
+                            fontSize: 25.sp),
                       ),
                     ],
                   ),
@@ -63,12 +57,12 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                     "In what city were you born?",
                     // ignore: prefer_const_constructors
                     style: TextStyle(
-                        fontSize: 16.sm,
+                        fontSize: 20.sp,
                         fontFamily: 'Poppins',
-                        color: Color(0xff303030)),
+                        color: Colors.black),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 15.h,
                   ),
                   CustomTextFormField(
                     hintText: "Answer",
@@ -81,18 +75,18 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                     },
                   ),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   Text(
                     "What is the name of your favorite pet?",
                     // ignore: prefer_const_constructors
                     style: TextStyle(
-                        fontSize: 16.sm,
+                        fontSize: 20.sp,
                         fontFamily: 'Poppins',
-                        color: Color(0xff303030)),
+                        color: Color(0xff000000)),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 15.h,
                   ),
                   CustomTextFormField(
                     hintText: "Answer",
@@ -115,18 +109,18 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   //   ),
                   // ),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   Text(
                     "What is your mother's maiden name?",
                     // ignore: prefer_const_constructors
                     style: TextStyle(
-                        fontSize: 16.sm,
+                        fontSize: 20.sp,
                         fontFamily: 'Poppins',
-                        color: Color(0xff303030)),
+                        color: Colors.black),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 15.h,
                   ),
                   CustomTextFormField(
                     hintText: "Answer",
@@ -149,18 +143,18 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   //   ),
                   // ),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   Text(
                     "What high school did you attend?",
                     // ignore: prefer_const_constructors
                     style: TextStyle(
-                        fontSize: 16.sm,
+                        fontSize: 20.sp,
                         fontFamily: 'Poppins',
-                        color: Color(0xff303030)),
+                        color: Colors.black),
                   ),
                   SizedBox(
-                    height: 10.h,
+                    height: 15.h,
                   ),
                   CustomTextFormField(
                     hintText: "Answer",
@@ -182,7 +176,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   //     hintText: "Answer",
                   //   ),
                   // ),
-                  SizedBox(height: 50.h),
+                  SizedBox(height: 45.h),
                   CustomNextButton(
                     text: "Next",
                     ontap: () {
@@ -213,7 +207,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Color(0xff6B6B6B),
-                            fontSize: 16.sm,
+                            fontSize: 16.sp,
                             fontFamily: 'Poppins',
                           ),
                         ),

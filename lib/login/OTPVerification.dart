@@ -30,10 +30,14 @@ class _otpVerificationState extends State<otpVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
+        appBar: CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
             child: Center(
                 child: Form(
                     key: _form,
@@ -44,22 +48,12 @@ class _otpVerificationState extends State<otpVerification> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            GestureDetector(
-                                onTap: () {
-                                  Get.back();
-                                },
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  size: 24,
-                                  color: Color(0xFF6B6B6B),
-                                )),
-                            SizedBox(
-                              width: 5.h,
-                            ),
                             Text(
                               "Forgot Password",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 20.sm),
+                                  fontFamily: "Poppins",
+                                  fontSize: 20.sp,
+                                  fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
@@ -112,7 +106,7 @@ class _otpVerificationState extends State<otpVerification> {
                                   heightFactor: 1.0,
                                   child: Icon(
                                     Icons.call,
-                                    color: Color(0xff1B8DC9),
+                                    color: Color(0xff143C6D),
                                   ),
                                 ),
                               ),
@@ -165,9 +159,9 @@ class _otpVerificationState extends State<otpVerification> {
                               pinTheme: PinTheme(
                                 selectedFillColor: Colors.white,
                                 inactiveFillColor: Colors.white,
-                                inactiveColor: Color(0xFF707070).withOpacity(0),
-                                activeColor: Color(0xFF707070).withOpacity(0),
-                                selectedColor: Color(0xFF707070).withOpacity(0),
+                                inactiveColor: Color(0xFF707070),
+                                activeColor: Color(0xFF707070),
+                                selectedColor: Color(0xFF707070),
                                 shape: PinCodeFieldShape.box,
                                 borderRadius: BorderRadius.circular(15),
                                 fieldHeight: 60.h,

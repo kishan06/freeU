@@ -3,9 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/login/login.dart';
 
 import 'package:get/get.dart';
@@ -197,11 +199,19 @@ class _SignUpState extends State<SignUp> {
     return WillPopScope(
       onWillPop: () {
         Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => const Login()));
+          context,
+          MaterialPageRoute(
+            builder: (context) => const Login(),
+          ),
+        );
         return Future.value(false);
       },
       child: Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
+        appBar: CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: GestureDetector(
             onTap: () => Get.focusScope!.unfocus(),
@@ -209,7 +219,7 @@ class _SignUpState extends State<SignUp> {
               child: Column(children: [
                 Padding(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   child: Form(
                     key: _form,
                     child: Column(
@@ -218,30 +228,37 @@ class _SignUpState extends State<SignUp> {
                         Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            GestureDetector(
-                                onTap: () {
-                                  Get.back();
-                                },
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  size: 24.sm,
-                                  color: Color(0xFF6B6B6B),
-                                )),
-                            SizedBox(
-                              width: 10.h,
-                            ),
                             Text(
                               "Sign up",
                               style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 20.sm),
+                                  fontFamily: "Poppins",
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 25.sp),
                             ),
                           ],
                         ),
                         SizedBox(
                           height: 35.h,
                         ),
-                        CustomTextFormField(
-                            hintText: "Full Name*", validatorText: "Full Name"),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Enter your full name",
+                              // ignore: prefer_const_constructors
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20.sp,
+                                  color: Color(0xff303030)),
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            CustomTextFormField(
+                                hintText: "Full Name*",
+                                validatorText: "Full Name"),
+                          ],
+                        ),
                         // FullnameTextFormField(
                         //   controller: fullNameController,
                         //   keyboardType: TextInputType.text,
@@ -249,24 +266,40 @@ class _SignUpState extends State<SignUp> {
                         //   errortext: "Please Enter Full Name",
                         // ),
                         SizedBox(
-                          height: 20.h,
+                          height: 25.h,
                         ),
-                        CustomTextFormField(
-                          hintText: "Email Id*",
-                          validatorText: "Email Id",
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter your Email address';
-                            }
-                            if (!RegExp(
-                                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                .hasMatch(value)) {
-                              return 'Enter a Valid Email address';
-                            }
-                            return null;
-                          },
-                          inputFormatters: [
-                            LengthLimitingTextInputFormatter(50),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Enter your email address",
+                              // ignore: prefer_const_constructors
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20.sp,
+                                  color: Color(0xff303030)),
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            CustomTextFormField(
+                              hintText: "Email Id*",
+                              validatorText: "Email Id",
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return 'Enter your Email address';
+                                }
+                                if (!RegExp(
+                                        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                                    .hasMatch(value)) {
+                                  return 'Enter a Valid Email address';
+                                }
+                                return null;
+                              },
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(50),
+                              ],
+                            ),
                           ],
                         ),
                         SizedBox(
@@ -338,97 +371,148 @@ class _SignUpState extends State<SignUp> {
                         //   ],
                         //   onSaved: (value) {},
                         // ),
-                        CustomTextFormField(
-                            texttype: TextInputType.number,
-                            hintText: "Phone Number*",
-                            validatorText: "Phone Number"),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Enter your phone number",
+                              // ignore: prefer_const_constructors
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20.sp,
+                                  color: Color(0xff303030)),
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            CustomTextFormField(
+                                texttype: TextInputType.number,
+                                hintText: "Phone Number*",
+                                validatorText: "Phone Number"),
+                          ],
+                        ),
                         SizedBox(
                           height: 20.h,
                         ),
-                        TextFormField(
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          onChanged: (value) => onPasswordChnage(value),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Enter your password",
+                              // ignore: prefer_const_constructors
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20.sp,
+                                  color: Color(0xff303030)),
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            TextFormField(
+                              autovalidateMode:
+                                  AutovalidateMode.onUserInteraction,
+                              onChanged: (value) => onPasswordChnage(value),
 
-                          cursorColor: Colors.grey,
-                          style: TextStyle(
-                            //color: Colors.grey,
-                            fontFamily: 'Poppins',
-                            fontSize: 16.sm,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          keyboardType: TextInputType.text,
-                          controller: passwordcontroller,
-                          obscureText:
-                              !_passwordVisible, //This will obscure text dynamically
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(12),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color(0xFF707070).withOpacity(0),
-                                  width: 1),
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color(0xFF707070).withOpacity(0),
-                                  width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color(0xFF707070).withOpacity(0),
-                                  width: 1),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide:
-                                  const BorderSide(color: Colors.red, width: 1),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide:
-                                  const BorderSide(color: Colors.red, width: 1),
-                            ),
-                            errorMaxLines: 3,
-                            hintStyle: TextStyle(
-                                color: Color(0x80000000),
-                                fontSize: 15.sm,
-                                fontFamily: "Poppins"),
-                            fillColor: Colors.white,
-                            filled: true,
-                            hintText: 'Enter your password',
-                            suffixIcon: GestureDetector(
-                              onTap: () => setState(
-                                  () => _passwordVisible = !_passwordVisible),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Padding(
-                                    padding: EdgeInsets.only(right: 20.0),
-                                    child: Text(
-                                      "show",
-                                      style: TextStyle(
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                              cursorColor: Colors.grey,
+                              style: TextStyle(
+                                //color: Colors.grey,
+                                fontFamily: 'Poppins',
+                                fontSize: 16.sm,
+                                fontWeight: FontWeight.w400,
                               ),
+                              keyboardType: TextInputType.text,
+                              controller: passwordcontroller,
+                              obscureText:
+                                  !_passwordVisible, //This will obscure text dynamically
+                              decoration: InputDecoration(
+                                contentPadding: EdgeInsets.all(12),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFF707070), width: 1),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFF707070), width: 1),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: BorderSide(
+                                      color: Color(0xFF707070), width: 1),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: const BorderSide(
+                                      color: Colors.red, width: 1),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                  borderSide: const BorderSide(
+                                      color: Colors.red, width: 1),
+                                ),
+                                errorMaxLines: 3,
+                                hintStyle: TextStyle(
+                                    color: Color(0x80000000),
+                                    fontSize: 15.sm,
+                                    fontFamily: "Poppins"),
+                                fillColor: Colors.white,
+                                filled: true,
+                                hintText: 'Enter your password',
+                                suffixIcon: GestureDetector(
+                                  onTap: () => setState(() =>
+                                      _passwordVisible = !_passwordVisible),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      _passwordVisible
+                                          ? Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      right: 20.0),
+                                                  child: Icon(
+                                                    Icons
+                                                        .remove_red_eye_outlined,
+                                                    color: Color(0xFF959595),
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          : Column(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsets.only(
+                                                      right: 20.0),
+                                                  child: SvgPicture.asset(
+                                                    "assets/images/eye-closed-svgrepo-com.svg",
+                                                    color: Color(0XFF959595),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              validator: (val) {
+                                if (val!.isEmpty) {
+                                  return 'Password is Empty';
+                                }
+                                if (!RegExp(
+                                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                                    .hasMatch(val)) {
+                                  return 'Enter valid password';
+                                } else {
+                                  return null;
+                                }
+                              },
                             ),
-                          ),
-                          validator: (val) {
-                            if (val!.isEmpty) {
-                              return 'Password is Empty';
-                            }
-                            if (!RegExp(
-                                    r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                                .hasMatch(val)) {
-                              return 'Enter valid password';
-                            } else {
-                              return null;
-                            }
-                          },
+                          ],
                         ),
 
                         SizedBox(
@@ -447,7 +531,7 @@ class _SignUpState extends State<SignUp> {
                                       padding: EdgeInsets.only(left: 10),
                                       child: Icon(
                                         Icons.check,
-                                        color: Color(0xff000000),
+                                        color: Color(0xff143C6D),
                                         size: 15,
                                       ),
                                     )
@@ -459,9 +543,9 @@ class _SignUpState extends State<SignUp> {
                                 'Has at least 8 characters',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 14.sm,
+                                    fontSize: 14.sp,
                                     color: _isPasswordEightCar
-                                        ? Color(0xff000000)
+                                        ? Color(0xff143C6D)
                                         : Colors.black),
                               ),
                             )
@@ -483,7 +567,7 @@ class _SignUpState extends State<SignUp> {
                                       padding: EdgeInsets.only(left: 10),
                                       child: const Icon(
                                         Icons.check,
-                                        color: Color(0xff000000),
+                                        color: Color(0xff143C6D),
                                         size: 15,
                                       ),
                                     )
@@ -497,7 +581,7 @@ class _SignUpState extends State<SignUp> {
                                     fontFamily: 'Poppins',
                                     fontSize: 14.sm,
                                     color: _isHasSymboleOrCaptital
-                                        ? Color(0xff000000)
+                                        ? Color(0xff143C6D)
                                         : Colors.black),
                               ),
                             )
@@ -519,7 +603,7 @@ class _SignUpState extends State<SignUp> {
                                       padding: EdgeInsets.only(left: 10),
                                       child: Icon(
                                         Icons.check,
-                                        color: Color(0xff000000),
+                                        color: Color(0xff143C6D),
                                         size: 15,
                                       ),
                                     )
@@ -533,7 +617,7 @@ class _SignUpState extends State<SignUp> {
                                     fontFamily: 'Poppins',
                                     fontSize: 14.sm,
                                     color: _isHasOneNumber
-                                        ? Color(0xff000000)
+                                        ? Color(0xff143C6D)
                                         : Colors.black),
                               ),
                             )
@@ -542,20 +626,36 @@ class _SignUpState extends State<SignUp> {
                         const SizedBox(
                           height: 25,
                         ),
-                        CustomTextFormField(
-                          isInputPassword: true,
-                          textEditingController: confirmpasscontroller,
-                          hintText: "Confirm Password",
-                          validatorText: "Confirm Password",
-                          validator: (val) {
-                            if (val == null || val.isEmpty) {
-                              return 'Password is Empty';
-                            }
-                            if (val != passwordcontroller.text) {
-                              return 'Password Not Matched';
-                            }
-                            return null;
-                          },
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Enter your password",
+                              // ignore: prefer_const_constructors
+                              style: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20.sp,
+                                  color: Color(0xff303030)),
+                            ),
+                            SizedBox(
+                              height: 15.h,
+                            ),
+                            CustomTextFormField(
+                              isInputPassword: true,
+                              textEditingController: confirmpasscontroller,
+                              hintText: "Confirm Password",
+                              validatorText: "Confirm Password",
+                              validator: (val) {
+                                if (val == null || val.isEmpty) {
+                                  return 'Password is Empty';
+                                }
+                                if (val != passwordcontroller.text) {
+                                  return 'Password Not Matched';
+                                }
+                                return null;
+                              },
+                            ),
+                          ],
                         ),
                         const SizedBox(
                           height: 20,
@@ -570,10 +670,10 @@ class _SignUpState extends State<SignUp> {
                                   scale: 1.0,
                                   child: Theme(
                                     data: ThemeData(
-                                      unselectedWidgetColor: Color(0xFF1B8DC9),
+                                      unselectedWidgetColor: Color(0xFF143C6D),
                                     ),
                                     child: Checkbox(
-                                      activeColor: const Color(0xFF1B8DC9),
+                                      activeColor: const Color(0xFF143C6D),
                                       shape: const RoundedRectangleBorder(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(1.0))),
@@ -604,7 +704,7 @@ class _SignUpState extends State<SignUp> {
                                           "Terms & Conditions*",
                                           style: TextStyle(
                                             fontSize: 14.sm,
-                                            color: Color(0xff1B8DC9),
+                                            color: Color(0xff143C6D),
                                             // decoration: TextDecoration.underline
                                           ),
                                         ),

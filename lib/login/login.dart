@@ -46,7 +46,7 @@ class _LoginState extends State<Login> {
         }
       },
       child: Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
+        backgroundColor: Color(0xFFFFFFFF),
         body: SafeArea(
           child: GestureDetector(
             onTap: () => Get.focusScope!.unfocus(),
@@ -61,12 +61,32 @@ class _LoginState extends State<Login> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         SizedBox(
-                          height: 40.h,
+                          height: 5.h,
                         ),
                         Image.asset(
                           'assets/images/freeulogin.png',
                           alignment: Alignment.center,
                           width: 200.w,
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "Welcome to FreeU",
+                          style: TextStyle(
+                              fontFamily: "Nunito",
+                              fontSize: 28.sp,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          "Sign in to continue.",
+                          style: TextStyle(
+                            fontFamily: "Nunito",
+                            fontSize: 20.sp,
+                          ),
                         ),
                         SizedBox(
                           height: 50.h,
@@ -79,11 +99,11 @@ class _LoginState extends State<Login> {
                               // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 16.sm,
+                                  fontSize: 20.sp,
                                   color: Color(0xff303030)),
                             ),
                             SizedBox(
-                              height: 6.h,
+                              height: 15.h,
                             ),
                             CustomTextFormField(
                               hintText: "Enter Email or Phone Number",
@@ -107,7 +127,7 @@ class _LoginState extends State<Login> {
                               child: Text(
                                 'Login Using OTP',
                                 style: blackStyle12().copyWith(
-                                  color: Color(0xFF1B8DC9),
+                                  color: Color(0xFF143C6D),
                                 ),
                               ),
                             ),
@@ -120,11 +140,11 @@ class _LoginState extends State<Login> {
                               "Password",
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 16.sm,
+                                  fontSize: 20.sp,
                                   color: Color(0xff303030)),
                             ),
                             SizedBox(
-                              height: 6.h,
+                              height: 15.h,
                             ),
                             CustomTextFormField(
                                 validator: (value) {
@@ -149,7 +169,7 @@ class _LoginState extends State<Login> {
                                 'Forgot Password?',
                                 textAlign: TextAlign.end,
                                 style: blackStyle12().copyWith(
-                                  color: Color(0xFF1B8DC9),
+                                  color: Color(0xFF143C6D),
                                 ),
                               ),
                             ),
@@ -165,16 +185,17 @@ class _LoginState extends State<Login> {
                               Get.toNamed("/homepage");
                             } else {
                               Get.snackbar(
-                                  "Error", "Please Enter Login Credentials",
-                                  margin: EdgeInsets.all(8),
-                                  snackStyle: SnackStyle.FLOATING,
-                                  snackPosition: SnackPosition.BOTTOM);
+                                "Error",
+                                "Please Enter Login Credentials",
+                                margin: EdgeInsets.all(8),
+                                snackStyle: SnackStyle.FLOATING,
+                              );
                             }
                           },
                           text: 'Sign in',
                         ),
                         SizedBox(
-                          height: 30.h,
+                          height: 20.h,
                         ),
                         Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -192,7 +213,7 @@ class _LoginState extends State<Login> {
                               child: Text(
                                 'Create account',
                                 style: blackStyle14().copyWith(
-                                  color: Color(0xFF1B8DC9),
+                                  color: Color(0xFF143C6D),
                                 ),
                               ),
                             ),

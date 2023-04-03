@@ -24,7 +24,7 @@ class CustomNextButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
           elevation: 5,
           shadowColor: Color.fromARGB(255, 220, 220, 226),
-          backgroundColor: Color(0xFF1B8DC9),
+          backgroundColor: Color(0xFF143C6D),
 
           //  color: Color(0xFFFFB600),
           shape: RoundedRectangleBorder(
@@ -38,7 +38,7 @@ class CustomNextButton extends StatelessWidget {
           text,
           style: TextStyle(
             color: Color(0xFFFFFFFF),
-            fontSize: 16.sm,
+            fontSize: 16.sp,
           ),
         ),
       ),

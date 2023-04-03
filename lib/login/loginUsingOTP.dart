@@ -20,12 +20,16 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      backgroundColor: Color(0xFFFFFFFF),
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
-            child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-          child: Form(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            child: Form(
               key: _form,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -33,29 +37,22 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: Icon(
-                            Icons.arrow_back,
-                            size: 24.sm,
-                            color: Color(0xFF6B6B6B),
-                          )),
                       SizedBox(
-                        width: 5.h,
+                        width: 3.w,
                       ),
                       Text(
                         "Login with OTP",
-                        style:
-                            TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w500,
+                            fontSize: 25.sp),
                       ),
                     ],
                   ),
-                  SizedBox(height: 60.h),
+                  SizedBox(height: 40.h),
                   SvgPicture.asset('assets/images/loginusingotp.svg'),
                   SizedBox(
-                    height: 30.h,
+                    height: 20.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -145,7 +142,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                     ],
                   ),
                   SizedBox(
-                    height: 70.h,
+                    height: 40.h,
                   ),
                   CustomNextButton(
                     text: "Next",
@@ -164,8 +161,10 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                     },
                   )
                 ],
-              )),
-        )),
+              ),
+            ),
+          ),
+        ),
       ),
     );
   }

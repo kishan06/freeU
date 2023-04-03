@@ -17,7 +17,7 @@ class _TouchIdState extends State<TouchId> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           SizedBox(height: 100.h),
@@ -29,7 +29,8 @@ class _TouchIdState extends State<TouchId> {
                 Text(
                   "Set-up Touch Id",
                   style: TextStyle(
-                    fontSize: 22.sm,
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w500,
                     fontFamily: 'Poppins',
                   ),
                 ),
@@ -38,7 +39,7 @@ class _TouchIdState extends State<TouchId> {
                   width: 286.w,
                   height: 286.h,
                   child: SvgPicture.asset(
-                    'assets/images/fingerIcon.svg',
+                    'assets/images/setuptouch.svg',
                     // width: 140.h,
                   ),
                 ),
@@ -46,7 +47,7 @@ class _TouchIdState extends State<TouchId> {
                   height: 70.h,
                 ),
                 CustomNextButton(
-                  text: "Set up Now",
+                  text: "Set up Now!",
                   ontap: () {
                     // _checkBio();
                   },
@@ -62,7 +63,7 @@ class _TouchIdState extends State<TouchId> {
                     'will do it later',
                     style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14.sm,
+                      fontSize: 14.sp,
                       color: Color(0xFF585858),
                     ),
                   ),

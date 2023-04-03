@@ -3,35 +3,35 @@
     <filter id="Path_5518" x="0" y="0" width="336" height="336" filterUnits="userSpaceOnUse">
       <feOffset dy="20" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="23" result="blur"/>
-      <feFlood flood-color="#c4c4c4"/>
+      <feFlood flood-color="#cfcfcf"/>
       <feComposite operator="in" in2="blur"/>
       <feComposite in="SourceGraphic"/>
     </filter>
     <filter id="Path_3169" x="128.783" y="124.415" width="78.22" height="76.859" filterUnits="userSpaceOnUse">
       <feOffset dy="1" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="2" result="blur-2"/>
-      <feFlood flood-color="#ffb600" flood-opacity="0.922"/>
+      <feFlood flood-color="#fbfbfb"/>
       <feComposite operator="in" in2="blur-2"/>
       <feComposite in="SourceGraphic"/>
     </filter>
     <filter id="Path_3171" x="124.485" y="114.93" width="87.031" height="36.015" filterUnits="userSpaceOnUse">
       <feOffset dy="2" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="2" result="blur-3"/>
-      <feFlood flood-color="#ffb600" flood-opacity="0.859"/>
+      <feFlood flood-color="#fbfbfb"/>
       <feComposite operator="in" in2="blur-3"/>
       <feComposite in="SourceGraphic"/>
     </filter>
     <filter id="Path_3172" x="135.947" y="104.976" width="63.688" height="22.994" filterUnits="userSpaceOnUse">
       <feOffset dy="2" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="2" result="blur-4"/>
-      <feFlood flood-color="#ffb600" flood-opacity="0.859"/>
+      <feFlood flood-color="#fbfbfb"/>
       <feComposite operator="in" in2="blur-4"/>
       <feComposite in="SourceGraphic"/>
     </filter>
   </defs>
   <g id="Group_51032" data-name="Group 51032" transform="translate(-27 -230)">
     <g transform="matrix(1, 0, 0, 1, 27, 230)" filter="url(#Path_5518)">
-      <path id="Path_5518-2" data-name="Path 5518" d="M99,0A99,99,0,1,1,0,99,99,99,0,0,1,99,0Z" transform="translate(69 49)" fill="#1b8dc9"/>
+      <path id="Path_5518-2" data-name="Path 5518" d="M99,0A99,99,0,1,1,0,99,99,99,0,0,1,99,0Z" transform="translate(69 49)" fill="#143c6d"/>
     </g>
     <g id="Group_2362" data-name="Group 2362" transform="translate(516.883 -121.21)">
       <g transform="matrix(1, 0, 0, 1, -489.88, 351.21)" filter="url(#Path_3169)">
