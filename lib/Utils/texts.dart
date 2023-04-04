@@ -40,10 +40,10 @@ Widget text14Grey272424(String text){
   );
 }
 
-Widget text14Grey707070(String text){
+Widget text13Grey707070(String text){
   return Text(text,
     style: TextStyle(
-      fontSize: 14.sp,
+      fontSize: 13.sp,
       color: AppColors.grey707070,
     ),
   );
@@ -63,6 +63,16 @@ Widget text16White(String text,{TextAlign? textAlign}){
     textAlign: textAlign,
     style: TextStyle(
       fontSize: 16.sp,
+      color: AppColors.white,
+    ),
+  );
+}
+
+Widget text14White(String text,{TextAlign? textAlign}){
+  return Text(text,
+    textAlign: textAlign,
+    style: TextStyle(
+      fontSize: 14.sp,
       color: AppColors.white,
     ),
   );
