@@ -113,14 +113,14 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
           child: DropdownButtonHideUnderline(
             child: DropdownButton2(
               buttonDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
+                borderRadius: BorderRadius.circular(10),
                 border: Border.all(
-                  color: Colors.black26.withOpacity(0),
+                  color: Color(0xFF707070),
                 ),
                 color: Colors.white,
               ),
               dropdownDecoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
+                borderRadius: BorderRadius.circular(10),
                 border: Border.all(
                   color: Colors.black26,
                 ),
@@ -132,9 +132,9 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
                     child: Text(
                       widget.selectedValue ?? "Select",
                       style: TextStyle(
-                        fontSize: 14.sm,
-                        color: Colors.black,
-                      ),
+                          color: Color(0x80000000),
+                          fontSize: 16.sp,
+                          fontFamily: "Poppins"),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),

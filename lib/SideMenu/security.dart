@@ -20,9 +20,13 @@ class _SecurityState extends State<Security> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
+        appBar: CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        backgroundColor: Color(0xFFFFFFFF),
         body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           child: Center(
               child: Form(
                   key: _form,
@@ -33,34 +37,17 @@ class _SecurityState extends State<Security> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          GestureDetector(
-                              onTap: () {
-                                Get.back();
-                              },
-                              child: Icon(
-                                Icons.arrow_back,
-                                size: 24,
-                                color: Color(0xFF6B6B6B),
-                              )),
-                          SizedBox(
-                            width: 5.h,
-                          ),
                           Text(
                             "Security",
                             style: TextStyle(
-                                fontFamily: "Poppins", fontSize: 20.sm),
+                                fontFamily: "Poppins",
+                                fontWeight: FontWeight.w500,
+                                fontSize: 25.sp),
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 20.h,
-                      ),
-                      Image.asset(
-                        'assets/images/security.png',
-                        width: 120.w,
-                      ),
-                      SizedBox(
-                        height: 20.h,
+                        height: 25.h,
                       ),
                       SizedBox(
                         width: double.infinity,
@@ -68,18 +55,18 @@ class _SecurityState extends State<Security> {
                           "Current Login PIN",
                           style: TextStyle(
                               fontFamily: 'Poppins',
-                              fontSize: 16.sm,
-                              color: Color(0xff303030)),
+                              fontSize: 20.sp,
+                              color: Colors.black),
                         ),
                       ),
                       SizedBox(
-                        height: 6,
+                        height: 14.h,
                       ),
                       CustomTextFormField(
                           hintText: "Enter 4 digit login pin",
                           validatorText: "Enter 4 digit login pin"),
                       SizedBox(
-                        height: 20.h,
+                        height: 25.h,
                       ),
                       SizedBox(
                         width: double.infinity,
@@ -87,31 +74,31 @@ class _SecurityState extends State<Security> {
                           "New Login PIN",
                           style: TextStyle(
                               fontFamily: 'Poppins',
-                              fontSize: 16.sm,
-                              color: Color(0xff303030)),
+                              fontSize: 20.sp,
+                              color: Colors.black),
                         ),
                       ),
                       SizedBox(
-                        height: 6,
+                        height: 14.h,
                       ),
                       CustomTextFormField(
                           hintText: "Enter 4 digit login pin",
                           validatorText: "Enter 4 digit login pin"),
                       SizedBox(
-                        height: 20.h,
+                        height: 25.h,
                       ),
                       SizedBox(
                         width: double.infinity,
                         child: Text(
                           "Confirm Login PIN",
                           style: TextStyle(
-                              fontFamily: 'Pppins',
-                              fontSize: 16.sm,
-                              color: Color(0xff303030)),
+                              fontFamily: 'Poppins',
+                              fontSize: 20.sp,
+                              color: Colors.black),
                         ),
                       ),
                       SizedBox(
-                        height: 6,
+                        height: 14.h,
                       ),
                       CustomTextFormField(
                           hintText: "Enter 4 digit login pin",
