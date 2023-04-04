@@ -54,98 +54,85 @@ class _ContactUsState extends State<ContactUs> {
                   Text(
                     "Name*",
                     style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 20.sp,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  CustomTextFormField(
+                      hintText: "  Enter Full Name",
+                      validatorText: "Please Enter Full Name"),
+                  SizedBox(
+                    height: 25.h,
+                  ),
+                  Text(
+                    "Email ID*",
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 20.sp,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  CustomTextFormField(
+                      hintText: "  Enter Email Address",
+                      validatorText: "Please Enter Email Address"),
+                  SizedBox(height: 25.h),
+                  Text(
+                    "Mobile number*",
+                    style: TextStyle(
                         fontFamily: 'Poppins',
                         fontSize: 20.sp,
                         color: Color(0xff303030)),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 15.h,
                   ),
                   CustomTextFormField(
-                      hintText: "Please Enter Full Name",
-                      validatorText: "Please Enter Full Name"),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  Text(
-                    "Email ID*",
-                    // ignore: prefer_const_constructors
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 15.sm,
-                        color: Color(0xff303030)),
-                  ),
-                  SizedBox(
-                    height: 6.h,
-                  ),
-                  CustomTextFormField(
-                      hintText: "Please Enter Email Address",
-                      validatorText: "Please Enter Email Address"),
-                  SizedBox(height: 20.h),
-                  Text(
-                    "Mobile*",
-                    // ignore: prefer_const_constructors
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 15.sm,
-                        color: Color(0xff303030)),
-                  ),
-                  SizedBox(
-                    height: 6.h,
-                  ),
-                  CustomTextFormField(
-                      hintText: "Please Enter Mobile Number",
+                      hintText: "  Enter Mobile Number",
                       validatorText: "Please Enter Mobile Number"),
-                  SizedBox(height: 20.h),
+                  SizedBox(height: 25.h),
                   Text(
                     "Subject",
-                    // ignore: prefer_const_constructors
                     style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 15.sm,
-                        color: Color(0xff303030)),
+                      fontFamily: 'Poppins',
+                      fontSize: 20.sp,
+                    ),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 15.h,
                   ),
                   CustomTextFormField(
-                      hintText: "Please Enter Subject",
+                      hintText: "  Enter Subject",
                       validatorText: "Please Enter Subject"),
                   SizedBox(
-                    height: 20.h,
-                  ),
-                  Text(
-                    "Message",
-                    // ignore: prefer_const_constructors
-                    style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 15.sm,
-                        color: Color(0xff303030)),
-                  ),
-                  SizedBox(
-                    height: 6.h,
+                    height: 25.h,
                   ),
                   TextFormField(
-                    style: TextStyle(fontSize: 16, fontFamily: "Poppins"),
+                    style: TextStyle(fontSize: 16.sp),
+                    cursorColor: const Color(0xFFFFB600),
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(20),
+                      contentPadding: EdgeInsets.all(12.h),
                       filled: true,
                       fillColor: Colors.white,
                       border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
-                            color: Color(0xFF707070).withOpacity(0), width: 1),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            BorderSide(color: Color(0xffCCCCCC), width: 1),
                       ),
                       enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
-                            color: Color(0xFF707070).withOpacity(0), width: 1),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            BorderSide(color: Color(0xffCCCCCC), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(30),
-                        borderSide: BorderSide(
-                            color: Color(0xFF707070).withOpacity(0), width: 1),
+                        borderRadius: BorderRadius.circular(10),
+                        borderSide:
+                            BorderSide(color: Color(0xffCCCCCC), width: 1),
                       ),
                       errorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(30),
@@ -157,12 +144,9 @@ class _ContactUsState extends State<ContactUs> {
                         borderSide:
                             const BorderSide(color: Colors.red, width: 1),
                       ),
-                      hintStyle: TextStyle(
-                        color: Color(0x80000000),
-                        fontSize: 16.sm,
-                        fontFamily: 'Poppins',
-                      ),
-                      hintText: "Message",
+                      hintStyle:
+                          TextStyle(color: Color(0x80000000), fontSize: 16.sp),
+                      hintText: "  Message",
                     ),
                     minLines: 5,
                     maxLines: null,
@@ -201,9 +185,6 @@ class _ContactUsState extends State<ContactUs> {
                                       fontSize: 20.sm,
                                       fontFamily: "Poppins"),
                                 ),
-                                SizedBox(
-                                  height: 20,
-                                )
                               ],
                             ),
                           );
@@ -217,10 +198,11 @@ class _ContactUsState extends State<ContactUs> {
                   Center(
                     child: Text(
                       "*Required Field",
-                      style:
-                          TextStyle(fontSize: 14.sm, color: Color(0xFF6B6B6B)),
+                      style: TextStyle(
+                          fontSize: 12.sp, color: const Color(0xFF6B6B6B)),
                     ),
-                  )
+                  ),
+                  sizedBoxHeight(30.h)
                 ],
               ),
             ),
