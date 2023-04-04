@@ -5,7 +5,9 @@ import 'package:accordion/controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/getwidget.dart';
 
 class FAQs extends StatefulWidget {
   const FAQs({super.key});
@@ -18,16 +20,16 @@ class _FAQsState extends State<FAQs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
                       onTap: () {
@@ -35,185 +37,129 @@ class _FAQsState extends State<FAQs> {
                       },
                       child: Icon(
                         Icons.arrow_back,
-                        size: 24,
-                        color: Color(0xFF6B6B6B),
+                        size: 24.sp,
+                        color: Color(0xff000000),
                       )),
                   SizedBox(
-                    width: 10.h,
+                    height: 10.h,
                   ),
                   Text(
                     "FAQ's",
-                    style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 25.sp,
+                        fontWeight: FontWeight.w500),
                   ),
                 ],
               ),
-              SizedBox(height: 20,),
               SizedBox(
-                width: double.infinity,
-                child: Image.asset(
-                  'assets/images/FAQ .png',
-                  width: 90,
-                  height: 120,
-                )
+                height: 20.h,
               ),
-              SizedBox(height: 20,),
-              Accordion(
-                paddingListBottom: 0,
-                paddingListTop: 0,
-                paddingListHorizontal: 0,
-                disableScrolling: true,
-                maxOpenSections: 1,
-                scaleWhenAnimating: true,
-                openAndCloseAnimation: true,
-                // headerPadding:
-                //     const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
-                sectionOpeningHapticFeedback: SectionHapticFeedback.heavy,
-                sectionClosingHapticFeedback: SectionHapticFeedback.light,
-                children: [
-                  AccordionSection(
-                    scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                    isOpen: true,
-                    headerBackgroundColor: Color.fromARGB(3, 255, 255, 255),
-                    headerBackgroundColorOpened: Color(0xFFD8EEFD),
-                    contentBackgroundColor: Color(0xFFD8EEFD),
-                    contentBorderColor: Color(0xFFD8EEFD),
-                    contentBorderRadius: 10,
-                    headerBorderRadius: 10,
-                    rightIcon: Icon(Icons.keyboard_arrow_down, size: 20),
-                    header: Text(
-                      'What is Free U?',
-                      style: TextStyle(
-                        color: Color(0xFF1B8DC9),
-                        fontFamily: "Poppins",
-                        fontSize: 18.sm,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    content: Column(
-                      children: [
-                        Text(
-                          "Free U is a tech enabled commercial real estate investment platform that allows its users to access Grade A commercial, retail, and warehousing assets tenanted to multinational tenants.",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 83, 82, 82),
-                            fontFamily: "Poppins",
-                            fontSize: 15.sm,
-                          ),
-                        ),
-                      ],
-                    ),
-                    contentHorizontalPadding: 10,
-                    // onOpenSection: () => print('onOpenSection ...'),
-                    // onCloseSection: () => print('onCloseSection ...'),
-                  ),
-                  AccordionSection(
-                    scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                    isOpen: false,
-                    headerBackgroundColor: Color.fromARGB(3, 255, 255, 255),
-                    headerBackgroundColorOpened: Color(0xFFD8EEFD),
-                    contentBackgroundColor: Color(0xFFD8EEFD),
-                    contentBorderColor: Color(0xFFD8EEFD),
-                    contentBorderRadius: 10,
-                    headerBorderRadius: 10,
-                    rightIcon: Icon(Icons.keyboard_arrow_down, size: 20),
-                    header: Text(
-                      'What is Free U?',
-                      style: TextStyle(
-                        color: Color(0xFF1B8DC9),
-                        fontFamily: "Poppins",
-                        fontSize: 18.sm,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    content: Column(
-                      children: [
-                        Text(
-                          "Free U is a tech enabled commercial real estate investment platform that allows its users to access Grade A commercial, retail, and warehousing assets tenanted to multinational tenants.",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 83, 82, 82),
-                            fontFamily: "Poppins",
-                            fontSize: 15.sm,
-                          ),
-                        ),
-                      ],
-                    ),
-                    contentHorizontalPadding: 10,
-                    // onOpenSection: () => print('onOpenSection ...'),
-                    // onCloseSection: () => print('onCloseSection ...'),
-                  ),
-                  AccordionSection(
-                    scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
-                    isOpen: false,
-                    headerBackgroundColor: Color.fromARGB(3, 255, 255, 255),
-                    headerBackgroundColorOpened: Color(0xFFD8EEFD),
-                    contentBackgroundColor: Color(0xFFD8EEFD),
-                    contentBorderColor: Color(0xFFD8EEFD),
-                    contentBorderRadius: 10,
-                    headerBorderRadius: 10,
-                    rightIcon: Icon(Icons.keyboard_arrow_down, size: 20),
-                    header: Text(
-                      'What is Free U?',
-                      style: TextStyle(
-                        color: Color(0xFF1B8DC9),
-                        fontFamily: "Poppins",
-                        fontSize: 18.sm,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                    content: Column(
-                      children: [
-                        Text(
-                          "Free U is a tech enabled commercial real estate investment platform that allows its users to access Grade A commercial, retail, and warehousing assets tenanted to multinational tenants.",
-                          style: TextStyle(
-                            color: Color.fromARGB(255, 83, 82, 82),
-                            fontFamily: "Poppins",
-                            fontSize: 15.sm,
-                          ),
-                        ),
-                      ],
-                    ),
-                    contentHorizontalPadding: 10,
-                    // onOpenSection: () => print('onOpenSection ...'),
-                    // onCloseSection: () => print('onCloseSection ...'),
-                  ),
-                  
-                ],
-              ),
+              faqAccod(), sizedBoxHeight(15.h),
+              faqAccod(), sizedBoxHeight(15.h),
+              faqAccod(), sizedBoxHeight(15.h),
+              faqAccod(), sizedBoxHeight(15.h),
+              faqAccod(), sizedBoxHeight(15.h),
+              faqAccod(), sizedBoxHeight(15.h),
+              faqAccod(), sizedBoxHeight(15.h),
+              faqAccod(), sizedBoxHeight(15.h),
+              // Accordion(
+              //   paddingListBottom: 0,
+              //   paddingListTop: 0,
+              //   paddingListHorizontal: 0,
+              //   disableScrolling: true,
+              //   maxOpenSections: 2,
+              //   scaleWhenAnimating: true,
+              //   openAndCloseAnimation: true,
+              //   // headerPadding:
+              //   //     const EdgeInsets.symmetric(vertical: 7, horizontal: 15),
+              //   sectionOpeningHapticFeedback: SectionHapticFeedback.heavy,
+              //   sectionClosingHapticFeedback: SectionHapticFeedback.light,
+              //   children: [
+              //     listOfAccod(),
+              //     listOfAccod(),
+              //   ],
+              // ),
             ],
           ),
         ),
       ),
     );
   }
-}
 
-class common_ctn extends StatelessWidget {
-  const common_ctn({
-    Key? key,
-    required this.text,
-  }) : super(key: key);
+  // AccordionSection listOfAccod() {
+  //   return AccordionSection(
+  //     scrollIntoViewOfItems: ScrollIntoViewOfItems.slow,
+  //     isOpen: false,
+  //     headerBackgroundColor: Color.fromARGB(3, 255, 255, 255),
+  //     headerBackgroundColorOpened: Color(0xff143C6D),
+  //     contentBackgroundColor: Color(0xff143C6D),
+  //     contentBorderColor: Color(0xff143C6D),
+  //     contentBorderRadius: 10.r,
+  //     headerBorderRadius: 10.r,
+  //     rightIcon: Icon(Icons.add_circle_outline_rounded, size: 18.sp),
+  //     header: Text(
+  //       'What is Free U?',
+  //       style: TextStyle(
+  //           fontFamily: "Poppins", fontSize: 18.sp, color: Colors.black),
+  //     ),
+  //     content: Column(
+  //       children: [
+  //         Text(
+  //           "Free U is a tech enabled commercial real estate investment platform that allows its users to access Grade A commercial, retail, and warehousing assets tenanted to multinational tenants.",
+  //           style: TextStyle(
+  //             color: Colors.white,
+  //             fontFamily: "Poppins",
+  //             fontSize: 16.sp,
+  //           ),
+  //         ),
+  //       ],
+  //     ),
+  //     contentHorizontalPadding: 10.w,
+  //   );
+  // }
 
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 5),
-          child: SvgPicture.asset(
-            "assets/images/bullet point.svg",
-            width: 13.w,
+  Widget faqAccod() {
+    return Container(
+      decoration: BoxDecoration(
+          color: Color(0xff143C6D), borderRadius: BorderRadius.circular(10.r)),
+      child: GFAccordion(
+        titleBorderRadius: BorderRadius.circular(10.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(10.r),
+          bottomRight: Radius.circular(10.r),
+        ),
+        margin: EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: const Color(0xff143C6D),
+        contentBackgroundColor: const Color(0xff143C6D),
+        collapsedIcon: Icon(
+          Icons.add_circle_outline_rounded,
+          size: 18.sp,
+        ),
+        expandedIcon: Icon(
+          Icons.remove_circle_outline_rounded,
+          size: 18.sp,
+          color: Colors.white,
+        ),
+        titleChild: Text(
+          'What is Free U?',
+          style: TextStyle(
+            color: Colors.black,
+            fontSize: 18.sp,
+            fontFamily: "Poppins",
           ),
         ),
-        SizedBox(
-          width: 10.w,
+        contentChild: Text(
+          "Free U is a tech enabled commercial real estate investment platform that allows its users to access Grade A commercial, retail, and warehousing assets tenanted to multinational tenants.",
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: "Poppins",
+            fontSize: 16.sp,
+          ),
         ),
-        Text(
-          text,
-          style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
-        )
-      ],
+      ),
     );
   }
 }
