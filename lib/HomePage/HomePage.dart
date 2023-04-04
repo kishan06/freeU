@@ -3,10 +3,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/bottombar.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
@@ -37,6 +40,37 @@ class _HomePageState extends State<HomePage> {
   PageController recommendedcontroller = PageController(
     viewportFraction: 0.99,
   );
+
+  List topPickData = [
+    {
+      // /
+      "text1": "Fractional Real Estate",
+      "imageUrl": "assets/newImages/top_pick_img1.png",
+      "title": "Vaishnavi Tech Park Opportunity",
+      "add": "Outer Ring Road Sarjapur, Bangalore",
+    },
+    {
+      "text1": "Alternative investment funds",
+      "imageUrl": "assets/newImages/top_pick_img2.png",
+      "title": "Tata Consultancy Services",
+      "add": "Banyan Park, Mumbai",
+    },
+    {
+      "text1": "Fractional Real Estate",
+      "imageUrl": "assets/newImages/top_pick_img1.png",
+      "title": "Vaishnavi Tech Park Opportunity",
+      "add": "Outer Ring Road Sarjapur, Bangalore",
+    },
+    {
+      "text1": "Alternative investment funds",
+      "imageUrl": "assets/newImages/top_pick_img2.png",
+      "title": "Tata Consultancy Services",
+      "add": "Banyan Park, Mumbai",
+    },
+
+  ];
+
+  
 
   void _selectedTab(int index) {
     setState(() {
@@ -84,47 +118,67 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: _key,
       drawer: NavDrawer(),
-      backgroundColor: Color(0xFFF5F8FA),
-      appBar: AppBar(
-        title: Text(
-          'Welcome',
-          softWrap: true,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 19.sm,
-              fontWeight: FontWeight.w400,
-              color: Colors.black),
+      // backgroundColor: Color(0xFFF5F8FA),
+      appBar: 
+      AppBar(
+        title: 
+        Row(
+          children: [
+            IconButton(
+              onPressed: () {
+                _key.currentState!.openDrawer();
+              },
+              icon: SizedBox(
+                height: 20.h,
+                width: 25.w,
+                child: SvgPicture.asset("assets/images/menu.svg",
+                  // height: 20.h,
+                  // width: 10.w,
+                  fit: BoxFit.fill,
+                ),
+              ),
+              // color: Colors.red,
+              // iconSize: 100.h,
+            ),
+
+            sizedBoxWidth(5.w),
+
+            Text(
+              'Welcome',
+              softWrap: true,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 22.sp,
+                  // fontWeight: FontWeight.w400,
+                  color: Colors.black),
+            ),
+
+            Spacer(),
+
+            IconButton(
+              onPressed: () {
+                Get.toNamed('/notificationpage');
+              },
+              icon: SizedBox(
+                width: 18.w,
+                height: 25.h,
+                child: SvgPicture.asset(
+                  'assets/images/notification-bell-svgrepo-com.svg',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              // iconSize: 22,
+              // color: const Color(0xFF303030),
+            ),
+          ],
         ),
         backgroundColor: Color(0xFFF5F8FA),
         elevation: 0,
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
-        leading: Row(
-          children: [
-            IconButton(
-              onPressed: () {
-                _key.currentState!.openDrawer();
-              },
-              icon: SvgPicture.asset("assets/images/menu.svg"),
-              color: Colors.black,
-              iconSize: 25,
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Get.toNamed('/notificationpage');
-            },
-            icon: SvgPicture.asset(
-              'assets/images/notification-bell-svgrepo-com.svg',
-            ),
-            iconSize: 22,
-            color: const Color(0xFF303030),
-          ),
-        ],
+      
       ),
       bottomNavigationBar:
           CreateBottomBar(stateBottomNav, "BottombarHomepage", context),
@@ -136,168 +190,43 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 15.h,
               ),
-              SizedBox(
-                height: 167.h,
-                child: Container(
-                  decoration: BoxDecoration(
-                      color: Color(0xFFCFEFFF),
-                      borderRadius: BorderRadius.circular(5),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.06),
-                          blurRadius: 10,
-                          spreadRadius: 2,
-                        )
-                      ]),
+              Container(
+                height: 159.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    color: AppColors.blue143C6D,
+                    borderRadius: BorderRadius.circular(15.h),
+                    image: DecorationImage(
+                      image: AssetImage("assets/newImages/Group 51336.png"),
+                      fit: BoxFit.fill
+                    )
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //     color: Colors.black.withOpacity(0.06),
+                    //     blurRadius: 10,
+                    //     spreadRadius: 2,
+                    //   )
+                    // ]
+                  ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
                   child: Column(
                     children: [
-                      SizedBox(
-                        height: 148.h,
-                        child: PageView.builder(
-                          controller: indicatorcontroller,
-                          itemCount: 3,
-                          itemBuilder: (
-                            BuildContext context,
-                            int index1,
-                          ) {
-                            bool isMyPageIndex = selectIndex == index1;
-                            if (index1 == 0) {
-                              return Padding(
-                                padding: EdgeInsets.only(
-                                    top: 10.0, left: 6, right: 0, bottom: 5),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        Text(
-                                          'Invest for Future\nin Stable Platform\nand Make\nFast Money',
-                                          style: TextStyle(
-                                              fontSize: 14.sm,
-                                              fontFamily: 'Poppins'),
-                                        ),
-                                        SizedBox(
-                                          height: 8.h,
-                                        ),
-                                        SizedBox(
-                                          height: 30.h,
-                                          child: ElevatedButton(
-                                            style: ElevatedButton.styleFrom(
-                                              elevation: 0,
-                                              backgroundColor: Colors.white,
-                                              // color: Color(0xFFFF),
-                                              shape: RoundedRectangleBorder(
-                                                borderRadius:
-                                                    BorderRadius.circular(5),
-                                              ),
-                                            ),
-                                            onPressed: () {
-                                              Get.toNamed('/categoriesmain');
-                                            },
-                                            child: Text(
-                                              'Invest Now',
-                                              style: TextStyle(
-                                                  fontFamily: "Poppins",
-                                                  fontSize: 13.sm,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      children: [
-                                        SvgPicture.asset(
-                                          "assets/images/persongraph.svg",
-                                          height: 100,
-                                          width: 200,
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              );
-                            } //2nd plan
-                            return Padding(
-                              padding: EdgeInsets.only(
-                                  top: 10.0, left: 6, right: 0, bottom: 5),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Invest for Future\nin Stable Platform\nand Make\nFast Money',
-                                        style: TextStyle(
-                                            fontSize: 14.sm,
-                                            fontFamily: 'Poppins'),
-                                      ),
-                                      SizedBox(
-                                        height: 8.h,
-                                      ),
-                                      SizedBox(
-                                        height: 30.h,
-                                        child: ElevatedButton(
-                                          style: ElevatedButton.styleFrom(
-                                            elevation: 0,
-                                            backgroundColor: Colors.white,
-                                            // color: Color(0xFFFF),
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                          ),
-                                          onPressed: () {
-                                            Get.toNamed('/categoriesmain');
-                                          },
-                                          child: Text(
-                                            'Invest Now',
-                                            style: TextStyle(
-                                                fontFamily: "Poppins",
-                                                fontSize: 13.sm,
-                                                color: Colors.black),
-                                          ),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      SvgPicture.asset(
-                                        "assets/images/persongraph.svg",
-                                        height: 100,
-                                        width: 200,
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            );
-                          },
-                        ),
+                
+                      // Image.asset(name)
+                      SvgPicture.asset("assets/newImages/quotes-svgrepo-com.svg",
+                        width: 24.w,
+                        height: 15.h,
                       ),
-                      SmoothPageIndicator(
-                        controller: indicatorcontroller,
-                        count: 3,
-                        effect: ExpandingDotsEffect(
-                          dotHeight: 7.h,
-                          dotWidth: 7.w,
-                          activeDotColor: Color(0xFF153D6D),
-                          dotColor: Color(0xFF153D6D).withOpacity(0.4),
-                        ),
-                      ),
+
+                      Spacer(),
+
+                      // Text(data)
+                      text16White("We do not just provide you options. We want you to learn about the ones best suited for your needs.",
+                        textAlign: TextAlign.center
+                      )
+
+                   
                     ],
                   ),
                 ),
@@ -309,105 +238,131 @@ class _HomePageState extends State<HomePage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(
-                        width: 3.w,
-                      ),
-                      titleText("Your Investments"),
+                      // text30BlackM(text)
+                      text20Black("Top Picks"),
+
+                      text14Grey272424("View more")
+
+                      // text18Grey(text)
+
+
+
+                      // SizedBox(
+                      //   width: 3.w,
+                      // ),
+                      // titleText("Your Investments"),
                     ],
                   ),
                   SizedBox(
-                    height: 8.h,
+                    height: 10.h,
                   ),
                   SizedBox(
-                    height: 150.h,
-                    child: ListView.builder(
+                    height: 265.h,
+                    child: ListView.separated(
+                      separatorBuilder: (_,index){
+                        return index == topPickData.length ? SizedBox() : sizedBoxWidth(20.w);
+                      },
                       scrollDirection: Axis.horizontal,
-                      itemCount: 2,
-                      itemBuilder: (context, index) => Container(
-                        margin: EdgeInsets.all(5),
-                        width: Get.width * 0.85,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              color: Color(0xFFFFFFFF),
-                              borderRadius: BorderRadius.circular(15),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.06),
-                                  blurRadius: 10,
-                                  spreadRadius: 2,
-                                )
-                              ]),
-                          child: Row(
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(15),
-                                    bottomLeft: Radius.circular(15),
-                                  ),
-                                  color: Color(0xFF1B8DC9),
-                                ),
-                                width: 15.w,
-                              ),
-                              SizedBox(
-                                width: 30.w,
-                              ),
-                              Flexible(
-                                flex: 1,
-                                child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    SizedBox(
-                                      height: 6.h,
-                                    ),
-                                    Flexible(
-                                      flex: 3,
-                                      child: Text(
-                                        "Chennai Office Opportunity",
-                                        style: blackStyle15().copyWith(
-                                            fontWeight: FontWeight.w300),
-                                      ),
-                                    ),
-                                    Spacer(),
-                                    Flexible(
-                                      flex: 2,
-                                      child: Text(
-                                        "₹ 25,00,000",
-                                        style: blackStyle14().copyWith(
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ),
-                                    Flexible(
-                                      flex: 2,
-                                      child: Text(
-                                        "Invested",
-                                        style: blackStyle14(),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 6.h,
-                                    )
-                                  ],
-                                ),
-                              ),
-                              Flexible(
-                                flex: 1,
-                                child: SizedBox(
-                                  height: 200,
-                                  width: 200,
-                                  child: DougnutChart(),
-                                ),
-                              ),
-                              SizedBox(
-                                width: 10.w,
-                              )
-                            ],
-                          ),
-                        ),
-                      ),
+                      itemCount: topPickData.length,
+                      itemBuilder: (context, index) {
+                        return topPickCard(
+                          
+                          text1: topPickData[index]["text1"],
+                          imagePath: topPickData[index]["imageUrl"],
+                          title: topPickData[index]["title"],
+                          add: topPickData[index]["add"],
+                        // /
+                        );
+                      }
+
+
+                      // Container(
+                      //   margin: EdgeInsets.all(5),
+                      //   width: Get.width * 0.85,
+                      //   child: Container(
+                      //     decoration: BoxDecoration(
+                      //         color: Color(0xFFFFFFFF),
+                      //         borderRadius: BorderRadius.circular(15),
+                      //         boxShadow: [
+                      //           BoxShadow(
+                      //             color: Colors.black.withOpacity(0.06),
+                      //             blurRadius: 10,
+                      //             spreadRadius: 2,
+                      //           )
+                      //         ]),
+                      //     child: Row(
+                      //       children: [
+                      //         Container(
+                      //           decoration: BoxDecoration(
+                      //             borderRadius: BorderRadius.only(
+                      //               topLeft: Radius.circular(15),
+                      //               bottomLeft: Radius.circular(15),
+                      //             ),
+                      //             color: Color(0xFF1B8DC9),
+                      //           ),
+                      //           width: 15.w,
+                      //         ),
+                      //         SizedBox(
+                      //           width: 30.w,
+                      //         ),
+                      //         Flexible(
+                      //           flex: 1,
+                      //           child: Column(
+                      //             mainAxisAlignment:
+                      //                 MainAxisAlignment.spaceEvenly,
+                      //             crossAxisAlignment: CrossAxisAlignment.start,
+                      //             children: [
+                      //               SizedBox(
+                      //                 height: 6.h,
+                      //               ),
+                      //               Flexible(
+                      //                 flex: 3,
+                      //                 child: Text(
+                      //                   "Chennai Office Opportunity",
+                      //                   style: blackStyle15().copyWith(
+                      //                       fontWeight: FontWeight.w300),
+                      //                 ),
+                      //               ),
+                      //               Spacer(),
+                      //               Flexible(
+                      //                 flex: 2,
+                      //                 child: Text(
+                      //                   "₹ 25,00,000",
+                      //                   style: blackStyle14().copyWith(
+                      //                       fontWeight: FontWeight.w500),
+                      //                 ),
+                      //               ),
+                      //               Flexible(
+                      //                 flex: 2,
+                      //                 child: Text(
+                      //                   "Invested",
+                      //                   style: blackStyle14(),
+                      //                 ),
+                      //               ),
+                      //               SizedBox(
+                      //                 height: 6.h,
+                      //               )
+                      //             ],
+                      //           ),
+                      //         ),
+                      //         Flexible(
+                      //           flex: 1,
+                      //           child: SizedBox(
+                      //             height: 200,
+                      //             width: 200,
+                      //             child: DougnutChart(),
+                      //           ),
+                      //         ),
+                      //         SizedBox(
+                      //           width: 10.w,
+                      //         )
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
+                  
                     ),
                   ),
                   // SizedBox(
@@ -1604,6 +1559,58 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget topPickCard({required String text1, required String imagePath, required String title, required String add}){
+    return Container(
+      width: 241.w,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(15.h),
+        border: Border.all(
+          width: 1.h,
+          color: AppColors.greyCFCFCF
+        )
+      ),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 14.h),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            text14Black(text1),
+    
+            sizedBoxHeight(5.h),
+      
+            Container(
+              width: double.infinity,
+              height: 100.h,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage(imagePath),
+                  fit: BoxFit.fill
+                )
+              ),
+            ),
+
+            text14Black(title),
+
+            Row(
+              // main
+              children: [
+                SvgPicture.asset("assets/logos/location.svg",
+                  height: 14.h,
+                  width: 10.w,
+                ),
+
+                Expanded(child: text14Grey707070(add))
+              ],
+            )
+
+          
+            // text14Grey272424(text)
+          ],
+        ),
+      )
     );
   }
 

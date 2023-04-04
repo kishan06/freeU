@@ -24,33 +24,49 @@ class _KYC1State extends State<KYC1> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      backgroundColor: Color(0xFFFFFFFF),
       appBar: CustomSignupAppBar(
-        titleTxt: "KYC",
+        titleTxt: "",
         bottomtext: false,
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: Center(
           child: Form(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Step 1 : Complete your KYC",
-                  style: TextStyle(
-                    fontSize: 20.sm,
-                    color: Color(0xFF143C6D),
-                  ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "KYC",
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 25.sp),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 20.h,
                 ),
                 Text(
+                  "Step 1 : Complete your KYC",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 22.sp,
+                    color: Color(0xFF143C6D),
+                  ),
+                ),
+                SizedBox(
+                  height: 16.h,
+                ),
+                Text(
                   "Personal Information",
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 18.sm,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
                   ),
@@ -62,113 +78,114 @@ class _KYC1State extends State<KYC1> {
                   "Provide your personal information as per your Bank Account",
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 16.sm,
-                    fontWeight: FontWeight.w300,
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w400,
                     color: Color(0xFF000000),
                   ),
                 ),
                 SizedBox(
-                  height: 20.h,
+                  height: 30.h,
                 ),
                 Text(
                   "Contact Number",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 15.sm,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
-                  height: 6.h,
+                  height: 15.h,
                 ),
                 CustomTextFormField(
                     hintText: "Please Enter Phone Number",
                     validatorText: "Please Enter Phone Number"),
                 SizedBox(
-                  height: 20.h,
+                  height: 25.h,
                 ),
                 Text(
                   "Email ID",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 15.sm,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
-                  height: 6.h,
+                  height: 15.h,
                 ),
                 CustomTextFormField(
                     hintText: "Please Enter Email Id",
                     validatorText: "Please Enter Email Id"),
-                SizedBox(height: 20.h),
+                SizedBox(height: 25.h),
                 Text(
                   "Residential Status",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 15.sm,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
-                  height: 6.h,
+                  height: 15.h,
                 ),
                 CustomTextDropdown(
                     item: ["1", "2", "3"],
                     controller: residentialstatustexteditingcontroller,
                     showDropDown: true),
-                SizedBox(height: 20.h),
+                SizedBox(height: 25.h),
                 Text(
                   "Date of Birth",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 15.sm,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
-                  height: 6.h,
+                  height: 15.h,
                 ),
                 CustomTextFormField(
                     hintText: "Please Enter Email Id",
                     validatorText: "Please Enter Email Id"),
-                SizedBox(height: 20.h),
+                SizedBox(height: 25.h),
                 Text(
                   "Occupation",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 15.sm,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
-                  height: 6.h,
+                  height: 15.h,
                 ),
                 CustomTextFormField(
                     hintText: "Please Enter Occupation",
                     validatorText: "Please Enter Occupation"),
-                SizedBox(height: 20.h),
+                SizedBox(height: 25.h),
                 Text(
                   "Father's Name",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 15.sm,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
-                  height: 6.h,
+                  height: 15.h,
                 ),
                 CustomTextFormField(
                     hintText: "Please Enter Father's Name",
                     validatorText: "Please Enter Father's Name"),
-                SizedBox(height: 40.h),
+                SizedBox(height: 60.h),
                 CustomNextButton(
                   text: "Continue",
                   ontap: () {
                     Get.toNamed('/kyc2');
                   },
-                )
+                ),
+                SizedBox(height: 30.h),
               ],
             ),
           ),
