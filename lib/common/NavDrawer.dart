@@ -559,7 +559,7 @@ class _NavDrawerState extends State<NavDrawer> {
                                     ),
                                   ),
                                   SizedBox(
-                                    height: 30.h,
+                                    height: 37.h,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(
@@ -577,7 +577,7 @@ class _NavDrawerState extends State<NavDrawer> {
                                         )),
                                   ),
                                   SizedBox(
-                                    height: 15.h,
+                                    height: 27.h,
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(
