@@ -57,17 +57,17 @@ class _NotificationPageState extends State<NotificationPage> {
         "subtitle": "2 days ago",
       },
       {
-        "image": "assets/images/Group 51533.svg",
-        "title": "Lorem Ipsum is simply dummy text of the printing .",
-        "subtitle": "2 days ago",
-      },
-      {
-        "image": "assets/images/Group 51534.svg",
+        "image": "assets/images/Group 51531.svg",
         "title": "Lorem Ipsum is simply dummy text of the printing .",
         "subtitle": "2 days ago",
       },
       {
         "image": "assets/images/Group 51535.svg",
+        "title": "Lorem Ipsum is simply dummy text of the printing .",
+        "subtitle": "2 days ago",
+      },
+      {
+        "image": "assets/images/Group 51534.svg",
         "title": "Lorem Ipsum is simply dummy text of the printing .",
         "subtitle": "2 days ago",
       },
@@ -125,7 +125,7 @@ class _NotificationPageState extends State<NotificationPage> {
                       height: 15,
                     ),
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.57,
+                      // height: MediaQuery.of(context).size.height * 0.57,
                       child: Padding(
                         padding: const EdgeInsets.only(left: 16),
                         child: ListView.separated(
