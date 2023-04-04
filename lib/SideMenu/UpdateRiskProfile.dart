@@ -27,9 +27,13 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
+        appBar: CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        backgroundColor: Color(0xFFFFFFFF),
         body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
           child: Center(
             child: Form(
               key: _form,
@@ -40,32 +44,17 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      GestureDetector(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: Icon(
-                            Icons.arrow_back,
-                            size: 24,
-                            color: Color(0xFF6B6B6B),
-                          )),
-                      SizedBox(
-                        width: 10.h,
-                      ),
                       Text(
-                        "Update Risk Profile",
-                        style:
-                            TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+                        "Security questions",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w500,
+                            fontSize: 25.sp),
                       ),
                     ],
                   ),
-                  SizedBox(height: 25.h,),
-                  SvgPicture.asset(
-                    'assets/images/risk.svg',
-                    // width: 120.w,
-                  ),
                   SizedBox(
-                    height: 20.h,
+                    height: 30.h,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -73,34 +62,33 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                       "Enter your First name ?",
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 16.sm,
-                          color: Color(0xff303030)),
+                          fontSize: 20.sp,
+                          color: Colors.black),
                     ),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 15.h,
                   ),
                   CustomTextFormField(hintText: "", validatorText: ""),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   SizedBox(
                     width: double.infinity,
                     child: Text(
                       "Enter your age?",
                       style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 16.sm,
-                        color: Color(0xff303030),
-                      ),
+                          fontFamily: 'Poppins',
+                          fontSize: 20.sp,
+                          color: Colors.black),
                     ),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 15.h,
                   ),
                   CustomTextFormField(hintText: "", validatorText: ""),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -108,32 +96,31 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                       "How would you describe your level of familiarity ?",
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 16.sm,
-                        color: Color(0xff303030),
-                      ),
+                          fontFamily: 'Poppins',
+                          fontSize: 20.sp,
+                          color: Colors.black),
                     ),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 15.h,
                   ),
                   CustomTextDropdown(
                       item: ["Beginner", "Competent", "Proficient", "Expert"],
                       controller: famailiarity,
                       showDropDown: true),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   Text(
                     "What is the primary reason you're interested in investing?",
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 16.sm,
-                      color: Color(0xff303030),
-                    ),
+                        fontFamily: 'Poppins',
+                        fontSize: 20.sp,
+                        color: Colors.black),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 15.h,
                   ),
                   CustomTextDropdown(item: [
                     "Building Wealth",
@@ -143,7 +130,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         "Holiday"
                   ], controller: investing, showDropDown: true),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -152,12 +139,12 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                       textAlign: TextAlign.left,
                       style: TextStyle(
                           fontFamily: 'Poppins',
-                          fontSize: 16.sm,
-                          color: Color(0xff303030)),
+                          fontSize: 20.sp,
+                          color: Colors.black),
                     ),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 15.h,
                   ),
                   CustomTextDropdown(item: [
                     "Below 25 Lacs",
@@ -166,7 +153,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                     "Above 50 Lacs"
                   ], controller: income, showDropDown: true),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -174,13 +161,13 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                       "How long do you plan to invest?",
                       textAlign: TextAlign.left,
                       style: TextStyle(
-                        fontSize: 16.sm,
-                        color: Color(0xff303030),
-                      ),
+                          fontFamily: 'Poppins',
+                          fontSize: 20.sp,
+                          color: Colors.black),
                     ),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 15.h,
                   ),
                   CustomTextDropdown(item: [
                     "Less than 3 years",
@@ -188,70 +175,69 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                     "6 - 10 years"
                   ], controller: invest, showDropDown: true),
                   SizedBox(
-                    height: 20.h,
+                    height: 25.h,
                   ),
                   Text(
                     "How much do you hope to invest on a monthly/yearly basis?",
                     style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 16.sm,
-                      color: Color(0xff303030),
-                    ),
+                        fontFamily: 'Poppins',
+                        fontSize: 20.sp,
+                        color: Colors.black),
                   ),
                   SizedBox(
-                    height: 6.h,
+                    height: 15.h,
                   ),
                   CustomTextDropdown(item: [
                     "5 Lakhs to 10 Lakhs",
                     "10 Lakhs to 25 Lakhs",
                   ], controller: basis, showDropDown: true),
                   SizedBox(
-                    height: 60.h,
+                    height: 50.h,
                   ),
                   CustomNextButton(
                       ontap: () {
-                  showModalBottomSheet(
-                    isScrollControlled: true,
-                    context: context,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(30),
-                        topRight: Radius.circular(30),
-                      ),
-                    ),
-                    builder: (context) {
-                      return Container(
-                        margin: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 24),
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            SizedBox(
-                              height: 10,
+                        showModalBottomSheet(
+                          isScrollControlled: true,
+                          context: context,
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(30),
+                              topRight: Radius.circular(30),
                             ),
-                            Image.asset('assets/images/kyc.png'),
-                            SizedBox(
-                              height: 30.h,
-                            ),
-                            Center(
-                              child: Text(
-                                'Thankyou for updating\n your KYC',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 20,
-                                    color: Colors.black),
+                          ),
+                          builder: (context) {
+                            return Container(
+                              margin: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 24),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Image.asset('assets/images/kyc.png'),
+                                  SizedBox(
+                                    height: 30.h,
+                                  ),
+                                  Center(
+                                    child: Text(
+                                      'Thankyou for updating your\n Risk Profile',
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 20,
+                                          color: Colors.black),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                ],
                               ),
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  );
-                },
+                            );
+                          },
+                        );
+                      },
                       text: "Submit"),
                 ],
               ),
