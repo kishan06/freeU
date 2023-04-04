@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/login/login.dart';
 import 'package:get/get.dart';
@@ -526,6 +527,7 @@ class _NavDrawerState extends State<NavDrawer> {
                           ),
                           builder: (context) {
                             return Container(
+                              color: Color(0xFFFEFEFE),
                               margin: const EdgeInsets.symmetric(
                                   horizontal: 16, vertical: 24),
                               child: Column(
@@ -549,10 +551,10 @@ class _NavDrawerState extends State<NavDrawer> {
                                   // ),
                                   Center(
                                     child: Text(
-                                      'Are you sure you want to log out?',
+                                      'Are you sure want to log out?',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          fontSize: 15.sm,
+                                          fontSize: 17.sm,
                                           color: Color(0xFF444444)),
                                     ),
                                   ),
@@ -584,7 +586,10 @@ class _NavDrawerState extends State<NavDrawer> {
                                     ),
                                     child: GestureDetector(
                                       onTap: () {
-                                        Get.toNamed("/homepage");
+                                        print("going to homepage");
+                                        //Get.off(HomePage());
+                                        Navigator.pop(context);
+                                        // Get.toNamed("/homepage");
                                       },
                                       child: Container(
                                         width: double.infinity,
@@ -599,12 +604,12 @@ class _NavDrawerState extends State<NavDrawer> {
                                             BoxShadow(
                                               color: Colors.grey,
                                               blurRadius:
-                                                  20.0, // soften the shadow
+                                                  1.0, // soften the shadow
                                               spreadRadius:
-                                                  2.0, //extend the shadow
+                                                  0, //extend the shadow
                                               offset: Offset(
-                                                3.0, // Move to right 5  horizontally
-                                                3.0, // Move to bottom 5 Vertically
+                                                0.0, // Move to right 5  horizontally
+                                                2.0, // Move to bottom 5 Vertically
                                               ),
                                             )
                                           ],
@@ -615,8 +620,8 @@ class _NavDrawerState extends State<NavDrawer> {
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                               fontFamily: 'Poppins',
-                                              fontSize: 16.sm,
-                                              color: Color(0xFF585858),
+                                              fontSize: 18.sm,
+                                              color: Colors.black,
                                             ),
                                           ),
                                         ),
