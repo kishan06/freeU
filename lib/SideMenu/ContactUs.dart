@@ -2,11 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/common/CustomTextDropDown.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
 class ContactUs extends StatefulWidget {
@@ -23,7 +22,7 @@ class _ContactUsState extends State<ContactUs> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
@@ -32,42 +31,31 @@ class _ContactUsState extends State<ContactUs> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: Icon(
-                            Icons.arrow_back,
-                            size: 24,
-                            color: Color(0xFF6B6B6B),
-                          )),
-                      SizedBox(
-                        width: 10.h,
-                      ),
-                      Text(
-                        "Contact Us",
-                        style:
-                            TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
-                      ),
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Get.back();
+                    },
+                    child: Icon(
+                      Icons.arrow_back,
+                      size: 24.sp,
+                    ),
                   ),
                   SizedBox(
                     height: 10.h,
                   ),
-                  Center(
-                      child: Image.asset("assets/images/contactusfinal.png")),
-                  SizedBox(
-                    height: 20.h,
+                  Text(
+                    "Contact us",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 25.sp,
+                        fontWeight: FontWeight.w500),
                   ),
+                  sizedBoxHeight(30.h),
                   Text(
                     "Name*",
-                    // ignore: prefer_const_constructors
                     style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 15.sm,
+                        fontSize: 20.sp,
                         color: Color(0xff303030)),
                   ),
                   SizedBox(
