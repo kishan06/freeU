@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
@@ -13,7 +14,6 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import 'AlternativeInvestment.dart';
 
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
