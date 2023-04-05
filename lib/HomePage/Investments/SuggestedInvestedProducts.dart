@@ -88,38 +88,125 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
     return Scaffold(
       key: _key,
       drawer: NavDrawer(),
-      backgroundColor: Color(0xFFF5F8FA),
-      appBar: CustomSignupAppBar(
-        titleTxt: "Suggested Invested Products",
-        showLeading: true,
-        bottomtext: false,
+      backgroundColor: Color(0xffffffff),
+      appBar: AppBar(
+        backgroundColor: Color(0xffffffff),
+        elevation: 0,
+        titleSpacing: 0,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+          ),
+          iconSize: 26,
+          color: Colors.black,
+        ),
       ),
+      // CustomSignupAppBar(
+      //   titleTxt: "Suggested Invested Products",
+      //   showLeading: true,
+      //   bottomtext: false,
+      // ),
       bottomNavigationBar:
           CreateBottomBar(stateBottomNav, "bottombar", context),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.only(left: 16.0, right: 16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                height: 15.h,
-              ),
-            common_crd_green(),
-            SizedBox(height: 10,),
-            common_crd_red(),
-            SizedBox(height: 10,),
-            common_crd_green(),
-            SizedBox(height: 10,),
-            common_crd_red(),
-            SizedBox(height: 10,),
-            common_crd_green(),
-            SizedBox(height: 10,),
-            common_crd_red(),
-            SizedBox(height: 10,),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Suggested invested products",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
+                ),
               ],
+            ),
           ),
-        ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: EdgeInsets.only(left: 16.0, right: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Flexible(
+                          fit: FlexFit.tight,
+                          flex: 4,
+                          child: Text(
+                            "Product",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 68),
+                          child: Text(
+                            "P & L",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(right: 10),
+                          child: Text(
+                            "Action",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    common_crd_green(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    common_crd_red(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    common_crd_green(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    common_crd_red(),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    // common_crd_green(),
+                    // SizedBox(
+                    //   height: 10,
+                    // ),
+                    // common_crd_red(),
+                    // SizedBox(
+                    //   height: 10,
+                    // ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -136,114 +223,131 @@ class common_crd_green extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(15)),
         border: Border.all(color: Color(0xffECECEC).withOpacity(1), width: 1),
         color: Color(0xFFFFFFFF),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x48B9B9BE),
+            blurRadius: 20.0,
+            spreadRadius: 0,
+            // offset: Offset(-20, -20,),
+          )
+        ],
       ),
-      child: Padding(
-        padding: EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-                flex: 0,
-                child: SvgPicture.asset(
-                  "assets/images/Ellipse 7489.svg",
-                  height: 60,
-                )),
-            Flexible(
-              flex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Product",
-                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Text(
-                    "Making India Atmanirbhar",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "Poppins",
-                        fontSize: 14.sm),
-                  )
-                ],
-              ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SvgPicture.asset("assets/images/investmentmyre (2).svg"),
+              ],
             ),
-            Flexible(
-              flex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "P & L",
-                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
-                  ),
-                  SizedBox(height: 10.h),
-                  Text(
-                    "₹25,000",
+          ),
+          SizedBox(
+            height: 8.h,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  fit: FlexFit.tight,
+                  flex: 4,
+                  child: Text(
+                    "Vaishnavi\nTech Park",
                     style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "Poppins",
-                        fontSize: 14.sm),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.arrow_upward,
-                        size: 15,
-                        color: Colors.green,
-                      ),
-                      Text(
-                        "5.6%",
-                        style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontSize: 12.sm,
-                            color: Colors.green),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-            Flexible(
-              flex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Action",
-                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
-                  ),
-                  SizedBox(height: 10.h),
-                  SizedBox(
-                    height: 35.h,
-                    width: 70.w,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        backgroundColor: Color(0xFF1B8DC9),
-                        //  color: Color(0xFFFFB600),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Icon(
-                        Icons.file_download_outlined,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {},
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w300,
+                      fontSize: 18.sp,
                     ),
                   ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(right: 84, bottom: 18),
+                //   child: SvgPicture.asset("assets/images/Investmentnumber.svg"),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.only(right: 20, bottom: 18),
+                //   child: GestureDetector(
+                //     onTap: () {
+                //       showModalBottomSheet(
+                //         isScrollControlled: true,
+                //         context: context,
+                //         shape: const RoundedRectangleBorder(
+                //           borderRadius: BorderRadius.only(
+                //             topLeft: Radius.circular(30),
+                //             topRight: Radius.circular(30),
+                //           ),
+                //         ),
+                //         builder: (context) {
+                //           return Container(
+                //             margin: const EdgeInsets.symmetric(
+                //                 horizontal: 16, vertical: 30),
+                //             child: Column(
+                //               mainAxisSize: MainAxisSize.min,
+                //               children: [
+                //                 SizedBox(
+                //                   height: 20.h,
+                //                 ),
+                //                 SvgPicture.asset(
+                //                     "assets/images/thankyouinvestment.svg"),
+                //                 SizedBox(
+                //                   height: 20,
+                //                 ),
+                //                 Padding(
+                //                   padding: const EdgeInsets.only(
+                //                       left: 15, right: 11),
+                //                   child: Text(
+                //                     'Thank You For Selling\n           Product',
+                //                     style: TextStyle(
+                //                         fontFamily: 'Poppins',
+                //                         fontSize: 30,
+                //                         color: Color(0xff0F0C0C),
+                //                         fontWeight: FontWeight.w500),
+                //                   ),
+                //                 ),
+                //                 SizedBox(
+                //                   height: 20.h,
+                //                 ),
+                //                 Padding(
+                //                   padding: const EdgeInsets.only(
+                //                       left: 40, right: 40),
+                //                   child: Text(
+                //                     'A FreeU Advisory Team will \n    get back to you soon.',
+                //                     style: TextStyle(
+                //                         fontFamily: 'Poppins',
+                //                         fontSize: 20,
+                //                         color: Color(0xff272424),
+                //                         fontWeight: FontWeight.w300),
+                //                   ),
+                //                 ),
+                //                 SizedBox(
+                //                   height: 30,
+                //                 ),
+                //               ],
+                //             ),
+                //           );
+                //         },
+                //       );
+                //     },
+                //     child: Text(
+                //       "Sell",
+                //       style: TextStyle(
+                //           decoration: TextDecoration.underline,
+                //           fontFamily: "Poppins",
+                //           color: Color(0xff143C6D),
+                //           fontSize: 18.sp),
+                //     ),
+                //   ),
+                // ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 16.h,
+          )
+        ],
       ),
     );
   }
@@ -260,114 +364,130 @@ class common_crd_red extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(15)),
         border: Border.all(color: Color(0xffECECEC).withOpacity(1), width: 1),
         color: Color(0xFFFFFFFF),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x48B9B9BE),
+            blurRadius: 20.0,
+            spreadRadius: 0,
+            // offset: Offset(-20, -20,),
+          )
+        ],
       ),
-      child: Padding(
-        padding: EdgeInsets.only(top: 10, bottom: 10, right: 10, left: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-                flex: 0,
-                child: SvgPicture.asset(
-                  "assets/images/Ellipse 7489.svg",
-                  height: 60,
-                )),
-            Flexible(
-              flex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Product",
-                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Text(
-                    "Making India Atmanirbhar",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "Poppins",
-                        fontSize: 14.sm),
-                  )
-                ],
-              ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 15,
             ),
-            Flexible(
-              flex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "P & L",
-                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
-                  ),
-                  SizedBox(height: 10.h),
-                  Text(
-                    "₹25,000",
-                    style: TextStyle(
-                        fontWeight: FontWeight.w300,
-                        fontFamily: "Poppins",
-                        fontSize: 14.sm),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.arrow_downward,
-                        size: 15,
-                        color: Colors.red,
-                      ),
-                      Text(
-                        "5.6%",
-                        style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontSize: 12.sm,
-                            color: Colors.red),
-                      )
-                    ],
-                  )
-                ],
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Image.asset("assets/images/hdfcinvestment (6).png"),
+              ],
             ),
-            Flexible(
-              flex: 1,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Action",
-                    style: TextStyle(fontFamily: "Poppins", fontSize: 16.sm),
+          ),
+          // SizedBox(
+          //   height: 8.h,
+          // ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "HDFC AMC\nSelect AIF FOF-1",
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w300,
+                    fontSize: 18.sp,
                   ),
-                  SizedBox(height: 10.h),
-                  SizedBox(
-                    height: 35.h,
-                    width: 70.w,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        backgroundColor: Color(0xFF1B8DC9),
-                        //  color: Color(0xFFFFB600),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),
-                      child: Icon(
-                        Icons.file_download_outlined,
-                        color: Colors.white,
-                      ),
-                      onPressed: () {},
-                    ),
-                  ),
-                ],
-              ),
-            )
-          ],
-        ),
+                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(right: 68, bottom: 18),
+                //   child:
+                //       SvgPicture.asset("assets/images/Investmentdecrement.svg"),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.only(right: 22, bottom: 18),
+                //   child: GestureDetector(
+                //     onTap: () {
+                //       showModalBottomSheet(
+                //         isScrollControlled: true,
+                //         context: context,
+                //         shape: const RoundedRectangleBorder(
+                //           borderRadius: BorderRadius.only(
+                //             topLeft: Radius.circular(30),
+                //             topRight: Radius.circular(30),
+                //           ),
+                //         ),
+                //         builder: (context) {
+                //           return Container(
+                //             margin: const EdgeInsets.symmetric(
+                //                 horizontal: 16, vertical: 30),
+                //             child: Column(
+                //               mainAxisSize: MainAxisSize.min,
+                //               children: [
+                //                 SizedBox(
+                //                   height: 20.h,
+                //                 ),
+                //                 SvgPicture.asset(
+                //                     "assets/images/thankyouinvestment.svg"),
+                //                 SizedBox(
+                //                   height: 20,
+                //                 ),
+                //                 Padding(
+                //                   padding: const EdgeInsets.only(
+                //                       left: 15, right: 11),
+                //                   child: Text(
+                //                     'Thank You For Selling\n           Product',
+                //                     style: TextStyle(
+                //                         fontFamily: 'Poppins',
+                //                         fontSize: 30,
+                //                         color: Color(0xff0F0C0C),
+                //                         fontWeight: FontWeight.w500),
+                //                   ),
+                //                 ),
+                //                 SizedBox(
+                //                   height: 20.h,
+                //                 ),
+                //                 Padding(
+                //                   padding: const EdgeInsets.only(
+                //                       left: 40, right: 40),
+                //                   child: Text(
+                //                     'A FreeU Advisory Team will \n    get back to you soon.',
+                //                     style: TextStyle(
+                //                         fontFamily: 'Poppins',
+                //                         fontSize: 20,
+                //                         color: Color(0xff272424),
+                //                         fontWeight: FontWeight.w300),
+                //                   ),
+                //                 ),
+                //                 SizedBox(
+                //                   height: 30,
+                //                 ),
+                //               ],
+                //             ),
+                //           );
+                //         },
+                //       );
+                //     },
+                //     child: Text(
+                //       "Sell",
+                //       style: TextStyle(
+                //           decoration: TextDecoration.underline,
+                //           fontFamily: "Poppins",
+                //           color: Color(0xff143C6D),
+                //           fontSize: 18.sp),
+                //     ),
+                //   ),
+                // ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 16.h,
+          )
+        ],
       ),
     );
   }
