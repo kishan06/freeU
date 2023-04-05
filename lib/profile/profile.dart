@@ -16,8 +16,7 @@ import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/profile/kyctabs2.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -33,54 +32,6 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   bool isSwitched = false;
-
-  void _selectedTab(int index) {
-    setState(() {
-      // _lastSelected = 'TAB: $index';
-      // print(_lastSelected);
-
-      switch (index) {
-        case 0:
-          {
-            Get.toNamed("/homepage");
-          }
-          break;
-
-        case 1:
-          {
-            Get.toNamed('/categoriesmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityFirst())));
-          }
-          break;
-
-        case 2:
-          {
-            Get.toNamed('/investmentmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
-          }
-          break;
-        case 3:
-          {
-            Get.toNamed('/chatpage');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => Login())));
-          }
-          break;
-        case 4:
-          {
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => SignUp())));
-          }
-          break;
-        default:
-          {
-            throw Error();
-          }
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -171,11 +122,40 @@ class profiletab extends StatefulWidget {
 }
 
 class _profiletabState extends State<profiletab> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController lastNameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController addressController = TextEditingController();
+
+  String? nameValue;
+  String? lastNameValue;
+  String? phoneValue;
+  String? emailValue;
+  String? addressValue;
   bool light = true;
   bool isSwitched = false;
-  File? _image;
+  File? image;
 
   bool editBool = false;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  void _submit() {
+    final FormState? form = _formKey.currentState;
+    if (form != null && form.validate()) {
+      form.save();
+      setState(() {
+        setState(() {
+          editBool = false;
+          nameValue = nameController.text;
+          lastNameValue = lastNameController.text;
+          phoneValue = phoneController.text;
+          emailValue = emailController.text;
+          addressValue = addressController.text;
+        });
+      });
+    }
+  }
 
   Future getImage(ImageSource source) async {
     try {
@@ -185,7 +165,7 @@ class _profiletabState extends State<profiletab> {
       // final imagePermanent = await saveFilePermanently(image.path);
 
       setState(() {
-        this._image = imageTemporary;
+        this.image = imageTemporary;
       });
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
@@ -305,177 +285,204 @@ class _profiletabState extends State<profiletab> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
-          child: editBool
-              ? editProfile()
-              : Column(
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        ClipOval(
-                          child: SizedBox.fromSize(
-                              size: Size.fromRadius(60.r),
-                              child: _image != null
-                                  ? Image.file(
-                                      _image!,
-                                      width: 200.w,
-                                      height: 200.h,
-                                      fit: BoxFit.cover,
-                                    )
-                                  : Image.asset('assets/images/user.png')),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Kartikey Adani',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 22,
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
+        body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
+            child: editBool
+                ? editProfile()
+                : Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          ClipOval(
+                            child: SizedBox.fromSize(
+                                size: Size.fromRadius(60.r),
+                                child: image != null
+                                    ? Image.file(
+                                        image!,
+                                        width: 200.w,
+                                        height: 200.h,
+                                        fit: BoxFit.cover,
+                                      )
+                                    : Image.asset('assets/images/user.png')),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: (() {
-                            setState(() {
-                              editBool = true;
-                            });
-                          }),
-                          child: SvgPicture.asset(
-                            'assets/images/Group 51018.svg',
-                            width: 20,
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 27.h,
-                    ),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Color(0xff002A5B),
-                          radius: 25.r,
-                          child: Icon(Icons.phone_in_talk_sharp),
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        Text(
-                          '8425025713',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 20.sp,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      height: 36.h,
-                      color: Colors.grey,
-                    ),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Color(0xff002A5B),
-                          radius: 25.r,
-                          child: Icon(Icons.mail_outline),
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        Text(
-                          'Kartikey@gmail.com',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 20.sp,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      height: 36.h,
-                      color: Colors.grey,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CircleAvatar(
-                          backgroundColor: Color(0xff002A5B),
-                          radius: 25.r,
-                          child: Icon(Icons.location_on_outlined),
-                        ),
-                        SizedBox(
-                          width: 22.w,
-                        ),
-                        Flexible(
-                          child: Column(
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
                             children: [
-                              sizedBoxHeight(10.h),
                               Text(
-                                '614, 6TH Floor, Palm Spring Centre, New Link Rd, Malad West, Mumbai, Maharashtra 400064',
+                                nameValue == null || nameValue!.isEmpty
+                                    ? 'Kartikey'
+                                    : '$nameValue',
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  fontSize: 20.sp,
+                                  fontSize: 22,
                                   fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                              sizedBoxWidth(8.w),
+                              Text(
+                                lastNameValue == null || lastNameValue!.isEmpty
+                                    ? 'Adani'
+                                    : '$lastNameValue',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 22,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
                             ],
                           ),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      height: 36.h,
-                      color: Colors.grey,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'SMS updates',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 20.sp,
-                            fontFamily: 'Poppins',
+                          GestureDetector(
+                            onTap: (() {
+                              setState(() {
+                                editBool = true;
+                              });
+                            }),
+                            child: SvgPicture.asset(
+                              'assets/images/Group 51018.svg',
+                              width: 20,
+                            ),
                           ),
-                        ),
-                        FlutterSwitch(
-                          switchBorder: Border.all(
-                            strokeAlign: BorderSide.strokeAlignCenter,
-                            style: BorderStyle.solid,
-                            width: 1,
-                            color: const Color(0xffCCCCCC),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 27.h,
+                      ),
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Color(0xff002A5B),
+                            radius: 25.r,
+                            child: Icon(Icons.phone_in_talk_sharp),
                           ),
-                          padding: 4.h,
-                          borderRadius: 20.r,
-                          width: 80.w,
-                          height: 30.h,
-                          toggleSize: 20.sp,
-                          toggleColor: const Color(0xff143C6D),
-                          activeColor: Colors.white,
-                          inactiveColor: const Color(0xffB1B1B1),
-                          value: light,
-                          onToggle: (value) {
-                            setState(() {
-                              light = value;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Text(
+                            phoneValue == null || phoneValue!.isEmpty
+                                ? '8425025713'
+                                : '$phoneValue',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              fontFamily: 'Poppins',
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        height: 36.h,
+                        color: Colors.grey,
+                      ),
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Color(0xff002A5B),
+                            radius: 25.r,
+                            child: Icon(Icons.mail_outline),
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Text(
+                            emailValue == null || emailValue!.isEmpty
+                                ? 'Kartikey@gmail.com'
+                                : '$emailValue',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              fontFamily: 'Poppins',
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        height: 36.h,
+                        color: Colors.grey,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Color(0xff002A5B),
+                            radius: 25.r,
+                            child: Icon(Icons.location_on_outlined),
+                          ),
+                          SizedBox(
+                            width: 22.w,
+                          ),
+                          Flexible(
+                            child: Column(
+                              children: [
+                                sizedBoxHeight(10.h),
+                                Text(
+                                  addressValue == null || addressValue!.isEmpty
+                                      ? '614, 6TH Floor, Palm Spring Centre, New Link Rd, Malad West, Mumbai, Maharashtra 400064'
+                                      : '$addressValue',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontFamily: 'Poppins',
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        height: 36.h,
+                        color: Colors.grey,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'SMS updates',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              fontFamily: 'Poppins',
+                            ),
+                          ),
+                          FlutterSwitch(
+                            switchBorder: Border.all(
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              style: BorderStyle.solid,
+                              width: 1,
+                              color: const Color(0xffCCCCCC),
+                            ),
+                            padding: 4.h,
+                            borderRadius: 20.r,
+                            width: 80.w,
+                            height: 30.h,
+                            toggleSize: 20.sp,
+                            toggleColor: const Color(0xff143C6D),
+                            activeColor: Colors.white,
+                            inactiveColor: const Color(0xffB1B1B1),
+                            value: light,
+                            onToggle: (value) {
+                              setState(() {
+                                light = value;
+                              });
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+          ),
         ),
       ),
     );
@@ -495,9 +502,9 @@ class _profiletabState extends State<profiletab> {
                   ClipOval(
                     child: SizedBox.fromSize(
                         size: Size.fromRadius(60.r),
-                        child: _image != null
+                        child: image != null
                             ? Image.file(
-                                _image!,
+                                image!,
                                 width: 200.w,
                                 height: 200.h,
                                 fit: BoxFit.cover,
@@ -539,7 +546,19 @@ class _profiletabState extends State<profiletab> {
             height: 15.h,
           ),
           CustomTextFormField(
-              hintText: 'Enter First Name', validatorText: 'Enter First Name'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a Username';
+                }
+                if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
+                  return 'Please enter a valid username (letters and numbers only)';
+                }
+                // v1 = true;
+                return null;
+              },
+              textEditingController: nameController,
+              hintText: 'Enter First Name',
+              validatorText: 'Enter First Name'),
           SizedBox(height: 20.h),
           Text(
             "Last Name",
@@ -552,7 +571,19 @@ class _profiletabState extends State<profiletab> {
             height: 6.h,
           ),
           CustomTextFormField(
-              hintText: 'Enter Last Name', validatorText: 'Enter Last Name'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a Username';
+                }
+                if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
+                  return 'Please enter a valid username (letters and numbers only)';
+                }
+                // v1 = true;
+                return null;
+              },
+              textEditingController: lastNameController,
+              hintText: 'Enter Last Name',
+              validatorText: 'Enter Last Name'),
           SizedBox(height: 20.h),
           Text(
             "Phone Number",
@@ -565,6 +596,18 @@ class _profiletabState extends State<profiletab> {
             height: 6.h,
           ),
           CustomTextFormField(
+              texttype: TextInputType.phone,
+              validator: (value) {
+                if (value == value.isEmpty) {
+                  return 'Mobile number is required';
+                } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
+                    .hasMatch(value)) {
+                  return 'Enter valid mobile number';
+                }
+                // v3 = true;
+                return null;
+              },
+              textEditingController: phoneController,
               hintText: 'Enter Phone Number',
               validatorText: 'Enter Phone Number'),
           SizedBox(height: 20.h),
@@ -579,7 +622,20 @@ class _profiletabState extends State<profiletab> {
             height: 6.h,
           ),
           CustomTextFormField(
-              hintText: 'Enter Email Id', validatorText: 'Enter Email Id '),
+              validator: (value) {
+                if (value == value.isEmpty) {
+                  return 'Please enter your email';
+                }
+                if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                    .hasMatch(value)) {
+                  return 'Please enter a valid email address';
+                }
+                // v4 = true;
+                return null;
+              },
+              textEditingController: emailController,
+              hintText: 'Enter Email Id',
+              validatorText: 'Enter Email Id '),
           SizedBox(height: 20.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -588,7 +644,7 @@ class _profiletabState extends State<profiletab> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
+                    children: [
                       Text(
                         'SMS updates',
                         textAlign: TextAlign.left,
@@ -598,12 +654,12 @@ class _profiletabState extends State<profiletab> {
                         ),
                       ),
                       SizedBox(
-                        width: 70,
+                        width: 70.w,
                       )
                     ],
                   ),
-                  const SizedBox(
-                    height: 10,
+                  SizedBox(
+                    height: 10.h,
                   ),
                   Row(
                     children: [
@@ -658,6 +714,7 @@ class _profiletabState extends State<profiletab> {
             height: 6.h,
           ),
           TextFormField(
+            controller: addressController,
             style: TextStyle(fontSize: 16.sp),
             cursorColor: const Color(0xFFFFB600),
             autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -698,9 +755,7 @@ class _profiletabState extends State<profiletab> {
           CustomNextButton(
             text: 'Update',
             ontap: (() {
-              setState(() {
-                editBool = false;
-              });
+              _submit();
             }),
           )
         ],

@@ -73,9 +73,9 @@ class _SplashsliderState extends State<Splashslider> {
                   itemBuilder: (_, i) {
                     if (i == 0) {
                       return page1();
-                    } else if(i == 1){
+                    } else if (i == 1) {
                       return page2();
-                    } else if(i == 2){
+                    } else if (i == 2) {
                       return page3();
                     } else {
                       return page4();
@@ -116,7 +116,6 @@ class _SplashsliderState extends State<Splashslider> {
                     //     ),
                     //   ],
                     // );
-                  
                   },
                 ),
               ),
@@ -124,20 +123,23 @@ class _SplashsliderState extends State<Splashslider> {
               // SizedBox(
               //   height: 15.h,
               // ),
-              CustomNextButton(
-                text: "Next",
-                ontap: () {
-                  setState(() {
-                    _controller.animateToPage(currentIndex + 1,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.linear);
-                    if (currentIndex == 3) {
-                      Get.toNamed('/login');
-                    }
-                  });
-                },
+              SizedBox(
+                width: 330.w,
+                child: CustomNextButton(
+                  text: "Next",
+                  ontap: () {
+                    setState(() {
+                      _controller.animateToPage(currentIndex + 1,
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.linear);
+                      if (currentIndex == 3) {
+                        Get.toNamed('/login');
+                      }
+                    });
+                  },
+                ),
               ),
-              
+
               SizedBox(
                 height: 20.h,
               ),
@@ -178,7 +180,7 @@ class _SplashsliderState extends State<Splashslider> {
     );
   }
 
-  Widget page1(){
+  Widget page1() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -188,14 +190,16 @@ class _SplashsliderState extends State<Splashslider> {
 
           sizedBoxHeight(15.h),
 
-          text18Grey("FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering the best risk adjusted returns to our investors."),
+          text18Grey(
+              "FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering the best risk adjusted returns to our investors."),
 
           sizedBoxHeight(37.h),
 
           Container(
             width: 180.h,
             height: 180.h,
-            child: Image.asset("assets/logos/bar-graph.png",
+            child: Image.asset(
+              "assets/logos/bar-graph.png",
               // width: 180.h,
               // height: 180.h,
               fit: BoxFit.fill,
@@ -207,7 +211,8 @@ class _SplashsliderState extends State<Splashslider> {
             child: Container(
               width: 153.h,
               height: 153.h,
-              child: Image.asset("assets/logos/economic-growth.png",
+              child: Image.asset(
+                "assets/logos/economic-growth.png",
                 // width: 153.h,
                 // height: 153.h,
                 fit: BoxFit.fill,
@@ -228,17 +233,18 @@ class _SplashsliderState extends State<Splashslider> {
     );
   }
 
-  Widget page2(){
+  Widget page2() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          text30BlackM("What are Alternative Assets?"),
+          text30BlackM("What are \nAlternative Assets?"),
 
           sizedBoxHeight(15.h),
 
-          text18Grey("As the name suggests, Alternative investments are financial investments that cannot be categorized as a traditional, or conventional investment."),
+          text18Grey(
+              "As the name suggests, Alternative investments are financial investments that cannot be categorized as a traditional, or conventional investment."),
 
           sizedBoxHeight(53.h),
 
@@ -246,14 +252,14 @@ class _SplashsliderState extends State<Splashslider> {
             child: Container(
               width: 250.h,
               height: 250.h,
-              child: Image.asset("assets/logos/allocation.png",
+              child: Image.asset(
+                "assets/logos/allocation.png",
                 // width: 250.h,
                 // height: 250.h,
                 fit: BoxFit.cover,
               ),
             ),
           ),
-
 
           // Text("dsf")
           // Text("FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering thebest risk adjusted returns to our investors.",
@@ -268,17 +274,19 @@ class _SplashsliderState extends State<Splashslider> {
     );
   }
 
-  Widget page3(){
+  Widget page3() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          text30BlackM("Difference between Alternative & Traditional Investments"),
+          text30BlackM(
+              "Difference between Alternative & \nTraditional Investments"),
 
           sizedBoxHeight(15.h),
 
-          text18Grey("Traditional investments are investments that can be bought, sold, and traded on a public market"),
+          text18Grey(
+              "Traditional investments are investments that can be bought, sold, and traded on a public market"),
 
           // sizedBoxHeight(30.h),
           const Spacer(),
@@ -290,7 +298,8 @@ class _SplashsliderState extends State<Splashslider> {
               Container(
                 width: 120.h,
                 height: 120.h,
-                child: Image.asset("assets/logos/money-bag.png",
+                child: Image.asset(
+                  "assets/logos/money-bag.png",
                   // width: 120.h,
                   // height: 120.h,
                   fit: BoxFit.cover,
@@ -308,8 +317,6 @@ class _SplashsliderState extends State<Splashslider> {
               //   width: 120.h,
               //   height: 120.h,
               // ),
-
-
             ],
           ),
 
@@ -320,7 +327,8 @@ class _SplashsliderState extends State<Splashslider> {
             child: Container(
               width: 130.h,
               height: 130.h,
-              child: Image.asset("assets/logos/real-estate.png",
+              child: Image.asset(
+                "assets/logos/real-estate.png",
                 // width: 130.h,
                 // height: 130.h,
                 fit: BoxFit.cover,
@@ -331,16 +339,16 @@ class _SplashsliderState extends State<Splashslider> {
           // sizedBoxHeight(15.h),
           const Spacer(),
 
-          text18Grey("Alternative investments, on the other hand, are not publicly traded."),
+          text18Grey(
+              "Alternative investments, on the other hand, are not publicly traded."),
 
           const Spacer(),
-
         ],
       ),
     );
   }
 
-  Widget page4(){
+  Widget page4() {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
@@ -350,7 +358,8 @@ class _SplashsliderState extends State<Splashslider> {
 
           sizedBoxHeight(15.h),
 
-          text18Grey("Freeu is one-stop shop for Alternate Investments. We want you to learn, compare, and choose before you invest. Luckily, we have curated the best of the best’s options for you"),
+          text18Grey(
+              "Freeu is one-stop shop for Alternate Investments. We want you to learn, compare, and choose before you invest. Luckily, we have curated the best of the best’s options for you"),
 
           sizedBoxHeight(50.h),
 
@@ -358,14 +367,14 @@ class _SplashsliderState extends State<Splashslider> {
             child: Container(
               width: 250.h,
               height: 250.h,
-              child: Image.asset("assets/logos/return-on-investment (1).png",
+              child: Image.asset(
+                "assets/logos/return-on-investment (1).png",
                 // width: 250.h,
                 // height: 250.h,
                 fit: BoxFit.cover,
               ),
             ),
           ),
-
 
           // Text("dsf")
           // Text("FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering thebest risk adjusted returns to our investors.",
@@ -379,5 +388,4 @@ class _SplashsliderState extends State<Splashslider> {
       ),
     );
   }
-
 }

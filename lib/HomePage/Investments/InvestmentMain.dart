@@ -1,10 +1,12 @@
 // ignore_for_file: file_names, prefer_const_constructors
 
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
+import 'package:freeu/common/Piechart.dart';
 import 'package:freeu/common/bottombar.dart';
 import 'package:get/get.dart';
 
@@ -34,13 +36,14 @@ class _InvestmentMainState extends State<InvestmentMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      backgroundColor: Color(0xffffffff),
+      //Color(0xffffffff)
       key: _key,
       drawer: NavDrawer(),
       //  backgroundColor: Color(0xFFFFFBF0),
       appBar: AppBar(
         title: Text(
-          'Investment',
+          'Your investments',
           softWrap: true,
           textAlign: TextAlign.center,
           style: TextStyle(
@@ -49,7 +52,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),
-        backgroundColor: Color(0xFFF5F8FA),
+        backgroundColor: Color(0xffffffff),
         elevation: 0,
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
@@ -91,10 +94,11 @@ class _InvestmentMainState extends State<InvestmentMain> {
                 height: 15.h,
               ),
               Stack(children: [
+                // PieChartSample1(),
                 SvgPicture.asset(
-                  "assets/images/graph.svg",
-                  height: 195.h,
-                  width: 370.w,
+                  "assets/images/Investmentgraph.svg",
+                  // height: 195.h,
+                  // width: 400.w,
                 ),
                 Positioned(
                   top: 20,
@@ -116,14 +120,14 @@ class _InvestmentMainState extends State<InvestmentMain> {
                           Text(
                             "₹3,43,50,000",
                             style: TextStyle(
-                                fontFamily: "Poppins", fontSize: 16.sm),
+                                fontFamily: "Poppins", fontSize: 16.sp),
                           ),
                           Text(
                             '+12.8%',
                             style: TextStyle(
                                 color: Colors.green,
                                 fontFamily: "Poppins",
-                                fontSize: 16.sm),
+                                fontSize: 16.sp),
                           )
                         ],
                       ),
@@ -141,7 +145,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                     "Current Investment",
                     style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 18.sm,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w500),
                   ),
                   GestureDetector(
@@ -152,14 +156,54 @@ class _InvestmentMainState extends State<InvestmentMain> {
                       "View All",
                       style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 16.sm,
+                        color: Color(0XFF000000),
+                        fontSize: 14.sp,
                       ),
                     ),
                   )
                 ],
               ),
               SizedBox(
-                height: 15.h,
+                height: 25.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    fit: FlexFit.tight,
+                    flex: 4,
+                    child: Text(
+                      "Product",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 80),
+                    child: Text(
+                      "P & L",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(
+                      "Action",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 20.h,
               ),
               Container(
                 decoration: BoxDecoration(
@@ -174,481 +218,335 @@ class _InvestmentMainState extends State<InvestmentMain> {
                     )
                   ],
                 ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(left: 11, right: 11, top: 15, bottom: 15),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15, top: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Product",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Profit & Loss",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 2,
-                            child: Text(
-                              "Action",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          )
+                          SvgPicture.asset(
+                              "assets/images/investmentmyre (2).svg"),
                         ],
                       ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Flexible(
                             fit: FlexFit.tight,
                             flex: 4,
                             child: Text(
-                              "Embassy Business Hub",
+                              "Vaishnavi\nTech Park",
                               style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w300,
-                                fontSize: 14.sm,
+                                fontSize: 18.sp,
                               ),
                             ),
                           ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: Text(
-                              "+₹25,000",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 86, bottom: 18),
+                            child: SvgPicture.asset(
+                                "assets/images/Investmentnumber.svg"),
                           ),
-                          Flexible(
-                            fit: FlexFit.loose,
-                            flex: 2,
-                            child: SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Text(
-                                  "Sell",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.white,
-                                      fontSize: 14.sm),
-                                ),
-                                onPressed: () {
-                                  showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    context: context,
-                                    shape: const RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(30),
-                                        topRight: Radius.circular(30),
-                                      ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 20, bottom: 18),
+                            child: GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  context: context,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(30),
+                                      topRight: Radius.circular(30),
                                     ),
-                                    builder: (context) {
-                                      return Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 16, vertical: 30),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Text(
-                                              'Thank You For Selling Product',
+                                  ),
+                                  builder: (context) {
+                                    return Container(
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 16, vertical: 30),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          SizedBox(
+                                            height: 20.h,
+                                          ),
+                                          SvgPicture.asset(
+                                              "assets/images/thankyouinvestment.svg"),
+                                          SizedBox(
+                                            height: 20,
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 15, right: 11),
+                                            child: Text(
+                                              'Thank You For Selling\n           Product',
                                               style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Color(0xff444444),
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 30,
+                                                  color: Color(0xff0F0C0C),
                                                   fontWeight: FontWeight.w500),
                                             ),
-                                            SizedBox(
-                                              height: 30,
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 20),
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(10)),
-                                                  color: Color.fromARGB(
-                                                      255, 240, 239, 239),
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      10.0),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Image.asset(
-                                                          'assets/images/freeulogin.png',
-                                                          width: 50,
-                                                          height: 50,
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Text(
-                                                          'A FreeU Advisory Team will get back to you soon via call or email',
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 30,
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Embassy Business Hub",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: Text(
-                              "+₹25,000",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.loose,
-                            flex: 2,
-                            child: SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Text(
-                                  "Sell",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.white,
-                                      fontSize: 14.sm),
-                                ),
-                                onPressed: () {
-                                  showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    context: context,
-                                    shape: const RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(30),
-                                        topRight: Radius.circular(30),
-                                      ),
-                                    ),
-                                    builder: (context) {
-                                      return Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 16, vertical: 30),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Text(
-                                              'Thank You For Selling Product',
+                                          ),
+                                          SizedBox(
+                                            height: 20.h,
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 40, right: 40),
+                                            child: Text(
+                                              'A FreeU Advisory Team will \n    get back to you soon.',
                                               style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Color(0xff444444),
-                                                  fontWeight: FontWeight.w500),
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 20,
+                                                  color: Color(0xff272424),
+                                                  fontWeight: FontWeight.w300),
                                             ),
-                                            SizedBox(
-                                              height: 30,
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 20),
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(10)),
-                                                  color: Color.fromARGB(
-                                                      255, 240, 239, 239),
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      10.0),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Image.asset(
-                                                          'assets/images/freeulogin.png',
-                                                          width: 50,
-                                                          height: 50,
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Text(
-                                                          'A FreeU Advisory Team will get back to you soon via call or email',
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 30,
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Embassy Business Hub",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: Text(
-                              "+₹25,000",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w300,
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.loose,
-                            flex: 2,
-                            child: SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Text(
-                                  "Sell",
-                                  style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      color: Colors.white,
-                                      fontSize: 14.sm),
-                                ),
-                                onPressed: () {
-                                  showModalBottomSheet(
-                                    isScrollControlled: true,
-                                    context: context,
-                                    shape: const RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(30),
-                                        topRight: Radius.circular(30),
+                                          ),
+                                          SizedBox(
+                                            height: 30,
+                                          ),
+                                        ],
                                       ),
-                                    ),
-                                    builder: (context) {
-                                      return Container(
-                                        margin: const EdgeInsets.symmetric(
-                                            horizontal: 16, vertical: 30),
-                                        child: Column(
-                                          mainAxisSize: MainAxisSize.min,
-                                          children: [
-                                            Text(
-                                              'Thank You For Selling Product',
-                                              style: TextStyle(
-                                                  fontSize: 18,
-                                                  color: Color(0xff444444),
-                                                  fontWeight: FontWeight.w500),
-                                            ),
-                                            SizedBox(
-                                              height: 30,
-                                            ),
-                                            Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                      horizontal: 20),
-                                              child: Container(
-                                                decoration: BoxDecoration(
-                                                  borderRadius:
-                                                      BorderRadius.all(
-                                                          Radius.circular(10)),
-                                                  color: Color.fromARGB(
-                                                      255, 240, 239, 239),
-                                                ),
-                                                child: Padding(
-                                                  padding: const EdgeInsets.all(
-                                                      10.0),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      Expanded(
-                                                        child: Image.asset(
-                                                          'assets/images/freeulogin.png',
-                                                          width: 50,
-                                                          height: 50,
-                                                        ),
-                                                      ),
-                                                      Expanded(
-                                                        child: Text(
-                                                          'A FreeU Advisory Team will get back to you soon via call or email',
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(
-                                              height: 30,
-                                            ),
-                                          ],
-                                        ),
-                                      );
-                                    },
-                                  );
-                                },
+                                    );
+                                  },
+                                );
+                              },
+                              child: Text(
+                                "Sell",
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontFamily: "Poppins",
+                                    color: Color(0xff143C6D),
+                                    fontSize: 18.sp),
                               ),
                             ),
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    )
+                  ],
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 12.h,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  color: Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x48B9B9BE),
+                      blurRadius: 20.0,
+                      spreadRadius: 0,
+                      // offset: Offset(-20, -20,),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset("assets/images/hdfcinvestment (6).png"),
+                        ],
+                      ),
+                    ),
+                    // SizedBox(
+                    //   height: 8.h,
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "HDFC AMC\nSelect AIF FOF-1",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w300,
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 78, bottom: 18),
+                            child: SvgPicture.asset(
+                                "assets/images/Investmentdecrement.svg"),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 21, bottom: 18),
+                            child: GestureDetector(
+                              onTap: () {
+                                showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  context: context,
+                                  shape: const RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(30),
+                                      topRight: Radius.circular(30),
+                                    ),
+                                  ),
+                                  builder: (context) {
+                                    return Container(
+                                      margin: const EdgeInsets.symmetric(
+                                          horizontal: 16, vertical: 30),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          SizedBox(
+                                            height: 20.h,
+                                          ),
+                                          SvgPicture.asset(
+                                              "assets/images/thankyouinvestment.svg"),
+                                          SizedBox(
+                                            height: 20,
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 15, right: 11),
+                                            child: Text(
+                                              'Thank You For Selling\n           Product',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 30,
+                                                  color: Color(0xff0F0C0C),
+                                                  fontWeight: FontWeight.w500),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 20.h,
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.only(
+                                                left: 40, right: 40),
+                                            child: Text(
+                                              'A FreeU Advisory Team will \n    get back to you soon.',
+                                              style: TextStyle(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 20,
+                                                  color: Color(0xff272424),
+                                                  fontWeight: FontWeight.w300),
+                                            ),
+                                          ),
+                                          SizedBox(
+                                            height: 30,
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
+                              child: Text(
+                                "Sell",
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontFamily: "Poppins",
+                                    color: Color(0xff143C6D),
+                                    fontSize: 18.sp),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 30.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Previously Invested Products",
+                    "Previously Invested\nProducts",
                     style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 18.sm,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w500),
                   ),
                   GestureDetector(
                     onTap: () {
                       Get.toNamed('/previouslyinvestedproducts');
                     },
-                    child: Text(
-                      "View All",
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 16.sm,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 30),
+                      child: Text(
+                        "View All",
+                        style: TextStyle(
+                          color: Color(0XFF000000),
+                          fontFamily: 'Poppins',
+                          fontSize: 14.sp,
+                        ),
                       ),
                     ),
                   )
                 ],
               ),
               SizedBox(
-                height: 15.h,
+                height: 25.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    fit: FlexFit.tight,
+                    flex: 4,
+                    child: Text(
+                      "Product",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 80),
+                    child: Text(
+                      "P & L",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(
+                      "Action",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 20.h,
               ),
               Container(
                 decoration: BoxDecoration(
@@ -663,247 +561,197 @@ class _InvestmentMainState extends State<InvestmentMain> {
                     )
                   ],
                 ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.only(left: 11, right: 11, top: 15, bottom: 15),
-                  child: Column(
-                    children: [
-                      Row(
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15, top: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SvgPicture.asset(
+                              "assets/images/investmentmyre (2).svg"),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Flexible(
                             fit: FlexFit.tight,
                             flex: 4,
                             child: Text(
-                              "Product",
+                              "Vaishnavi\nTech Park",
                               style: TextStyle(
                                 fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Profit & Loss",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 2,
-                            child: Text(
-                              "Action",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Embassy Business Hub",
-                              style: TextStyle(
                                 fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
+                                fontSize: 18.sp,
                               ),
                             ),
                           ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: Text(
-                              "+₹25,000",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 95, bottom: 18),
+                            child: SvgPicture.asset(
+                                "assets/images/Investmentnumber.svg"),
                           ),
-                          Flexible(
-                            fit: FlexFit.loose,
-                            flex: 2,
-                            child: SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.file_download_outlined,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {},
-                              ),
-                            ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 20, bottom: 18),
+                            child: SvgPicture.asset(
+                                "assets/images/downloadinvestment.svg"),
                           ),
                         ],
                       ),
-                      Divider(
-                        thickness: 1,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Embassy Business Hub",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: Text(
-                              "+₹25,000",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.loose,
-                            flex: 2,
-                            child: SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.file_download_outlined,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Embassy Business Hub",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: Text(
-                              "+₹25,000",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.loose,
-                            flex: 2,
-                            child: SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.file_download_outlined,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    )
+                  ],
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 12.h,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  color: Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x48B9B9BE),
+                      blurRadius: 20.0,
+                      spreadRadius: 0,
+                      // offset: Offset(-20, -20,),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset("assets/images/hdfcinvestment (6).png"),
+                        ],
+                      ),
+                    ),
+                    // SizedBox(
+                    //   height: 8.h,
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "HDFC AMC\nSelect AIF FOF-1",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w300,
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 86, bottom: 18),
+                            child: SvgPicture.asset(
+                                "assets/images/Investmentdecrement.svg"),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 17, bottom: 18),
+                            child: SvgPicture.asset(
+                                "assets/images/downloadinvestment.svg"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 30.h,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Suggested Invested Products",
+                    "Suggested Invested\nProducts",
                     style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 18.sm,
+                        fontSize: 20.sp,
                         fontWeight: FontWeight.w500),
                   ),
                   GestureDetector(
                     onTap: () {
                       Get.toNamed('/suggestedinvestedproducts');
                     },
-                    child: Text(
-                      "View All",
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 16.sm,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 30),
+                      child: Text(
+                        "View All",
+                        style: TextStyle(
+                          fontFamily: 'Poppins',
+                          color: Color(0XFF000000),
+                          fontSize: 14.sp,
+                        ),
                       ),
                     ),
                   )
                 ],
               ),
               SizedBox(
-                height: 15,
+                height: 25.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    fit: FlexFit.tight,
+                    flex: 4,
+                    child: Text(
+                      "Product",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 68),
+                    child: Text(
+                      "Return",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Text(
+                      "Action",
+                      style: TextStyle(
+                        fontFamily: 'Poppins',
+                        fontSize: 18.sp,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: 20.h,
               ),
               Container(
                 decoration: BoxDecoration(
@@ -918,227 +766,195 @@ class _InvestmentMainState extends State<InvestmentMain> {
                     )
                   ],
                 ),
-                child: Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Column(
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15, top: 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Product",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Profit & Loss",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 2,
-                            child: Text(
-                              "Action",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sm,
-                              ),
-                            ),
-                          )
+                          SvgPicture.asset(
+                              "assets/images/investmentmyre (2).svg"),
                         ],
                       ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Flexible(
                             fit: FlexFit.tight,
                             flex: 4,
                             child: Text(
-                              "Embassy Business Hub",
+                              "Vaishnavi\nTech Park",
                               style: TextStyle(
-                                fontWeight: FontWeight.w300,
                                 fontFamily: 'Poppins',
-                                fontSize: 14.sm,
+                                fontWeight: FontWeight.w300,
+                                fontSize: 18.sp,
                               ),
                             ),
                           ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: Text(
-                              "+₹25,000",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 64, bottom: 18),
+                            child: SvgPicture.asset(
+                                "assets/images/Investmentnumber.svg"),
                           ),
-                          Flexible(
-                            fit: FlexFit.loose,
-                            flex: 2,
-                            child: SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
+                          Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 10, bottom: 18),
+                              child: Column(
+                                children: [
+                                  SvgPicture.asset(
+                                      "assets/images/investmentthumbs-up-hand.svg"),
+                                  SizedBox(
+                                    height: 5.h,
                                   ),
-                                ),
-                                child: Icon(
-                                  Icons.thumb_up_alt_outlined,
-                                  color: Colors.white,
-                                ),
-                                // Text(
-                                //   "Sell",
-                                //   style: TextStyle(
-                                //       fontFamily: "Poppins",
-                                //       color: Colors.white,
-                                //       fontSize: 14.sm),
-                                // ),
-                                onPressed: () {},
-                              ),
-                            ),
+                                  Text(
+                                    "Yes",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Color(0XFF000000),
+                                    ),
+                                  )
+                                ],
+                              )),
+                          SizedBox(
+                            width: 5,
                           ),
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Embassy Business Hub",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: Text(
-                              "+₹25,000",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.loose,
-                            flex: 2,
-                            child: SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
+                          Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 10, bottom: 18),
+                              child: Column(
+                                children: [
+                                  SvgPicture.asset(
+                                      "assets/images/investmentthumbs-down-hand.svg"),
+                                  SizedBox(
+                                    height: 5.h,
                                   ),
-                                ),
-                                child: Icon(
-                                  Icons.thumb_up_alt_outlined,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ),
+                                  Text(
+                                    "No",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Color(0XFF000000),
+                                    ),
+                                  )
+                                ],
+                              )),
                         ],
                       ),
-                      Divider(
-                        thickness: 1,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 4,
-                            child: Text(
-                              "Embassy Business Hub",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.tight,
-                            flex: 3,
-                            child: Text(
-                              "+₹25,000",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontFamily: 'Poppins',
-                                fontSize: 14.sm,
-                              ),
-                            ),
-                          ),
-                          Flexible(
-                            fit: FlexFit.loose,
-                            flex: 2,
-                            child: SizedBox(
-                              height: 35.h,
-                              width: 70.w,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                  elevation: 0,
-                                  backgroundColor: Color(0xFF1B8DC9),
-                                  //  color: Color(0xFFFFB600),
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                child: Icon(
-                                  Icons.thumb_up_alt_outlined,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {},
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    )
+                  ],
                 ),
               ),
               SizedBox(
-                height: 15.h,
-              )
+                height: 12.h,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  color: Color(0xffffffff),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color(0x48B9B9BE),
+                      blurRadius: 20.0,
+                      spreadRadius: 0,
+                      // offset: Offset(-20, -20,),
+                    )
+                  ],
+                ),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: 15,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset("assets/images/hdfcinvestment (6).png"),
+                        ],
+                      ),
+                    ),
+                    // SizedBox(
+                    //   height: 8.h,
+                    // ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 15),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "HDFC AMC\nSelect AIF FOF-1",
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w300,
+                              fontSize: 18.sp,
+                            ),
+                          ),
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 54, bottom: 18),
+                            child: SvgPicture.asset(
+                                "assets/images/Investmentdecrement.svg"),
+                          ),
+                          Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 10, bottom: 18),
+                              child: Column(
+                                children: [
+                                  SvgPicture.asset(
+                                      "assets/images/investmentthumbs-up-hand.svg"),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Text(
+                                    "Yes",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Color(0XFF000000),
+                                    ),
+                                  )
+                                ],
+                              )),
+                          Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 10, bottom: 18),
+                              child: Column(
+                                children: [
+                                  SvgPicture.asset(
+                                      "assets/images/investmentthumbs-down-hand.svg"),
+                                  SizedBox(
+                                    height: 5.h,
+                                  ),
+                                  Text(
+                                    "No",
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Color(0XFF000000),
+                                    ),
+                                  )
+                                ],
+                              )),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 16.h,
+                    )
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 45.h,
+              ),
             ],
           ),
         ),
