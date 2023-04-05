@@ -222,8 +222,10 @@ class _CategoriesMainState extends State<CategoriesMain> {
         titleSpacing: 0,
       ),
 
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "Bottombarcategoies", context),
+    
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "Bottombarcategoies", context),
+
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: InkWell(
