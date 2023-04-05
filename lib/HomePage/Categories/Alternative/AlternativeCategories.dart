@@ -118,7 +118,9 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                         horizontal: 16,
                       ),
                       child: GestureDetector(
-                        onTap: null,
+                        onTap: () {
+                          Get.toNamed('/altenativecategories2');
+                        },
                         child: Container(
                          
                           decoration: BoxDecoration(

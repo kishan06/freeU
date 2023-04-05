@@ -45,6 +45,8 @@ import 'package:freeu/profile/kyctabs2.dart';
 import 'package:freeu/profile/kyctabs3.dart';
 import 'package:freeu/profile/kyctabs4.dart';
 import 'package:freeu/profile/profile.dart';
+import 'package:freeu/screens/main_screen.dart';
+import 'package:freeu/screens/side_menu.dart';
 import 'package:freeu/signUp/CompleteProfile.dart';
 import 'package:freeu/signUp/SecurityFirst.dart';
 import 'package:freeu/signUp/SecurityQuestion.dart';
@@ -53,6 +55,8 @@ import 'package:freeu/signUp/signUp.dart';
 import 'package:freeu/login/splash.dart';
 import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
+
+import 'HomePage/Categories/Alternative/AlternativeCategories2.dart';
 
 int bottomIndex = 0;
 
@@ -80,13 +84,16 @@ class _MyAppState extends State<MyApp> {
       builder: (BuildContext context, Widget? child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'FreeU',
-        initialRoute: '/',
+        initialRoute: '/MainScreen',
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.white,
           fontFamily: "Poppins",
         ),
         getPages: [
+          GetPage(name: '/SideMenu', page: () => SideMenu()),
           // GetPage(name: '/', page: () => Splash()),
+          GetPage(name: '/MainScreen', page: () => MainScreen()),
+          
           // GetPage(name: '/splash', page: () => Splash()),
           GetPage(name: '/', page: () => Splashslider()),
           GetPage(name: '/login', page: () => Login()),
@@ -147,7 +154,11 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/kyctab4', page: () => KYCTabs4()),
           GetPage(name: '/userlogged', page: () => User()),
           GetPage(name: '/altenativecategories', page: () => AlternativeCategories()),
+
           GetPage(name: '/privateequity', page: () => PrvateEquity()),
+
+          GetPage(name: '/altenativecategories2', page: () => AlternativeCategories2()),
+
         ],
       ),
       designSize: Size(390, 844),
