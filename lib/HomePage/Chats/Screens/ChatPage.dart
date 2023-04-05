@@ -128,87 +128,105 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      backgroundColor: Color(0xFFF5F8FA),
+      backgroundColor: Colors.white,
       drawer: NavDrawer(),
-      appBar: AppBar(
-        title: Text(
-          'Chats',
-          softWrap: true,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 19.sm,
-              fontWeight: FontWeight.w400,
-              color: Colors.black),
-        ),
-        backgroundColor: Colors.white,
-        elevation: 2,
-        shadowColor: Colors.black,
-        automaticallyImplyLeading: false,
-        titleSpacing: 0,
-        leading: Row(
+      bottomNavigationBar:
+          CreateBottomBar(stateBottomNav, "Bottombarchat", context),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(120.h),
+        child: Column(
           children: [
-            IconButton(
-              onPressed: () {
-                _key.currentState!.openDrawer();
-              },
-              icon: SvgPicture.asset("assets/images/menu.svg"),
-              color: Colors.black,
-              iconSize: 25,
+            AppBar(
+              title: Text(
+                'Chats',
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22.sp,
+                    fontWeight: FontWeight.w400,
+                    color: Colors.black),
+              ),
+              backgroundColor: Colors.white,
+              elevation: 0,
+              shadowColor: Colors.black,
+              automaticallyImplyLeading: false,
+              titleSpacing: 0,
+              leading: Row(
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      _key.currentState!.openDrawer();
+                    },
+                    icon: SvgPicture.asset("assets/images/menu.svg"),
+                    color: Colors.black,
+                    iconSize: 25.sp,
+                  ),
+                ],
+              ),
+              actions: [
+                Icon(
+                  Icons.more_vert_rounded,
+                  color: Colors.blueAccent,
+                  size: 25.sp,
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(left: 16.w, right: 16.w),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search Chats",
+                  hintStyle:
+                      TextStyle(color: Colors.grey.shade600, fontSize: 16.sp),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black,
+                    size: 20.sp,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding: EdgeInsets.all(10.h),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.sp),
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.sp),
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                ),
+              ),
             ),
           ],
         ),
-        actions: [
-          Icon(
-            Icons.more_vert_rounded,
-            color: Colors.black87,
-          ),
-        ],
       ),
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "Bottombarchat", context),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 // CustomAppBarWithNotification(titleTxt: "Chats"),
-                Padding(
-                  padding: EdgeInsets.only(top: 16, left: 16, right: 16),
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: "Search...",
-                      hintStyle: TextStyle(color: Colors.grey.shade600),
-                      prefixIcon: Icon(
-                        Icons.search,
-                        color: Colors.grey.shade600,
-                        size: 20,
+
+                ListView.separated(
+                  separatorBuilder: (context, index) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
+                      child: Divider(
+                        thickness: 1.2.h,
                       ),
-                      filled: true,
-                      fillColor: Colors.white,
-                      contentPadding: EdgeInsets.all(8),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(
-                          color: Colors.grey.shade100,
-                        ),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20),
-                        borderSide: BorderSide(
-                          color: Colors.grey.shade100,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                ListView.builder(
+                    );
+                  },
                   itemCount: chatUsers.length,
                   shrinkWrap: true,
-                  padding: EdgeInsets.only(top: 16),
-                  physics: NeverScrollableScrollPhysics(),
+                  padding: EdgeInsets.only(top: 16.h),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (context, index) {
                     return ConversationList(
                       name: chatUsers[index].name,
