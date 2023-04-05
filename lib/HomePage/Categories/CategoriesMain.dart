@@ -13,6 +13,8 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'AlternativeInvestment.dart';
+
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
 
@@ -99,8 +101,6 @@ class _CategoriesMainState extends State<CategoriesMain> {
       "imageUrl": "assets/newImages/cat10.png",
       "title": "High Yield Finance",
     },
-    
-    
   ];
 
   // List categoryData = home
@@ -167,8 +167,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
       // backgroundColor: Color(0xFFF5F8FA),
       appBar: AppBar(
         backgroundColor: AppColors.white,
-        title: 
-        Row(
+        title: Row(
           children: [
             IconButton(
               onPressed: () {
@@ -177,7 +176,8 @@ class _CategoriesMainState extends State<CategoriesMain> {
               icon: SizedBox(
                 height: 20.h,
                 width: 25.w,
-                child: SvgPicture.asset("assets/images/menu.svg",
+                child: SvgPicture.asset(
+                  "assets/images/menu.svg",
                   // height: 20.h,
                   // width: 10.w,
                   fit: BoxFit.fill,
@@ -186,9 +186,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
               // color: Colors.red,
               // iconSize: 100.h,
             ),
-
             sizedBoxWidth(5.w),
-
             Text(
               'Categories',
               softWrap: true,
@@ -199,9 +197,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
                   // fontWeight: FontWeight.w400,
                   color: Colors.black),
             ),
-
             Spacer(),
-
             IconButton(
               onPressed: () {
                 Get.toNamed('/notificationpage');
@@ -224,99 +220,99 @@ class _CategoriesMainState extends State<CategoriesMain> {
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
-      
       ),
-    
+
       bottomNavigationBar:
           CreateBottomBar(stateBottomNav, "Bottombarcategoies", context),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: GridView.builder(
-          // shrinkWrap: true,
-          // physics: NeverScrollableScrollPhysics(),
-          itemCount: categoryData.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 0.7/0.4,
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.w,
-            mainAxisSpacing: 15.w,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            return categoryCard(
-              color1: categoryData[index]["colorL"],
-              color2: categoryData[index]["colorD"],
-              bgImage: categoryData[index]["bgImage"],
-              image: categoryData[index]["imageUrl"],
-              text: categoryData[index]["title"],
-            );
-            // InkWell(
-            //   onTap: () {
-            //     Get.toNamed("/InspirationRecipeComment");
-            //   },
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //         image: DecorationImage(
-            //             image: index.isEven
-            //                 ? AssetImage("assets/home/17.png")
-            //                 : AssetImage("assets/home/12.png"),
-            //             fit: BoxFit.cover
-            //             // Image.asset("name")
-            //             )),
-            //   ),
-            // );
-         
+        child: InkWell(
+          onTap: () {
+            Get.to(AlternativeInsvestment());
           },
+          child: GridView.builder(
+            // shrinkWrap: true,
+            // physics: NeverScrollableScrollPhysics(),
+            itemCount: categoryData.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 0.7 / 0.4,
+              crossAxisCount: 2,
+              crossAxisSpacing: 15.w,
+              mainAxisSpacing: 15.w,
+            ),
+            itemBuilder: (BuildContext context, int index) {
+              return categoryCard(
+                color1: categoryData[index]["colorL"],
+                color2: categoryData[index]["colorD"],
+                bgImage: categoryData[index]["bgImage"],
+                image: categoryData[index]["imageUrl"],
+                text: categoryData[index]["title"],
+              );
+              // InkWell(
+              //   onTap: () {
+              //     Get.toNamed("/InspirationRecipeComment");
+              //   },
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //         image: DecorationImage(
+              //             image: index.isEven
+              //                 ? AssetImage("assets/home/17.png")
+              //                 : AssetImage("assets/home/12.png"),
+              //             fit: BoxFit.cover
+              //             // Image.asset("name")
+              //             )),
+              //   ),
+              // );
+            },
+          ),
         ),
       ),
     );
   }
 
-  Widget categoryCard({
-    required Color color1,
-    required Color color2,
-    required String bgImage,
-    required String image,
-    required String text
-  }){
+  Widget categoryCard(
+      {required Color color1,
+      required Color color2,
+      required String bgImage,
+      required String image,
+      required String text}) {
     return Stack(
       children: [
         Container(
           // color: ,
           // width: 169.w,
           decoration: BoxDecoration(
-              gradient: LinearGradient(
+            gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [color1, color2]
-              ),
-              borderRadius: BorderRadius.circular(10.h),
-            ),
+                colors: [color1, color2]),
+            borderRadius: BorderRadius.circular(10.h),
+          ),
         ),
-
         Positioned(
           right: 0,
-          child: SvgPicture.asset(bgImage,
+          child: SvgPicture.asset(
+            bgImage,
             // width: 65.w,
             // height: 133.h,
           ),
         ),
-
         SizedBox(
           // width: 169.w,
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 10.h),
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                  
-                Image.asset(image,
+                Image.asset(
+                  image,
                   height: 45.h,
                   width: 45.h,
                 ),
 
                 // Spacer(),
-          
+
                 text14White(text)
               ],
             ),
@@ -324,7 +320,5 @@ class _CategoriesMainState extends State<CategoriesMain> {
         )
       ],
     );
-             
   }
-
 }
