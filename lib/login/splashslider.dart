@@ -123,8 +123,8 @@ class _SplashsliderState extends State<Splashslider> {
               // SizedBox(
               //   height: 15.h,
               // ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 25.w),
+              SizedBox(
+                width: 330.w,
                 child: CustomNextButton(
                   text: "Next",
                   ontap: () {
@@ -239,7 +239,7 @@ class _SplashsliderState extends State<Splashslider> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          text30BlackM("What are Alternative Assets?"),
+          text30BlackM("What are \nAlternative Assets?"),
 
           sizedBoxHeight(15.h),
 
@@ -281,7 +281,7 @@ class _SplashsliderState extends State<Splashslider> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           text30BlackM(
-              "Difference between Alternative & Traditional Investments"),
+              "Difference between Alternative & \nTraditional Investments"),
 
           sizedBoxHeight(15.h),
 

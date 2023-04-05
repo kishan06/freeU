@@ -71,9 +71,13 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
                 ],
               ),
             ),
-            const Align(
+             Align(
               alignment: Alignment.bottomCenter,
-              child: CustomNextButton(text: 'View Categories'),
+              child: CustomNextButton(text: 'View Categories',
+              ontap: () {
+                  Get.toNamed("/altenativecategories");
+                },
+              ),
             )
           ]),
         ),

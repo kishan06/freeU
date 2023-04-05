@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty1.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty2.dart';
@@ -144,6 +145,7 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/kyctab3', page: () => KYCTabs3()),
           GetPage(name: '/kyctab4', page: () => KYCTabs4()),
           GetPage(name: '/userlogged', page: () => User()),
+          GetPage(name: '/altenativecategories', page: () => AlternativeCategories()),
         ],
       ),
       designSize: Size(390, 844),
