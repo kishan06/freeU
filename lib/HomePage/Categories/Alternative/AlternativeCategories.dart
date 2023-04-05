@@ -65,8 +65,8 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                       child: GestureDetector(
                         onTap: null,
                         child: Container(
-                          width: 358,
-                          height: 325,
+                          // width: 358.w,
+                          // height: 325.h,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xff002555),
@@ -93,7 +93,8 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                 ),
                                 SizedBox(height: 21.h),
                                 Text(
-                                  "Alternative Investment \n        Funds Category I",
+                                  "Alternative Investment Funds Category I",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 25.sp,
@@ -119,8 +120,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                       child: GestureDetector(
                         onTap: null,
                         child: Container(
-                          width: 358,
-                          height: 325,
+                         
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xffB23C7E),
@@ -147,7 +147,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                 ),
                                 SizedBox(height: 21.h),
                                 Text(
-                                  "Alternative Investment \n    Funds Category II",
+                                  "Alternative Investment Funds Category II",textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 25.sp,
@@ -171,8 +171,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                         horizontal: 16,
                       ),
                       child: Container(
-                        width: 358,
-                        height: 325,
+                     
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color(0xff008A5B),
@@ -199,7 +198,8 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                               ),
                               SizedBox(height: 21.h),
                               Text(
-                                "Alternative Investment \n    Funds Category III",
+                                "Alternative Investment Funds Category III",
+                                textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontFamily: "Poppins",
                                     fontSize: 25.sp,
