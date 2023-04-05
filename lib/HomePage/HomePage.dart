@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/Utils/texts.dart';
@@ -68,7 +69,6 @@ class _HomePageState extends State<HomePage> {
       "title": "Tata Consultancy\nServices",
       "add": "Banyan Park,\nMumbai",
     },
-
   ];
 
   List categoryData = [
@@ -143,10 +143,7 @@ class _HomePageState extends State<HomePage> {
       "imageUrl": "assets/newImages/cat10.png",
       "title": "High Yield Finance",
     },
-    
-    
   ];
-  
 
   void _selectedTab(int index) {
     setState(() {
@@ -195,11 +192,9 @@ class _HomePageState extends State<HomePage> {
       key: _key,
       drawer: NavDrawer(),
       // backgroundColor: Color(0xFFF5F8FA),
-      appBar: 
-      AppBar(
+      appBar: AppBar(
         backgroundColor: AppColors.white,
-        title: 
-        Row(
+        title: Row(
           children: [
             IconButton(
               onPressed: () {
@@ -208,7 +203,8 @@ class _HomePageState extends State<HomePage> {
               icon: SizedBox(
                 height: 20.h,
                 width: 25.w,
-                child: SvgPicture.asset("assets/images/menu.svg",
+                child: SvgPicture.asset(
+                  "assets/images/menu.svg",
                   // height: 20.h,
                   // width: 10.w,
                   fit: BoxFit.fill,
@@ -217,9 +213,7 @@ class _HomePageState extends State<HomePage> {
               // color: Colors.red,
               // iconSize: 100.h,
             ),
-
             sizedBoxWidth(5.w),
-
             Text(
               'Welcome',
               softWrap: true,
@@ -230,9 +224,7 @@ class _HomePageState extends State<HomePage> {
                   // fontWeight: FontWeight.w400,
                   color: Colors.black),
             ),
-
             Spacer(),
-
             IconButton(
               onPressed: () {
                 Get.toNamed('/notificationpage');
@@ -255,7 +247,6 @@ class _HomePageState extends State<HomePage> {
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
-      
       ),
       bottomNavigationBar:
           CreateBottomBar(stateBottomNav, "BottombarHomepage", context),
@@ -274,9 +265,8 @@ class _HomePageState extends State<HomePage> {
                     color: AppColors.blue143C6D,
                     borderRadius: BorderRadius.circular(15.h),
                     image: DecorationImage(
-                      image: AssetImage("assets/newImages/Group 51336.png"),
-                      fit: BoxFit.fill
-                    )
+                        image: AssetImage("assets/newImages/Group 51336.png"),
+                        fit: BoxFit.fill)
                     // boxShadow: [
                     //   BoxShadow(
                     //     color: Colors.black.withOpacity(0.06),
@@ -284,14 +274,15 @@ class _HomePageState extends State<HomePage> {
                     //     spreadRadius: 2,
                     //   )
                     // ]
-                  ),
+                    ),
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
                   child: Column(
                     children: [
-                
                       // Image.asset(name)
-                      SvgPicture.asset("assets/newImages/quotes-svgrepo-com.svg",
+                      SvgPicture.asset(
+                        "assets/newImages/quotes-svgrepo-com.svg",
                         width: 24.w,
                         height: 15.h,
                       ),
@@ -299,16 +290,14 @@ class _HomePageState extends State<HomePage> {
                       Spacer(),
 
                       // Text(data)
-                      text16White("We do not just provide you options. We want you to learn about the ones best suited for your needs.",
-                        textAlign: TextAlign.center
-                      )
-
-                   
+                      text16White(
+                          "We do not just provide you options. We want you to learn about the ones best suited for your needs.",
+                          textAlign: TextAlign.center)
                     ],
                   ),
                 ),
               ),
-             
+
               SizedBox(
                 height: 15.h,
               ),
@@ -319,9 +308,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       text20Black("Top Picks"),
-
                       text14Grey272424("View more")
-
                     ],
                   ),
                   SizedBox(
@@ -330,22 +317,22 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 285.h,
                     child: ListView.separated(
-                      separatorBuilder: (_,index){
-                        return index == topPickData.length ? SizedBox() : sizedBoxWidth(20.w);
-                      },
-                      scrollDirection: Axis.horizontal,
-                      itemCount: topPickData.length,
-                      itemBuilder: (context, index) {
-                        return topPickCard(
-                          
-                          text1: topPickData[index]["text1"],
-                          imagePath: topPickData[index]["imageUrl"],
-                          title: topPickData[index]["title"],
-                          add: topPickData[index]["add"],
-                        // /
-                        );
-                      }
-                    ),
+                        separatorBuilder: (_, index) {
+                          return index == topPickData.length
+                              ? SizedBox()
+                              : sizedBoxWidth(20.w);
+                        },
+                        scrollDirection: Axis.horizontal,
+                        itemCount: topPickData.length,
+                        itemBuilder: (context, index) {
+                          return topPickCard(
+                            text1: topPickData[index]["text1"],
+                            imagePath: topPickData[index]["imageUrl"],
+                            title: topPickData[index]["title"],
+                            add: topPickData[index]["add"],
+                            // /
+                          );
+                        }),
                   ),
                 ],
               ),
@@ -360,29 +347,39 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 133.h,
                 child: ListView.separated(
-                  separatorBuilder: (_,index){
-                    return index == 2 ? SizedBox() : sizedBoxWidth(20.w);
-                  },
-                  scrollDirection: Axis.horizontal,
-                  itemCount: 2,
-                  itemBuilder: (context, index) {
-                    return categoryCard(
-                      color1: categoryData[index]["colorL"],
-                      color2: categoryData[index]["colorD"],
-                      bgImage: categoryData[index]["bgImage"],
-                      image: categoryData[index]["imageUrl"],
-                      text: categoryData[index]["title"],
-                    );
-                  }
-                ),
+                    separatorBuilder: (_, index) {
+                      return index == 2 ? SizedBox() : sizedBoxWidth(20.w);
+                    },
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 2,
+                    itemBuilder: (context, index) {
+                      return GestureDetector(
+                        onTap: () {
+                          var screen;
+                          switch (index) {
+                            case 0:
+                              screen = AlternativeInsvestment();
+
+                              break;
+                            default:
+                          }
+                          Get.to(screen);
+                        },
+                        child: categoryCard(
+                          color1: categoryData[index]["colorL"],
+                          color2: categoryData[index]["colorD"],
+                          bgImage: categoryData[index]["bgImage"],
+                          image: categoryData[index]["imageUrl"],
+                          text: categoryData[index]["title"],
+                        ),
+                      );
+                    }),
               ),
 
               sizedBoxHeight(15.h),
 
               twoText("Knowledge center", "View more"),
 
-
-            
               // Padding(
               //   padding:
               //       EdgeInsets.only(left: 4.0, top: 12, bottom: 12, right: 4.0),
@@ -500,25 +497,23 @@ class _HomePageState extends State<HomePage> {
               //     ],
               //   ),
               // ),
-            
+
               SizedBox(
                 height: 10.h,
               ),
 
               ListView.separated(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemBuilder: (_,index){
-                  return tileCard();
-                }, 
-                separatorBuilder: (_,index){
-                  return sizedBoxHeight(10.h);
-                }, 
-                itemCount: 3
-              ),
+                  shrinkWrap: true,
+                  physics: NeverScrollableScrollPhysics(),
+                  itemBuilder: (_, index) {
+                    return tileCard();
+                  },
+                  separatorBuilder: (_, index) {
+                    return sizedBoxHeight(10.h);
+                  },
+                  itemCount: 3),
 
               sizedBoxHeight(20.h)
-
 
               // GestureDetector(
               //   onTap: () {
@@ -592,7 +587,7 @@ class _HomePageState extends State<HomePage> {
               //     ),
               //   ),
               // ),
-                 
+
               // Column(
               //   crossAxisAlignment: CrossAxisAlignment.start,
               //   children: [
@@ -1414,7 +1409,7 @@ class _HomePageState extends State<HomePage> {
               //         ),
               //       ),
               //     ),
-                 
+
               //     SizedBox(
               //       height: 10.h,
               //     ),
@@ -1495,16 +1490,14 @@ class _HomePageState extends State<HomePage> {
               //     )
               //   ],
               // ),
-         
             ],
           ),
         ),
       ),
     );
- 
   }
 
-  Widget tileCard(){
+  Widget tileCard() {
     return GestureDetector(
       onTap: () {
         Get.toNamed('/insightsinner');
@@ -1521,8 +1514,8 @@ class _HomePageState extends State<HomePage> {
               ),
             ]),
         child: Padding(
-          padding: const EdgeInsets.only(
-              top: 14.0, left: 10, right: 15, bottom: 10),
+          padding:
+              const EdgeInsets.only(top: 14.0, left: 10, right: 15, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -1546,8 +1539,7 @@ class _HomePageState extends State<HomePage> {
               Expanded(
                 flex: 5,
                 child: Column(
-                  mainAxisAlignment:
-                      MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -1577,86 +1569,73 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-                 
   }
 
-
-  Widget twoText(String text1, String text2){
+  Widget twoText(String text1, String text2) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        text20Black(text1),
-
-        text14Grey272424(text2)
-      ],
+      children: [text20Black(text1), text14Grey272424(text2)],
     );
   }
 
-  Widget topPickCard({required String text1, required String imagePath, required String title, required String add}){
+  Widget topPickCard(
+      {required String text1,
+      required String imagePath,
+      required String title,
+      required String add}) {
     return Container(
-      width: 241.w,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15.h),
-        border: Border.all(
-          width: 1.h,
-          color: AppColors.greyCFCFCF
-        )
-      ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 14.h),
-        child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            text14Black(text1),
+        width: 241.w,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15.h),
+            border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 14.h),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              text14Black(text1),
 
-            // Spacer(),
-    
-            sizedBoxHeight(5.h),
-      
-            Container(
-              width: double.infinity,
-              height: 100.h,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(imagePath),
-                  fit: BoxFit.fill
-                )
+              // Spacer(),
+
+              sizedBoxHeight(5.h),
+
+              Container(
+                width: double.infinity,
+                height: 100.h,
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage(imagePath), fit: BoxFit.fill)),
               ),
-            ),
 
-            // Spacer(),
-            sizedBoxHeight(10.h),
+              // Spacer(),
+              sizedBoxHeight(10.h),
 
+              text14Black(title),
 
-            text14Black(title),
+              // Spacer(),
+              sizedBoxHeight(5.h),
 
-            // Spacer(),
-            sizedBoxHeight(5.h),
-
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 5.h),
-                  child: SvgPicture.asset("assets/logos/location.svg",
-                    height: 14.h,
-                    width: 10.w,
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 5.h),
+                    child: SvgPicture.asset(
+                      "assets/logos/location.svg",
+                      height: 14.h,
+                      width: 10.w,
+                    ),
                   ),
-                ),
+                  sizedBoxWidth(5.w),
+                  Expanded(child: text13Grey707070(add))
+                ],
+              )
 
-                sizedBoxWidth(5.w),
-
-                Expanded(child: text13Grey707070(add))
-              ],
-            )
-
-          
-            // text14Grey272424(text)
-          ],
-        ),
-      )
-    );
+              // text14Grey272424(text)
+            ],
+          ),
+        ));
   }
 
   titleText(String title) {
