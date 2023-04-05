@@ -19,7 +19,7 @@ class CustomNextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 330.w,
+      width: double.infinity,
       height: 50.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
@@ -27,7 +27,6 @@ class CustomNextButton extends StatelessWidget {
           shadowColor: Color.fromARGB(255, 220, 220, 226),
 
           backgroundColor: AppColors.blue143C6D,
-
 
           //  color: Color(0xFFFFB600),
           shape: RoundedRectangleBorder(
@@ -40,10 +39,8 @@ class CustomNextButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-
             color: AppColors.white,
             fontSize: 18.sp,
-
           ),
         ),
       ),

@@ -47,7 +47,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
         style: TextStyle(
-          fontSize: 15.sp,
+          fontSize: 16.sp,
         ),
         readOnly: widget.readonly,
         cursorColor: const Color(0xFF1B8DC9),
@@ -55,16 +55,16 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
         obscureText: obscureText,
         controller: widget.textEditingController,
         decoration: InputDecoration(
-          contentPadding: EdgeInsets.all(15),
+          contentPadding: EdgeInsets.all(11.h),
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+            borderSide: BorderSide(color: Color(0xFFCCCCCC), width: 1),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+            borderSide: BorderSide(color: Color(0xFFCCCCCC), width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),

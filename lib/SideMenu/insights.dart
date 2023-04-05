@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
 import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/sized_box.dart';
+import 'package:get/get.dart';
 
 class Insights extends StatefulWidget {
   const Insights({super.key});
@@ -18,253 +20,204 @@ class _InsightsState extends State<Insights> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomSignupAppBar(
-        titleTxt: "Insights",
-        bottomtext: false,
-      ),
-      body: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                CustomTextDropdown(
-                  item: [
-                    "All",
-                    "Fractional Real Estate",
-                    "Peer to Peer",
-                  ],
-                  controller: insightsdrpdown,
-                  showDropDown: true,
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Row(
-                  // ignore: prefer_const_literals_to_create_immutables
+        appBar: PreferredSize(
+          preferredSize: Size.fromHeight(180.h),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              AppBar(
+                elevation: 0,
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(
-                      'assets/images/img2.png',
+                    Text(
+                      'Insights',
+                      style: TextStyle(
+                          color: Color(0xff000000),
+                          fontSize: 25.sp,
+                          fontWeight: FontWeight.w500,
+                          fontFamily: 'Poppins'),
                     ),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Retail banks wake up\nto digital',
-                          style: TextStyle(
-                            fontSize: 16.sm,
-                            fontFamily: "Poppins",
-                            color: Color(0xff000000),
-                            fontWeight: FontWeight.bold,
+                    sizedBoxHeight(20.h),
+                    TextFormField(
+                      style: TextStyle(
+                        fontSize: 16.sp,
+                      ),
+                      cursorColor: const Color(0xFF1B8DC9),
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(10.h),
+                        filled: true,
+                        fillColor: Color(0xffFBFBFB),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(47.r),
+                          borderSide:
+                              BorderSide(color: Color(0xffFBFBFB), width: 1),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(47.r),
+                          borderSide:
+                              BorderSide(color: Color(0xffFBFBFB), width: 1),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(47.r),
+                          borderSide:
+                              BorderSide(color: Color(0xffFBFBFB), width: 1),
+                        ),
+                        errorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(47.r),
+                          borderSide:
+                              const BorderSide(color: Colors.red, width: 1),
+                        ),
+                        focusedErrorBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(47.r),
+                          borderSide:
+                              const BorderSide(color: Colors.red, width: 1),
+                        ),
+                        hintStyle: TextStyle(
+                            color: Color(0x80000000),
+                            fontSize: 16.sp,
+                            fontFamily: "Poppins"),
+                        hintText: 'Search',
+                        prefixIcon: Icon(
+                          Icons.search_outlined,
+                          color: Colors.black,
+                        ),
+                        suffixIcon: PopupMenuButton(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20.r)),
+                          constraints: BoxConstraints.expand(height: 150),
+                          icon: Icon(
+                            Icons.keyboard_arrow_down_rounded,
+                            color: Colors.black,
                           ),
-                        ),
-                        SizedBox(
-                          height: 8.h,
-                        ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.calendar_today,
-                              size: 13.sm,
-                              color: Color(0xff6B6B6B),
+                          itemBuilder: (context) => [
+                            PopupMenuItem(
+                              child: Text(
+                                'All',
+                              ),
                             ),
-                            SizedBox(
-                              width: 3.w,
+                            PopupMenuItem(
+                              child: Text(
+                                'Fractional Real Estate',
+                              ),
                             ),
-                            Text(
-                              'November 11, 2022',
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 12.sm,
-                                  color: Color(0xff6B6B6B)),
+                            PopupMenuItem(
+                              child: Text(
+                                'Peer to Peer',
+                              ),
                             ),
                           ],
                         ),
-                        SizedBox(
-                          height: 8.h,
-                        ),
-                        Text(
-                          'Lorem ipsum dolor sit amet,\nconsectetuer elit, sed diam\nnonummy nibh euismod',
-                          style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontSize: 14.sm,
-                            color: Color(0xFF707070),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8.h,
-                        ),
-                        GestureDetector(
-                            child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Color(0xFF1B8DC9),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 20, vertical: 7),
-                                  child: Text(
-                                    'Read More',
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 14.sm,
-                                      color: Color(0xffffffff),
-                                    ),
-                                  ),
-                                )),
-                            onTap: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: ((context) => InsightsInner())));
-                            })
-                      ],
-                    )
-                  ],
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  child: Container(
-                    decoration: BoxDecoration(
-                        border: Border(
-                      bottom: BorderSide(
-                        color: Color(0xFFFDDF93),
-                        width: 3.w,
                       ),
-                    )),
-                  ),
-                ),
-                Row(
-                  children: [
-                    insights(),
-                    SizedBox(
-                      width: 10.w,
                     ),
-                    insights(),
                   ],
                 ),
-                SizedBox(height: 15.h),
-                Row(
-                  children: [
-                    insights(),
-                    SizedBox(
-                      width: 10.w,
-                    ),
-                    insights(),
-                  ],
-                ),
-                SizedBox(
-                  height: 15.h,
-                ),
-                Row(
-                  children: [
-                    insights(),
-                    SizedBox(
-                      width: 10.h,
-                    ),
-                    insights(),
-                  ],
-                )
-              ],
-            ),
-          )),
-    );
-  }
-}
-
-class insights extends StatelessWidget {
-  const insights({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Image.asset(
-          'assets/images/img1.png',
-          width: 170.w,
-        ),
-        SizedBox(
-          height: 10.h,
-        ),
-        Text(
-          'Retail banks wake up\nto digital',
-          style: TextStyle(
-            fontSize: 14.sm,
-            color: Color(0xff000000),
-            fontWeight: FontWeight.bold,
+              ),
+            ],
           ),
         ),
-        SizedBox(
-          height: 10.h,
-        ),
-        Row(
-          children: [
-            Icon(
-              Icons.calendar_today,
-              size: 14.h,
-              color: Color(0xff6B6B6B),
-            ),
-            SizedBox(
-              width: 5.w,
-            ),
-            Text(
-              'November 11, 2022',
-              style: TextStyle(
-                  fontFamily: "Poppins",
-                  fontSize: 12.sm,
-                  color: Color(0xff6B6B6B)),
-            ),
-          ],
-        ),
-        SizedBox(
-          height: 10.h,
-        ),
-        Text(
-          'Lorem ipsum dolor sit amet,\nconsectetuer elit, sed diam\nnonummy nibh euismod',
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontSize: 12.sm,
-            color: Color(0xFF707070),
-          ),
-        ),
-        SizedBox(
-          height: 10.h,
-        ),
-        GestureDetector(
-            child: Row(
-              children: [
-                Text(
-                  'Read More',
-                  style: TextStyle(
-                    fontFamily: "Poppins",
-                    fontSize: 14.sm,
-                    color: Color(0xFF1B8DC9),
+        body: ListView.separated(
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.all(16.w),
+                child: Material(
+                  borderRadius: BorderRadius.circular(18.r),
+                  elevation: 1,
+                  child: Container(
+                    margin: EdgeInsets.all(14.w),
+                    child: Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            'assets/images/img2.png',
+                          ),
+                          Text(
+                            'Retail banks wake up to digital',
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              fontFamily: "Poppins",
+                              color: Color(0xff000000),
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.calendar_today_outlined,
+                                size: 15.sp,
+                                color: Color(0xff707070),
+                              ),
+                              SizedBox(
+                                width: 3.w,
+                              ),
+                              Text(
+                                'November 11, 2022',
+                                style: TextStyle(
+                                    fontFamily: "Poppins",
+                                    fontSize: 15.sp,
+                                    color: Color(0xff707070)),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 8.h,
+                          ),
+                          Text(
+                            'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh . . .',
+                            style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 16.sp,
+                              color: Color(0xFF707070),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          GestureDetector(
+                              child: Container(
+                                  height: 50.h,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Color(0xFF1B8DC9),
+                                  ),
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 20, vertical: 7),
+                                    child: Center(
+                                      child: Text(
+                                        'Read More',
+                                        style: TextStyle(
+                                          fontFamily: "Poppins",
+                                          fontSize: 18.sp,
+                                          color: Color(0xffffffff),
+                                        ),
+                                      ),
+                                    ),
+                                  )),
+                              onTap: () {
+                                Get.to(InsightsInner());
+                              }),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
-                SizedBox(
-                  width: 5.w,
-                ),
-                Icon(
-                  Icons.arrow_right_alt_outlined,
-                  color: Color(0xFF1B8DC9),
-                  size: 20.sm,
-                ),
-              ],
-            ),
-            onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => InsightsInner())));
-            })
-      ],
-    );
+              );
+            },
+            separatorBuilder: (context, index) {
+              return Spacer();
+            },
+            itemCount: 5));
   }
 }

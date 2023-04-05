@@ -58,14 +58,14 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
               fontFamily: 'Poppins',
-              fontSize: 18.sm,
+              fontSize: 18.sp,
               fontWeight: FontWeight.w400,
               color: Colors.black),
         ),
       ),
       leading: Row(children: [
         SizedBox(
-          width: 25,
+          width: 18.w,
         ),
         GestureDetector(
           onTap: () {
@@ -73,7 +73,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
           },
           child: Icon(
             Icons.arrow_back_rounded,
-            size: 30.sp,
+            size: 24.sp,
             color: Colors.black,
           ),
         ),
