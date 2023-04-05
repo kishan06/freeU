@@ -79,8 +79,8 @@ class _InvestmentMainState extends State<InvestmentMain> {
           ),
         ],
       ),
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "Bottombarinvestment", context),
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "Bottombarinvestment", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 16.0, right: 16),

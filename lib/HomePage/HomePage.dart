@@ -257,8 +257,8 @@ class _HomePageState extends State<HomePage> {
         titleSpacing: 0,
       
       ),
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "BottombarHomepage", context),
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "BottombarHomepage", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 16.0, right: 16),

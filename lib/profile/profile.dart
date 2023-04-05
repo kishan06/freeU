@@ -147,8 +147,8 @@ class _ProfileState extends State<Profile> {
             ),
           ),
         ),
-        bottomNavigationBar:
-            CreateBottomBar(stateBottomNav, "Bottombarprofile", context),
+        // bottomNavigationBar:
+        //     CreateBottomBar(stateBottomNav, "Bottombarprofile", context),
         body: const TabBarView(
           children: [
             profiletab(),

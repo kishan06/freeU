@@ -165,8 +165,8 @@ class _ChatPageState extends State<ChatPage> {
           ),
         ],
       ),
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "Bottombarchat", context),
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "Bottombarchat", context),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(
