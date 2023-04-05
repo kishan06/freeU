@@ -113,23 +113,24 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
         contentChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            FlutterSwitch(
-              onToggle: (value) {},
-              switchBorder: Border.all(
-                  strokeAlign: BorderSide.strokeAlignCenter,
-                  style: BorderStyle.solid,
-                  width: 0,
-                  color: Colors.green),
-              padding: 4.h,
-              borderRadius: 20.r,
-              width: 80.w,
-              height: 30.h,
-              toggleSize: 20.sp,
-              toggleColor: const Color(0xff143C6D),
-              activeColor: Colors.white,
-              inactiveColor: const Color(0xffB1B1B1),
-              value: true,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Colors.brown,
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Colors.brown,
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
             ),
+            sizedBoxHeight(15.h),
             Text(
               "Alternative Investment Fund (AIF) is a type of investment fund that is registered with the Securities and Exchange Board of India (SEBI). They are privately pooled investment vehicles generally set up by high-net-worth individuals, Indian or foreign, as per a defined investment policy",
               style: TextStyle(
