@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Chats/Model/ChatMessageModel.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
 class ChatDetailPage extends StatefulWidget {
@@ -46,16 +47,16 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
         messageContent: "Is there any thing wrong?", messageType: "sender"),
     ChatMessage(
         messageContent: "Is there any thing wrong?", messageType: "sender"),
+    ChatMessage(messageContent: "Hello", messageType: "sender"),
     ChatMessage(
         messageContent: "Is there any thing wrong?", messageType: "sender"),
-    ChatMessage(
-        messageContent: "Is there any thing wrong?", messageType: "sender"),
-    ChatMessage(
-        messageContent: "Is there any thing wrong?", messageType: "receiver"),
+    ChatMessage(messageContent: "Hello", messageType: "receiver"),
     ChatMessage(
         messageContent: "Is there any thing wrong?", messageType: "receiver"),
     ChatMessage(
-        messageContent: "Is there any thing wrong?", messageType: "receiver"),
+        messageContent:
+            "Lorem ipsum dolor sit amet,consectetuer adipiscing elit",
+        messageType: "receiver"),
     ChatMessage(messageContent: "...........", messageType: "sender"),
   ];
   ScrollController myController = ScrollController();
@@ -68,14 +69,14 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    Timer(Duration(milliseconds: 50),
+    Timer(const Duration(milliseconds: 50),
         () => myController.jumpTo(myController.position.maxScrollExtent));
     return GestureDetector(
       onTap: () {
         Get.focusScope?.unfocus();
       },
       child: Scaffold(
-        backgroundColor: Color(0xFFF5F8FA),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
           automaticallyImplyLeading: false,
@@ -89,45 +90,46 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.arrow_back,
                       color: Colors.black,
                     ),
                   ),
                   SizedBox(
-                    width: 2,
+                    width: 2.w,
                   ),
-                  CircleAvatar(
-                    backgroundImage: AssetImage('assets/images/1.jpg'),
-                    maxRadius: 20,
-                  ),
-                  SizedBox(
-                    width: 12,
-                  ),
+                  // CircleAvatar(
+                  //   backgroundImage: const AssetImage('assets/images/1.jpg'),
+                  //   maxRadius: 20.r,
+                  // ),
+                  // SizedBox(
+                  //   width: 12.w,
+                  // ),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
                         Text(
-                          "Kriss Benwat",
+                          "Kartikey gautam",
                           style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.w600),
+                            fontSize: 22.sp,
+                          ),
                         ),
                         SizedBox(
-                          height: 6,
+                          height: 6.h,
                         ),
-                        Text(
-                          "Online",
-                          style: TextStyle(
-                              color: Colors.grey.shade600, fontSize: 13.sm),
-                        ),
+                        // Text(
+                        //   "Online",
+                        //   style: TextStyle(
+                        //       color: Colors.grey.shade600, fontSize: 13.sp),
+                        // ),
                       ],
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.more_vert_rounded,
-                    color: Colors.black87,
+                    color: Colors.blueAccent,
                   ),
                 ],
               ),
@@ -139,39 +141,41 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
             ListView.builder(
               controller: myController,
               itemCount: messages.length,
-              padding: EdgeInsets.only(top: 10, bottom: 60),
-              physics: BouncingScrollPhysics(),
+              padding: EdgeInsets.only(top: 10.h, bottom: 60.h),
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 return messages[index].messageType == "receiver"
                     ? Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 14, vertical: 10),
+                        padding: EdgeInsets.only(
+                            left: 14.w, top: 10.h, bottom: 10.h, right: 90.w),
                         child: Align(
                           alignment: Alignment.topLeft,
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               SizedBox(
-                                width: 40,
-                                height: 40,
+                                height: 55.h,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(100),
-                                  child: Image.asset('assets/images/chat-icon.png'),
+                                  borderRadius: BorderRadius.circular(100.r),
+                                  child: Image.asset(
+                                      'assets/images/chat-icon.png'),
                                 ),
                               ),
-                              SizedBox(width: 10),
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(30),
-                                      topLeft: Radius.circular(30),
-                                      bottomRight: Radius.circular(30),
-                                    ),
-                                    color: Color(0xFFCFEFFF)),
-                                padding: EdgeInsets.all(16),
-                                child: Text(
-                                  messages[index].messageContent,
-                                  style: TextStyle(fontSize: 15.sm),
+                              SizedBox(width: 10.w),
+                              Flexible(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(20.r),
+                                        topLeft: Radius.circular(20.r),
+                                        bottomRight: Radius.circular(20.r),
+                                      ),
+                                      color: const Color(0xFFCFEFFF)),
+                                  padding: EdgeInsets.all(16.h),
+                                  child: Text(
+                                    messages[index].messageContent,
+                                    style: TextStyle(fontSize: 18.sp),
+                                  ),
                                 ),
                               ),
                             ],
@@ -179,36 +183,38 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         ),
                       )
                     : Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 14, vertical: 10),
+                        padding: EdgeInsets.only(
+                            right: 14.w, top: 10.h, bottom: 10.h, left: 60.w),
                         child: Align(
                           alignment: Alignment.topRight,
                           child: Row(
+                            mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(30),
-                                    bottomLeft: Radius.circular(30),
-                                    topRight: Radius.circular(30),
+                              Flexible(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(20.r),
+                                      bottomLeft: Radius.circular(20.r),
+                                      topRight: Radius.circular(20.r),
+                                    ),
+                                    color: const Color(0xff002A5B),
                                   ),
-                                  color: Color(0xFF1B8DC9),
-                                ),
-                                padding: EdgeInsets.all(16),
-                                child: Text(
-                                  messages[index].messageContent,
-                                  style: TextStyle(
-                                      fontSize: 15.sm, color: Colors.white),
+                                  padding: EdgeInsets.all(16.h),
+                                  child: Text(
+                                    messages[index].messageContent,
+                                    style: TextStyle(
+                                        fontSize: 18.sp, color: Colors.white),
+                                  ),
                                 ),
                               ),
-                              SizedBox(width: 10),
+                              SizedBox(width: 10.w),
                               SizedBox(
-                                width: 40,
-                                height: 40,
+                                height: 55.h,
                                 child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(100),
+                                  borderRadius: BorderRadius.circular(100.r),
                                   child: Image.asset('assets/images/1.jpg'),
                                 ),
                               ),
@@ -221,52 +227,80 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
             Align(
               alignment: Alignment.bottomLeft,
               child: Container(
-                padding: EdgeInsets.only(left: 10, bottom: 10, top: 10),
-                height: 60,
-                width: double.infinity,
-                color: Colors.white,
+                height: 60.h,
+                //
+                // width: double.infinity,
+                // color: Colors.white,
                 child: Row(
                   children: <Widget>[
-                    GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        height: 30,
-                        width: 30,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFCFEFFF),
-                          borderRadius: BorderRadius.circular(30),
-                        ),
-                        child: Icon(
-                          Icons.add,
-                          color: Colors.white,
-                          size: 20,
-                        ),
-                      ),
-                    ),
-                    SizedBox(
-                      width: 15,
-                    ),
+                    sizedBoxWidth(16.w),
                     Expanded(
-                      child: TextField(
+                      child: TextFormField(
+                        style: TextStyle(fontSize: 16.sp),
+                        // cursorColor: const Color(0xFFFFB600),
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: InputDecoration(
-                            hintText: "Write message...",
-                            hintStyle: TextStyle(color: Colors.black54),
-                            border: InputBorder.none),
+                          contentPadding: EdgeInsets.all(10.h),
+                          filled: true,
+                          fillColor: const Color(0xffF6F8FA),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.r),
+                            borderSide: BorderSide(
+                                color: const Color(0xffCCCCCC), width: 1.w),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.r),
+                            borderSide: BorderSide(
+                                color: const Color(0xffCCCCCC), width: 1.w),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.r),
+                            borderSide: BorderSide(
+                                color: const Color(0xffCCCCCC), width: 1.w),
+                          ),
+                          hintStyle:
+                              TextStyle(color: Colors.black, fontSize: 16.sp),
+                          hintText: "Type a Message",
+                          suffixIcon: Icon(
+                            Icons.attach_file,
+                            color: Colors.black,
+                            size: 23.h,
+                          ),
+                          prefixIcon: Icon(
+                            Icons.emoji_emotions_outlined,
+                            color: Colors.black,
+                            size: 23.h,
+                          ),
+                        ),
+                        minLines: 1,
+                        maxLines: 1,
                       ),
                     ),
-                    SizedBox(
-                      width: 15,
-                    ),
-                    FloatingActionButton(
-                      onPressed: () {},
-                      child: Icon(
-                        Icons.send,
-                        color: Colors.white,
-                        size: 18,
-                      ),
-                      backgroundColor: Color(0xFFCFEFFF),
-                      elevation: 0,
-                    ),
+                    // Container(
+                    //   margin: EdgeInsets.all(10.h),
+                    //   height: 60.h,
+                    //   decoration: BoxDecoration(
+                    //     color: const Color(0xffF6F8FA),
+                    //     borderRadius: BorderRadius.circular(10.r),
+                    //   ),
+                    //   child: Row(
+                    //     children: [Text('Send')],
+                    //   ),
+                    // ),
+                    sizedBoxWidth(12.w),
+                    Container(
+                        width: 90.w,
+                        height: 50.h,
+                        decoration: BoxDecoration(
+                            color: Color(0xff1B8DC9),
+                            borderRadius: BorderRadius.circular(10.r)),
+                        child: Center(
+                            child: Text(
+                          'Send',
+                          style:
+                              TextStyle(color: Colors.white, fontSize: 16.sp),
+                        ))),
+                    sizedBoxWidth(16.w),
                   ],
                 ),
               ),
