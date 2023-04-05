@@ -53,6 +53,8 @@ import 'package:freeu/login/splash.dart';
 import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
 
+import 'HomePage/Categories/Alternative/AlternativeCategories2.dart';
+
 int bottomIndex = 0;
 
 void main() {
@@ -146,6 +148,7 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/kyctab4', page: () => KYCTabs4()),
           GetPage(name: '/userlogged', page: () => User()),
           GetPage(name: '/altenativecategories', page: () => AlternativeCategories()),
+          GetPage(name: '/altenativecategories2', page: () => AlternativeCategories2()),
         ],
       ),
       designSize: Size(390, 844),
