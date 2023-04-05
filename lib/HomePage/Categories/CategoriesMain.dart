@@ -14,7 +14,6 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
 
@@ -228,45 +227,53 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: InkWell(
-          onTap: () {
-            Get.to(AlternativeInsvestment());
-          },
-          child: GridView.builder(
-            // shrinkWrap: true,
-            // physics: NeverScrollableScrollPhysics(),
-            itemCount: categoryData.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 0.7 / 0.4,
-              crossAxisCount: 2,
-              crossAxisSpacing: 15.w,
-              mainAxisSpacing: 15.w,
-            ),
-            itemBuilder: (BuildContext context, int index) {
-              return categoryCard(
+        child: GridView.builder(
+          // shrinkWrap: true,
+          // physics: NeverScrollableScrollPhysics(),
+          itemCount: categoryData.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: 169 / 133,
+            crossAxisCount: 2,
+            crossAxisSpacing: 15.w,
+            mainAxisSpacing: 15.w,
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            return GestureDetector(
+              onTap: () {
+                var screen;
+                switch (index) {
+                  case 0:
+                    screen = AlternativeInsvestment();
+
+                    break;
+                  default:
+                }
+                Get.to(screen);
+              },
+              child: categoryCard(
                 color1: categoryData[index]["colorL"],
                 color2: categoryData[index]["colorD"],
                 bgImage: categoryData[index]["bgImage"],
                 image: categoryData[index]["imageUrl"],
                 text: categoryData[index]["title"],
-              );
-              // InkWell(
-              //   onTap: () {
-              //     Get.toNamed("/InspirationRecipeComment");
-              //   },
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //         image: DecorationImage(
-              //             image: index.isEven
-              //                 ? AssetImage("assets/home/17.png")
-              //                 : AssetImage("assets/home/12.png"),
-              //             fit: BoxFit.cover
-              //             // Image.asset("name")
-              //             )),
-              //   ),
-              // );
-            },
-          ),
+              ),
+            );
+            // InkWell(
+            //   onTap: () {
+            //     Get.toNamed("/InspirationRecipeComment");
+            //   },
+            //   child: Container(
+            //     decoration: BoxDecoration(
+            //         image: DecorationImage(
+            //             image: index.isEven
+            //                 ? AssetImage("assets/home/17.png")
+            //                 : AssetImage("assets/home/12.png"),
+            //             fit: BoxFit.cover
+            //             // Image.asset("name")
+            //             )),
+            //   ),
+            // );
+          },
         ),
       ),
     );
