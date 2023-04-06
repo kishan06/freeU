@@ -190,29 +190,31 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: NavDrawer(),
+      // drawer: NavDrawer(),
       // backgroundColor: Color(0xFFF5F8FA),
       appBar: AppBar(
         backgroundColor: AppColors.white,
         title: Row(
           children: [
-            IconButton(
-              onPressed: () {
-                _key.currentState!.openDrawer();
-              },
-              icon: SizedBox(
-                height: 20.h,
-                width: 25.w,
-                child: SvgPicture.asset(
-                  "assets/images/menu.svg",
-                  // height: 20.h,
-                  // width: 10.w,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              // color: Colors.red,
-              // iconSize: 100.h,
-            ),
+            sizedBoxWidth(45.w),
+            // IconButton(
+            //   onPressed: () {
+            //     _key.currentState!.openDrawer();
+            //   },
+            //   icon: SizedBox(
+            //     height: 20.h,
+            //     width: 25.w,
+            //     child: SvgPicture.asset(
+            //       "assets/images/menu.svg",
+            //       // height: 20.h,
+            //       // width: 10.w,
+            //       fit: BoxFit.fill,
+            //     ),
+            //   ),
+            //   // color: Colors.red,
+            //   // iconSize: 100.h,
+            // ),
+          
             sizedBoxWidth(5.w),
             Text(
               'Welcome',
@@ -248,6 +250,7 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
       ),
+      
       // bottomNavigationBar:
       //     CreateBottomBar(stateBottomNav, "BottombarHomepage", context),
       body: SingleChildScrollView(

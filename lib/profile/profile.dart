@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:freeu/SideMenu/user_logged.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
@@ -101,69 +102,163 @@ class _ProfileState extends State<Profile> {
         drawer: NavDrawer(),
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
-          toolbarHeight: 50.h,
-          backgroundColor: Color.fromARGB(255, 255, 255, 255),
-          elevation: 2,
+          backgroundColor: AppColors.white,
+          title: Row(
+            children: [
+              sizedBoxWidth(45.w),
+              // IconButton(
+              //   onPressed: () {
+              //     _key.currentState!.openDrawer();
+              //   },
+              //   icon: SizedBox(
+              //     height: 20.h,
+              //     width: 25.w,
+              //     child: SvgPicture.asset(
+              //       "assets/images/menu.svg",
+              //       // height: 20.h,
+              //       // width: 10.w,
+              //       fit: BoxFit.fill,
+              //     ),
+              //   ),
+              //   // color: Colors.red,
+              //   // iconSize: 100.h,
+              // ),
+            
+              sizedBoxWidth(5.w),
+              Text(
+                'Your Profile',
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22.sp,
+                    // fontWeight: FontWeight.w400,
+                    color: Colors.black),
+              ),
+              // Spacer(),
+              // Icon(
+              //   Icons.more_vert_rounded,
+              //   color: Colors.blueAccent,
+              //   size: 25.sp,
+              // ),
+              // IconButton(
+              //   onPressed: () {
+              //     Get.toNamed('/notificationpage');
+              //   },
+              //   icon: SizedBox(
+              //     width: 18.w,
+              //     height: 25.h,
+              //     child: SvgPicture.asset(
+              //       'assets/images/notification-bell-svgrepo-com.svg',
+              //       fit: BoxFit.fill,
+              //     ),
+              //   ),
+              //   // iconSize: 22,
+              //   // color: const Color(0xFF303030),
+              // ),
+            ],
+          ),
+          // backgroundColor: Color(0xFFF5F8FA),
+          elevation: 0,
           shadowColor: Colors.black,
           automaticallyImplyLeading: false,
           titleSpacing: 0,
-          title: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Text(
-              'Your Profile',
-              softWrap: true,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 19.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black),
-            ),
-          ),
-          leading: Row(
-            children: [
-              IconButton(
-                onPressed: () {
-                  _key.currentState!.openDrawer();
-                },
-                icon: SvgPicture.asset("assets/images/menu.svg"),
-                color: Colors.black,
-                iconSize: 25.sp,
-              ),
-            ],
-          ),
-          bottom: PreferredSize(
-            preferredSize: Size.fromHeight(50.h),
-            child: TabBar(
-              indicatorColor: Color(0xff002A5B),
-              indicatorWeight: 5.h,
-              tabs: [
-                Tab(
-                    child: Text(
-                  'Profile',
-                  style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                )),
-                Tab(
-                    child: Text(
-                  'KYC',
-                  style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                )),
-                Tab(
-                    child: Text(
-                  'Risk Profile',
-                  style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                )),
-              ],
-            ),
-          ),
         ),
-        // bottomNavigationBar:
+        
+        // appBar: AppBar(
+        //   toolbarHeight: 50.h,
+        //   backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        //   elevation: 2,
+        //   shadowColor: Colors.black,
+        //   automaticallyImplyLeading: false,
+        //   titleSpacing: 0,
+        //   title: SingleChildScrollView(
+        //     scrollDirection: Axis.horizontal,
+        //     child: Text(
+        //       'Your Profile',
+        //       softWrap: true,
+        //       textAlign: TextAlign.center,
+        //       style: TextStyle(
+        //           fontFamily: 'Poppins',
+        //           fontSize: 19.sp,
+        //           fontWeight: FontWeight.w400,
+        //           color: Colors.black),
+        //     ),
+        //   ),
+        //   leading: Row(
+        //     children: [
+        //       IconButton(
+        //         onPressed: () {
+        //           _key.currentState!.openDrawer();
+        //         },
+        //         icon: SvgPicture.asset("assets/images/menu.svg"),
+        //         color: Colors.black,
+        //         iconSize: 25.sp,
+        //       ),
+        //     ],
+        //   ),
+        //   bottom: PreferredSize(
+        //     preferredSize: Size.fromHeight(50.h),
+        //     child: TabBar(
+        //       indicatorColor: Color(0xff002A5B),
+        //       indicatorWeight: 5.h,
+        //       tabs: [
+        //         Tab(
+        //             child: Text(
+        //           'Profile',
+        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+        //         )),
+        //         Tab(
+        //             child: Text(
+        //           'KYC',
+        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+        //         )),
+        //         Tab(
+        //             child: Text(
+        //           'Risk Profile',
+        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+        //         )),
+        //       ],
+        //     ),
+        //   ),
+        // ),
+        // // bottomNavigationBar:
         //     CreateBottomBar(stateBottomNav, "Bottombarprofile", context),
-        body: const TabBarView(
+        body: Column(
           children: [
-            profiletab(),
-            KYCtabs(),
-            riskprofile(),
+            PreferredSize(
+              preferredSize: Size.fromHeight(50.h),
+              child: TabBar(
+                indicatorColor: Color(0xff002A5B),
+                indicatorWeight: 5.h,
+                tabs: [
+                  Tab(
+                      child: Text(
+                    'Profile',
+                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                  )),
+                  Tab(
+                      child: Text(
+                    'KYC',
+                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                  )),
+                  Tab(
+                      child: Text(
+                    'Risk Profile',
+                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                  )),
+                ],
+              ),
+            ),
+            Expanded(
+              child: const TabBarView(
+                children: [
+                  profiletab(),
+                  KYCtabs(),
+                  riskprofile(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -825,29 +920,28 @@ class _KYCtabsState extends State<KYCtabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding:
-            EdgeInsets.only(left: 16.w, right: 16.w, bottom: 65.w, top: 20.h),
-        child: Expanded(
-          child: PageView.builder(
-            controller: _controller,
-            itemCount: 4,
-            physics: NeverScrollableScrollPhysics(),
-            onPageChanged: (int index) {
-              setState(() {
-                currentIndex = index;
-              });
-            },
-            itemBuilder: (context, index) {
-              if (index == 0) {
-                return kyc1();
-              } else if (index == 1) {
-                return kyc2();
-              } else if (index == 2) {
-                return kyc3();
-              }
-              return kyc4();
-            },
-          ),
+
+        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+        child: PageView.builder(
+          controller: _controller,
+          itemCount: 4,
+          physics: NeverScrollableScrollPhysics(),
+          onPageChanged: (int index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          itemBuilder: (context, index) {
+            if (index == 0) {
+              return kyc1();
+            } else if (index == 1) {
+              return kyc2();
+            } else if (index == 2) {
+              return kyc3();
+            }
+            return kyc4();
+          },
+
         ),
       ),
     );

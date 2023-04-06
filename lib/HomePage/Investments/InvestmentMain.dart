@@ -4,10 +4,12 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/Piechart.dart';
 import 'package:freeu/common/bottombar.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
 class InvestmentMain extends StatefulWidget {
@@ -39,49 +41,109 @@ class _InvestmentMainState extends State<InvestmentMain> {
       backgroundColor: Color(0xffffffff),
       //Color(0xffffffff)
       key: _key,
-      drawer: NavDrawer(),
-      //  backgroundColor: Color(0xFFFFFBF0),
+      // drawer: NavDrawer(),
       appBar: AppBar(
-        title: Text(
-          'Your investments',
-          softWrap: true,
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: 19,
-              fontWeight: FontWeight.w400,
-              color: Colors.black),
+        backgroundColor: AppColors.white,
+        title: Row(
+          children: [
+            sizedBoxWidth(45.w),
+            // IconButton(
+            //   onPressed: () {
+            //     _key.currentState!.openDrawer();
+            //   },
+            //   icon: SizedBox(
+            //     height: 20.h,
+            //     width: 25.w,
+            //     child: SvgPicture.asset(
+            //       "assets/images/menu.svg",
+            //       // height: 20.h,
+            //       // width: 10.w,
+            //       fit: BoxFit.fill,
+            //     ),
+            //   ),
+            //   // color: Colors.red,
+            //   // iconSize: 100.h,
+            // ),
+          
+            sizedBoxWidth(5.w),
+            Text(
+              'Your investments',
+              softWrap: true,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 22.sp,
+                  // fontWeight: FontWeight.w400,
+                  color: Colors.black),
+            ),
+            Spacer(),
+            IconButton(
+              onPressed: () {
+                Get.toNamed('/notificationpage');
+              },
+              icon: SizedBox(
+                width: 18.w,
+                height: 25.h,
+                child: SvgPicture.asset(
+                  'assets/images/notification-bell-svgrepo-com.svg',
+                  fit: BoxFit.fill,
+                ),
+              ),
+              // iconSize: 22,
+              // color: const Color(0xFF303030),
+            ),
+          ],
         ),
-        backgroundColor: Color(0xffffffff),
+        // backgroundColor: Color(0xFFF5F8FA),
         elevation: 0,
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
-        leading: Row(
-          children: [
-            IconButton(
-              onPressed: () {
-                _key.currentState!.openDrawer();
-              },
-              icon: SvgPicture.asset("assets/images/menu.svg"),
-              color: Colors.black,
-              iconSize: 25,
-            ),
-          ],
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              Get.toNamed('/notificationpage');
-            },
-            icon: SvgPicture.asset(
-              'assets/images/notification-bell-svgrepo-com.svg',
-            ),
-            iconSize: 22,
-            color: const Color(0xFF303030),
-          ),
-        ],
       ),
+      
+      //  backgroundColor: Color(0xFFFFFBF0),
+      // appBar: AppBar(
+      //   title: Text(
+      //     'Your investments',
+      //     softWrap: true,
+      //     textAlign: TextAlign.center,
+      //     style: TextStyle(
+      //         fontFamily: 'Poppins',
+      //         fontSize: 19,
+      //         fontWeight: FontWeight.w400,
+      //         color: Colors.black),
+      //   ),
+      //   backgroundColor: Color(0xffffffff),
+      //   elevation: 0,
+      //   shadowColor: Colors.black,
+      //   automaticallyImplyLeading: false,
+      //   titleSpacing: 0,
+      //   leading: Row(
+      //     children: [
+      //       IconButton(
+      //         onPressed: () {
+      //           _key.currentState!.openDrawer();
+      //         },
+      //         icon: SvgPicture.asset("assets/images/menu.svg"),
+      //         color: Colors.black,
+      //         iconSize: 25,
+      //       ),
+      //     ],
+      //   ),
+      //   actions: [
+      //     IconButton(
+      //       onPressed: () {
+      //         Get.toNamed('/notificationpage');
+      //       },
+      //       icon: SvgPicture.asset(
+      //         'assets/images/notification-bell-svgrepo-com.svg',
+      //       ),
+      //       iconSize: 22,
+      //       color: const Color(0xFF303030),
+      //     ),
+      //   ],
+      // ),
+    
       // bottomNavigationBar:
       //     CreateBottomBar(stateBottomNav, "Bottombarinvestment", context),
       body: SingleChildScrollView(
