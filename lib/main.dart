@@ -59,6 +59,7 @@ import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
 
 import 'HomePage/Categories/Alternative/AlternativeCategories2.dart';
+import 'HomePage/Categories/Alternative/FullyFundedBank.dart';
 
 int bottomIndex = 0;
 
@@ -165,9 +166,13 @@ class _MyAppState extends State<MyApp> {
               name: '/altenativecategories2',
               page: () => AlternativeCategories2()),
 
+          GetPage(name: '/fullyfundedbank', page: () => FullyFundedBank()),
+
+
           GetPage(name: '/privateequityfund', page: () => PrivateEquityFund()),    
 
           GetPage(name: '/privateequityfunddeals', page: () => PrivateEquityFundDeals()),  
+
         ],
       ),
       designSize: Size(390, 844),
