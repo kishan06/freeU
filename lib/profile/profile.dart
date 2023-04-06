@@ -17,6 +17,7 @@ import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/profile/kyctabs2.dart';
 import 'package:get/get.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -35,7 +36,50 @@ String? phoneValue;
 String? emailValue;
 String? addressValue;
 
-File? profilPic;
+// File? profilPic;
+RxString profilePicPath = "".obs;
+
+void getImage(ImageSource imgSource) async {
+  final ImagePicker picker = ImagePicker();
+  final XFile? pickedImg = await picker.pickImage(source: imgSource);
+  if (pickedImg != null) {
+    final CroppedFile? croppedImg = await ImageCropper().cropImage(
+        sourcePath: pickedImg.path,
+        aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+        compressFormat: ImageCompressFormat.jpg,
+        maxHeight: 512,
+        maxWidth: 512,
+        compressQuality: 100,
+        cropStyle: CropStyle.circle,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          // CropAspectRatioPreset.ratio3x2,
+          // CropAspectRatioPreset.original,
+          // CropAspectRatioPreset.ratio4x3,
+          // CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+            toolbarTitle: "Crop Image",
+            toolbarColor: Get.theme.appBarTheme.backgroundColor,
+            // toolbarWidgetColor: ColorConstants.kWhite,
+            backgroundColor: Colors.black,
+            activeControlsWidgetColor: Colors.red,
+            // initAspectRatio: CropAspectRatioPreset.original,
+            cropFrameColor: Colors.white,
+            lockAspectRatio: false,
+          ),
+          IOSUiSettings(
+            title: 'Crop Image',
+          ),
+        ]);
+    if (croppedImg != null) {
+      // profilPic = croppedImg.path;
+      profilePicPath.value = croppedImg.path;
+      // Get.back();
+    }
+  }
+}
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -159,20 +203,20 @@ class _profiletabState extends State<profiletab> {
     // }
   }
 
-  Future getImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: source);
-      if (image == null) return;
-      final imageTemporary = File(image.path);
-      // final imagePermanent = await saveFilePermanently(image.path);
+  // Future getImage(ImageSource source) async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: source);
+  //     if (image == null) return;
+  //     final imageTemporary = File(image.path);
+  //     // final imagePermanent = await saveFilePermanently(image.path);
 
-      setState(() {
-        profilPic = imageTemporary;
-      });
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
-    }
-  }
+  //     setState(() {
+  //       profilPic = imageTemporary;
+  //     });
+  //   } on PlatformException catch (e) {
+  //     print('Failed to pick image: $e');
+  //   }
+  // }
 
   Future<File> saveFilePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
@@ -301,13 +345,13 @@ class _profiletabState extends State<profiletab> {
                           ClipOval(
                             child: SizedBox.fromSize(
                                 size: Size.fromRadius(60.r),
-                                child: profilPic != null
-                                    ? Image.file(
-                                        profilPic!,
-                                        width: 200.w,
-                                        height: 200.h,
-                                        fit: BoxFit.cover,
-                                      )
+                                child:profilePicPath.value != null
+                            ? Image(
+                                image: FileImage(File(profilePicPath.value)),
+                                fit: BoxFit.cover,
+                                width: 200.w,
+                                height: 200.h,
+                              )
                                     : Image.asset('assets/images/user.png')),
                           ),
                         ],
@@ -490,12 +534,12 @@ class _profiletabState extends State<profiletab> {
                   ClipOval(
                     child: SizedBox.fromSize(
                         size: Size.fromRadius(60.r),
-                        child: profilPic != null
-                            ? Image.file(
-                                profilPic!,
+                        child: profilePicPath.value != null
+                            ? Image(
+                                image: FileImage(File(profilePicPath.value)),
+                                fit: BoxFit.cover,
                                 width: 200.w,
                                 height: 200.h,
-                                fit: BoxFit.cover,
                               )
                             : Image.asset('assets/images/user.png')),
                   ),

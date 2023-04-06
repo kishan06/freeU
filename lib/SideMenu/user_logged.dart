@@ -22,20 +22,20 @@ class User extends StatefulWidget {
 
 class _UserState extends State<User> {
   bool editBool = false;
-  Future getImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: source);
-      if (image == null) return;
-      final imageTemporary = File(image.path);
-      // final imagePermanent = await saveFilePermanently(image.path);
+  // Future getImage(ImageSource source) async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: source);
+  //     if (image == null) return;
+  //     final imageTemporary = File(image.path);
+  //     // final imagePermanent = await saveFilePermanently(image.path);
 
-      setState(() {
-        profilPic = imageTemporary;
-      });
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
-    }
-  }
+  //     setState(() {
+  //       profilPic = imageTemporary;
+  //     });
+  //   } on PlatformException catch (e) {
+  //     print('Failed to pick image: $e');
+  //   }
+  // }
 
   Future<File> saveFilePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
@@ -205,12 +205,13 @@ class _UserState extends State<User> {
                             ClipOval(
                               child: SizedBox.fromSize(
                                   size: Size.fromRadius(60.r),
-                                  child: profilPic != null
-                                      ? Image.file(
-                                          profilPic!,
+                                  child: profilePicPath.value != null
+                                      ? Image(
+                                          image: FileImage(
+                                              File(profilePicPath.value)),
+                                          fit: BoxFit.cover,
                                           width: 200.w,
                                           height: 200.h,
-                                          fit: BoxFit.cover,
                                         )
                                       : Image.asset('assets/images/user.png')),
                             ),
@@ -386,12 +387,12 @@ class _UserState extends State<User> {
                   ClipOval(
                     child: SizedBox.fromSize(
                         size: Size.fromRadius(60.r),
-                        child: profilPic != null
-                            ? Image.file(
-                                profilPic!,
+                        child: profilePicPath.value != null
+                            ? Image(
+                                image: FileImage(File(profilePicPath.value)),
+                                fit: BoxFit.cover,
                                 width: 200.w,
                                 height: 200.h,
-                                fit: BoxFit.cover,
                               )
                             : Image.asset('assets/images/user.png')),
                   ),
