@@ -64,7 +64,6 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                       ),
                       child: GestureDetector(
                         onTap: () {
-                          Get.toNamed('/fullyfundedbank');
                         },
                         child: Container(
                           // width: 358.w,
