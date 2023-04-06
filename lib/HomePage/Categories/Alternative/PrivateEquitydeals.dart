@@ -535,7 +535,9 @@ class SecondTab extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 20),
             child: GestureDetector(
-              onTap: () {},
+              onTap: () {
+                Get.toNamed('/fullyfundedbank');
+              },
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
