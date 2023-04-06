@@ -14,6 +14,8 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'FractionalRealEstateProperty/PropertiesInvestment.dart';
+
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
 
@@ -221,7 +223,6 @@ class _CategoriesMainState extends State<CategoriesMain> {
         titleSpacing: 0,
       ),
 
-    
       // bottomNavigationBar:
       //     CreateBottomBar(stateBottomNav, "Bottombarcategoies", context),
 
@@ -244,6 +245,10 @@ class _CategoriesMainState extends State<CategoriesMain> {
                 switch (index) {
                   case 0:
                     screen = AlternativeInsvestment();
+
+                    break;
+                  case 1:
+                    screen = PropertiesInvestment();
 
                     break;
                   default:
