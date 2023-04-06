@@ -8,6 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:freeu/SideMenu/user_logged.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
@@ -17,6 +18,7 @@ import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/profile/kyctabs2.dart';
 import 'package:get/get.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -35,7 +37,50 @@ String? phoneValue;
 String? emailValue;
 String? addressValue;
 
-File? profilPic;
+// File? profilPic;
+RxString profilePicPath = "".obs;
+
+void getImage(ImageSource imgSource) async {
+  final ImagePicker picker = ImagePicker();
+  final XFile? pickedImg = await picker.pickImage(source: imgSource);
+  if (pickedImg != null) {
+    final CroppedFile? croppedImg = await ImageCropper().cropImage(
+        sourcePath: pickedImg.path,
+        aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+        compressFormat: ImageCompressFormat.jpg,
+        maxHeight: 512,
+        maxWidth: 512,
+        compressQuality: 100,
+        cropStyle: CropStyle.circle,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          // CropAspectRatioPreset.ratio3x2,
+          // CropAspectRatioPreset.original,
+          // CropAspectRatioPreset.ratio4x3,
+          // CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+            toolbarTitle: "Crop Image",
+            toolbarColor: Get.theme.appBarTheme.backgroundColor,
+            // toolbarWidgetColor: ColorConstants.kWhite,
+            backgroundColor: Colors.black,
+            activeControlsWidgetColor: Colors.red,
+            // initAspectRatio: CropAspectRatioPreset.original,
+            cropFrameColor: Colors.white,
+            lockAspectRatio: false,
+          ),
+          IOSUiSettings(
+            title: 'Crop Image',
+          ),
+        ]);
+    if (croppedImg != null) {
+      // profilPic = croppedImg.path;
+      profilePicPath.value = croppedImg.path;
+      // Get.back();
+    }
+  }
+}
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -57,69 +102,163 @@ class _ProfileState extends State<Profile> {
         drawer: NavDrawer(),
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
-          toolbarHeight: 50.h,
-          backgroundColor: Color.fromARGB(255, 255, 255, 255),
-          elevation: 2,
+          backgroundColor: AppColors.white,
+          title: Row(
+            children: [
+              sizedBoxWidth(45.w),
+              // IconButton(
+              //   onPressed: () {
+              //     _key.currentState!.openDrawer();
+              //   },
+              //   icon: SizedBox(
+              //     height: 20.h,
+              //     width: 25.w,
+              //     child: SvgPicture.asset(
+              //       "assets/images/menu.svg",
+              //       // height: 20.h,
+              //       // width: 10.w,
+              //       fit: BoxFit.fill,
+              //     ),
+              //   ),
+              //   // color: Colors.red,
+              //   // iconSize: 100.h,
+              // ),
+            
+              sizedBoxWidth(5.w),
+              Text(
+                'Your Profile',
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22.sp,
+                    // fontWeight: FontWeight.w400,
+                    color: Colors.black),
+              ),
+              // Spacer(),
+              // Icon(
+              //   Icons.more_vert_rounded,
+              //   color: Colors.blueAccent,
+              //   size: 25.sp,
+              // ),
+              // IconButton(
+              //   onPressed: () {
+              //     Get.toNamed('/notificationpage');
+              //   },
+              //   icon: SizedBox(
+              //     width: 18.w,
+              //     height: 25.h,
+              //     child: SvgPicture.asset(
+              //       'assets/images/notification-bell-svgrepo-com.svg',
+              //       fit: BoxFit.fill,
+              //     ),
+              //   ),
+              //   // iconSize: 22,
+              //   // color: const Color(0xFF303030),
+              // ),
+            ],
+          ),
+          // backgroundColor: Color(0xFFF5F8FA),
+          elevation: 0,
           shadowColor: Colors.black,
           automaticallyImplyLeading: false,
           titleSpacing: 0,
-          title: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Text(
-              'Your Profile',
-              softWrap: true,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 19.sp,
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black),
-            ),
-          ),
-          leading: Row(
-            children: [
-              IconButton(
-                onPressed: () {
-                  _key.currentState!.openDrawer();
-                },
-                icon: SvgPicture.asset("assets/images/menu.svg"),
-                color: Colors.black,
-                iconSize: 25.sp,
-              ),
-            ],
-          ),
-          bottom: PreferredSize(
-            preferredSize: Size.fromHeight(50.h),
-            child: TabBar(
-              indicatorColor: Color(0xff002A5B),
-              indicatorWeight: 5.h,
-              tabs: [
-                Tab(
-                    child: Text(
-                  'Profile',
-                  style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                )),
-                Tab(
-                    child: Text(
-                  'KYC',
-                  style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                )),
-                Tab(
-                    child: Text(
-                  'Risk Profile',
-                  style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                )),
-              ],
-            ),
-          ),
         ),
-        // bottomNavigationBar:
+        
+        // appBar: AppBar(
+        //   toolbarHeight: 50.h,
+        //   backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        //   elevation: 2,
+        //   shadowColor: Colors.black,
+        //   automaticallyImplyLeading: false,
+        //   titleSpacing: 0,
+        //   title: SingleChildScrollView(
+        //     scrollDirection: Axis.horizontal,
+        //     child: Text(
+        //       'Your Profile',
+        //       softWrap: true,
+        //       textAlign: TextAlign.center,
+        //       style: TextStyle(
+        //           fontFamily: 'Poppins',
+        //           fontSize: 19.sp,
+        //           fontWeight: FontWeight.w400,
+        //           color: Colors.black),
+        //     ),
+        //   ),
+        //   leading: Row(
+        //     children: [
+        //       IconButton(
+        //         onPressed: () {
+        //           _key.currentState!.openDrawer();
+        //         },
+        //         icon: SvgPicture.asset("assets/images/menu.svg"),
+        //         color: Colors.black,
+        //         iconSize: 25.sp,
+        //       ),
+        //     ],
+        //   ),
+        //   bottom: PreferredSize(
+        //     preferredSize: Size.fromHeight(50.h),
+        //     child: TabBar(
+        //       indicatorColor: Color(0xff002A5B),
+        //       indicatorWeight: 5.h,
+        //       tabs: [
+        //         Tab(
+        //             child: Text(
+        //           'Profile',
+        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+        //         )),
+        //         Tab(
+        //             child: Text(
+        //           'KYC',
+        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+        //         )),
+        //         Tab(
+        //             child: Text(
+        //           'Risk Profile',
+        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+        //         )),
+        //       ],
+        //     ),
+        //   ),
+        // ),
+        // // bottomNavigationBar:
         //     CreateBottomBar(stateBottomNav, "Bottombarprofile", context),
-        body: const TabBarView(
+        body: Column(
           children: [
-            profiletab(),
-            KYCtabs(),
-            riskprofile(),
+            PreferredSize(
+              preferredSize: Size.fromHeight(50.h),
+              child: TabBar(
+                indicatorColor: Color(0xff002A5B),
+                indicatorWeight: 5.h,
+                tabs: [
+                  Tab(
+                      child: Text(
+                    'Profile',
+                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                  )),
+                  Tab(
+                      child: Text(
+                    'KYC',
+                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                  )),
+                  Tab(
+                      child: Text(
+                    'Risk Profile',
+                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                  )),
+                ],
+              ),
+            ),
+            Expanded(
+              child: const TabBarView(
+                children: [
+                  profiletab(),
+                  KYCtabs(),
+                  riskprofile(),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -159,20 +298,20 @@ class _profiletabState extends State<profiletab> {
     // }
   }
 
-  Future getImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: source);
-      if (image == null) return;
-      final imageTemporary = File(image.path);
-      // final imagePermanent = await saveFilePermanently(image.path);
+  // Future getImage(ImageSource source) async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: source);
+  //     if (image == null) return;
+  //     final imageTemporary = File(image.path);
+  //     // final imagePermanent = await saveFilePermanently(image.path);
 
-      setState(() {
-        profilPic = imageTemporary;
-      });
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
-    }
-  }
+  //     setState(() {
+  //       profilPic = imageTemporary;
+  //     });
+  //   } on PlatformException catch (e) {
+  //     print('Failed to pick image: $e');
+  //   }
+  // }
 
   Future<File> saveFilePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
@@ -301,13 +440,13 @@ class _profiletabState extends State<profiletab> {
                           ClipOval(
                             child: SizedBox.fromSize(
                                 size: Size.fromRadius(60.r),
-                                child: profilPic != null
-                                    ? Image.file(
-                                        profilPic!,
-                                        width: 200.w,
-                                        height: 200.h,
-                                        fit: BoxFit.cover,
-                                      )
+                                child:profilePicPath.value != null
+                            ? Image(
+                                image: FileImage(File(profilePicPath.value)),
+                                fit: BoxFit.cover,
+                                width: 200.w,
+                                height: 200.h,
+                              )
                                     : Image.asset('assets/images/user.png')),
                           ),
                         ],
@@ -490,12 +629,12 @@ class _profiletabState extends State<profiletab> {
                   ClipOval(
                     child: SizedBox.fromSize(
                         size: Size.fromRadius(60.r),
-                        child: profilPic != null
-                            ? Image.file(
-                                profilPic!,
+                        child: profilePicPath.value != null
+                            ? Image(
+                                image: FileImage(File(profilePicPath.value)),
+                                fit: BoxFit.cover,
                                 width: 200.w,
                                 height: 200.h,
-                                fit: BoxFit.cover,
                               )
                             : Image.asset('assets/images/user.png')),
                   ),
@@ -781,29 +920,28 @@ class _KYCtabsState extends State<KYCtabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding:
-            EdgeInsets.only(left: 16.w, right: 16.w, bottom: 65.w, top: 20.h),
-        child: Expanded(
-          child: PageView.builder(
-            controller: _controller,
-            itemCount: 4,
-            physics: NeverScrollableScrollPhysics(),
-            onPageChanged: (int index) {
-              setState(() {
-                currentIndex = index;
-              });
-            },
-            itemBuilder: (context, index) {
-              if (index == 0) {
-                return kyc1();
-              } else if (index == 1) {
-                return kyc2();
-              } else if (index == 2) {
-                return kyc3();
-              }
-              return kyc4();
-            },
-          ),
+
+        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+        child: PageView.builder(
+          controller: _controller,
+          itemCount: 4,
+          physics: NeverScrollableScrollPhysics(),
+          onPageChanged: (int index) {
+            setState(() {
+              currentIndex = index;
+            });
+          },
+          itemBuilder: (context, index) {
+            if (index == 0) {
+              return kyc1();
+            } else if (index == 1) {
+              return kyc2();
+            } else if (index == 2) {
+              return kyc3();
+            }
+            return kyc4();
+          },
+
         ),
       ),
     );
@@ -1882,7 +2020,7 @@ class _riskprofileState extends State<riskprofile> {
                         "10 Lakhs to 25 Lakhs",
                       ], controller: basis, showDropDown: true),
                       SizedBox(
-                        height: 60.h,
+                        height: 50.h,
                       ),
                       CustomNextButton(
                           ontap: (() {
@@ -1929,6 +2067,7 @@ class _riskprofileState extends State<riskprofile> {
                             );
                           }),
                           text: "Submit"),
+                      sizedBoxHeight(50.h)
                     ]))),
       ),
     );

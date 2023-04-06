@@ -15,6 +15,8 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'FractionalRealEstateProperty/PropertiesInvestment.dart';
+
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
 
@@ -163,29 +165,30 @@ class _CategoriesMainState extends State<CategoriesMain> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: NavDrawer(),
-      // backgroundColor: Color(0xFFF5F8FA),
+      // drawer: NavDrawer(),
       appBar: AppBar(
         backgroundColor: AppColors.white,
         title: Row(
           children: [
-            IconButton(
-              onPressed: () {
-                _key.currentState!.openDrawer();
-              },
-              icon: SizedBox(
-                height: 20.h,
-                width: 25.w,
-                child: SvgPicture.asset(
-                  "assets/images/menu.svg",
-                  // height: 20.h,
-                  // width: 10.w,
-                  fit: BoxFit.fill,
-                ),
-              ),
-              // color: Colors.red,
-              // iconSize: 100.h,
-            ),
+            sizedBoxWidth(45.w),
+            // IconButton(
+            //   onPressed: () {
+            //     _key.currentState!.openDrawer();
+            //   },
+            //   icon: SizedBox(
+            //     height: 20.h,
+            //     width: 25.w,
+            //     child: SvgPicture.asset(
+            //       "assets/images/menu.svg",
+            //       // height: 20.h,
+            //       // width: 10.w,
+            //       fit: BoxFit.fill,
+            //     ),
+            //   ),
+            //   // color: Colors.red,
+            //   // iconSize: 100.h,
+            // ),
+          
             sizedBoxWidth(5.w),
             Text(
               'Categories',
@@ -221,8 +224,65 @@ class _CategoriesMainState extends State<CategoriesMain> {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
       ),
+      
+      // backgroundColor: Color(0xFFF5F8FA),
+      // appBar: AppBar(
+      //   backgroundColor: AppColors.white,
+      //   title: Row(
+      //     children: [
+      //       IconButton(
+      //         onPressed: () {
+      //           _key.currentState!.openDrawer();
+      //         },
+      //         icon: SizedBox(
+      //           height: 20.h,
+      //           width: 25.w,
+      //           child: SvgPicture.asset(
+      //             "assets/images/menu.svg",
+      //             // height: 20.h,
+      //             // width: 10.w,
+      //             fit: BoxFit.fill,
+      //           ),
+      //         ),
+      //         // color: Colors.red,
+      //         // iconSize: 100.h,
+      //       ),
+      //       sizedBoxWidth(5.w),
+      //       Text(
+      //         'Categories',
+      //         softWrap: true,
+      //         textAlign: TextAlign.center,
+      //         style: TextStyle(
+      //             fontFamily: 'Poppins',
+      //             fontSize: 22.sp,
+      //             // fontWeight: FontWeight.w400,
+      //             color: Colors.black),
+      //       ),
+      //       Spacer(),
+      //       IconButton(
+      //         onPressed: () {
+      //           Get.toNamed('/notificationpage');
+      //         },
+      //         icon: SizedBox(
+      //           width: 18.w,
+      //           height: 25.h,
+      //           child: SvgPicture.asset(
+      //             'assets/images/notification-bell-svgrepo-com.svg',
+      //             fit: BoxFit.fill,
+      //           ),
+      //         ),
+      //         // iconSize: 22,
+      //         // color: const Color(0xFF303030),
+      //       ),
+      //     ],
+      //   ),
+      //   // backgroundColor: Color(0xFFF5F8FA),
+      //   elevation: 0,
+      //   shadowColor: Colors.black,
+      //   automaticallyImplyLeading: false,
+      //   titleSpacing: 0,
+      // ),
 
-    
       // bottomNavigationBar:
       //     CreateBottomBar(stateBottomNav, "Bottombarcategoies", context),
 
@@ -248,11 +308,10 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
                     break;
 
-                   case 2:
-                    screen = FractionalRealestate();
+                  case 1:
+                    screen = PropertiesInvestment();
 
-                    break;  
-
+                    break;
                   default:
                 }
                 Get.to(screen);

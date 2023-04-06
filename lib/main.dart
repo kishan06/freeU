@@ -52,6 +52,7 @@ import 'package:freeu/profile/kyctabs2.dart';
 import 'package:freeu/profile/kyctabs3.dart';
 import 'package:freeu/profile/kyctabs4.dart';
 import 'package:freeu/profile/profile.dart';
+import 'package:freeu/screens/entry_point.dart';
 import 'package:freeu/screens/main_screen.dart';
 import 'package:freeu/screens/side_menu.dart';
 import 'package:freeu/signUp/CompleteProfile.dart';
@@ -92,15 +93,19 @@ class _MyAppState extends State<MyApp> {
       builder: (BuildContext context, Widget? child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'FreeU',
-        initialRoute: '/',
+        // initialRoute: '/SideBar',
+        initialRoute: '/EntryPoint',
+
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.white,
           fontFamily: "Poppins",
         ),
         getPages: [
-          GetPage(name: '/SideMenu', page: () => SideMenu()),
-          // GetPage(name: '/', page: () => Splash()),
-          GetPage(name: '/MainScreen', page: () => MainScreen()),
+
+          GetPage(name: '/SideBar', page: () => SideBar()),
+          GetPage(name: '/EntryPoint', page: () => EntryPoint()),
+          // GetPage(name: '/MainScreen', page: () => MainScreen()),
+          
 
           // GetPage(name: '/splash', page: () => Splash()),
           GetPage(name: '/', page: () => Splashslider()),

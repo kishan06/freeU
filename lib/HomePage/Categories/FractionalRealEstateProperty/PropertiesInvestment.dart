@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -7,14 +5,14 @@ import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class FullyFundedBank extends StatefulWidget {
-  const FullyFundedBank({super.key});
+class PropertiesInvestment extends StatefulWidget {
+  const PropertiesInvestment({super.key});
 
   @override
-  State<FullyFundedBank> createState() => _FullyFundedBankState();
+  State<PropertiesInvestment> createState() => _PropertiesInvestmentState();
 }
 
-class _FullyFundedBankState extends State<FullyFundedBank> {
+class _PropertiesInvestmentState extends State<PropertiesInvestment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,7 +56,7 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                           ],
                         ),
                         child: Image.asset(
-                          "assets/images/alternative (6).png",
+                          "assets/images/naviMumbai.png",
                           width: 80.w,
                           height: 54.h,
                         ),
@@ -68,7 +66,7 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                       ),
                       Flexible(
                         child: Text(
-                          "HDFC AMC Select AIF FOF - 1",
+                          "Navi Mumbai Office Opportunity II",
                           style: TextStyle(
                               fontSize: 22.sp, fontWeight: FontWeight.w500),
                         ),
@@ -77,140 +75,58 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                   ),
                   sizedBoxHeight(24.h),
                   Text(
-                    'Fund fundamentals',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 18.sp,
-                      color: const Color(0xff3A4856),
-                    ),
-                  ),
-                  Divider(
-                    height: 28.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 2,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Fund Category',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  color: const Color(0xff616161)),
-                            ),
-                            sizedBoxHeight(10.h),
-                            Text(
-                              'Category II AIF',
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: const Color(0xff0F0C0C)),
-                            )
-                          ],
-                        ),
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            'ISIN code',
-                            style: TextStyle(
-                                fontSize: 16.sp,
-                                color: const Color(0xff616161)),
-                          ),
-                          sizedBoxHeight(10.h),
-                          Text(
-                            'N/A',
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                color: const Color(0xff0F0C0C)),
-                          )
-                        ],
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(20.h),
-                  Text(
-                    'Fund Structure',
-                    style: TextStyle(
-                        fontSize: 16.sp, color: const Color(0xff616161)),
-                  ),
-                  sizedBoxHeight(10.h),
-                  Text(
-                    'N/A',
-                    style: TextStyle(
-                        fontSize: 18.sp, color: const Color(0xff0F0C0C)),
-                  ),
-                  sizedBoxHeight(20.h),
-                  Text(
-                    'Fund Strategy',
-                    style: TextStyle(
-                        fontSize: 16.sp, color: const Color(0xff616161)),
-                  ),
-                  sizedBoxHeight(10.h),
-                  Text(
-                    'Invest in 15 VC/PE funds. Up to 50% in venture capital funds and balance in private equity funds Maximum exposure to co-investment opportunities will be capped at 30% of the corpus.',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 18.sp,
-                        color: const Color(0xff0F0C0C)),
-                  ),
-                  Divider(
-                    height: 28.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  Text(
-                    'Fund details',
+                    'Property details',
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 20.sp,
                       color: const Color(0xff3A4856),
                     ),
                   ),
-                  sizedBoxHeight(25.h),
-                  Text(
-                    'Fund Manager name',
-                    style: TextStyle(
-                        fontSize: 16.sp, color: const Color(0xff616161)),
+                  Divider(
+                    height: 28.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
                   ),
-                  sizedBoxHeight(10.h),
                   Text(
-                    'HDFC AMC',
+                    'Property Grade',
                     style: TextStyle(
-                        fontSize: 18.sp, color: const Color(0xff272424)),
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
                   ),
-                  sizedBoxHeight(25.h),
-                  Text(
-                    'Fund Manager Experience',
-                    style: TextStyle(
-                        fontSize: 16.sp, color: const Color(0xff616161)),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
                   ),
-                  sizedBoxHeight(10.h),
                   Text(
-                    'N/A',
-                    style: TextStyle(
-                        fontSize: 18.sp, color: const Color(0xff272424)),
-                  ),
-                  sizedBoxHeight(25.h),
-                  Text(
-                    'Website of the fund',
-                    style: TextStyle(
-                        fontSize: 16.sp, color: const Color(0xff616161)),
-                  ),
-                  sizedBoxHeight(10.h),
-                  Text(
-                    'N/A',
+                    'A',
                     style: TextStyle(
                         fontSize: 18.sp, color: const Color(0xff272424)),
                   ),
                   sizedBoxHeight(28.h),
                   Text(
-                    'Fund managements',
+                    'Asset type',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    'Corporate Office',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Tenant details',
                     style: TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 20.sp,
@@ -231,23 +147,17 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
-                              'Sponsor',
+                              'Description',
                               style: TextStyle(
                                   fontSize: 16.sp,
                                   color: const Color(0xff616161)),
                             ),
                           ),
-                          Text(
-                            'Manager',
-                            style: TextStyle(
-                                fontSize: 16.sp,
-                                color: const Color(0xff616161)),
-                          ),
                         ],
                       ),
                       sizedBoxHeight(10.h),
                       Text(
-                        'N/A',
+                        'The tenant is a leading Gas Pipeline Operator and sponsored by Brookfield Asset Management.',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff0F0C0C)),
                       ),
@@ -258,14 +168,14 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
-                              'Trustee',
+                              'Lease Term',
                               style: TextStyle(
                                   fontSize: 16.sp,
                                   color: const Color(0xff616161)),
                             ),
                           ),
                           Text(
-                            'Auditor',
+                            'Lock in',
                             style: TextStyle(
                                 fontSize: 16.sp,
                                 color: const Color(0xff616161)),
@@ -273,10 +183,24 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         ],
                       ),
                       sizedBoxHeight(10.h),
-                      Text(
-                        'N/A',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff0F0C0C)),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 2,
+                            child: Text(
+                              '7 Year',
+                              style: TextStyle(
+                                  fontSize: 18.sp,
+                                  color: const Color(0xff0F0C0C)),
+                            ),
+                          ),
+                          Text(
+                            '6 Year',
+                            style: TextStyle(
+                                fontSize: 18.sp,
+                                color: const Color(0xff0F0C0C)),
+                          ),
+                        ],
                       ),
                       sizedBoxHeight(20.h),
                       Row(
@@ -285,14 +209,14 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                           SizedBox(
                             width: MediaQuery.of(context).size.width / 2,
                             child: Text(
-                              'Value/tax advisor',
+                              'Rent',
                               style: TextStyle(
                                   fontSize: 16.sp,
                                   color: const Color(0xff616161)),
                             ),
                           ),
                           Text(
-                            'Credit ratings',
+                            'Security deposit',
                             style: TextStyle(
                                 fontSize: 16.sp,
                                 color: const Color(0xff616161)),
@@ -300,80 +224,33 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         ],
                       ),
                       sizedBoxHeight(10.h),
-                      Text(
-                        'N/A',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff0F0C0C)),
+                      Row(
+                        children: [
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width / 2,
+                            child: Text(
+                              '3 Months',
+                              style: TextStyle(
+                                  fontSize: 18.sp,
+                                  color: const Color(0xff0F0C0C)),
+                            ),
+                          ),
+                          Text(
+                            'N/A',
+                            style: TextStyle(
+                                fontSize: 18.sp,
+                                color: const Color(0xff0F0C0C)),
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                  sizedBoxHeight(20.h),
-                  Text(
-                    'Fund Dates',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20.sp,
-                      color: const Color(0xff3A4856),
-                    ),
-                  ),
-                  Divider(
-                    height: 28.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              'Open Date',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  color: const Color(0xff616161)),
-                            ),
-                          ),
-                          Text(
-                            '1st Close Date',
-                            style: TextStyle(
-                                fontSize: 16.sp,
-                                color: const Color(0xff616161)),
-                          ),
-                        ],
-                      ),
-                      sizedBoxHeight(10.h),
-                      Text(
-                        'N/A',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff0F0C0C)),
-                      ),
-                      sizedBoxHeight(20.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              'Final Close Date',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  color: const Color(0xff616161)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      sizedBoxHeight(10.h),
-                      Text(
-                        'N/A',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff0F0C0C)),
-                      ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Tenure from Final Close',
+                        'Deal Size (in Crore)',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -386,13 +263,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        '11 + 1 + 1 Years',
+                        '53,30,00,000',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Commitment Period',
+                        'Minimum Investment',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -405,13 +282,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        '5 Years',
+                        '25,00,000',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Native Currency',
+                        'Coupon Rate on CCD',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -424,13 +301,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        '₹ Rupees',
+                        '8.1% Additional 1% return in Year 1 for pre-booking',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Target Corpus',
+                        'Rental Escalation',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -443,13 +320,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        '1,500 crore + green shoe of up to 1,500 crore',
+                        '15% every 3 Years',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Investment Manager Contribution',
+                        'Capital Appreciation',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -462,13 +339,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        '10 % of capital commitment raised',
+                        '2.0x Target Multiple',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Minimum Capital Commitment',
+                        'Expected IRR',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -481,13 +358,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        '1 crore',
+                        '12.70%',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Initial Drawdown',
+                        'CAGR',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -500,13 +377,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        'N/A',
+                        '6.00%',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Accepting Overseas investment?',
+                        'Minimum Investor LockIn',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -519,13 +396,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        'N/A',
+                        '1 Year',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Target IRR (%)',
+                        'Annual Management Fee',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -538,13 +415,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        'N/A',
+                        '1% of Net Purchase Price',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Hurdle Rate',
+                        'Performance Fee',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -557,13 +434,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        'XIRR of IC (pre-tax) on Capital Contributions received',
+                        '20%',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(28.h),
                       Text(
-                        'Other Expenses',
+                        'Hurdle rate',
                         style: TextStyle(
                           fontWeight: FontWeight.w500,
                           fontSize: 20.sp,
@@ -576,51 +453,13 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                         color: Colors.grey.shade400,
                       ),
                       Text(
-                        'N/A',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Focused Sectors (Industries in which they are investing)',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        'N/A',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Regions Covered (Geographical Locations covered by the fund)',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        'N/A',
+                        '30%',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff272424)),
                       ),
                       sizedBoxHeight(45.h),
                       Text(
-                        'View HDFC AMC Select AIF FOF - 1 document',
+                        'View Navi Mumbai Office Opportunity II document',
                         style: TextStyle(
                             fontWeight: FontWeight.w500,
                             fontSize: 15.sp,
