@@ -24,6 +24,7 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
         titleSpacing: 0,
         leading: IconButton(
           onPressed: () {
+            // Get.toNamed("/privateequity");
             Get.back();
           },
           icon: Icon(
@@ -33,34 +34,7 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
           color: Colors.black,
         ),
       ),
-      body:
-          //  Center(
-          //   child: Padding(
-          //     padding: const EdgeInsets.only(left: 16, right: 16),
-          //     child: Column(
-          // children: [
-          // Row(
-          //   mainAxisAlignment: MainAxisAlignment.start,
-          //   children: [
-          //     Text(
-          //       "Private Equity Fund Deals",
-          //       style: TextStyle(
-          //           fontFamily: "Poppins",
-          //           fontSize: 25.sp,
-          //           fontWeight: FontWeight.w500),
-          //     ),
-          //   ],
-          // ),
-          // SizedBox(
-          //   height: 30.h,
-          // ),
-          // Flexible(
-          //   fit: FlexFit.loose,
-          //   child: Row(
-          //     mainAxisSize: MainAxisSize.min,
-          //     mainAxisAlignment: MainAxisAlignment.center,
-          //     children: [
-          Padding(
+      body: Padding(
         padding: const EdgeInsets.only(left: 16),
         child: Column(
           children: [
@@ -78,6 +52,7 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
             ),
             Expanded(
               child: DefaultTabController(
+                initialIndex: 1,
                 length: 3,
                 child: Column(
                   children: <Widget>[
@@ -85,12 +60,13 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
                       height: 20,
                     ),
                     ButtonsTabBar(
+                      buttonMargin: EdgeInsets.zero,
                       contentPadding: EdgeInsets.only(left: 25, right: 25),
                       radius: 4,
                       backgroundColor: Color(0xFF143C6D),
                       unselectedBorderColor: Color(0xFFFFFFFF),
                       borderWidth: 2,
-                      borderColor: Color(0xFF143C6D),
+                      borderColor: Color(0xFFFFFFFF),
                       unselectedBackgroundColor: Color(0xFFFFFFFF),
                       unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
                       labelStyle: TextStyle(
@@ -126,61 +102,6 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
           ],
         ),
       ),
-      // ],
-      //),
-      //),
-      // DefaultTabController(
-      //   length: 3,
-      //   child: Row(
-      //     children: <Widget>[
-      //       SizedBox(
-      //         height: 20,
-      //       ),
-      //       ButtonsTabBar(
-      //         contentPadding: EdgeInsets.only(left: 25, right: 25),
-      //         radius: 4,
-      //         backgroundColor: Color(0xFF143C6D),
-      //         //unselectedBorderColor: Color(0xFF008083),
-      //         borderWidth: 2,
-      //         //borderColor: Color(0xFF008083),
-      //         unselectedBackgroundColor: Colors.white,
-      //         unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
-      //         labelStyle: TextStyle(
-      //           color: Colors.white,
-      //           fontWeight: FontWeight.bold,
-      //           fontSize: 14,
-      //         ),
-      //         tabs: [
-      //           Tab(
-      //             text: "Open",
-      //           ),
-      //           Tab(
-      //             text: "Fully funded",
-      //           ),
-      //           Tab(
-      //             text: "Resale",
-      //           ),
-      //         ],
-      //       ),
-      //       Expanded(
-      //         child: TabBarView(
-      //           children: [
-      //             FirstTab(),
-      //             SecondTab(),
-      //             ThirdTab(),
-      //           ],
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // ),
-      // SizedBox(
-      //   height: 20.h,
-      // ),
-      //],
-      //     ),
-      //   ),
-      // ),
     );
   }
 }

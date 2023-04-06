@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Utils/colors.dart';
@@ -246,6 +247,12 @@ class _CategoriesMainState extends State<CategoriesMain> {
                     screen = AlternativeInsvestment();
 
                     break;
+
+                  case 1:
+                    screen = FractionalRealestate();
+
+                    break;
+
                   default:
                 }
                 Get.to(screen);

@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart';
+import 'package:freeu/HomePage/Categories/Alternative/Debtfundpage.dart';
+import 'package:freeu/HomePage/Categories/Alternative/Distressedpage.dart';
+import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
+import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquity.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquitydeals.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquityfund.dart';
+import 'package:freeu/HomePage/Categories/Alternative/Realestatepage.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty1.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty2.dart';
@@ -172,6 +177,16 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/privateequityfund', page: () => PrivateEquityFund()),    
 
           GetPage(name: '/privateequityfunddeals', page: () => PrivateEquityFundDeals()),  
+
+          GetPage(name: '/debtfund', page: () => Debtfund()),
+
+          GetPage(name: '/realestatepage', page: () => RealEstatepage()),
+
+          GetPage(name: '/distressedasset', page: () => DistressedAsset()),
+
+          GetPage(name: '/fractionalrealpage', page: () => FractionalRealestate()),
+
+          GetPage(name: '/fractionalpropertiespage', page: () => Fractionalproperties()),
 
         ],
       ),
