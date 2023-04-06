@@ -248,10 +248,10 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
                     break;
 
-                  case 1:
+                   case 2:
                     screen = FractionalRealestate();
 
-                    break;
+                    break;  
 
                   default:
                 }
