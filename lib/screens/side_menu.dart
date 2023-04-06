@@ -20,6 +20,28 @@ class _SideMenuState extends State<SideMenu> {
         color: AppColors.blue143C6D,
         child: SafeArea(
           child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset('assets/images/avatar.png',
+                    width: 50.h,
+                    height: 50.h,
+                  ),
+                  SizedBox(
+                    width: 5.w,
+                  ),
+                  Text(
+                    "Kartikey Adani",
+                    style: TextStyle(
+                      fontSize: 15.sp,
+                      color: AppColors.white
+                    ),
+                  ),
+                ],
+              ),
+            
+            ],
             
           )
         ),

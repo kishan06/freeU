@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquity.dart';
+import 'package:freeu/HomePage/Categories/Alternative/PrivateEquitydeals.dart';
+import 'package:freeu/HomePage/Categories/Alternative/PrivateEquityfund.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty1.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty2.dart';
@@ -85,7 +87,7 @@ class _MyAppState extends State<MyApp> {
       builder: (BuildContext context, Widget? child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'FreeU',
-        initialRoute: '/MainScreen',
+        initialRoute: '/',
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.white,
           fontFamily: "Poppins",
@@ -163,7 +165,14 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/altenativecategories2',
               page: () => AlternativeCategories2()),
+
           GetPage(name: '/fullyfundedbank', page: () => FullyFundedBank()),
+
+
+          GetPage(name: '/privateequityfund', page: () => PrivateEquityFund()),    
+
+          GetPage(name: '/privateequityfunddeals', page: () => PrivateEquityFundDeals()),  
+
         ],
       ),
       designSize: Size(390, 844),

@@ -85,8 +85,8 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         height: 9.h,
                       ),
                       GestureDetector(
-                        onTap: (){
-                          
+                        onTap: () {
+                          Get.toNamed("/privateequityfund");
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -190,7 +190,9 @@ class _PrvateEquityState extends State<PrvateEquity> {
                               borderRadius: BorderRadius.circular(10.h),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.toNamed("/privateequityfunddeals");
+                          },
                           child: Text(
                             "View more product",
                             style: TextStyle(
