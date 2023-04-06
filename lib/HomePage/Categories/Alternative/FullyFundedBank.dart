@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:get/get.dart';
 
 class FullyFundedBank extends StatefulWidget {
   const FullyFundedBank({super.key});
@@ -14,6 +18,21 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFFFFFFF),
+        elevation: 0,
+        titleSpacing: 0,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back,
+          ),
+          iconSize: 26.h,
+          color: Colors.black,
+        ),
+      ),
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -23,6 +42,39 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  sizedBoxHeight(10.h),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      sizedBoxWidth(5.w),
+                      Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.1),
+                              spreadRadius: 2.w,
+                              blurRadius: 2.h,
+                            ),
+                          ],
+                        ),
+                        child: Image.asset(
+                          "assets/images/alternative (6).png",
+                          width: 80.w,
+                          height: 54.h,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 20.h,
+                      ),
+                      Flexible(
+                        child: Text(
+                          "HDFC AMC Select AIF FOF - 1",
+                          style: TextStyle(
+                              fontSize: 22.sp, fontWeight: FontWeight.w500),
+                        ),
+                      )
+                    ],
+                  ),
                   sizedBoxHeight(24.h),
                   Text(
                     'Fund fundamentals',
@@ -580,13 +632,60 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                 ],
               ),
             ),
-            const Align(
+            Align(
               alignment: Alignment.bottomCenter,
-              child: CustomNextButton(text: 'Invest now'),
+              child: CustomNextButton(
+                  ontap: () {
+                    investNow();
+                  },
+                  text: 'Invest now'),
             )
           ],
         ),
       )),
+    );
+  }
+
+  void investNow() {
+    showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      builder: (context) {
+        return Container(
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SvgPicture.asset("assets/images/thankyouinvestment.svg"),
+              Text(
+                "Thank You For Showing Your Interest",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: const Color(0xff0F0C0C),
+                    fontSize: 30.sp,
+                    fontFamily: "Poppins"),
+              ),
+              sizedBoxHeight(30.h),
+              Text(
+                "A FreeU Advisory Team will get back to you soon.",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    color: const Color(0xff272424),
+                    fontSize: 20.sp,
+                    fontFamily: "Poppins"),
+              ),
+              sizedBoxHeight(30.h),
+              CustomNextButton(ontap: () {}, text: 'View more products')
+            ],
+          ),
+        );
+      },
     );
   }
 }
