@@ -57,6 +57,7 @@ import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
 
 import 'HomePage/Categories/Alternative/AlternativeCategories2.dart';
+import 'HomePage/Categories/Alternative/FullyFundedBank.dart';
 
 int bottomIndex = 0;
 
@@ -93,7 +94,7 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/SideMenu', page: () => SideMenu()),
           // GetPage(name: '/', page: () => Splash()),
           GetPage(name: '/MainScreen', page: () => MainScreen()),
-          
+
           // GetPage(name: '/splash', page: () => Splash()),
           GetPage(name: '/', page: () => Splashslider()),
           GetPage(name: '/login', page: () => Login()),
@@ -153,12 +154,16 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/kyctab3', page: () => KYCTabs3()),
           GetPage(name: '/kyctab4', page: () => KYCTabs4()),
           GetPage(name: '/userlogged', page: () => User()),
-          GetPage(name: '/altenativecategories', page: () => AlternativeCategories()),
+          GetPage(
+              name: '/altenativecategories',
+              page: () => AlternativeCategories()),
 
           GetPage(name: '/privateequity', page: () => PrvateEquity()),
 
-          GetPage(name: '/altenativecategories2', page: () => AlternativeCategories2()),
-
+          GetPage(
+              name: '/altenativecategories2',
+              page: () => AlternativeCategories2()),
+          GetPage(name: '/fullyfundedbank', page: () => FullyFundedBank()),
         ],
       ),
       designSize: Size(390, 844),

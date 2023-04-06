@@ -22,6 +22,21 @@ import 'package:path_provider/path_provider.dart';
 
 import '../common/CustomTextDropDown.dart';
 
+bool smsUpdate = true;
+TextEditingController nameController = TextEditingController();
+TextEditingController lastNameController = TextEditingController();
+TextEditingController phoneController = TextEditingController();
+TextEditingController emailController = TextEditingController();
+TextEditingController addressController = TextEditingController();
+
+String? nameValue;
+String? lastNameValue;
+String? phoneValue;
+String? emailValue;
+String? addressValue;
+
+File? profilPic;
+
 class Profile extends StatefulWidget {
   const Profile({super.key});
 
@@ -31,7 +46,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
-  bool isSwitched = false;
+  // bool isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
@@ -122,39 +137,26 @@ class profiletab extends StatefulWidget {
 }
 
 class _profiletabState extends State<profiletab> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
-
-  String? nameValue;
-  String? lastNameValue;
-  String? phoneValue;
-  String? emailValue;
-  String? addressValue;
-  bool light = true;
-  bool isSwitched = false;
-  File? image;
+  // bool isSwitched = false;
 
   bool editBool = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   void _submit() {
-    final FormState? form = _formKey.currentState;
-    if (form != null && form.validate()) {
-      form.save();
+    // final FormState? form = _formKey.currentState;
+    // if (form != null && form.validate()) {
+    //   form.save();
+    setState(() {
       setState(() {
-        setState(() {
-          editBool = false;
-          nameValue = nameController.text;
-          lastNameValue = lastNameController.text;
-          phoneValue = phoneController.text;
-          emailValue = emailController.text;
-          addressValue = addressController.text;
-        });
+        editBool = false;
+        nameValue = nameController.text;
+        lastNameValue = lastNameController.text;
+        phoneValue = phoneController.text;
+        emailValue = emailController.text;
+        addressValue = addressController.text;
       });
-    }
+    });
+    // }
   }
 
   Future getImage(ImageSource source) async {
@@ -165,7 +167,7 @@ class _profiletabState extends State<profiletab> {
       // final imagePermanent = await saveFilePermanently(image.path);
 
       setState(() {
-        this.image = imageTemporary;
+        profilPic = imageTemporary;
       });
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
@@ -299,9 +301,9 @@ class _profiletabState extends State<profiletab> {
                           ClipOval(
                             child: SizedBox.fromSize(
                                 size: Size.fromRadius(60.r),
-                                child: image != null
+                                child: profilPic != null
                                     ? Image.file(
-                                        image!,
+                                        profilPic!,
                                         width: 200.w,
                                         height: 200.h,
                                         fit: BoxFit.cover,
@@ -316,32 +318,18 @@ class _profiletabState extends State<profiletab> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            children: [
-                              Text(
-                                nameValue == null || nameValue!.isEmpty
-                                    ? 'Kartikey'
-                                    : '$nameValue',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                          Flexible(
+                            child: Text(
+                              nameValue == null || nameValue!.isEmpty
+                                  ? 'Kartikey Adani'
+                                  : '$nameValue $lastNameValue',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 22.sp,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
                               ),
-                              sizedBoxWidth(8.w),
-                              Text(
-                                lastNameValue == null || lastNameValue!.isEmpty
-                                    ? 'Adani'
-                                    : '$lastNameValue',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                           GestureDetector(
                             onTap: (() {
@@ -351,7 +339,7 @@ class _profiletabState extends State<profiletab> {
                             }),
                             child: SvgPicture.asset(
                               'assets/images/Group 51018.svg',
-                              width: 20,
+                              width: 20.w,
                             ),
                           ),
                         ],
@@ -395,14 +383,16 @@ class _profiletabState extends State<profiletab> {
                           SizedBox(
                             width: 20.w,
                           ),
-                          Text(
-                            emailValue == null || emailValue!.isEmpty
-                                ? 'Kartikey@gmail.com'
-                                : '$emailValue',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              fontFamily: 'Poppins',
+                          Flexible(
+                            child: Text(
+                              emailValue == null || emailValue!.isEmpty
+                                  ? 'Kartikey@gmail.com'
+                                  : '$emailValue',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 20.sp,
+                                fontFamily: 'Poppins',
+                              ),
                             ),
                           ),
                         ],
@@ -471,11 +461,9 @@ class _profiletabState extends State<profiletab> {
                             toggleColor: const Color(0xff143C6D),
                             activeColor: Colors.white,
                             inactiveColor: const Color(0xffB1B1B1),
-                            value: light,
+                            value: smsUpdate,
                             onToggle: (value) {
-                              setState(() {
-                                light = value;
-                              });
+                              smsUpdate;
                             },
                           ),
                         ],
@@ -502,9 +490,9 @@ class _profiletabState extends State<profiletab> {
                   ClipOval(
                     child: SizedBox.fromSize(
                         size: Size.fromRadius(60.r),
-                        child: image != null
+                        child: profilPic != null
                             ? Image.file(
-                                image!,
+                                profilPic!,
                                 width: 200.w,
                                 height: 200.h,
                                 fit: BoxFit.cover,
@@ -573,10 +561,10 @@ class _profiletabState extends State<profiletab> {
           CustomTextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter a Username';
+                  return 'Please enter lastname';
                 }
                 if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
-                  return 'Please enter a valid username (letters and numbers only)';
+                  return 'Please enter a valid name (letters and numbers only)';
                 }
                 // v1 = true;
                 return null;
@@ -678,10 +666,10 @@ class _profiletabState extends State<profiletab> {
                         toggleColor: const Color(0xff143C6D),
                         activeColor: Colors.white,
                         inactiveColor: const Color(0xffB1B1B1),
-                        value: light,
+                        value: smsUpdate,
                         onToggle: (value) {
                           setState(() {
-                            light = value;
+                            smsUpdate = value;
                           });
                         },
                       ),
@@ -793,7 +781,8 @@ class _KYCtabsState extends State<KYCtabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+        padding:
+            EdgeInsets.only(left: 16.w, right: 16.w, bottom: 65.w, top: 20.h),
         child: Expanded(
           child: PageView.builder(
             controller: _controller,

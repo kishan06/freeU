@@ -8,6 +8,7 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/profile/profile.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -20,9 +21,6 @@ class User extends StatefulWidget {
 }
 
 class _UserState extends State<User> {
-  bool light = true;
-  File? _image;
-
   bool editBool = false;
   Future getImage(ImageSource source) async {
     try {
@@ -32,7 +30,7 @@ class _UserState extends State<User> {
       // final imagePermanent = await saveFilePermanently(image.path);
 
       setState(() {
-        this._image = imageTemporary;
+        profilPic = imageTemporary;
       });
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
@@ -69,7 +67,7 @@ class _UserState extends State<User> {
                 Text(
                   'Profile Photo',
                   style: TextStyle(
-                      color: Color(0xff444444),
+                      color: const Color(0xff444444),
                       fontSize: 22.sp,
                       fontFamily: 'Poppins'),
                 ),
@@ -87,7 +85,7 @@ class _UserState extends State<User> {
                         children: [
                           CircleAvatar(
                             radius: 27.r,
-                            backgroundColor: Color(0xff143C6D),
+                            backgroundColor: const Color(0xff143C6D),
                             child: Icon(
                               Icons.camera_alt_outlined,
                               size: 30.sp,
@@ -101,7 +99,7 @@ class _UserState extends State<User> {
                             'Camera',
                             style: TextStyle(
                                 fontSize: 13.sp,
-                                color: Color(0xff444444),
+                                color: const Color(0xff444444),
                                 fontFamily: 'Poppins'),
                           )
                         ],
@@ -117,7 +115,7 @@ class _UserState extends State<User> {
                         children: [
                           CircleAvatar(
                             radius: 27.r,
-                            backgroundColor: Color(0xff143C6D),
+                            backgroundColor: const Color(0xff143C6D),
                             child: Icon(
                               Icons.image_outlined,
                               size: 30.sp,
@@ -131,7 +129,7 @@ class _UserState extends State<User> {
                             'Gallery',
                             style: TextStyle(
                                 fontSize: 13.sp,
-                                color: Color(0xff444444),
+                                color: const Color(0xff444444),
                                 fontFamily: 'Poppins'),
                           )
                         ],
@@ -207,9 +205,9 @@ class _UserState extends State<User> {
                             ClipOval(
                               child: SizedBox.fromSize(
                                   size: Size.fromRadius(60.r),
-                                  child: _image != null
+                                  child: profilPic != null
                                       ? Image.file(
-                                          _image!,
+                                          profilPic!,
                                           width: 200.w,
                                           height: 200.h,
                                           fit: BoxFit.cover,
@@ -222,15 +220,20 @@ class _UserState extends State<User> {
                           height: 20.h,
                         ),
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text(
-                              'Kartikey Adani',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
+                          children: [
+                            Flexible(
+                              child: Text(
+                                nameValue == null || nameValue!.isEmpty
+                                    ? 'Kartikey Adani'
+                                    : '$nameValue $lastNameValue',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 22.sp,
+                                  fontFamily: 'Poppins',
+                                  fontWeight: FontWeight.w500,
+                                ),
                               ),
                             ),
                           ],
@@ -241,15 +244,17 @@ class _UserState extends State<User> {
                         Row(
                           children: [
                             CircleAvatar(
-                              backgroundColor: Color(0xff002A5B),
+                              backgroundColor: const Color(0xff002A5B),
                               radius: 25.r,
-                              child: Icon(Icons.phone_in_talk_sharp),
+                              child: const Icon(Icons.phone_in_talk_sharp),
                             ),
                             SizedBox(
                               width: 20.w,
                             ),
                             Text(
-                              '8425025713',
+                              phoneValue == null || phoneValue!.isEmpty
+                                  ? '8425025713'
+                                  : '$phoneValue',
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 20.sp,
@@ -265,19 +270,23 @@ class _UserState extends State<User> {
                         Row(
                           children: [
                             CircleAvatar(
-                              backgroundColor: Color(0xff002A5B),
+                              backgroundColor: const Color(0xff002A5B),
                               radius: 25.r,
-                              child: Icon(Icons.mail_outline),
+                              child: const Icon(Icons.mail_outline),
                             ),
                             SizedBox(
                               width: 20.w,
                             ),
-                            Text(
-                              'Kartikey@gmail.com',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 20.sp,
-                                fontFamily: 'Poppins',
+                            Flexible(
+                              child: Text(
+                                emailValue == null || emailValue!.isEmpty
+                                    ? 'Kartikey@gmail.com'
+                                    : '$emailValue',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontFamily: 'Poppins',
+                                ),
                               ),
                             ),
                           ],
@@ -290,9 +299,9 @@ class _UserState extends State<User> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             CircleAvatar(
-                              backgroundColor: Color(0xff002A5B),
+                              backgroundColor: const Color(0xff002A5B),
                               radius: 25.r,
-                              child: Icon(Icons.location_on_outlined),
+                              child: const Icon(Icons.location_on_outlined),
                             ),
                             SizedBox(
                               width: 22.w,
@@ -302,7 +311,10 @@ class _UserState extends State<User> {
                                 children: [
                                   sizedBoxHeight(10.h),
                                   Text(
-                                    '614, 6TH Floor, Palm Spring Centre, New Link Rd, Malad West, Mumbai, Maharashtra 400064',
+                                    addressValue == null ||
+                                            addressValue!.isEmpty
+                                        ? '614, 6TH Floor, Palm Spring Centre, New Link Rd, Malad West, Mumbai, Maharashtra 400064'
+                                        : '$addressValue',
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 20.sp,
@@ -344,11 +356,9 @@ class _UserState extends State<User> {
                               toggleColor: const Color(0xff143C6D),
                               activeColor: Colors.white,
                               inactiveColor: const Color(0xffB1B1B1),
-                              value: light,
+                              value: smsUpdate,
                               onToggle: (value) {
-                                setState(() {
-                                  light = value;
-                                });
+                                smsUpdate;
                               },
                             ),
                           ],
@@ -376,9 +386,9 @@ class _UserState extends State<User> {
                   ClipOval(
                     child: SizedBox.fromSize(
                         size: Size.fromRadius(60.r),
-                        child: _image != null
+                        child: profilPic != null
                             ? Image.file(
-                                _image!,
+                                profilPic!,
                                 width: 200.w,
                                 height: 200.h,
                                 fit: BoxFit.cover,
@@ -394,11 +404,11 @@ class _UserState extends State<User> {
                       },
                       child: Material(
                         elevation: 1,
-                        shape: CircleBorder(),
+                        shape: const CircleBorder(),
                         child: CircleAvatar(
                           radius: 16.5.r,
                           backgroundColor: Colors.white,
-                          child: Icon(
+                          child: const Icon(
                             Icons.edit_outlined,
                             color: Color(0xffCCCCCC),
                           ),
@@ -420,7 +430,19 @@ class _UserState extends State<User> {
             height: 15.h,
           ),
           CustomTextFormField(
-              hintText: 'Enter First Name', validatorText: 'Enter First Name'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter a Username';
+                }
+                if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
+                  return 'Please enter a valid username (letters and numbers only)';
+                }
+                // v1 = true;
+                return null;
+              },
+              textEditingController: nameController,
+              hintText: 'Enter First Name',
+              validatorText: 'Enter First Name'),
           SizedBox(height: 20.h),
           Text(
             "Last Name",
@@ -433,7 +455,19 @@ class _UserState extends State<User> {
             height: 6.h,
           ),
           CustomTextFormField(
-              hintText: 'Enter Last Name', validatorText: 'Enter Last Name'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter lastname';
+                }
+                if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
+                  return 'Please enter a valid name (letters and numbers only)';
+                }
+                // v1 = true;
+                return null;
+              },
+              textEditingController: lastNameController,
+              hintText: 'Enter Last Name',
+              validatorText: 'Enter Last Name'),
           SizedBox(height: 20.h),
           Text(
             "Phone Number",
@@ -446,6 +480,18 @@ class _UserState extends State<User> {
             height: 6.h,
           ),
           CustomTextFormField(
+              texttype: TextInputType.phone,
+              validator: (value) {
+                if (value == value.isEmpty) {
+                  return 'Mobile number is required';
+                } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
+                    .hasMatch(value)) {
+                  return 'Enter valid mobile number';
+                }
+                // v3 = true;
+                return null;
+              },
+              textEditingController: phoneController,
               hintText: 'Enter Phone Number',
               validatorText: 'Enter Phone Number'),
           SizedBox(height: 20.h),
@@ -460,7 +506,20 @@ class _UserState extends State<User> {
             height: 6.h,
           ),
           CustomTextFormField(
-              hintText: 'Enter Email Id', validatorText: 'Enter Email Id '),
+              validator: (value) {
+                if (value == value.isEmpty) {
+                  return 'Please enter your email';
+                }
+                if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
+                    .hasMatch(value)) {
+                  return 'Please enter a valid email address';
+                }
+                // v4 = true;
+                return null;
+              },
+              textEditingController: emailController,
+              hintText: 'Enter Email Id',
+              validatorText: 'Enter Email Id '),
           SizedBox(height: 20.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -503,10 +562,10 @@ class _UserState extends State<User> {
                         toggleColor: const Color(0xff143C6D),
                         activeColor: Colors.white,
                         inactiveColor: const Color(0xffB1B1B1),
-                        value: light,
+                        value: smsUpdate,
                         onToggle: (value) {
                           setState(() {
-                            light = value;
+                            smsUpdate = value;
                           });
                         },
                       ),
@@ -539,6 +598,7 @@ class _UserState extends State<User> {
             height: 6.h,
           ),
           TextFormField(
+            controller: addressController,
             style: TextStyle(fontSize: 16.sp),
             cursorColor: const Color(0xFFFFB600),
             autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -548,15 +608,18 @@ class _UserState extends State<User> {
               fillColor: Colors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                borderSide:
+                    const BorderSide(color: Color(0xffCCCCCC), width: 1),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                borderSide:
+                    const BorderSide(color: Color(0xffCCCCCC), width: 1),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                borderSide:
+                    const BorderSide(color: Color(0xffCCCCCC), width: 1),
               ),
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -579,13 +642,28 @@ class _UserState extends State<User> {
           CustomNextButton(
             text: 'Update',
             ontap: (() {
-              setState(() {
-                editBool = false;
-              });
+              _submit();
             }),
           )
         ],
       ),
     );
+  }
+
+  void _submit() {
+    // final FormState? form = _formKey.currentState;
+    // if (form != null && form.validate()) {
+    //   form.save();
+    setState(() {
+      setState(() {
+        editBool = false;
+        nameValue = nameController.text;
+        lastNameValue = lastNameController.text;
+        phoneValue = phoneController.text;
+        emailValue = emailController.text;
+        addressValue = addressController.text;
+      });
+    });
+    // }
   }
 }
