@@ -48,7 +48,7 @@ class _MainScreenState extends State<MainScreen>
   var reverse = false;
 
   bool isSideBarOpen = false;
-  var _selectedIndex = 1.obs;
+  var _selectedIndex = 0.obs;
 
 
   // Menu selectedBottomNav = bottomNavItems.first;
