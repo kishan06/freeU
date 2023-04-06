@@ -63,7 +63,8 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                         horizontal: 16,
                       ),
                       child: GestureDetector(
-                        onTap: null,
+                        onTap: () {
+                        },
                         child: Container(
                           // width: 358.w,
                           // height: 325.h,
@@ -122,7 +123,6 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                           Get.toNamed('/altenativecategories2');
                         },
                         child: Container(
-                         
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xffB23C7E),
@@ -149,7 +149,8 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                 ),
                                 SizedBox(height: 21.h),
                                 Text(
-                                  "Alternative Investment Funds Category II",textAlign: TextAlign.center,
+                                  "Alternative Investment Funds Category II",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 25.sp,
@@ -173,7 +174,6 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                         horizontal: 16,
                       ),
                       child: Container(
-                     
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color(0xff008A5B),

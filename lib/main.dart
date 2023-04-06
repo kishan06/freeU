@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquity.dart';
+import 'package:freeu/HomePage/Categories/Alternative/PrivateEquitydeals.dart';
+import 'package:freeu/HomePage/Categories/Alternative/PrivateEquityfund.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty1.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty2.dart';
@@ -58,6 +60,7 @@ import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
 
 import 'HomePage/Categories/Alternative/AlternativeCategories2.dart';
+import 'HomePage/Categories/Alternative/FullyFundedBank.dart';
 
 int bottomIndex = 0;
 
@@ -93,10 +96,12 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "Poppins",
         ),
         getPages: [
+
           GetPage(name: '/SideBar', page: () => SideBar()),
           GetPage(name: '/EntryPoint', page: () => EntryPoint()),
           // GetPage(name: '/MainScreen', page: () => MainScreen()),
           
+
           // GetPage(name: '/splash', page: () => Splash()),
           GetPage(name: '/', page: () => Splashslider()),
           GetPage(name: '/login', page: () => Login()),
@@ -156,11 +161,22 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/kyctab3', page: () => KYCTabs3()),
           GetPage(name: '/kyctab4', page: () => KYCTabs4()),
           GetPage(name: '/userlogged', page: () => User()),
-          GetPage(name: '/altenativecategories', page: () => AlternativeCategories()),
+          GetPage(
+              name: '/altenativecategories',
+              page: () => AlternativeCategories()),
 
           GetPage(name: '/privateequity', page: () => PrvateEquity()),
 
-          GetPage(name: '/altenativecategories2', page: () => AlternativeCategories2()),
+          GetPage(
+              name: '/altenativecategories2',
+              page: () => AlternativeCategories2()),
+
+          GetPage(name: '/fullyfundedbank', page: () => FullyFundedBank()),
+
+
+          GetPage(name: '/privateequityfund', page: () => PrivateEquityFund()),    
+
+          GetPage(name: '/privateequityfunddeals', page: () => PrivateEquityFundDeals()),  
 
         ],
       ),

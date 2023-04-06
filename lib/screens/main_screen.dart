@@ -47,8 +47,10 @@
 //   var currentIndex = 0;
 //   var reverse = false;
 
+
 //   bool isSideBarOpen = false;
 //   var _selectedIndex = 1.obs;
+
 
 
 //   // Menu selectedBottomNav = bottomNavItems.first;

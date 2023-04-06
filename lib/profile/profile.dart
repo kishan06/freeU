@@ -18,10 +18,69 @@ import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/profile/kyctabs2.dart';
 import 'package:get/get.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 
 import '../common/CustomTextDropDown.dart';
+
+bool smsUpdate = true;
+TextEditingController nameController = TextEditingController();
+TextEditingController lastNameController = TextEditingController();
+TextEditingController phoneController = TextEditingController();
+TextEditingController emailController = TextEditingController();
+TextEditingController addressController = TextEditingController();
+
+String? nameValue;
+String? lastNameValue;
+String? phoneValue;
+String? emailValue;
+String? addressValue;
+
+// File? profilPic;
+RxString profilePicPath = "".obs;
+
+void getImage(ImageSource imgSource) async {
+  final ImagePicker picker = ImagePicker();
+  final XFile? pickedImg = await picker.pickImage(source: imgSource);
+  if (pickedImg != null) {
+    final CroppedFile? croppedImg = await ImageCropper().cropImage(
+        sourcePath: pickedImg.path,
+        aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+        compressFormat: ImageCompressFormat.jpg,
+        maxHeight: 512,
+        maxWidth: 512,
+        compressQuality: 100,
+        cropStyle: CropStyle.circle,
+        aspectRatioPresets: [
+          CropAspectRatioPreset.square,
+          // CropAspectRatioPreset.ratio3x2,
+          // CropAspectRatioPreset.original,
+          // CropAspectRatioPreset.ratio4x3,
+          // CropAspectRatioPreset.ratio16x9
+        ],
+        uiSettings: [
+          AndroidUiSettings(
+            toolbarTitle: "Crop Image",
+            toolbarColor: Get.theme.appBarTheme.backgroundColor,
+            // toolbarWidgetColor: ColorConstants.kWhite,
+            backgroundColor: Colors.black,
+            activeControlsWidgetColor: Colors.red,
+            // initAspectRatio: CropAspectRatioPreset.original,
+            cropFrameColor: Colors.white,
+            lockAspectRatio: false,
+          ),
+          IOSUiSettings(
+            title: 'Crop Image',
+          ),
+        ]);
+    if (croppedImg != null) {
+      // profilPic = croppedImg.path;
+      profilePicPath.value = croppedImg.path;
+      // Get.back();
+    }
+  }
+}
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -32,7 +91,7 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
-  bool isSwitched = false;
+  // bool isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
@@ -217,55 +276,42 @@ class profiletab extends StatefulWidget {
 }
 
 class _profiletabState extends State<profiletab> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController lastNameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController addressController = TextEditingController();
-
-  String? nameValue;
-  String? lastNameValue;
-  String? phoneValue;
-  String? emailValue;
-  String? addressValue;
-  bool light = true;
-  bool isSwitched = false;
-  File? image;
+  // bool isSwitched = false;
 
   bool editBool = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   void _submit() {
-    final FormState? form = _formKey.currentState;
-    if (form != null && form.validate()) {
-      form.save();
+    // final FormState? form = _formKey.currentState;
+    // if (form != null && form.validate()) {
+    //   form.save();
+    setState(() {
       setState(() {
-        setState(() {
-          editBool = false;
-          nameValue = nameController.text;
-          lastNameValue = lastNameController.text;
-          phoneValue = phoneController.text;
-          emailValue = emailController.text;
-          addressValue = addressController.text;
-        });
+        editBool = false;
+        nameValue = nameController.text;
+        lastNameValue = lastNameController.text;
+        phoneValue = phoneController.text;
+        emailValue = emailController.text;
+        addressValue = addressController.text;
       });
-    }
+    });
+    // }
   }
 
-  Future getImage(ImageSource source) async {
-    try {
-      final image = await ImagePicker().pickImage(source: source);
-      if (image == null) return;
-      final imageTemporary = File(image.path);
-      // final imagePermanent = await saveFilePermanently(image.path);
+  // Future getImage(ImageSource source) async {
+  //   try {
+  //     final image = await ImagePicker().pickImage(source: source);
+  //     if (image == null) return;
+  //     final imageTemporary = File(image.path);
+  //     // final imagePermanent = await saveFilePermanently(image.path);
 
-      setState(() {
-        this.image = imageTemporary;
-      });
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
-    }
-  }
+  //     setState(() {
+  //       profilPic = imageTemporary;
+  //     });
+  //   } on PlatformException catch (e) {
+  //     print('Failed to pick image: $e');
+  //   }
+  // }
 
   Future<File> saveFilePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
@@ -394,13 +440,13 @@ class _profiletabState extends State<profiletab> {
                           ClipOval(
                             child: SizedBox.fromSize(
                                 size: Size.fromRadius(60.r),
-                                child: image != null
-                                    ? Image.file(
-                                        image!,
-                                        width: 200.w,
-                                        height: 200.h,
-                                        fit: BoxFit.cover,
-                                      )
+                                child:profilePicPath.value != null
+                            ? Image(
+                                image: FileImage(File(profilePicPath.value)),
+                                fit: BoxFit.cover,
+                                width: 200.w,
+                                height: 200.h,
+                              )
                                     : Image.asset('assets/images/user.png')),
                           ),
                         ],
@@ -411,32 +457,18 @@ class _profiletabState extends State<profiletab> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            children: [
-                              Text(
-                                nameValue == null || nameValue!.isEmpty
-                                    ? 'Kartikey'
-                                    : '$nameValue',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
+                          Flexible(
+                            child: Text(
+                              nameValue == null || nameValue!.isEmpty
+                                  ? 'Kartikey Adani'
+                                  : '$nameValue $lastNameValue',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 22.sp,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
                               ),
-                              sizedBoxWidth(8.w),
-                              Text(
-                                lastNameValue == null || lastNameValue!.isEmpty
-                                    ? 'Adani'
-                                    : '$lastNameValue',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 22,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
+                            ),
                           ),
                           GestureDetector(
                             onTap: (() {
@@ -446,7 +478,7 @@ class _profiletabState extends State<profiletab> {
                             }),
                             child: SvgPicture.asset(
                               'assets/images/Group 51018.svg',
-                              width: 20,
+                              width: 20.w,
                             ),
                           ),
                         ],
@@ -490,14 +522,16 @@ class _profiletabState extends State<profiletab> {
                           SizedBox(
                             width: 20.w,
                           ),
-                          Text(
-                            emailValue == null || emailValue!.isEmpty
-                                ? 'Kartikey@gmail.com'
-                                : '$emailValue',
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              fontFamily: 'Poppins',
+                          Flexible(
+                            child: Text(
+                              emailValue == null || emailValue!.isEmpty
+                                  ? 'Kartikey@gmail.com'
+                                  : '$emailValue',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 20.sp,
+                                fontFamily: 'Poppins',
+                              ),
                             ),
                           ),
                         ],
@@ -566,11 +600,9 @@ class _profiletabState extends State<profiletab> {
                             toggleColor: const Color(0xff143C6D),
                             activeColor: Colors.white,
                             inactiveColor: const Color(0xffB1B1B1),
-                            value: light,
+                            value: smsUpdate,
                             onToggle: (value) {
-                              setState(() {
-                                light = value;
-                              });
+                              smsUpdate;
                             },
                           ),
                         ],
@@ -597,12 +629,12 @@ class _profiletabState extends State<profiletab> {
                   ClipOval(
                     child: SizedBox.fromSize(
                         size: Size.fromRadius(60.r),
-                        child: image != null
-                            ? Image.file(
-                                image!,
+                        child: profilePicPath.value != null
+                            ? Image(
+                                image: FileImage(File(profilePicPath.value)),
+                                fit: BoxFit.cover,
                                 width: 200.w,
                                 height: 200.h,
-                                fit: BoxFit.cover,
                               )
                             : Image.asset('assets/images/user.png')),
                   ),
@@ -668,10 +700,10 @@ class _profiletabState extends State<profiletab> {
           CustomTextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter a Username';
+                  return 'Please enter lastname';
                 }
                 if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
-                  return 'Please enter a valid username (letters and numbers only)';
+                  return 'Please enter a valid name (letters and numbers only)';
                 }
                 // v1 = true;
                 return null;
@@ -773,10 +805,10 @@ class _profiletabState extends State<profiletab> {
                         toggleColor: const Color(0xff143C6D),
                         activeColor: Colors.white,
                         inactiveColor: const Color(0xffB1B1B1),
-                        value: light,
+                        value: smsUpdate,
                         onToggle: (value) {
                           setState(() {
-                            light = value;
+                            smsUpdate = value;
                           });
                         },
                       ),
@@ -888,6 +920,7 @@ class _KYCtabsState extends State<KYCtabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
+
         padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
         child: PageView.builder(
           controller: _controller,
@@ -908,6 +941,7 @@ class _KYCtabsState extends State<KYCtabs> {
             }
             return kyc4();
           },
+
         ),
       ),
     );
@@ -1986,7 +2020,7 @@ class _riskprofileState extends State<riskprofile> {
                         "10 Lakhs to 25 Lakhs",
                       ], controller: basis, showDropDown: true),
                       SizedBox(
-                        height: 60.h,
+                        height: 50.h,
                       ),
                       CustomNextButton(
                           ontap: (() {
@@ -2033,6 +2067,7 @@ class _riskprofileState extends State<riskprofile> {
                             );
                           }),
                           text: "Submit"),
+                      sizedBoxHeight(50.h)
                     ]))),
       ),
     );
