@@ -7,6 +7,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/screens/main_screen.dart';
 
 import 'package:get/get.dart';
 
@@ -182,7 +183,9 @@ class _LoginState extends State<Login> {
                           ontap: () {
                             final isValid = _form.currentState?.validate();
                             if (isValid!) {
-                              Get.toNamed("/homepage");
+                              // Get.toNamed("/homepage");
+                              // Get.to(MainScreen());
+                              Get.toNamed("/MainScreen");
                             } else {
                               Get.snackbar(
                                 "Error",

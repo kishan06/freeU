@@ -84,7 +84,7 @@ class _MyAppState extends State<MyApp> {
       builder: (BuildContext context, Widget? child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'FreeU',
-        initialRoute: '/MainScreen',
+        initialRoute: '/',
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.white,
           fontFamily: "Poppins",
