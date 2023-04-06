@@ -1882,7 +1882,7 @@ class _riskprofileState extends State<riskprofile> {
                         "10 Lakhs to 25 Lakhs",
                       ], controller: basis, showDropDown: true),
                       SizedBox(
-                        height: 60.h,
+                        height: 50.h,
                       ),
                       CustomNextButton(
                           ontap: (() {
@@ -1929,6 +1929,7 @@ class _riskprofileState extends State<riskprofile> {
                             );
                           }),
                           text: "Submit"),
+                      sizedBoxHeight(50.h)
                     ]))),
       ),
     );
