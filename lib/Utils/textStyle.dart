@@ -10,13 +10,13 @@ TextStyle blackStyle12() => TextStyle(
 TextStyle blackStyle14() => TextStyle(
       color: Colors.black,
       fontFamily: 'Poppins',
-      fontSize: 14.sm,
+      fontSize: 14.sp,
     );
 
 TextStyle blackStyle15() => TextStyle(
       color: Colors.black,
       fontFamily: 'Poppins',
-      fontSize: 15.sm,
+      fontSize: 15.sp,
     );
 
 TextStyle blackStyle16() => TextStyle(

@@ -120,115 +120,69 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
-        top: 25,
-      ),
-      child: Column(
-        children: [
-          Image.asset(
-            "assets/images/fractional.png",
-            width: 358,
-            height: 162,
-          ),
-          SizedBox(
-            height: 25.h,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Row(
-              children: [
-                Text(
-                  "Navi Mumbai Office \nOpportunity II",
-                  style: TextStyle(
-                      fontSize: 25,
-                      fontFamily: 'Poppins',
-                      color: Color(0XFF000000),
-                      fontWeight: FontWeight.w500),
-                ),
-              ],
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.only(
+          top: 25,
+        ),
+        child: Column(
+          children: [
+            Image.asset(
+              "assets/images/fractional.png",
+              width: 358,
+              height: 162,
             ),
-          ),
-          SizedBox(
-            height: 30.h,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Row(
-              children: [
-                Image.asset(
-                  "assets/images/place.png",
-                  width: 50.w,
-                  height: 50.h,
-                ),
-                SizedBox(
-                  width: 25.w,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 165),
-                      child: Text(
-                        "Location:",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          color: Color(0XFF000000),
-                          fontFamily: 'Poppins',
-                          //fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      "Seawoods, Navi Mumbai",
-                      style: TextStyle(
-                        fontSize: 20.sp,
-                        color: Color(0XFF000000),
+            SizedBox(
+              height: 25.h,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Row(
+                children: [
+                  Text(
+                    "Navi Mumbai Office \nOpportunity II",
+                    style: TextStyle(
+                        fontSize: 25,
                         fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                )
-              ],
+                        color: Color(0XFF000000),
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 30.h,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Row(
-              children: [
-                Image.asset(
-                  "assets/images/investmentproperties (1).png",
-                  width: 50.w,
-                  height: 50.w,
-                ),
-                SizedBox(
-                  width: 25.w,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(right: 145),
-                      child: Text(
-                        "Targeted IRR:",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          color: Color(0XFF000000),
-                          fontFamily: 'Poppins',
-                          //fontWeight: FontWeight.w300,
+            SizedBox(
+              height: 30.h,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Row(
+                children: [
+                  Image.asset(
+                    "assets/images/place.png",
+                    width: 50.w,
+                    height: 50.h,
+                  ),
+                  SizedBox(
+                    width: 25.w,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 165),
+                        child: Text(
+                          "Location:",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            color: Color(0XFF000000),
+                            fontFamily: 'Poppins',
+                            //fontWeight: FontWeight.w300,
+                          ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 212),
-                      child: Text(
-                        "12.7%",
+                      Text(
+                        "Seawoods, Navi Mumbai",
                         style: TextStyle(
                           fontSize: 20.sp,
                           color: Color(0XFF000000),
@@ -236,73 +190,121 @@ class SecondTab extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                    ),
-                  ],
-                )
-              ],
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 30.h,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Row(
-              children: [
-                Image.asset(
-                  "assets/images/propertiestransfer.png",
-                  width: 50,
-                  height: 50,
-                ),
-                SizedBox(
-                  width: 25.w,
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Minimum investment amount",
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Color(0XFF000000),
-                        fontFamily: 'Poppins',
-                        fontWeight: FontWeight.w300,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 200),
-                      child: Text(
-                        " 1 Crore",
-                        textDirection: TextDirection.ltr,
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 20.sp,
-                          color: Color(0XFF000000),
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
+            SizedBox(
+              height: 30.h,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Row(
+                children: [
+                  Image.asset(
+                    "assets/images/investmentproperties (1).png",
+                    width: 50.w,
+                    height: 50.w,
+                  ),
+                  SizedBox(
+                    width: 25.w,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 145),
+                        child: Text(
+                          "Targeted IRR:",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            color: Color(0XFF000000),
+                            fontFamily: 'Poppins',
+                            //fontWeight: FontWeight.w300,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                      Padding(
+                        padding: const EdgeInsets.only(right: 212),
+                        child: Text(
+                          "12.7%",
+                          style: TextStyle(
+                            fontSize: 20.sp,
+                            color: Color(0XFF000000),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              ),
             ),
-          ),
-          SizedBox(
-            height: 40.h,
-          ),
-          SizedBox(
-            width: 358,
-            height: 50.h,
-            child: CustomNextButton(
-              text: 'View Investment',
-              ontap: () {
-                Get.toNamed("/propertiesinvestment");
-              },
+            SizedBox(
+              height: 30.h,
             ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
+              child: Row(
+                children: [
+                  Image.asset(
+                    "assets/images/propertiestransfer.png",
+                    width: 50,
+                    height: 50,
+                  ),
+                  SizedBox(
+                    width: 25.w,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Minimum investment amount",
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          color: Color(0XFF000000),
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w300,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 200),
+                        child: Text(
+                          " 1 Crore",
+                          textDirection: TextDirection.ltr,
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontSize: 20.sp,
+                            color: Color(0XFF000000),
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 40.h,
+            ),
+            SizedBox(
+              width: 358,
+              height: 50.h,
+              child: CustomNextButton(
+                text: 'View Investment',
+                ontap: () {
+                  Get.toNamed("/propertiesinvestment");
+                },
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

@@ -64,7 +64,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
             //   // color: Colors.red,
             //   // iconSize: 100.h,
             // ),
-          
+
             sizedBoxWidth(5.w),
             Text(
               'Your investments',
@@ -100,7 +100,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
       ),
-      
+
       //  backgroundColor: Color(0xFFFFFBF0),
       // appBar: AppBar(
       //   title: Text(
@@ -143,7 +143,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
       //     ),
       //   ],
       // ),
-    
+
       // bottomNavigationBar:
       //     CreateBottomBar(stateBottomNav, "Bottombarinvestment", context),
       body: SingleChildScrollView(

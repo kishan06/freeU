@@ -36,9 +36,9 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Stack(children: [
           SingleChildScrollView(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16.w,
-            ),
+            // padding: EdgeInsets.symmetric(
+            //   horizontal: 16.w,
+            // ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

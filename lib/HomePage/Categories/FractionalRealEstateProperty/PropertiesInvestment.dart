@@ -560,6 +560,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                             fontSize: 15.sp,
                             color: const Color(0xff1B8DC9)),
                       ),
+                      sizedBoxHeight(5.h),
                     ],
                   ),
                   sizedBoxHeight(65.h)
@@ -568,11 +569,14 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: CustomNextButton(
-                  ontap: () {
-                    investNow();
-                  },
-                  text: 'Invest now'),
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 20.h),
+                child: CustomNextButton(
+                    ontap: () {
+                      investNow();
+                    },
+                    text: 'Invest now'),
+              ),
             )
           ],
         ),
