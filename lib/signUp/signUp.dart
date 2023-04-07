@@ -255,6 +255,12 @@ class _SignUpState extends State<SignUp> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                                validator: (value) {
+                                  if (value!.isEmpty) {
+                                    return 'Enter your name';
+                                  }
+                                  return null;
+                                },
                                 hintText: "Full Name*",
                                 validatorText: "Full Name"),
                           ],
@@ -273,7 +279,6 @@ class _SignUpState extends State<SignUp> {
                           children: [
                             Text(
                               "Enter your email address",
-                              // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -386,6 +391,16 @@ class _SignUpState extends State<SignUp> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                                validator: (value) {
+                                  if (value == value.isEmpty) {
+                                    return 'Mobile number is required';
+                                  } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
+                                      .hasMatch(value)) {
+                                    return 'Enter valid mobile number';
+                                  }
+                                  // v3 = true;
+                                  return null;
+                                },
                                 texttype: TextInputType.number,
                                 hintText: "Phone Number*",
                                 validatorText: "Phone Number"),
@@ -527,13 +542,10 @@ class _SignUpState extends State<SignUp> {
                               width: 20.w,
                               height: 20.h,
                               child: _isPasswordEightCar
-                                  ? Padding(
-                                      padding: EdgeInsets.only(left: 10),
-                                      child: Icon(
-                                        Icons.check,
-                                        color: Color(0xff143C6D),
-                                        size: 15,
-                                      ),
+                                  ? Icon(
+                                      Icons.check,
+                                      color: Color(0xff143C6D),
+                                      size: 15,
                                     )
                                   : SizedBox(),
                             ),
@@ -563,13 +575,10 @@ class _SignUpState extends State<SignUp> {
                               width: 20,
                               height: 20,
                               child: _isHasSymboleOrCaptital
-                                  ? Padding(
-                                      padding: EdgeInsets.only(left: 10),
-                                      child: const Icon(
-                                        Icons.check,
-                                        color: Color(0xff143C6D),
-                                        size: 15,
-                                      ),
+                                  ? const Icon(
+                                      Icons.check,
+                                      color: Color(0xff143C6D),
+                                      size: 15,
                                     )
                                   : const SizedBox(),
                             ),
@@ -599,13 +608,10 @@ class _SignUpState extends State<SignUp> {
                               width: 20,
                               height: 20,
                               child: _isHasOneNumber
-                                  ? Padding(
-                                      padding: EdgeInsets.only(left: 10),
-                                      child: Icon(
-                                        Icons.check,
-                                        color: Color(0xff143C6D),
-                                        size: 15,
-                                      ),
+                                  ? Icon(
+                                      Icons.check,
+                                      color: Color(0xff143C6D),
+                                      size: 15,
                                     )
                                   : const SizedBox(),
                             ),

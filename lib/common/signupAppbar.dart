@@ -63,11 +63,9 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
               color: Colors.black),
         ),
       ),
-      leading: Row(children: [
-        SizedBox(
-          width: 18.w,
-        ),
-        GestureDetector(
+      leading: Padding(
+        padding: EdgeInsets.only(left: 30.w),
+        child: GestureDetector(
           onTap: () {
             Get.back();
           },
@@ -77,7 +75,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
             color: Colors.black,
           ),
         ),
-      ]),
+      ),
     );
   }
 }
