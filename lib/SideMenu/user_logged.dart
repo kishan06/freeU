@@ -388,18 +388,20 @@ class _UserState extends State<User> {
                 clipBehavior: Clip.none,
                 alignment: Alignment.center,
                 children: [
-                  ClipOval(
-                    child: SizedBox.fromSize(
-                        size: Size.fromRadius(60.r),
-                        child: editProfileImage.profilePicPath.value != ''
-                            ? Image(
-                                image: FileImage(File(
-                                    editProfileImage.profilePicPath.value)),
-                                fit: BoxFit.cover,
-                                width: 200.w,
-                                height: 200.h,
-                              )
-                            : Image.asset('assets/images/user.png')),
+                  Obx(
+                    () => ClipOval(
+                      child: SizedBox.fromSize(
+                          size: Size.fromRadius(60.r),
+                          child: editProfileImage.profilePicPath.value != ''
+                              ? Image(
+                                  image: FileImage(File(
+                                      editProfileImage.profilePicPath.value)),
+                                  fit: BoxFit.cover,
+                                  width: 200.w,
+                                  height: 200.h,
+                                )
+                              : Image.asset('assets/images/user.png')),
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
