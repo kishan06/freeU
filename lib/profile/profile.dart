@@ -99,7 +99,7 @@ class _ProfileState extends State<Profile> {
       length: 3,
       child: Scaffold(
         key: _key,
-        drawer: NavDrawer(),
+        // drawer: NavDrawer(),
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
           backgroundColor: AppColors.white,

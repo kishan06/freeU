@@ -634,11 +634,14 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
             ),
             Align(
               alignment: Alignment.bottomCenter,
-              child: CustomNextButton(
-                  ontap: () {
-                    investNow();
-                  },
-                  text: 'Invest now'),
+              child: Padding(
+                padding: EdgeInsets.only(bottom: 20.h),
+                child: CustomNextButton(
+                    ontap: () {
+                      investNow();
+                    },
+                    text: 'Invest now'),
+              ),
             )
           ],
         ),

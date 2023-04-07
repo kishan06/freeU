@@ -107,7 +107,7 @@ class _MyAppState extends State<MyApp> {
 
           GetPage(name: '/SideBar', page: () => SideBar()),
           GetPage(name: '/EntryPoint', page: () => EntryPoint()),
-          // GetPage(name: '/MainScreen', page: () => MainScreen()),
+          GetPage(name: '/Insights', page: () => Insights()),
           
 
           // GetPage(name: '/splash', page: () => Splash()),

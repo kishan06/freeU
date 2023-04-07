@@ -185,7 +185,9 @@ class _LoginState extends State<Login> {
                             if (isValid!) {
                               // Get.toNamed("/homepage");
                               // Get.to(MainScreen());
-                              Get.toNamed("/EntryPoint");
+                              Get.toNamed("/EntryPoint",
+                                arguments: 0
+                              );
                             } else {
                               Get.snackbar(
                                 "Error",
