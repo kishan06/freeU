@@ -48,7 +48,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "Phone Verification",
+                          "Login with OTP",
                           style: TextStyle(
                               fontFamily: "Poppins",
                               fontWeight: FontWeight.w500,
@@ -146,7 +146,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                             //  ?
                             PinCodeTextField(
                       showCursor: true,
-                      cursorColor: Color(0xFF143C6D),
+                      cursorColor: Color(0xFFCCCCCC),
                       textStyle:
                           TextStyle(fontSize: 18.sp, color: Color(0xFF143C6D)),
                       errorTextSpace: 22,
@@ -166,9 +166,9 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       pinTheme: PinTheme(
                         selectedFillColor: Colors.white,
                         inactiveFillColor: Colors.white,
-                        inactiveColor: Color(0xFF707070),
-                        activeColor: Color(0xFF707070),
-                        selectedColor: Color(0xFF707070),
+                        inactiveColor: Color(0xFFCCCCCC),
+                        activeColor: Color(0xFFCCCCCC),
+                        selectedColor: Color(0xFFCCCCCC),
                         borderWidth: 1,
                         shape: PinCodeFieldShape.box,
                         borderRadius: BorderRadius.circular(10),

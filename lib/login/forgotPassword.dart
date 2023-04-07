@@ -50,7 +50,8 @@ class _forgotPasswordState extends State<forgotPassword> {
                         "Forgot Password",
                         style: TextStyle(
                             fontFamily: "Poppins",
-                            fontSize: 20.sp,
+                            fontSize: 25.sp,
+                            color: Color(0XFF0F0C0C),
                             fontWeight: FontWeight.w500),
                       ),
                     ],
@@ -60,20 +61,33 @@ class _forgotPasswordState extends State<forgotPassword> {
                   ),
                   Text(
                     "We will send a verification email to the email address on your account in order to reset your password",
-                    style: blackStyle18().copyWith(color: Color(0xFF272424)),
+                    style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 18.sp,
+                      color: Color(0xFF272424),
+                      //fontWeight: FontWeight.w500
+                    ),
+
+                    // blackStyle18().copyWith(color: Color(0xFF272424)),
                   ),
                   SizedBox(
-                    height: 50.h,
+                    height: 30.h,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Phone",
+                        "Phone number",
                         // ignore: prefer_const_constructors
-                        style: blackStyle20().copyWith(
-                          color: Color(0xff303030),
+                        style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: 20.sp,
+                          color: Color(0xFF303030),
+                          //fontWeight: FontWeight.w500
                         ),
+                        //  blackStyle20().copyWith(
+                        //   color: Color(0xff303030),
+                        // ),
                       ),
                       SizedBox(
                         height: 15.h,
@@ -112,7 +126,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                             child: Text(
                               'OTP Sent to registered mobile number',
                               style: TextStyle(
-                                fontSize: 14.sm,
+                                fontSize: 14.sp,
                                 fontFamily: 'Poppins',
                                 color: Color(0xFF143C6D),
                               ),
