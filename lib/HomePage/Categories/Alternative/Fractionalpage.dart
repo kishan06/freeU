@@ -86,7 +86,7 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          // Get.toNamed("/privateequityfund");
+                           Get.toNamed("/fractionalrealestate");
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,

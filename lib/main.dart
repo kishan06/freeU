@@ -4,7 +4,9 @@ import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart
 import 'package:freeu/HomePage/Categories/Alternative/Debtfundpage.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Distressedpage.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
+//import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
+import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquity.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquitydeals.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquityfund.dart';
@@ -12,6 +14,7 @@ import 'package:freeu/HomePage/Categories/Alternative/Realestatepage.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty1.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty2.dart';
+import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset1.dart';
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset2.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
@@ -192,6 +195,10 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/fractionalrealpage', page: () => FractionalRealestate()),
 
           GetPage(name: '/fractionalpropertiespage', page: () => Fractionalproperties()),
+
+          GetPage(name: '/propertiesinvestment', page: () => PropertiesInvestment()),
+
+          GetPage(name: '/fractionalrealestate', page: () => FractionalRealEstate2()),
 
         ],
       ),

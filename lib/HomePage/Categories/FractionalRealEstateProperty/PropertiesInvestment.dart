@@ -87,6 +87,101 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                     thickness: 1.h,
                     color: Colors.grey.shade400,
                   ),
+                  sizedBoxHeight(15),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 26),
+                        child: SvgPicture.asset(
+                          "assets/images/fractional.svg",
+                          width: 14.w,
+                          height: 14.w,
+                        ),
+                      ),
+                      sizedBoxWidth(14.w),
+                      Text(
+                        'The opportunity is to purchase the \nlevel 3, C-wing in Tower-I.',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18.sp,
+                          color: const Color(0xff0F0C0C),
+                        ),
+                      ),
+                    ],
+                  ),
+                  sizedBoxHeight(20.h),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 26),
+                        child: SvgPicture.asset(
+                          "assets/images/fractional.svg",
+                          width: 14.w,
+                          height: 14.w,
+                        ),
+                      ),
+                      sizedBoxWidth(14.w),
+                      Expanded(
+                        child: Text(
+                          'The asset is located in Seawoods, an upscale part of Navi Mumbai.',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18.sp,
+                            color: const Color(0xff0F0C0C),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  sizedBoxHeight(20.h),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 80),
+                        child: SvgPicture.asset(
+                          "assets/images/fractional.svg",
+                          width: 14.w,
+                          height: 14.w,
+                        ),
+                      ),
+                      sizedBoxWidth(14.w),
+                      Expanded(
+                        child: Text(
+                          'The property is well connected to the rest of the Mumbai Metropolitan Region by road, rail, and water services.',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18.sp,
+                            color: const Color(0xff0F0C0C),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  sizedBoxHeight(20.h),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 80),
+                        child: SvgPicture.asset(
+                          "assets/images/fractional.svg",
+                          width: 14.w,
+                          height: 14.w,
+                        ),
+                      ),
+                      sizedBoxWidth(14.w),
+                      Expanded(
+                        child: Text(
+                          'With the upcoming Navi Mumbai airport, metro, and trans-harbour sea link, the area is bound to see greater value appreciation.',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 18.sp,
+                            color: const Color(0xff0F0C0C),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                  sizedBoxHeight(28.h),
                   Text(
                     'Property Grade',
                     style: TextStyle(
