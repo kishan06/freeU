@@ -124,16 +124,14 @@ class _UploadState extends State<Upload> {
                     ClipOval(
                       child: SizedBox.fromSize(
                           size: Size.fromRadius(70),
-                          child: 
-                              _image != null
-                                ? Image.file(
-                                    _image!,
-                                    width: 200,
-                                    height: 200,
-                                    fit: BoxFit.cover,
-                                  ):
-                               Image.asset(
-                                  'assets/images/user.png')),
+                          child: _image != null
+                              ? Image.file(
+                                  _image!,
+                                  width: 200,
+                                  height: 200,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.asset('assets/images/user.png')),
                     ),
                     Positioned(
                       top: 110,
