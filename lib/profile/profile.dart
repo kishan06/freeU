@@ -38,46 +38,45 @@ String? emailValue;
 String? addressValue;
 
 // File? profilPic;
-RxString profilePicPath = "".obs;
+class ProfileImageController extends GetxController {
+  RxString profilePicPath = "".obs;
 
-void getImage(ImageSource imgSource) async {
-  final ImagePicker picker = ImagePicker();
-  final XFile? pickedImg = await picker.pickImage(source: imgSource);
-  if (pickedImg != null) {
-    final CroppedFile? croppedImg = await ImageCropper().cropImage(
-        sourcePath: pickedImg.path,
-        aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
-        compressFormat: ImageCompressFormat.jpg,
-        maxHeight: 512,
-        maxWidth: 512,
-        compressQuality: 100,
-        cropStyle: CropStyle.circle,
-        aspectRatioPresets: [
-          CropAspectRatioPreset.square,
-          // CropAspectRatioPreset.ratio3x2,
-          // CropAspectRatioPreset.original,
-          // CropAspectRatioPreset.ratio4x3,
-          // CropAspectRatioPreset.ratio16x9
-        ],
-        uiSettings: [
-          AndroidUiSettings(
-            toolbarTitle: "Crop Image",
-            toolbarColor: Get.theme.appBarTheme.backgroundColor,
-            // toolbarWidgetColor: ColorConstants.kWhite,
-            backgroundColor: Colors.black,
-            activeControlsWidgetColor: Colors.red,
-            // initAspectRatio: CropAspectRatioPreset.original,
-            cropFrameColor: Colors.white,
-            lockAspectRatio: false,
-          ),
-          IOSUiSettings(
-            title: 'Crop Image',
-          ),
-        ]);
-    if (croppedImg != null) {
-      // profilPic = croppedImg.path;
-      profilePicPath.value = croppedImg.path;
-      // Get.back();
+  void getImage(ImageSource imgSource) async {
+    final ImagePicker picker = ImagePicker();
+    print('profilePicPath $profilePicPath');
+    final XFile? pickedImg = await picker.pickImage(source: imgSource);
+    if (pickedImg != null) {
+      final CroppedFile? croppedImg = await ImageCropper().cropImage(
+          sourcePath: pickedImg.path,
+          aspectRatio: const CropAspectRatio(ratioX: 1, ratioY: 1),
+          compressFormat: ImageCompressFormat.jpg,
+          maxHeight: 512,
+          maxWidth: 512,
+          compressQuality: 100,
+          cropStyle: CropStyle.circle,
+          aspectRatioPresets: [
+            CropAspectRatioPreset.square,
+          ],
+          uiSettings: [
+            AndroidUiSettings(
+              toolbarTitle: "Crop Image",
+              toolbarColor: Get.theme.appBarTheme.backgroundColor,
+              // toolbarWidgetColor: ColorConstants.kWhite,
+              backgroundColor: Colors.black,
+              activeControlsWidgetColor: Colors.red,
+              // initAspectRatio: CropAspectRatioPreset.original,
+              cropFrameColor: Colors.white,
+              lockAspectRatio: false,
+            ),
+            IOSUiSettings(
+              title: 'Crop Image',
+            ),
+          ]);
+      if (croppedImg != null) {
+        // profilPic = croppedImg.path;
+        profilePicPath.value = croppedImg.path;
+        // Get.back();
+      }
     }
   }
 }
@@ -123,7 +122,7 @@ class _ProfileState extends State<Profile> {
               //   // color: Colors.red,
               //   // iconSize: 100.h,
               // ),
-            
+
               sizedBoxWidth(5.w),
               Text(
                 'Your Profile',
@@ -164,7 +163,7 @@ class _ProfileState extends State<Profile> {
           automaticallyImplyLeading: false,
           titleSpacing: 0,
         ),
-        
+
         // appBar: AppBar(
         //   toolbarHeight: 50.h,
         //   backgroundColor: Color.fromARGB(255, 255, 255, 255),
@@ -281,6 +280,9 @@ class _profiletabState extends State<profiletab> {
   bool editBool = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  final ProfileImageController editProfileImage =
+      Get.put(ProfileImageController());
+
   void _submit() {
     // final FormState? form = _formKey.currentState;
     // if (form != null && form.validate()) {
@@ -354,7 +356,7 @@ class _profiletabState extends State<profiletab> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        getImage(ImageSource.camera);
+                        editProfileImage.getImage(ImageSource.camera);
                         Get.back();
                       },
                       child: Column(
@@ -384,7 +386,7 @@ class _profiletabState extends State<profiletab> {
                     sizedBoxWidth(36.w),
                     GestureDetector(
                       onTap: () {
-                        getImage(ImageSource.gallery);
+                        editProfileImage.getImage(ImageSource.gallery);
                         Get.back();
                       },
                       child: Column(
@@ -440,13 +442,15 @@ class _profiletabState extends State<profiletab> {
                           ClipOval(
                             child: SizedBox.fromSize(
                                 size: Size.fromRadius(60.r),
-                                child:profilePicPath.value != null
-                            ? Image(
-                                image: FileImage(File(profilePicPath.value)),
-                                fit: BoxFit.cover,
-                                width: 200.w,
-                                height: 200.h,
-                              )
+                                child: editProfileImage.profilePicPath.value !=
+                                        ''
+                                    ? Image(
+                                        image: FileImage(File(editProfileImage
+                                            .profilePicPath.value)),
+                                        fit: BoxFit.cover,
+                                        width: 200.w,
+                                        height: 200.h,
+                                      )
                                     : Image.asset('assets/images/user.png')),
                           ),
                         ],
@@ -626,17 +630,21 @@ class _profiletabState extends State<profiletab> {
                 clipBehavior: Clip.none,
                 alignment: Alignment.center,
                 children: [
-                  ClipOval(
-                    child: SizedBox.fromSize(
+                  Obx(
+                    () => ClipOval(
+                      child: SizedBox.fromSize(
                         size: Size.fromRadius(60.r),
-                        child: profilePicPath.value != null
+                        child: editProfileImage.profilePicPath.value != ''
                             ? Image(
-                                image: FileImage(File(profilePicPath.value)),
+                                image: FileImage(File(
+                                    editProfileImage.profilePicPath.value)),
                                 fit: BoxFit.cover,
                                 width: 200.w,
                                 height: 200.h,
                               )
-                            : Image.asset('assets/images/user.png')),
+                            : Image.asset('assets/images/user.png'),
+                      ),
+                    ),
                   ),
                   Positioned(
                     bottom: 0,
@@ -920,7 +928,6 @@ class _KYCtabsState extends State<KYCtabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-
         padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
         child: PageView.builder(
           controller: _controller,
@@ -941,7 +948,6 @@ class _KYCtabsState extends State<KYCtabs> {
             }
             return kyc4();
           },
-
         ),
       ),
     );

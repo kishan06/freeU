@@ -21,6 +21,8 @@ class User extends StatefulWidget {
 }
 
 class _UserState extends State<User> {
+  final ProfileImageController editProfileImage =
+      Get.put(ProfileImageController());
   bool editBool = false;
   // Future getImage(ImageSource source) async {
   //   try {
@@ -78,7 +80,7 @@ class _UserState extends State<User> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        getImage(ImageSource.camera);
+                        editProfileImage.getImage(ImageSource.camera);
                         Get.back();
                       },
                       child: Column(
@@ -108,7 +110,7 @@ class _UserState extends State<User> {
                     sizedBoxWidth(36.w),
                     GestureDetector(
                       onTap: () {
-                        getImage(ImageSource.gallery);
+                        editProfileImage.getImage(ImageSource.gallery);
                         Get.back();
                       },
                       child: Column(
@@ -205,10 +207,12 @@ class _UserState extends State<User> {
                             ClipOval(
                               child: SizedBox.fromSize(
                                   size: Size.fromRadius(60.r),
-                                  child: profilePicPath.value != null
+                                  child: editProfileImage
+                                              .profilePicPath.value !=
+                                          ''
                                       ? Image(
-                                          image: FileImage(
-                                              File(profilePicPath.value)),
+                                          image: FileImage(File(editProfileImage
+                                              .profilePicPath.value)),
                                           fit: BoxFit.cover,
                                           width: 200.w,
                                           height: 200.h,
@@ -387,9 +391,10 @@ class _UserState extends State<User> {
                   ClipOval(
                     child: SizedBox.fromSize(
                         size: Size.fromRadius(60.r),
-                        child: profilePicPath.value != null
+                        child: editProfileImage.profilePicPath.value != ''
                             ? Image(
-                                image: FileImage(File(profilePicPath.value)),
+                                image: FileImage(File(
+                                    editProfileImage.profilePicPath.value)),
                                 fit: BoxFit.cover,
                                 width: 200.w,
                                 height: 200.h,
