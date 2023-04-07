@@ -7,6 +7,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
 class PrvateEquity extends StatefulWidget {
@@ -46,7 +47,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 16),
+              padding: EdgeInsets.only(left: 16.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -65,7 +66,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 16,
+                    horizontal: 16.h,
                   ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -202,6 +203,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                           ),
                         ),
                       ),
+                      sizedBoxHeight(38.h),
                     ],
                   ),
                 ),

@@ -7,6 +7,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
 class FractionalRealestate extends StatefulWidget {
@@ -86,7 +87,7 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                       ),
                       GestureDetector(
                         onTap: () {
-                           Get.toNamed("/fractionalrealestate");
+                          Get.toNamed("/fractionalrealestate");
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -202,6 +203,7 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                           ),
                         ),
                       ),
+                      sizedBoxHeight(38.h),
                     ],
                   ),
                 ),
