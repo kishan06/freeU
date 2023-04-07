@@ -28,7 +28,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 10),
             child: Form(
               key: _form,
               child: Column(
@@ -62,7 +62,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                             fontFamily: 'Poppins',
-                            fontSize: 18.sm,
+                            fontSize: 18.sp,
                             color: Color(0xFF000000)),
                       ),
                     ],
@@ -94,7 +94,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                               ),
                               hintText: "+91",
                               hintStyle: TextStyle(
-                                  fontSize: 15.sm,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                   fontFamily: "Poppins")),
                         ),
@@ -102,33 +102,33 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                       SizedBox(
                         width: 30.w,
                       ),
-                      SizedBox(
-                        width: 190.w,
+                      Expanded(
+                        // width: 190.w,
                         //  height: 55.h,
                         child: TextFormField(
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                           style:
-                              TextStyle(fontSize: 16.sm, fontFamily: "Poppins"),
+                              TextStyle(fontSize: 16.sp, fontFamily: "Poppins"),
                           keyboardType: TextInputType.number,
                           inputFormatters: <TextInputFormatter>[
                             LengthLimitingTextInputFormatter(10),
                             FilteringTextInputFormatter.digitsOnly
                           ],
                           decoration: InputDecoration(
-                              contentPadding: EdgeInsets.only(left: 10),
-                              border: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xFF143C6D)),
-                              ),
-                              enabledBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xFF143C6D)),
-                              ),
-                              focusedBorder: UnderlineInputBorder(
-                                borderSide:
-                                    BorderSide(color: Color(0xFF143C6D)),
-                              ),
-                              hintText: "",
-                              helperText: ""),
+                            errorStyle: TextStyle(fontSize: 12.sp),
+                            contentPadding: EdgeInsets.only(left: 10),
+                            border: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF143C6D)),
+                            ),
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF143C6D)),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Color(0xFF143C6D)),
+                            ),
+                            hintText: "",
+                            //helperText: ""
+                          ),
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return "Please Enter Mobile Number";
