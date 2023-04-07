@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:get/get.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -82,9 +83,10 @@ class _NotificationPageState extends State<NotificationPage> {
     //data.remove(1);
 
     return Scaffold(
-      backgroundColor: Color(0xFFF5F8FA),
+      // backgroundColor: Color(0xFFF5F8FA),
       appBar: AppBar(
-        backgroundColor: Color(0xFFF5F8FA),
+        backgroundColor: AppColors.white,
+        // backgroundColor: Color(0xFFF5F8FA),
         elevation: 0,
         leading: IconButton(
           onPressed: () {

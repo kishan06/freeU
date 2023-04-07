@@ -1,4 +1,5 @@
 // ignore_for_file: prefer_const_constructors
+// part 'HomePage.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,11 +13,16 @@ import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/categoryCard.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/screens/entry_point.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+// part 'HomePage.dart';
+
+
 class HomePage extends StatefulWidget {
+  // EntryPoint enttyPoint = EntryPoint();
   const HomePage({super.key});
 
   @override
@@ -24,8 +30,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int selectIndex = 0;
-  int _selectedIndex = 0;
+
+  // final entryPoint = EntryPoint();
+  // int selectIndex = 0;
+
+  // int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   PageController indicatorcontroller = PageController(
     viewportFraction: 0.97,
@@ -311,7 +320,11 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       text20Black("Top Picks"),
-                      text14Grey272424("View more")
+                      InkWell(
+                        onTap: (){
+
+                        },
+                        child: text14Grey272424("View more"))
                     ],
                   ),
                   SizedBox(
@@ -320,6 +333,7 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 285.h,
                     child: ListView.separated(
+                        shrinkWrap: true,
                         separatorBuilder: (_, index) {
                           return index == topPickData.length
                               ? SizedBox()
@@ -343,7 +357,22 @@ class _HomePageState extends State<HomePage> {
                 height: 20.h,
               ),
 
-              twoText("Categories", "View more"),
+              twoText("Categories", "View more",
+                onTap: (){
+                  print("SD");
+                  selectedIndex.value = 1;
+                  // widget.enttyPoint.se
+                  // entryPoint._sel
+                  // Get.toNamed("/",
+                  //     // arguments: 1
+                  // );
+                  // Get.toNamed("/EntryPoint",
+                  //   // arguments: 1
+                  // );
+
+                  // _selectedIndex = 1;
+                }
+              ),
 
               sizedBoxHeight(10.h),
 
@@ -381,125 +410,12 @@ class _HomePageState extends State<HomePage> {
 
               sizedBoxHeight(15.h),
 
-              twoText("Knowledge center", "View more"),
+              twoText("Knowledge center", "View more",
+                onTap: () {
+                  Get.toNamed("/Insights");
+                },
+              ),
 
-              // Padding(
-              //   padding:
-              //       EdgeInsets.only(left: 4.0, top: 12, bottom: 12, right: 4.0),
-              //   child: Column(
-              //     crossAxisAlignment: CrossAxisAlignment.start,
-              //     children: [
-              //       titleText('Categories'),
-              //       SizedBox(
-              //         height: 8.h,
-              //       ),
-              //       SizedBox(
-              //         child: Row(
-              //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //           children: [
-              //             Expanded(
-              //               flex: 1,
-              //               child: GestureDetector(
-              //                 onTap: () {
-              //                   Get.toNamed('/fractionalrealestateproperty1');
-              //                 },
-              //                 child: Container(
-              //                   // elevation: 2,
-              //                   decoration: BoxDecoration(
-              //                       color: Colors.white,
-              //                       borderRadius: BorderRadius.circular(10),
-              //                       boxShadow: [
-              //                         BoxShadow(
-              //                           color: Colors.black.withOpacity(0.06),
-              //                           spreadRadius: 2,
-              //                           blurRadius: 10,
-              //                         )
-              //                       ]),
-              //                   child: Padding(
-              //                     padding: EdgeInsets.all(10),
-              //                     child: Column(
-              //                       crossAxisAlignment:
-              //                           CrossAxisAlignment.center,
-              //                       children: [
-              //                         Image.asset(
-              //                           "assets/images/real-estate.png",
-              //                           height: 50,
-              //                           width: 50,
-              //                         ),
-              //                         SizedBox(
-              //                           width: 13.w,
-              //                         ),
-              //                         Text(
-              //                           'Fractional Real Estate',
-              //                           textAlign: TextAlign.center,
-              //                           style: TextStyle(
-              //                               fontSize: 16.sm,
-              //                               fontFamily: 'Poppins'),
-              //                         )
-              //                       ],
-              //                     ),
-              //                   ),
-              //                 ),
-              //               ),
-              //             ),
-              //             Expanded(
-              //               flex: 0,
-              //               child: SizedBox(
-              //                 width: 10,
-              //               ),
-              //             ),
-              //             Expanded(
-              //               flex: 1,
-              //               child: GestureDetector(
-              //                 onTap: () {
-              //                   Get.toNamed('/peerlendingasset1');
-              //                 },
-              //                 child: Container(
-              //                   // elevation: 2,
-              //                   decoration: BoxDecoration(
-              //                     color: Colors.white,
-              //                     borderRadius: BorderRadius.circular(10),
-              //                     boxShadow: [
-              //                       BoxShadow(
-              //                         color: Colors.black.withOpacity(0.06),
-              //                         spreadRadius: 2,
-              //                         blurRadius: 10,
-              //                       )
-              //                     ],
-              //                   ),
-              //                   child: Padding(
-              //                     padding: EdgeInsets.all(10),
-              //                     child: Column(
-              //                       crossAxisAlignment:
-              //                           CrossAxisAlignment.center,
-              //                       children: [
-              //                         Image.asset(
-              //                           "assets/images/blockchain.png",
-              //                           height: 50,
-              //                           width: 50,
-              //                         ),
-              //                         SizedBox(
-              //                           width: 13.w,
-              //                         ),
-              //                         Text(
-              //                           'Peer- Peer\n lending',
-              //                           textAlign: TextAlign.center,
-              //                           style: TextStyle(
-              //                               fontSize: 16.sm,
-              //                               fontFamily: 'Poppins'),
-              //                         )
-              //                       ],
-              //                     ),
-              //                   ),
-              //                 ),
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //       ),
-              //     ],
-              //   ),
-              // ),
 
               SizedBox(
                 height: 10.h,
@@ -1574,10 +1490,16 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget twoText(String text1, String text2) {
+  Widget twoText(String text1, String text2,{void Function()? onTap}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [text20Black(text1), text14Grey272424(text2)],
+      children: [
+        text20Black(text1), 
+        InkWell(
+          onTap: onTap,
+          child: text14Grey272424(text2)
+        )
+      ],
     );
   }
 
@@ -1586,59 +1508,74 @@ class _HomePageState extends State<HomePage> {
       required String imagePath,
       required String title,
       required String add}) {
-    return Container(
-        width: 241.w,
-        decoration: BoxDecoration(
+    return Padding(
+      padding: EdgeInsets.all(5.h),
+      child: Container(
+          width: 241.w,
+          // color: AppColors.white,
+          decoration: BoxDecoration(
+            color: AppColors.white,
             borderRadius: BorderRadius.circular(15.h),
-            border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)),
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 14.h),
-          child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              text14Black(text1),
-
-              // Spacer(),
-
-              sizedBoxHeight(5.h),
-
-              Container(
-                width: double.infinity,
-                height: 100.h,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage(imagePath), fit: BoxFit.fill)),
-              ),
-
-              // Spacer(),
-              sizedBoxHeight(10.h),
-
-              text14Black(title),
-
-              // Spacer(),
-              sizedBoxHeight(5.h),
-
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 5.h),
-                    child: SvgPicture.asset(
-                      "assets/logos/location.svg",
-                      height: 14.h,
-                      width: 10.w,
-                    ),
-                  ),
-                  sizedBoxWidth(5.w),
-                  Expanded(child: text13Grey707070(add))
-                ],
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.06),
+                blurRadius: 10,
+                spreadRadius: 2,
               )
-
-              // text14Grey272424(text)
-            ],
+            ]
+            // border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)
           ),
-        ));
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12.w, 
+              // vertical: 14.h
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                text14Black(text1),
+    
+                // Spacer(),
+    
+                sizedBoxHeight(5.h),
+    
+                Container(
+                  width: double.infinity,
+                  height: 100.h,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage(imagePath), fit: BoxFit.fill)),
+                ),
+    
+                // Spacer(),
+                sizedBoxHeight(10.h),
+    
+                text14Black(title),
+    
+                // Spacer(),
+                sizedBoxHeight(5.h),
+    
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.only(top: 5.h),
+                      child: SvgPicture.asset(
+                        "assets/logos/location.svg",
+                        height: 14.h,
+                        width: 10.w,
+                      ),
+                    ),
+                    sizedBoxWidth(5.w),
+                    Expanded(child: text13Grey707070(add))
+                  ],
+                )
+    
+                // text14Grey272424(text)
+              ],
+            ),
+          )),
+    );
   }
 
   titleText(String title) {

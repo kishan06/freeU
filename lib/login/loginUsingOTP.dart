@@ -17,6 +17,8 @@ class LoginUsingOTP extends StatefulWidget {
 
 class _LoginUsingOTPState extends State<LoginUsingOTP> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
+  final tecPhone = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -106,7 +108,9 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                         // width: 190.w,
                         //  height: 55.h,
                         child: TextFormField(
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          autovalidateMode: AutovalidateMode.always,
+                          controller: tecPhone,
+
                           style:
                               TextStyle(fontSize: 16.sp, fontFamily: "Poppins"),
                           keyboardType: TextInputType.number,
@@ -150,7 +154,9 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                       final isValid = _form.currentState?.validate();
                       if (isValid!) {
                         setState(() {
-                          Get.toNamed('/phoneverification');
+                          Get.toNamed('/phoneverification',
+                            arguments: tecPhone.text
+                          );
                         });
                       } else {
                         Get.snackbar("Error", "Please Enter Valid Phone Number",

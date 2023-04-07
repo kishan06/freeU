@@ -25,6 +25,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
   @override
   void initState() {
     super.initState();
+    phoneController.text = Get.arguments;
   }
 
   @override
@@ -72,6 +73,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       height: 15.h,
                     ),
                     TextFormField(
+                      readOnly: true,
                       controller: phoneController,
                       keyboardType: TextInputType.phone,
                       inputFormatters: <TextInputFormatter>[
@@ -107,7 +109,8 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           heightFactor: 1.0,
                           child: GestureDetector(
                             onTap: () {
-                              Get.toNamed('/loginUsingOTP');
+                              Get.back();
+                              // Get.toNamed('/loginUsingOTP');
                             },
                             child: Icon(
                               Icons.create_outlined,
@@ -145,6 +148,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                             //  pinfiledshow
                             //  ?
                             PinCodeTextField(
+                      // text
                       showCursor: true,
                       cursorColor: Color(0xFF143C6D),
                       textStyle:
