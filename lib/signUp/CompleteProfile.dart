@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
 import '../common/customNextButton.dart';
@@ -49,44 +50,76 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     'Would you like a guided tour of our app?',
                     textAlign: TextAlign.left,
                     style: TextStyle(
-                      fontSize: 18.sm,
+                      fontSize: 25.sp,
                       fontFamily: 'Poppins',
-                      color: Color(0xff444444),
+                      color: Color(0xff0F0C0C),
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
+                SizedBox(
+                  height: 25.h,
                 ),
-                Column(
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    // SizedBox(width: 5),
-                    CheckboxListTile(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
+                    Theme(
+                      data: ThemeData(
+                        unselectedWidgetColor: Color(0xFF143C6D),
                       ),
-                      activeColor: Color(0xFF143C6D),
-                      checkColor: Colors.white,
-                      value: check3,
-                      controlAffinity: ListTileControlAffinity.leading,
-                      onChanged: (bool? value) {
-                        setState(
-                          () {
-                            check3 = value;
-                          },
-                        );
-                      },
-                      title: Text(
-                        "Don't show this message again",
-                        style: TextStyle(
-                          fontSize: 14.sm,
-                          fontFamily: 'Poppins',
-                        ),
+                      child: Checkbox(
+                        activeColor: const Color(0xFF143C6D),
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(5.0))),
+                        value: check3,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            this.check3 = value!;
+                          });
+                        },
+                      ),
+                    ),
+                    Text(
+                      "Don't show this message again",
+                      style: TextStyle(
+                        fontSize: 14.sm,
+                        fontFamily: 'Poppins',
                       ),
                     ),
                   ],
                 ),
+
+                // Column(
+                //   // mainAxisAlignment: MainAxisAlignment.start,
+                //   // crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     // SizedBox(width: 5),
+                //     CheckboxListTile(
+                //       shape: RoundedRectangleBorder(
+                //         borderRadius: BorderRadius.circular(20.0),
+                //         // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
+                //       ),
+                //       activeColor: Color(0xFF143C6D),
+                //       checkColor: Colors.white,
+                //       value: check3,
+                //       controlAffinity: ListTileControlAffinity.leading,
+                //       onChanged: (bool? value) {
+                //         setState(
+                //           () {
+                //             check3 = value;
+                //           },
+                //         );
+                //       },
+                //       title: Text(
+                //         "Don't show this message again",
+                //         style: TextStyle(
+                //           fontSize: 14.sm,
+                //           fontFamily: 'Poppins',
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 SizedBox(
                   height: 20.h,
                 ),
@@ -286,8 +319,14 @@ class _CompleteProfileState extends State<CompleteProfile> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Text("Enter your full name",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
                       CustomTextFormField(
-                        hintText: "Full Name",
+                        hintText: "Full Name*",
                         validatorText: "Full Name",
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -296,9 +335,15 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 25.h),
+                      Text("Enter your email address",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
                       CustomTextFormField(
-                        hintText: "Email Id",
+                        hintText: "Email Id*",
                         validatorText: "Email Id",
                         validator: (value) {
                           if (value!.isEmpty) {
@@ -312,14 +357,20 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 25.h),
+                      Text("Enter your phone number",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
                       CustomTextFormField(
                         texttype: TextInputType.number,
                         inputFormatters: <TextInputFormatter>[
                           LengthLimitingTextInputFormatter(10),
                           FilteringTextInputFormatter.digitsOnly
                         ],
-                        hintText: "Phone Number",
+                        hintText: "Phone Number*",
                         validatorText: "Phone Number",
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -328,14 +379,33 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 20.h),
-                      CustomTextFormField(
-                          texttype: TextInputType.number,
-                          hintText: "Date Of Birth",
-                          validatorText: "Date Of Birth"),
                       SizedBox(height: 25.h),
+                      Text("Enter your date of birth",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
                       CustomTextFormField(
-                        hintText: "Occupation",
+                        texttype: TextInputType.number,
+                        hintText: "Date Of Birth*",
+                        validatorText: "Date Of Birth",
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please Enter Date Of Birth";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 25.h),
+                      Text("Enter your occupation",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
+                      CustomTextFormField(
+                        hintText: "Occupation*",
                         validatorText: "Occupation",
                         validator: (value) {
                           if (value == null || value.isEmpty) {
@@ -344,7 +414,13 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 25.h),
+                      Text("Enter your address",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
                       TextFormField(
                         cursorColor: const Color(0xFF707070),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -356,17 +432,17 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide:
-                                BorderSide(color: Color(0xFF707070), width: 1),
+                                BorderSide(color: Color(0xFFCCCCCC), width: 1),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide:
-                                BorderSide(color: Color(0xFF707070), width: 1),
+                                BorderSide(color: Color(0xFFCCCCCC), width: 1),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                             borderSide:
-                                BorderSide(color: Color(0xFF707070), width: 1),
+                                BorderSide(color: Color(0xFFCCCCCC), width: 1),
                           ),
                           errorBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
@@ -393,7 +469,13 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 25.h),
+                      Text("Enter Aadhar Number",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
                       CustomTextFormField(
                         hintText: "Enter Aadhar Number",
                         validatorText: "Enter Aadhar Number",
@@ -404,7 +486,13 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           return null;
                         },
                       ),
-                      SizedBox(height: 20.h),
+                      SizedBox(height: 25.h),
+                      Text("Enter PAN Number",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
                       CustomTextFormField(
                         hintText: "Enter PAN Number",
                         validatorText: "Enter PAN Number",

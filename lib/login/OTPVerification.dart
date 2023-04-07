@@ -52,7 +52,8 @@ class _otpVerificationState extends State<otpVerification> {
                               "Forgot Password",
                               style: TextStyle(
                                   fontFamily: "Poppins",
-                                  fontSize: 20.sp,
+                                  fontSize: 25.sp,
+                                  color: Color(0XFF0F0C0C),
                                   fontWeight: FontWeight.w500),
                             ),
                           ],
@@ -63,7 +64,8 @@ class _otpVerificationState extends State<otpVerification> {
                         Text(
                           "We will send a verification email to the email address on your account in order to reset your password",
                           style: TextStyle(
-                            fontSize: 16.sm,
+                            fontSize: 18.sp,
+                            color: Color(0XFF272424),
                             fontFamily: 'Poppins',
                           ),
                         ),
@@ -98,7 +100,7 @@ class _otpVerificationState extends State<otpVerification> {
                                       width: 1, //<-- SEE HERE
                                       color: Color(0xFF6B6B6B)),
                                 ),
-                                hintText: "9987171951",
+                                hintText: "Enter number",
                                 hintStyle: TextStyle(
                                     fontFamily: "Poppins", fontSize: 15.sm),
                                 prefixIcon: Align(
@@ -159,9 +161,9 @@ class _otpVerificationState extends State<otpVerification> {
                               pinTheme: PinTheme(
                                 selectedFillColor: Colors.white,
                                 inactiveFillColor: Colors.white,
-                                inactiveColor: Color(0xFF707070),
-                                activeColor: Color(0xFF707070),
-                                selectedColor: Color(0xFF707070),
+                                inactiveColor: Color(0xFFCCCCCC),
+                                activeColor: Color(0xFFCCCCCC),
+                                selectedColor: Color(0xFFCCCCCC),
                                 shape: PinCodeFieldShape.box,
                                 borderRadius: BorderRadius.circular(15),
                                 fieldHeight: 60.h,
