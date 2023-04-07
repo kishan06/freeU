@@ -298,7 +298,7 @@ class SecondTab extends StatelessWidget {
             child: CustomNextButton(
               text: 'View Investment',
               ontap: () {
-                //Get.toNamed("/privateequity");
+                Get.toNamed("/propertiesinvestment");
               },
             ),
           )

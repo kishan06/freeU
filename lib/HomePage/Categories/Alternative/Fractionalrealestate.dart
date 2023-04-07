@@ -5,14 +5,14 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
-class PrivateEquityFund extends StatefulWidget {
-  const PrivateEquityFund({super.key});
+class FractionalRealEstate2 extends StatefulWidget {
+  const FractionalRealEstate2({super.key});
 
   @override
-  State<PrivateEquityFund> createState() => _PrivateEquityFundState();
+  State<FractionalRealEstate2> createState() => _FractionalRealEstate2State();
 }
 
-class _PrivateEquityFundState extends State<PrivateEquityFund> {
+class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +47,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Private Equity Fund",
+                      "Fractional Real Estate",
                       style: TextStyle(
                           fontFamily: "Poppins",
                           fontSize: 25.sp,
@@ -55,13 +55,17 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
                     ),
                   ],
                 ),
+                sizedBoxHeight(30.h),
+                fracReal1(),
                 sizedBoxHeight(20.h),
-                faqAccod(),
-                sizedBoxHeight(15.h),
-                faqAccod1(),
-                sizedBoxHeight(15.h),
-                faqAccod2(),
-                sizedBoxHeight(15.h),
+                fracReal2(),
+                sizedBoxHeight(20.h),
+                fracReal3(),
+                sizedBoxHeight(20.h),
+                fracReal4(),
+                sizedBoxHeight(20.h),
+                fracReal5(),
+                sizedBoxHeight(30.h),
                 // faqAccod(),
                 // sizedBoxHeight(15.h),
                 // faqAccod(),
@@ -82,7 +86,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
               child: CustomNextButton(
                 text: 'View Categories',
                 ontap: () {
-                  Get.toNamed("/privateequityfunddeals");
+                  Get.toNamed("/fractionalpropertiespage");
                 },
               ),
             ),
@@ -92,7 +96,127 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
     );
   }
 
-  Widget faqAccod() {
+  Widget fracReal1() {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          'What do you mean by Fractional Ownership?',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Color(0xFFFFAA9F),
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFFFFAA9F),
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
+            ),
+            sizedBoxHeight(16.h),
+            Text(
+              "Fractional ownership refers to a set-up wherein groups of investors pool in funds to purchase an asset.",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Poppins",
+                fontSize: 18.sp,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget fracReal2() {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          'Why invest in Commercial Real Estate (CRE)?',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Color(0xFF143C6D),
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFF143C6D),
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Text(
+              "Private Equity Funds is a collective investment scheme, used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership. There is a team of professionals in the private equity firm who raise the money and manage the entire fund. The fund managers utilize the funds for raising new capital, new technology for the companies, future acquisitions, and even investing in other companies to make the fund strong. Private Equity Funds usually have a high rate of return. Most of the investors in a PE are High- Net individuals, or Investment Banks.",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Poppins",
+                fontSize: 18.sp,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget fracReal3() {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
@@ -152,7 +276,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
     );
   }
 
-  Widget faqAccod1() {
+  Widget fracReal4() {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
@@ -170,10 +294,10 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'What is the minimum tenure of a private equity fund?',
+          'Advantages of Fractional Real Estate Investing',
           style: TextStyle(
               color: Colors.black,
-              fontSize: 18.sp,
+              fontSize: 20.sp,
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500),
         ),
@@ -212,7 +336,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
     );
   }
 
-  Widget faqAccod2() {
+  Widget fracReal5() {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
@@ -230,10 +354,10 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'Difference between Venture Capital and Private Equity?',
+          'Platforms that provide investment opportunity in Fractional Real Estate',
           style: TextStyle(
               color: Colors.black,
-              fontSize: 18.sp,
+              fontSize: 20.sp,
               fontFamily: "Poppins",
               fontWeight: FontWeight.w500),
         ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
+//import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Utils/colors.dart';
@@ -188,7 +189,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
             //   // color: Colors.red,
             //   // iconSize: 100.h,
             // ),
-          
+
             sizedBoxWidth(5.w),
             Text(
               'Categories',
@@ -224,7 +225,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
       ),
-      
+
       // backgroundColor: Color(0xFFF5F8FA),
       // appBar: AppBar(
       //   backgroundColor: AppColors.white,
@@ -309,7 +310,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
                     break;
 
                   case 1:
-                    screen = PropertiesInvestment();
+                    screen = FractionalRealestate();
 
                     break;
                   default:
