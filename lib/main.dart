@@ -104,11 +104,9 @@ class _MyAppState extends State<MyApp> {
           fontFamily: "Poppins",
         ),
         getPages: [
-
           GetPage(name: '/SideBar', page: () => SideBar()),
           GetPage(name: '/EntryPoint', page: () => EntryPoint()),
           // GetPage(name: '/MainScreen', page: () => MainScreen()),
-          
 
           // GetPage(name: '/splash', page: () => Splash()),
           GetPage(name: '/', page: () => Splashslider()),
@@ -150,7 +148,7 @@ class _MyAppState extends State<MyApp> {
               page: () => SuggestedInvestedProducts()),
           GetPage(name: '/chatpage', page: () => ChatPage()),
           GetPage(name: '/chatdetailpage', page: () => ChatDetailPage()),
-          GetPage(name: '/homepage2', page: () => Home2()),
+          GetPage(name: '/homepage2', page: () => EntryPoint()),
           GetPage(name: '/success', page: () => Success()),
           GetPage(
               name: '/successstoriesdetails',
@@ -181,10 +179,11 @@ class _MyAppState extends State<MyApp> {
 
           GetPage(name: '/fullyfundedbank', page: () => FullyFundedBank()),
 
+          GetPage(name: '/privateequityfund', page: () => PrivateEquityFund()),
 
-          GetPage(name: '/privateequityfund', page: () => PrivateEquityFund()),    
-
-          GetPage(name: '/privateequityfunddeals', page: () => PrivateEquityFundDeals()),  
+          GetPage(
+              name: '/privateequityfunddeals',
+              page: () => PrivateEquityFundDeals()),
 
           GetPage(name: '/debtfund', page: () => Debtfund()),
 
@@ -192,14 +191,20 @@ class _MyAppState extends State<MyApp> {
 
           GetPage(name: '/distressedasset', page: () => DistressedAsset()),
 
-          GetPage(name: '/fractionalrealpage', page: () => FractionalRealestate()),
+          GetPage(
+              name: '/fractionalrealpage', page: () => FractionalRealestate()),
 
-          GetPage(name: '/fractionalpropertiespage', page: () => Fractionalproperties()),
+          GetPage(
+              name: '/fractionalpropertiespage',
+              page: () => Fractionalproperties()),
 
-          GetPage(name: '/propertiesinvestment', page: () => PropertiesInvestment()),
+          GetPage(
+              name: '/propertiesinvestment',
+              page: () => PropertiesInvestment()),
 
-          GetPage(name: '/fractionalrealestate', page: () => FractionalRealEstate2()),
-
+          GetPage(
+              name: '/fractionalrealestate',
+              page: () => FractionalRealEstate2()),
         ],
       ),
       designSize: Size(390, 844),

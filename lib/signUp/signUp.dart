@@ -9,6 +9,7 @@ import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/login/login.dart';
+import 'package:freeu/profile/profile.dart';
 
 import 'package:get/get.dart';
 
@@ -255,6 +256,7 @@ class _SignUpState extends State<SignUp> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                                textEditingController: nameController,
                                 validator: (value) {
                                   if (value!.isEmpty) {
                                     return 'Enter your name';
@@ -288,6 +290,7 @@ class _SignUpState extends State<SignUp> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                              textEditingController: emailController,
                               hintText: "Email Id*",
                               validatorText: "Email Id",
                               validator: (value) {
