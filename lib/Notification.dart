@@ -264,7 +264,7 @@ class Slidebar extends StatelessWidget {
                   text,
                   style: TextStyle(
                     color: Color(0xFF000000),
-                    fontSize: 15.sm,
+                    fontSize: 16.sm,
                     fontFamily: 'Poppins',
                   ),
                 ),
