@@ -16,71 +16,88 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: Stack(children: [
-            SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      GestureDetector(
-                          onTap: () {
-                            Get.back();
-                          },
-                          child: Icon(
-                            Icons.arrow_back,
-                            size: 24.sp,
-                            color: const Color(0xff000000),
-                          )),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      Text(
-                        "Alternative Investment Funds Category II",
-                        style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontSize: 25.sp,
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(20.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                ],
-              ),
+      appBar: AppBar(
+        backgroundColor: Color(0xFFFFFFFF),
+        elevation: 0,
+        titleSpacing: 0,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+          ),
+          iconSize: 26,
+          color: Colors.black,
+        ),
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Stack(children: [
+          SingleChildScrollView(
+            // padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // GestureDetector(
+                    //     onTap: () {
+                    //       Get.back();
+                    //     },
+                    //     child: Icon(
+                    //       Icons.arrow_back,
+                    //       size: 24.sp,
+                    //       color: const Color(0xff000000),
+                    //     )),
+                    // SizedBox(
+                    //   height: 10.h,
+                    // ),
+                    Text(
+                      "Alternative Investment Funds Category II",
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: 25.sp,
+                          fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+                sizedBoxHeight(20.h),
+                faqAccod(),
+                sizedBoxHeight(15.h),
+                faqAccod(),
+                sizedBoxHeight(15.h),
+                faqAccod(),
+                sizedBoxHeight(15.h),
+                faqAccod(),
+                sizedBoxHeight(15.h),
+                faqAccod(),
+                sizedBoxHeight(15.h),
+                faqAccod(),
+                sizedBoxHeight(15.h),
+                faqAccod(),
+                sizedBoxHeight(15.h),
+                faqAccod(),
+                sizedBoxHeight(15.h),
+              ],
             ),
-            Align(
-              alignment: Alignment.bottomCenter,
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 20.h),
               child: CustomNextButton(
                 text: 'View Categories',
                 ontap: () {
                   Get.toNamed("/privateequity");
                 },
               ),
-            )
-          ]),
-        ),
+            ),
+          )
+        ]),
       ),
     );
   }

@@ -36,9 +36,9 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Stack(children: [
           SingleChildScrollView(
-            padding: EdgeInsets.symmetric(
-              horizontal: 16.w,
-            ),
+            // padding: EdgeInsets.symmetric(
+            //   horizontal: 16.w,
+            // ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
