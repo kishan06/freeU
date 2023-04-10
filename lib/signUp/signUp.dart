@@ -550,7 +550,10 @@ class _SignUpState extends State<SignUp> {
                                       color: Color(0xff143C6D),
                                       size: 15,
                                     )
-                                  : SizedBox(),
+                                  : Text(
+                                      '  X',
+                                      style: TextStyle(color: Colors.red),
+                                    ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 10),
@@ -583,7 +586,10 @@ class _SignUpState extends State<SignUp> {
                                       color: Color(0xff143C6D),
                                       size: 15,
                                     )
-                                  : const SizedBox(),
+                                  : const Text(
+                                      '  X',
+                                      style: TextStyle(color: Colors.red),
+                                    ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 10),
@@ -616,7 +622,10 @@ class _SignUpState extends State<SignUp> {
                                       color: Color(0xff143C6D),
                                       size: 15,
                                     )
-                                  : const SizedBox(),
+                                  : const Text(
+                                      '  X',
+                                      style: TextStyle(color: Colors.red),
+                                    ),
                             ),
                             Padding(
                               padding: EdgeInsets.only(left: 10),

@@ -12,11 +12,12 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
       this.bottomtext,
       this.customProfileNavigation = false,
       this.navigateToTaxPlanning = false,
-      this.showLeading = true})
+      this.showLeading = true,
+      this.actionWidget})
       : super(key: key);
 
   final String titleTxt;
-
+  final Widget? actionWidget;
   final bool? bottomtext;
   final bool? customProfileNavigation;
   final bool? showLeading;
@@ -24,12 +25,14 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actions: [if (actionWidget != null) actionWidget!],
       flexibleSpace: Container(
         height: 50.h,
         decoration: const BoxDecoration(),
       ),
       bottom: bottomtext!
           ? PreferredSize(
+              preferredSize: Size.zero,
               child: Text(
                 "Steps to check for Clients other than Resident Individual",
                 textAlign: TextAlign.center,
@@ -41,8 +44,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
                         decorationColor: Colors.black,
                         fontSize: 12.sm),
                 // selectionColor: Colors.black
-              ),
-              preferredSize: Size.zero)
+              ))
           : null,
       backgroundColor: Color(0xFFFFFFFF),
       elevation: 0,

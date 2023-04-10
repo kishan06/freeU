@@ -62,7 +62,7 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
                     ),
                     ButtonsTabBar(
                       buttonMargin: EdgeInsets.zero,
-                      contentPadding: EdgeInsets.only(left: 25, right: 25),
+                      contentPadding: EdgeInsets.only(left: 27, right: 27),
                       radius: 4,
                       backgroundColor: Color(0xFF143C6D),
                       unselectedBorderColor: Color(0xFFFFFFFF),
@@ -73,7 +73,7 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
                       labelStyle: TextStyle(
                         color: Color(0xFFFFFFFF),
                         fontWeight: FontWeight.bold,
-                        fontSize: 14,
+                        fontSize: 18,
                       ),
                       tabs: [
                         Tab(
@@ -496,13 +496,15 @@ class SecondTab extends StatelessWidget {
                           SizedBox(
                             width: 20.h,
                           ),
-                          Text(
-                            "HDFC AMC Select AIF \nFOF - 1",
-                            style: TextStyle(
-                                fontSize: 22,
-                                fontFamily: 'Poppins',
-                                color: Color(0XFF000000),
-                                fontWeight: FontWeight.w500),
+                          Flexible(
+                            child: Text(
+                              "HDFC AMC Select AIF FOF - 1",
+                              style: TextStyle(
+                                  fontSize: 22,
+                                  fontFamily: 'Poppins',
+                                  color: Color(0XFF000000),
+                                  fontWeight: FontWeight.w500),
+                            ),
                           )
                         ],
                       ),

@@ -266,6 +266,22 @@ class _CompleteProfileState extends State<CompleteProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomSignupAppBar(
+        actionWidget: TextButton(
+          onPressed: () {
+            Get.toNamed(
+              '/EntryPoint',
+              arguments: 0,
+            );
+          },
+          child: Text(
+            "Skip",
+            style: TextStyle(
+              color: Color(0xff6B6B6B),
+              fontSize: 14.sm,
+              fontFamily: 'Poppins',
+            ),
+          ),
+        ),
         titleTxt: "",
         bottomtext: false,
       ),
@@ -292,35 +308,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       )
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      TextButton(
-                        onPressed: () {
-                          Get.toNamed(
-                            '/EntryPoint',
-                            arguments: 0,
-                          );
-                          // Navigator.push(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //     builder: (context) => Security_first(),
-                          //   ),
-                          // );
-                        },
-                        child: Text(
-                          "Skip",
-                          style: TextStyle(
-                            color: Color(0xff6B6B6B),
-                            fontSize: 14.sm,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                   SizedBox(
-                    height: 5.h,
+                    height: 15.h,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

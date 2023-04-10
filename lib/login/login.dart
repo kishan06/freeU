@@ -186,6 +186,7 @@ class _LoginState extends State<Login> {
                             if (isValid!) {
                               // Get.toNamed("/homepage");
                               // Get.to(MainScreen());
+
                               final SharedPreferences prefs = await SharedPreferences.getInstance();
                               
                               await prefs.setBool('LogedIn', true);
@@ -193,13 +194,13 @@ class _LoginState extends State<Login> {
                               Get.toNamed("/EntryPoint",
                                 arguments: 0
                               );
+
                             } else {
                               Get.snackbar(
-                                "Error",
-                                "Please Enter Login Credentials",
-                                margin: EdgeInsets.all(8),
-                                snackStyle: SnackStyle.FLOATING,
-                              );
+                                  "Error", "Please Enter Login Credentials",
+                                  margin: EdgeInsets.all(8),
+                                  snackStyle: SnackStyle.FLOATING,
+                                  snackPosition: SnackPosition.BOTTOM);
                             }
                           },
                           text: 'Sign in',

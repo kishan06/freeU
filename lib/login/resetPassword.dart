@@ -158,8 +158,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                   });
                                 },
                               ),
-                            )
-                            ),
+                            )),
                         validator: (val) {
                           if (val!.isEmpty) {
                             return 'Password is Empty';
@@ -191,7 +190,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                                       size: 15,
                                     ),
                                   )
-                                : const SizedBox(),
+                                : const Text(
+                                    '  X',
+                                    style: TextStyle(color: Colors.red),
+                                  ),
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 10),
@@ -227,12 +229,15 @@ class _ResetPasswordState extends State<ResetPassword> {
                                       size: 15,
                                     ),
                                   )
-                                : const SizedBox(),
+                                : const Text(
+                                    '  X',
+                                    style: TextStyle(color: Colors.red),
+                                  ),
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 10),
                             child: Text(
-                              'Has at least 1 uppercase letter or symbol',
+                              'Has at least 1 uppercase letter and symbol',
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 14.sm,
@@ -263,7 +268,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                                       size: 15,
                                     ),
                                   )
-                                : const SizedBox(),
+                                : const Text(
+                                    '  X',
+                                    style: TextStyle(color: Colors.red),
+                                  ),
                           ),
                           Padding(
                             padding: EdgeInsets.only(left: 10),
