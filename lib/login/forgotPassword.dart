@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
@@ -29,14 +30,31 @@ class _forgotPasswordState extends State<forgotPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomSignupAppBar(
+      appBar:
+          // AppBar(
+          //   backgroundColor: AppColors.white,
+          //   // backgroundColor: Color(0xFFF5F8FA),
+          //   elevation: 0,
+          //   leading: IconButton(
+          //     onPressed: () {
+          //       Get.back();
+          //     },
+          //     icon: Icon(
+          //       Icons.arrow_back,
+          //     ),
+          //     iconSize: 24,
+          //     color: Color(0xFF0F0C0C),
+          //   ),
+          // ),
+
+          CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
       backgroundColor: Color(0xFFFFFFFF),
       body: SafeArea(
         child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          padding: EdgeInsets.symmetric(horizontal: 32, vertical: 10),
           child: Center(
             child: Form(
               key: _form,
@@ -142,7 +160,8 @@ class _forgotPasswordState extends State<forgotPassword> {
                         ontap: () {
                           final isValid = _form.currentState?.validate();
                           if (isValid!) {
-                            Get.toNamed('/otpverification');
+                            Get.toNamed('/otpverification',
+                                arguments: phoneController.text);
                           } else {
                             Get.snackbar("Error", "Please Enter Phone Number",
                                 margin: EdgeInsets.all(8),
