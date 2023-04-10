@@ -142,7 +142,10 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           ),
                         ),
                         onPressed: () {
-                          Get.toNamed('/homepage2');
+                          Get.offNamed(
+                            '/homepage2',
+                            arguments: 0,
+                          );
                         },
                         child: Text(
                           "No",
@@ -294,7 +297,10 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     children: [
                       TextButton(
                         onPressed: () {
-                          Get.toNamed('/homepage2');
+                          Get.toNamed(
+                            '/EntryPoint',
+                            arguments: 0,
+                          );
                           // Navigator.push(
                           //   context,
                           //   MaterialPageRoute(

@@ -46,17 +46,17 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                     children: [
                       sizedBoxWidth(5.w),
                       Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.1),
-                              spreadRadius: 2.w,
-                              blurRadius: 2.h,
-                            ),
-                          ],
-                        ),
-                        child: Image.asset(
-                          "assets/images/naviMumbai.png",
+                        // decoration: BoxDecoration(
+                        //   boxShadow: [
+                        //     BoxShadow(
+                        //       color: Colors.grey.withOpacity(0.1),
+                        //       //spreadRadius: 2.w,
+                        //       //blurRadius: 2.h,
+                        //     ),
+                        //   ],
+                        // ),
+                        child: SvgPicture.asset(
+                          "assets/images/property.svg",
                           width: 80.w,
                           height: 54.h,
                         ),
@@ -560,7 +560,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                             fontSize: 15.sp,
                             color: const Color(0xff1B8DC9)),
                       ),
-                      sizedBoxHeight(5.h),
+                      sizedBoxHeight(10.h),
                     ],
                   ),
                   sizedBoxHeight(65.h)
@@ -573,7 +573,8 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 padding: EdgeInsets.symmetric(vertical: 20.h),
                 child: CustomNextButton(
                     ontap: () {
-                      investNow();
+                      Get.toNamed("/login");
+                      //investNow();
                     },
                     text: 'Invest now'),
               ),
@@ -584,46 +585,46 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
     );
   }
 
-  void investNow() {
-    showModalBottomSheet(
-      isScrollControlled: true,
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
-      ),
-      builder: (context) {
-        return Container(
-          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              SvgPicture.asset("assets/images/thankyouinvestment.svg"),
-              Text(
-                "Thank You For Showing Your Interest",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: const Color(0xff0F0C0C),
-                    fontSize: 30.sp,
-                    fontFamily: "Poppins"),
-              ),
-              sizedBoxHeight(30.h),
-              Text(
-                "A FreeU Advisory Team will get back to you soon.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: const Color(0xff272424),
-                    fontSize: 20.sp,
-                    fontFamily: "Poppins"),
-              ),
-              sizedBoxHeight(30.h),
-              CustomNextButton(ontap: () {}, text: 'View more products')
-            ],
-          ),
-        );
-      },
-    );
-  }
+  // void investNow() {
+  //   showModalBottomSheet(
+  //     isScrollControlled: true,
+  //     context: context,
+  //     shape: const RoundedRectangleBorder(
+  //       borderRadius: BorderRadius.only(
+  //         topLeft: Radius.circular(30),
+  //         topRight: Radius.circular(30),
+  //       ),
+  //     ),
+  //     builder: (context) {
+  //       return Container(
+  //         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+  //         child: Column(
+  //           mainAxisSize: MainAxisSize.min,
+  //           children: [
+  //             SvgPicture.asset("assets/images/thankyouinvestment.svg"),
+  //             Text(
+  //               "Thank You For Showing Your Interest",
+  //               textAlign: TextAlign.center,
+  //               style: TextStyle(
+  //                   color: const Color(0xff0F0C0C),
+  //                   fontSize: 30.sp,
+  //                   fontFamily: "Poppins"),
+  //             ),
+  //             sizedBoxHeight(30.h),
+  //             Text(
+  //               "A FreeU Advisory Team will get back to you soon.",
+  //               textAlign: TextAlign.center,
+  //               style: TextStyle(
+  //                   color: const Color(0xff272424),
+  //                   fontSize: 20.sp,
+  //                   fontFamily: "Poppins"),
+  //             ),
+  //             sizedBoxHeight(30.h),
+  //             CustomNextButton(ontap: () {}, text: 'View more products')
+  //           ],
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 }

@@ -2,8 +2,10 @@
 // part 'HomePage.dart';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
@@ -20,7 +22,6 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 // part 'HomePage.dart';
 
-
 class HomePage extends StatefulWidget {
   // EntryPoint enttyPoint = EntryPoint();
   const HomePage({super.key});
@@ -30,7 +31,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   // final entryPoint = EntryPoint();
   // int selectIndex = 0;
 
@@ -195,170 +195,191 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  DateTime timebackPressed = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _key,
-      // drawer: NavDrawer(),
-      // backgroundColor: Color(0xFFF5F8FA),
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        title: Row(
-          children: [
-            sizedBoxWidth(45.w),
-            // IconButton(
-            //   onPressed: () {
-            //     _key.currentState!.openDrawer();
-            //   },
-            //   icon: SizedBox(
-            //     height: 20.h,
-            //     width: 25.w,
-            //     child: SvgPicture.asset(
-            //       "assets/images/menu.svg",
-            //       // height: 20.h,
-            //       // width: 10.w,
-            //       fit: BoxFit.fill,
-            //     ),
-            //   ),
-            //   // color: Colors.red,
-            //   // iconSize: 100.h,
-            // ),
-          
-            sizedBoxWidth(5.w),
-            Text(
-              'Welcome',
-              softWrap: true,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 22.sp,
-                  // fontWeight: FontWeight.w400,
-                  color: Colors.black),
-            ),
-            Spacer(),
-            IconButton(
-              onPressed: () {
-                Get.toNamed('/notificationpage');
-              },
-              icon: SizedBox(
-                width: 18.w,
-                height: 25.h,
-                child: SvgPicture.asset(
-                  'assets/images/notification-bell-svgrepo-com.svg',
-                  fit: BoxFit.fill,
-                ),
-              ),
-              // iconSize: 22,
-              // color: const Color(0xFF303030),
-            ),
-          ],
-        ),
+    return WillPopScope(
+      onWillPop: () async {
+        // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+        final difference = DateTime.now().difference(timebackPressed);
+        final isExitWarning = difference >= Duration(seconds: 2);
+
+        timebackPressed = DateTime.now();
+
+        if (isExitWarning) {
+          const message = "Press back again to exit";
+          // print("reached here");
+          Fluttertoast.showToast(
+            msg: message,
+            fontSize: 18,
+          );
+
+          return false;
+        } else {
+          Fluttertoast.cancel();
+
+          SystemNavigator.pop();
+          return true;
+        }
+      },
+      child: Scaffold(
+        key: _key,
+        // drawer: NavDrawer(),
         // backgroundColor: Color(0xFFF5F8FA),
-        elevation: 0,
-        shadowColor: Colors.black,
-        automaticallyImplyLeading: false,
-        titleSpacing: 0,
-      ),
-      
-      // bottomNavigationBar:
-      //     CreateBottomBar(stateBottomNav, "BottombarHomepage", context),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16),
-          child: Column(
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          title: Row(
             children: [
-              SizedBox(
-                height: 15.h,
+              sizedBoxWidth(45.w),
+              // IconButton(
+              //   onPressed: () {
+              //     _key.currentState!.openDrawer();
+              //   },
+              //   icon: SizedBox(
+              //     height: 20.h,
+              //     width: 25.w,
+              //     child: SvgPicture.asset(
+              //       "assets/images/menu.svg",
+              //       // height: 20.h,
+              //       // width: 10.w,
+              //       fit: BoxFit.fill,
+              //     ),
+              //   ),
+              //   // color: Colors.red,
+              //   // iconSize: 100.h,
+              // ),
+
+              sizedBoxWidth(5.w),
+              Text(
+                'Welcome',
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22.sp,
+                    // fontWeight: FontWeight.w400,
+                    color: Colors.black),
               ),
-              Container(
-                height: 159.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: AppColors.blue143C6D,
-                    borderRadius: BorderRadius.circular(15.h),
-                    image: DecorationImage(
-                        image: AssetImage("assets/newImages/Group 51336.png"),
-                        fit: BoxFit.fill)
-                    // boxShadow: [
-                    //   BoxShadow(
-                    //     color: Colors.black.withOpacity(0.06),
-                    //     blurRadius: 10,
-                    //     spreadRadius: 2,
-                    //   )
-                    // ]
-                    ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
-                  child: Column(
-                    children: [
-                      // Image.asset(name)
-                      SvgPicture.asset(
-                        "assets/newImages/quotes-svgrepo-com.svg",
-                        width: 24.w,
-                        height: 15.h,
-                      ),
-
-                      Spacer(),
-
-                      // Text(data)
-                      text16White(
-                          "We do not just provide you options. We want you to learn about the ones best suited for your needs.",
-                          textAlign: TextAlign.center)
-                    ],
+              Spacer(),
+              IconButton(
+                onPressed: () {
+                  Get.toNamed('/notificationpage');
+                },
+                icon: SizedBox(
+                  width: 18.w,
+                  height: 25.h,
+                  child: SvgPicture.asset(
+                    'assets/images/notification-bell-svgrepo-com.svg',
+                    fit: BoxFit.fill,
                   ),
                 ),
+                // iconSize: 22,
+                // color: const Color(0xFF303030),
               ),
+            ],
+          ),
+          // backgroundColor: Color(0xFFF5F8FA),
+          elevation: 0,
+          shadowColor: Colors.black,
+          automaticallyImplyLeading: false,
+          titleSpacing: 0,
+        ),
 
-              SizedBox(
-                height: 15.h,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      text20Black("Top Picks"),
-                      InkWell(
-                        onTap: (){
+        // bottomNavigationBar:
+        //     CreateBottomBar(stateBottomNav, "BottombarHomepage", context),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 16.0, right: 16),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 15.h,
+                ),
+                Container(
+                  height: 159.h,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      color: AppColors.blue143C6D,
+                      borderRadius: BorderRadius.circular(15.h),
+                      image: DecorationImage(
+                          image: AssetImage("assets/newImages/Group 51336.png"),
+                          fit: BoxFit.fill)
+                      // boxShadow: [
+                      //   BoxShadow(
+                      //     color: Colors.black.withOpacity(0.06),
+                      //     blurRadius: 10,
+                      //     spreadRadius: 2,
+                      //   )
+                      // ]
+                      ),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
+                    child: Column(
+                      children: [
+                        // Image.asset(name)
+                        SvgPicture.asset(
+                          "assets/newImages/quotes-svgrepo-com.svg",
+                          width: 24.w,
+                          height: 15.h,
+                        ),
 
-                        },
-                        child: text14Grey272424("View more"))
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  SizedBox(
-                    height: 285.h,
-                    child: ListView.separated(
-                        shrinkWrap: true,
-                        separatorBuilder: (_, index) {
-                          return index == topPickData.length
-                              ? SizedBox()
-                              : sizedBoxWidth(20.w);
-                        },
-                        scrollDirection: Axis.horizontal,
-                        itemCount: topPickData.length,
-                        itemBuilder: (context, index) {
-                          return topPickCard(
-                            text1: topPickData[index]["text1"],
-                            imagePath: topPickData[index]["imageUrl"],
-                            title: topPickData[index]["title"],
-                            add: topPickData[index]["add"],
-                            // /
-                          );
-                        }),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
+                        Spacer(),
 
-              twoText("Categories", "View more",
-                onTap: (){
+                        // Text(data)
+                        text16White(
+                            "We do not just provide you options. We want you to learn about the ones best suited for your needs.",
+                            textAlign: TextAlign.center)
+                      ],
+                    ),
+                  ),
+                ),
+
+                SizedBox(
+                  height: 15.h,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        text20Black("Top Picks"),
+                        InkWell(
+                            onTap: () {}, child: text14Grey272424("View more"))
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    SizedBox(
+                      height: 285.h,
+                      child: ListView.separated(
+                          shrinkWrap: true,
+                          separatorBuilder: (_, index) {
+                            return index == topPickData.length
+                                ? SizedBox()
+                                : sizedBoxWidth(20.w);
+                          },
+                          scrollDirection: Axis.horizontal,
+                          itemCount: topPickData.length,
+                          itemBuilder: (context, index) {
+                            return topPickCard(
+                              text1: topPickData[index]["text1"],
+                              imagePath: topPickData[index]["imageUrl"],
+                              title: topPickData[index]["title"],
+                              add: topPickData[index]["add"],
+                              // /
+                            );
+                          }),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20.h,
+                ),
+
+                twoText("Categories", "View more", onTap: () {
                   print("SD");
                   selectedIndex.value = 1;
                   // widget.enttyPoint.se
@@ -371,1045 +392,1046 @@ class _HomePageState extends State<HomePage> {
                   // );
 
                   // _selectedIndex = 1;
-                }
-              ),
+                }),
 
-              sizedBoxHeight(10.h),
+                sizedBoxHeight(10.h),
 
-              SizedBox(
-                height: 133.h,
-                child: ListView.separated(
-                    separatorBuilder: (_, index) {
-                      return index == 2 ? SizedBox() : sizedBoxWidth(20.w);
+                SizedBox(
+                  height: 133.h,
+                  child: ListView.separated(
+                      separatorBuilder: (_, index) {
+                        return index == 2 ? SizedBox() : sizedBoxWidth(20.w);
+                      },
+                      scrollDirection: Axis.horizontal,
+                      itemCount: 2,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            var screen;
+                            switch (index) {
+                              case 0:
+                                screen = AlternativeInsvestment();
+
+                                break;
+                              default:
+                            }
+                            Get.to(screen);
+                          },
+                          child: categoryCard(
+                            color1: categoryData[index]["colorL"],
+                            color2: categoryData[index]["colorD"],
+                            bgImage: categoryData[index]["bgImage"],
+                            image: categoryData[index]["imageUrl"],
+                            text: categoryData[index]["title"],
+                          ),
+                        );
+                      }),
+                ),
+
+                sizedBoxHeight(15.h),
+
+                twoText(
+                  "Knowledge center",
+                  "View more",
+                  onTap: () {
+                    Get.toNamed("/Insights");
+                  },
+                ),
+
+                SizedBox(
+                  height: 10.h,
+                ),
+
+                ListView.separated(
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (_, index) {
+                      return tileCard();
                     },
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 2,
-                    itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          var screen;
-                          switch (index) {
-                            case 0:
-                              screen = AlternativeInsvestment();
+                    separatorBuilder: (_, index) {
+                      return sizedBoxHeight(10.h);
+                    },
+                    itemCount: 3),
 
-                              break;
-                            default:
-                          }
-                          Get.to(screen);
-                        },
-                        child: categoryCard(
-                          color1: categoryData[index]["colorL"],
-                          color2: categoryData[index]["colorD"],
-                          bgImage: categoryData[index]["bgImage"],
-                          image: categoryData[index]["imageUrl"],
-                          text: categoryData[index]["title"],
-                        ),
-                      );
-                    }),
-              ),
+                sizedBoxHeight(20.h)
 
-              sizedBoxHeight(15.h),
+                // GestureDetector(
+                //   onTap: () {
+                //     Get.toNamed('/insightsinner');
+                //   },
+                //   child: Container(
+                //     decoration: BoxDecoration(
+                //         color: Color(0xFFFFFFFF),
+                //         borderRadius: BorderRadius.circular(15),
+                //         boxShadow: [
+                //           BoxShadow(
+                //             color: Colors.black.withOpacity(0.06),
+                //             blurRadius: 10,
+                //             spreadRadius: 2,
+                //           ),
+                //         ]),
+                //     child: Padding(
+                //       padding: const EdgeInsets.only(
+                //           top: 14.0, left: 10, right: 15, bottom: 10),
+                //       child: Row(
+                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //         children: [
+                //           Expanded(
+                //             flex: 2,
+                //             child: ClipRRect(
+                //               borderRadius: BorderRadius.circular(10),
+                //               child: Image.asset(
+                //                 "assets/images/na_april_69.jpg",
+                //                 height: 70,
+                //                 width: 90,
+                //               ),
+                //             ),
+                //           ),
+                //           const Expanded(
+                //             flex: 0,
+                //             child: SizedBox(
+                //               width: 20,
+                //             ),
+                //           ),
+                //           Expanded(
+                //             flex: 5,
+                //             child: Column(
+                //               mainAxisAlignment:
+                //                   MainAxisAlignment.spaceBetween,
+                //               crossAxisAlignment: CrossAxisAlignment.start,
+                //               children: [
+                //                 Text(
+                //                   "Retail banks wake up to digital",
+                //                   style: blackStyle14(),
+                //                 ),
+                //                 Row(
+                //                   children: [
+                //                     Icon(
+                //                       Icons.calendar_today_outlined,
+                //                       size: 14,
+                //                     ),
+                //                     SizedBox(
+                //                       width: 5,
+                //                     ),
+                //                     Text(
+                //                       "October 17 , 2022",
+                //                       style: blackStyle12(),
+                //                     ),
+                //                   ],
+                //                 )
+                //               ],
+                //             ),
+                //           ),
+                //         ],
+                //       ),
+                //     ),
+                //   ),
+                // ),
 
-              twoText("Knowledge center", "View more",
-                onTap: () {
-                  Get.toNamed("/Insights");
-                },
-              ),
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     twoText("Top Picks", "View more"),
+                //     // Row(
+                //     //   children: [
+                //     //     SizedBox(
+                //     //       width: 3.w,
+                //     //     ),
+                //     //     titleText("Top Pick"),
+                //     //   ],
+                //     // ),
+                //     SizedBox(
+                //       height: 8.h,
+                //     ),
 
+                //     // SizedBox(
+                //     //   height: 290,
+                //     //   child: Container(
+                //     //     decoration: BoxDecoration(
+                //     //         color: Colors.white,
+                //     //         borderRadius: BorderRadius.circular(10),
+                //     //         boxShadow: [
+                //     //           BoxShadow(
+                //     //             color: Colors.black.withOpacity(0.15),
+                //     //             spreadRadius: 2,
+                //     //             blurRadius: 10,
+                //     //           )
+                //     //         ]),
+                //     //     child: Padding(
+                //     //       padding: EdgeInsets.only(top: 0),
+                //     //       child: Column(
+                //     //         mainAxisAlignment: MainAxisAlignment.start,
+                //     //         crossAxisAlignment: CrossAxisAlignment.start,
+                //     //         children: [
+                //     //           Image.asset(
+                //     //             'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
+                //     //             fit: BoxFit.cover,
+                //     //             width: double.infinity,
+                //     //           ),
+                //     //           SizedBox(
+                //     //             height: 10,
+                //     //           ),
+                //     //           Text(
+                //     //             'Vaishnavi Tech Park Opportunity',
+                //     //             style: blackStyle15(),
+                //     //           ),
+                //     //           SizedBox(
+                //     //             height: 7.h,
+                //     //           ),
+                //     //           Row(
+                //     //             crossAxisAlignment: CrossAxisAlignment.start,
+                //     //             mainAxisAlignment: MainAxisAlignment.start,
+                //     //             children: [
+                //     //               Flexible(
+                //     //                 child: Icon(
+                //     //                   Icons.location_on_outlined,
+                //     //                   size: 18.sm,
+                //     //                   color: Color(0xFF707070),
+                //     //                 ),
+                //     //               ),
+                //     //               // SizedBox(
+                //     //               //   width: 4.w,
+                //     //               // ),
+                //     //               Flexible(
+                //     //                 flex: 4,
+                //     //                 child: Text(
+                //     //                   'Outer Ring Road Sarjapur, Bangalore',
+                //     //                   style: blackStyle12().copyWith(
+                //     //                     color: Color(0xFF707070),
+                //     //                   ),
+                //     //                 ),
+                //     //               ),
+                //     //             ],
+                //     //           ),
+                //     //           SizedBox(
+                //     //             height: 8.h,
+                //     //           ),
+                //     //         ],
+                //     //       ),
+                //     //     ),
+                //     //   ),
+                //     // )
+                //     //
+                //     //
+                //     //
+                //     //
+                //     //
+                //     //
+                //     SizedBox(
+                //       height: 310.h,
+                //       child: ListView.builder(
+                //         scrollDirection: Axis.horizontal,
+                //         itemCount: 2,
+                //         itemBuilder: (context, index) => Container(
+                //           margin: EdgeInsets.all(10),
+                //           width: Get.width * 0.65,
+                //           child: Container(
+                //             decoration: BoxDecoration(
+                //                 color: Color(0xFFFFFFFF),
+                //                 borderRadius: BorderRadius.circular(15),
+                //                 boxShadow: [
+                //                   BoxShadow(
+                //                     color: Colors.black.withOpacity(0.06),
+                //                     blurRadius: 10,
+                //                     spreadRadius: 2,
+                //                   )
+                //                 ]),
+                //             child: Padding(
+                //               padding: EdgeInsets.only(
+                //                   top: 0.0, left: 0, right: 0, bottom: 6),
+                //               child: Column(
+                //                 mainAxisAlignment: MainAxisAlignment.start,
+                //                 crossAxisAlignment: CrossAxisAlignment.start,
+                //                 children: [
+                //                   Stack(
+                //                     children: [
+                //                       ClipRRect(
+                //                         borderRadius: BorderRadius.only(
+                //                           topLeft: Radius.circular(10),
+                //                           topRight: Radius.circular(10),
+                //                         ),
+                //                         child: Image.asset(
+                //                           'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
+                //                           fit: BoxFit.cover,
+                //                           width: double.infinity,
+                //                           height: 150,
+                //                         ),
+                //                       ),
+                //                       Positioned(
+                //                         bottom: 0,
+                //                         left: 0,
+                //                         right: 0,
+                //                         child: Container(
+                //                           height: 40,
+                //                           decoration: BoxDecoration(
+                //                             color: Colors.black.withOpacity(0.4),
+                //                           ),
+                //                           child: Padding(
+                //                             padding:
+                //                                 const EdgeInsets.only(left: 8.0),
+                //                             child: Align(
+                //                               alignment: Alignment.centerLeft,
+                //                               child: Text(
+                //                                 'Fractional Real Estate',
+                //                                 style: blackStyle14().copyWith(
+                //                                   fontWeight: FontWeight.w400,
+                //                                   color: Colors.white,
+                //                                   fontSize: 16,
+                //                                 ),
+                //                               ),
+                //                             ),
+                //                           ),
+                //                         ),
+                //                       )
+                //                     ],
+                //                   ),
+                //                   SizedBox(height: 10),
+                //                   Padding(
+                //                     padding: const EdgeInsets.symmetric(
+                //                         horizontal: 8.0),
+                //                     child: Text(
+                //                       'Vaishnavi Tech Park Opportunity',
+                //                       style:
+                //                           blackStyle15().copyWith(fontSize: 16),
+                //                     ),
+                //                   ),
+                //                   SizedBox(
+                //                     height: 7.h,
+                //                   ),
+                //                   Padding(
+                //                     padding: const EdgeInsets.symmetric(
+                //                         horizontal: 8.0),
+                //                     child: Row(
+                //                       crossAxisAlignment:
+                //                           CrossAxisAlignment.start,
+                //                       mainAxisAlignment: MainAxisAlignment.start,
+                //                       children: [
+                //                         Flexible(
+                //                           child: Icon(
+                //                             Icons.location_on_outlined,
+                //                             size: 22,
+                //                             color: Color(0xFF707070),
+                //                           ),
+                //                         ),
+                //                         // SizedBox(
+                //                         //   width: 4.w,
+                //                         // ),
+                //                         Flexible(
+                //                           flex: 4,
+                //                           child: Align(
+                //                             alignment: Alignment.topLeft,
+                //                             child: Text(
+                //                               'Outer Ring Road Sarjapur, Bangalore',
+                //                               style: blackStyle12().copyWith(
+                //                                   color: Color(0xFF707070),
+                //                                   fontSize: 14),
+                //                             ),
+                //                           ),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                   ),
+                //                   SizedBox(
+                //                     height: 8.h,
+                //                   ),
+                //                 ],
+                //               ),
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //     // SizedBox(
+                //     //   height: 290,
+                //     //   child: ListView.builder(
+                //     //     // controller: pickcontroller,
+                //     //     scrollDirection: Axis.horizontal,
+                //     //     itemCount: 2,
+                //     //     itemBuilder: (
+                //     //       BuildContext context,
+                //     //       int index1,
+                //     //     ) {
+                //     //       bool isMyPageIndex = selectIndex == index1;
+                //     //       if (index1 == 0) {
+                //     //         return Card(
+                //     //           elevation: 2,
+                //     //           color: Color(0xFFFFFFFF),
+                //     //           shape: RoundedRectangleBorder(
+                //     //             borderRadius: BorderRadius.circular(15),
+                //     //           ),
+                //     //           child: Padding(
+                //     //             padding: EdgeInsets.only(
+                //     //                 top: 14.0, left: 15, right: 15, bottom: 6),
+                //     //             child: Column(
+                //     //               mainAxisAlignment: MainAxisAlignment.start,
+                //     //               crossAxisAlignment: CrossAxisAlignment.start,
+                //     //               children: [
+                //     //                 Text(
+                //     //                   'Fractional Real Estate',
+                //     //                   style: blackStyle14()
+                //     //                       .copyWith(fontWeight: FontWeight.w400),
+                //     //                 ),
+                //     //                 SizedBox(
+                //     //                   height: 10,
+                //     //                 ),
+                //     //                 Image.asset(
+                //     //                   'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
+                //     //                   fit: BoxFit.cover,
+                //     //                   width: double.infinity,
+                //     //                 ),
+                //     //                 SizedBox(
+                //     //                   height: 10,
+                //     //                 ),
+                //     //                 Text(
+                //     //                   'Vaishnavi Tech Park Opportunity',
+                //     //                   style: blackStyle15(),
+                //     //                 ),
+                //     //                 SizedBox(
+                //     //                   height: 8,
+                //     //                 ),
+                //     //                 Row(
+                //     //                   crossAxisAlignment:
+                //     //                       CrossAxisAlignment.start,
+                //     //                   mainAxisAlignment: MainAxisAlignment.start,
+                //     //                   children: [
+                //     //                     Flexible(
+                //     //                       child: Icon(
+                //     //                         Icons.location_on_outlined,
+                //     //                         size: 18.sm,
+                //     //                         color: Color(0xFF707070),
+                //     //                       ),
+                //     //                     ),
+                //     //                     // SizedBox(
+                //     //                     //   width: 4.w,
+                //     //                     // ),
+                //     //                     Flexible(
+                //     //                       flex: 4,
+                //     //                       child: Text(
+                //     //                         'Outer Ring Road Sarjapur, Bangalore',
+                //     //                         style: blackStyle12().copyWith(
+                //     //                           color: Color(0xFF707070),
+                //     //                         ),
+                //     //                       ),
+                //     //                     ),
+                //     //                   ],
+                //     //                 ),
+                //     //                 SizedBox(
+                //     //                   height: 8.h,
+                //     //                 ),
+                //     //               ],
+                //     //             ),
+                //     //           ),
+                //     //         );
+                //     //       } //2nd plan
+                //     //       return Card(
+                //     //         elevation: 2,
+                //     //         color: Color(0xFFFFFFFF),
+                //     //         shape: RoundedRectangleBorder(
+                //     //           borderRadius: BorderRadius.circular(15),
+                //     //         ),
+                //     //         child: Padding(
+                //     //           padding: EdgeInsets.only(
+                //     //               top: 14.0, left: 15, right: 15, bottom: 6),
+                //     //           child: Column(
+                //     //             mainAxisAlignment: MainAxisAlignment.center,
+                //     //             crossAxisAlignment: CrossAxisAlignment.start,
+                //     //             children: [
+                //     //               Text(
+                //     //                 'Fractional Real Estate',
+                //     //                 style: blackStyle14()
+                //     //                     .copyWith(fontWeight: FontWeight.w400),
+                //     //               ),
+                //     //               SizedBox(
+                //     //                 height: 10.h,
+                //     //               ),
+                //     //               Image.asset(
+                //     //                 'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
+                //     //               ),
+                //     //               SizedBox(
+                //     //                 height: 9.h,
+                //     //               ),
+                //     //               Text(
+                //     //                 'Vaishnavi Tech Park Opportunity',
+                //     //                 style: blackStyle15(),
+                //     //               ),
+                //     //               SizedBox(
+                //     //                 height: 7.h,
+                //     //               ),
+                //     //               Row(
+                //     //                 crossAxisAlignment: CrossAxisAlignment.start,
+                //     //                 mainAxisAlignment: MainAxisAlignment.start,
+                //     //                 children: [
+                //     //                   Flexible(
+                //     //                     child: Icon(
+                //     //                       Icons.location_on_outlined,
+                //     //                       size: 18.sm,
+                //     //                       color: Color(0xFF707070),
+                //     //                     ),
+                //     //                   ),
+                //     //                   // SizedBox(
+                //     //                   //   width: 4.w,
+                //     //                   // ),
+                //     //                   Flexible(
+                //     //                     flex: 4,
+                //     //                     child: Text(
+                //     //                       'Outer Ring Road Sarjapur, Bangalore',
+                //     //                       style: blackStyle12().copyWith(
+                //     //                         color: Color(0xFF707070),
+                //     //                       ),
+                //     //                     ),
+                //     //                   ),
+                //     //                 ],
+                //     //               ),
+                //     //               SizedBox(
+                //     //                 height: 8.h,
+                //     //               ),
+                //     //             ],
+                //     //           ),
+                //     //         ),
+                //     //       );
+                //     //     },
+                //     //   ),
+                //     // ),
+                //   ],
+                // ),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     Row(
+                //       children: [
+                //         SizedBox(
+                //           width: 3.w,
+                //         ),
+                //         titleText("Recommended"),
+                //       ],
+                //     ),
+                //     SizedBox(
+                //       height: 8.h,
+                //     ),
+                //     SizedBox(
+                //       width: double.infinity,
+                //       height: 320,
+                //       child: ListView.builder(
+                //         scrollDirection: Axis.horizontal,
+                //         itemCount: 2,
+                //         itemBuilder: (context, index) => GestureDetector(
+                //           onTap: () {
+                //             Get.toNamed("/fractionalrealestateproperty2");
+                //           },
+                //           child: Container(
+                //             margin: EdgeInsets.all(10),
+                //             width: Get.width * 0.85,
+                //             decoration: BoxDecoration(
+                //                 color: Color(0xFFFFFFFF),
+                //                 borderRadius: BorderRadius.circular(15),
+                //                 boxShadow: [
+                //                   BoxShadow(
+                //                     color: Colors.black.withOpacity(0.06),
+                //                     blurRadius: 10,
+                //                     spreadRadius: 2,
+                //                   )
+                //                 ]),
+                //             child: Padding(
+                //               padding: EdgeInsets.only(
+                //                   top: 0.0, left: 0, right: 0, bottom: 6),
+                //               child: Column(
+                //                 mainAxisAlignment: MainAxisAlignment.start,
+                //                 crossAxisAlignment: CrossAxisAlignment.start,
+                //                 children: [
+                //                   Image.asset(
+                //                     'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
+                //                     fit: BoxFit.cover,
+                //                     width: double.infinity,
+                //                   ),
+                //                   SizedBox(
+                //                     height: 10,
+                //                   ),
+                //                   Padding(
+                //                     padding: const EdgeInsets.only(left: 5.0),
+                //                     child: Container(
+                //                       decoration: BoxDecoration(
+                //                           color: Color(0xFFCFEFFF),
+                //                           borderRadius: BorderRadius.circular(5),
+                //                           boxShadow: [
+                //                             BoxShadow(
+                //                               color:
+                //                                   Colors.black.withOpacity(0.06),
+                //                               blurRadius: 10,
+                //                               spreadRadius: 2,
+                //                             )
+                //                           ]),
+                //                       child: Padding(
+                //                         padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
+                //                         child: Text(
+                //                           'Fractional Real Estate',
+                //                           style: blackStyle12(),
+                //                         ),
+                //                       ),
+                //                     ),
+                //                   ),
+                //                   Padding(
+                //                     padding: const EdgeInsets.only(left: 10.0),
+                //                     child: Text(
+                //                       'Vaishnavi Tech Park Opportunity',
+                //                       style: blackStyle16(),
+                //                     ),
+                //                   ),
+                //                   SizedBox(
+                //                     height: 8,
+                //                   ),
+                //                   Padding(
+                //                     padding: const EdgeInsets.only(left: 10.0),
+                //                     child: Row(
+                //                       crossAxisAlignment:
+                //                           CrossAxisAlignment.start,
+                //                       mainAxisAlignment: MainAxisAlignment.start,
+                //                       children: [
+                //                         Flexible(
+                //                           child: Icon(
+                //                             Icons.location_on_outlined,
+                //                             size: 18.sm,
+                //                             color: Color(0xFF707070),
+                //                           ),
+                //                         ),
+                //                         // SizedBox(
+                //                         //   width: 4.w,
+                //                         // ),
+                //                         Flexible(
+                //                           flex: 4,
+                //                           child: Text(
+                //                             'Outer Ring Road Sarjapur, Bangalore',
+                //                             style: blackStyle12().copyWith(
+                //                               color: Color(0xFF707070),
+                //                             ),
+                //                           ),
+                //                         ),
+                //                       ],
+                //                     ),
+                //                   ),
+                //                   SizedBox(
+                //                     height: 8.h,
+                //                   ),
+                //                 ],
+                //               ),
+                //             ),
+                //           ),
+                //         ),
+                //       ),
+                //       // child: PageView.builder(
+                //       //   padEnds: false,
+                //       //   controller: recommendedcontroller,
+                //       //   itemCount: 2,
+                //       //   itemBuilder: (
+                //       //     BuildContext context,
+                //       //     int index1,
+                //       //   ) {
+                //       //     bool isMyPageIndex = selectIndex == index1;
+                //       //     if (index1 == 0) {
+                //       //       return GestureDetector(
+                //       //         onTap: () {
+                //       //           Get.toNamed("/fractionalrealestateproperty2");
+                //       //         },
+                //       //         child: Card(
+                //       //           elevation: 2,
+                //       //           color: Color(0xFFFFFFFF),
+                //       //           shape: RoundedRectangleBorder(
+                //       //             borderRadius: BorderRadius.circular(15),
+                //       //           ),
+                //       //           child: Padding(
+                //       //             padding: EdgeInsets.only(
+                //       //                 top: 14.0, left: 15, right: 15, bottom: 6),
+                //       //             child: Column(
+                //       //               mainAxisAlignment: MainAxisAlignment.center,
+                //       //               crossAxisAlignment: CrossAxisAlignment.start,
+                //       //               children: [
+                //       //                 Image.asset(
+                //       //                   'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
+                //       //                 ),
+                //       //                 SizedBox(
+                //       //                   height: 3.h,
+                //       //                 ),
+                //       //                 Card(
+                //       //                   color: Color(0xFFCFEFFF),
+                //       //                   shape: RoundedRectangleBorder(
+                //       //                     borderRadius: BorderRadius.circular(5),
+                //       //                   ),
+                //       //                   child: Padding(
+                //       //                     padding:
+                //       //                         EdgeInsets.fromLTRB(6, 3, 6, 3),
+                //       //                     child: Text(
+                //       //                       'Fractional Real Estate',
+                //       //                       style: blackStyle12(),
+                //       //                     ),
+                //       //                   ),
+                //       //                 ),
+                //       //                 SizedBox(
+                //       //                   height: 5.h,
+                //       //                 ),
+                //       //                 Flexible(
+                //       //                   child: Text(
+                //       //                     'Vaishnavi Tech Park Opportunity',
+                //       //                     style: blackStyle16(),
+                //       //                   ),
+                //       //                 ),
+                //       //                 SizedBox(
+                //       //                   height: 5.h,
+                //       //                 ),
+                //       //                 Row(
+                //       //                   crossAxisAlignment:
+                //       //                       CrossAxisAlignment.start,
+                //       //                   mainAxisAlignment:
+                //       //                       MainAxisAlignment.start,
+                //       //                   children: [
+                //       //                     Flexible(
+                //       //                       child: Icon(
+                //       //                         Icons.location_on_outlined,
+                //       //                         size: 18.sm,
+                //       //                         color: Color(0xFF707070),
+                //       //                       ),
+                //       //                     ),
+                //       //                     // SizedBox(
+                //       //                     //   width: 4.w,
+                //       //                     // ),
+                //       //                     Flexible(
+                //       //                       flex: 4,
+                //       //                       child: Text(
+                //       //                         'Outer Ring Road Sarjapur, Bangalore',
+                //       //                         style: blackStyle12().copyWith(
+                //       //                           color: Color(0xFF707070),
+                //       //                         ),
+                //       //                       ),
+                //       //                     ),
+                //       //                   ],
+                //       //                 ),
+                //       //                 SizedBox(
+                //       //                   height: 8.h,
+                //       //                 ),
+                //       //               ],
+                //       //             ),
+                //       //           ),
+                //       //         ),
+                //       //       );
+                //       //     } //2nd plan
+                //       //     return GestureDetector(
+                //       //       onTap: () {
+                //       //         Get.toNamed("/fractionalrealestateproperty2");
+                //       //       },
+                //       //       child: Card(
+                //       //         elevation: 2,
+                //       //         color: Color(0xFFFFFFFF),
+                //       //         shape: RoundedRectangleBorder(
+                //       //           borderRadius: BorderRadius.circular(15),
+                //       //         ),
+                //       //         child: Padding(
+                //       //           padding: EdgeInsets.only(
+                //       //               top: 14.0, left: 15, right: 15, bottom: 6),
+                //       //           child: Column(
+                //       //             mainAxisAlignment: MainAxisAlignment.center,
+                //       //             crossAxisAlignment: CrossAxisAlignment.start,
+                //       //             children: [
+                //       //               Image.asset(
+                //       //                 'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
+                //       //               ),
+                //       //               SizedBox(
+                //       //                 height: 3.h,
+                //       //               ),
+                //       //               Card(
+                //       //                 color: Color(0xFFCFEFFF),
+                //       //                 shape: RoundedRectangleBorder(
+                //       //                   borderRadius: BorderRadius.circular(5),
+                //       //                 ),
+                //       //                 child: Padding(
+                //       //                   padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
+                //       //                   child: Text(
+                //       //                     'Fractional Real Estate',
+                //       //                     style: blackStyle12(),
+                //       //                   ),
+                //       //                 ),
+                //       //               ),
+                //       //               SizedBox(
+                //       //                 height: 5.h,
+                //       //               ),
+                //       //               Flexible(
+                //       //                 child: Text(
+                //       //                   'Vaishnavi Tech Park Opportunity',
+                //       //                   style: blackStyle16(),
+                //       //                 ),
+                //       //               ),
+                //       //               SizedBox(
+                //       //                 height: 5.h,
+                //       //               ),
+                //       //               Row(
+                //       //                 crossAxisAlignment:
+                //       //                     CrossAxisAlignment.start,
+                //       //                 mainAxisAlignment: MainAxisAlignment.start,
+                //       //                 children: [
+                //       //                   Flexible(
+                //       //                     child: Icon(
+                //       //                       Icons.location_on_outlined,
+                //       //                       size: 18.sm,
+                //       //                       color: Color(0xFF707070),
+                //       //                     ),
+                //       //                   ),
+                //       //                   // SizedBox(
+                //       //                   //   width: 4.w,
+                //       //                   // ),
+                //       //                   Flexible(
+                //       //                     flex: 4,
+                //       //                     child: Text(
+                //       //                       'Outer Ring Road Sarjapur, Bangalore',
+                //       //                       style: blackStyle12().copyWith(
+                //       //                         color: Color(0xFF707070),
+                //       //                       ),
+                //       //                     ),
+                //       //                   ),
+                //       //                 ],
+                //       //               ),
+                //       //               SizedBox(
+                //       //                 height: 8.h,
+                //       //               ),
+                //       //             ],
+                //       //           ),
+                //       //         ),
+                //       //       ),
+                //       //     );
+                //       //   },
+                //       // ),
+                //     ),
+                //   ],
+                // ),
+                // SizedBox(
+                //   height: 20.h,
+                // ),
+                // Container(
+                //   decoration: BoxDecoration(
+                //       borderRadius: BorderRadius.circular(15),
+                //       color: Color(0xFFCFEFFF),
+                //       boxShadow: [
+                //         BoxShadow(
+                //           color: Colors.black.withOpacity(0.06),
+                //           blurRadius: 10,
+                //           spreadRadius: 2,
+                //         ),
+                //       ]),
+                //   // shape: RoundedRectangleBorder(
+                //   //   side: BorderSide(
+                //   //     width: 0.5,
+                //   //     color: Color(0xFFCFCFCF).withOpacity(1),
+                //   //   ),
+                //   //   borderRadius: BorderRadius.circular(15),
+                //   // ),
+                //   child: Padding(
+                //     padding: EdgeInsets.only(
+                //         top: 11.0, bottom: 11, right: 15, left: 20),
+                //     child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //       children: [
+                //         Column(
+                //           crossAxisAlignment: CrossAxisAlignment.start,
+                //           children: [
+                //             Text(
+                //               "Our Success Stories",
+                //               style: TextStyle(
+                //                   fontSize: 17.sm, fontFamily: 'Poppins'),
+                //             ),
+                //             SizedBox(
+                //               height: 6.h,
+                //             ),
+                //             GestureDetector(
+                //               onTap: () {
+                //                 Get.toNamed('/success');
+                //               },
+                //               child: Text(
+                //                 "Know More",
+                //                 style: TextStyle(
+                //                   fontFamily: 'Poppins',
+                //                   fontSize: 14.sm,
+                //                   color: Color(0xFF1B8DC9),
+                //                 ),
+                //               ),
+                //             ),
+                //           ],
+                //         ),
+                //         SvgPicture.asset('assets/images/success.svg')
+                //       ],
+                //     ),
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 20.h,
+                // ),
+                // Column(
+                //   crossAxisAlignment: CrossAxisAlignment.start,
+                //   children: [
+                //     Row(
+                //       children: [
+                //         SizedBox(
+                //           width: 3.w,
+                //         ),
+                //         titleText("Trending news"),
+                //       ],
+                //     ),
+                //     SizedBox(
+                //       height: 8.h,
+                //     ),
+                //     GestureDetector(
+                //       onTap: () {
+                //         Get.toNamed('/insightsinner');
+                //       },
+                //       child: Container(
+                //         decoration: BoxDecoration(
+                //             color: Color(0xFFFFFFFF),
+                //             borderRadius: BorderRadius.circular(15),
+                //             boxShadow: [
+                //               BoxShadow(
+                //                 color: Colors.black.withOpacity(0.06),
+                //                 blurRadius: 10,
+                //                 spreadRadius: 2,
+                //               ),
+                //             ]),
+                //         child: Padding(
+                //           padding: const EdgeInsets.only(
+                //               top: 14.0, left: 10, right: 15, bottom: 10),
+                //           child: Row(
+                //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //             children: [
+                //               Expanded(
+                //                 flex: 2,
+                //                 child: ClipRRect(
+                //                   borderRadius: BorderRadius.circular(10),
+                //                   child: Image.asset(
+                //                     "assets/images/na_april_69.jpg",
+                //                     height: 70,
+                //                     width: 90,
+                //                   ),
+                //                 ),
+                //               ),
+                //               const Expanded(
+                //                 flex: 0,
+                //                 child: SizedBox(
+                //                   width: 20,
+                //                 ),
+                //               ),
+                //               Expanded(
+                //                 flex: 5,
+                //                 child: Column(
+                //                   mainAxisAlignment:
+                //                       MainAxisAlignment.spaceBetween,
+                //                   crossAxisAlignment: CrossAxisAlignment.start,
+                //                   children: [
+                //                     Text(
+                //                       "Retail banks wake up to digital",
+                //                       style: blackStyle14(),
+                //                     ),
+                //                     Row(
+                //                       children: [
+                //                         Icon(
+                //                           Icons.calendar_today_outlined,
+                //                           size: 14,
+                //                         ),
+                //                         SizedBox(
+                //                           width: 5,
+                //                         ),
+                //                         Text(
+                //                           "October 17 , 2022",
+                //                           style: blackStyle12(),
+                //                         ),
+                //                       ],
+                //                     )
+                //                   ],
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //         ),
+                //       ),
+                //     ),
 
-              SizedBox(
-                height: 10.h,
-              ),
-
-              ListView.separated(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (_, index) {
-                    return tileCard();
-                  },
-                  separatorBuilder: (_, index) {
-                    return sizedBoxHeight(10.h);
-                  },
-                  itemCount: 3),
-
-              sizedBoxHeight(20.h)
-
-              // GestureDetector(
-              //   onTap: () {
-              //     Get.toNamed('/insightsinner');
-              //   },
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //         color: Color(0xFFFFFFFF),
-              //         borderRadius: BorderRadius.circular(15),
-              //         boxShadow: [
-              //           BoxShadow(
-              //             color: Colors.black.withOpacity(0.06),
-              //             blurRadius: 10,
-              //             spreadRadius: 2,
-              //           ),
-              //         ]),
-              //     child: Padding(
-              //       padding: const EdgeInsets.only(
-              //           top: 14.0, left: 10, right: 15, bottom: 10),
-              //       child: Row(
-              //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //         children: [
-              //           Expanded(
-              //             flex: 2,
-              //             child: ClipRRect(
-              //               borderRadius: BorderRadius.circular(10),
-              //               child: Image.asset(
-              //                 "assets/images/na_april_69.jpg",
-              //                 height: 70,
-              //                 width: 90,
-              //               ),
-              //             ),
-              //           ),
-              //           const Expanded(
-              //             flex: 0,
-              //             child: SizedBox(
-              //               width: 20,
-              //             ),
-              //           ),
-              //           Expanded(
-              //             flex: 5,
-              //             child: Column(
-              //               mainAxisAlignment:
-              //                   MainAxisAlignment.spaceBetween,
-              //               crossAxisAlignment: CrossAxisAlignment.start,
-              //               children: [
-              //                 Text(
-              //                   "Retail banks wake up to digital",
-              //                   style: blackStyle14(),
-              //                 ),
-              //                 Row(
-              //                   children: [
-              //                     Icon(
-              //                       Icons.calendar_today_outlined,
-              //                       size: 14,
-              //                     ),
-              //                     SizedBox(
-              //                       width: 5,
-              //                     ),
-              //                     Text(
-              //                       "October 17 , 2022",
-              //                       style: blackStyle12(),
-              //                     ),
-              //                   ],
-              //                 )
-              //               ],
-              //             ),
-              //           ),
-              //         ],
-              //       ),
-              //     ),
-              //   ),
-              // ),
-
-              // Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     twoText("Top Picks", "View more"),
-              //     // Row(
-              //     //   children: [
-              //     //     SizedBox(
-              //     //       width: 3.w,
-              //     //     ),
-              //     //     titleText("Top Pick"),
-              //     //   ],
-              //     // ),
-              //     SizedBox(
-              //       height: 8.h,
-              //     ),
-
-              //     // SizedBox(
-              //     //   height: 290,
-              //     //   child: Container(
-              //     //     decoration: BoxDecoration(
-              //     //         color: Colors.white,
-              //     //         borderRadius: BorderRadius.circular(10),
-              //     //         boxShadow: [
-              //     //           BoxShadow(
-              //     //             color: Colors.black.withOpacity(0.15),
-              //     //             spreadRadius: 2,
-              //     //             blurRadius: 10,
-              //     //           )
-              //     //         ]),
-              //     //     child: Padding(
-              //     //       padding: EdgeInsets.only(top: 0),
-              //     //       child: Column(
-              //     //         mainAxisAlignment: MainAxisAlignment.start,
-              //     //         crossAxisAlignment: CrossAxisAlignment.start,
-              //     //         children: [
-              //     //           Image.asset(
-              //     //             'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
-              //     //             fit: BoxFit.cover,
-              //     //             width: double.infinity,
-              //     //           ),
-              //     //           SizedBox(
-              //     //             height: 10,
-              //     //           ),
-              //     //           Text(
-              //     //             'Vaishnavi Tech Park Opportunity',
-              //     //             style: blackStyle15(),
-              //     //           ),
-              //     //           SizedBox(
-              //     //             height: 7.h,
-              //     //           ),
-              //     //           Row(
-              //     //             crossAxisAlignment: CrossAxisAlignment.start,
-              //     //             mainAxisAlignment: MainAxisAlignment.start,
-              //     //             children: [
-              //     //               Flexible(
-              //     //                 child: Icon(
-              //     //                   Icons.location_on_outlined,
-              //     //                   size: 18.sm,
-              //     //                   color: Color(0xFF707070),
-              //     //                 ),
-              //     //               ),
-              //     //               // SizedBox(
-              //     //               //   width: 4.w,
-              //     //               // ),
-              //     //               Flexible(
-              //     //                 flex: 4,
-              //     //                 child: Text(
-              //     //                   'Outer Ring Road Sarjapur, Bangalore',
-              //     //                   style: blackStyle12().copyWith(
-              //     //                     color: Color(0xFF707070),
-              //     //                   ),
-              //     //                 ),
-              //     //               ),
-              //     //             ],
-              //     //           ),
-              //     //           SizedBox(
-              //     //             height: 8.h,
-              //     //           ),
-              //     //         ],
-              //     //       ),
-              //     //     ),
-              //     //   ),
-              //     // )
-              //     //
-              //     //
-              //     //
-              //     //
-              //     //
-              //     //
-              //     SizedBox(
-              //       height: 310.h,
-              //       child: ListView.builder(
-              //         scrollDirection: Axis.horizontal,
-              //         itemCount: 2,
-              //         itemBuilder: (context, index) => Container(
-              //           margin: EdgeInsets.all(10),
-              //           width: Get.width * 0.65,
-              //           child: Container(
-              //             decoration: BoxDecoration(
-              //                 color: Color(0xFFFFFFFF),
-              //                 borderRadius: BorderRadius.circular(15),
-              //                 boxShadow: [
-              //                   BoxShadow(
-              //                     color: Colors.black.withOpacity(0.06),
-              //                     blurRadius: 10,
-              //                     spreadRadius: 2,
-              //                   )
-              //                 ]),
-              //             child: Padding(
-              //               padding: EdgeInsets.only(
-              //                   top: 0.0, left: 0, right: 0, bottom: 6),
-              //               child: Column(
-              //                 mainAxisAlignment: MainAxisAlignment.start,
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 children: [
-              //                   Stack(
-              //                     children: [
-              //                       ClipRRect(
-              //                         borderRadius: BorderRadius.only(
-              //                           topLeft: Radius.circular(10),
-              //                           topRight: Radius.circular(10),
-              //                         ),
-              //                         child: Image.asset(
-              //                           'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
-              //                           fit: BoxFit.cover,
-              //                           width: double.infinity,
-              //                           height: 150,
-              //                         ),
-              //                       ),
-              //                       Positioned(
-              //                         bottom: 0,
-              //                         left: 0,
-              //                         right: 0,
-              //                         child: Container(
-              //                           height: 40,
-              //                           decoration: BoxDecoration(
-              //                             color: Colors.black.withOpacity(0.4),
-              //                           ),
-              //                           child: Padding(
-              //                             padding:
-              //                                 const EdgeInsets.only(left: 8.0),
-              //                             child: Align(
-              //                               alignment: Alignment.centerLeft,
-              //                               child: Text(
-              //                                 'Fractional Real Estate',
-              //                                 style: blackStyle14().copyWith(
-              //                                   fontWeight: FontWeight.w400,
-              //                                   color: Colors.white,
-              //                                   fontSize: 16,
-              //                                 ),
-              //                               ),
-              //                             ),
-              //                           ),
-              //                         ),
-              //                       )
-              //                     ],
-              //                   ),
-              //                   SizedBox(height: 10),
-              //                   Padding(
-              //                     padding: const EdgeInsets.symmetric(
-              //                         horizontal: 8.0),
-              //                     child: Text(
-              //                       'Vaishnavi Tech Park Opportunity',
-              //                       style:
-              //                           blackStyle15().copyWith(fontSize: 16),
-              //                     ),
-              //                   ),
-              //                   SizedBox(
-              //                     height: 7.h,
-              //                   ),
-              //                   Padding(
-              //                     padding: const EdgeInsets.symmetric(
-              //                         horizontal: 8.0),
-              //                     child: Row(
-              //                       crossAxisAlignment:
-              //                           CrossAxisAlignment.start,
-              //                       mainAxisAlignment: MainAxisAlignment.start,
-              //                       children: [
-              //                         Flexible(
-              //                           child: Icon(
-              //                             Icons.location_on_outlined,
-              //                             size: 22,
-              //                             color: Color(0xFF707070),
-              //                           ),
-              //                         ),
-              //                         // SizedBox(
-              //                         //   width: 4.w,
-              //                         // ),
-              //                         Flexible(
-              //                           flex: 4,
-              //                           child: Align(
-              //                             alignment: Alignment.topLeft,
-              //                             child: Text(
-              //                               'Outer Ring Road Sarjapur, Bangalore',
-              //                               style: blackStyle12().copyWith(
-              //                                   color: Color(0xFF707070),
-              //                                   fontSize: 14),
-              //                             ),
-              //                           ),
-              //                         ),
-              //                       ],
-              //                     ),
-              //                   ),
-              //                   SizedBox(
-              //                     height: 8.h,
-              //                   ),
-              //                 ],
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //     // SizedBox(
-              //     //   height: 290,
-              //     //   child: ListView.builder(
-              //     //     // controller: pickcontroller,
-              //     //     scrollDirection: Axis.horizontal,
-              //     //     itemCount: 2,
-              //     //     itemBuilder: (
-              //     //       BuildContext context,
-              //     //       int index1,
-              //     //     ) {
-              //     //       bool isMyPageIndex = selectIndex == index1;
-              //     //       if (index1 == 0) {
-              //     //         return Card(
-              //     //           elevation: 2,
-              //     //           color: Color(0xFFFFFFFF),
-              //     //           shape: RoundedRectangleBorder(
-              //     //             borderRadius: BorderRadius.circular(15),
-              //     //           ),
-              //     //           child: Padding(
-              //     //             padding: EdgeInsets.only(
-              //     //                 top: 14.0, left: 15, right: 15, bottom: 6),
-              //     //             child: Column(
-              //     //               mainAxisAlignment: MainAxisAlignment.start,
-              //     //               crossAxisAlignment: CrossAxisAlignment.start,
-              //     //               children: [
-              //     //                 Text(
-              //     //                   'Fractional Real Estate',
-              //     //                   style: blackStyle14()
-              //     //                       .copyWith(fontWeight: FontWeight.w400),
-              //     //                 ),
-              //     //                 SizedBox(
-              //     //                   height: 10,
-              //     //                 ),
-              //     //                 Image.asset(
-              //     //                   'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
-              //     //                   fit: BoxFit.cover,
-              //     //                   width: double.infinity,
-              //     //                 ),
-              //     //                 SizedBox(
-              //     //                   height: 10,
-              //     //                 ),
-              //     //                 Text(
-              //     //                   'Vaishnavi Tech Park Opportunity',
-              //     //                   style: blackStyle15(),
-              //     //                 ),
-              //     //                 SizedBox(
-              //     //                   height: 8,
-              //     //                 ),
-              //     //                 Row(
-              //     //                   crossAxisAlignment:
-              //     //                       CrossAxisAlignment.start,
-              //     //                   mainAxisAlignment: MainAxisAlignment.start,
-              //     //                   children: [
-              //     //                     Flexible(
-              //     //                       child: Icon(
-              //     //                         Icons.location_on_outlined,
-              //     //                         size: 18.sm,
-              //     //                         color: Color(0xFF707070),
-              //     //                       ),
-              //     //                     ),
-              //     //                     // SizedBox(
-              //     //                     //   width: 4.w,
-              //     //                     // ),
-              //     //                     Flexible(
-              //     //                       flex: 4,
-              //     //                       child: Text(
-              //     //                         'Outer Ring Road Sarjapur, Bangalore',
-              //     //                         style: blackStyle12().copyWith(
-              //     //                           color: Color(0xFF707070),
-              //     //                         ),
-              //     //                       ),
-              //     //                     ),
-              //     //                   ],
-              //     //                 ),
-              //     //                 SizedBox(
-              //     //                   height: 8.h,
-              //     //                 ),
-              //     //               ],
-              //     //             ),
-              //     //           ),
-              //     //         );
-              //     //       } //2nd plan
-              //     //       return Card(
-              //     //         elevation: 2,
-              //     //         color: Color(0xFFFFFFFF),
-              //     //         shape: RoundedRectangleBorder(
-              //     //           borderRadius: BorderRadius.circular(15),
-              //     //         ),
-              //     //         child: Padding(
-              //     //           padding: EdgeInsets.only(
-              //     //               top: 14.0, left: 15, right: 15, bottom: 6),
-              //     //           child: Column(
-              //     //             mainAxisAlignment: MainAxisAlignment.center,
-              //     //             crossAxisAlignment: CrossAxisAlignment.start,
-              //     //             children: [
-              //     //               Text(
-              //     //                 'Fractional Real Estate',
-              //     //                 style: blackStyle14()
-              //     //                     .copyWith(fontWeight: FontWeight.w400),
-              //     //               ),
-              //     //               SizedBox(
-              //     //                 height: 10.h,
-              //     //               ),
-              //     //               Image.asset(
-              //     //                 'assets/images/harry-shelton-pPxhM0CRzl4-unsplash.png',
-              //     //               ),
-              //     //               SizedBox(
-              //     //                 height: 9.h,
-              //     //               ),
-              //     //               Text(
-              //     //                 'Vaishnavi Tech Park Opportunity',
-              //     //                 style: blackStyle15(),
-              //     //               ),
-              //     //               SizedBox(
-              //     //                 height: 7.h,
-              //     //               ),
-              //     //               Row(
-              //     //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //     //                 mainAxisAlignment: MainAxisAlignment.start,
-              //     //                 children: [
-              //     //                   Flexible(
-              //     //                     child: Icon(
-              //     //                       Icons.location_on_outlined,
-              //     //                       size: 18.sm,
-              //     //                       color: Color(0xFF707070),
-              //     //                     ),
-              //     //                   ),
-              //     //                   // SizedBox(
-              //     //                   //   width: 4.w,
-              //     //                   // ),
-              //     //                   Flexible(
-              //     //                     flex: 4,
-              //     //                     child: Text(
-              //     //                       'Outer Ring Road Sarjapur, Bangalore',
-              //     //                       style: blackStyle12().copyWith(
-              //     //                         color: Color(0xFF707070),
-              //     //                       ),
-              //     //                     ),
-              //     //                   ),
-              //     //                 ],
-              //     //               ),
-              //     //               SizedBox(
-              //     //                 height: 8.h,
-              //     //               ),
-              //     //             ],
-              //     //           ),
-              //     //         ),
-              //     //       );
-              //     //     },
-              //     //   ),
-              //     // ),
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: 20,
-              // ),
-              // Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     Row(
-              //       children: [
-              //         SizedBox(
-              //           width: 3.w,
-              //         ),
-              //         titleText("Recommended"),
-              //       ],
-              //     ),
-              //     SizedBox(
-              //       height: 8.h,
-              //     ),
-              //     SizedBox(
-              //       width: double.infinity,
-              //       height: 320,
-              //       child: ListView.builder(
-              //         scrollDirection: Axis.horizontal,
-              //         itemCount: 2,
-              //         itemBuilder: (context, index) => GestureDetector(
-              //           onTap: () {
-              //             Get.toNamed("/fractionalrealestateproperty2");
-              //           },
-              //           child: Container(
-              //             margin: EdgeInsets.all(10),
-              //             width: Get.width * 0.85,
-              //             decoration: BoxDecoration(
-              //                 color: Color(0xFFFFFFFF),
-              //                 borderRadius: BorderRadius.circular(15),
-              //                 boxShadow: [
-              //                   BoxShadow(
-              //                     color: Colors.black.withOpacity(0.06),
-              //                     blurRadius: 10,
-              //                     spreadRadius: 2,
-              //                   )
-              //                 ]),
-              //             child: Padding(
-              //               padding: EdgeInsets.only(
-              //                   top: 0.0, left: 0, right: 0, bottom: 6),
-              //               child: Column(
-              //                 mainAxisAlignment: MainAxisAlignment.start,
-              //                 crossAxisAlignment: CrossAxisAlignment.start,
-              //                 children: [
-              //                   Image.asset(
-              //                     'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
-              //                     fit: BoxFit.cover,
-              //                     width: double.infinity,
-              //                   ),
-              //                   SizedBox(
-              //                     height: 10,
-              //                   ),
-              //                   Padding(
-              //                     padding: const EdgeInsets.only(left: 5.0),
-              //                     child: Container(
-              //                       decoration: BoxDecoration(
-              //                           color: Color(0xFFCFEFFF),
-              //                           borderRadius: BorderRadius.circular(5),
-              //                           boxShadow: [
-              //                             BoxShadow(
-              //                               color:
-              //                                   Colors.black.withOpacity(0.06),
-              //                               blurRadius: 10,
-              //                               spreadRadius: 2,
-              //                             )
-              //                           ]),
-              //                       child: Padding(
-              //                         padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
-              //                         child: Text(
-              //                           'Fractional Real Estate',
-              //                           style: blackStyle12(),
-              //                         ),
-              //                       ),
-              //                     ),
-              //                   ),
-              //                   Padding(
-              //                     padding: const EdgeInsets.only(left: 10.0),
-              //                     child: Text(
-              //                       'Vaishnavi Tech Park Opportunity',
-              //                       style: blackStyle16(),
-              //                     ),
-              //                   ),
-              //                   SizedBox(
-              //                     height: 8,
-              //                   ),
-              //                   Padding(
-              //                     padding: const EdgeInsets.only(left: 10.0),
-              //                     child: Row(
-              //                       crossAxisAlignment:
-              //                           CrossAxisAlignment.start,
-              //                       mainAxisAlignment: MainAxisAlignment.start,
-              //                       children: [
-              //                         Flexible(
-              //                           child: Icon(
-              //                             Icons.location_on_outlined,
-              //                             size: 18.sm,
-              //                             color: Color(0xFF707070),
-              //                           ),
-              //                         ),
-              //                         // SizedBox(
-              //                         //   width: 4.w,
-              //                         // ),
-              //                         Flexible(
-              //                           flex: 4,
-              //                           child: Text(
-              //                             'Outer Ring Road Sarjapur, Bangalore',
-              //                             style: blackStyle12().copyWith(
-              //                               color: Color(0xFF707070),
-              //                             ),
-              //                           ),
-              //                         ),
-              //                       ],
-              //                     ),
-              //                   ),
-              //                   SizedBox(
-              //                     height: 8.h,
-              //                   ),
-              //                 ],
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //       // child: PageView.builder(
-              //       //   padEnds: false,
-              //       //   controller: recommendedcontroller,
-              //       //   itemCount: 2,
-              //       //   itemBuilder: (
-              //       //     BuildContext context,
-              //       //     int index1,
-              //       //   ) {
-              //       //     bool isMyPageIndex = selectIndex == index1;
-              //       //     if (index1 == 0) {
-              //       //       return GestureDetector(
-              //       //         onTap: () {
-              //       //           Get.toNamed("/fractionalrealestateproperty2");
-              //       //         },
-              //       //         child: Card(
-              //       //           elevation: 2,
-              //       //           color: Color(0xFFFFFFFF),
-              //       //           shape: RoundedRectangleBorder(
-              //       //             borderRadius: BorderRadius.circular(15),
-              //       //           ),
-              //       //           child: Padding(
-              //       //             padding: EdgeInsets.only(
-              //       //                 top: 14.0, left: 15, right: 15, bottom: 6),
-              //       //             child: Column(
-              //       //               mainAxisAlignment: MainAxisAlignment.center,
-              //       //               crossAxisAlignment: CrossAxisAlignment.start,
-              //       //               children: [
-              //       //                 Image.asset(
-              //       //                   'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
-              //       //                 ),
-              //       //                 SizedBox(
-              //       //                   height: 3.h,
-              //       //                 ),
-              //       //                 Card(
-              //       //                   color: Color(0xFFCFEFFF),
-              //       //                   shape: RoundedRectangleBorder(
-              //       //                     borderRadius: BorderRadius.circular(5),
-              //       //                   ),
-              //       //                   child: Padding(
-              //       //                     padding:
-              //       //                         EdgeInsets.fromLTRB(6, 3, 6, 3),
-              //       //                     child: Text(
-              //       //                       'Fractional Real Estate',
-              //       //                       style: blackStyle12(),
-              //       //                     ),
-              //       //                   ),
-              //       //                 ),
-              //       //                 SizedBox(
-              //       //                   height: 5.h,
-              //       //                 ),
-              //       //                 Flexible(
-              //       //                   child: Text(
-              //       //                     'Vaishnavi Tech Park Opportunity',
-              //       //                     style: blackStyle16(),
-              //       //                   ),
-              //       //                 ),
-              //       //                 SizedBox(
-              //       //                   height: 5.h,
-              //       //                 ),
-              //       //                 Row(
-              //       //                   crossAxisAlignment:
-              //       //                       CrossAxisAlignment.start,
-              //       //                   mainAxisAlignment:
-              //       //                       MainAxisAlignment.start,
-              //       //                   children: [
-              //       //                     Flexible(
-              //       //                       child: Icon(
-              //       //                         Icons.location_on_outlined,
-              //       //                         size: 18.sm,
-              //       //                         color: Color(0xFF707070),
-              //       //                       ),
-              //       //                     ),
-              //       //                     // SizedBox(
-              //       //                     //   width: 4.w,
-              //       //                     // ),
-              //       //                     Flexible(
-              //       //                       flex: 4,
-              //       //                       child: Text(
-              //       //                         'Outer Ring Road Sarjapur, Bangalore',
-              //       //                         style: blackStyle12().copyWith(
-              //       //                           color: Color(0xFF707070),
-              //       //                         ),
-              //       //                       ),
-              //       //                     ),
-              //       //                   ],
-              //       //                 ),
-              //       //                 SizedBox(
-              //       //                   height: 8.h,
-              //       //                 ),
-              //       //               ],
-              //       //             ),
-              //       //           ),
-              //       //         ),
-              //       //       );
-              //       //     } //2nd plan
-              //       //     return GestureDetector(
-              //       //       onTap: () {
-              //       //         Get.toNamed("/fractionalrealestateproperty2");
-              //       //       },
-              //       //       child: Card(
-              //       //         elevation: 2,
-              //       //         color: Color(0xFFFFFFFF),
-              //       //         shape: RoundedRectangleBorder(
-              //       //           borderRadius: BorderRadius.circular(15),
-              //       //         ),
-              //       //         child: Padding(
-              //       //           padding: EdgeInsets.only(
-              //       //               top: 14.0, left: 15, right: 15, bottom: 6),
-              //       //           child: Column(
-              //       //             mainAxisAlignment: MainAxisAlignment.center,
-              //       //             crossAxisAlignment: CrossAxisAlignment.start,
-              //       //             children: [
-              //       //               Image.asset(
-              //       //                 'assets/images/anthony-esau-N2zk9yXjmLA-unsplash.png',
-              //       //               ),
-              //       //               SizedBox(
-              //       //                 height: 3.h,
-              //       //               ),
-              //       //               Card(
-              //       //                 color: Color(0xFFCFEFFF),
-              //       //                 shape: RoundedRectangleBorder(
-              //       //                   borderRadius: BorderRadius.circular(5),
-              //       //                 ),
-              //       //                 child: Padding(
-              //       //                   padding: EdgeInsets.fromLTRB(6, 3, 6, 3),
-              //       //                   child: Text(
-              //       //                     'Fractional Real Estate',
-              //       //                     style: blackStyle12(),
-              //       //                   ),
-              //       //                 ),
-              //       //               ),
-              //       //               SizedBox(
-              //       //                 height: 5.h,
-              //       //               ),
-              //       //               Flexible(
-              //       //                 child: Text(
-              //       //                   'Vaishnavi Tech Park Opportunity',
-              //       //                   style: blackStyle16(),
-              //       //                 ),
-              //       //               ),
-              //       //               SizedBox(
-              //       //                 height: 5.h,
-              //       //               ),
-              //       //               Row(
-              //       //                 crossAxisAlignment:
-              //       //                     CrossAxisAlignment.start,
-              //       //                 mainAxisAlignment: MainAxisAlignment.start,
-              //       //                 children: [
-              //       //                   Flexible(
-              //       //                     child: Icon(
-              //       //                       Icons.location_on_outlined,
-              //       //                       size: 18.sm,
-              //       //                       color: Color(0xFF707070),
-              //       //                     ),
-              //       //                   ),
-              //       //                   // SizedBox(
-              //       //                   //   width: 4.w,
-              //       //                   // ),
-              //       //                   Flexible(
-              //       //                     flex: 4,
-              //       //                     child: Text(
-              //       //                       'Outer Ring Road Sarjapur, Bangalore',
-              //       //                       style: blackStyle12().copyWith(
-              //       //                         color: Color(0xFF707070),
-              //       //                       ),
-              //       //                     ),
-              //       //                   ),
-              //       //                 ],
-              //       //               ),
-              //       //               SizedBox(
-              //       //                 height: 8.h,
-              //       //               ),
-              //       //             ],
-              //       //           ),
-              //       //         ),
-              //       //       ),
-              //       //     );
-              //       //   },
-              //       // ),
-              //     ),
-              //   ],
-              // ),
-              // SizedBox(
-              //   height: 20.h,
-              // ),
-              // Container(
-              //   decoration: BoxDecoration(
-              //       borderRadius: BorderRadius.circular(15),
-              //       color: Color(0xFFCFEFFF),
-              //       boxShadow: [
-              //         BoxShadow(
-              //           color: Colors.black.withOpacity(0.06),
-              //           blurRadius: 10,
-              //           spreadRadius: 2,
-              //         ),
-              //       ]),
-              //   // shape: RoundedRectangleBorder(
-              //   //   side: BorderSide(
-              //   //     width: 0.5,
-              //   //     color: Color(0xFFCFCFCF).withOpacity(1),
-              //   //   ),
-              //   //   borderRadius: BorderRadius.circular(15),
-              //   // ),
-              //   child: Padding(
-              //     padding: EdgeInsets.only(
-              //         top: 11.0, bottom: 11, right: 15, left: 20),
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //       children: [
-              //         Column(
-              //           crossAxisAlignment: CrossAxisAlignment.start,
-              //           children: [
-              //             Text(
-              //               "Our Success Stories",
-              //               style: TextStyle(
-              //                   fontSize: 17.sm, fontFamily: 'Poppins'),
-              //             ),
-              //             SizedBox(
-              //               height: 6.h,
-              //             ),
-              //             GestureDetector(
-              //               onTap: () {
-              //                 Get.toNamed('/success');
-              //               },
-              //               child: Text(
-              //                 "Know More",
-              //                 style: TextStyle(
-              //                   fontFamily: 'Poppins',
-              //                   fontSize: 14.sm,
-              //                   color: Color(0xFF1B8DC9),
-              //                 ),
-              //               ),
-              //             ),
-              //           ],
-              //         ),
-              //         SvgPicture.asset('assets/images/success.svg')
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              // SizedBox(
-              //   height: 20.h,
-              // ),
-              // Column(
-              //   crossAxisAlignment: CrossAxisAlignment.start,
-              //   children: [
-              //     Row(
-              //       children: [
-              //         SizedBox(
-              //           width: 3.w,
-              //         ),
-              //         titleText("Trending news"),
-              //       ],
-              //     ),
-              //     SizedBox(
-              //       height: 8.h,
-              //     ),
-              //     GestureDetector(
-              //       onTap: () {
-              //         Get.toNamed('/insightsinner');
-              //       },
-              //       child: Container(
-              //         decoration: BoxDecoration(
-              //             color: Color(0xFFFFFFFF),
-              //             borderRadius: BorderRadius.circular(15),
-              //             boxShadow: [
-              //               BoxShadow(
-              //                 color: Colors.black.withOpacity(0.06),
-              //                 blurRadius: 10,
-              //                 spreadRadius: 2,
-              //               ),
-              //             ]),
-              //         child: Padding(
-              //           padding: const EdgeInsets.only(
-              //               top: 14.0, left: 10, right: 15, bottom: 10),
-              //           child: Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             children: [
-              //               Expanded(
-              //                 flex: 2,
-              //                 child: ClipRRect(
-              //                   borderRadius: BorderRadius.circular(10),
-              //                   child: Image.asset(
-              //                     "assets/images/na_april_69.jpg",
-              //                     height: 70,
-              //                     width: 90,
-              //                   ),
-              //                 ),
-              //               ),
-              //               const Expanded(
-              //                 flex: 0,
-              //                 child: SizedBox(
-              //                   width: 20,
-              //                 ),
-              //               ),
-              //               Expanded(
-              //                 flex: 5,
-              //                 child: Column(
-              //                   mainAxisAlignment:
-              //                       MainAxisAlignment.spaceBetween,
-              //                   crossAxisAlignment: CrossAxisAlignment.start,
-              //                   children: [
-              //                     Text(
-              //                       "Retail banks wake up to digital",
-              //                       style: blackStyle14(),
-              //                     ),
-              //                     Row(
-              //                       children: [
-              //                         Icon(
-              //                           Icons.calendar_today_outlined,
-              //                           size: 14,
-              //                         ),
-              //                         SizedBox(
-              //                           width: 5,
-              //                         ),
-              //                         Text(
-              //                           "October 17 , 2022",
-              //                           style: blackStyle12(),
-              //                         ),
-              //                       ],
-              //                     )
-              //                   ],
-              //                 ),
-              //               ),
-              //             ],
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-
-              //     SizedBox(
-              //       height: 10.h,
-              //     ),
-              //     GestureDetector(
-              //       onTap: () {
-              //         Get.toNamed('/insightsinner');
-              //       },
-              //       child: Container(
-              //         decoration: BoxDecoration(
-              //             color: Color(0xFFFFFFFF),
-              //             borderRadius: BorderRadius.circular(15),
-              //             boxShadow: [
-              //               BoxShadow(
-              //                 color: Colors.black.withOpacity(0.06),
-              //                 blurRadius: 10,
-              //                 spreadRadius: 2,
-              //               ),
-              //             ]),
-              //         child: Padding(
-              //           padding: const EdgeInsets.only(
-              //               top: 14.0, left: 10, right: 15, bottom: 10),
-              //           child: Row(
-              //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //             children: [
-              //               Expanded(
-              //                 flex: 2,
-              //                 child: ClipRRect(
-              //                   borderRadius: BorderRadius.circular(10),
-              //                   child: Image.asset(
-              //                     "assets/images/na_april_69.jpg",
-              //                     height: 70,
-              //                     width: 90,
-              //                   ),
-              //                 ),
-              //               ),
-              //               const Expanded(
-              //                 flex: 0,
-              //                 child: SizedBox(
-              //                   width: 20,
-              //                 ),
-              //               ),
-              //               Expanded(
-              //                 flex: 5,
-              //                 child: Column(
-              //                   mainAxisAlignment:
-              //                       MainAxisAlignment.spaceBetween,
-              //                   crossAxisAlignment: CrossAxisAlignment.start,
-              //                   children: [
-              //                     Text(
-              //                       "Retail banks wake up to digital",
-              //                       style: blackStyle14(),
-              //                     ),
-              //                     Row(
-              //                       children: [
-              //                         Icon(
-              //                           Icons.calendar_today_outlined,
-              //                           size: 14,
-              //                         ),
-              //                         SizedBox(
-              //                           width: 5,
-              //                         ),
-              //                         Text(
-              //                           "October 17 , 2022",
-              //                           style: blackStyle12(),
-              //                         ),
-              //                       ],
-              //                     )
-              //                   ],
-              //                 ),
-              //               ),
-              //             ],
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       height: 20.h,
-              //     )
-              //   ],
-              // ),
-            ],
+                //     SizedBox(
+                //       height: 10.h,
+                //     ),
+                //     GestureDetector(
+                //       onTap: () {
+                //         Get.toNamed('/insightsinner');
+                //       },
+                //       child: Container(
+                //         decoration: BoxDecoration(
+                //             color: Color(0xFFFFFFFF),
+                //             borderRadius: BorderRadius.circular(15),
+                //             boxShadow: [
+                //               BoxShadow(
+                //                 color: Colors.black.withOpacity(0.06),
+                //                 blurRadius: 10,
+                //                 spreadRadius: 2,
+                //               ),
+                //             ]),
+                //         child: Padding(
+                //           padding: const EdgeInsets.only(
+                //               top: 14.0, left: 10, right: 15, bottom: 10),
+                //           child: Row(
+                //             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                //             children: [
+                //               Expanded(
+                //                 flex: 2,
+                //                 child: ClipRRect(
+                //                   borderRadius: BorderRadius.circular(10),
+                //                   child: Image.asset(
+                //                     "assets/images/na_april_69.jpg",
+                //                     height: 70,
+                //                     width: 90,
+                //                   ),
+                //                 ),
+                //               ),
+                //               const Expanded(
+                //                 flex: 0,
+                //                 child: SizedBox(
+                //                   width: 20,
+                //                 ),
+                //               ),
+                //               Expanded(
+                //                 flex: 5,
+                //                 child: Column(
+                //                   mainAxisAlignment:
+                //                       MainAxisAlignment.spaceBetween,
+                //                   crossAxisAlignment: CrossAxisAlignment.start,
+                //                   children: [
+                //                     Text(
+                //                       "Retail banks wake up to digital",
+                //                       style: blackStyle14(),
+                //                     ),
+                //                     Row(
+                //                       children: [
+                //                         Icon(
+                //                           Icons.calendar_today_outlined,
+                //                           size: 14,
+                //                         ),
+                //                         SizedBox(
+                //                           width: 5,
+                //                         ),
+                //                         Text(
+                //                           "October 17 , 2022",
+                //                           style: blackStyle12(),
+                //                         ),
+                //                       ],
+                //                     )
+                //                   ],
+                //                 ),
+                //               ),
+                //             ],
+                //           ),
+                //         ),
+                //       ),
+                //     ),
+                //     SizedBox(
+                //       height: 20.h,
+                //     )
+                //   ],
+                // ),
+              ],
+            ),
           ),
         ),
       ),
@@ -1490,15 +1512,12 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget twoText(String text1, String text2,{void Function()? onTap}) {
+  Widget twoText(String text1, String text2, {void Function()? onTap}) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        text20Black(text1), 
-        InkWell(
-          onTap: onTap,
-          child: text14Grey272424(text2)
-        )
+        text20Black(text1),
+        InkWell(onTap: onTap, child: text14Grey272424(text2))
       ],
     );
   }
@@ -1514,19 +1533,20 @@ class _HomePageState extends State<HomePage> {
           width: 241.w,
           // color: AppColors.white,
           decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(15.h),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.06),
-                blurRadius: 10,
-                spreadRadius: 2,
-              )
-            ]
-            // border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)
-          ),
+              color: AppColors.white,
+              borderRadius: BorderRadius.circular(15.h),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.06),
+                  blurRadius: 10,
+                  spreadRadius: 2,
+                )
+              ]
+              // border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)
+              ),
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12.w, 
+            padding: EdgeInsets.symmetric(
+              horizontal: 12.w,
               // vertical: 14.h
             ),
             child: Column(
@@ -1534,11 +1554,11 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 text14Black(text1),
-    
+
                 // Spacer(),
-    
+
                 sizedBoxHeight(5.h),
-    
+
                 Container(
                   width: double.infinity,
                   height: 100.h,
@@ -1546,15 +1566,15 @@ class _HomePageState extends State<HomePage> {
                       image: DecorationImage(
                           image: AssetImage(imagePath), fit: BoxFit.fill)),
                 ),
-    
+
                 // Spacer(),
                 sizedBoxHeight(10.h),
-    
+
                 text14Black(title),
-    
+
                 // Spacer(),
                 sizedBoxHeight(5.h),
-    
+
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -1570,7 +1590,7 @@ class _HomePageState extends State<HomePage> {
                     Expanded(child: text13Grey707070(add))
                   ],
                 )
-    
+
                 // text14Grey272424(text)
               ],
             ),

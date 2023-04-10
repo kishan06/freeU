@@ -5,6 +5,7 @@ import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:lottie/lottie.dart';
 
 class Fractionalproperties extends StatefulWidget {
   const Fractionalproperties({super.key});
@@ -37,7 +38,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 16),
+            padding: const EdgeInsets.only(left: 16, right: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -62,7 +63,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
                   ),
                   ButtonsTabBar(
                     buttonMargin: EdgeInsets.zero,
-                    contentPadding: EdgeInsets.only(left: 25, right: 25),
+                    contentPadding: EdgeInsets.only(left: 27, right: 27),
                     radius: 4,
                     backgroundColor: Color(0xFF143C6D),
                     unselectedBorderColor: Color(0xFFFFFFFF),
@@ -73,8 +74,16 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
                     labelStyle: TextStyle(
                       color: Color(0xFFFFFFFF),
                       fontWeight: FontWeight.bold,
-                      fontSize: 14,
+                      fontSize: 18,
                     ),
+                    // decoration: BoxDecoration(boxShadow: [
+                    //   BoxShadow(
+                    //     color: Color(0XFF6D6D6D29),
+                    //     blurRadius: 1.0,
+                    //     spreadRadius: 0,
+                    //     offset: Offset(0.0, 2.0),
+                    //   )
+                    // ]),
                     tabs: [
                       Tab(
                         text: "Open",
@@ -111,7 +120,13 @@ class FirstTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        // sizedBoxHeight(20.h),
+        const Text("No Data Found")
+      ],
+    );
   }
 }
 
@@ -315,7 +330,13 @@ class ThirdTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        // sizedBoxHeight(20.h),
+        const Text("No Data Found")
+      ],
+    );
     // Center(
     //   child: Column(
     //     children: [

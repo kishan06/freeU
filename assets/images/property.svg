@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="116" height="90" viewBox="0 0 116 90">
+  <defs>
+    <filter id="desktop_carousel_1_2a5bc5be23" x="0" y="0" width="116" height="90" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feFlood flood-color="#6d6d6d" flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_51551" data-name="Group 51551" transform="translate(2 -93)">
+    <g transform="matrix(1, 0, 0, 1, -2, 93)" filter="url(#desktop_carousel_1_2a5bc5be23)">
+      <rect id="desktop_carousel_1_2a5bc5be23-2" data-name="desktop_carousel_1_2a5bc5be23" width="80" height="54" rx="5" transform="translate(18 15)" fill="#fff"/>
+    </g>
+    <g id="Group_51420" data-name="Group 51420" transform="translate(-308.174 -3120.473)">
+      <g id="Layer" transform="translate(342.173 3244.473)">
+        <g id="Layer-2" data-name="Layer" transform="translate(0)">
+          <path id="Layer-3" data-name="Layer" d="M42.25,5.109V24.3H.25V.3H37.544V5.109ZM9,15.266c-1.759-.809-2.111-.629-2.507-1.258a.919.919,0,0,1-.088-.719c.132-.36.44-.629,1.143-.629a1.332,1.332,0,0,1,1.363,1.034l1.363-.539A2.45,2.45,0,0,0,7.638,11.4C5.352,11.4,5,12.974,5,13.379a2.189,2.189,0,0,0,1.363,2.292c1.451.629,2.111.674,2.463,1.258s.088,1.573-1.275,1.483a1.587,1.587,0,0,1-1.583-1.258L4.6,17.693a2.785,2.785,0,0,0,2.991,2.022c2.595,0,2.771-1.843,2.771-1.843A2.358,2.358,0,0,0,9,15.266Zm6.069,4.27V18.278h-.7a.949.949,0,0,1-.968-.944V14.727h1.583V13.469H13.444V11.9H12.036v.989a.527.527,0,0,1-.528.584h-.572v1.258h1.055v2.787a1.939,1.939,0,0,0,1.979,2.022Zm4.222-6.2a2.382,2.382,0,0,0-1.759.854v-.674H16.17v6.067h1.451V16.075c0-.809.44-1.3,1.407-1.3h.264Zm6.6,6.2V13.469H24.57v.9a2.4,2.4,0,0,0-1.979-.944,2.93,2.93,0,0,0-2.947,3.056,2.936,2.936,0,0,0,2.9,3.191,2.438,2.438,0,0,0,2.023-.944v.809Zm5.058-1.258h-.7a.949.949,0,0,1-.968-.944V14.727h1.583V13.469H29.32V11.9H27.913v.989a.527.527,0,0,1-.528.584h-.572v1.258h1.055v2.787a1.939,1.939,0,0,0,1.979,2.022h1.1Zm6.6,1.213V13.424H36.225v.9a2.4,2.4,0,0,0-1.979-.944A2.93,2.93,0,0,0,31.3,16.435a2.936,2.936,0,0,0,2.9,3.191,2.438,2.438,0,0,0,2.023-.944v.809Z" transform="translate(-0.25 -0.3)" fill-rule="evenodd"/>
+          <path id="Layer-4" data-name="Layer" d="M75.946,32.2a1.754,1.754,0,0,0-1.8,1.934,1.779,1.779,0,0,0,1.8,1.934,1.8,1.8,0,0,0,1.8-1.934A1.778,1.778,0,0,0,75.946,32.2Z" transform="translate(-42.098 -17.929)" fill-rule="evenodd"/>
+          <path id="Layer-5" data-name="Layer" d="M49.446,32.2a1.754,1.754,0,0,0-1.8,1.934,1.779,1.779,0,0,0,1.8,1.934,1.8,1.8,0,0,0,1.8-1.934A1.778,1.778,0,0,0,49.446,32.2Z" transform="translate(-26.892 -17.929)" fill-rule="evenodd"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
