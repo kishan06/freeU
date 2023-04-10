@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -31,7 +32,23 @@ class _PhoneVerificationState extends State<PhoneVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomSignupAppBar(
+      appBar:
+          // AppBar(
+          //   backgroundColor: AppColors.white,
+          //   // backgroundColor: Color(0xFFF5F8FA),
+          //   elevation: 0,
+          //   leading: IconButton(
+          //     onPressed: () {
+          //       Get.back();
+          //     },
+          //     icon: Icon(
+          //       Icons.arrow_back,
+          //     ),
+          //     iconSize: 24,
+          //     color: Color(0xFF0F0C0C),
+          //   ),
+          // ),
+          CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),

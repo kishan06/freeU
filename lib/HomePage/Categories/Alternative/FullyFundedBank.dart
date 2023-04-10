@@ -684,7 +684,11 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                     fontFamily: "Poppins"),
               ),
               sizedBoxHeight(30.h),
-              CustomNextButton(ontap: () {}, text: 'View more products')
+              CustomNextButton(
+                  ontap: () {
+                    Get.toNamed("/fractionalpropertiespage");
+                  },
+                  text: 'View more products')
             ],
           ),
         );

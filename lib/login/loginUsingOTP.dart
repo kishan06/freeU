@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,25 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
+      appBar:
+          //  AppBar(
+          //   backgroundColor: AppColors.white,
+          //   // backgroundColor: Color(0xFFF5F8FA),
+          //   elevation: 0,
+          //   leading: IconButton(
+          //     onPressed: () {
+          //       Get.back();
+          //     },
+          //     icon: Icon(
+          //       Icons.arrow_back,
+          //     ),
+          //     iconSize: 24,
+          //     color: Color(0xFF0F0C0C),
+          //   ),
+
+          // ),
+
+          CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -108,9 +127,8 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                         // width: 190.w,
                         //  height: 55.h,
                         child: TextFormField(
-                          autovalidateMode: AutovalidateMode.always,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: tecPhone,
-
                           style:
                               TextStyle(fontSize: 16.sp, fontFamily: "Poppins"),
                           keyboardType: TextInputType.number,
@@ -155,8 +173,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                       if (isValid!) {
                         setState(() {
                           Get.toNamed('/phoneverification',
-                            arguments: tecPhone.text
-                          );
+                              arguments: tecPhone.text);
                         });
                       } else {
                         Get.snackbar("Error", "Please Enter Valid Phone Number",
