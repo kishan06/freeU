@@ -1107,7 +1107,7 @@ class _KYCtabsState extends State<KYCtabs> {
                       Row(
                         children: [
                           Icon(Icons.calendar_month_outlined),
-                          sizedBoxWidth(45.w)
+                          sizedBoxWidth(10.w)
                         ],
                       ),
                     ],

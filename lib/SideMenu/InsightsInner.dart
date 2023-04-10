@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:get/get.dart';
 
 class InsightsInner extends StatefulWidget {
   const InsightsInner({super.key});
@@ -155,7 +157,15 @@ class _InsightsInnerState extends State<InsightsInner> {
                   color: Color(0xff000000),
                 ),
               ),
-              sizedBoxHeight(15.h)
+              sizedBoxHeight(15.h),
+              CustomNextButton(
+                ontap: () {
+                  Get.back();
+                  Get.to(InsightsInner());
+                },
+                text: "Next",
+              ),
+              sizedBoxHeight(20.h)
             ],
           ),
         )),
