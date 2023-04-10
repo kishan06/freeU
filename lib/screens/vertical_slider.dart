@@ -24,6 +24,7 @@ class VerticalSlider extends StatefulWidget {
 class _VerticalSliderState extends State<VerticalSlider> {
 
   List verticalSliderData = [
+    
     {
       "title":"01. Private Equity Fund",
       "des":"Private Equity Funds is a collective investment scheme used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership.",
@@ -78,10 +79,17 @@ class _VerticalSliderState extends State<VerticalSlider> {
         Stack(
           children: [
             PageView.builder(
-              itemCount: 6,
+              itemCount: verticalSliderData.length,
               scrollDirection:Axis.vertical,
               itemBuilder: (context, index) {
-                return PrvateEquity();
+                // var = ver
+                return PrvateEquity(
+                  title: verticalSliderData[index]["title"],
+                  des: verticalSliderData[index]["des"],
+                  irr: verticalSliderData[index]["IRR"],
+                  sih: verticalSliderData[index]["SIH"],
+                  color: verticalSliderData[index]["color"],
+                );
               }),
 
             Positioned(
@@ -100,6 +108,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
             ),
           ],
         )
+        
         // CarouselSlider.builder(
         //   itemCount: 4,
         //   itemBuilder: (context, index, realIndex) {

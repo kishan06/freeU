@@ -68,6 +68,16 @@ Widget text16White(String text,{TextAlign? textAlign}){
   );
 }
 
+Widget text20White(String text,{TextAlign? textAlign}){
+  return Text(text,
+    textAlign: textAlign,
+    style: TextStyle(
+      fontSize: 20.sp,
+      color: AppColors.white,
+    ),
+  );
+}
+
 Widget text14White(String text,{TextAlign? textAlign}){
   return Text(text,
     textAlign: textAlign,

@@ -10,6 +10,7 @@ import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/screens/main_screen.dart';
 
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -180,11 +181,15 @@ class _LoginState extends State<Login> {
                           height: 50.h,
                         ),
                         CustomNextButton(
-                          ontap: () {
+                          ontap: () async {
                             final isValid = _form.currentState?.validate();
                             if (isValid!) {
                               // Get.toNamed("/homepage");
                               // Get.to(MainScreen());
+                              final SharedPreferences prefs = await SharedPreferences.getInstance();
+                              
+                              await prefs.setBool('LogedIn', true);
+
                               Get.toNamed("/EntryPoint",
                                 arguments: 0
                               );

@@ -14,6 +14,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/profile/profile.dart';
 import 'package:freeu/screens/side_menu.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 // part 'HomePage.dart';
 var selectedIndex = 0.obs;
@@ -34,6 +35,7 @@ class _EntryPointState extends State<EntryPoint> with SingleTickerProviderStateM
   late AnimationController _animationController;
   late Animation<double> animation;
   late Animation<double> scaleAnimation;
+  // late bool Loge;
   // var selectedIndex = 0.obs;
   var screens = [
     HomePage(),
@@ -44,7 +46,11 @@ class _EntryPointState extends State<EntryPoint> with SingleTickerProviderStateM
   ];
 
   @override
-  void initState() {
+  Future<void> initState() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    // LogedIn
+
+    
     selectedIndex.value = Get.arguments;
     print(selectedIndex);
     _animationController = AnimationController(vsync: this,
