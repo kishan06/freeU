@@ -174,7 +174,7 @@ class _MyAppState extends State<MyApp> {
               name: '/altenativecategories',
               page: () => AlternativeCategories()),
 
-          GetPage(name: '/privateequity', page: () => PrvateEquity()),
+          // GetPage(name: '/privateequity', page: () => PrvateEquity()),
 
           GetPage(
               name: '/altenativecategories2',
