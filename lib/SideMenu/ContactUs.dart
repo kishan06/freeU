@@ -156,7 +156,7 @@ class _ContactUsState extends State<ContactUs> {
                     text: "Send Now",
                     ontap: () {
                       Timer(Duration(seconds: 2),
-                          () => Get.offAllNamed('/homepage'));
+                          () => Get.offAllNamed('/EntryPoint', arguments: 0));
                       showModalBottomSheet(
                         isScrollControlled: true,
                         context: context,
