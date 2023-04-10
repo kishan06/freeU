@@ -185,16 +185,13 @@ class _LoginState extends State<Login> {
                             if (isValid!) {
                               // Get.toNamed("/homepage");
                               // Get.to(MainScreen());
-                              Get.toNamed("/EntryPoint",
-                                arguments: 0
-                              );
+                              Get.toNamed("/EntryPoint", arguments: 0);
                             } else {
                               Get.snackbar(
-                                "Error",
-                                "Please Enter Login Credentials",
-                                margin: EdgeInsets.all(8),
-                                snackStyle: SnackStyle.FLOATING,
-                              );
+                                  "Error", "Please Enter Login Credentials",
+                                  margin: EdgeInsets.all(8),
+                                  snackStyle: SnackStyle.FLOATING,
+                                  snackPosition: SnackPosition.BOTTOM);
                             }
                           },
                           text: 'Sign in',
