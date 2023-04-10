@@ -58,6 +58,7 @@ import 'package:freeu/profile/profile.dart';
 import 'package:freeu/screens/entry_point.dart';
 import 'package:freeu/screens/main_screen.dart';
 import 'package:freeu/screens/side_menu.dart';
+import 'package:freeu/screens/vertical_slider.dart';
 import 'package:freeu/signUp/CompleteProfile.dart';
 import 'package:freeu/signUp/SecurityFirst.dart';
 import 'package:freeu/signUp/SecurityQuestion.dart';
@@ -110,7 +111,7 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/Insights', page: () => Insights()),
           
 
-          // GetPage(name: '/splash', page: () => Splash()),
+          GetPage(name: '/VerticalSlider', page: () => VerticalSlider()),
           GetPage(name: '/', page: () => Splashslider()),
           GetPage(name: '/login', page: () => Login()),
           GetPage(name: '/signup', page: () => SignUp()),

@@ -20,5 +20,9 @@ class AppColors {
   static const brownD_4C1D13 = Color(0xff4C1D13);
   static const pinkL_E6088B = Color(0xffE6088B);
   static const pinkD_730446 = Color(0xff730446);
+  static const blue004E84 = Color(0xff004E84);
+  static const pink873762 = Color(0xff873762);
+  static const blue002A5B = Color(0xff002A5B);
+  static const green008A5B = Color(0xff008A5B);
 
 }
