@@ -103,6 +103,7 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
+        showAccordion: true,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),
@@ -128,13 +129,13 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFFFFAA9F),
+                  color: Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFFFFAA9F),
+                      color: Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,

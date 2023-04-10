@@ -588,7 +588,7 @@ class _SignUpState extends State<SignUp> {
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
-                                'Has at least 1 uppercase letter or symbol',
+                                'Has at least 1 uppercase letter and symbol',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.sm,
@@ -706,16 +706,12 @@ class _SignUpState extends State<SignUp> {
                                           fontSize: 14.sm,
                                         ),
                                       ),
-                                      Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 2),
-                                        child: Text(
-                                          "Terms & Conditions*",
-                                          style: TextStyle(
-                                            fontSize: 14.sm,
-                                            color: Color(0xff143C6D),
-                                            // decoration: TextDecoration.underline
-                                          ),
+                                      Text(
+                                        "Terms & Conditions*",
+                                        style: TextStyle(
+                                          fontSize: 14.sm,
+                                          color: Color(0xff143C6D),
+                                          // decoration:TextDecoration.underline
                                         ),
                                       ),
                                     ],
@@ -742,14 +738,22 @@ class _SignUpState extends State<SignUp> {
                         text: "Sign up",
                         ontap: () {
                           final isValid = _form.currentState?.validate();
-                          if (isValid!) {
-                            Get.toNamed("/securityquestion");
-                          } else {
+                          if (isValid == false) {
                             Get.snackbar(
                                 "Error", "Please Enter All Required Fields",
                                 margin: EdgeInsets.all(8),
                                 snackStyle: SnackStyle.FLOATING,
                                 snackPosition: SnackPosition.BOTTOM);
+                          }
+                          if (design != true) {
+                            Get.snackbar(
+                                "Error", "Please Accept Terms & Conditions",
+                                margin: EdgeInsets.all(8),
+                                snackStyle: SnackStyle.FLOATING,
+                                snackPosition: SnackPosition.BOTTOM);
+                          }
+                          if (isValid == true && design == true) {
+                            Get.toNamed("/securityquestion");
                           }
                         },
                       ),

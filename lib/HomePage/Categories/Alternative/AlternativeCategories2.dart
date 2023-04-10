@@ -66,7 +66,7 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
                   ],
                 ),
                 sizedBoxHeight(20.h),
-                faqAccod(),
+                faqAccod(expandAccod: true),
                 sizedBoxHeight(15.h),
                 faqAccod(),
                 sizedBoxHeight(15.h),
@@ -102,13 +102,14 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
     );
   }
 
-  Widget faqAccod() {
+  Widget faqAccod({bool? expandAccod}) {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
+        showAccordion: expandAccod ?? false,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),

@@ -99,6 +99,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
+        showAccordion: true,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),
@@ -120,6 +121,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
         contentChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            sizedBoxHeight(20.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [

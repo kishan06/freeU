@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Chats/Model/ChatUserModel.dart';
 import 'package:freeu/HomePage/Chats/Widgets/ConversationList.dart';
 import 'package:freeu/HomePage/HomePage.dart';
@@ -125,231 +127,258 @@ class _ChatPageState extends State<ChatPage> {
       }
     });
   }
+  
+  DateTime timebackPressed = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      key: _key,
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        title: Row(
+    return WillPopScope(
+      onWillPop: () async {
+        // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+        final difference = DateTime.now().difference(timebackPressed);
+        final isExitWarning = difference >= Duration(seconds: 2);
+
+        timebackPressed = DateTime.now();
+
+        if (isExitWarning) {
+          const message = "Press back again to exit";
+          // print("reached here");
+          Fluttertoast.showToast(
+            msg: message,
+            fontSize: 18,
+          );
+
+          return false;
+        } else {
+          Fluttertoast.cancel();
+
+          SystemNavigator.pop();
+          return true;
+        }
+      },
+      child: Scaffold(
+        key: _key,
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          title: Row(
+            children: [
+              sizedBoxWidth(45.w),
+              // IconButton(
+              //   onPressed: () {
+              //     _key.currentState!.openDrawer();
+              //   },
+              //   icon: SizedBox(
+              //     height: 20.h,
+              //     width: 25.w,
+              //     child: SvgPicture.asset(
+              //       "assets/images/menu.svg",
+              //       // height: 20.h,
+              //       // width: 10.w,
+              //       fit: BoxFit.fill,
+              //     ),
+              //   ),
+              //   // color: Colors.red,
+              //   // iconSize: 100.h,
+              // ),
+            
+              sizedBoxWidth(5.w),
+              Text(
+                'Chats',
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22.sp,
+                    // fontWeight: FontWeight.w400,
+                    color: Colors.black),
+              ),
+              Spacer(),
+              Icon(
+                Icons.more_vert_rounded,
+                color: Colors.blueAccent,
+                size: 25.sp,
+              ),
+              // IconButton(
+              //   onPressed: () {
+              //     Get.toNamed('/notificationpage');
+              //   },
+              //   icon: SizedBox(
+              //     width: 18.w,
+              //     height: 25.h,
+              //     child: SvgPicture.asset(
+              //       'assets/images/notification-bell-svgrepo-com.svg',
+              //       fit: BoxFit.fill,
+              //     ),
+              //   ),
+              //   // iconSize: 22,
+              //   // color: const Color(0xFF303030),
+              // ),
+            ],
+          ),
+          // backgroundColor: Color(0xFFF5F8FA),
+          elevation: 0,
+          shadowColor: Colors.black,
+          automaticallyImplyLeading: false,
+          titleSpacing: 0,
+        ),
+        
+        // drawer: NavDrawer(),
+        // bottomNavigationBar:
+        //     CreateBottomBar(stateBottomNav, "Bottombarchat", context),
+        // appBar: PreferredSize(
+        //   preferredSize: Size.fromHeight(120.h),
+        //   child: Column(
+        //     children: [
+        //       AppBar(
+        //         title: Text(
+        //           'Chats',
+        //           softWrap: true,
+        //           textAlign: TextAlign.center,
+        //           style: TextStyle(
+        //               fontFamily: 'Poppins',
+        //               fontSize: 22.sp,
+        //               fontWeight: FontWeight.w400,
+        //               color: Colors.black),
+        //         ),
+        //         backgroundColor: Colors.white,
+        //         elevation: 0,
+        //         shadowColor: Colors.black,
+        //         automaticallyImplyLeading: false,
+        //         titleSpacing: 0,
+        //         leading: Row(
+        //           children: [
+        //             IconButton(
+        //               onPressed: () {
+        //                 _key.currentState!.openDrawer();
+        //               },
+        //               icon: SvgPicture.asset("assets/images/menu.svg"),
+        //               color: Colors.black,
+        //               iconSize: 25.sp,
+        //             ),
+        //           ],
+        //         ),
+        //         actions: [
+        //           Icon(
+        //             Icons.more_vert_rounded,
+        //             color: Colors.blueAccent,
+        //             size: 25.sp,
+        //           ),
+        //         ],
+        //       ),
+        //       Padding(
+        //         padding: EdgeInsets.only(left: 16.w, right: 16.w),
+        //         child: TextField(
+        //           decoration: InputDecoration(
+        //             hintText: "Search Chats",
+        //             hintStyle:
+        //                 TextStyle(color: Colors.grey.shade600, fontSize: 16.sp),
+        //             prefixIcon: Icon(
+        //               Icons.search,
+        //               color: Colors.black,
+        //               size: 20.sp,
+        //             ),
+        //             filled: true,
+        //             fillColor: Colors.white,
+        //             contentPadding: EdgeInsets.all(10.h),
+        //             enabledBorder: OutlineInputBorder(
+        //               borderRadius: BorderRadius.circular(10.sp),
+        //               borderSide: BorderSide(
+        //                 color: Colors.grey.shade400,
+        //               ),
+        //             ),
+        //             focusedBorder: OutlineInputBorder(
+        //               borderRadius: BorderRadius.circular(10.sp),
+        //               borderSide: BorderSide(
+        //                 color: Colors.grey.shade400,
+        //               ),
+        //             ),
+        //           ),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
+    
+        // bottomNavigationBar:
+        //     CreateBottomBar(stateBottomNav, "Bottombarchat", context),
+    
+        body: Column(
           children: [
-            sizedBoxWidth(45.w),
-            // IconButton(
-            //   onPressed: () {
-            //     _key.currentState!.openDrawer();
-            //   },
-            //   icon: SizedBox(
-            //     height: 20.h,
-            //     width: 25.w,
-            //     child: SvgPicture.asset(
-            //       "assets/images/menu.svg",
-            //       // height: 20.h,
-            //       // width: 10.w,
-            //       fit: BoxFit.fill,
-            //     ),
-            //   ),
-            //   // color: Colors.red,
-            //   // iconSize: 100.h,
-            // ),
-          
-            sizedBoxWidth(5.w),
-            Text(
-              'Chats',
-              softWrap: true,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 22.sp,
-                  // fontWeight: FontWeight.w400,
-                  color: Colors.black),
+            Padding(
+              padding: EdgeInsets.only(left: 16.w, right: 16.w),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search Chats",
+                  hintStyle:
+                      TextStyle(color: Colors.grey.shade600, fontSize: 16.sp),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black,
+                    size: 20.sp,
+                  ),
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding: EdgeInsets.all(10.h),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.sp),
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.sp),
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                ),
+              ),
             ),
-            Spacer(),
-            Icon(
-              Icons.more_vert_rounded,
-              color: Colors.blueAccent,
-              size: 25.sp,
+    
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        // CustomAppBarWithNotification(titleTxt: "Chats"),
+            
+                        ListView.separated(
+                          separatorBuilder: (context, index) {
+                            return Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16.w),
+                              child: Divider(
+                                thickness: 1.2.h,
+                              ),
+                            );
+                          },
+                          itemCount: chatUsers.length,
+                          shrinkWrap: true,
+                          padding: EdgeInsets.only(top: 16.h),
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            return ConversationList(
+                              name: chatUsers[index].name,
+                              messageText: chatUsers[index].messageText,
+                              imageUrl: chatUsers[index].imageURL,
+                              time: chatUsers[index].time,
+                              isMessageRead: (index == 0 || index == 3 || index == 2)
+                                  ? true
+                                  : false,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
             ),
-            // IconButton(
-            //   onPressed: () {
-            //     Get.toNamed('/notificationpage');
-            //   },
-            //   icon: SizedBox(
-            //     width: 18.w,
-            //     height: 25.h,
-            //     child: SvgPicture.asset(
-            //       'assets/images/notification-bell-svgrepo-com.svg',
-            //       fit: BoxFit.fill,
-            //     ),
-            //   ),
-            //   // iconSize: 22,
-            //   // color: const Color(0xFF303030),
-            // ),
           ],
         ),
-        // backgroundColor: Color(0xFFF5F8FA),
-        elevation: 0,
-        shadowColor: Colors.black,
-        automaticallyImplyLeading: false,
-        titleSpacing: 0,
-      ),
-      
-      // drawer: NavDrawer(),
-      // bottomNavigationBar:
-      //     CreateBottomBar(stateBottomNav, "Bottombarchat", context),
-      // appBar: PreferredSize(
-      //   preferredSize: Size.fromHeight(120.h),
-      //   child: Column(
-      //     children: [
-      //       AppBar(
-      //         title: Text(
-      //           'Chats',
-      //           softWrap: true,
-      //           textAlign: TextAlign.center,
-      //           style: TextStyle(
-      //               fontFamily: 'Poppins',
-      //               fontSize: 22.sp,
-      //               fontWeight: FontWeight.w400,
-      //               color: Colors.black),
-      //         ),
-      //         backgroundColor: Colors.white,
-      //         elevation: 0,
-      //         shadowColor: Colors.black,
-      //         automaticallyImplyLeading: false,
-      //         titleSpacing: 0,
-      //         leading: Row(
-      //           children: [
-      //             IconButton(
-      //               onPressed: () {
-      //                 _key.currentState!.openDrawer();
-      //               },
-      //               icon: SvgPicture.asset("assets/images/menu.svg"),
-      //               color: Colors.black,
-      //               iconSize: 25.sp,
-      //             ),
-      //           ],
-      //         ),
-      //         actions: [
-      //           Icon(
-      //             Icons.more_vert_rounded,
-      //             color: Colors.blueAccent,
-      //             size: 25.sp,
-      //           ),
-      //         ],
-      //       ),
-      //       Padding(
-      //         padding: EdgeInsets.only(left: 16.w, right: 16.w),
-      //         child: TextField(
-      //           decoration: InputDecoration(
-      //             hintText: "Search Chats",
-      //             hintStyle:
-      //                 TextStyle(color: Colors.grey.shade600, fontSize: 16.sp),
-      //             prefixIcon: Icon(
-      //               Icons.search,
-      //               color: Colors.black,
-      //               size: 20.sp,
-      //             ),
-      //             filled: true,
-      //             fillColor: Colors.white,
-      //             contentPadding: EdgeInsets.all(10.h),
-      //             enabledBorder: OutlineInputBorder(
-      //               borderRadius: BorderRadius.circular(10.sp),
-      //               borderSide: BorderSide(
-      //                 color: Colors.grey.shade400,
-      //               ),
-      //             ),
-      //             focusedBorder: OutlineInputBorder(
-      //               borderRadius: BorderRadius.circular(10.sp),
-      //               borderSide: BorderSide(
-      //                 color: Colors.grey.shade400,
-      //               ),
-      //             ),
-      //           ),
-      //         ),
-      //       ),
-      //     ],
-      //   ),
-      // ),
-
-      // bottomNavigationBar:
-      //     CreateBottomBar(stateBottomNav, "Bottombarchat", context),
-
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(left: 16.w, right: 16.w),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Search Chats",
-                hintStyle:
-                    TextStyle(color: Colors.grey.shade600, fontSize: 16.sp),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.black,
-                  size: 20.sp,
-                ),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: EdgeInsets.all(10.h),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.sp),
-                  borderSide: BorderSide(
-                    color: Colors.grey.shade400,
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.sp),
-                  borderSide: BorderSide(
-                    color: Colors.grey.shade400,
-                  ),
-                ),
-              ),
-            ),
-          ),
-
-          Expanded(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Column(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      // CustomAppBarWithNotification(titleTxt: "Chats"),
-          
-                      ListView.separated(
-                        separatorBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.w),
-                            child: Divider(
-                              thickness: 1.2.h,
-                            ),
-                          );
-                        },
-                        itemCount: chatUsers.length,
-                        shrinkWrap: true,
-                        padding: EdgeInsets.only(top: 16.h),
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return ConversationList(
-                            name: chatUsers[index].name,
-                            messageText: chatUsers[index].messageText,
-                            imageUrl: chatUsers[index].imageURL,
-                            time: chatUsers[index].time,
-                            isMessageRead: (index == 0 || index == 3 || index == 2)
-                                ? true
-                                : false,
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
       ),
     );
   }
