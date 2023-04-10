@@ -32,16 +32,18 @@ class _PrvateEquityState extends State<PrvateEquity> {
         backgroundColor: Color(0xFF004E84),
         elevation: 0,
         titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-          ),
-          iconSize: 26,
-          color: Color(0XFFFFFFFF),
-        ),
+        leading: SizedBox()
+        // IconButton(
+        //   onPressed: () {
+        //     Get.back();
+        //   },
+        //   icon: Icon(
+        //     Icons.arrow_back,
+        //   ),
+        //   iconSize: 26,
+        //   color: Color(0XFFFFFFFF),
+        // ),
+     
       ),
       body: Center(
         child: Column(
@@ -62,19 +64,20 @@ class _PrvateEquityState extends State<PrvateEquity> {
                 ],
               ),
             ),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding: EdgeInsets.symmetric(
-                    horizontal: 16.h,
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: 16.h,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBox(
+                    height: 20.h,
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Text(
+                  SizedBox(
+                    height: 140.h,
+                    child: SingleChildScrollView(
+                      child: Text(
                         "Private Equity Funds is a collective investment scheme used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership.",
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
@@ -82,131 +85,133 @@ class _PrvateEquityState extends State<PrvateEquity> {
                           //fontFamily: 'Poppins'
                         ),
                       ),
-                      SizedBox(
-                        height: 9.h,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Get.toNamed("/privateequityfund");
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Text(
-                              "Learn more",
-                              style: TextStyle(
-                                  color: Color(0XFFFFFFFF),
-                                  fontSize: 16.sp,
-                                  decoration: TextDecoration.underline),
-                            ),
-                          ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 9.h,
+                  ),
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed("/privateequityfund");
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          "Learn more",
+                          style: TextStyle(
+                              color: Color(0XFFFFFFFF),
+                              fontSize: 16.sp,
+                              decoration: TextDecoration.underline),
                         ),
-                      ),
-                      SizedBox(
-                        height: 29.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            "assets/images/privatecategories.png",
-                            width: 70.w,
-                            height: 70.w,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Text("Expected Return (IRR)\n ~ 15-24 % p.a.",
-                              style: TextStyle(
-                                color: Color(0XFFFBFBFB),
-                                fontSize: 20.sp,
-                                fontFamily: "Poppins",
-                              )),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 40.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            "assets/images/privateequitytime.png",
-                            width: 70.w,
-                            height: 70.w,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Expanded(
-                            child: Text(
-                                "Suggested Investment Horizon More than 8 Years",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                )),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 40.h,
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            "assets/images/funding.png",
-                            width: 70.w,
-                            height: 70.w,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Expanded(
-                            child: Text("Minimum Investment 1 Crore",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                )),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 53.h,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50.h,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 5,
-                            //shadowColor: Color.fromARGB(255, 220, 220, 226),
+                      ],
+                    ),
+                  ),
 
-                            backgroundColor: Color(0XFFFBFBFB),
-
-                            //  color: Color(0xFFFFB600),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.h),
-                            ),
-                          ),
-                          onPressed: () {
-                            Get.toNamed("/privateequityfunddeals");
-                          },
-                          child: Text(
-                            "View more product",
-                            style: TextStyle(
-                              color: Color(0XFF000000),
-                              fontSize: 18.sp,
-                            ),
-                          ),
-                        ),
+                  // Spacer(),
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/privatecategories.png",
+                        width: 70.w,
+                        height: 70.w,
                       ),
-                      sizedBoxHeight(38.h),
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Text("Expected Return (IRR)\n ~ 15-24 % p.a.",
+                          style: TextStyle(
+                            color: Color(0XFFFBFBFB),
+                            fontSize: 20.sp,
+                            fontFamily: "Poppins",
+                          )),
                     ],
                   ),
-                ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/privateequitytime.png",
+                        width: 70.w,
+                        height: 70.w,
+                      ),
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Expanded(
+                        child: Text(
+                            "Suggested Investment Horizon More than 8 Years",
+                            style: TextStyle(
+                              color: Color(0XFFFBFBFB),
+                              fontSize: 20.sp,
+                              fontFamily: "Poppins",
+                            )),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/funding.png",
+                        width: 70.w,
+                        height: 70.w,
+                      ),
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Expanded(
+                        child: Text("Minimum Investment 1 Crore",
+                            style: TextStyle(
+                              color: Color(0XFFFBFBFB),
+                              fontSize: 20.sp,
+                              fontFamily: "Poppins",
+                            )),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 40.h,
+                  ),
+                  SizedBox(
+                    width: double.infinity,
+                    height: 50.h,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        elevation: 5,
+                        //shadowColor: Color.fromARGB(255, 220, 220, 226),
+
+                        backgroundColor: Color(0XFFFBFBFB),
+
+                        //  color: Color(0xFFFFB600),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.h),
+                        ),
+                      ),
+                      onPressed: () {
+                        Get.toNamed("/privateequityfunddeals");
+                      },
+                      child: Text(
+                        "View more product",
+                        style: TextStyle(
+                          color: Color(0XFF000000),
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                    ),
+                  ),
+                  sizedBoxHeight(38.h),
+                ],
               ),
             ),
           ],

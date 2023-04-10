@@ -92,7 +92,9 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
               child: CustomNextButton(
                 text: 'View Categories',
                 ontap: () {
-                  Get.toNamed("/privateequity");
+                  Get.toNamed("/VerticalSlider");
+
+                  // Get.toNamed("/privateequity");
                 },
               ),
             ),
