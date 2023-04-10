@@ -133,7 +133,7 @@ class _SplashsliderState extends State<Splashslider> {
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.linear);
                       if (currentIndex == 3) {
-                        Get.toNamed('/login');
+                        Get.toNamed('/EntryPoint');
                       }
                     });
                   },
@@ -157,7 +157,7 @@ class _SplashsliderState extends State<Splashslider> {
                             ),
                           ),
                           onTap: () {
-                            Get.toNamed('/login');
+                            Get.toNamed('/EntryPoint');
                           },
                         )
                       : Text(

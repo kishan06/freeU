@@ -5,6 +5,7 @@ import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+import 'package:lottie/lottie.dart';
 
 class Fractionalproperties extends StatefulWidget {
   const Fractionalproperties({super.key});
@@ -119,7 +120,13 @@ class FirstTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        // sizedBoxHeight(20.h),
+        const Text("No Data Found")
+      ],
+    );
   }
 }
 
@@ -323,7 +330,13 @@ class ThirdTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        // sizedBoxHeight(20.h),
+        const Text("No Data Found")
+      ],
+    );
     // Center(
     //   child: Column(
     //     children: [
