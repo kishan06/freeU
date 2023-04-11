@@ -6,9 +6,11 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/profile/profile.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SideBar extends StatefulWidget {
   const SideBar({
@@ -26,6 +28,9 @@ class SideBar extends StatefulWidget {
 class _SideBarState extends State<SideBar> {
   final ProfileImageController editProfileImage =
       Get.put(ProfileImageController());
+
+  final controllerEntryPoint = Get.put(EntryPointController());
+
   List sideBarData = [
     {"imagePath": "assets/logos/side1.png", "text": "KYC"},
     {"imagePath": "assets/logos/side2.png", "text": "Security"},
@@ -62,68 +67,196 @@ class _SideBarState extends State<SideBar> {
                 children: [
                   sizedBoxHeight(60.h),
 
-                  InkWell(
-                    onTap: () {
-                      Get.toNamed("/userlogged");
-                    },
-                    child: Row(
-                      children: [
-                        editProfileImage.profilePicPath.value != ''
-                            ? ClipOval(
-                                child: SizedBox.fromSize(
-                                  size: Size.fromRadius(25.r),
-                                  child: Image(
-                                    image: FileImage(File(
-                                        editProfileImage.profilePicPath.value)),
-                                    fit: BoxFit.cover,
-                                    width: 50.w,
-                                    height: 50.h,
-                                  ),
-                                ),
-                              )
-                            : SizedBox(
-                                height: 50.w,
-                                width: 50.w,
-                                child: Image.asset(
-                                  'assets/images/avatar.png',
-                                  fit: BoxFit.fill,
-                                ),
-                              ),
+                  InkWell(onTap: () {
+                    // Get.toNamed("/userlogged");
+                  }, child: GetBuilder<EntryPointController>(builder: (_) {
+                    return controllerEntryPoint.logedIn!
+                        ? InkWell(
+                            onTap: () {
+                              Get.toNamed("/userlogged");
+                            },
+                            child: Row(
+                              children: [
+                                editProfileImage.profilePicPath.value != ''
+                                    ? ClipOval(
+                                        child: SizedBox.fromSize(
+                                          size: Size.fromRadius(25.r),
+                                          child: Image(
+                                            image: FileImage(File(
+                                                editProfileImage
+                                                    .profilePicPath.value)),
+                                            fit: BoxFit.cover,
+                                            width: 50.w,
+                                            height: 50.h,
+                                          ),
+                                        ),
+                                      )
+                                    : SizedBox(
+                                        height: 50.w,
+                                        width: 50.w,
+                                        child: Image.asset(
+                                          'assets/images/avatar.png',
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
 
-                        sizedBoxWidth(15.w),
+                                sizedBoxWidth(15.w),
 
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            text16White(
-                              nameValue == null || nameValue!.isEmpty
-                                  ? 'Kartikey Adani'
-                                  : '$nameValue $lastNameValue',
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    text16White(
+                                      nameValue == null || nameValue!.isEmpty
+                                          ? 'Kartikey Adani'
+                                          : '$nameValue $lastNameValue',
+                                    ),
+                                    text14White("Investor")
+                                  ],
+                                ),
+
+                                Spacer(),
+
+                                Icon(
+                                  Icons.arrow_forward_ios_outlined,
+                                  size: 20.w,
+                                  color: AppColors.white,
+                                )
+
+                                // SizedBox(
+                                //   width: 5,
+                                // ),
+                                // Text(
+                                //   "Kartikey Adani",
+                                //   style: TextStyle(
+                                //     fontSize: 15.sm,
+                                //   ),
+                                // ),
+                              ],
                             ),
-                            text14White("Investor")
-                          ],
-                        ),
+                          )
+                        : InkWell(
+                            onTap: () {
+                              Get.toNamed("/login");
+                            },
+                            child: Row(
+                              children: [
+                                editProfileImage.profilePicPath.value != ''
+                                    ? ClipOval(
+                                        child: SizedBox.fromSize(
+                                          size: Size.fromRadius(25.r),
+                                          child: Image(
+                                            image: FileImage(File(
+                                                editProfileImage
+                                                    .profilePicPath.value)),
+                                            fit: BoxFit.cover,
+                                            width: 50.w,
+                                            height: 50.h,
+                                          ),
+                                        ),
+                                      )
+                                    : SizedBox(
+                                        height: 50.w,
+                                        width: 50.w,
+                                        child: Image.asset(
+                                          'assets/images/avatar.png',
+                                          fit: BoxFit.fill,
+                                        ),
+                                      ),
 
-                        Spacer(),
+                                sizedBoxWidth(15.w),
 
-                        Icon(
-                          Icons.arrow_forward_ios_outlined,
-                          size: 20.w,
-                          color: AppColors.white,
-                        )
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    text16White(
+                                      nameValue == null || nameValue!.isEmpty
+                                          ? 'Guest'
+                                          : '$nameValue $lastNameValue',
+                                    ),
+                                    text14White("Sign In/Sign up")
+                                  ],
+                                ),
 
-                        // SizedBox(
-                        //   width: 5,
-                        // ),
-                        // Text(
-                        //   "Kartikey Adani",
-                        //   style: TextStyle(
-                        //     fontSize: 15.sm,
-                        //   ),
-                        // ),
-                      ],
-                    ),
-                  ),
+                                Spacer(),
+
+                                Icon(
+                                  Icons.arrow_forward_ios_outlined,
+                                  size: 20.w,
+                                  color: AppColors.white,
+                                )
+
+                                // SizedBox(
+                                //   width: 5,
+                                // ),
+                                // Text(
+                                //   "Kartikey Adani",
+                                //   style: TextStyle(
+                                //     fontSize: 15.sm,
+                                //   ),
+                                // ),
+                              ],
+                            ),
+                          );
+                  })
+                      // Row(
+                      //   children: [
+                      //     editProfileImage.profilePicPath.value != ''
+                      //         ? ClipOval(
+                      //             child: SizedBox.fromSize(
+                      //               size: Size.fromRadius(25.r),
+                      //               child: Image(
+                      //                 image: FileImage(File(
+                      //                     editProfileImage.profilePicPath.value)),
+                      //                 fit: BoxFit.cover,
+                      //                 width: 50.w,
+                      //                 height: 50.h,
+                      //               ),
+                      //             ),
+                      //           )
+                      //         : SizedBox(
+                      //             height: 50.w,
+                      //             width: 50.w,
+                      //             child: Image.asset(
+                      //               'assets/images/avatar.png',
+                      //               fit: BoxFit.fill,
+                      //             ),
+                      //           ),
+
+                      //     sizedBoxWidth(15.w),
+
+                      //     Column(
+                      //       crossAxisAlignment: CrossAxisAlignment.start,
+                      //       children: [
+                      //         text16White(
+                      //           nameValue == null || nameValue!.isEmpty
+                      //               ? 'Kartikey Adani'
+                      //               : '$nameValue $lastNameValue',
+                      //         ),
+                      //         text14White("Investor")
+                      //       ],
+                      //     ),
+
+                      //     Spacer(),
+
+                      //     Icon(
+                      //       Icons.arrow_forward_ios_outlined,
+                      //       size: 20.w,
+                      //       color: AppColors.white,
+                      //     )
+
+                      //     // SizedBox(
+                      //     //   width: 5,
+                      //     // ),
+                      //     // Text(
+                      //     //   "Kartikey Adani",
+                      //     //   style: TextStyle(
+                      //     //     fontSize: 15.sm,
+                      //     //   ),
+                      //     // ),
+                      //   ],
+                      // ),
+
+                      ),
 
                   ListView.builder(
                       shrinkWrap: true,
@@ -280,7 +413,12 @@ Future<dynamic> logoutDailog(BuildContext context) {
                   height: 50.h,
                   child: CustomNextButton(
                     text: "Log out",
-                    ontap: () {
+                    ontap: () async {
+                      final SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+
+                      await prefs.setBool('LogedIn', false);
+
                       Get.offAll(Login());
                     },
                   )),
