@@ -1,5 +1,6 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -145,6 +146,10 @@ class _NotificationPageState extends State<NotificationPage> {
                               onDismissed: (direction) {
                                 setState(() {
                                   _data.removeAt(index);
+                                  Flushbar(
+                                    message: "Notification deleted",
+                                    duration: const Duration(seconds: 1),
+                                  ).show(context);
                                   //_data[index].remove(index);
                                 });
                               },
@@ -216,6 +221,13 @@ class _NotificationPageState extends State<NotificationPage> {
                                                   // _data.removeWhere(value);
 
                                                   _data.removeAt(index);
+                                                  Flushbar(
+                                                    message:
+                                                        "Notification deleted",
+                                                    duration: const Duration(
+                                                        seconds: 1),
+                                                  ).show(context);
+
                                                   // data[index]['title']!,
                                                 });
                                               },

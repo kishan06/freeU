@@ -49,6 +49,12 @@ class _EntryPointState extends State<EntryPoint>
     Profile()
   ];
 
+  // changePage(){
+  //   setState(() {
+
+  //   });
+  // }
+
   @override
   void initState() {
     controllerEntryPoint.checkLogin();
@@ -56,10 +62,17 @@ class _EntryPointState extends State<EntryPoint>
     // logedIn = prefs.getBool('LogedIn') ?? false;
     // checkLogin();
     // print("checked");
-
     selectedIndex = Get.arguments;
-    print(selectedIndex);
+    // controllerEntryPoint.selectedIndex = Get.arguments;
+    // controllerEntryPoint.selectedPage(Get.arguments);
+    // print(selectedIndex);
     _animationController =
+        // GetBuilder(builder: (_){
+        //   return AnimationController(vsync: this, duration: Duration(milliseconds: 200))
+        //   ..addListener(() {
+        //     // setState(() {});
+        //   });
+        // })
         AnimationController(vsync: this, duration: Duration(milliseconds: 200))
           ..addListener(() {
             setState(() {});
@@ -225,9 +238,12 @@ class _EntryPointState extends State<EntryPoint>
                       currentIndex: selectedIndex,
 
                       onTap: (int index) {
-                        // if (index != 2) {
                         selectedIndex = index;
                         setState(() {});
+                        // controllerEntryPoint.selectedPage(index);
+                        // if (index != 2) {
+                        // controllerEntryPoint.selectedIndex = index;
+                        // setState(() {});
                         // }
                       },
                     )
