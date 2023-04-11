@@ -20,7 +20,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // part 'HomePage.dart';
-var selectedIndex = 0.obs;
+var selectedIndex = 0;
 
 class EntryPoint extends StatefulWidget {
   // int index;
@@ -57,7 +57,7 @@ class _EntryPointState extends State<EntryPoint>
     // checkLogin();
     // print("checked");
 
-    selectedIndex.value = Get.arguments;
+    selectedIndex = Get.arguments;
     print(selectedIndex);
     _animationController =
         AnimationController(vsync: this, duration: Duration(milliseconds: 200))
@@ -122,8 +122,8 @@ class _EntryPointState extends State<EntryPoint>
                                         borderRadius: BorderRadius.all(
                                             Radius.circular(
                                                 isSideMenuClosed ? 0 : 24)),
-                                        child: Obx(
-                                            () => screens[selectedIndex.value])
+                                        child: screens[selectedIndex]
+                                        // Obx(() => screens[selectedIndex])
                                         // screens[selectedIndex.value]
                                         // HomePage()
                                         ))),
@@ -168,70 +168,136 @@ class _EntryPointState extends State<EntryPoint>
                       );
               }),
               bottomNavigationBar: isSideMenuClosed
-                  ? Obx(
-                      () => BottomNavigationBar(
-                        // height
-                        // fixedColor: AppColors.transparent,
-                        // fixedColor: Colors.transparent,
+                  ? BottomNavigationBar(
+                      // height
+                      // fixedColor: AppColors.transparent,
+                      // fixedColor: Colors.transparent,
 
-                        selectedLabelStyle: TextStyle(fontSize: 12.sp),
-                        unselectedLabelStyle: TextStyle(fontSize: 12.sp),
-                        iconSize: 20.h,
-                        selectedItemColor: AppColors.blue143C6D,
-                        unselectedItemColor: AppColors.black,
-                        elevation: 0,
-                        // labe
-                        backgroundColor: AppColors.white,
-                        type: BottomNavigationBarType.fixed,
-                        items: <BottomNavigationBarItem>[
-                          BottomNavigationBarItem(
-                            activeIcon: activeIcon(
-                                "assets/images/home-svgrepo-com (1).svg"),
-                            icon: inactiveIcon(
-                                "assets/images/home-svgrepo-com.svg"),
-                            // icon: Icon(Icons.home),
-                            label: "Home",
-                          ),
-                          BottomNavigationBarItem(
-                            // icon: Icon(Icons.explore),
-                            activeIcon: activeIcon(
-                                "assets/images/category-alt-svgrepo-com (1).svg"),
-                            icon: inactiveIcon(
-                                "assets/images/category-alt-svgrepo-com.svg"),
-                            label: "Categories",
-                          ),
-                          BottomNavigationBarItem(
-                            activeIcon:
-                                activeIcon("assets/images/Group 51109.svg"),
-                            icon: inactiveIcon(
-                                "assets/images/money-dollar-coin-svgrepo-com.svg"),
+                      selectedLabelStyle: TextStyle(fontSize: 12.sp),
+                      unselectedLabelStyle: TextStyle(fontSize: 12.sp),
+                      iconSize: 20.h,
+                      selectedItemColor: AppColors.blue143C6D,
+                      unselectedItemColor: AppColors.black,
+                      elevation: 0,
+                      // labe
+                      backgroundColor: AppColors.white,
+                      type: BottomNavigationBarType.fixed,
+                      items: <BottomNavigationBarItem>[
+                        BottomNavigationBarItem(
+                          activeIcon: activeIcon(
+                              "assets/images/home-svgrepo-com (1).svg"),
+                          icon: inactiveIcon(
+                              "assets/images/home-svgrepo-com.svg"),
+                          // icon: Icon(Icons.home),
+                          label: "Home",
+                        ),
+                        BottomNavigationBarItem(
+                          // icon: Icon(Icons.explore),
+                          activeIcon: activeIcon(
+                              "assets/images/category-alt-svgrepo-com (1).svg"),
+                          icon: inactiveIcon(
+                              "assets/images/category-alt-svgrepo-com.svg"),
+                          label: "Categories",
+                        ),
+                        BottomNavigationBarItem(
+                          activeIcon:
+                              activeIcon("assets/images/Group 51109.svg"),
+                          icon: inactiveIcon(
+                              "assets/images/money-dollar-coin-svgrepo-com.svg"),
 
-                            // icon: Icon(Icons.circle, size: 0),
-                            label: "Investment",
-                          ),
-                          BottomNavigationBarItem(
-                            activeIcon: activeIcon(
-                                "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
-                            icon: inactiveIcon(
-                                "assets/images/chat-left-3-svgrepo-com (2).svg"),
-                            label: "Chat",
-                          ),
-                          BottomNavigationBarItem(
-                            activeIcon:
-                                activeIcon("assets/images/Path 30132.svg"),
-                            icon: inactiveIcon("assets/images/profile.svg"),
-                            label: "Profile",
-                          ),
-                        ],
-                        currentIndex: selectedIndex.value,
+                          // icon: Icon(Icons.circle, size: 0),
+                          label: "Investment",
+                        ),
+                        BottomNavigationBarItem(
+                          activeIcon: activeIcon(
+                              "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
+                          icon: inactiveIcon(
+                              "assets/images/chat-left-3-svgrepo-com (2).svg"),
+                          label: "Chat",
+                        ),
+                        BottomNavigationBarItem(
+                          activeIcon:
+                              activeIcon("assets/images/Path 30132.svg"),
+                          icon: inactiveIcon("assets/images/profile.svg"),
+                          label: "Profile",
+                        ),
+                      ],
+                      currentIndex: selectedIndex,
 
-                        onTap: (int index) {
-                          // if (index != 2) {
-                          selectedIndex.value = index;
-                          // }
-                        },
-                      ),
+                      onTap: (int index) {
+                        // if (index != 2) {
+                        selectedIndex = index;
+                        setState(() {});
+                        // }
+                      },
                     )
+
+                  // Obx(
+                  //     () => BottomNavigationBar(
+                  //       // height
+                  //       // fixedColor: AppColors.transparent,
+                  //       // fixedColor: Colors.transparent,
+
+                  //       selectedLabelStyle: TextStyle(fontSize: 12.sp),
+                  //       unselectedLabelStyle: TextStyle(fontSize: 12.sp),
+                  //       iconSize: 20.h,
+                  //       selectedItemColor: AppColors.blue143C6D,
+                  //       unselectedItemColor: AppColors.black,
+                  //       elevation: 0,
+                  //       // labe
+                  //       backgroundColor: AppColors.white,
+                  //       type: BottomNavigationBarType.fixed,
+                  //       items: <BottomNavigationBarItem>[
+                  //         BottomNavigationBarItem(
+                  //           activeIcon: activeIcon(
+                  //               "assets/images/home-svgrepo-com (1).svg"),
+                  //           icon: inactiveIcon(
+                  //               "assets/images/home-svgrepo-com.svg"),
+                  //           // icon: Icon(Icons.home),
+                  //           label: "Home",
+                  //         ),
+                  //         BottomNavigationBarItem(
+                  //           // icon: Icon(Icons.explore),
+                  //           activeIcon: activeIcon(
+                  //               "assets/images/category-alt-svgrepo-com (1).svg"),
+                  //           icon: inactiveIcon(
+                  //               "assets/images/category-alt-svgrepo-com.svg"),
+                  //           label: "Categories",
+                  //         ),
+                  //         BottomNavigationBarItem(
+                  //           activeIcon:
+                  //               activeIcon("assets/images/Group 51109.svg"),
+                  //           icon: inactiveIcon(
+                  //               "assets/images/money-dollar-coin-svgrepo-com.svg"),
+
+                  //           // icon: Icon(Icons.circle, size: 0),
+                  //           label: "Investment",
+                  //         ),
+                  //         BottomNavigationBarItem(
+                  //           activeIcon: activeIcon(
+                  //               "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
+                  //           icon: inactiveIcon(
+                  //               "assets/images/chat-left-3-svgrepo-com (2).svg"),
+                  //           label: "Chat",
+                  //         ),
+                  //         BottomNavigationBarItem(
+                  //           activeIcon:
+                  //               activeIcon("assets/images/Path 30132.svg"),
+                  //           icon: inactiveIcon("assets/images/profile.svg"),
+                  //           label: "Profile",
+                  //         ),
+                  //       ],
+                  //       currentIndex: selectedIndex,
+
+                  //       onTap: (int index) {
+                  //         // if (index != 2) {
+                  //         selectedIndex = index;
+                  //         setState(() {});
+                  //         // }
+                  //       },
+                  //     ),
+
+                  //   )
                   : SizedBox()),
         ),
       ),

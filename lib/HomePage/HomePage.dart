@@ -323,7 +323,10 @@ class _HomePageState extends State<HomePage> {
                       text20Black("Top Picks"),
                       InkWell(
                           onTap: () {
-                            selectedIndex.value = 1;
+                            selectedIndex = 1;
+                            setState(() {
+                              
+                            });
                           },
                           child: text14Grey272424("View more"))
                     ],
@@ -360,7 +363,10 @@ class _HomePageState extends State<HomePage> {
 
               twoText("Categories", "View more", onTap: () {
                 print("SD");
-                selectedIndex.value = 1;
+                selectedIndex = 1;
+                setState(() {
+                  
+                });
                 // widget.enttyPoint.se
                 // entryPoint._sel
                 // Get.toNamed("/",
