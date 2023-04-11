@@ -20,6 +20,9 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+
+import 'Categories/Alternative/Fractionalpage.dart';
+
 import '../controllers/entry_point_controller.dart';
 
 // part 'HomePage.dart';
@@ -271,6 +274,7 @@ class _HomePageState extends State<HomePage> {
                       text20Black("Top Picks"),
                       InkWell(
                           onTap: () {
+
                             Get.toNamed("/EntryPoint",
                                 arguments: 1, preventDuplicates: false);
                             // Get.toNamed(page)
@@ -278,6 +282,7 @@ class _HomePageState extends State<HomePage> {
                             // Get.toNamed("/EntryPoint", arguments: 1);
                             // selectedIndex = 1;
                             // setState(() {});
+
                           },
                           child: text14Grey272424("View more"))
                     ],
@@ -313,6 +318,7 @@ class _HomePageState extends State<HomePage> {
               ),
 
               twoText("Categories", "View more", onTap: () {
+
                 Get.toNamed("/EntryPoint",
                     arguments: 1, preventDuplicates: false);
                 // controllerEntryPoint.selectedPage(1);
@@ -320,6 +326,7 @@ class _HomePageState extends State<HomePage> {
                 // print("SD");
                 // selectedIndex = 1;
                 // setState(() {});
+
                 // widget.enttyPoint.se
                 // entryPoint._sel
                 // Get.toNamed("/",
@@ -351,6 +358,11 @@ class _HomePageState extends State<HomePage> {
                               screen = AlternativeInsvestment();
 
                               break;
+                            case 1:
+                              screen = FractionalRealestate();
+
+                              break;
+
                             default:
                           }
                           Get.to(screen);

@@ -61,7 +61,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
         controller: widget.textEditingController,
         decoration: InputDecoration(
           errorStyle: TextStyle(fontSize: 12.sp),
-          contentPadding: EdgeInsets.all(11.h),
+          contentPadding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20),
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(

@@ -149,7 +149,7 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
                     ),
                   ],
                 ),
-                buttonPadding: const EdgeInsets.only(left: 10, right: 14),
+                buttonPadding: const EdgeInsets.only(left: 0, right: 14),
                 value: widget.selectedValue,
                 onChanged: (value) {
                   setState(() {
