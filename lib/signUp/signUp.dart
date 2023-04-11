@@ -213,31 +213,36 @@ class _SignUpState extends State<SignUp> {
           bottomtext: false,
         ),
         backgroundColor: Colors.white,
-        body: SafeArea(
-          child: GestureDetector(
-            onTap: () => Get.focusScope!.unfocus(),
-            child: SingleChildScrollView(
-              child: Column(children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  child: Form(
+        body: GestureDetector(
+          onTap: () => Get.focusScope!.unfocus(),
+          child: Column(children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Sign up",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.w500,
+                        fontSize: 25.sp),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+                child: SingleChildScrollView(
+              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Form(
                     key: _form,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Sign up",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 25.sp),
-                            ),
-                          ],
-                        ),
                         SizedBox(
                           height: 35.h,
                         ),
@@ -394,6 +399,7 @@ class _SignUpState extends State<SignUp> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                                //maxLength: 10,
                                 validator: (value) {
                                   if (value == value.isEmpty) {
                                     return 'Mobile number is required';
@@ -404,6 +410,9 @@ class _SignUpState extends State<SignUp> {
                                   // v3 = true;
                                   return null;
                                 },
+                                inputFormatters: [
+                                  LengthLimitingTextInputFormatter(10)
+                                ],
                                 texttype: TextInputType.number,
                                 hintText: "Phone Number*",
                                 validatorText: "Phone Number"),
@@ -733,51 +742,51 @@ class _SignUpState extends State<SignUp> {
                       ],
                     ),
                   ),
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
-                Visibility(
-                  visible: isSignupBtnVisible,
-                  child: SizedBox(
-                    width: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20, right: 20),
-                      child: CustomNextButton(
-                        text: "Sign up",
-                        ontap: () {
-                          final isValid = _form.currentState?.validate();
-                          if (isValid == false) {
-                            Get.snackbar(
-                                "Error", "Please Enter All Required Fields",
-                                margin: EdgeInsets.all(8),
-                                snackStyle: SnackStyle.FLOATING,
-                                snackPosition: SnackPosition.BOTTOM);
-                          }
-                          if (design != true) {
-                            Get.snackbar(
-                                "Error", "Please Accept Terms & Conditions",
-                                margin: EdgeInsets.all(8),
-                                snackStyle: SnackStyle.FLOATING,
-                                snackPosition: SnackPosition.BOTTOM);
-                          }
-                          if (isValid == true && design == true) {
-                            Get.toNamed("/securityquestion");
-                          }
-                        },
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Visibility(
+                    visible: isSignupBtnVisible,
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 20, right: 20),
+                        child: CustomNextButton(
+                          text: "Sign up",
+                          ontap: () {
+                            final isValid = _form.currentState?.validate();
+                            if (isValid == false) {
+                              Get.snackbar(
+                                  "Error", "Please Enter All Required Fields",
+                                  margin: EdgeInsets.all(8),
+                                  snackStyle: SnackStyle.FLOATING,
+                                  snackPosition: SnackPosition.BOTTOM);
+                            }
+                            if (design != true) {
+                              Get.snackbar(
+                                  "Error", "Please Accept Terms & Conditions",
+                                  margin: EdgeInsets.all(8),
+                                  snackStyle: SnackStyle.FLOATING,
+                                  snackPosition: SnackPosition.BOTTOM);
+                            }
+                            if (isValid == true && design == true) {
+                              Get.toNamed("/securityquestion");
+                            }
+                          },
+                        ),
                       ),
                     ),
                   ),
-                ),
-                Visibility(
-                    visible: isSignupBtnLoaderVisible,
-                    child: const Center(child: CircularProgressIndicator())),
-                const SizedBox(
-                  height: 40,
-                ),
-              ]),
-            ),
-          ),
+                  Visibility(
+                      visible: isSignupBtnLoaderVisible,
+                      child: const Center(child: CircularProgressIndicator())),
+                  const SizedBox(
+                    height: 40,
+                  ),
+                ],
+              ),
+            )),
+          ]),
         ),
       ),
     );

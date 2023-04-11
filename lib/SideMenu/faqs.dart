@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
@@ -17,41 +18,62 @@ class _FAQsState extends State<FAQs> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  GestureDetector(
-                      onTap: () {
-                        Get.back();
-                      },
-                      child: Icon(
-                        Icons.arrow_back,
-                        size: 24.sp,
-                        color: Color(0xff000000),
-                      )),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Text(
-                    "FAQ's",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              ListView.separated(
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "FAQ's",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+          ),
+
+          // Column(
+          //   crossAxisAlignment: CrossAxisAlignment.start,
+          //   children: [
+          //     GestureDetector(
+          //         onTap: () {
+          //           Get.back();
+          //         },
+          //         child: Icon(
+          //           Icons.arrow_back,
+          //           size: 24.sp,
+          //           color: Color(0xff000000),
+          //         )),
+          //     SizedBox(
+          //       height: 10.h,
+          //     ),
+          //     Text(
+          //       "FAQ's",
+          //       style: TextStyle(
+          //           fontFamily: "Poppins",
+          //           fontSize: 25.sp,
+          //           fontWeight: FontWeight.w500),
+          //     ),
+          //   ],
+          // ),
+          SizedBox(
+            height: 20.h,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              padding: EdgeInsets.only(left: 16, right: 16),
+              child: ListView.separated(
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
                     return FAQwidgets();
@@ -59,10 +81,10 @@ class _FAQsState extends State<FAQs> {
                   separatorBuilder: (context, index) {
                     return sizedBoxHeight(15.h);
                   },
-                  itemCount: 6)
-            ],
-          ),
-        ),
+                  itemCount: 6),
+            ),
+          )
+        ],
       ),
     );
   }

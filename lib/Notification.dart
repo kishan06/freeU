@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -84,25 +85,29 @@ class _NotificationPageState extends State<NotificationPage> {
 
     return Scaffold(
       // backgroundColor: Color(0xFFF5F8FA),
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        // backgroundColor: Color(0xFFF5F8FA),
-        elevation: 0,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-          ),
-          iconSize: 22,
-          color: Color(0xFF6B6B6B),
-        ),
-        // title: Text(
-        //   "Notification",
-        //   style: TextStyle(color: Color(0xFF242323)),
-        // ),
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
       ),
+      // AppBar(
+      //   backgroundColor: AppColors.white,
+      //   // backgroundColor: Color(0xFFF5F8FA),
+      //   elevation: 0,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Get.back();
+      //     },
+      //     icon: Icon(
+      //       Icons.arrow_back,
+      //     ),
+      //     iconSize: 22,
+      //     color: Color(0xFF6B6B6B),
+      //   ),
+      //   // title: Text(
+      //   //   "Notification",
+      //   //   style: TextStyle(color: Color(0xFF242323)),
+      //   // ),
+      // ),
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.all(10),

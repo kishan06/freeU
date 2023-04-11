@@ -65,17 +65,14 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
               color: Colors.black),
         ),
       ),
-      leading: Padding(
-        padding: EdgeInsets.only(left: 30.w),
-        child: GestureDetector(
-          onTap: () {
-            Get.back();
-          },
-          child: Icon(
-            Icons.arrow_back_rounded,
-            size: 24.sp,
-            color: Colors.black,
-          ),
+      leading: GestureDetector(
+        onTap: () {
+          Get.back();
+        },
+        child: Icon(
+          Icons.arrow_back_rounded,
+          size: 24.sp,
+          color: Colors.black,
         ),
       ),
     );

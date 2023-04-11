@@ -32,50 +32,54 @@ class _otpVerificationState extends State<otpVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: 
-        // AppBar(
-        //   backgroundColor: AppColors.white,
-        //   // backgroundColor: Color(0xFFF5F8FA),
-        //   elevation: 0,
-        //   leading: IconButton(
-        //     onPressed: () {
-        //       Get.back();
-        //     },
-        //     icon: Icon(
-        //       Icons.arrow_back,
-        //     ),
-        //     iconSize: 24,
-        //     color: Color(0xFF0F0C0C),
-        //   ),
-        // ),
-        CustomSignupAppBar(
+        appBar:
+            // AppBar(
+            //   backgroundColor: AppColors.white,
+            //   // backgroundColor: Color(0xFFF5F8FA),
+            //   elevation: 0,
+            //   leading: IconButton(
+            //     onPressed: () {
+            //       Get.back();
+            //     },
+            //     icon: Icon(
+            //       Icons.arrow_back,
+            //     ),
+            //     iconSize: 24,
+            //     color: Color(0xFF0F0C0C),
+            //   ),
+            // ),
+            CustomSignupAppBar(
           titleTxt: "",
           bottomtext: false,
         ),
         backgroundColor: Colors.white,
-        body: SafeArea(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-            child: Center(
-                child: Form(
-                    key: _form,
+        body: Center(
+            child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 30.w),
+          child: Form(
+              key: _form,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Forgot Password",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontSize: 25.sp,
+                            color: Color(0XFF0F0C0C),
+                            fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                      child: SingleChildScrollView(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              "Forgot Password",
-                              style: TextStyle(
-                                  fontFamily: "Poppins",
-                                  fontSize: 25.sp,
-                                  color: Color(0XFF0F0C0C),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
                         SizedBox(
                           height: 20.h,
                         ),
@@ -276,8 +280,10 @@ class _otpVerificationState extends State<otpVerification> {
                           height: 40.h,
                         )
                       ],
-                    ))),
-          ),
-        ));
+                    ),
+                  )),
+                ],
+              )),
+        )));
   }
 }

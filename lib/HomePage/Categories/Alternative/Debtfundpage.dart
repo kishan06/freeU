@@ -27,21 +27,25 @@ class _DebtfundState extends State<Debtfund> {
         //child:
         Scaffold(
       backgroundColor: Color(0xFF873762),
-      appBar: AppBar(
-        backgroundColor: Color(0xFF873762),
-        elevation: 0,
-        titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-          ),
-          iconSize: 26,
-          color: Color(0XFFFFFFFF),
-        ),
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
       ),
+      //  AppBar(
+      //   backgroundColor: Color(0xFF873762),
+      //   elevation: 0,
+      //   titleSpacing: 0,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Get.back();
+      //     },
+      //     icon: Icon(
+      //       Icons.arrow_back,
+      //     ),
+      //     iconSize: 26,
+      //     color: Color(0XFFFFFFFF),
+      //   ),
+      // ),
       body: Center(
         child: Column(
           children: [

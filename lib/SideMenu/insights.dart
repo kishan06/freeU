@@ -123,6 +123,7 @@ class _InsightsState extends State<Insights> {
           ),
         ),
         body: ListView.separated(
+            shrinkWrap: true,
             itemBuilder: (context, index) {
               return Padding(
                 padding: EdgeInsets.all(16.w),
