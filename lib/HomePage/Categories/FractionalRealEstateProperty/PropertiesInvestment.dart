@@ -16,6 +16,15 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.h),
+        child: CustomNextButton(
+            ontap: () {
+              Get.toNamed("/login");
+              //investNow();
+            },
+            text: 'Invest now'),
+      ),
       appBar: AppBar(
         backgroundColor: const Color(0xFFFFFFFF),
         elevation: 0,
@@ -34,552 +43,527 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Stack(
-          children: [
-            SingleChildScrollView(
-              child: Column(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              sizedBoxHeight(10.h),
+              Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  sizedBoxWidth(5.w),
+                  Container(
+                    // decoration: BoxDecoration(
+                    //   boxShadow: [
+                    //     BoxShadow(
+                    //       color: Colors.grey.withOpacity(0.1),
+                    //       //spreadRadius: 2.w,
+                    //       //blurRadius: 2.h,
+                    //     ),
+                    //   ],
+                    // ),
+                    child: SvgPicture.asset(
+                      "assets/images/property.svg",
+                      width: 80.w,
+                      height: 54.h,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 20.h,
+                  ),
+                  Flexible(
+                    child: Text(
+                      "Navi Mumbai Office Opportunity II",
+                      style: TextStyle(
+                          fontSize: 22.sp, fontWeight: FontWeight.w500),
+                    ),
+                  )
+                ],
+              ),
+              sizedBoxHeight(24.h),
+              Text(
+                'Property details',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20.sp,
+                  color: const Color(0xff3A4856),
+                ),
+              ),
+              Divider(
+                height: 28.h,
+                thickness: 1.h,
+                color: Colors.grey.shade400,
+              ),
+              sizedBoxHeight(15),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 26),
+                    child: SvgPicture.asset(
+                      "assets/images/fractional.svg",
+                      width: 14.w,
+                      height: 14.w,
+                    ),
+                  ),
+                  sizedBoxWidth(14.w),
+                  Text(
+                    'The opportunity is to purchase the \nlevel 3, C-wing in Tower-I.',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 18.sp,
+                      color: const Color(0xff0F0C0C),
+                    ),
+                  ),
+                ],
+              ),
+              sizedBoxHeight(20.h),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 26),
+                    child: SvgPicture.asset(
+                      "assets/images/fractional.svg",
+                      width: 14.w,
+                      height: 14.w,
+                    ),
+                  ),
+                  sizedBoxWidth(14.w),
+                  Expanded(
+                    child: Text(
+                      'The asset is located in Seawoods, an upscale part of Navi Mumbai.',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18.sp,
+                        color: const Color(0xff0F0C0C),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              sizedBoxHeight(20.h),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 80),
+                    child: SvgPicture.asset(
+                      "assets/images/fractional.svg",
+                      width: 14.w,
+                      height: 14.w,
+                    ),
+                  ),
+                  sizedBoxWidth(14.w),
+                  Expanded(
+                    child: Text(
+                      'The property is well connected to the rest of the Mumbai Metropolitan Region by road, rail, and water services.',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18.sp,
+                        color: const Color(0xff0F0C0C),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              sizedBoxHeight(20.h),
+              Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 80),
+                    child: SvgPicture.asset(
+                      "assets/images/fractional.svg",
+                      width: 14.w,
+                      height: 14.w,
+                    ),
+                  ),
+                  sizedBoxWidth(14.w),
+                  Expanded(
+                    child: Text(
+                      'With the upcoming Navi Mumbai airport, metro, and trans-harbour sea link, the area is bound to see greater value appreciation.',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 18.sp,
+                        color: const Color(0xff0F0C0C),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              sizedBoxHeight(28.h),
+              Text(
+                'Property Grade',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20.sp,
+                  color: const Color(0xff3A4856),
+                ),
+              ),
+              Divider(
+                height: 25.h,
+                thickness: 1.h,
+                color: Colors.grey.shade400,
+              ),
+              Text(
+                'A',
+                style:
+                    TextStyle(fontSize: 18.sp, color: const Color(0xff272424)),
+              ),
+              sizedBoxHeight(28.h),
+              Text(
+                'Asset type',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20.sp,
+                  color: const Color(0xff3A4856),
+                ),
+              ),
+              Divider(
+                height: 25.h,
+                thickness: 1.h,
+                color: Colors.grey.shade400,
+              ),
+              Text(
+                'Corporate Office',
+                style:
+                    TextStyle(fontSize: 18.sp, color: const Color(0xff272424)),
+              ),
+              sizedBoxHeight(28.h),
+              Text(
+                'Tenant details',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 20.sp,
+                  color: const Color(0xff3A4856),
+                ),
+              ),
+              Divider(
+                height: 28.h,
+                thickness: 1.h,
+                color: Colors.grey.shade400,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text(
+                          'Description',
+                          style: TextStyle(
+                              fontSize: 16.sp, color: const Color(0xff616161)),
+                        ),
+                      ),
+                    ],
+                  ),
+                  sizedBoxHeight(10.h),
+                  Text(
+                    'The tenant is a leading Gas Pipeline Operator and sponsored by Brookfield Asset Management.',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff0F0C0C)),
+                  ),
+                  sizedBoxHeight(20.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text(
+                          'Lease Term',
+                          style: TextStyle(
+                              fontSize: 16.sp, color: const Color(0xff616161)),
+                        ),
+                      ),
+                      Text(
+                        'Lock in',
+                        style: TextStyle(
+                            fontSize: 16.sp, color: const Color(0xff616161)),
+                      ),
+                    ],
+                  ),
                   sizedBoxHeight(10.h),
                   Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      sizedBoxWidth(5.w),
-                      Container(
-                        // decoration: BoxDecoration(
-                        //   boxShadow: [
-                        //     BoxShadow(
-                        //       color: Colors.grey.withOpacity(0.1),
-                        //       //spreadRadius: 2.w,
-                        //       //blurRadius: 2.h,
-                        //     ),
-                        //   ],
-                        // ),
-                        child: SvgPicture.asset(
-                          "assets/images/property.svg",
-                          width: 80.w,
-                          height: 54.h,
-                        ),
-                      ),
                       SizedBox(
-                        width: 20.h,
-                      ),
-                      Flexible(
+                        width: MediaQuery.of(context).size.width / 2,
                         child: Text(
-                          "Navi Mumbai Office Opportunity II",
+                          '7 Year',
                           style: TextStyle(
-                              fontSize: 22.sp, fontWeight: FontWeight.w500),
-                        ),
-                      )
-                    ],
-                  ),
-                  sizedBoxHeight(24.h),
-                  Text(
-                    'Property details',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20.sp,
-                      color: const Color(0xff3A4856),
-                    ),
-                  ),
-                  Divider(
-                    height: 28.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  sizedBoxHeight(15),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 26),
-                        child: SvgPicture.asset(
-                          "assets/images/fractional.svg",
-                          width: 14.w,
-                          height: 14.w,
+                              fontSize: 18.sp, color: const Color(0xff0F0C0C)),
                         ),
                       ),
-                      sizedBoxWidth(14.w),
                       Text(
-                        'The opportunity is to purchase the \nlevel 3, C-wing in Tower-I.',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18.sp,
-                          color: const Color(0xff0F0C0C),
-                        ),
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(20.h),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 26),
-                        child: SvgPicture.asset(
-                          "assets/images/fractional.svg",
-                          width: 14.w,
-                          height: 14.w,
-                        ),
-                      ),
-                      sizedBoxWidth(14.w),
-                      Expanded(
-                        child: Text(
-                          'The asset is located in Seawoods, an upscale part of Navi Mumbai.',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18.sp,
-                            color: const Color(0xff0F0C0C),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(20.h),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 80),
-                        child: SvgPicture.asset(
-                          "assets/images/fractional.svg",
-                          width: 14.w,
-                          height: 14.w,
-                        ),
-                      ),
-                      sizedBoxWidth(14.w),
-                      Expanded(
-                        child: Text(
-                          'The property is well connected to the rest of the Mumbai Metropolitan Region by road, rail, and water services.',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18.sp,
-                            color: const Color(0xff0F0C0C),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(20.h),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(bottom: 80),
-                        child: SvgPicture.asset(
-                          "assets/images/fractional.svg",
-                          width: 14.w,
-                          height: 14.w,
-                        ),
-                      ),
-                      sizedBoxWidth(14.w),
-                      Expanded(
-                        child: Text(
-                          'With the upcoming Navi Mumbai airport, metro, and trans-harbour sea link, the area is bound to see greater value appreciation.',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 18.sp,
-                            color: const Color(0xff0F0C0C),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(28.h),
-                  Text(
-                    'Property Grade',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20.sp,
-                      color: const Color(0xff3A4856),
-                    ),
-                  ),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  Text(
-                    'A',
-                    style: TextStyle(
-                        fontSize: 18.sp, color: const Color(0xff272424)),
-                  ),
-                  sizedBoxHeight(28.h),
-                  Text(
-                    'Asset type',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20.sp,
-                      color: const Color(0xff3A4856),
-                    ),
-                  ),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  Text(
-                    'Corporate Office',
-                    style: TextStyle(
-                        fontSize: 18.sp, color: const Color(0xff272424)),
-                  ),
-                  sizedBoxHeight(28.h),
-                  Text(
-                    'Tenant details',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20.sp,
-                      color: const Color(0xff3A4856),
-                    ),
-                  ),
-                  Divider(
-                    height: 28.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              'Description',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  color: const Color(0xff616161)),
-                            ),
-                          ),
-                        ],
-                      ),
-                      sizedBoxHeight(10.h),
-                      Text(
-                        'The tenant is a leading Gas Pipeline Operator and sponsored by Brookfield Asset Management.',
+                        '6 Year',
                         style: TextStyle(
                             fontSize: 18.sp, color: const Color(0xff0F0C0C)),
                       ),
-                      sizedBoxHeight(20.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              'Lease Term',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  color: const Color(0xff616161)),
-                            ),
-                          ),
-                          Text(
-                            'Lock in',
-                            style: TextStyle(
-                                fontSize: 16.sp,
-                                color: const Color(0xff616161)),
-                          ),
-                        ],
-                      ),
-                      sizedBoxHeight(10.h),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              '7 Year',
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: const Color(0xff0F0C0C)),
-                            ),
-                          ),
-                          Text(
-                            '6 Year',
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                color: const Color(0xff0F0C0C)),
-                          ),
-                        ],
-                      ),
-                      sizedBoxHeight(20.h),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              'Rent',
-                              style: TextStyle(
-                                  fontSize: 16.sp,
-                                  color: const Color(0xff616161)),
-                            ),
-                          ),
-                          Text(
-                            'Security deposit',
-                            style: TextStyle(
-                                fontSize: 16.sp,
-                                color: const Color(0xff616161)),
-                          ),
-                        ],
-                      ),
-                      sizedBoxHeight(10.h),
-                      Row(
-                        children: [
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width / 2,
-                            child: Text(
-                              '3 Months',
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: const Color(0xff0F0C0C)),
-                            ),
-                          ),
-                          Text(
-                            'N/A',
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                color: const Color(0xff0F0C0C)),
-                          ),
-                        ],
-                      ),
                     ],
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  sizedBoxHeight(20.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Deal Size (in Crore)',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text(
+                          'Rent',
+                          style: TextStyle(
+                              fontSize: 16.sp, color: const Color(0xff616161)),
                         ),
                       ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
                       Text(
-                        '53,30,00,000',
+                        'Security deposit',
                         style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
+                            fontSize: 16.sp, color: const Color(0xff616161)),
                       ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Minimum Investment',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '25,00,000',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Coupon Rate on CCD',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '8.1% Additional 1% return in Year 1 for pre-booking',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Rental Escalation',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '15% every 3 Years',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Capital Appreciation',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '2.0x Target Multiple',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Expected IRR',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '12.70%',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'CAGR',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '6.00%',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Minimum Investor LockIn',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '1 Year',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Annual Management Fee',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '1% of Net Purchase Price',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Performance Fee',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '20%',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(28.h),
-                      Text(
-                        'Hurdle rate',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20.sp,
-                          color: const Color(0xff3A4856),
-                        ),
-                      ),
-                      Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
-                      ),
-                      Text(
-                        '30%',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff272424)),
-                      ),
-                      sizedBoxHeight(45.h),
-                      Text(
-                        'View Navi Mumbai Office Opportunity II document',
-                        style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 15.sp,
-                            color: const Color(0xff1B8DC9)),
-                      ),
-                      sizedBoxHeight(10.h),
                     ],
                   ),
-                  sizedBoxHeight(65.h)
+                  sizedBoxHeight(10.h),
+                  Row(
+                    children: [
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Text(
+                          '3 Months',
+                          style: TextStyle(
+                              fontSize: 18.sp, color: const Color(0xff0F0C0C)),
+                        ),
+                      ),
+                      Text(
+                        'N/A',
+                        style: TextStyle(
+                            fontSize: 18.sp, color: const Color(0xff0F0C0C)),
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            ),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 20.h),
-                child: CustomNextButton(
-                    ontap: () {
-                      Get.toNamed("/login");
-                      //investNow();
-                    },
-                    text: 'Invest now'),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Deal Size (in Crore)',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '53,30,00,000',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Minimum Investment',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '25,00,000',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Coupon Rate on CCD',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '8.1% Additional 1% return in Year 1 for pre-booking',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Rental Escalation',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '15% every 3 Years',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Capital Appreciation',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '2.0x Target Multiple',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Expected IRR',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '12.70%',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'CAGR',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '6.00%',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Minimum Investor LockIn',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '1 Year',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Annual Management Fee',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '1% of Net Purchase Price',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Performance Fee',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '20%',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(28.h),
+                  Text(
+                    'Hurdle rate',
+                    style: TextStyle(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 20.sp,
+                      color: const Color(0xff3A4856),
+                    ),
+                  ),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  Text(
+                    '30%',
+                    style: TextStyle(
+                        fontSize: 18.sp, color: const Color(0xff272424)),
+                  ),
+                  sizedBoxHeight(45.h),
+                  Text(
+                    'View Navi Mumbai Office Opportunity II document',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15.sp,
+                        color: const Color(0xff1B8DC9)),
+                  ),
+                  sizedBoxHeight(10.h),
+                ],
               ),
-            )
-          ],
+              sizedBoxHeight(65.h)
+            ],
+          ),
         ),
       )),
     );

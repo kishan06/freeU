@@ -16,6 +16,15 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: CustomNextButton(
+          text: 'View Categories',
+          ontap: () {
+            Get.toNamed("/fractionalpropertiespage");
+          },
+        ),
+      ),
       backgroundColor: Color(0xFFFFFFFF),
       appBar: AppBar(
         backgroundColor: Color(0xFFFFFFFF),
@@ -34,64 +43,50 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Stack(children: [
-          SingleChildScrollView(
-            // padding: EdgeInsets.symmetric(
-            //   horizontal: 16.w,
-            // ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Fractional Real Estate",
-                      style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontSize: 25.sp,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-                sizedBoxHeight(30.h),
-                fracReal1(),
-                sizedBoxHeight(20.h),
-                fracReal2(),
-                sizedBoxHeight(20.h),
-                fracReal3(),
-                sizedBoxHeight(20.h),
-                fracReal4(),
-                sizedBoxHeight(20.h),
-                fracReal5(),
-                sizedBoxHeight(30.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: CustomNextButton(
-                text: 'View Categories',
-                ontap: () {
-                  Get.toNamed("/fractionalpropertiespage");
-                },
+        child: SingleChildScrollView(
+          // padding: EdgeInsets.symmetric(
+          //   horizontal: 16.w,
+          // ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Fractional Real Estate",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 25.sp,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
               ),
-            ),
+              sizedBoxHeight(30.h),
+              fracReal1(),
+              sizedBoxHeight(20.h),
+              fracReal2(),
+              sizedBoxHeight(20.h),
+              fracReal3(),
+              sizedBoxHeight(20.h),
+              fracReal4(),
+              sizedBoxHeight(20.h),
+              fracReal5(),
+              sizedBoxHeight(30.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+            ],
           ),
-        ]),
+        ),
       ),
     );
   }

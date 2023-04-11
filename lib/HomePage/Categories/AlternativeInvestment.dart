@@ -17,6 +17,15 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.h),
+        child: CustomNextButton(
+          text: 'View Categories',
+          ontap: () {
+            Get.toNamed("/altenativecategories");
+          },
+        ),
+      ),
       appBar: AppBar(
         backgroundColor: Color(0xFFFFFFFF),
         elevation: 0,
@@ -34,62 +43,48 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Stack(children: [
-          SingleChildScrollView(
-            //padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // SizedBox(
-                    //   height: 10.h,
-                    // ),
-                    Text(
-                      "Alternative Investment Funds",
-                      style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontSize: 25.sp,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-                sizedBoxHeight(20.h),
-                faqAccod(expandAccod: true),
-                sizedBoxHeight(15.h),
-                faqAccod(),
-                sizedBoxHeight(15.h),
-                faqAccod(),
-                sizedBoxHeight(15.h),
-                faqAccod(),
-                sizedBoxHeight(15.h),
-                faqAccod(),
-                sizedBoxHeight(15.h),
-                faqAccod(),
-                sizedBoxHeight(15.h),
-                faqAccod(),
-                sizedBoxHeight(15.h),
-                faqAccod(),
-                sizedBoxHeight(15.h),
-              ],
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 20.h),
-              child: CustomNextButton(
-                text: 'View Categories',
-                ontap: () {
-                  Get.toNamed("/altenativecategories");
-                },
+        child: SingleChildScrollView(
+          //padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // SizedBox(
+                  //   height: 10.h,
+                  // ),
+                  Text(
+                    "Alternative Investment Funds",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 25.sp,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
               ),
-            ),
-          )
-        ]),
+              sizedBoxHeight(20.h),
+              faqAccod(expandAccod: true),
+              sizedBoxHeight(15.h),
+              faqAccod(),
+              sizedBoxHeight(15.h),
+              faqAccod(),
+              sizedBoxHeight(15.h),
+              faqAccod(),
+              sizedBoxHeight(15.h),
+              faqAccod(),
+              sizedBoxHeight(15.h),
+              faqAccod(),
+              sizedBoxHeight(15.h),
+              faqAccod(),
+              sizedBoxHeight(15.h),
+              faqAccod(),
+              sizedBoxHeight(15.h),
+            ],
+          ),
+        ),
       ),
     );
   }

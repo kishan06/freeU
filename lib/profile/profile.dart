@@ -91,7 +91,6 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
-  // bool isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
@@ -99,31 +98,12 @@ class _ProfileState extends State<Profile> {
       length: 3,
       child: Scaffold(
         key: _key,
-        // drawer: NavDrawer(),
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
           backgroundColor: AppColors.white,
           title: Row(
             children: [
               sizedBoxWidth(45.w),
-              // IconButton(
-              //   onPressed: () {
-              //     _key.currentState!.openDrawer();
-              //   },
-              //   icon: SizedBox(
-              //     height: 20.h,
-              //     width: 25.w,
-              //     child: SvgPicture.asset(
-              //       "assets/images/menu.svg",
-              //       // height: 20.h,
-              //       // width: 10.w,
-              //       fit: BoxFit.fill,
-              //     ),
-              //   ),
-              //   // color: Colors.red,
-              //   // iconSize: 100.h,
-              // ),
-
               sizedBoxWidth(5.w),
               Text(
                 'Your Profile',
@@ -132,98 +112,15 @@ class _ProfileState extends State<Profile> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 22.sp,
-                    // fontWeight: FontWeight.w400,
                     color: Colors.black),
               ),
-              // Spacer(),
-              // Icon(
-              //   Icons.more_vert_rounded,
-              //   color: Colors.blueAccent,
-              //   size: 25.sp,
-              // ),
-              // IconButton(
-              //   onPressed: () {
-              //     Get.toNamed('/notificationpage');
-              //   },
-              //   icon: SizedBox(
-              //     width: 18.w,
-              //     height: 25.h,
-              //     child: SvgPicture.asset(
-              //       'assets/images/notification-bell-svgrepo-com.svg',
-              //       fit: BoxFit.fill,
-              //     ),
-              //   ),
-              //   // iconSize: 22,
-              //   // color: const Color(0xFF303030),
-              // ),
             ],
           ),
-          // backgroundColor: Color(0xFFF5F8FA),
           elevation: 0,
           shadowColor: Colors.black,
           automaticallyImplyLeading: false,
           titleSpacing: 0,
         ),
-
-        // appBar: AppBar(
-        //   toolbarHeight: 50.h,
-        //   backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        //   elevation: 2,
-        //   shadowColor: Colors.black,
-        //   automaticallyImplyLeading: false,
-        //   titleSpacing: 0,
-        //   title: SingleChildScrollView(
-        //     scrollDirection: Axis.horizontal,
-        //     child: Text(
-        //       'Your Profile',
-        //       softWrap: true,
-        //       textAlign: TextAlign.center,
-        //       style: TextStyle(
-        //           fontFamily: 'Poppins',
-        //           fontSize: 19.sp,
-        //           fontWeight: FontWeight.w400,
-        //           color: Colors.black),
-        //     ),
-        //   ),
-        //   leading: Row(
-        //     children: [
-        //       IconButton(
-        //         onPressed: () {
-        //           _key.currentState!.openDrawer();
-        //         },
-        //         icon: SvgPicture.asset("assets/images/menu.svg"),
-        //         color: Colors.black,
-        //         iconSize: 25.sp,
-        //       ),
-        //     ],
-        //   ),
-        //   bottom: PreferredSize(
-        //     preferredSize: Size.fromHeight(50.h),
-        //     child: TabBar(
-        //       indicatorColor: Color(0xff002A5B),
-        //       indicatorWeight: 5.h,
-        //       tabs: [
-        //         Tab(
-        //             child: Text(
-        //           'Profile',
-        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-        //         )),
-        //         Tab(
-        //             child: Text(
-        //           'KYC',
-        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-        //         )),
-        //         Tab(
-        //             child: Text(
-        //           'Risk Profile',
-        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-        //         )),
-        //       ],
-        //     ),
-        //   ),
-        // ),
-        // // bottomNavigationBar:
-        //     CreateBottomBar(stateBottomNav, "Bottombarprofile", context),
         body: Column(
           children: [
             PreferredSize(
@@ -276,8 +173,6 @@ class profiletab extends StatefulWidget {
 }
 
 class _profiletabState extends State<profiletab> {
-  // bool isSwitched = false;
-
   bool editBool = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -300,21 +195,6 @@ class _profiletabState extends State<profiletab> {
     });
     // }
   }
-
-  // Future getImage(ImageSource source) async {
-  //   try {
-  //     final image = await ImagePicker().pickImage(source: source);
-  //     if (image == null) return;
-  //     final imageTemporary = File(image.path);
-  //     // final imagePermanent = await saveFilePermanently(image.path);
-
-  //     setState(() {
-  //       profilPic = imageTemporary;
-  //     });
-  //   } on PlatformException catch (e) {
-  //     print('Failed to pick image: $e');
-  //   }
-  // }
 
   Future<File> saveFilePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
@@ -445,8 +325,7 @@ class _profiletabState extends State<profiletab> {
                           ClipOval(
                             child: SizedBox.fromSize(
                                 size: Size.fromRadius(60.r),
-                                child: editProfileImage
-                                            .profilePicPath.value !=
+                                child: editProfileImage.profilePicPath.value !=
                                         ''
                                     ? Image(
                                         image: FileImage(File(editProfileImage
@@ -564,8 +443,7 @@ class _profiletabState extends State<profiletab> {
                               children: [
                                 sizedBoxHeight(10.h),
                                 Text(
-                                  addressValue == null ||
-                                          addressValue!.isEmpty
+                                  addressValue == null || addressValue!.isEmpty
                                       ? '614, 6TH Floor, Palm Spring Centre, New Link Rd, Malad West, Mumbai, Maharashtra 400064'
                                       : '$addressValue',
                                   textAlign: TextAlign.left,
@@ -902,7 +780,7 @@ class _profiletabState extends State<profiletab> {
       ),
     );
   }
-  
+
   //  Future<bool> _backbuttonpressed(BuildContext context) async {
   //   bool? exitapp = await showDialog(
   //     context: context,
@@ -967,7 +845,6 @@ class _profiletabState extends State<profiletab> {
   //   );
   //   return exitapp ?? false;
   // }
-
 }
 
 class KYCtabs extends StatefulWidget {
@@ -999,7 +876,7 @@ class _KYCtabsState extends State<KYCtabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
         child: PageView.builder(
           controller: _controller,
           itemCount: 4,
@@ -1205,13 +1082,13 @@ class _KYCtabsState extends State<KYCtabs> {
                         curve: Curves.linear);
                   });
                 },
-              )
+              ),
+              sizedBoxHeight(60.h)
             ],
           ),
         ),
       ),
     );
-    ;
   }
 
   Widget kyc2() {
@@ -1512,14 +1389,16 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               SizedBox(height: 40.h),
               CustomNextButton(
-                  text: "Continue",
-                  ontap: () {
-                    setState(() {
-                      _controller.animateToPage(currentIndex = 2,
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.linear);
-                    });
-                  })
+                text: "Continue",
+                ontap: () {
+                  setState(() {
+                    _controller.animateToPage(currentIndex = 2,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.linear);
+                  });
+                },
+              ),
+              sizedBoxHeight(60.h)
             ],
           ),
         ),
@@ -1710,7 +1589,8 @@ class _KYCtabsState extends State<KYCtabs> {
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.linear);
                     });
-                  })
+                  }),
+              sizedBoxHeight(60.h)
             ],
           ),
         ),
@@ -1904,7 +1784,8 @@ class _KYCtabsState extends State<KYCtabs> {
                     },
                   );
                 },
-              )
+              ),
+              sizedBoxHeight(60.h)
             ],
           ),
         ),
@@ -1955,7 +1836,7 @@ class _riskprofileState extends State<riskprofile> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
         child: Center(
             child: Form(
                 key: _form,
