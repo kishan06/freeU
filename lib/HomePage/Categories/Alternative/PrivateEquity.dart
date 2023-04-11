@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -11,7 +12,18 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
 class PrvateEquity extends StatefulWidget {
-  const PrvateEquity({super.key});
+  String title;
+  String des;
+  String irr;
+  String sih;
+  Color color;
+  PrvateEquity({super.key,
+    required this.title,
+    required this.des,
+    required this.irr,
+    required this.sih,
+    required this.color
+  });
 
   @override
   State<PrvateEquity> createState() => _PrvateEquityState();
@@ -27,9 +39,9 @@ class _PrvateEquityState extends State<PrvateEquity> {
         // SafeArea(
         //child:
         Scaffold(
-      backgroundColor: Color(0xFF004E84),
+      backgroundColor: widget.color,
       appBar: AppBar(
-        backgroundColor: Color(0xFF004E84),
+        backgroundColor: widget.color,
         elevation: 0,
         titleSpacing: 0,
         leading: SizedBox()
@@ -47,6 +59,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: EdgeInsets.only(left: 16.w),
@@ -54,7 +67,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "01. Private Equity Fund",
+                    widget.title,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -78,7 +91,8 @@ class _PrvateEquityState extends State<PrvateEquity> {
                     height: 140.h,
                     child: SingleChildScrollView(
                       child: Text(
-                        "Private Equity Funds is a collective investment scheme used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership.",
+                        widget.des,
+                        // "Private Equity Funds is a collective investment scheme used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership.",
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -123,12 +137,18 @@ class _PrvateEquityState extends State<PrvateEquity> {
                       SizedBox(
                         width: 25.w,
                       ),
-                      Text("Expected Return (IRR)\n ~ 15-24 % p.a.",
-                          style: TextStyle(
-                            color: Color(0XFFFBFBFB),
-                            fontSize: 20.sp,
-                            fontFamily: "Poppins",
-                          )),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Expected Return (IRR)",
+                              style: TextStyle(
+                                color: Color(0XFFFBFBFB),
+                                fontSize: 16.sp,
+                                fontFamily: "Poppins",
+                              )),
+                          text20White(widget.irr)
+                        ],
+                      ),
                     ],
                   ),
                   SizedBox(
@@ -146,13 +166,19 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         width: 25.w,
                       ),
                       Expanded(
-                        child: Text(
-                            "Suggested Investment Horizon More than 8 Years",
-                            style: TextStyle(
-                              color: Color(0XFFFBFBFB),
-                              fontSize: 20.sp,
-                              fontFamily: "Poppins",
-                            )),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                                "Suggested Investment Horizon",
+                                style: TextStyle(
+                                  color: Color(0XFFFBFBFB),
+                                  fontSize: 16.sp,
+                                  fontFamily: "Poppins",
+                                )),
+                            text20White(widget.sih)
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -170,13 +196,18 @@ class _PrvateEquityState extends State<PrvateEquity> {
                       SizedBox(
                         width: 25.w,
                       ),
-                      Expanded(
-                        child: Text("Minimum Investment 1 Crore",
-                            style: TextStyle(
-                              color: Color(0XFFFBFBFB),
-                              fontSize: 20.sp,
-                              fontFamily: "Poppins",
-                            )),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Minimum Investment",
+                              style: TextStyle(
+                                color: Color(0XFFFBFBFB),
+                                fontSize: 16.sp,
+                                fontFamily: "Poppins",
+                              )),
+
+                          text20White("1 Crore")
+                        ],
                       ),
                     ],
                   ),

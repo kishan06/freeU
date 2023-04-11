@@ -123,8 +123,9 @@ class _InsightsState extends State<Insights> {
           ),
         ),
         body: ListView.separated(
-            shrinkWrap: true,
-            itemBuilder: (context, index) {
+
+            itemBuilder: (context, number) {
+
               return Padding(
                 padding: EdgeInsets.all(16.w),
                 child: Material(
@@ -136,9 +137,6 @@ class _InsightsState extends State<Insights> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            'assets/images/img2.png',
-                          ),
                           Text(
                             'Retail banks wake up to digital',
                             style: TextStyle(
@@ -147,6 +145,10 @@ class _InsightsState extends State<Insights> {
                               color: Color(0xff000000),
                               fontWeight: FontWeight.w500,
                             ),
+                          ),
+                          sizedBoxHeight(6.h),
+                          Image.asset(
+                            'assets/images/img2.png',
                           ),
                           SizedBox(
                             height: 8.h,
@@ -190,7 +192,7 @@ class _InsightsState extends State<Insights> {
                                   width: double.infinity,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
-                                    color: Color(0xFF1B8DC9),
+                                    color: Color(0xFF143C6D),
                                   ),
                                   child: Padding(
                                     padding: const EdgeInsets.symmetric(

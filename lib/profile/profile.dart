@@ -91,7 +91,6 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   final GlobalKey<ScaffoldState> _key = GlobalKey();
-  // bool isSwitched = false;
 
   @override
   Widget build(BuildContext context) {
@@ -99,31 +98,12 @@ class _ProfileState extends State<Profile> {
       length: 3,
       child: Scaffold(
         key: _key,
-        // drawer: NavDrawer(),
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
           backgroundColor: AppColors.white,
           title: Row(
             children: [
               sizedBoxWidth(45.w),
-              // IconButton(
-              //   onPressed: () {
-              //     _key.currentState!.openDrawer();
-              //   },
-              //   icon: SizedBox(
-              //     height: 20.h,
-              //     width: 25.w,
-              //     child: SvgPicture.asset(
-              //       "assets/images/menu.svg",
-              //       // height: 20.h,
-              //       // width: 10.w,
-              //       fit: BoxFit.fill,
-              //     ),
-              //   ),
-              //   // color: Colors.red,
-              //   // iconSize: 100.h,
-              // ),
-
               sizedBoxWidth(5.w),
               Text(
                 'Your Profile',
@@ -132,98 +112,15 @@ class _ProfileState extends State<Profile> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 22.sp,
-                    // fontWeight: FontWeight.w400,
                     color: Colors.black),
               ),
-              // Spacer(),
-              // Icon(
-              //   Icons.more_vert_rounded,
-              //   color: Colors.blueAccent,
-              //   size: 25.sp,
-              // ),
-              // IconButton(
-              //   onPressed: () {
-              //     Get.toNamed('/notificationpage');
-              //   },
-              //   icon: SizedBox(
-              //     width: 18.w,
-              //     height: 25.h,
-              //     child: SvgPicture.asset(
-              //       'assets/images/notification-bell-svgrepo-com.svg',
-              //       fit: BoxFit.fill,
-              //     ),
-              //   ),
-              //   // iconSize: 22,
-              //   // color: const Color(0xFF303030),
-              // ),
             ],
           ),
-          // backgroundColor: Color(0xFFF5F8FA),
           elevation: 0,
           shadowColor: Colors.black,
           automaticallyImplyLeading: false,
           titleSpacing: 0,
         ),
-
-        // appBar: AppBar(
-        //   toolbarHeight: 50.h,
-        //   backgroundColor: Color.fromARGB(255, 255, 255, 255),
-        //   elevation: 2,
-        //   shadowColor: Colors.black,
-        //   automaticallyImplyLeading: false,
-        //   titleSpacing: 0,
-        //   title: SingleChildScrollView(
-        //     scrollDirection: Axis.horizontal,
-        //     child: Text(
-        //       'Your Profile',
-        //       softWrap: true,
-        //       textAlign: TextAlign.center,
-        //       style: TextStyle(
-        //           fontFamily: 'Poppins',
-        //           fontSize: 19.sp,
-        //           fontWeight: FontWeight.w400,
-        //           color: Colors.black),
-        //     ),
-        //   ),
-        //   leading: Row(
-        //     children: [
-        //       IconButton(
-        //         onPressed: () {
-        //           _key.currentState!.openDrawer();
-        //         },
-        //         icon: SvgPicture.asset("assets/images/menu.svg"),
-        //         color: Colors.black,
-        //         iconSize: 25.sp,
-        //       ),
-        //     ],
-        //   ),
-        //   bottom: PreferredSize(
-        //     preferredSize: Size.fromHeight(50.h),
-        //     child: TabBar(
-        //       indicatorColor: Color(0xff002A5B),
-        //       indicatorWeight: 5.h,
-        //       tabs: [
-        //         Tab(
-        //             child: Text(
-        //           'Profile',
-        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-        //         )),
-        //         Tab(
-        //             child: Text(
-        //           'KYC',
-        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-        //         )),
-        //         Tab(
-        //             child: Text(
-        //           'Risk Profile',
-        //           style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-        //         )),
-        //       ],
-        //     ),
-        //   ),
-        // ),
-        // // bottomNavigationBar:
-        //     CreateBottomBar(stateBottomNav, "Bottombarprofile", context),
         body: Column(
           children: [
             PreferredSize(
@@ -276,8 +173,6 @@ class profiletab extends StatefulWidget {
 }
 
 class _profiletabState extends State<profiletab> {
-  // bool isSwitched = false;
-
   bool editBool = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -300,21 +195,6 @@ class _profiletabState extends State<profiletab> {
     });
     // }
   }
-
-  // Future getImage(ImageSource source) async {
-  //   try {
-  //     final image = await ImagePicker().pickImage(source: source);
-  //     if (image == null) return;
-  //     final imageTemporary = File(image.path);
-  //     // final imagePermanent = await saveFilePermanently(image.path);
-
-  //     setState(() {
-  //       profilPic = imageTemporary;
-  //     });
-  //   } on PlatformException catch (e) {
-  //     print('Failed to pick image: $e');
-  //   }
-  // }
 
   Future<File> saveFilePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
@@ -428,222 +308,194 @@ class _profiletabState extends State<profiletab> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => _backbuttonpressed(context),
-      // async {
-      //   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-      //   final difference = DateTime.now().difference(timebackPressed);
-      //   final isExitWarning = difference >= Duration(seconds: 2);
-
-      //   timebackPressed = DateTime.now();
-
-      //   if (isExitWarning) {
-      //     const message = "Press back again to exit";
-      //     // print("reached here");
-      //     Fluttertoast.showToast(
-      //       msg: message,
-      //       fontSize: 18,
-      //     );
-
-      //     return false;
-      //   } else {
-      //     Fluttertoast.cancel();
-
-      //     SystemNavigator.pop();
-      //     return true;
-      //   }
-      // },
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: Colors.white,
-          body: Form(
-            key: _formKey,
-            child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
-              child: editBool
-                  ? editProfile()
-                  : Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            ClipOval(
-                              child: SizedBox.fromSize(
-                                  size: Size.fromRadius(60.r),
-                                  child: editProfileImage
-                                              .profilePicPath.value !=
-                                          ''
-                                      ? Image(
-                                          image: FileImage(File(editProfileImage
-                                              .profilePicPath.value)),
-                                          fit: BoxFit.cover,
-                                          width: 200.w,
-                                          height: 200.h,
-                                        )
-                                      : Image.asset('assets/images/user.png')),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              child: Text(
-                                nameValue == null || nameValue!.isEmpty
-                                    ? 'Kartikey Adani'
-                                    : '$nameValue $lastNameValue',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 22.sp,
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: Form(
+          key: _formKey,
+          child: SingleChildScrollView(
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
+            child: editBool
+                ? editProfile()
+                : Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          ClipOval(
+                            child: SizedBox.fromSize(
+                                size: Size.fromRadius(60.r),
+                                child: editProfileImage.profilePicPath.value !=
+                                        ''
+                                    ? Image(
+                                        image: FileImage(File(editProfileImage
+                                            .profilePicPath.value)),
+                                        fit: BoxFit.cover,
+                                        width: 200.w,
+                                        height: 200.h,
+                                      )
+                                    : Image.asset('assets/images/user.png')),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Flexible(
+                            child: Text(
+                              nameValue == null || nameValue!.isEmpty
+                                  ? 'Kartikey Adani'
+                                  : '$nameValue $lastNameValue',
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 22.sp,
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
                               ),
                             ),
-                            GestureDetector(
-                              onTap: (() {
-                                setState(() {
-                                  editBool = true;
-                                });
-                              }),
-                              child: SvgPicture.asset(
-                                'assets/images/Group 51018.svg',
-                                width: 20.w,
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 27.h,
-                        ),
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xff002A5B),
-                              radius: 25.r,
-                              child: Icon(Icons.phone_in_talk_sharp),
-                            ),
-                            SizedBox(
+                          ),
+                          GestureDetector(
+                            onTap: (() {
+                              setState(() {
+                                editBool = true;
+                              });
+                            }),
+                            child: SvgPicture.asset(
+                              'assets/images/Group 51018.svg',
                               width: 20.w,
                             ),
-                            Text(
-                              phoneValue == null || phoneValue!.isEmpty
-                                  ? '8425025713'
-                                  : '$phoneValue',
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 27.h,
+                      ),
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Color(0xff002A5B),
+                            radius: 25.r,
+                            child: Icon(Icons.phone_in_talk_sharp),
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Text(
+                            phoneValue == null || phoneValue!.isEmpty
+                                ? '8425025713'
+                                : '$phoneValue',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              fontFamily: 'Poppins',
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        height: 36.h,
+                        color: Colors.grey,
+                      ),
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Color(0xff002A5B),
+                            radius: 25.r,
+                            child: Icon(Icons.mail_outline),
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Flexible(
+                            child: Text(
+                              emailValue == null || emailValue!.isEmpty
+                                  ? 'Kartikey@gmail.com'
+                                  : '$emailValue',
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 20.sp,
                                 fontFamily: 'Poppins',
                               ),
                             ),
-                          ],
-                        ),
-                        Divider(
-                          height: 36.h,
-                          color: Colors.grey,
-                        ),
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xff002A5B),
-                              radius: 25.r,
-                              child: Icon(Icons.mail_outline),
-                            ),
-                            SizedBox(
-                              width: 20.w,
-                            ),
-                            Flexible(
-                              child: Text(
-                                emailValue == null || emailValue!.isEmpty
-                                    ? 'Kartikey@gmail.com'
-                                    : '$emailValue',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  fontFamily: 'Poppins',
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        Divider(
-                          height: 36.h,
-                          color: Colors.grey,
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            CircleAvatar(
-                              backgroundColor: Color(0xff002A5B),
-                              radius: 25.r,
-                              child: Icon(Icons.location_on_outlined),
-                            ),
-                            SizedBox(
-                              width: 22.w,
-                            ),
-                            Flexible(
-                              child: Column(
-                                children: [
-                                  sizedBoxHeight(10.h),
-                                  Text(
-                                    addressValue == null ||
-                                            addressValue!.isEmpty
-                                        ? '614, 6TH Floor, Palm Spring Centre, New Link Rd, Malad West, Mumbai, Maharashtra 400064'
-                                        : '$addressValue',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      fontFamily: 'Poppins',
-                                    ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        height: 36.h,
+                        color: Colors.grey,
+                      ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CircleAvatar(
+                            backgroundColor: Color(0xff002A5B),
+                            radius: 25.r,
+                            child: Icon(Icons.location_on_outlined),
+                          ),
+                          SizedBox(
+                            width: 22.w,
+                          ),
+                          Flexible(
+                            child: Column(
+                              children: [
+                                sizedBoxHeight(10.h),
+                                Text(
+                                  addressValue == null || addressValue!.isEmpty
+                                      ? '614, 6TH Floor, Palm Spring Centre, New Link Rd, Malad West, Mumbai, Maharashtra 400064'
+                                      : '$addressValue',
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontFamily: 'Poppins',
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                        Divider(
-                          height: 36.h,
-                          color: Colors.grey,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              'SMS updates',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 20.sp,
-                                fontFamily: 'Poppins',
-                              ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        height: 36.h,
+                        color: Colors.grey,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            'SMS updates',
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              fontFamily: 'Poppins',
                             ),
-                            FlutterSwitch(
-                              switchBorder: Border.all(
-                                strokeAlign: BorderSide.strokeAlignCenter,
-                                style: BorderStyle.solid,
-                                width: 1,
-                                color: const Color(0xffCCCCCC),
-                              ),
-                              padding: 4.h,
-                              borderRadius: 20.r,
-                              width: 80.w,
-                              height: 30.h,
-                              toggleSize: 20.sp,
-                              toggleColor: const Color(0xff143C6D),
-                              activeColor: Colors.white,
-                              inactiveColor: const Color(0xffB1B1B1),
-                              value: smsUpdate,
-                              onToggle: (value) {
-                                smsUpdate;
-                              },
+                          ),
+                          FlutterSwitch(
+                            switchBorder: Border.all(
+                              strokeAlign: BorderSide.strokeAlignCenter,
+                              style: BorderStyle.solid,
+                              width: 1,
+                              color: const Color(0xffCCCCCC),
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-            ),
+                            padding: 4.h,
+                            borderRadius: 20.r,
+                            width: 80.w,
+                            height: 30.h,
+                            toggleSize: 20.sp,
+                            toggleColor: const Color(0xff143C6D),
+                            activeColor: Colors.white,
+                            inactiveColor: const Color(0xffB1B1B1),
+                            value: smsUpdate,
+                            onToggle: (value) {
+                              smsUpdate;
+                            },
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
           ),
         ),
       ),
@@ -928,71 +780,71 @@ class _profiletabState extends State<profiletab> {
       ),
     );
   }
-  
-   Future<bool> _backbuttonpressed(BuildContext context) async {
-    bool exitapp = await showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Padding(
-          padding:  EdgeInsets.all(15.w),
-          child: AlertDialog(
-             shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
-          insetPadding: const EdgeInsets.symmetric(vertical: 10),
-            title:Text(
-            "Exit App",
-            style: TextStyle(
-                fontFamily: 'Studio Pro',
-                fontWeight: FontWeight.bold,
-                fontSize: 18.sp,
-                color: const Color(0xff3B3F43)),
-          ),
-            content: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: Text(
-              "Are you sure you want to Exit App?",
-              style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 16.sp,
-                  color: const Color(0xff54595F)),
-            ),
-          ),
-            actions: [
-             InkWell(
-              onTap: () {
-                Get.back();
-              },
-              child: Text(
-                "No",
-                style: TextStyle(
-                    fontFamily: "Roboto",
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.sp,
-                    color: const Color(0xff000000)),
-              ),
-            ),
-            sizedBoxWidth(15.sp),
-            InkWell(
-              onTap: () {
-                SystemNavigator.pop();
-              },
-              child: Text(
-                "Yes",
-                style: TextStyle(
-                    fontFamily: "Roboto",
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.sp,
-                    color: const Color(0xffB90101)),
-              ),
-            ),
-            sizedBoxWidth(15.sp),
-            ],
-          ),
-        );
-      },
-    );
-    return exitapp ?? false;
-  }
+
+  //  Future<bool> _backbuttonpressed(BuildContext context) async {
+  //   bool? exitapp = await showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return Padding(
+  //         padding:  EdgeInsets.all(15.w),
+  //         child: AlertDialog(
+  //            shape:
+  //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
+  //         insetPadding: const EdgeInsets.symmetric(vertical: 10),
+  //           title:Text(
+  //           "Exit App",
+  //           style: TextStyle(
+  //               fontFamily: 'Studio Pro',
+  //               fontWeight: FontWeight.bold,
+  //               fontSize: 18.sp,
+  //               color: const Color(0xff3B3F43)),
+  //         ),
+  //           content: SizedBox(
+  //           width: MediaQuery.of(context).size.width,
+  //           child: Text(
+  //             "Are you sure you want to Exit App?",
+  //             style: TextStyle(
+  //                 fontFamily: 'Roboto',
+  //                 fontSize: 16.sp,
+  //                 color: const Color(0xff54595F)),
+  //           ),
+  //         ),
+  //           actions: [
+  //            InkWell(
+  //             onTap: () {
+  //               Get.back();
+  //             },
+  //             child: Text(
+  //               "No",
+  //               style: TextStyle(
+  //                   fontFamily: "Roboto",
+  //                   fontWeight: FontWeight.w500,
+  //                   fontSize: 16.sp,
+  //                   color: const Color(0xff000000)),
+  //             ),
+  //           ),
+  //           sizedBoxWidth(15.sp),
+  //           InkWell(
+  //             onTap: () {
+  //               SystemNavigator.pop();
+  //             },
+  //             child: Text(
+  //               "Yes",
+  //               style: TextStyle(
+  //                   fontFamily: "Roboto",
+  //                   fontWeight: FontWeight.w500,
+  //                   fontSize: 16.sp,
+  //                   color: const Color(0xffB90101)),
+  //             ),
+  //           ),
+  //           sizedBoxWidth(15.sp),
+  //           ],
+  //         ),
+  //       );
+  //     },
+  //   );
+  //   return exitapp ?? false;
+  // }
 }
 
 class KYCtabs extends StatefulWidget {
@@ -1024,7 +876,7 @@ class _KYCtabsState extends State<KYCtabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
         child: PageView.builder(
           controller: _controller,
           itemCount: 4,
@@ -1173,7 +1025,7 @@ class _KYCtabsState extends State<KYCtabs> {
                       Row(
                         children: [
                           Icon(Icons.calendar_month_outlined),
-                          sizedBoxWidth(45.w)
+                          sizedBoxWidth(10.w)
                         ],
                       ),
                     ],
@@ -1230,13 +1082,13 @@ class _KYCtabsState extends State<KYCtabs> {
                         curve: Curves.linear);
                   });
                 },
-              )
+              ),
+              sizedBoxHeight(60.h)
             ],
           ),
         ),
       ),
     );
-    ;
   }
 
   Widget kyc2() {
@@ -1537,14 +1389,16 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               SizedBox(height: 40.h),
               CustomNextButton(
-                  text: "Continue",
-                  ontap: () {
-                    setState(() {
-                      _controller.animateToPage(currentIndex = 2,
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.linear);
-                    });
-                  })
+                text: "Continue",
+                ontap: () {
+                  setState(() {
+                    _controller.animateToPage(currentIndex = 2,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.linear);
+                  });
+                },
+              ),
+              sizedBoxHeight(60.h)
             ],
           ),
         ),
@@ -1735,7 +1589,8 @@ class _KYCtabsState extends State<KYCtabs> {
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.linear);
                     });
-                  })
+                  }),
+              sizedBoxHeight(60.h)
             ],
           ),
         ),
@@ -1929,7 +1784,8 @@ class _KYCtabsState extends State<KYCtabs> {
                     },
                   );
                 },
-              )
+              ),
+              sizedBoxHeight(60.h)
             ],
           ),
         ),
@@ -1980,7 +1836,7 @@ class _riskprofileState extends State<riskprofile> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 30.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
         child: Center(
             child: Form(
                 key: _form,

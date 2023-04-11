@@ -168,209 +168,183 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: () => _backbuttonpressed(context),
-      // async {
-      //   // SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-      //   final difference = DateTime.now().difference(timebackPressed);
-      //   final isExitWarning = difference >= Duration(seconds: 2);
+    return Scaffold(
+      key: _key,
+      // drawer: NavDrawer(),
+      appBar: AppBar(
+        backgroundColor: AppColors.white,
+        title: Row(
+          children: [
+            sizedBoxWidth(45.w),
+            // IconButton(
+            //   onPressed: () {
+            //     _key.currentState!.openDrawer();
+            //   },
+            //   icon: SizedBox(
+            //     height: 20.h,
+            //     width: 25.w,
+            //     child: SvgPicture.asset(
+            //       "assets/images/menu.svg",
+            //       // height: 20.h,
+            //       // width: 10.w,
+            //       fit: BoxFit.fill,
+            //     ),
+            //   ),
+            //   // color: Colors.red,
+            //   // iconSize: 100.h,
+            // ),
 
-      //   timebackPressed = DateTime.now();
-
-      //   if (isExitWarning) {
-      //     const message = "Press back again to exit";
-      //     // print("reached here");
-      //     Fluttertoast.showToast(
-      //       msg: message,
-      //       fontSize: 18,
-      //     );
-
-      //     return false;
-      //   } else {
-      //     Fluttertoast.cancel();
-
-      //     SystemNavigator.pop();
-      //     return true;
-      //   }
-      // },
-      child: Scaffold(
-        key: _key,
-        // drawer: NavDrawer(),
-        appBar: AppBar(
-          backgroundColor: AppColors.white,
-          title: Row(
-            children: [
-              sizedBoxWidth(45.w),
-              // IconButton(
-              //   onPressed: () {
-              //     _key.currentState!.openDrawer();
-              //   },
-              //   icon: SizedBox(
-              //     height: 20.h,
-              //     width: 25.w,
-              //     child: SvgPicture.asset(
-              //       "assets/images/menu.svg",
-              //       // height: 20.h,
-              //       // width: 10.w,
-              //       fit: BoxFit.fill,
-              //     ),
-              //   ),
-              //   // color: Colors.red,
-              //   // iconSize: 100.h,
-              // ),
-
-              sizedBoxWidth(5.w),
-              Text(
-                'Categories',
-                softWrap: true,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 22.sp,
-                    // fontWeight: FontWeight.w400,
-                    color: Colors.black),
-              ),
-              Spacer(),
-              IconButton(
-                onPressed: () {
-                  Get.toNamed('/notificationpage');
-                },
-                icon: SizedBox(
-                  width: 18.w,
-                  height: 25.h,
-                  child: SvgPicture.asset(
-                    'assets/images/notification-bell-svgrepo-com.svg',
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                // iconSize: 22,
-                // color: const Color(0xFF303030),
-              ),
-            ],
-          ),
-          // backgroundColor: Color(0xFFF5F8FA),
-          elevation: 0,
-          shadowColor: Colors.black,
-          automaticallyImplyLeading: false,
-          titleSpacing: 0,
-        ),
-
-        // backgroundColor: Color(0xFFF5F8FA),
-        // appBar: AppBar(
-        //   backgroundColor: AppColors.white,
-        //   title: Row(
-        //     children: [
-        //       IconButton(
-        //         onPressed: () {
-        //           _key.currentState!.openDrawer();
-        //         },
-        //         icon: SizedBox(
-        //           height: 20.h,
-        //           width: 25.w,
-        //           child: SvgPicture.asset(
-        //             "assets/images/menu.svg",
-        //             // height: 20.h,
-        //             // width: 10.w,
-        //             fit: BoxFit.fill,
-        //           ),
-        //         ),
-        //         // color: Colors.red,
-        //         // iconSize: 100.h,
-        //       ),
-        //       sizedBoxWidth(5.w),
-        //       Text(
-        //         'Categories',
-        //         softWrap: true,
-        //         textAlign: TextAlign.center,
-        //         style: TextStyle(
-        //             fontFamily: 'Poppins',
-        //             fontSize: 22.sp,
-        //             // fontWeight: FontWeight.w400,
-        //             color: Colors.black),
-        //       ),
-        //       Spacer(),
-        //       IconButton(
-        //         onPressed: () {
-        //           Get.toNamed('/notificationpage');
-        //         },
-        //         icon: SizedBox(
-        //           width: 18.w,
-        //           height: 25.h,
-        //           child: SvgPicture.asset(
-        //             'assets/images/notification-bell-svgrepo-com.svg',
-        //             fit: BoxFit.fill,
-        //           ),
-        //         ),
-        //         // iconSize: 22,
-        //         // color: const Color(0xFF303030),
-        //       ),
-        //     ],
-        //   ),
-        //   // backgroundColor: Color(0xFFF5F8FA),
-        //   elevation: 0,
-        //   shadowColor: Colors.black,
-        //   automaticallyImplyLeading: false,
-        //   titleSpacing: 0,
-        // ),
-
-        // bottomNavigationBar:
-        //     CreateBottomBar(stateBottomNav, "Bottombarcategoies", context),
-
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w),
-          child: GridView.builder(
-            // shrinkWrap: true,
-            // physics: NeverScrollableScrollPhysics(),
-            itemCount: categoryData.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 169 / 133,
-              crossAxisCount: 2,
-              crossAxisSpacing: 15.w,
-              mainAxisSpacing: 15.w,
+            sizedBoxWidth(5.w),
+            Text(
+              'Categories',
+              softWrap: true,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Poppins',
+                  fontSize: 22.sp,
+                  // fontWeight: FontWeight.w400,
+                  color: Colors.black),
             ),
-            itemBuilder: (BuildContext context, int index) {
-              return GestureDetector(
-                onTap: () {
-                  var screen;
-                  switch (index) {
-                    case 0:
-                      screen = AlternativeInsvestment();
-
-                      break;
-
-                    case 1:
-                      screen = FractionalRealestate();
-
-                      break;
-                    default:
-                  }
-                  Get.to(screen);
-                },
-                child: categoryCard(
-                  color1: categoryData[index]["colorL"],
-                  color2: categoryData[index]["colorD"],
-                  bgImage: categoryData[index]["bgImage"],
-                  image: categoryData[index]["imageUrl"],
-                  text: categoryData[index]["title"],
+            Spacer(),
+            IconButton(
+              onPressed: () {
+                Get.toNamed('/notificationpage');
+              },
+              icon: SizedBox(
+                width: 18.w,
+                height: 25.h,
+                child: SvgPicture.asset(
+                  'assets/images/notification-bell-svgrepo-com.svg',
+                  fit: BoxFit.fill,
                 ),
-              );
-              // InkWell(
-              //   onTap: () {
-              //     Get.toNamed("/InspirationRecipeComment");
-              //   },
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //         image: DecorationImage(
-              //             image: index.isEven
-              //                 ? AssetImage("assets/home/17.png")
-              //                 : AssetImage("assets/home/12.png"),
-              //             fit: BoxFit.cover
-              //             // Image.asset("name")
-              //             )),
-              //   ),
-              // );
-            },
+              ),
+              // iconSize: 22,
+              // color: const Color(0xFF303030),
+            ),
+          ],
+        ),
+        // backgroundColor: Color(0xFFF5F8FA),
+        elevation: 0,
+        shadowColor: Colors.black,
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+      ),
+
+      // backgroundColor: Color(0xFFF5F8FA),
+      // appBar: AppBar(
+      //   backgroundColor: AppColors.white,
+      //   title: Row(
+      //     children: [
+      //       IconButton(
+      //         onPressed: () {
+      //           _key.currentState!.openDrawer();
+      //         },
+      //         icon: SizedBox(
+      //           height: 20.h,
+      //           width: 25.w,
+      //           child: SvgPicture.asset(
+      //             "assets/images/menu.svg",
+      //             // height: 20.h,
+      //             // width: 10.w,
+      //             fit: BoxFit.fill,
+      //           ),
+      //         ),
+      //         // color: Colors.red,
+      //         // iconSize: 100.h,
+      //       ),
+      //       sizedBoxWidth(5.w),
+      //       Text(
+      //         'Categories',
+      //         softWrap: true,
+      //         textAlign: TextAlign.center,
+      //         style: TextStyle(
+      //             fontFamily: 'Poppins',
+      //             fontSize: 22.sp,
+      //             // fontWeight: FontWeight.w400,
+      //             color: Colors.black),
+      //       ),
+      //       Spacer(),
+      //       IconButton(
+      //         onPressed: () {
+      //           Get.toNamed('/notificationpage');
+      //         },
+      //         icon: SizedBox(
+      //           width: 18.w,
+      //           height: 25.h,
+      //           child: SvgPicture.asset(
+      //             'assets/images/notification-bell-svgrepo-com.svg',
+      //             fit: BoxFit.fill,
+      //           ),
+      //         ),
+      //         // iconSize: 22,
+      //         // color: const Color(0xFF303030),
+      //       ),
+      //     ],
+      //   ),
+      //   // backgroundColor: Color(0xFFF5F8FA),
+      //   elevation: 0,
+      //   shadowColor: Colors.black,
+      //   automaticallyImplyLeading: false,
+      //   titleSpacing: 0,
+      // ),
+
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "Bottombarcategoies", context),
+
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: GridView.builder(
+          // shrinkWrap: true,
+          // physics: NeverScrollableScrollPhysics(),
+          itemCount: categoryData.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            childAspectRatio: 169 / 133,
+            crossAxisCount: 2,
+            crossAxisSpacing: 15.w,
+            mainAxisSpacing: 15.w,
           ),
+          itemBuilder: (BuildContext context, int index) {
+            return GestureDetector(
+              onTap: () {
+                var screen;
+                switch (index) {
+                  case 0:
+                    screen = AlternativeInsvestment();
+
+                    break;
+
+                  case 1:
+                    screen = FractionalRealestate();
+
+                    break;
+                  default:
+                }
+                Get.to(screen);
+              },
+              child: categoryCard(
+                color1: categoryData[index]["colorL"],
+                color2: categoryData[index]["colorD"],
+                bgImage: categoryData[index]["bgImage"],
+                image: categoryData[index]["imageUrl"],
+                text: categoryData[index]["title"],
+              ),
+            );
+            // InkWell(
+            //   onTap: () {
+            //     Get.toNamed("/InspirationRecipeComment");
+            //   },
+            //   child: Container(
+            //     decoration: BoxDecoration(
+            //         image: DecorationImage(
+            //             image: index.isEven
+            //                 ? AssetImage("assets/home/17.png")
+            //                 : AssetImage("assets/home/12.png"),
+            //             fit: BoxFit.cover
+            //             // Image.asset("name")
+            //             )),
+            //   ),
+            // );
+          },
         ),
       ),
     );
@@ -428,68 +402,69 @@ class _CategoriesMainState extends State<CategoriesMain> {
     );
   }
   
-   Future<bool> _backbuttonpressed(BuildContext context) async {
-    bool exitapp = await showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return Padding(
-          padding:  EdgeInsets.all(15.w),
-          child: AlertDialog(
-             shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
-          insetPadding: const EdgeInsets.symmetric(vertical: 10),
-            title:Text(
-            "Exit App",
-            style: TextStyle(
-                fontFamily: 'Studio Pro',
-                fontWeight: FontWeight.bold,
-                fontSize: 18.sp,
-                color: const Color(0xff3B3F43)),
-          ),
-            content: SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: Text(
-              "Are you sure you want to Exit App?",
-              style: TextStyle(
-                  fontFamily: 'Roboto',
-                  fontSize: 16.sp,
-                  color: const Color(0xff54595F)),
-            ),
-          ),
-            actions: [
-             InkWell(
-              onTap: () {
-                Get.back();
-              },
-              child: Text(
-                "No",
-                style: TextStyle(
-                    fontFamily: "Roboto",
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.sp,
-                    color: const Color(0xff000000)),
-              ),
-            ),
-            sizedBoxWidth(15.sp),
-            InkWell(
-              onTap: () {
-                SystemNavigator.pop();
-              },
-              child: Text(
-                "Yes",
-                style: TextStyle(
-                    fontFamily: "Roboto",
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16.sp,
-                    color: const Color(0xffB90101)),
-              ),
-            ),
-            sizedBoxWidth(15.sp),
-            ],
-          ),
-        );
-      },
-    );
-    return exitapp ?? false;
-  }
+  //  Future<bool> _backbuttonpressed(BuildContext context) async {
+  //   bool exitapp = await showDialog(
+  //     context: context,
+  //     builder: (BuildContext context) {
+  //       return Padding(
+  //         padding:  EdgeInsets.all(15.w),
+  //         child: AlertDialog(
+  //            shape:
+  //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
+  //         insetPadding: const EdgeInsets.symmetric(vertical: 10),
+  //           title:Text(
+  //           "Exit App",
+  //           style: TextStyle(
+  //               fontFamily: 'Studio Pro',
+  //               fontWeight: FontWeight.bold,
+  //               fontSize: 18.sp,
+  //               color: const Color(0xff3B3F43)),
+  //         ),
+  //           content: SizedBox(
+  //           width: MediaQuery.of(context).size.width,
+  //           child: Text(
+  //             "Are you sure you want to Exit App?",
+  //             style: TextStyle(
+  //                 fontFamily: 'Roboto',
+  //                 fontSize: 16.sp,
+  //                 color: const Color(0xff54595F)),
+  //           ),
+  //         ),
+  //           actions: [
+  //            InkWell(
+  //             onTap: () {
+  //               Get.back();
+  //             },
+  //             child: Text(
+  //               "No",
+  //               style: TextStyle(
+  //                   fontFamily: "Roboto",
+  //                   fontWeight: FontWeight.w500,
+  //                   fontSize: 16.sp,
+  //                   color: const Color(0xff000000)),
+  //             ),
+  //           ),
+  //           sizedBoxWidth(15.sp),
+  //           InkWell(
+  //             onTap: () {
+  //               SystemNavigator.pop();
+  //             },
+  //             child: Text(
+  //               "Yes",
+  //               style: TextStyle(
+  //                   fontFamily: "Roboto",
+  //                   fontWeight: FontWeight.w500,
+  //                   fontSize: 16.sp,
+  //                   color: const Color(0xffB90101)),
+  //             ),
+  //           ),
+  //           sizedBoxWidth(15.sp),
+  //           ],
+  //         ),
+  //       );
+  //     },
+  //   );
+  //   return exitapp ?? false;
+  // }
+
 }

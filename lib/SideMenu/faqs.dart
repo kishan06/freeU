@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -14,69 +12,93 @@ class FAQs extends StatefulWidget {
 }
 
 class _FAQsState extends State<FAQs> {
+  bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomSignupAppBar(
-        titleTxt: "",
-        bottomtext: false,
-      ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "FAQ's",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 25.sp,
-                      fontWeight: FontWeight.w500),
-                ),
-              ],
-            ),
-          ),
 
-          // Column(
-          //   crossAxisAlignment: CrossAxisAlignment.start,
-          //   children: [
-          //     GestureDetector(
-          //         onTap: () {
-          //           Get.back();
-          //         },
-          //         child: Icon(
-          //           Icons.arrow_back,
-          //           size: 24.sp,
-          //           color: Color(0xff000000),
-          //         )),
-          //     SizedBox(
-          //       height: 10.h,
-          //     ),
-          //     Text(
-          //       "FAQ's",
-          //       style: TextStyle(
-          //           fontFamily: "Poppins",
-          //           fontSize: 25.sp,
-          //           fontWeight: FontWeight.w500),
-          //     ),
-          //   ],
-          // ),
-          SizedBox(
-            height: 20.h,
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              scrollDirection: Axis.vertical,
-              padding: EdgeInsets.only(left: 16, right: 16),
-              child: ListView.separated(
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                      onTap: () {
+                        Get.back();
+                      },
+                      child: Icon(
+                        Icons.arrow_back,
+                        size: 24.sp,
+                        color: const Color(0xff000000),
+                      )),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text(
+                    "FAQ's",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 25.sp,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                    border: notCollapsed
+                        ? null
+                        : Border.all(color: const Color(0xffCCCCCC)),
+                    color:
+                        notCollapsed ? const Color(0xff143C6D) : Colors.white,
+                    borderRadius: BorderRadius.circular(10.r)),
+                child: ExpansionTile(
+                  childrenPadding: EdgeInsets.all(15.h),
+                  initiallyExpanded: notCollapsed,
+                  onExpansionChanged: (value) {
+                    setState(() {
+                      notCollapsed = value;
+                    });
+                  },
+                  trailing: Icon(
+                    notCollapsed
+                        ? Icons.remove_circle_outline_rounded
+                        : Icons.add_circle_outline_rounded,
+                    size: 18.sp,
+                    color: notCollapsed ? Colors.white : Colors.black,
+                  ),
+                  title: Text(
+                    'What is Free U?',
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 20.sp,
+                        color: notCollapsed ? Colors.white : Colors.black),
+                  ),
+                  children: <Widget>[
+                    Text(
+                      "Free U is a tech enabled commercial real estate investment platform that allows its users to access Grade A commercial, retail, and warehousing assets tenanted to multinational tenants.",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontFamily: "Poppins",
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w300),
+                    ),
+                  ],
+                ),
+              ),
+              sizedBoxHeight(15.h),
+              ListView.separated(
                   shrinkWrap: true,
                   itemBuilder: (context, index) {
-                    return FAQwidgets();
+                    return const FAQwidgets();
                   },
                   separatorBuilder: (context, index) {
                     return sizedBoxHeight(15.h);
@@ -108,7 +130,7 @@ class _FAQwidgetsState extends State<FAQwidgets> {
     return Container(
       decoration: BoxDecoration(
           border: isExpanded ? null : Border.all(color: Color(0xffCCCCCC)),
-          color: isExpanded ? Color(0xff143C6D) : Colors.white,
+          color: isExpanded ? const Color(0xff143C6D) : Colors.white,
           borderRadius: BorderRadius.circular(10.r)),
       child: ExpansionTile(
         childrenPadding: EdgeInsets.all(15.h),

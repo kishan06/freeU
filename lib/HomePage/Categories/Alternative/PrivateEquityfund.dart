@@ -17,6 +17,15 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: CustomNextButton(
+          text: 'View Categories',
+          ontap: () {
+            Get.toNamed("/privateequityfunddeals");
+          },
+        ),
+      ),
       backgroundColor: Color(0xFFFFFFFF),
       appBar: CustomSignupAppBar(
         titleTxt: "",
@@ -39,60 +48,46 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
       // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Stack(children: [
-          SingleChildScrollView(
-            // padding: EdgeInsets.symmetric(
-            //   horizontal: 16.w,
-            // ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Private Equity Fund",
-                      style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontSize: 25.sp,
-                          fontWeight: FontWeight.w500),
-                    ),
-                  ],
-                ),
-                sizedBoxHeight(20.h),
-                faqAccod(),
-                sizedBoxHeight(15.h),
-                faqAccod1(),
-                sizedBoxHeight(15.h),
-                faqAccod2(),
-                sizedBoxHeight(15.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-                // faqAccod(),
-                // sizedBoxHeight(15.h),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 20),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: CustomNextButton(
-                text: 'View Categories',
-                ontap: () {
-                  Get.toNamed("/privateequityfunddeals");
-                },
+        child: SingleChildScrollView(
+          // padding: EdgeInsets.symmetric(
+          //   horizontal: 16.w,
+          // ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Private Equity Fund",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 25.sp,
+                        fontWeight: FontWeight.w500),
+                  ),
+                ],
               ),
-            ),
+              sizedBoxHeight(20.h),
+              faqAccod(),
+              sizedBoxHeight(15.h),
+              faqAccod1(),
+              sizedBoxHeight(15.h),
+              faqAccod2(),
+              sizedBoxHeight(15.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+              // faqAccod(),
+              // sizedBoxHeight(15.h),
+            ],
           ),
-        ]),
+        ),
       ),
     );
   }

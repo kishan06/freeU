@@ -286,181 +286,204 @@ class _CompleteProfileState extends State<CompleteProfile> {
         bottomtext: false,
       ),
       backgroundColor: Color(0xFFFFFFFFF),
-      body: Center(
-        child: Form(
-          key: _form,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Complete Your Profile",
-                      style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w500,
-                          fontSize: 25.sp),
-                    )
-                  ],
-                ),
-              ),
-              Expanded(
-                  child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      height: 15.h,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Enter your full name",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins')),
-                        sizedBoxHeight(15.h),
-                        CustomTextFormField(
-                          hintText: "Full Name*",
-                          validatorText: "Full Name",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Full Name";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        Text("Enter your email address",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins')),
-                        sizedBoxHeight(15.h),
-                        CustomTextFormField(
-                          hintText: "Email Id*",
-                          validatorText: "Email Id",
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Enter your Email address';
-                            }
-                            if (!RegExp(
-                                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                .hasMatch(value)) {
-                              return 'Enter a Valid Email address';
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        Text("Enter your phone number",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins')),
-                        sizedBoxHeight(15.h),
-                        CustomTextFormField(
-                          texttype: TextInputType.number,
-                          inputFormatters: <TextInputFormatter>[
-                            LengthLimitingTextInputFormatter(10),
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
-                          hintText: "Phone Number*",
-                          validatorText: "Phone Number",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Phone Number";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        Text("Enter your date of birth",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins')),
-                        sizedBoxHeight(15.h),
-                        CustomTextFormField(
-                          texttype: TextInputType.number,
-                          hintText: "Date Of Birth*",
-                          validatorText: "Date Of Birth",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Date Of Birth";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        Text("Enter your occupation",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins')),
-                        sizedBoxHeight(15.h),
-                        CustomTextFormField(
-                          hintText: "Occupation*",
-                          validatorText: "Occupation",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Occupation";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        Text("Enter your address",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins')),
-                        sizedBoxHeight(15.h),
-                        TextFormField(
-                          cursorColor: const Color(0xFF707070),
-                          autovalidateMode: AutovalidateMode.onUserInteraction,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.only(
-                                left: 20, right: 20, top: 10, bottom: 10),
-                            filled: true,
-                            fillColor: Colors.white,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color(0xFFCCCCCC), width: 1),
+
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: EdgeInsets.only(left: 30, right: 30, bottom: 20, top: 10),
+          child: Center(
+            child: Form(
+              key: _form,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Complete Your Profile",
+                        style: TextStyle(
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w500,
+                            fontSize: 25.sp),
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15.h,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text("Enter your full name",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
+                      CustomTextFormField(
+                        hintText: "Full Name*",
+                        validatorText: "Full Name",
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please Enter Full Name";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 25.h),
+                      Text("Enter your email address",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
+                      CustomTextFormField(
+                        hintText: "Email Id*",
+                        validatorText: "Email Id",
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return 'Enter your Email address';
+                          }
+                          if (!RegExp(
+                                  r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                              .hasMatch(value)) {
+                            return 'Enter a Valid Email address';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 25.h),
+                      Text("Enter your phone number",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
+                      CustomTextFormField(
+                        texttype: TextInputType.number,
+                        inputFormatters: <TextInputFormatter>[
+                          LengthLimitingTextInputFormatter(10),
+                          FilteringTextInputFormatter.digitsOnly
+                        ],
+                        hintText: "Phone Number*",
+                        validatorText: "Phone Number",
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please Enter Phone Number";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 25.h),
+                      Text("Enter your date of birth",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
+                      GestureDetector(
+                        onTap: () {
+                          _presentDatePicker();
+                        },
+                        child: Container(
+                          height: 45.h,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color(0xffCCCCCC),
                             ),
-                            enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color(0xFFCCCCCC), width: 1),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
-                                  color: Color(0xFFCCCCCC), width: 1),
-                            ),
-                            errorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide:
-                                  const BorderSide(color: Colors.red, width: 1),
-                            ),
-                            focusedErrorBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide:
-                                  const BorderSide(color: Colors.red, width: 1),
-                            ),
-                            hintStyle: TextStyle(
-                                color: Color(0x80000000),
-                                fontSize: 16.sm,
-                                fontFamily: "Poppins"),
-                            hintText: "Address",
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  sizedBoxWidth(20.w),
+                                  Text(_selectedDate == null
+                                      ? ''
+                                      : '$datecontroller'),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.calendar_month_outlined),
+                                  sizedBoxWidth(10.w)
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      // CustomTextFormField(
+                      //   texttype: TextInputType.number,
+                      //   hintText: "Date Of Birth*",
+                      //   validatorText: "Date Of Birth",
+                      //   validator: (value) {
+                      //     if (value == null || value.isEmpty) {
+                      //       return "Please Enter Date Of Birth";
+                      //     }
+                      //     return null;
+                      //   },
+                      // ),
+                      SizedBox(height: 25.h),
+                      Text("Enter your occupation",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
+                      CustomTextFormField(
+                        hintText: "Occupation*",
+                        validatorText: "Occupation",
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please Enter Occupation";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 25.h),
+                      Text("Enter your address",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
+                      TextFormField(
+                        cursorColor: const Color(0xFF707070),
+                        autovalidateMode: AutovalidateMode.onUserInteraction,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.only(
+                              left: 20, right: 20, top: 10, bottom: 10),
+                          filled: true,
+                          fillColor: Colors.white,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide:
+                                BorderSide(color: Color(0xFFCCCCCC), width: 1),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide:
+                                BorderSide(color: Color(0xFFCCCCCC), width: 1),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide:
+                                BorderSide(color: Color(0xFFCCCCCC), width: 1),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide:
+                                const BorderSide(color: Colors.red, width: 1),
+                          ),
+                          focusedErrorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                            borderSide:
+                                const BorderSide(color: Colors.red, width: 1),
+
                           ),
                           minLines: 5,
                           maxLines: null,
@@ -471,69 +494,107 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             return null;
                           },
                         ),
-                        SizedBox(height: 25.h),
-                        Text("Enter Aadhar Number",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins')),
-                        sizedBoxHeight(15.h),
-                        CustomTextFormField(
-                          hintText: "Enter Aadhar Number",
-                          validatorText: "Enter Aadhar Number",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Aadhar Number";
-                            }
-                            return null;
-                          },
-                        ),
-                        SizedBox(height: 25.h),
-                        Text("Enter PAN Number",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins')),
-                        sizedBoxHeight(15.h),
-                        CustomTextFormField(
-                          hintText: "Enter PAN Number",
-                          validatorText: "Enter PAN Number",
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter PAN Number";
-                            }
-                            return null;
-                          },
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 50.h,
-                    ),
-                    CustomNextButton(
-                      ontap: () {
-                        final isValid = _form.currentState?.validate();
-                        if (isValid!) {
-                          buildGuideTour();
-                        } else {
-                          Get.snackbar("Error", "Please Enter Required Fields",
-                              margin: EdgeInsets.all(8),
-                              snackStyle: SnackStyle.FLOATING,
-                              snackPosition: SnackPosition.BOTTOM);
-                        }
-                      },
-                      text: 'Submit',
-                    ),
-                    SizedBox(
-                      height: 20.h,
-                    )
-                  ],
-                ),
-              )),
-            ],
+
+                        minLines: 5,
+                        maxLines: null,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please Enter Address";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 25.h),
+                      Text("Enter Aadhar Number",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
+                      CustomTextFormField(
+                        texttype: TextInputType.number,
+                        hintText: "Enter Aadhar Number",
+                        validatorText: "Enter Aadhar Number",
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please Enter Aadhar Number";
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 25.h),
+                      Text("Enter PAN Number",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins')),
+                      sizedBoxHeight(15.h),
+                      CustomTextFormField(
+                        textCapital: true,
+                        hintText: "Enter PAN Number",
+                        validatorText: "Enter PAN Number",
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return "Please Enter PAN Number";
+                          }
+                          return null;
+                        },
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 50.h,
+                  ),
+                  CustomNextButton(
+                    ontap: () {
+                      final isValid = _form.currentState?.validate();
+                      if (isValid!) {
+                        buildGuideTour();
+                      } else {
+                        Get.snackbar("Error", "Please Enter Required Fields",
+                            margin: EdgeInsets.all(8),
+                            snackStyle: SnackStyle.FLOATING,
+                            snackPosition: SnackPosition.BOTTOM);
+                      }
+                    },
+                    text: 'Submit',
+                  ),
+                  SizedBox(
+                    height: 20.h,
+                  )
+                ],
+              ),
+            ),
           ),
         ),
       ),
     );
   }
+
+  void _presentDatePicker() {
+    // showDatePicker is a pre-made funtion of Flutter
+    showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(1922),
+            lastDate: DateTime.now())
+        .then((pickedDate) {
+      // Check if no date is selected
+      if (pickedDate == null) {
+        return setState(() {
+          datecontroller = '';
+        });
+        ;
+      }
+      setState(() {
+        _selectedDate = pickedDate;
+        datecontroller =
+            "${_selectedDate!.day.toString()}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.year.toString().padLeft(2, '0')}";
+      });
+    });
+  }
+
+  DateTime? _selectedDate;
+
+  String? datecontroller;
 }

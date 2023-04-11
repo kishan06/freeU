@@ -12,6 +12,7 @@ class CustomTextFormField extends StatefulWidget {
     this.textEditingController,
     this.leadingIcon,
     this.readonly = false,
+    this.textCapital = false,
     this.isInputPassword = false,
     this.outlineColor = const Color(0xFFFFB600),
     // this.keyboardType,
@@ -25,6 +26,7 @@ class CustomTextFormField extends StatefulWidget {
   final Widget? leadingIcon;
   final bool isInputPassword;
   final bool readonly;
+  final bool textCapital;
   final dynamic inputFormatters;
   final Color outlineColor;
   // final TextInputType? keyboardType;
@@ -46,6 +48,9 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+        textCapitalization: widget.textCapital
+            ? TextCapitalization.characters
+            : TextCapitalization.none,
         style: TextStyle(
           fontSize: 16.sp,
         ),

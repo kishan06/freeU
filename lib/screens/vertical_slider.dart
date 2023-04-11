@@ -22,37 +22,40 @@ class VerticalSlider extends StatefulWidget {
 }
 
 class _VerticalSliderState extends State<VerticalSlider> {
-
   List verticalSliderData = [
     {
-      "title":"01. Private Equity Fund",
-      "des":"Private Equity Funds is a collective investment scheme used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership.",
-      "IRR":"~ 15-24 % p.a.",
-      "SIH":"More than 8 Years",
+      "title": "01. Private Equity Fund",
+      "des":
+          "Private Equity Funds is a collective investment scheme used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership.",
+      "IRR": "~ 15-24 % p.a.",
+      "SIH": "More than 8 Years",
       // "MI":"1 Crore",
       "color": AppColors.blue004E84
     },
     {
-      "title":"02. Debt Fund",
-      "des":"Debt Funds invest in debt instruments of a preferably high-growth potential company (both listed or unlisted), investing the funds in different company bonds, debentures, and other money market instruments.",
-      "IRR":"~ 12-16 % p.a.",
-      "SIH":"More than 4 Years",
+      "title": "02. Debt Fund",
+      "des":
+          "Debt Funds invest in debt instruments of a preferably high-growth potential company (both listed or unlisted), investing the funds in different company bonds, debentures, and other money market instruments.",
+      "IRR": "~ 12-16 % p.a.",
+      "SIH": "More than 4 Years",
       // "MI":"1 Crore",
       "color": AppColors.pink873762
     },
     {
-      "title":"03. Private Real Estate Fund",
-      "des":"Real Estate AIF under category II helps various real estate properties across India, mainly from High-Net-Worth investors intending to grow and spread their capital through non-traditional investment routes.",
-      "IRR":"~15-24% p.a.",
-      "SIH":"More than 6 Years",
+      "title": "03. Private Real Estate Fund",
+      "des":
+          "Real Estate AIF under category II helps various real estate properties across India, mainly from High-Net-Worth investors intending to grow and spread their capital through non-traditional investment routes.",
+      "IRR": "~15-24% p.a.",
+      "SIH": "More than 6 Years",
       // "MI":"1 Crore",
       "color": AppColors.blue002A5B
     },
     {
-      "title":"04. Fund for Distressed Asset",
-      "des":"Real Estate AIF under category II helps various real estate properties across India, mainly from High-Net-Worth investors intending to grow and spread their capital through non-traditional investment routes.",
-      "IRR":"~15-24% p.a.",
-      "SIH":"More than 6 Years",
+      "title": "04. Fund for Distressed Asset",
+      "des":
+          "Real Estate AIF under category II helps various real estate properties across India, mainly from High-Net-Worth investors intending to grow and spread their capital through non-traditional investment routes.",
+      "IRR": "~15-24% p.a.",
+      "SIH": "More than 6 Years",
       // "MI":"1 Crore",
       "color": AppColors.green008A5B
     },
@@ -65,41 +68,48 @@ class _VerticalSliderState extends State<VerticalSlider> {
     // TODO: implement initState
     super.initState();
     // if (controller.nsfData == null) {
-      // controller.apiForNft();
+    // controller.apiForNft();
     // }
   }
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
+    return Scaffold(
         // backgroundColor: AppColors.transparent,
-        body: 
-        Stack(
-          children: [
-            PageView.builder(
-              itemCount: 6,
-              scrollDirection:Axis.vertical,
+        body: SafeArea(
+      child: Stack(
+        children: [
+          PageView.builder(
+              itemCount: verticalSliderData.length,
+              scrollDirection: Axis.vertical,
               itemBuilder: (context, index) {
-                return PrvateEquity();
+                // var = ver
+                return PrvateEquity(
+                  title: verticalSliderData[index]["title"],
+                  des: verticalSliderData[index]["des"],
+                  irr: verticalSliderData[index]["IRR"],
+                  sih: verticalSliderData[index]["SIH"],
+                  color: verticalSliderData[index]["color"],
+                );
               }),
-
-            Positioned(
-              top: 6.h,
-              left: 4.w,
-              child: IconButton(
-                onPressed: () {
-                  Get.back();
-                },
-                icon: Icon(
-                  Icons.arrow_back,
-                ),
-                iconSize: 26.w,
-                color: Color(0XFFFFFFFF),
+          Positioned(
+            top: 6.h,
+            left: 4.w,
+            child: IconButton(
+              onPressed: () {
+                Get.back();
+              },
+              icon: Icon(
+                Icons.arrow_back,
               ),
+              iconSize: 26.w,
+              color: Color(0XFFFFFFFF),
             ),
-          ],
-        )
+          ),
+        ],
+      ),
+    )
+
         // CarouselSlider.builder(
         //   itemCount: 4,
         //   itemBuilder: (context, index, realIndex) {
@@ -109,8 +119,8 @@ class _VerticalSliderState extends State<VerticalSlider> {
         //     //   var original = itemInfo["price"];
         //     //   var stringPrice = original.toString();
         //     //   var priceDouble = double.parse(stringPrice);
-      
-        //     //   return insideSlider(  
+
+        //     //   return insideSlider(
         //     //     nftName: itemInfo["name"],
         //     //     description: itemInfo["des"],
         //     //     userName: itemInfo["uname"],
@@ -129,28 +139,25 @@ class _VerticalSliderState extends State<VerticalSlider> {
         //   },
         //   options: CarouselOptions(
         //     enableInfiniteScroll: false,
-      
-        //     viewportFraction: 1, 
-        //     height: double.infinity, 
+
+        //     viewportFraction: 1,
+        //     height: double.infinity,
         //     aspectRatio: 0,
         //     scrollDirection: Axis.vertical
         //   ),
         // ),
-   
-      )
-    );
+
+        );
   }
 
-
-
   // Widget insideSlider({
-  //     String? nftName, 
-  //     String? description, 
-  //     String? userName, 
+  //     String? nftName,
+  //     String? description,
+  //     String? userName,
   //     String? imageUrl,
-  //     int? likeStatus, 
-  //     int? totalLikes, 
-  //     required double price, 
+  //     int? likeStatus,
+  //     int? totalLikes,
+  //     required double price,
   //     void Function()? onTap
   //   }){
   //     return Column(
@@ -167,7 +174,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
   //               // height: MediaQuery.of(context).size.height,
   //               height: (MediaQuery.of(context).size.width - 10.w) + 80.h,
   //               // width: MediaQuery.of(context).size.width,
-  //             ), 
+  //             ),
 
   //             Positioned(
   //               top: 0.h,
@@ -177,7 +184,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
   //                 child: Container(
   //                   height: MediaQuery.of(context).size.width - 10.w,
   //                   width: MediaQuery.of(context).size.width - 20.w,
-                        
+
   //                   decoration: BoxDecoration(
   //                     borderRadius: BorderRadius.circular(30.h),
   //                     image: DecorationImage(
@@ -188,7 +195,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
   //                 ),
   //               ),
   //             ),
-          
+
   //             Positioned(
   //               bottom: -0.h,
   //               child: Container(
@@ -215,40 +222,39 @@ class _VerticalSliderState extends State<VerticalSlider> {
   //                                   )
   //                                 ),
   //                               ),
-                    
+
   //                               sizedBoxHeight(5.h),
-                    
+
   //                               textWhite15W500("@$userName"),
-                    
+
   //                             ],
   //                           ),
-                            
+
   //                           const Spacer(),
-                        
+
   //                           Column(
   //                             mainAxisAlignment: MainAxisAlignment.center,
   //                             crossAxisAlignment: CrossAxisAlignment.end,
   //                             children: [
-                    
+
   //                               textWhite13W500("Price"),
-                        
+
   //                               SizedBox(height: 4.h),
-                        
+
   //                               textWhite17("$price Snoozz")
   //                             ],
-  //                           ),          
+  //                           ),
   //                         ],
   //                       ),
-                    
+
   //                       sizedBoxHeight(10.h),
-                    
+
   //                       textWhite17(nftName!),
-                    
-                    
+
   //                       Row(
   //                         children: [
   //                           textWhite15W500("$description"),
-                    
+
   //                           const Spacer(),
   //                           Row(
   //                             children: [
@@ -283,9 +289,9 @@ class _VerticalSliderState extends State<VerticalSlider> {
   //               //   blur: 5,
   //               // ),
   //             ),
-          
+
   //             // sizedBoxHeight(20.h)
-              
+
   //           ],
   //         ),
 
@@ -339,11 +345,9 @@ class _VerticalSliderState extends State<VerticalSlider> {
   //           //   ),
   //           // ),
 
-
   //           sizedBoxHeight(100.h)
   //         ],
   //       );
-    
-  // }
 
+  // }
 }
