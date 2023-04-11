@@ -123,7 +123,9 @@ class _InsightsState extends State<Insights> {
           ),
         ),
         body: ListView.separated(
+
             itemBuilder: (context, number) {
+
               return Padding(
                 padding: EdgeInsets.all(16.w),
                 child: Material(

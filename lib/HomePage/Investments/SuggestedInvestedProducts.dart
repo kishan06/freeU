@@ -89,21 +89,25 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
       key: _key,
       drawer: NavDrawer(),
       backgroundColor: Color(0xffffffff),
-      appBar: AppBar(
-        backgroundColor: Color(0xffffffff),
-        elevation: 0,
-        titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-          ),
-          iconSize: 26,
-          color: Colors.black,
-        ),
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
       ),
+      //  AppBar(
+      //   backgroundColor: Color(0xffffffff),
+      //   elevation: 0,
+      //   titleSpacing: 0,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Get.back();
+      //     },
+      //     icon: Icon(
+      //       Icons.arrow_back,
+      //     ),
+      //     iconSize: 26,
+      //     color: Colors.black,
+      //   ),
+      // ),
       // CustomSignupAppBar(
       //   titleTxt: "Suggested Invested Products",
       //   showLeading: true,

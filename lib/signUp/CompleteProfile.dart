@@ -286,6 +286,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
         bottomtext: false,
       ),
       backgroundColor: Color(0xFFFFFFFFF),
+
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.only(left: 30, right: 30, bottom: 20, top: 10),
@@ -482,13 +483,18 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             borderRadius: BorderRadius.circular(10),
                             borderSide:
                                 const BorderSide(color: Colors.red, width: 1),
+
                           ),
-                          hintStyle: TextStyle(
-                              color: Color(0x80000000),
-                              fontSize: 16.sm,
-                              fontFamily: "Poppins"),
-                          hintText: "Address",
+                          minLines: 5,
+                          maxLines: null,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return "Please Enter Address";
+                            }
+                            return null;
+                          },
                         ),
+
                         minLines: 5,
                         maxLines: null,
                         validator: (value) {

@@ -26,21 +26,25 @@ class _HowToInvestState extends State<HowToInvest> {
         //child:
         Scaffold(
       backgroundColor: Color(0xFFFFFFFF),
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFFFFFF),
-        elevation: 0,
-        titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-          ),
-          iconSize: 26,
-          color: Colors.black,
-        ),
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
       ),
+      // AppBar(
+      //   backgroundColor: Color(0xFFFFFFFF),
+      //   elevation: 0,
+      //   titleSpacing: 0,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Get.back();
+      //     },
+      //     icon: Icon(
+      //       Icons.arrow_back,
+      //     ),
+      //     iconSize: 26,
+      //     color: Colors.black,
+      //   ),
+      // ),
       body: Center(
         child: Column(
           children: [

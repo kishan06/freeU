@@ -2,6 +2,7 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
@@ -19,22 +20,26 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF1FAFF),
-      appBar: AppBar(
-        backgroundColor: Color(0xFFF1FAFF),
-        elevation: 0,
-        titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            // Get.toNamed("/privateequity");
-            Get.back();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-          ),
-          iconSize: 26,
-          color: Colors.black,
-        ),
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
       ),
+      // AppBar(
+      //   backgroundColor: Color(0xFFF1FAFF),
+      //   elevation: 0,
+      //   titleSpacing: 0,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       // Get.toNamed("/privateequity");
+      //       Get.back();
+      //     },
+      //     icon: Icon(
+      //       Icons.arrow_back,
+      //     ),
+      //     iconSize: 26,
+      //     color: Colors.black,
+      //   ),
+      // ),
       body: Column(
         children: [
           Padding(

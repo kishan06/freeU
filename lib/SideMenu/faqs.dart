@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +17,7 @@ class _FAQsState extends State<FAQs> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+
       body: SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
@@ -101,10 +103,10 @@ class _FAQsState extends State<FAQs> {
                   separatorBuilder: (context, index) {
                     return sizedBoxHeight(15.h);
                   },
-                  itemCount: 6)
-            ],
-          ),
-        ),
+                  itemCount: 6),
+            ),
+          )
+        ],
       ),
     );
   }

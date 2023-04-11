@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
@@ -16,6 +17,11 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
+
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.h),
         child: CustomNextButton(
@@ -25,21 +31,22 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
             },
             text: 'Invest now'),
       ),
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFFFFFFF),
-        elevation: 0,
-        titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: const Icon(
-            Icons.arrow_back,
-          ),
-          iconSize: 26.h,
-          color: Colors.black,
-        ),
-      ),
+
+      // AppBar(
+      //   backgroundColor: const Color(0xFFFFFFFF),
+      //   elevation: 0,
+      //   titleSpacing: 0,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Get.back();
+      //     },
+      //     icon: const Icon(
+      //       Icons.arrow_back,
+      //     ),
+      //     iconSize: 26.h,
+      //     color: Colors.black,
+      //   ),
+      // ),
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),

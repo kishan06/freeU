@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
@@ -17,6 +18,11 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
+      appBar: CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
+
       bottomNavigationBar: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.h),
         child: CustomNextButton(
@@ -26,21 +32,22 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
           },
         ),
       ),
-      appBar: AppBar(
-        backgroundColor: Color(0xFFFFFFFF),
-        elevation: 0,
-        titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(
-            Icons.arrow_back,
-          ),
-          iconSize: 26,
-          color: Colors.black,
-        ),
-      ),
+
+      // AppBar(
+      //   backgroundColor: Color(0xFFFFFFFF),
+      //   elevation: 0,
+      //   titleSpacing: 0,
+      //   leading: IconButton(
+      //     onPressed: () {
+      //       Get.back();
+      //     },
+      //     icon: Icon(
+      //       Icons.arrow_back,
+      //     ),
+      //     iconSize: 26,
+      //     color: Colors.black,
+      //   ),
+      // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: SingleChildScrollView(
