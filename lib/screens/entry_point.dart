@@ -4,6 +4,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
@@ -11,6 +12,7 @@ import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/HomePage/Investments/InvestmentMain.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/profile/profile.dart';
 import 'package:freeu/screens/side_menu.dart';
 import 'package:get/get.dart';
@@ -35,6 +37,7 @@ class _EntryPointState extends State<EntryPoint> with SingleTickerProviderStateM
   late AnimationController _animationController;
   late Animation<double> animation;
   late Animation<double> scaleAnimation;
+  late bool logedIn;
   // late bool Loge;
   // var selectedIndex = 0.obs;
   var screens = [
@@ -46,9 +49,11 @@ class _EntryPointState extends State<EntryPoint> with SingleTickerProviderStateM
   ];
 
   @override
-  Future<void> initState() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    // LogedIn
+  void initState() {
+    // final SharedPreferences prefs = await SharedPreferences.getInstance();
+    // logedIn = prefs.getBool('LogedIn') ?? false;
+    checkLogin();
+    print("checked");
 
     
     selectedIndex.value = Get.arguments;
@@ -86,139 +91,216 @@ class _EntryPointState extends State<EntryPoint> with SingleTickerProviderStateM
   // late 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.white,
-      child: SafeArea(
-        child: Scaffold(
-          backgroundColor: AppColors.blue143C6D,
-          resizeToAvoidBottomInset: false,
-          extendBody: true,
-          body: Stack(
-            children: [
-              AnimatedPositioned(
-                duration: Duration(milliseconds: 200),
-                curve: Curves.fastOutSlowIn,
-                left: isSideMenuClosed ? -300.w :0,
-                width: 300.w,
-                height: MediaQuery.of(context).size.height,
-                child: SideBar()
-              ),
-              Transform(
-                alignment: Alignment.center,
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
-                  ..rotateY(animation.value - 30 * animation.value * pi / 180),
-                child: Transform.translate(
-                  offset: Offset(animation.value * 300.w, 0),
-                  child: Transform.scale(
-                    scale: scaleAnimation.value,
-                    child: ClipRRect(
-                      // bord
-                      borderRadius: BorderRadius.all(Radius.circular(isSideMenuClosed ? 0 : 24)),
-                      child: Obx(() => screens[selectedIndex.value])
-                      // screens[selectedIndex.value]
-                      // HomePage()
+    return WillPopScope(
+      onWillPop: () => _backbuttonpressed(context),
+      child: Container(
+        color: AppColors.white,
+        child: SafeArea(
+          child: Scaffold(
+            backgroundColor: AppColors.blue143C6D,
+            resizeToAvoidBottomInset: false,
+            extendBody: true,
+            body: Stack(
+              children: [
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 200),
+                  curve: Curves.fastOutSlowIn,
+                  left: isSideMenuClosed ? -300.w :0,
+                  width: 300.w,
+                  height: MediaQuery.of(context).size.height,
+                  child: SideBar()
+                ),
+                Transform(
+                  alignment: Alignment.center,
+                  transform: Matrix4.identity()
+                    ..setEntry(3, 2, 0.001)
+                    ..rotateY(animation.value - 30 * animation.value * pi / 180),
+                  child: Transform.translate(
+                    offset: Offset(animation.value * 300.w, 0),
+                    child: Transform.scale(
+                      scale: scaleAnimation.value,
+                      child: ClipRRect(
+                        // bord
+                        borderRadius: BorderRadius.all(Radius.circular(isSideMenuClosed ? 0 : 24)),
+                        child: Obx(() => screens[selectedIndex.value])
+                        // screens[selectedIndex.value]
+                        // HomePage()
+                      )
                     )
-                  )
-                ),
-              ),
-              AnimatedPositioned(
-                duration: Duration(milliseconds: 200),
-                curve: Curves.fastOutSlowIn,
-                // left: isSideMenuClosed ? 0 ? 220,
-                top: 5.h,
-                child: IconButton(
-                  onPressed: () {
-                    if (isSideMenuClosed) {
-                      _animationController.forward();
-                    } else {
-                      _animationController.reverse();
-                    }
-                    setState(() {
-              
-                      isSideMenuClosed = !isSideMenuClosed;
-                    });
-                  },
-                  icon: isSideMenuClosed ? SizedBox(
-                    height: 20.h,
-                    width: 25.w,
-                    child: SvgPicture.asset("assets/images/menu.svg",
-                      // height: 20.h,
-                      // width: 10.w,
-                      fit: BoxFit.fill,
-                    ),
-                  ) : Icon(Icons.cancel_outlined,
-                    size: 25.w,
-                    color: AppColors.white,
                   ),
-                  // color: Colors.red,
-                  // iconSize: 100.h,
                 ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 200),
+                  curve: Curves.fastOutSlowIn,
+                  // left: isSideMenuClosed ? 0 ? 220,
+                  top: 5.h,
+                  child: IconButton(
+                    onPressed: () {
+                      if (isSideMenuClosed) {
+                        _animationController.forward();
+                      } else {
+                        _animationController.reverse();
+                      }
+                      setState(() {
+                
+                        isSideMenuClosed = !isSideMenuClosed;
+                      });
+                    },
+                    icon: isSideMenuClosed ? SizedBox(
+                      height: 20.h,
+                      width: 25.w,
+                      child: SvgPicture.asset("assets/images/menu.svg",
+                        // height: 20.h,
+                        // width: 10.w,
+                        fit: BoxFit.fill,
+                      ),
+                    ) : Icon(Icons.cancel_outlined,
+                      size: 25.w,
+                      color: AppColors.white,
+                    ),
+                    // color: Colors.red,
+                    // iconSize: 100.h,
+                  ),
+                ),
+              ],
+            ),
+            bottomNavigationBar: isSideMenuClosed ? Obx(
+              () => BottomNavigationBar(
+                // height
+              // fixedColor: AppColors.transparent,
+              // fixedColor: Colors.transparent,
+              
+              selectedLabelStyle: TextStyle(fontSize: 12.sp),
+              unselectedLabelStyle: TextStyle(fontSize: 12.sp),
+              iconSize: 20.h,
+              selectedItemColor: AppColors.blue143C6D,
+              unselectedItemColor: AppColors.black,
+              elevation: 0,
+              // labe
+              backgroundColor: AppColors.white,
+              type: BottomNavigationBarType.fixed,
+              items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                activeIcon: activeIcon("assets/images/home-svgrepo-com (1).svg"),
+                icon: inactiveIcon("assets/images/home-svgrepo-com.svg"),
+                // icon: Icon(Icons.home),
+                label: "Home",
               ),
-            ],
-          ),
-          bottomNavigationBar: isSideMenuClosed ? Obx(
-            () => BottomNavigationBar(
-              // height
-            // fixedColor: AppColors.transparent,
-            // fixedColor: Colors.transparent,
+              BottomNavigationBarItem(
+                // icon: Icon(Icons.explore),
+                activeIcon: activeIcon("assets/images/category-alt-svgrepo-com (1).svg"),
+                icon: inactiveIcon("assets/images/category-alt-svgrepo-com.svg"),
+                label: "Categories",
+              ),
+              BottomNavigationBarItem(
+                activeIcon: activeIcon("assets/images/Group 51109.svg"),
+                icon: inactiveIcon("assets/images/money-dollar-coin-svgrepo-com.svg"),
             
-            selectedLabelStyle: TextStyle(fontSize: 12.sp),
-            unselectedLabelStyle: TextStyle(fontSize: 12.sp),
-            iconSize: 20.h,
-            selectedItemColor: AppColors.blue143C6D,
-            unselectedItemColor: AppColors.black,
-            elevation: 0,
-            // labe
-            backgroundColor: AppColors.white,
-            type: BottomNavigationBarType.fixed,
-            items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              activeIcon: activeIcon("assets/images/home-svgrepo-com (1).svg"),
-              icon: inactiveIcon("assets/images/home-svgrepo-com.svg"),
-              // icon: Icon(Icons.home),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              // icon: Icon(Icons.explore),
-              activeIcon: activeIcon("assets/images/category-alt-svgrepo-com (1).svg"),
-              icon: inactiveIcon("assets/images/category-alt-svgrepo-com.svg"),
-              label: "Categories",
-            ),
-            BottomNavigationBarItem(
-              activeIcon: activeIcon("assets/images/Group 51109.svg"),
-              icon: inactiveIcon("assets/images/money-dollar-coin-svgrepo-com.svg"),
+                // icon: Icon(Icons.circle, size: 0),
+                label: "Investment",
+              ),
+              BottomNavigationBarItem(
+                activeIcon: activeIcon("assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
+                icon: inactiveIcon("assets/images/chat-left-3-svgrepo-com (2).svg"),
+                label: "Chat",
+              ),
+              BottomNavigationBarItem(
+                activeIcon: activeIcon("assets/images/Path 30132.svg"),
+                icon: inactiveIcon("assets/images/profile.svg"),
+                label: "Profile",
+              ),
+              ],
+              currentIndex: selectedIndex.value,
+            
+              onTap: (int index) {
+                // if (index != 2) {
+                  selectedIndex.value = index;
+                // }
+              },
+              ),
+            ): SizedBox()
           
-              // icon: Icon(Icons.circle, size: 0),
-              label: "Investment",
-            ),
-            BottomNavigationBarItem(
-              activeIcon: activeIcon("assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
-              icon: inactiveIcon("assets/images/chat-left-3-svgrepo-com (2).svg"),
-              label: "Chat",
-            ),
-            BottomNavigationBarItem(
-              activeIcon: activeIcon("assets/images/Path 30132.svg"),
-              icon: inactiveIcon("assets/images/profile.svg"),
-              label: "Profile",
-            ),
-            ],
-            currentIndex: selectedIndex.value,
-          
-            onTap: (int index) {
-              // if (index != 2) {
-                selectedIndex.value = index;
-              // }
-            },
-            ),
-          ): SizedBox()
-        
+          ),
         ),
       ),
     );
 
     // return const Placeholder();
+
   }
+
+  checkLogin() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    logedIn = prefs.getBool('LogedIn') ?? false;
+    print(logedIn);
+
+  }
+
+  Future<bool> _backbuttonpressed(BuildContext context) async {
+    bool? exitapp = await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Padding(
+          padding:  EdgeInsets.all(15.w),
+          child: AlertDialog(
+             shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
+          insetPadding: const EdgeInsets.symmetric(vertical: 10),
+            title:Text(
+            "Exit App",
+            style: TextStyle(
+                fontFamily: 'Studio Pro',
+                fontWeight: FontWeight.bold,
+                fontSize: 18.sp,
+                color: const Color(0xff3B3F43)),
+          ),
+            content: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            child: Text(
+              "Are you sure you want to Exit App?",
+              style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontSize: 16.sp,
+                  color: const Color(0xff54595F)),
+            ),
+          ),
+            actions: [
+             InkWell(
+              onTap: () {
+                Get.back();
+              },
+              child: Text(
+                "No",
+                style: TextStyle(
+                    fontFamily: "Roboto",
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.sp,
+                    color: const Color(0xff000000)),
+              ),
+            ),
+            sizedBoxWidth(15.sp),
+            InkWell(
+              onTap: () {
+                SystemNavigator.pop();
+              },
+              child: Text(
+                "Yes",
+                style: TextStyle(
+                    fontFamily: "Roboto",
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.sp,
+                    color: const Color(0xffB90101)),
+              ),
+            ),
+            sizedBoxWidth(15.sp),
+            ],
+          ),
+        );
+      },
+    );
+    return exitapp ?? false;
+  }
+
 
   Widget activeIcon(String imagePath) {
     return Column(children: [
