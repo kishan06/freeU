@@ -11,10 +11,18 @@ class EntryPointController extends GetxController {
   bool? _isLoading = true;
   bool? get isLoading => _isLoading;
 
+  // int _selectedIndex = 0;
+  // int get selectedIndex => _selectedIndex;
+
   checkLogin() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     _logedIn = prefs.getBool('LogedIn') ?? false;
     _isLoading = false;
     update();
   }
+
+  // selectedPage(int index) {
+  //   _selectedIndex = index;
+  //   update();
+  // }
 }

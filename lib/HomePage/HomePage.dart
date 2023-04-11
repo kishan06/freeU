@@ -20,7 +20,10 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+
 import 'Categories/Alternative/Fractionalpage.dart';
+
+import '../controllers/entry_point_controller.dart';
 
 // part 'HomePage.dart';
 
@@ -38,21 +41,6 @@ class _HomePageState extends State<HomePage> {
 
   // int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
-  PageController indicatorcontroller = PageController(
-    viewportFraction: 0.97,
-  );
-  PageController categoriescontroller = PageController(
-    viewportFraction: 0.55,
-  );
-  PageController investmentcontroller = PageController(
-    viewportFraction: 0.9,
-  );
-  PageController pickcontroller = PageController(
-    viewportFraction: 0.70,
-  );
-  PageController recommendedcontroller = PageController(
-    viewportFraction: 0.99,
-  );
 
   List topPickData = [
     {
@@ -156,48 +144,9 @@ class _HomePageState extends State<HomePage> {
     },
   ];
 
-  void _selectedTab(int index) {
-    setState(() {
-      // _lastSelected = 'TAB: $index';
-      // print(_lastSelected);
+  final controllerEntryPoint = Get.put(EntryPointController());
 
-      switch (index) {
-        case 0:
-          {
-            Get.toNamed("/homepage");
-          }
-          break;
-
-        case 1:
-          {
-            Get.toNamed('/categoriesmain');
-          }
-          break;
-
-        case 2:
-          {
-            Get.toNamed('/investmentmain');
-          }
-          break;
-        case 3:
-          {
-            Get.toNamed('/chatpage');
-          }
-          break;
-        case 4:
-          {
-            Get.toNamed('/myprofile');
-          }
-          break;
-        default:
-          {
-            throw Error();
-          }
-      }
-    });
-  }
-
-  DateTime timebackPressed = DateTime.now();
+  // DateTime timebackPressed = DateTime.now();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -325,8 +274,15 @@ class _HomePageState extends State<HomePage> {
                       text20Black("Top Picks"),
                       InkWell(
                           onTap: () {
-                            selectedIndex = 1;
-                            setState(() {});
+
+                            Get.toNamed("/EntryPoint",
+                                arguments: 1, preventDuplicates: false);
+                            // Get.toNamed(page)
+                            // controllerEntryPoint.selectedPage(1);
+                            // Get.toNamed("/EntryPoint", arguments: 1);
+                            // selectedIndex = 1;
+                            // setState(() {});
+
                           },
                           child: text14Grey272424("View more"))
                     ],
@@ -362,9 +318,15 @@ class _HomePageState extends State<HomePage> {
               ),
 
               twoText("Categories", "View more", onTap: () {
-                print("SD");
-                selectedIndex = 1;
-                setState(() {});
+
+                Get.toNamed("/EntryPoint",
+                    arguments: 1, preventDuplicates: false);
+                // controllerEntryPoint.selectedPage(1);
+
+                // print("SD");
+                // selectedIndex = 1;
+                // setState(() {});
+
                 // widget.enttyPoint.se
                 // entryPoint._sel
                 // Get.toNamed("/",
