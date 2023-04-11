@@ -347,7 +347,10 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         text20Black("Top Picks"),
                         InkWell(
-                            onTap: () {}, child: text14Grey272424("View more"))
+                            onTap: () {
+                              selectedIndex.value = 1;
+                            },
+                            child: text14Grey272424("View more"))
                       ],
                     ),
                     SizedBox(
@@ -1554,8 +1557,11 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                text14Black(text1),
-
+                Text(
+                  text1,
+                  style:
+                      TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
+                ),
                 // Spacer(),
 
                 sizedBoxHeight(5.h),

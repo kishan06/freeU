@@ -381,17 +381,51 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               color: Color(0XFF000000),
                               fontFamily: 'Poppins')),
                       sizedBoxHeight(15.h),
-                      CustomTextFormField(
-                        texttype: TextInputType.number,
-                        hintText: "Date Of Birth*",
-                        validatorText: "Date Of Birth",
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return "Please Enter Date Of Birth";
-                          }
-                          return null;
+                      GestureDetector(
+                        onTap: () {
+                          _presentDatePicker();
                         },
+                        child: Container(
+                          height: 45.h,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                              color: Color(0xffCCCCCC),
+                            ),
+                            borderRadius: BorderRadius.circular(10.r),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Row(
+                                children: [
+                                  sizedBoxWidth(20.w),
+                                  Text(_selectedDate == null
+                                      ? ''
+                                      : '$datecontroller'),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Icon(Icons.calendar_month_outlined),
+                                  sizedBoxWidth(10.w)
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
+                      // CustomTextFormField(
+                      //   texttype: TextInputType.number,
+                      //   hintText: "Date Of Birth*",
+                      //   validatorText: "Date Of Birth",
+                      //   validator: (value) {
+                      //     if (value == null || value.isEmpty) {
+                      //       return "Please Enter Date Of Birth";
+                      //     }
+                      //     return null;
+                      //   },
+                      // ),
                       SizedBox(height: 25.h),
                       Text("Enter your occupation",
                           style: TextStyle(
@@ -472,6 +506,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               fontFamily: 'Poppins')),
                       sizedBoxHeight(15.h),
                       CustomTextFormField(
+                        texttype: TextInputType.number,
                         hintText: "Enter Aadhar Number",
                         validatorText: "Enter Aadhar Number",
                         validator: (value) {
@@ -489,6 +524,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               fontFamily: 'Poppins')),
                       sizedBoxHeight(15.h),
                       CustomTextFormField(
+                        textCapital: true,
                         hintText: "Enter PAN Number",
                         validatorText: "Enter PAN Number",
                         validator: (value) {
@@ -528,4 +564,31 @@ class _CompleteProfileState extends State<CompleteProfile> {
       ),
     );
   }
+
+  void _presentDatePicker() {
+    // showDatePicker is a pre-made funtion of Flutter
+    showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(1922),
+            lastDate: DateTime.now())
+        .then((pickedDate) {
+      // Check if no date is selected
+      if (pickedDate == null) {
+        return setState(() {
+          datecontroller = '';
+        });
+        ;
+      }
+      setState(() {
+        _selectedDate = pickedDate;
+        datecontroller =
+            "${_selectedDate!.day.toString()}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.year.toString().padLeft(2, '0')}";
+      });
+    });
+  }
+
+  DateTime? _selectedDate;
+
+  String? datecontroller;
 }
