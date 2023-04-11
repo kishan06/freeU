@@ -17,7 +17,7 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.h),
+        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
