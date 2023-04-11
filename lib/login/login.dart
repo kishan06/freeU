@@ -62,8 +62,26 @@ class _LoginState extends State<Login> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        SizedBox(
-                          height: 5.h,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            TextButton(
+                              onPressed: () {
+                                Get.toNamed(
+                                  '/EntryPoint',
+                                  arguments: 0,
+                                );
+                              },
+                              child: Text(
+                                "Skip",
+                                style: TextStyle(
+                                  color: Color(0xFF143C6D),
+                                  fontSize: 14.sp,
+                                  fontFamily: 'Poppins',
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                         Image.asset(
                           'assets/images/freeulogin.png',
