@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/profile/KYCtabs2.dart';
 
 class KYCtabs1 extends StatefulWidget {
@@ -15,13 +16,20 @@ class KYCtabs1 extends StatefulWidget {
 }
 
 class _KYCtabs1State extends State<KYCtabs1> {
+  int currentIndex = 0;
+  late PageController _controller;
+
+  String? datecontroller;
+
+  DateTime? _selectedDate;
   final residentialstatustexteditingcontroller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-        child: Center(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        child: 
+        Center(
           child: Form(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -29,9 +37,10 @@ class _KYCtabs1State extends State<KYCtabs1> {
                 Text(
                   "Step 1 : Complete your KYC",
                   style: TextStyle(
-                    fontSize: 17,
-                    color: Color(0xFF143C6D),
-                  ),
+                      fontSize: 22.sp,
+                      color: Color(0xFF143C6D),
+                      fontFamily: 'Poppins',
+                      fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
                   height: 5.h,
@@ -40,7 +49,7 @@ class _KYCtabs1State extends State<KYCtabs1> {
                   "Personal Information",
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 12,
+                    fontSize: 18.sp,
                     fontWeight: FontWeight.w500,
                     color: Color(0xFF000000),
                   ),
@@ -52,7 +61,7 @@ class _KYCtabs1State extends State<KYCtabs1> {
                   "Provide your personal information as per your Bank Account",
                   style: TextStyle(
                     fontFamily: 'Poppins',
-                    fontSize: 8.5,
+                    fontSize: 14.sp,
                     color: Color(0xFF000000),
                   ),
                 ),
@@ -64,8 +73,8 @@ class _KYCtabs1State extends State<KYCtabs1> {
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -81,8 +90,8 @@ class _KYCtabs1State extends State<KYCtabs1> {
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -96,8 +105,8 @@ class _KYCtabs1State extends State<KYCtabs1> {
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -109,41 +118,80 @@ class _KYCtabs1State extends State<KYCtabs1> {
                 SizedBox(height: 20.h),
                 Text(
                   "Date of Birth",
-                  // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
                   height: 6.h,
                 ),
-                CustomTextFormField(
-                    hintText: "Please Enter Email Id",
-                    validatorText: "Please Enter Email Id"),
+                GestureDetector(
+                  onTap: () {
+                    _presentDatePicker();
+                  },
+                  child: Container(
+                    height: 45.h,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Color(0xffCCCCCC),
+                      ),
+                      borderRadius: BorderRadius.circular(10.r),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Row(
+                          children: [
+                            sizedBoxWidth(20.w),
+                            Text(
+                                _selectedDate == null ? '' : '$datecontroller'),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Icon(Icons.calendar_month_outlined),
+                            sizedBoxWidth(10.w)
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                // CustomTextFormField(
+                //     hintText: "", validatorText: "Please Enter Email Id"),
                 SizedBox(height: 20.h),
                 Text(
                   "Occupation",
-                  // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
                   height: 6.h,
                 ),
-                CustomTextFormField(
-                    hintText: "Please Enter Occupation",
-                    validatorText: "Please Enter Occupation"),
+                CustomTextDropdown(
+                    item: [
+                      "Marketing manager",
+                      "financial operations.",
+                      "Software developer."
+                    ],
+                    controller: residentialstatustexteditingcontroller,
+                    showDropDown: true),
+
+                // CustomTextFormField(
+                //     hintText: "Please Enter Occupation",
+                //     validatorText: "Please Enter Occupation"),
                 SizedBox(height: 20.h),
                 Text(
                   "Father's Name",
                   // ignore: prefer_const_constructors
                   style: TextStyle(
                       fontFamily: 'Poppins',
-                      fontSize: 14,
-                      color: Color(0xff303030)),
+                      fontSize: 20.sp,
+                      color: Color(0xff000000)),
                 ),
                 SizedBox(
                   height: 6.h,
@@ -155,15 +203,42 @@ class _KYCtabs1State extends State<KYCtabs1> {
                 CustomNextButton(
                   text: "Continue",
                   ontap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => KYCTabs2())));
+                    setState(() {
+                      _controller.animateToPage(currentIndex = 1,
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.linear);
+                    });
                   },
-                )
+                ),
+                sizedBoxHeight(60.h)
               ],
             ),
           ),
         ),
       ),
     );
+  }
+
+  void _presentDatePicker() {
+    // showDatePicker is a pre-made funtion of Flutter
+    showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(1922),
+            lastDate: DateTime.now())
+        .then((pickedDate) {
+      // Check if no date is selected
+      if (pickedDate == null) {
+        return setState(() {
+          datecontroller = '';
+        });
+        ;
+      }
+      setState(() {
+        _selectedDate = pickedDate;
+        datecontroller =
+            "${_selectedDate!.day.toString()}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.year.toString().padLeft(2, '0')}";
+      });
+    });
   }
 }

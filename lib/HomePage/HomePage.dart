@@ -20,6 +20,8 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import 'Categories/Alternative/Fractionalpage.dart';
+
 // part 'HomePage.dart';
 
 class HomePage extends StatefulWidget {
@@ -324,9 +326,7 @@ class _HomePageState extends State<HomePage> {
                       InkWell(
                           onTap: () {
                             selectedIndex = 1;
-                            setState(() {
-                              
-                            });
+                            setState(() {});
                           },
                           child: text14Grey272424("View more"))
                     ],
@@ -364,9 +364,7 @@ class _HomePageState extends State<HomePage> {
               twoText("Categories", "View more", onTap: () {
                 print("SD");
                 selectedIndex = 1;
-                setState(() {
-                  
-                });
+                setState(() {});
                 // widget.enttyPoint.se
                 // entryPoint._sel
                 // Get.toNamed("/",
@@ -398,6 +396,11 @@ class _HomePageState extends State<HomePage> {
                               screen = AlternativeInsvestment();
 
                               break;
+                            case 1:
+                              screen = FractionalRealestate();
+
+                              break;
+
                             default:
                           }
                           Get.to(screen);
@@ -1662,7 +1665,6 @@ class _HomePageState extends State<HomePage> {
   //   );
   //   return exitapp ?? false;
   // }
-
 }
 
 class DougnutChart extends StatelessWidget {

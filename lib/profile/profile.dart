@@ -903,7 +903,8 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc1() {
     return SingleChildScrollView(
-      child: Center(
+      child:
+       Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1092,7 +1093,8 @@ class _KYCtabsState extends State<KYCtabs> {
   }
 
   Widget kyc2() {
-    return SingleChildScrollView(
+    return 
+    SingleChildScrollView(
       child: Center(
         child: Form(
           child: Column(
@@ -1408,7 +1410,8 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc3() {
     return SingleChildScrollView(
-      child: Center(
+      child: 
+      Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1600,7 +1603,8 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc4() {
     return SingleChildScrollView(
-      child: Center(
+      child:
+       Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
