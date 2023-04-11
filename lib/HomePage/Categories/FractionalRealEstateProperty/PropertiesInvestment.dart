@@ -22,14 +22,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
         titleTxt: "",
         bottomtext: false,
 
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.h),
-        child: CustomNextButton(
-            ontap: () {
-              Get.toNamed("/login");
-              //investNow();
-            },
-            text: 'Invest now'),
       ),
 
       // AppBar(
@@ -47,6 +39,15 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
       //     color: Colors.black,
       //   ),
       // ),
+       bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.h),
+        child: CustomNextButton(
+            ontap: () {
+              Get.toNamed("/login");
+              //investNow();
+            },
+            text: 'Invest now'),
+      ),
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),

@@ -21,20 +21,6 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
       appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
-
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-        child: CustomNextButton(
-          text: 'View Categories',
-          ontap: () {
-            Get.toNamed("/VerticalSlider");
-
-            // Get.toNamed("/privateequity");
-          },
-        ),
-      ),
-
-
       ),
       //  AppBar(0xFFFFFFFF
       //   backgroundColor: Color(0xFFFFFFFF),
@@ -51,6 +37,17 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
       //     color: Colors.black,
       //   ),
       // ),
+        bottomNavigationBar: Padding(
+        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+        child: CustomNextButton(
+          text: 'View Categories',
+          ontap: () {
+            Get.toNamed("/VerticalSlider");
+
+            // Get.toNamed("/privateequity");
+          },
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: SingleChildScrollView(

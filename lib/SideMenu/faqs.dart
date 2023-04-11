@@ -104,9 +104,9 @@ class _FAQsState extends State<FAQs> {
                     return sizedBoxHeight(15.h);
                   },
                   itemCount: 6),
+            ],    
             ),
           )
-        ],
       ),
     );
   }

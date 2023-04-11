@@ -23,15 +23,8 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
       appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
-
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.h),
-        child: CustomNextButton(
-            ontap: () {
-              investNow();
-            },
-            text: 'Invest now'),
       ),
+    
 
       // AppBar(
       //   backgroundColor: const Color(0xFFFFFFFF),
@@ -48,6 +41,14 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
       //     color: Colors.black,
       //   ),
       // ),
+        bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.h),
+        child: CustomNextButton(
+            ontap: () {
+              investNow();
+            },
+            text: 'Invest now'),
+      ),
       body: SafeArea(
           child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),

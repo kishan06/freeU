@@ -23,14 +23,6 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
         titleTxt: "",
         bottomtext: false,
 
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.h),
-        child: CustomNextButton(
-          text: 'View Categories',
-          ontap: () {
-            Get.toNamed("/altenativecategories");
-          },
-        ),
       ),
 
       // AppBar(
@@ -48,6 +40,15 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
       //     color: Colors.black,
       //   ),
       // ),
+       bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.h),
+        child: CustomNextButton(
+          text: 'View Categories',
+          ontap: () {
+            Get.toNamed("/altenativecategories");
+          },
+        ),
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: SingleChildScrollView(

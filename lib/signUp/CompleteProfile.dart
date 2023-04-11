@@ -485,14 +485,6 @@ class _CompleteProfileState extends State<CompleteProfile> {
                                 const BorderSide(color: Colors.red, width: 1),
 
                           ),
-                          minLines: 5,
-                          maxLines: null,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return "Please Enter Address";
-                            }
-                            return null;
-                          },
                         ),
 
                         minLines: 5,
