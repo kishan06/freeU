@@ -320,7 +320,6 @@ class SecondTab extends StatelessWidget {
             Padding(
               padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
               child: SizedBox(
-                width: 358,
                 height: 50.h,
                 child: CustomNextButton(
                   text: 'View Investment',

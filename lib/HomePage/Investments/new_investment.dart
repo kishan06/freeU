@@ -6,6 +6,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
+import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
+import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
+import 'package:freeu/Notification.dart';
 // import 'package:freeu/NewInvestment/Categories/AlternativeInvestment.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
@@ -14,6 +18,7 @@ import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/categoryCard.dart';
+import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/screens/entry_point.dart';
 import 'package:get/get.dart';
@@ -44,23 +49,21 @@ class _NewInvestmentState extends State<NewInvestment> {
         title: Row(
           children: [
             sizedBoxWidth(45.w),
-
             sizedBoxWidth(5.w),
             Text(
               'Your investments',
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 22.sp,
-                  color: Colors.black),
+                  fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
             ),
             Spacer(),
-            IconButton(
-              onPressed: () {
-                Get.toNamed('/notificationpage');
-              },
-              icon: SizedBox(
+            OpenContainerWrappers(
+              openBuild: NotificationPage(),
+              // onPressed: () {
+              //   Get.toNamed('/notificationpage');
+              // },
+              closeBuild: SizedBox(
                 width: 18.w,
                 height: 25.h,
                 child: SvgPicture.asset(
@@ -68,7 +71,10 @@ class _NewInvestmentState extends State<NewInvestment> {
                   fit: BoxFit.fill,
                 ),
               ),
+              // iconSize: 22,
+              // color: const Color(0xFF303030),
             ),
+            sizedBoxWidth(16.w)
           ],
         ),
         elevation: 0,
@@ -79,7 +85,7 @@ class _NewInvestmentState extends State<NewInvestment> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w,vertical: 10.h),
+            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -141,11 +147,12 @@ class _NewInvestmentState extends State<NewInvestment> {
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w500),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed('/currentinvestment');
-                      },
-                      child: Text(
+                    OpenContainerWrappers(
+                      openBuild: CurrentInvestment(),
+                      // onTap: () {
+                      //   Get.toNamed('/currentinvestment');
+                      // },
+                      closeBuild: Text(
                         "View All",
                         style: TextStyle(
                           fontFamily: 'Poppins',
@@ -316,7 +323,6 @@ class _NewInvestmentState extends State<NewInvestment> {
                                   //     );
                                   //   },
                                   // );
-                                
                                 },
                                 child: Text(
                                   "Sell",
@@ -394,7 +400,7 @@ class _NewInvestmentState extends State<NewInvestment> {
                               child: GestureDetector(
                                 onTap: () {
                                   bottomSheetThankU(context);
-        
+
                                   // showModalBottomSheet(
                                   //   isScrollControlled: true,
                                   //   context: context,
@@ -456,7 +462,6 @@ class _NewInvestmentState extends State<NewInvestment> {
                                   //     );
                                   //   },
                                   // );
-                               
                                 },
                                 child: Text(
                                   "Sell",
@@ -490,11 +495,12 @@ class _NewInvestmentState extends State<NewInvestment> {
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w500),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed('/previouslyinvestedproducts');
-                      },
-                      child: Padding(
+                    OpenContainerWrappers(
+                      openBuild: PreviouslyInvestedProducts(),
+                      // onTap: () {
+                      //   Get.toNamed('/previouslyinvestedproducts');
+                      // },
+                      closeBuild: Padding(
                         padding: const EdgeInsets.only(bottom: 30),
                         child: Text(
                           "View All",
@@ -695,11 +701,12 @@ class _NewInvestmentState extends State<NewInvestment> {
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w500),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Get.toNamed('/suggestedinvestedproducts');
-                      },
-                      child: Padding(
+                    OpenContainerWrappers(
+                      openBuild: SuggestedInvestedProducts(),
+                      // onTap: () {
+                      //   Get.toNamed('/suggestedinvestedproducts');
+                      // },
+                      closeBuild: Padding(
                         padding: const EdgeInsets.only(bottom: 30),
                         child: Text(
                           "View All",
@@ -958,89 +965,82 @@ class _NewInvestmentState extends State<NewInvestment> {
                 //   height: 20.h,
                 // ),
               ],
-            
             ),
           ),
         ),
       ),
-    
     );
   }
 
-  Future<T?> bottomSheetThankU<T>(BuildContext context){
-  return showModalBottomSheet(
-    isScrollControlled: true,
-    context: context,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(30),
-        topRight: Radius.circular(30),
-      ),
-    ),
-    builder: (context) {
-      return Container(
-        margin: EdgeInsets.symmetric(
-            horizontal: 10.w, vertical: 10.w),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // SizedBox(
-            //   height: 20.h,
-            // ),
-
-            Align(
-              alignment: Alignment.centerRight,
-              child: IconButton(onPressed: (){
-                  Get.back();
-              }, icon: Icon(Icons.cancel,
-                size: 30.h,
-              ) 
-              ),
-            ),
-            SvgPicture.asset(
-                "assets/images/thankyouinvestment.svg"),
-            SizedBox(
-              height: 20,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 15, right: 11),
-              child: Text(
-                'Thank You For Selling\n           Product',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 30,
-                    color: Color(0xff0F0C0C),
-                    fontWeight: FontWeight.w500),
-              ),
-            ),
-            SizedBox(
-              height: 20.h,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                  left: 40, right: 40),
-              child: Text(
-                'A FreeU Advisory Team will \n    get back to you soon.',
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 20,
-                    color: Color(0xff272424),
-                    fontWeight: FontWeight.w300),
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-          ],
+  Future<T?> bottomSheetThankU<T>(BuildContext context) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
         ),
-      );
-    },
-  );
+      ),
+      builder: (context) {
+        return Container(
+          margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.w),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // SizedBox(
+              //   height: 20.h,
+              // ),
 
-}
-
-
+              Align(
+                alignment: Alignment.centerRight,
+                child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: Icon(
+                      Icons.cancel,
+                      size: 30.h,
+                    )),
+              ),
+              SvgPicture.asset("assets/images/thankyouinvestment.svg"),
+              SizedBox(
+                height: 20,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 11),
+                child: Text(
+                  'Thank You For Selling\n           Product',
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 30,
+                      color: Color(0xff0F0C0C),
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 40, right: 40),
+                child: Text(
+                  'A FreeU Advisory Team will \n    get back to you soon.',
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 20,
+                      color: Color(0xff272424),
+                      fontWeight: FontWeight.w300),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
 }
 
 // class DougnutChart extends StatelessWidget {
