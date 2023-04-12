@@ -113,8 +113,8 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
       //   showLeading: true,
       //   bottomtext: false,
       // ),
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "bottombar", context),
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "bottombar", context),
       body: Column(
         children: [
           Padding(

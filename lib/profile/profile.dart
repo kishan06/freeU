@@ -121,42 +121,44 @@ class _ProfileState extends State<Profile> {
           automaticallyImplyLeading: false,
           titleSpacing: 0,
         ),
-        body: Column(
-          children: [
-            PreferredSize(
-              preferredSize: Size.fromHeight(50.h),
-              child: TabBar(
-                indicatorColor: Color(0xff002A5B),
-                indicatorWeight: 5.h,
-                tabs: [
-                  Tab(
-                      child: Text(
-                    'Profile',
-                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                  )),
-                  Tab(
-                      child: Text(
-                    'KYC',
-                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                  )),
-                  Tab(
-                      child: Text(
-                    'Risk Profile',
-                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                  )),
-                ],
+        body: SafeArea(
+          child: Column(
+            children: [
+              PreferredSize(
+                preferredSize: Size.fromHeight(50.h),
+                child: TabBar(
+                  indicatorColor: Color(0xff002A5B),
+                  indicatorWeight: 5.h,
+                  tabs: [
+                    Tab(
+                        child: Text(
+                      'Profile',
+                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                    )),
+                    Tab(
+                        child: Text(
+                      'KYC',
+                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                    )),
+                    Tab(
+                        child: Text(
+                      'Risk Profile',
+                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                    )),
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-              child: const TabBarView(
-                children: [
-                  profiletab(),
-                  KYCtabs(),
-                  riskprofile(),
-                ],
+              Expanded(
+                child: const TabBarView(
+                  children: [
+                    profiletab(),
+                    KYCtabs(),
+                    riskprofile(),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -876,7 +878,7 @@ class _KYCtabsState extends State<KYCtabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
         child: PageView.builder(
           controller: _controller,
           itemCount: 4,
@@ -1084,7 +1086,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   });
                 },
               ),
-              sizedBoxHeight(60.h)
+              sizedBoxHeight(10.h)
             ],
           ),
         ),
@@ -1400,7 +1402,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   });
                 },
               ),
-              sizedBoxHeight(60.h)
+              sizedBoxHeight(10.h)
             ],
           ),
         ),
@@ -1593,7 +1595,7 @@ class _KYCtabsState extends State<KYCtabs> {
                           curve: Curves.linear);
                     });
                   }),
-              sizedBoxHeight(60.h)
+              sizedBoxHeight(10.h)
             ],
           ),
         ),
@@ -1744,7 +1746,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   validatorText: "Please Enter Bank Name"),
               SizedBox(height: 40.h),
               CustomNextButton(
-                text: "Continue",
+                text: "Submit",
                 ontap: () {
                   showModalBottomSheet(
                     isScrollControlled: true,
@@ -1789,7 +1791,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   );
                 },
               ),
-              sizedBoxHeight(60.h)
+              sizedBoxHeight(10.h)
             ],
           ),
         ),
@@ -1840,7 +1842,7 @@ class _riskprofileState extends State<riskprofile> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
         child: Center(
             child: Form(
                 key: _form,
@@ -2029,7 +2031,7 @@ class _riskprofileState extends State<riskprofile> {
                             );
                           }),
                           text: "Submit"),
-                      sizedBoxHeight(50.h)
+                      // sizedBoxHeight(50.h)
                     ]))),
       ),
     );

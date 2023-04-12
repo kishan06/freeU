@@ -166,79 +166,81 @@ class _ChatPageState extends State<ChatPage> {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(left: 16.w, right: 16.w),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: "Search Chats",
-                hintStyle:
-                    TextStyle(color: Colors.grey.shade600, fontSize: 16.sp),
-                prefixIcon: Icon(
-                  Icons.search,
-                  color: Colors.black,
-                  size: 20.sp,
-                ),
-                filled: true,
-                fillColor: Colors.white,
-                contentPadding: EdgeInsets.all(10.h),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.sp),
-                  borderSide: BorderSide(
-                    color: Colors.grey.shade400,
+      body: SafeArea(
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 16.w, right: 16.w),
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: "Search Chats",
+                  hintStyle:
+                      TextStyle(color: Colors.grey.shade600, fontSize: 16.sp),
+                  prefixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black,
+                    size: 20.sp,
                   ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10.sp),
-                  borderSide: BorderSide(
-                    color: Colors.grey.shade400,
+                  filled: true,
+                  fillColor: Colors.white,
+                  contentPadding: EdgeInsets.all(10.h),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.sp),
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.sp),
+                    borderSide: BorderSide(
+                      color: Colors.grey.shade400,
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              physics: const BouncingScrollPhysics(),
-              child: Column(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      ListView.separated(
-                        separatorBuilder: (context, index) {
-                          return Padding(
-                            padding: EdgeInsets.symmetric(horizontal: 16.w),
-                            child: Divider(
-                              thickness: 1.2.h,
-                            ),
-                          );
-                        },
-                        itemCount: chatUsers.length,
-                        shrinkWrap: true,
-                        padding: EdgeInsets.only(top: 16.h),
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (context, index) {
-                          return ConversationList(
-                            name: chatUsers[index].name,
-                            messageText: chatUsers[index].messageText,
-                            imageUrl: chatUsers[index].imageURL,
-                            time: chatUsers[index].time,
-                            isMessageRead:
-                                (index == 0 || index == 3 || index == 2)
-                                    ? true
-                                    : false,
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+            Expanded(
+              child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        ListView.separated(
+                          separatorBuilder: (context, index) {
+                            return Padding(
+                              padding: EdgeInsets.symmetric(horizontal: 16.w),
+                              child: Divider(
+                                thickness: 1.2.h,
+                              ),
+                            );
+                          },
+                          itemCount: chatUsers.length,
+                          shrinkWrap: true,
+                          padding: EdgeInsets.only(top: 16.h),
+                          physics: const NeverScrollableScrollPhysics(),
+                          itemBuilder: (context, index) {
+                            return ConversationList(
+                              name: chatUsers[index].name,
+                              messageText: chatUsers[index].messageText,
+                              imageUrl: chatUsers[index].imageURL,
+                              time: chatUsers[index].time,
+                              isMessageRead:
+                                  (index == 0 || index == 3 || index == 2)
+                                      ? true
+                                      : false,
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

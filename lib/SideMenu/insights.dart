@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -54,7 +55,9 @@ class _InsightsState extends State<Insights> {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10.h),
                       filled: true,
-                      fillColor: Color(0xffFBFBFB),
+                      fillColor: Color.fromARGB(255, 233, 233, 233),
+                      // Color.fromARGB(255, 202, 202, 202),
+                      // Color(0xffFBFBFB),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(47.r),
                         borderSide:

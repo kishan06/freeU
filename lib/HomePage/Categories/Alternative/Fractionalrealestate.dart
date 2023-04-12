@@ -18,7 +18,7 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        padding: EdgeInsets.fromLTRB(16.w,5.h,16.w,10.h),
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
@@ -48,49 +48,55 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
       // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          // padding: EdgeInsets.symmetric(
-          //   horizontal: 16.w,
-          // ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Flexible(
+                  child: Text(
                     "Fractional Real Estate",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
                         fontWeight: FontWeight.w500),
                   ),
+                ),
+              ],
+            ),
+            Expanded(
+                child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  sizedBoxHeight(30.h),
+                  fracReal1(),
+                  sizedBoxHeight(20.h),
+                  fracReal2(),
+                  sizedBoxHeight(20.h),
+                  fracReal3(),
+                  sizedBoxHeight(20.h),
+                  fracReal4(),
+                  sizedBoxHeight(20.h),
+                  fracReal5(),
+                  sizedBoxHeight(30.h),
                 ],
               ),
-              sizedBoxHeight(30.h),
-              fracReal1(),
-              sizedBoxHeight(20.h),
-              fracReal2(),
-              sizedBoxHeight(20.h),
-              fracReal3(),
-              sizedBoxHeight(20.h),
-              fracReal4(),
-              sizedBoxHeight(20.h),
-              fracReal5(),
-              sizedBoxHeight(30.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-            ],
-          ),
+            )),
+
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+          ],
         ),
       ),
     );

@@ -18,7 +18,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        padding: EdgeInsets.fromLTRB(16.w,5.h,16.w,10.h),
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
@@ -48,45 +48,49 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
       // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          // padding: EdgeInsets.symmetric(
-          //   horizontal: 16.w,
-          // ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Private Equity Fund",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            Expanded(
+                child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  Text(
-                    "Private Equity Fund",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
+                  sizedBoxHeight(20.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod1(),
+                  sizedBoxHeight(15.h),
+                  faqAccod2(),
+                  sizedBoxHeight(15.h),
                 ],
               ),
-              sizedBoxHeight(20.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod1(),
-              sizedBoxHeight(15.h),
-              faqAccod2(),
-              sizedBoxHeight(15.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-              // faqAccod(),
-              // sizedBoxHeight(15.h),
-            ],
-          ),
+            )),
+
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+            // faqAccod(),
+            // sizedBoxHeight(15.h),
+          ],
         ),
       ),
     );

@@ -96,8 +96,8 @@ class _FractionalRealEstateProperty2State
         showLeading: true,
         bottomtext: false,
       ),
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "bottombar", context),
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "bottombar", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),

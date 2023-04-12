@@ -19,6 +19,8 @@ import 'package:freeu/screens/side_menu.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../HomePage/Investments/new_investment.dart';
+
 // part 'HomePage.dart';
 var selectedIndex = 0;
 
@@ -44,7 +46,7 @@ class _EntryPointState extends State<EntryPoint>
   var screens = [
     HomePage(),
     CategoriesMain(),
-    InvestmentMain(),
+    NewInvestment(),
     ChatPage(),
     Profile()
   ];

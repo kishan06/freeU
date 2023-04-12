@@ -41,7 +41,8 @@ class _SignUpState extends State<SignUp> {
   onPasswordChnage(String password) {
     setState(() {
       final numricRegex = RegExp(r'[0-9]');
-      final alphaRegex = RegExp(r'[A-Z](?=.*[@$!%*#?&])');
+      final alphaRegex = RegExp('(?=.*[A-Z])(?=.*[!@#\$%^&*])');
+
 
       _isPasswordEightCar = false;
       if (password.length >= 8) _isPasswordEightCar = true;
@@ -411,9 +412,10 @@ class _SignUpState extends State<SignUp> {
                                   return null;
                                 },
                                 inputFormatters: [
-                                  LengthLimitingTextInputFormatter(10)
+                                  LengthLimitingTextInputFormatter(10),
+                                  FilteringTextInputFormatter.allow(RegExp('[0-9]')),
                                 ],
-                                texttype: TextInputType.number,
+                                texttype: TextInputType.phone,
                                 hintText: "Phone Number*",
                                 validatorText: "Phone Number"),
                           ],

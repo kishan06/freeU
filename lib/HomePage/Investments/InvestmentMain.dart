@@ -1,4 +1,4 @@
-// ignore_for_file: file_names, prefer_const_constructors
+// // ignore_for_file: file_names, prefer_const_constructors
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -16,59 +16,59 @@ import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class InvestmentMain extends StatefulWidget {
-  const InvestmentMain({super.key});
+// class InvestmentMain extends StatefulWidget {
+//   const InvestmentMain({super.key});
 
-  @override
-  State<InvestmentMain> createState() => _InvestmentMainState();
-}
+//   @override
+//   State<InvestmentMain> createState() => _InvestmentMainState();
+// }
 
-class _InvestmentMainState extends State<InvestmentMain> {
-  int selectIndex = 0;
-  final GlobalKey<ScaffoldState> _key = GlobalKey();
-  PageController indicatorcontroller = PageController(
-    viewportFraction: 0.95,
-  );
-  PageController categoriescontroller = PageController(
-    viewportFraction: 0.55,
-  );
-  PageController investmentcontroller = PageController(
-    viewportFraction: 0.9,
-  );
-  PageController pickcontroller = PageController(
-    viewportFraction: 0.75,
-  );
+// class _InvestmentMainState extends State<InvestmentMain> {
+//   int selectIndex = 0;
+//   final GlobalKey<ScaffoldState> _key = GlobalKey();
+//   PageController indicatorcontroller = PageController(
+//     viewportFraction: 0.95,
+//   );
+//   PageController categoriescontroller = PageController(
+//     viewportFraction: 0.55,
+//   );
+//   PageController investmentcontroller = PageController(
+//     viewportFraction: 0.9,
+//   );
+//   PageController pickcontroller = PageController(
+//     viewportFraction: 0.75,
+//   );
 
-  DateTime timebackPressed = DateTime.now();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xffffffff),
-      //Color(0xffffffff)
-      key: _key,
-      // drawer: NavDrawer(),
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        title: Row(
-          children: [
-            sizedBoxWidth(45.w),
-            // IconButton(
-            //   onPressed: () {
-            //     _key.currentState!.openDrawer();
-            //   },
-            //   icon: SizedBox(
-            //     height: 20.h,
-            //     width: 25.w,
-            //     child: SvgPicture.asset(
-            //       "assets/images/menu.svg",
-            //       // height: 20.h,
-            //       // width: 10.w,
-            //       fit: BoxFit.fill,
-            //     ),
-            //   ),
-            //   // color: Colors.red,
-            //   // iconSize: 100.h,
-            // ),
+//   DateTime timebackPressed = DateTime.now();
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Color(0xffffffff),
+//       //Color(0xffffffff)
+//       key: _key,
+//       // drawer: NavDrawer(),
+//       appBar: AppBar(
+//         backgroundColor: AppColors.white,
+//         title: Row(
+//           children: [
+//             sizedBoxWidth(45.w),
+//             // IconButton(
+//             //   onPressed: () {
+//             //     _key.currentState!.openDrawer();
+//             //   },
+//             //   icon: SizedBox(
+//             //     height: 20.h,
+//             //     width: 25.w,
+//             //     child: SvgPicture.asset(
+//             //       "assets/images/menu.svg",
+//             //       // height: 20.h,
+//             //       // width: 10.w,
+//             //       fit: BoxFit.fill,
+//             //     ),
+//             //   ),
+//             //   // color: Colors.red,
+//             //   // iconSize: 100.h,
+//             // ),
 
             sizedBoxWidth(5.w),
             Text(
@@ -108,48 +108,48 @@ class _InvestmentMainState extends State<InvestmentMain> {
         titleSpacing: 0,
       ),
 
-      //  backgroundColor: Color(0xFFFFFBF0),
-      // appBar: AppBar(
-      //   title: Text(
-      //     'Your investments',
-      //     softWrap: true,
-      //     textAlign: TextAlign.center,
-      //     style: TextStyle(
-      //         fontFamily: 'Poppins',
-      //         fontSize: 19,
-      //         fontWeight: FontWeight.w400,
-      //         color: Colors.black),
-      //   ),
-      //   backgroundColor: Color(0xffffffff),
-      //   elevation: 0,
-      //   shadowColor: Colors.black,
-      //   automaticallyImplyLeading: false,
-      //   titleSpacing: 0,
-      //   leading: Row(
-      //     children: [
-      //       IconButton(
-      //         onPressed: () {
-      //           _key.currentState!.openDrawer();
-      //         },
-      //         icon: SvgPicture.asset("assets/images/menu.svg"),
-      //         color: Colors.black,
-      //         iconSize: 25,
-      //       ),
-      //     ],
-      //   ),
-      //   actions: [
-      //     IconButton(
-      //       onPressed: () {
-      //         Get.toNamed('/notificationpage');
-      //       },
-      //       icon: SvgPicture.asset(
-      //         'assets/images/notification-bell-svgrepo-com.svg',
-      //       ),
-      //       iconSize: 22,
-      //       color: const Color(0xFF303030),
-      //     ),
-      //   ],
-      // ),
+//       //  backgroundColor: Color(0xFFFFFBF0),
+//       // appBar: AppBar(
+//       //   title: Text(
+//       //     'Your investments',
+//       //     softWrap: true,
+//       //     textAlign: TextAlign.center,
+//       //     style: TextStyle(
+//       //         fontFamily: 'Poppins',
+//       //         fontSize: 19,
+//       //         fontWeight: FontWeight.w400,
+//       //         color: Colors.black),
+//       //   ),
+//       //   backgroundColor: Color(0xffffffff),
+//       //   elevation: 0,
+//       //   shadowColor: Colors.black,
+//       //   automaticallyImplyLeading: false,
+//       //   titleSpacing: 0,
+//       //   leading: Row(
+//       //     children: [
+//       //       IconButton(
+//       //         onPressed: () {
+//       //           _key.currentState!.openDrawer();
+//       //         },
+//       //         icon: SvgPicture.asset("assets/images/menu.svg"),
+//       //         color: Colors.black,
+//       //         iconSize: 25,
+//       //       ),
+//       //     ],
+//       //   ),
+//       //   actions: [
+//       //     IconButton(
+//       //       onPressed: () {
+//       //         Get.toNamed('/notificationpage');
+//       //       },
+//       //       icon: SvgPicture.asset(
+//       //         'assets/images/notification-bell-svgrepo-com.svg',
+//       //       ),
+//       //       iconSize: 22,
+//       //       color: const Color(0xFF303030),
+//       //     ),
+//       //   ],
+//       // ),
 
       // bottomNavigationBar:
       //     CreateBottomBar(stateBottomNav, "Bottombarinvestment", context),
@@ -1048,43 +1048,140 @@ class _InvestmentMainState extends State<InvestmentMain> {
 //                 fontWeight: FontWeight.bold,
 //                 fontSize: 18.sp,
 //                 color: const Color(0xff3B3F43)),
+
 //           ),
-//             content: SizedBox(
-//             width: MediaQuery.of(context).size.width,
-//             child: Text(
-//               "Are you sure you want to Exit App?",
-//               style: TextStyle(
-//                   fontFamily: 'Roboto',
-//                   fontSize: 16.sp,
-//                   color: const Color(0xff54595F)),
-//             ),
-//           ),
-//             actions: [
-//              InkWell(
-//               onTap: () {
-//                 Get.back();
-//               },
-//               child: Text(
-//                 "No",
-//                 style: TextStyle(
-//                     fontFamily: "Roboto",
-//                     fontWeight: FontWeight.w500,
-//                     fontSize: 16.sp,
-//                     color: const Color(0xff000000)),
+//         ),
+//       ),
+    
+//     );
+  
+//   }
+  
+// //  Future<bool> _backbuttonpressed(BuildContext context) async {
+// //     bool exitapp = await showDialog(
+// //       context: context,
+// //       builder: (BuildContext context) {
+// //         return Padding(
+// //           padding:  EdgeInsets.all(15.w),
+// //           child: AlertDialog(
+// //              shape:
+// //               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
+// //           insetPadding: const EdgeInsets.symmetric(vertical: 10),
+// //             title:Text(
+// //             "Exit App",
+// //             style: TextStyle(
+// //                 fontFamily: 'Studio Pro',
+// //                 fontWeight: FontWeight.bold,
+// //                 fontSize: 18.sp,
+// //                 color: const Color(0xff3B3F43)),
+// //           ),
+// //             content: SizedBox(
+// //             width: MediaQuery.of(context).size.width,
+// //             child: Text(
+// //               "Are you sure you want to Exit App?",
+// //               style: TextStyle(
+// //                   fontFamily: 'Roboto',
+// //                   fontSize: 16.sp,
+// //                   color: const Color(0xff54595F)),
+// //             ),
+// //           ),
+// //             actions: [
+// //              InkWell(
+// //               onTap: () {
+// //                 Get.back();
+// //               },
+// //               child: Text(
+// //                 "No",
+// //                 style: TextStyle(
+// //                     fontFamily: "Roboto",
+// //                     fontWeight: FontWeight.w500,
+// //                     fontSize: 16.sp,
+// //                     color: const Color(0xff000000)),
+// //               ),
+// //             ),
+// //             sizedBoxWidth(15.sp),
+// //             InkWell(
+// //               onTap: () {
+// //                 SystemNavigator.pop();
+// //               },
+// //               child: Text(
+// //                 "Yes",
+// //                 style: TextStyle(
+// //                     fontFamily: "Roboto",
+// //                     fontWeight: FontWeight.w500,
+// //                     fontSize: 16.sp,
+// //                     color: const Color(0xffB90101)),
+// //               ),
+// //             ),
+// //             sizedBoxWidth(15.sp),
+// //             ],
+// //           ),
+// //         );
+// //       },
+// //     );
+// //     return exitapp ?? false;
+// //   }
+
+// Future<T?> bottomSheetThankU<T>(BuildContext context){
+//   return showModalBottomSheet(
+//     isScrollControlled: true,
+//     context: context,
+//     shape: const RoundedRectangleBorder(
+//       borderRadius: BorderRadius.only(
+//         topLeft: Radius.circular(30),
+//         topRight: Radius.circular(30),
+//       ),
+//     ),
+//     builder: (context) {
+//       return Container(
+//         margin: EdgeInsets.symmetric(
+//             horizontal: 10.w, vertical: 10.w),
+//         child: Column(
+//           mainAxisSize: MainAxisSize.min,
+//           children: [
+//             // SizedBox(
+//             //   height: 20.h,
+//             // ),
+
+//             Align(
+//               alignment: Alignment.centerRight,
+//               child: IconButton(onPressed: (){
+//                   Get.back();
+//               }, icon: Icon(Icons.cancel,
+//                 size: 30.h,
+//               ) 
 //               ),
 //             ),
-//             sizedBoxWidth(15.sp),
-//             InkWell(
-//               onTap: () {
-//                 SystemNavigator.pop();
-//               },
+//             SvgPicture.asset(
+//                 "assets/images/thankyouinvestment.svg"),
+//             SizedBox(
+//               height: 20,
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.only(
+//                   left: 15, right: 11),
 //               child: Text(
-//                 "Yes",
+//                 'Thank You For Selling\n           Product',
 //                 style: TextStyle(
-//                     fontFamily: "Roboto",
-//                     fontWeight: FontWeight.w500,
-//                     fontSize: 16.sp,
-//                     color: const Color(0xffB90101)),
+//                     fontFamily: 'Poppins',
+//                     fontSize: 30,
+//                     color: Color(0xff0F0C0C),
+//                     fontWeight: FontWeight.w500),
+//               ),
+//             ),
+//             SizedBox(
+//               height: 20.h,
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.only(
+//                   left: 40, right: 40),
+//               child: Text(
+//                 'A FreeU Advisory Team will \n    get back to you soon.',
+//                 style: TextStyle(
+//                     fontFamily: 'Poppins',
+//                     fontSize: 20,
+//                     color: Color(0xff272424),
+//                     fontWeight: FontWeight.w300),
 //               ),
 //             ),
 //             sizedBoxWidth(15.sp),

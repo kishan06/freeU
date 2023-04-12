@@ -206,7 +206,7 @@ class _KYC4State extends State<KYC4> {
                               validatorText: "Please Enter Bank Name"),
                           SizedBox(height: 40.h),
                           CustomNextButton(
-                            text: "Continue",
+                            text: "Submit",
                             ontap: () {
                               Timer(
                                   Duration(seconds: 2),

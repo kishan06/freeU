@@ -141,7 +141,7 @@ class _MyAppState extends State<MyApp> {
               page: () => FractionalRealEstateProperty2()),
           GetPage(name: '/peerlendingasset1', page: () => PeerLendingAsset1()),
           GetPage(name: '/peerlendingasset2', page: () => PeerLendingAsset2()),
-          GetPage(name: '/investmentmain', page: () => InvestmentMain()),
+          // GetPage(name: '/investmentmain', page: () => InvestmentMain()),
           GetPage(name: '/currentinvestment', page: () => CurrentInvestment()),
           GetPage(
               name: '/previouslyinvestedproducts',
