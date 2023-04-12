@@ -19,12 +19,10 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-    
 
       // AppBar(
       //   backgroundColor: const Color(0xFFFFFFFF),
@@ -41,8 +39,8 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
       //     color: Colors.black,
       //   ),
       // ),
-        bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.h),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.fromLTRB(16.w,5.h,16.w,10.h),
         child: CustomNextButton(
             ontap: () {
               investNow();

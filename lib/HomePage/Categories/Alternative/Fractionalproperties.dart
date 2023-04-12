@@ -20,26 +20,27 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF1FAFF),
-      appBar: CustomSignupAppBar(
-        titleTxt: "",
-        bottomtext: false,
+      appBar:
+          //  CustomSignupAppBar(
+          //   titleTxt: "",
+          //   bottomtext: false,
+          // ),
+          AppBar(
+        backgroundColor: Color(0xFFF1FAFF),
+        elevation: 0,
+        titleSpacing: 0,
+        leading: IconButton(
+          onPressed: () {
+            // Get.toNamed("/privateequity");
+            Get.back();
+          },
+          icon: Icon(
+            Icons.arrow_back,
+          ),
+          iconSize: 26,
+          color: Colors.black,
+        ),
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFFF1FAFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       // Get.toNamed("/privateequity");
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Column(
         children: [
           Padding(
@@ -72,23 +73,26 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
                     radius: 4,
                     backgroundColor: Color(0xFF143C6D),
                     unselectedBorderColor: Color(0xFFFFFFFF),
-                    borderWidth: 2,
+                    //borderWidth: 1,
                     borderColor: Color(0xFFFFFFFF),
                     unselectedBackgroundColor: Color(0xFFFFFFFF),
                     unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
-                    labelStyle: TextStyle(
+                    labelStyle: const TextStyle(
                       color: Color(0xFFFFFFFF),
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
-                    // decoration: BoxDecoration(boxShadow: [
-                    //   BoxShadow(
-                    //     color: Color(0XFF6D6D6D29),
-                    //     blurRadius: 1.0,
-                    //     spreadRadius: 0,
-                    //     offset: Offset(0.0, 2.0),
-                    //   )
-                    // ]),
+                    // decoration: const BoxDecoration(
+                    //     color: Color(0xFF143C6D),
+                    //     //borderRadius: BorderRadius.circular(4),
+                    //     boxShadow: [
+                    //       BoxShadow(
+                    //         color: Colors.red,
+                    //         blurRadius: 3.0,
+                    //         spreadRadius: 4,
+                    //         offset: Offset(5.0, 5.0),
+                    //       )
+                    //     ]),
                     tabs: [
                       Tab(
                         text: "Open",
@@ -313,14 +317,17 @@ class SecondTab extends StatelessWidget {
             SizedBox(
               height: 40.h,
             ),
-            SizedBox(
-              width: 358,
-              height: 50.h,
-              child: CustomNextButton(
-                text: 'View Investment',
-                ontap: () {
-                  Get.toNamed("/propertiesinvestment");
-                },
+            Padding(
+              padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+              child: SizedBox(
+                width: 358,
+                height: 50.h,
+                child: CustomNextButton(
+                  text: 'View Investment',
+                  ontap: () {
+                    Get.toNamed("/propertiesinvestment");
+                  },
+                ),
               ),
             )
           ],
