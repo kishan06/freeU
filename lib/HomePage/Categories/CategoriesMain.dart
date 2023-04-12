@@ -7,12 +7,14 @@ import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
 //import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
 import 'package:freeu/HomePage/HomePage.dart';
+import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/AppBarWithNotification.dart';
 import 'package:freeu/common/bottombar.dart';
+import 'package:freeu/common/page_animation.dart';
 // import 'package:freeu/common/categoryCard.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
@@ -32,7 +34,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
   int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 
-  HomePage home = HomePage();
+  HomePage home = const HomePage();
 
   List categoryData = [
     // /
@@ -205,21 +207,22 @@ class _CategoriesMainState extends State<CategoriesMain> {
                   // fontWeight: FontWeight.w400,
                   color: Colors.black),
             ),
-            Spacer(),
-            IconButton(
-              onPressed: () {
-                Get.toNamed('/notificationpage');
-              },
-              icon: SizedBox(
-                width: 18.w,
-                height: 25.h,
-                child: SvgPicture.asset(
-                  'assets/images/notification-bell-svgrepo-com.svg',
-                  fit: BoxFit.fill,
+            const Spacer(),
+            OpenContainerWrappers(
+              closeBuild: IconButton(
+                onPressed: null,
+                icon: SizedBox(
+                  width: 18.w,
+                  height: 25.h,
+                  child: SvgPicture.asset(
+                    'assets/images/notification-bell-svgrepo-com.svg',
+                    fit: BoxFit.fill,
+                  ),
                 ),
+                // iconSize: 22,
+                // color: const Color(0xFF303030),
               ),
-              // iconSize: 22,
-              // color: const Color(0xFF303030),
+              openBuild: const NotificationPage(),
             ),
           ],
         ),
@@ -304,46 +307,18 @@ class _CategoriesMainState extends State<CategoriesMain> {
             mainAxisSpacing: 15.w,
           ),
           itemBuilder: (BuildContext context, int index) {
-            return GestureDetector(
-              onTap: () {
-                var screen;
-                switch (index) {
-                  case 0:
-                    screen = AlternativeInsvestment();
-
-                    break;
-
-                  case 1:
-                    screen = FractionalRealestate();
-
-                    break;
-                  default:
-                }
-                Get.to(screen);
-              },
-              child: categoryCard(
+            return OpenContainerWrappers(
+              closeBuild: categoryCard(
                 color1: categoryData[index]["colorL"],
                 color2: categoryData[index]["colorD"],
                 bgImage: categoryData[index]["bgImage"],
                 image: categoryData[index]["imageUrl"],
                 text: categoryData[index]["title"],
               ),
+              openBuild: index == 0
+                  ? const AlternativeInsvestment()
+                  : const FractionalRealestate(),
             );
-            // InkWell(
-            //   onTap: () {
-            //     Get.toNamed("/InspirationRecipeComment");
-            //   },
-            //   child: Container(
-            //     decoration: BoxDecoration(
-            //         image: DecorationImage(
-            //             image: index.isEven
-            //                 ? AssetImage("assets/home/17.png")
-            //                 : AssetImage("assets/home/12.png"),
-            //             fit: BoxFit.cover
-            //             // Image.asset("name")
-            //             )),
-            //   ),
-            // );
           },
         ),
       ),
@@ -401,7 +376,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
       ],
     );
   }
-  
+
   //  Future<bool> _backbuttonpressed(BuildContext context) async {
   //   bool exitapp = await showDialog(
   //     context: context,
@@ -466,5 +441,4 @@ class _CategoriesMainState extends State<CategoriesMain> {
   //   );
   //   return exitapp ?? false;
   // }
-
 }

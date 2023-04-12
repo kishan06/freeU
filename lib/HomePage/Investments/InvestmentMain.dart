@@ -6,11 +6,13 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/Piechart.dart';
 import 'package:freeu/common/bottombar.dart';
+import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
@@ -80,11 +82,12 @@ class _InvestmentMainState extends State<InvestmentMain> {
                   color: Colors.black),
             ),
             Spacer(),
-            IconButton(
-              onPressed: () {
-                Get.toNamed('/notificationpage');
-              },
-              icon: SizedBox(
+            OpenContainerWrappers(
+              openBuild: NotificationPage(),
+              // onPressed: () {
+              //   Get.toNamed('/notificationpage');
+              // },
+              closeBuild: SizedBox(
                 width: 18.w,
                 height: 25.h,
                 child: SvgPicture.asset(
@@ -95,6 +98,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
               // iconSize: 22,
               // color: const Color(0xFF303030),
             ),
+            sizedBoxWidth(16.w)
           ],
         ),
         // backgroundColor: Color(0xFFF5F8FA),
@@ -359,8 +363,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                                   fontFamily: 'Poppins',
                                                   fontSize: 30,
                                                   color: Color(0xff0F0C0C),
-                                                  fontWeight:
-                                                      FontWeight.w500),
+                                                  fontWeight: FontWeight.w500),
                                             ),
                                           ),
                                           SizedBox(
@@ -375,8 +378,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                                   fontFamily: 'Poppins',
                                                   fontSize: 20,
                                                   color: Color(0xff272424),
-                                                  fontWeight:
-                                                      FontWeight.w300),
+                                                  fontWeight: FontWeight.w300),
                                             ),
                                           ),
                                           SizedBox(
@@ -496,8 +498,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                                   fontFamily: 'Poppins',
                                                   fontSize: 30,
                                                   color: Color(0xff0F0C0C),
-                                                  fontWeight:
-                                                      FontWeight.w500),
+                                                  fontWeight: FontWeight.w500),
                                             ),
                                           ),
                                           SizedBox(
@@ -512,8 +513,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                                   fontFamily: 'Poppins',
                                                   fontSize: 20,
                                                   color: Color(0xff272424),
-                                                  fontWeight:
-                                                      FontWeight.w300),
+                                                  fontWeight: FontWeight.w300),
                                             ),
                                           ),
                                           SizedBox(
@@ -874,8 +874,8 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                 "assets/images/Investmentnumber.svg"),
                           ),
                           Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 10, bottom: 18),
+                              padding:
+                                  const EdgeInsets.only(right: 10, bottom: 18),
                               child: Column(
                                 children: [
                                   SvgPicture.asset(
@@ -896,8 +896,8 @@ class _InvestmentMainState extends State<InvestmentMain> {
                             width: 5,
                           ),
                           Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 10, bottom: 18),
+                              padding:
+                                  const EdgeInsets.only(right: 10, bottom: 18),
                               child: Column(
                                 children: [
                                   SvgPicture.asset(
@@ -975,8 +975,8 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                 "assets/images/Investmentdecrement.svg"),
                           ),
                           Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 10, bottom: 18),
+                              padding:
+                                  const EdgeInsets.only(right: 10, bottom: 18),
                               child: Column(
                                 children: [
                                   SvgPicture.asset(
@@ -994,8 +994,8 @@ class _InvestmentMainState extends State<InvestmentMain> {
                                 ],
                               )),
                           Padding(
-                              padding: const EdgeInsets.only(
-                                  right: 10, bottom: 18),
+                              padding:
+                                  const EdgeInsets.only(right: 10, bottom: 18),
                               child: Column(
                                 children: [
                                   SvgPicture.asset(
@@ -1030,7 +1030,7 @@ class _InvestmentMainState extends State<InvestmentMain> {
       ),
     );
   }
-  
+
 //  Future<bool> _backbuttonpressed(BuildContext context) async {
 //     bool exitapp = await showDialog(
 //       context: context,
@@ -1095,5 +1095,4 @@ class _InvestmentMainState extends State<InvestmentMain> {
 //     );
 //     return exitapp ?? false;
 //   }
-
 }

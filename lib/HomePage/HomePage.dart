@@ -7,6 +7,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
+import 'package:freeu/Notification.dart';
+import 'package:freeu/SideMenu/InsightsInner.dart';
+import 'package:freeu/SideMenu/insights.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/Utils/texts.dart';
@@ -14,6 +17,7 @@ import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/categoryCard.dart';
+import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/screens/entry_point.dart';
 import 'package:get/get.dart';
@@ -187,20 +191,19 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.black),
             ),
             Spacer(),
-            IconButton(
-              onPressed: () {
-                Get.toNamed('/notificationpage');
-              },
-              icon: SizedBox(
-                width: 18.w,
-                height: 25.h,
-                child: SvgPicture.asset(
-                  'assets/images/notification-bell-svgrepo-com.svg',
-                  fit: BoxFit.fill,
+            OpenContainerWrappers(
+              closeBuild: IconButton(
+                onPressed: null,
+                icon: SizedBox(
+                  width: 18.w,
+                  height: 25.h,
+                  child: SvgPicture.asset(
+                    'assets/images/notification-bell-svgrepo-com.svg',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-              // iconSize: 22,
-              // color: const Color(0xFF303030),
+              openBuild: NotificationPage(),
             ),
           ],
         ),
@@ -345,42 +348,28 @@ class _HomePageState extends State<HomePage> {
                     scrollDirection: Axis.horizontal,
                     itemCount: 2,
                     itemBuilder: (context, index) {
-                      return GestureDetector(
-                        onTap: () {
-                          var screen;
-                          switch (index) {
-                            case 0:
-                              screen = AlternativeInsvestment();
-
-                              break;
-                            case 1:
-                              screen = FractionalRealestate();
-
-                              break;
-
-                            default:
-                          }
-                          Get.to(screen);
-                        },
-                        child: categoryCard(
-                          color1: categoryData[index]["colorL"],
-                          color2: categoryData[index]["colorD"],
-                          bgImage: categoryData[index]["bgImage"],
-                          image: categoryData[index]["imageUrl"],
-                          text: categoryData[index]["title"],
-                        ),
-                      );
+                      return OpenContainerWrappers(
+                          closeBuild: categoryCard(
+                            color1: categoryData[index]["colorL"],
+                            color2: categoryData[index]["colorD"],
+                            bgImage: categoryData[index]["bgImage"],
+                            image: categoryData[index]["imageUrl"],
+                            text: categoryData[index]["title"],
+                          ),
+                          openBuild: index == 0
+                              ? AlternativeInsvestment()
+                              : FractionalRealestate());
                     }),
                 // ), openBuild: Get.to(screen)),
               ),
               sizedBoxHeight(15.h),
 
-              twoText(
-                "Knowledge center",
-                "View more",
-                onTap: () {
-                  Get.toNamed("/Insights");
-                },
+              OpenContainerWrappers(
+                closeBuild: twoText(
+                  "Knowledge center",
+                  "View more",
+                ),
+                openBuild: Insights(),
               ),
 
               SizedBox(
@@ -1383,77 +1372,74 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget tileCard() {
-    return GestureDetector(
-      onTap: () {
-        Get.toNamed('/insightsinner');
-      },
-      child: Container(
-        decoration: BoxDecoration(
-            color: Color(0xFFFFFFFF),
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.06),
-                blurRadius: 10,
-                spreadRadius: 2,
-              ),
-            ]),
-        child: Padding(
-          padding:
-              const EdgeInsets.only(top: 14.0, left: 10, right: 15, bottom: 10),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Expanded(
-                flex: 2,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    "assets/images/na_april_69.jpg",
-                    height: 70,
-                    width: 90,
+    return OpenContainerWrappers(
+        closeBuild: Container(
+          decoration: BoxDecoration(
+              color: Color(0xFFFFFFFF),
+              borderRadius: BorderRadius.circular(15),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.06),
+                  blurRadius: 10,
+                  spreadRadius: 2,
+                ),
+              ]),
+          child: Padding(
+            padding: const EdgeInsets.only(
+                top: 14.0, left: 10, right: 15, bottom: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      "assets/images/na_april_69.jpg",
+                      height: 70,
+                      width: 90,
+                    ),
                   ),
                 ),
-              ),
-              const Expanded(
-                flex: 0,
-                child: SizedBox(
-                  width: 20,
+                const Expanded(
+                  flex: 0,
+                  child: SizedBox(
+                    width: 20,
+                  ),
                 ),
-              ),
-              Expanded(
-                flex: 5,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Retail banks wake up to digital",
-                      style: blackStyle14(),
-                    ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.calendar_today_outlined,
-                          size: 14,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text(
-                          "October 17 , 2022",
-                          style: blackStyle12(),
-                        ),
-                      ],
-                    )
-                  ],
+                Expanded(
+                  flex: 5,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Retail banks wake up to digital",
+                        style: blackStyle14(),
+                      ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.calendar_today_outlined,
+                            size: 14,
+                          ),
+                          SizedBox(
+                            width: 5,
+                          ),
+                          Text(
+                            "October 17 , 2022",
+                            style: blackStyle12(),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
-      ),
-    );
+        openBuild: InsightsInner());
   }
 
   Widget twoText(String text1, String text2, {void Function()? onTap}) {

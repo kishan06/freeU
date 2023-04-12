@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
 import 'package:freeu/common/CustomTextDropDown.dart';
+import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
@@ -189,8 +190,8 @@ class _InsightsState extends State<Insights> {
                             SizedBox(
                               height: 20.h,
                             ),
-                            GestureDetector(
-                                child: Container(
+                            OpenContainerWrappers(
+                                closeBuild: Container(
                                     height: 50.h,
                                     width: double.infinity,
                                     decoration: BoxDecoration(
@@ -211,9 +212,7 @@ class _InsightsState extends State<Insights> {
                                         ),
                                       ),
                                     )),
-                                onTap: () {
-                                  Get.to(InsightsInner());
-                                }),
+                                openBuild: InsightsInner())
                           ],
                         ),
                       ),
