@@ -20,7 +20,6 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-
 import 'Categories/Alternative/Fractionalpage.dart';
 
 import '../controllers/entry_point_controller.dart';
@@ -274,7 +273,6 @@ class _HomePageState extends State<HomePage> {
                       text20Black("Top Picks"),
                       InkWell(
                           onTap: () {
-
                             Get.toNamed("/EntryPoint",
                                 arguments: 1, preventDuplicates: false);
                             // Get.toNamed(page)
@@ -282,7 +280,6 @@ class _HomePageState extends State<HomePage> {
                             // Get.toNamed("/EntryPoint", arguments: 1);
                             // selectedIndex = 1;
                             // setState(() {});
-
                           },
                           child: text14Grey272424("View more"))
                     ],
@@ -318,7 +315,6 @@ class _HomePageState extends State<HomePage> {
               ),
 
               twoText("Categories", "View more", onTap: () {
-
                 Get.toNamed("/EntryPoint",
                     arguments: 1, preventDuplicates: false);
                 // controllerEntryPoint.selectedPage(1);
@@ -340,7 +336,6 @@ class _HomePageState extends State<HomePage> {
               }),
 
               sizedBoxHeight(10.h),
-
               SizedBox(
                 height: 133.h,
                 child: ListView.separated(
@@ -376,8 +371,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       );
                     }),
+                // ), openBuild: Get.to(screen)),
               ),
-
               sizedBoxHeight(15.h),
 
               twoText(
@@ -1486,7 +1481,7 @@ class _HomePageState extends State<HomePage> {
               borderRadius: BorderRadius.circular(15.h),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.06),
+                  color: Colors.black.withOpacity(0.04),
                   blurRadius: 10,
                   spreadRadius: 2,
                 )
@@ -1505,11 +1500,10 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   text1,
                   style:
-                      TextStyle(fontWeight: FontWeight.w500, fontSize: 16.sp),
+                      TextStyle(fontWeight: FontWeight.w500, fontSize: 14.sp),
                 ),
-                // Spacer(),
 
-                sizedBoxHeight(5.h),
+                sizedBoxHeight(10.h),
 
                 Container(
                   width: double.infinity,

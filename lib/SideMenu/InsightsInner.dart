@@ -50,124 +50,123 @@ class _InsightsInnerState extends State<InsightsInner> {
         ),
       ),
       body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Center(
-            child: Flexible(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              sizedBoxHeight(14.h),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.only(top: 1.h),
-                    child: Icon(
-                      Icons.calendar_today,
-                      size: 15.sp,
-                      color: Color(0xff6B6B6B),
-                    ),
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            sizedBoxHeight(14.h),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.only(top: 1.h),
+                  child: Icon(
+                    Icons.calendar_today,
+                    size: 15.sp,
+                    color: Color(0xff6B6B6B),
                   ),
-                  SizedBox(
-                    width: 5.w,
-                  ),
-                  Text(
-                    'November 11, 2022',
-                    style: TextStyle(fontSize: 14.sp, color: Color(0xff6B6B6B)),
-                  ),
-                  SizedBox(
-                    width: 5.w,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 3.h),
-                    child: Icon(
-                      Icons.circle,
-                      size: 14.sp,
-                      color: Color(0xff6B6B6B),
-                    ),
-                  ),
-                  SizedBox(
-                    width: 5.w,
-                  ),
-                  Text(
-                    '11 Min Raed',
-                    style: TextStyle(fontSize: 14.sp, color: Color(0xff6B6B6B)),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Text(
-                'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Color(0xff000000),
                 ),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Text(
-                'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Color(0xff000000),
+                SizedBox(
+                  width: 5.w,
                 ),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Image.asset(
-                'assets/images/insights-inner.png',
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Text(
-                'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Color(0xff000000),
+                Text(
+                  'November 11, 2022',
+                  style: TextStyle(fontSize: 14.sp, color: Color(0xff6B6B6B)),
                 ),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Text(
-                'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Color(0xff000000),
+                SizedBox(
+                  width: 5.w,
                 ),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Text(
-                'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
-                textAlign: TextAlign.left,
-                style: TextStyle(
-                  fontSize: 16.sp,
-                  color: Color(0xff000000),
+                Padding(
+                  padding: EdgeInsets.only(top: 3.h),
+                  child: Icon(
+                    Icons.circle,
+                    size: 14.sp,
+                    color: Color(0xff6B6B6B),
+                  ),
                 ),
+                SizedBox(
+                  width: 5.w,
+                ),
+                Text(
+                  '11 Min Raed',
+                  style: TextStyle(fontSize: 14.sp, color: Color(0xff6B6B6B)),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            Text(
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: Color(0xff000000),
               ),
-              sizedBoxHeight(15.h),
-              CustomNextButton(
-                ontap: () {
-                  Get.back();
-                  Get.to(InsightsInner());
-                },
-                text: "Next",
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            Text(
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: Color(0xff000000),
               ),
-              sizedBoxHeight(20.h)
-            ],
-          ),
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            Image.asset(
+              'assets/images/insights-inner.png',
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            Text(
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: Color(0xff000000),
+              ),
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            Text(
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: Color(0xff000000),
+              ),
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            Text(
+              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
+              textAlign: TextAlign.left,
+              style: TextStyle(
+                fontSize: 16.sp,
+                color: Color(0xff000000),
+              ),
+            ),
+            sizedBoxHeight(15.h),
+            CustomNextButton(
+              ontap: () {
+                Get.back();
+                Get.to(InsightsInner());
+              },
+              text: "Next",
+            ),
+            sizedBoxHeight(20.h)
+          ],
         )),
       ),
     );

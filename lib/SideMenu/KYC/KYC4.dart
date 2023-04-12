@@ -208,6 +208,10 @@ class _KYC4State extends State<KYC4> {
                           CustomNextButton(
                             text: "Continue",
                             ontap: () {
+                              Timer(
+                                  Duration(seconds: 2),
+                                  () =>
+                                      Get.toNamed('/EntryPoint', arguments: 0));
                               showModalBottomSheet(
                                 isScrollControlled: true,
                                 context: context,
@@ -218,38 +222,33 @@ class _KYC4State extends State<KYC4> {
                                   ),
                                 ),
                                 builder: (context) {
-                                  return GestureDetector(
-                                    onTap: () {
-                                      Get.toNamed('/EntryPoint', arguments: 0);
-                                    },
-                                    child: Container(
-                                      margin: EdgeInsets.symmetric(
-                                          horizontal: 16.w, vertical: 24.h),
-                                      child: Column(
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          SizedBox(
-                                            height: 10.h,
+                                  return Container(
+                                    margin: EdgeInsets.symmetric(
+                                        horizontal: 16.w, vertical: 24.h),
+                                    child: Column(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        SizedBox(
+                                          height: 10.h,
+                                        ),
+                                        Image.asset('assets/images/kyc.png'),
+                                        SizedBox(
+                                          height: 30.h,
+                                        ),
+                                        Center(
+                                          child: Text(
+                                            'Thankyou for updating\n your KYC',
+                                            textAlign: TextAlign.center,
+                                            style: TextStyle(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 20.sp,
+                                                color: Colors.black),
                                           ),
-                                          Image.asset('assets/images/kyc.png'),
-                                          SizedBox(
-                                            height: 30.h,
-                                          ),
-                                          Center(
-                                            child: Text(
-                                              'Thankyou for updating\n your KYC',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 20.sp,
-                                                  color: Colors.black),
-                                            ),
-                                          ),
-                                          SizedBox(
-                                            height: 10.h,
-                                          ),
-                                        ],
-                                      ),
+                                        ),
+                                        SizedBox(
+                                          height: 10.h,
+                                        ),
+                                      ],
                                     ),
                                   );
                                 },
