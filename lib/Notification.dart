@@ -253,6 +253,7 @@ class _NotificationPageState extends State<NotificationPage> {
                           },
                           separatorBuilder: (BuildContext context, int index) {
                             return Divider(
+                              height: 40.h,
                               thickness: 1.5,
                             );
                           },
