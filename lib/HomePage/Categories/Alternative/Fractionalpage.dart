@@ -3,12 +3,16 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
+
+import 'Fractionalproperties.dart';
 
 class FractionalRealestate extends StatefulWidget {
   const FractionalRealestate({super.key});
@@ -90,11 +94,12 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                       SizedBox(
                         height: 9.h,
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          Get.toNamed("/fractionalrealestate");
-                        },
-                        child: Row(
+                      OpenContainerWrappers(
+                        openBuild: FractionalRealEstate2(),
+                        // onTap: () {
+                        //   Get.toNamed("/fractionalrealestate");
+                        // },
+                        closeBuild: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
@@ -181,29 +186,21 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                       SizedBox(
                         height: 92.h,
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 50.h,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            elevation: 5,
-                            //shadowColor: Color.fromARGB(255, 220, 220, 226),
-
-                            backgroundColor: Color(0XFFFBFBFB),
-
-                            //  color: Color(0xFFFFB600),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10.h),
-                            ),
-                          ),
-                          onPressed: () {
-                            Get.toNamed("/fractionalpropertiespage");
-                          },
-                          child: Text(
-                            "View more product",
-                            style: TextStyle(
-                              color: Color(0XFF000000),
-                              fontSize: 18.sp,
+                      OpenContainerWrappers(
+                        openBuild: const Fractionalproperties(),
+                        closeBuild: Container(
+                          decoration: BoxDecoration(
+                              color: const Color(0XFFFBFBFB),
+                              borderRadius: BorderRadius.circular(10.r)),
+                          width: double.infinity,
+                          height: 50.h,
+                          child: Center(
+                            child: Text(
+                              "View more product",
+                              style: TextStyle(
+                                color: Color(0XFF000000),
+                                fontSize: 18.sp,
+                              ),
                             ),
                           ),
                         ),
