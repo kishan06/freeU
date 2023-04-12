@@ -18,11 +18,9 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
-
       ),
 
       // AppBar(
@@ -40,8 +38,8 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
       //     color: Colors.black,
       //   ),
       // ),
-       bottomNavigationBar: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.h),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.fromLTRB(16.w,5.h,16.w,10.h),
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
@@ -51,47 +49,53 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          //padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // SizedBox(
-                  //   height: 10.h,
-                  // ),
-                  Text(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // SizedBox(
+                //   height: 10.h,
+                // ),
+                Flexible(
+                  child: Text(
                     "Alternative Investment Funds",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
                         fontWeight: FontWeight.w500),
                   ),
+                ),
+              ],
+            ),
+            Expanded(
+                child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  sizedBoxHeight(20.h),
+                  faqAccod(expandAccod: true),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
                 ],
               ),
-              sizedBoxHeight(20.h),
-              faqAccod(expandAccod: true),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-            ],
-          ),
+            )),
+          ],
         ),
       ),
     );

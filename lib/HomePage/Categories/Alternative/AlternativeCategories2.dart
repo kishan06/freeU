@@ -17,7 +17,6 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
@@ -37,7 +36,7 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
       //     color: Colors.black,
       //   ),
       // ),
-        bottomNavigationBar: Padding(
+      bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
           text: 'View Categories',
@@ -50,56 +49,50 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          // padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // GestureDetector(
-                  //     onTap: () {
-                  //       Get.back();
-                  //     },
-                  //     child: Icon(
-                  //       Icons.arrow_back,
-                  //       size: 24.sp,
-                  //       color: const Color(0xff000000),
-                  //     )),
-                  // SizedBox(
-                  //   height: 10.h,
-                  // ),
-                  Text(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Flexible(
+                  child: Text(
                     "Alternative Investment Funds Category II",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
                         fontWeight: FontWeight.w500),
                   ),
+                ),
+              ],
+            ),
+            Expanded(
+                child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  sizedBoxHeight(20.h),
+                  faqAccod(expandAccod: true),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
+                  faqAccod(),
+                  sizedBoxHeight(15.h),
                 ],
               ),
-              sizedBoxHeight(20.h),
-              faqAccod(expandAccod: true),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-              faqAccod(),
-              sizedBoxHeight(15.h),
-            ],
-          ),
+            )),
+          ],
         ),
       ),
     );
