@@ -114,8 +114,8 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
       //   showLeading: true,
       //   bottomtext: false,
       // ),
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "bottombar", context),
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "bottombar", context),
       body: Column(
         children: [
           Padding(
@@ -292,65 +292,74 @@ class common_crd_green extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 20, bottom: 18),
                   child: GestureDetector(
                     onTap: () {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
-                          ),
-                        ),
-                        builder: (context) {
-                          return Container(
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 30),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                SizedBox(
-                                  height: 20.h,
-                                ),
-                                SvgPicture.asset(
-                                    "assets/images/thankyouinvestment.svg"),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 15, right: 11),
-                                  child: Text(
-                                    'Thank You For Selling\n           Product',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 30,
-                                        color: Color(0xff0F0C0C),
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20.h,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 40, right: 40),
-                                  child: Text(
-                                    'A FreeU Advisory Team will \n    get back to you soon.',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 20,
-                                        color: Color(0xff272424),
-                                        fontWeight: FontWeight.w300),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 30,
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      );
+                      bottomSheetThankU(context);
+                      // showModalBottomSheet(
+                      //   isScrollControlled: true,
+                      //   context: context,
+                      //   shape: const RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.only(
+                      //       topLeft: Radius.circular(30),
+                      //       topRight: Radius.circular(30),
+                      //     ),
+                      //   ),
+                      //   builder: (context) {
+                      //     return Container(
+                      //       margin: const EdgeInsets.symmetric(
+                      //           horizontal: 16, vertical: 30),
+                      //       child: Column(
+                      //         mainAxisSize: MainAxisSize.min,
+                      //         children: [
+                      //           SizedBox(
+                      //             height: 20.h,
+                      //           ),
+
+                      //           IconButton(onPressed: (){
+                      //               Get.back();
+                      //           }, icon: Icon(Icons.close,
+                      //             size: 25.h,
+                      //           ) 
+                      //           ),
+                      //           SvgPicture.asset(
+                      //               "assets/images/thankyouinvestment.svg"),
+                      //           SizedBox(
+                      //             height: 20,
+                      //           ),
+                      //           Padding(
+                      //             padding: const EdgeInsets.only(
+                      //                 left: 15, right: 11),
+                      //             child: Text(
+                      //               'Thank You For Selling\n           Product',
+                      //               style: TextStyle(
+                      //                   fontFamily: 'Poppins',
+                      //                   fontSize: 30,
+                      //                   color: Color(0xff0F0C0C),
+                      //                   fontWeight: FontWeight.w500),
+                      //             ),
+                      //           ),
+                      //           SizedBox(
+                      //             height: 20.h,
+                      //           ),
+                      //           Padding(
+                      //             padding: const EdgeInsets.only(
+                      //                 left: 40, right: 40),
+                      //             child: Text(
+                      //               'A FreeU Advisory Team will \n    get back to you soon.',
+                      //               style: TextStyle(
+                      //                   fontFamily: 'Poppins',
+                      //                   fontSize: 20,
+                      //                   color: Color(0xff272424),
+                      //                   fontWeight: FontWeight.w300),
+                      //             ),
+                      //           ),
+                      //           SizedBox(
+                      //             height: 30,
+                      //           ),
+                      //         ],
+                      //       ),
+                      //     );
+                      //   },
+                      // );
+                  
                     },
                     child: Text(
                       "Sell",
@@ -372,6 +381,79 @@ class common_crd_green extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<T?> bottomSheetThankU<T>(BuildContext context){
+  return showModalBottomSheet(
+    isScrollControlled: true,
+    context: context,
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(30),
+        topRight: Radius.circular(30),
+      ),
+    ),
+    builder: (context) {
+      return Container(
+        margin: EdgeInsets.symmetric(
+            horizontal: 10.w, vertical: 10.w),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            // SizedBox(
+            //   height: 20.h,
+            // ),
+
+            Align(
+              alignment: Alignment.centerRight,
+              child: IconButton(onPressed: (){
+                  Get.back();
+              }, icon: Icon(Icons.cancel,
+                size: 30.h,
+              ) 
+              ),
+            ),
+            SvgPicture.asset(
+                "assets/images/thankyouinvestment.svg"),
+            SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 15, right: 11),
+              child: Text(
+                'Thank You For Selling\n           Product',
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 30,
+                    color: Color(0xff0F0C0C),
+                    fontWeight: FontWeight.w500),
+              ),
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                  left: 40, right: 40),
+              child: Text(
+                'A FreeU Advisory Team will \n    get back to you soon.',
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 20,
+                    color: Color(0xff272424),
+                    fontWeight: FontWeight.w300),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
+          ],
+        ),
+      );
+    },
+  );
+
 }
 
 class common_crd_red extends StatelessWidget {
@@ -432,65 +514,67 @@ class common_crd_red extends StatelessWidget {
                   padding: const EdgeInsets.only(right: 22, bottom: 18),
                   child: GestureDetector(
                     onTap: () {
-                      showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(30),
-                            topRight: Radius.circular(30),
-                          ),
-                        ),
-                        builder: (context) {
-                          return Container(
-                            margin: const EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 30),
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                SizedBox(
-                                  height: 20.h,
-                                ),
-                                SvgPicture.asset(
-                                    "assets/images/thankyouinvestment.svg"),
-                                SizedBox(
-                                  height: 20,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 15, right: 11),
-                                  child: Text(
-                                    'Thank You For Selling\n           Product',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 30,
-                                        color: Color(0xff0F0C0C),
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 20.h,
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 40, right: 40),
-                                  child: Text(
-                                    'A FreeU Advisory Team will \n    get back to you soon.',
-                                    style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 20,
-                                        color: Color(0xff272424),
-                                        fontWeight: FontWeight.w300),
-                                  ),
-                                ),
-                                SizedBox(
-                                  height: 30,
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      );
+                      bottomSheetThankU(context);
+                      // showModalBottomSheet(
+                      //   isScrollControlled: true,
+                      //   context: context,
+                      //   shape: const RoundedRectangleBorder(
+                      //     borderRadius: BorderRadius.only(
+                      //       topLeft: Radius.circular(30),
+                      //       topRight: Radius.circular(30),
+                      //     ),
+                      //   ),
+                      //   builder: (context) {
+                      //     return Container(
+                      //       margin: const EdgeInsets.symmetric(
+                      //           horizontal: 16, vertical: 30),
+                      //       child: Column(
+                      //         mainAxisSize: MainAxisSize.min,
+                      //         children: [
+                      //           SizedBox(
+                      //             height: 20.h,
+                      //           ),
+                      //           SvgPicture.asset(
+                      //               "assets/images/thankyouinvestment.svg"),
+                      //           SizedBox(
+                      //             height: 20,
+                      //           ),
+                      //           Padding(
+                      //             padding: const EdgeInsets.only(
+                      //                 left: 15, right: 11),
+                      //             child: Text(
+                      //               'Thank You For Selling\n           Product',
+                      //               style: TextStyle(
+                      //                   fontFamily: 'Poppins',
+                      //                   fontSize: 30,
+                      //                   color: Color(0xff0F0C0C),
+                      //                   fontWeight: FontWeight.w500),
+                      //             ),
+                      //           ),
+                      //           SizedBox(
+                      //             height: 20.h,
+                      //           ),
+                      //           Padding(
+                      //             padding: const EdgeInsets.only(
+                      //                 left: 40, right: 40),
+                      //             child: Text(
+                      //               'A FreeU Advisory Team will \n    get back to you soon.',
+                      //               style: TextStyle(
+                      //                   fontFamily: 'Poppins',
+                      //                   fontSize: 20,
+                      //                   color: Color(0xff272424),
+                      //                   fontWeight: FontWeight.w300),
+                      //             ),
+                      //           ),
+                      //           SizedBox(
+                      //             height: 30,
+                      //           ),
+                      //         ],
+                      //       ),
+                      //     );
+                      //   },
+                      // );
+                    
                     },
                     child: Text(
                       "Sell",

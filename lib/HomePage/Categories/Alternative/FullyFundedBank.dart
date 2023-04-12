@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
 class FullyFundedBank extends StatefulWidget {
@@ -16,6 +17,9 @@ class FullyFundedBank extends StatefulWidget {
 }
 
 class _FullyFundedBankState extends State<FullyFundedBank> {
+
+  final controllerEntryPoint = Get.put(EntryPointController());
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +47,14 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
         padding: EdgeInsets.fromLTRB(16.w,5.h,16.w,10.h),
         child: CustomNextButton(
             ontap: () {
-              investNow();
+              if (controllerEntryPoint.logedIn!) {
+                investNow();
+              } else {
+                Get.toNamed("/login");
+              }
+              // controllerEntryPoint.logedIn!?
+              // investNow():SizedBox();
+
             },
             text: 'Invest now'),
       ),

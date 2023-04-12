@@ -86,14 +86,14 @@ class _PeerLendingAsset2State extends State<PeerLendingAsset2> {
         showLeading: true,
         bottomtext: false,
       ),
-      bottomNavigationBar:
-          //Transform.translate(
-          // offset: Offset(0.0, -10),
-          // child:
-          // ClipRRect(
-          //   borderRadius: BorderRadius.all(Radius.circular(30.r)),
-          //  child:
-          CreateBottomBar(stateBottomNav, "bottombar", context),
+      // bottomNavigationBar:
+      //     //Transform.translate(
+      //     // offset: Offset(0.0, -10),
+      //     // child:
+      //     // ClipRRect(
+      //     //   borderRadius: BorderRadius.all(Radius.circular(30.r)),
+      //     //  child:
+      //     CreateBottomBar(stateBottomNav, "bottombar", context),
       //   ),
       // ),
       body: SingleChildScrollView(
