@@ -83,8 +83,8 @@ class _PeerLendingAsset1State extends State<PeerLendingAsset1> {
         showLeading: true,
         bottomtext: false,
       ),
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "bottombar", context),
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "bottombar", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.only(left: 16.0, right: 16),

@@ -471,110 +471,114 @@ class SecondTab extends StatelessWidget {
               onTap: () {
                 Get.toNamed('/fullyfundedbank');
               },
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: Color(0xffffffff),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x48B9B9BE),
-                      blurRadius: 10.0,
-                      spreadRadius: 3.0,
-                      // offset: Offset(10, 10, 10, 10),
-                    )
-                  ],
-                ),
-                child: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/alternative (6).png",
-                            width: 68,
-                            height: 38,
-                          ),
-                          SizedBox(
-                            width: 20.h,
-                          ),
-                          Flexible(
-                            child: Text(
-                              "HDFC AMC Select AIF FOF - 1",
+              child: Padding(
+                padding:  EdgeInsets.all(5.w),
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                    color: Color(0xffffffff),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Color(0x48B9B9BE),
+                        blurRadius: 10.0,
+                        spreadRadius: 3.0,
+                        // offset: Offset(10, 10, 10, 10),
+                      )
+                    ],
+                  ),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 22.0, right: 22, top: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/alternative (6).png",
+                              width: 68,
+                              height: 38,
+                            ),
+                            SizedBox(
+                              width: 20.h,
+                            ),
+                            Flexible(
+                              child: Text(
+                                "HDFC AMC Select AIF FOF - 1",
+                                style: TextStyle(
+                                    fontSize: 22,
+                                    fontFamily: 'Poppins',
+                                    color: Color(0XFF000000),
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            )
+                          ],
+                        ),
+                        Divider(
+                          thickness: 1,
+                          color: Color(0XFF6D6D6D29),
+                        ),
+                        SizedBox(height: 17.5.h),
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/investment (1).png",
+                              width: 25.w,
+                              height: 25.h,
+                            ),
+                            SizedBox(
+                              width: 15.w,
+                            ),
+                            Text(
+                              "Targeted IRR :",
                               style: TextStyle(
-                                  fontSize: 22,
+                                fontSize: 17.sp,
+                                fontFamily: 'Poppins',
+                                color: Color(0XFF000000),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10.w,
+                            ),
+                            Text(
+                              "12.7%",
+                              style: TextStyle(
+                                  fontSize: 20.sp,
                                   fontFamily: 'Poppins',
                                   color: Color(0XFF000000),
                                   fontWeight: FontWeight.w500),
                             ),
-                          )
-                        ],
-                      ),
-                      Divider(
-                        thickness: 1,
-                        color: Color(0XFF6D6D6D29),
-                      ),
-                      SizedBox(height: 17.5.h),
-                      Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/investment (1).png",
-                            width: 25.w,
-                            height: 25.h,
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          Text(
-                            "Targeted IRR :",
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 31.h,
+                        ),
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(
+                              "assets/images/back-in-time (1).png",
+                              width: 25.w,
+                              height: 25.h,
                             ),
-                          ),
-                          SizedBox(
-                            width: 10.w,
-                          ),
-                          Text(
-                            "12.7%",
-                            style: TextStyle(
-                                fontSize: 20.sp,
-                                fontFamily: 'Poppins',
-                                color: Color(0XFF000000),
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 31.h,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/back-in-time (1).png",
-                            width: 25.w,
-                            height: 25.h,
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          Text(
-                            "Commitment period :",
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
+                            SizedBox(
+                              width: 15.w,
                             ),
-                          ),
-                          SizedBox(
-                            width: 8.w,
-                          ),
-                          Flexible(
-                            child: Text(
+                            Flexible(
+                              child: Text(
+                                "Commitment period :",
+                                style: TextStyle(
+                                  fontSize: 17.sp,
+                                  fontFamily: 'Poppins',
+                                  color: Color(0XFF000000),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8.w,
+                            ),
+                            Text(
                               "5 Years",
                               style: TextStyle(
                                   fontSize: 18.sp,
@@ -582,47 +586,47 @@ class SecondTab extends StatelessWidget {
                                   color: Color(0XFF000000),
                                   fontWeight: FontWeight.w500),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 31.h,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/transfer.png",
-                            width: 25.w,
-                            height: 25.h,
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          Text(
-                            "Capital Commitment :",
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 31.h,
+                        ),
+                        Row(
+                          children: [
+                            Image.asset(
+                              "assets/images/transfer.png",
+                              width: 25.w,
+                              height: 25.h,
                             ),
-                          ),
-                          SizedBox(
-                            width: 8.w,
-                          ),
-                          Text(
-                            "12.7%",
-                            style: TextStyle(
-                                fontSize: 18.sp,
+                            SizedBox(
+                              width: 15.w,
+                            ),
+                            Text(
+                              "Capital Commitment :",
+                              style: TextStyle(
+                                fontSize: 17.sp,
                                 fontFamily: 'Poppins',
                                 color: Color(0XFF000000),
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      )
-                    ],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 8.w,
+                            ),
+                            Text(
+                              "12.7%",
+                              style: TextStyle(
+                                  fontSize: 18.sp,
+                                  fontFamily: 'Poppins',
+                                  color: Color(0XFF000000),
+                                  fontWeight: FontWeight.w500),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -631,156 +635,165 @@ class SecondTab extends StatelessWidget {
           SizedBox(
             height: 30.h,
           ),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(Radius.circular(15)),
-              color: Color(0xffffffff),
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0x48B9B9BE),
-                  blurRadius: 10.0,
-                  spreadRadius: 3.0,
-                  // offset: Offset(10, 10, 10, 10),
-                )
-              ],
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/Image 1.png",
-                        width: 68,
-                        height: 38,
-                      ),
-                      SizedBox(
-                        width: 20.h,
-                      ),
-                      Text(
-                        "Edelweiss Discovery \nFund – Series I",
-                        style: TextStyle(
-                            fontSize: 22,
-                            fontFamily: 'Poppins',
-                            color: Color(0XFF000000),
-                            fontWeight: FontWeight.w500),
-                      )
-                    ],
-                  ),
-                  Divider(
-                    thickness: 1,
-                    color: Color(0XFF6D6D6D29),
-                  ),
-                  SizedBox(height: 17.5.h),
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/investment (1).png",
-                        width: 25.w,
-                        height: 25.h,
-                      ),
-                      SizedBox(
-                        width: 15.w,
-                      ),
-                      Text(
-                        "Targeted IRR :",
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontFamily: 'Poppins',
-                          color: Color(0XFF000000),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 10.w,
-                      ),
-                      Text(
-                        "12.7%",
-                        style: TextStyle(
-                            fontSize: 20.sp,
-                            fontFamily: 'Poppins',
-                            color: Color(0XFF000000),
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 31.h,
-                  ),
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/back-in-time (1).png",
-                        width: 25.w,
-                        height: 25.h,
-                      ),
-                      SizedBox(
-                        width: 15.w,
-                      ),
-                      Text(
-                        "Commitment period :",
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontFamily: 'Poppins',
-                          color: Color(0XFF000000),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 8.w,
-                      ),
-                      Text(
-                        "5 Years",
-                        style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: 'Poppins',
-                            color: Color(0XFF000000),
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 31.h,
-                  ),
-                  Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/transfer.png",
-                        width: 25.w,
-                        height: 25.h,
-                      ),
-                      SizedBox(
-                        width: 15.w,
-                      ),
-                      Text(
-                        "Capital Commitment :",
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          fontFamily: 'Poppins',
-                          color: Color(0XFF000000),
-                        ),
-                      ),
-                      SizedBox(
-                        width: 8.w,
-                      ),
-                      Text(
-                        "12.7%",
-                        style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: 'Poppins',
-                            color: Color(0XFF000000),
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 20.h,
+          Padding(
+            padding: EdgeInsets.all(5.w),
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color(0xffffffff),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0x48B9B9BE),
+                    blurRadius: 10.0,
+                    spreadRadius: 3.0,
+                    // offset: Offset(10, 10, 10, 10),
                   )
                 ],
               ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 22.0, right: 22, top: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset(
+                          "assets/images/Image 1.png",
+                          width: 68,
+                          height: 38,
+                        ),
+                        SizedBox(
+                          width: 20.h,
+                        ),
+                        Flexible(
+                          child: Text(
+                            "Edelweiss Discovery Fund - Series I",
+                            style: TextStyle(
+                                fontSize: 22,
+                                fontFamily: 'Poppins',
+                                color: Color(0XFF000000),
+                                fontWeight: FontWeight.w500),
+                          ),
+                        )
+                      ],
+                    ),
+                    Divider(
+                      thickness: 1,
+                      color: Color(0XFF6D6D6D29),
+                    ),
+                    SizedBox(height: 17.5.h),
+                    Row(
+                      children: [
+                        Image.asset(
+                          "assets/images/investment (1).png",
+                          width: 25.w,
+                          height: 25.h,
+                        ),
+                        SizedBox(
+                          width: 15.w,
+                        ),
+                        Text(
+                          "Targeted IRR :",
+                          style: TextStyle(
+                            fontSize: 17.sp,
+                            fontFamily: 'Poppins',
+                            color: Color(0XFF000000),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10.w,
+                        ),
+                        Text(
+                          "12.7%",
+                          style: TextStyle(
+                              fontSize: 20.sp,
+                              fontFamily: 'Poppins',
+                              color: Color(0XFF000000),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 31.h,
+                    ),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Image.asset(
+                          "assets/images/back-in-time (1).png",
+                          width: 25.w,
+                          height: 25.h,
+                        ),
+                        SizedBox(
+                          width: 15.w,
+                        ),
+                        Flexible(
+                          child: Text(
+                            "Commitment period :",
+                            style: TextStyle(
+                              fontSize: 17.sp,
+                              fontFamily: 'Poppins',
+                              color: Color(0XFF000000),
+                            ),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 6.w,
+                        ),
+                        Text(
+                          "5 Years",
+                          style: TextStyle(
+                              fontSize: 18.sp,
+                              fontFamily: 'Poppins',
+                              color: Color(0XFF000000),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 31.h,
+                    ),
+                    Row(
+                      children: [
+                        Image.asset(
+                          "assets/images/transfer.png",
+                          width: 25.w,
+                          height: 25.h,
+                        ),
+                        SizedBox(
+                          width: 15.w,
+                        ),
+                        Text(
+                          "Capital Commitment :",
+                          style: TextStyle(
+                            fontSize: 17.sp,
+                            fontFamily: 'Poppins',
+                            color: Color(0XFF000000),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 8.w,
+                        ),
+                        Text(
+                          "12.7%",
+                          style: TextStyle(
+                              fontSize: 18.sp,
+                              fontFamily: 'Poppins',
+                              color: Color(0XFF000000),
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    )
+                  ],
+                ),
+              ),
             ),
           ),
+          sizedBoxHeight(10.h),
         ],
       ),
     );

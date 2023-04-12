@@ -87,8 +87,8 @@ class _FractionalRealEstateProperty1State
         showLeading: true,
         bottomtext: false,
       ),
-      bottomNavigationBar:
-          CreateBottomBar(stateBottomNav, "bottomabar", context),
+      // bottomNavigationBar:
+      //     CreateBottomBar(stateBottomNav, "bottomabar", context),
       body: Padding(
         padding: EdgeInsets.only(left: 16.0, right: 16),
         child: Column(

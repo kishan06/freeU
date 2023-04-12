@@ -510,6 +510,11 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
                           texttype: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                            LengthLimitingTextInputFormatter(12)
+                            
+                          ],
                           hintText: "Enter Aadhar Number",
                           validatorText: "Enter Aadhar Number",
                           validator: (value) {
@@ -528,6 +533,10 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
                           textCapital: true,
+                          inputFormatters: [
+                            LengthLimitingTextInputFormatter(10),
+                            FilteringTextInputFormatter.allow(RegExp('[A-Z,0-9]')),
+                          ],
                           hintText: "Enter PAN Number",
                           validatorText: "Enter PAN Number",
                           validator: (value) {

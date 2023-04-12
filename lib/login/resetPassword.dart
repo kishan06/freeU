@@ -26,7 +26,9 @@ class _ResetPasswordState extends State<ResetPassword> {
   onPasswordChnage(String password) {
     setState(() {
       final numricRegex = RegExp(r'[0-9]');
-      final alphaRegex = RegExp(r'[A-Z]|(?=.*[@$!%*#?&])');
+      final alphaRegex = RegExp('(?=.*[A-Z])(?=.*[!@#\$%^&*])');
+      // RegExp(r'[A-Z](?=.*[@$!%*#?&])');
+      // RegExp(r'[A-Z]|(?=.*[@$!%*#?&])');
 
       _isPasswordEightCar = false;
       if (password.length >= 8) _isPasswordEightCar = true;
@@ -217,6 +219,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             height: 10.h,
                           ),
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               AnimatedContainer(
                                 duration: const Duration(
@@ -238,16 +241,18 @@ class _ResetPasswordState extends State<ResetPassword> {
                                         style: TextStyle(color: Colors.red),
                                       ),
                               ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 10),
-                                child: Text(
-                                  'Has at least 1 uppercase letter and symbol',
-                                  style: TextStyle(
-                                      fontFamily: 'Poppins',
-                                      fontSize: 14.sm,
-                                      color: _isHasSymboleOrCaptital
-                                          ? Color(0xff143C6D)
-                                          : Colors.black),
+                              Flexible(
+                                child: Padding(
+                                  padding: EdgeInsets.only(left: 10),
+                                  child: Text(
+                                    'Has at least 1 uppercase letter and symbol',
+                                    style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 14.sm,
+                                        color: _isHasSymboleOrCaptital
+                                            ? Color(0xff143C6D)
+                                            : Colors.black),
+                                  ),
                                 ),
                               )
                             ],

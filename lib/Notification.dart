@@ -110,314 +110,311 @@ class _NotificationPageState extends State<NotificationPage> {
       //   // ),
       // ),
       body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: CustomScrollView(
-            slivers: [
-              SliverToBoxAdapter(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(left: 16),
-                          child: Text(
-                            "Notifications",
-                            textAlign: TextAlign.left,
-                            style: TextStyle(fontSize: 25, color: Colors.black),
-                          ),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    SizedBox(
-                      // height: MediaQuery.of(context).size.height * 0.57,
-                      child: Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: ListView.separated(
-                          shrinkWrap: true,
-                          itemCount: _data.length,
-                          itemBuilder: (BuildContext context, int index) {
-                            return Dismissible(
-                              background: slideRightBackground(),
-                              key: UniqueKey(),
-                              onDismissed: (direction) {
-                                setState(() {
-                                  _data.removeAt(index);
-                                  Flushbar(
-                                    message: "Notification deleted",
-                                    duration: const Duration(seconds: 1),
-                                  ).show(context);
-                                  //_data[index].remove(index);
-                                });
-                              },
-                              child: Column(
-                                children: [
-                                  SizedBox(
-                                    width: double.infinity,
-                                    child: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Expanded(
-                                          flex: 2,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(8.24),
-                                            child: SvgPicture.asset(
-                                              _data[index]['image']!,
-                                              width: 80,
-                                              height: 80,
-                                              fit: BoxFit.cover,
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 5,
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                left: 8.0),
-                                            child: Column(
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  _data[index]['title'] ?? "",
-                                                  style: TextStyle(
-                                                    fontSize: 16.sm,
-                                                    fontWeight: FontWeight.w500,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                                SizedBox(
-                                                  height: 8,
-                                                ),
-                                                Text(
-                                                  _data[index]['subtitle']!,
-                                                  style: TextStyle(
-                                                    color: Color(0xFF444444),
-                                                    fontSize: 14.sm,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ),
-                                        Expanded(
-                                          flex: 0,
-                                          child: Padding(
-                                            padding: const EdgeInsets.only(
-                                                right: 7.0),
-                                            child: InkWell(
-                                              onTap: () {
-                                                print("ontap pressed");
-                                                setState(() {
-                                                  // String? value1 =
-                                                  //     _data[index]['title'];
-                                                  // _data.removeWhere(value);
-
-                                                  _data.removeAt(index);
-                                                  Flushbar(
-                                                    message:
-                                                        "Notification deleted",
-                                                    duration: const Duration(
-                                                        seconds: 1),
-                                                  ).show(context);
-
-                                                  // data[index]['title']!,
-                                                });
-                                              },
-
-                                              //(() => ontap()),
-                                              child: SvgPicture.asset(
-                                                "assets/images/delete-svgrepo-com.svg",
-
-                                                width: 15,
-                                                height: 19,
-                                                //fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            );
-                            // );
-                          },
-                          separatorBuilder: (BuildContext context, int index) {
-                            return Divider(
-                              height: 40.h,
-                              thickness: 1.5,
-                            );
-                          },
-
-                          //children: [
-                          // Slidable(
-                          //   key: const ValueKey(0),
-                          //   startActionPane: ActionPane(
-                          //     motion: const ScrollMotion(),
-                          //     dismissible: DismissiblePane(onDismissed: () {}),
-                          //     children: [
-                          //       SlidableAction(
-                          //         onPressed: doNothing,
-                          //         backgroundColor: Color(0xFFFE4A49),
-                          //         foregroundColor: Colors.white,
-                          //         icon: Icons.delete,
-                          //         label: 'Delete',
-                          //       ),
-                          //     ],
-                          //   ),
-                          //   endActionPane: ActionPane(
-                          //     motion: ScrollMotion(),
-                          //     children: [
-                          //       SlidableAction(
-                          //         onPressed: doNothing,
-                          //         backgroundColor: Color(0xFFFE4A49),
-                          //         foregroundColor: Colors.white,
-                          //         icon: Icons.delete,
-                          //         label: 'Delete',
-                          //       ),
-                          //     ],
-                          //   ),
-                          //   child: ListTile(
-                          //     title: Container(
-                          //       decoration: BoxDecoration(
-                          //         color: Color.fromARGB(225, 192, 222, 255),
-                          //         borderRadius: BorderRadius.circular(10),
-                          //       ),
-                          //       child: Padding(
-                          //         padding: const EdgeInsets.symmetric(
-                          //             horizontal: 10, vertical: 10),
-                          //         child: Column(
-                          //           mainAxisAlignment: MainAxisAlignment.center,
-                          //           crossAxisAlignment:
-                          //               CrossAxisAlignment.start,
-                          //           children: [
-                          //             Text(
-                          //               'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                          //               style: TextStyle(
-                          //                 color: Color(0xFF000000),
-                          //                 fontSize: 15.sm,
-                          //                 fontFamily: 'Poppins',
-                          //               ),
-                          //             ),
-                          //             SizedBox(
-                          //               height: 10.h,
-                          //             ),
-                          //             Text(
-                          //               '5 mins ago',
-                          //               textAlign: TextAlign.start,
-                          //               style: TextStyle(
-                          //                 color: Color(0xFF000000),
-                          //                 fontSize: 12.sm,
-                          //                 fontFamily: 'Poppins',
-                          //               ),
-                          //             ),
-                          //           ],
-                          //         ),
-                          //       ),
-                          //     ),
-                          //   ),
-                          // ),
-                          //SizedBox(height: 10.h),
-                          // Slidebar(
-                          //   image: '',
-                          //   title:
-                          //       'Lorem Ipsum is simply dummy text of the printing .',
-                          //   subtitle: '2 days ago',
-                          // ),
-                          // SizedBox(height: 10.h),
-                          // Divider(
-                          //   thickness: 1,
-                          //   color: Colors.grey,
-                          // ),
-                          // Slidebar(
-                          //   image: '',
-                          //   title:
-                          //       'Lorem Ipsum is simply dummy text of the printing .',
-                          //   subtitle: '2 days ago',
-                          // ),
-                          // SizedBox(height: 10.h),
-                          // Divider(
-                          //   thickness: 1,
-                          //   color: Colors.grey,
-                          // ),
-                          // Slidebar(
-                          //   image: '',
-                          //   title:
-                          //       'Lorem Ipsum is simply dummy text of the printing .',
-                          //   subtitle: '2 days ago',
-                          // ),
-                          // SizedBox(height: 10.h),
-                          // Divider(
-                          //   thickness: 1,
-                          //   color: Colors.grey,
-                          // ),
-                          // Slidebar(
-                          //   image: '',
-                          //   title:
-                          //       'Lorem Ipsum is simply dummy text of the printing .',
-                          //   subtitle: '2 days ago',
-                          // ),
-                          // SizedBox(height: 10.h),
-                          // Divider(
-                          //   thickness: 1,
-                          //   color: Colors.grey,
-                          // ),
-                          // Slidebar(
-                          //   image: '',
-                          //   title:
-                          //       'Lorem Ipsum is simply dummy text of the printing .',
-                          //   subtitle: '2 days ago',
-                          // ),
-                          // SizedBox(height: 10.h),
-                          // Divider(
-                          //   thickness: 1,
-                          //   color: Colors.grey,
-                          // ),
-                          // Slidebar(
-                          //   image: '',
-                          //   title:
-                          //       'Lorem Ipsum is simply dummy text of the printing .',
-                          //   subtitle: '2 days ago',
-                          // ),
-                          // SizedBox(height: 10.h),
-                          // Divider(
-                          //   thickness: 1,
-                          //   color: Colors.grey,
-                          // ),
-                          // Slidebar(
-                          //   image: '',
-                          //   title:
-                          //       'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                          //   subtitle: '2 days ago',
-                          // ),
-                          // SizedBox(height: 10.h),
-                          // Slidebar(
-                          //   image: '',
-                          //   title:
-                          //       'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                          //   subtitle: '2 days ago',
-                          // ),
-                          // SizedBox(
-                          //   height: 70.h,
-                          // )
-                          // ],
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                        child: Text(
+                          "Notifications",
+                          textAlign: TextAlign.left,
+                          style: TextStyle(fontSize: 25, color: Colors.black),
                         ),
                       ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  SizedBox(
+                    // height: MediaQuery.of(context).size.height * 0.57,
+                    child: Padding(
+                      padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                      child: ListView.separated(
+                        shrinkWrap: true,
+                        itemCount: _data.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return Dismissible(
+                            background: slideRightBackground(),
+                            key: UniqueKey(),
+                            onDismissed: (direction) {
+                              setState(() {
+                                _data.removeAt(index);
+                                Flushbar(
+                                  message: "Notification deleted",
+                                  duration: const Duration(seconds: 1),
+                                ).show(context);
+                                //_data[index].remove(index);
+                              });
+                            },
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        flex: 2,
+                                        child: ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(8.24),
+                                          child: SvgPicture.asset(
+                                            _data[index]['image']!,
+                                            width: 80,
+                                            height: 80,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 5,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 8.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                _data[index]['title'] ?? "",
+                                                style: TextStyle(
+                                                  fontSize: 16.sm,
+                                                  fontWeight: FontWeight.w500,
+                                                  color: Colors.black,
+                                                ),
+                                              ),
+                                              SizedBox(
+                                                height: 8,
+                                              ),
+                                              Text(
+                                                _data[index]['subtitle']!,
+                                                style: TextStyle(
+                                                  color: Color(0xFF444444),
+                                                  fontSize: 14.sm,
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                      Expanded(
+                                        flex: 0,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              right: 7.0),
+                                          child: InkWell(
+                                            onTap: () {
+                                              print("ontap pressed");
+                                              setState(() {
+                                                // String? value1 =
+                                                //     _data[index]['title'];
+                                                // _data.removeWhere(value);
+
+                                                _data.removeAt(index);
+                                                Flushbar(
+                                                  message:
+                                                      "Notification deleted",
+                                                  duration: const Duration(
+                                                      seconds: 1),
+                                                ).show(context);
+
+                                                // data[index]['title']!,
+                                              });
+                                            },
+
+                                            //(() => ontap()),
+                                            child: SvgPicture.asset(
+                                              "assets/images/delete-svgrepo-com.svg",
+
+                                              width: 15,
+                                              height: 19,
+                                              //fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                          // );
+                        },
+                        separatorBuilder: (BuildContext context, int index) {
+                          return Divider(
+                            height: 40.h,
+                            thickness: 1.5,
+                          );
+                        },
+
+                        //children: [
+                        // Slidable(
+                        //   key: const ValueKey(0),
+                        //   startActionPane: ActionPane(
+                        //     motion: const ScrollMotion(),
+                        //     dismissible: DismissiblePane(onDismissed: () {}),
+                        //     children: [
+                        //       SlidableAction(
+                        //         onPressed: doNothing,
+                        //         backgroundColor: Color(0xFFFE4A49),
+                        //         foregroundColor: Colors.white,
+                        //         icon: Icons.delete,
+                        //         label: 'Delete',
+                        //       ),
+                        //     ],
+                        //   ),
+                        //   endActionPane: ActionPane(
+                        //     motion: ScrollMotion(),
+                        //     children: [
+                        //       SlidableAction(
+                        //         onPressed: doNothing,
+                        //         backgroundColor: Color(0xFFFE4A49),
+                        //         foregroundColor: Colors.white,
+                        //         icon: Icons.delete,
+                        //         label: 'Delete',
+                        //       ),
+                        //     ],
+                        //   ),
+                        //   child: ListTile(
+                        //     title: Container(
+                        //       decoration: BoxDecoration(
+                        //         color: Color.fromARGB(225, 192, 222, 255),
+                        //         borderRadius: BorderRadius.circular(10),
+                        //       ),
+                        //       child: Padding(
+                        //         padding: const EdgeInsets.symmetric(
+                        //             horizontal: 10, vertical: 10),
+                        //         child: Column(
+                        //           mainAxisAlignment: MainAxisAlignment.center,
+                        //           crossAxisAlignment:
+                        //               CrossAxisAlignment.start,
+                        //           children: [
+                        //             Text(
+                        //               'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                        //               style: TextStyle(
+                        //                 color: Color(0xFF000000),
+                        //                 fontSize: 15.sm,
+                        //                 fontFamily: 'Poppins',
+                        //               ),
+                        //             ),
+                        //             SizedBox(
+                        //               height: 10.h,
+                        //             ),
+                        //             Text(
+                        //               '5 mins ago',
+                        //               textAlign: TextAlign.start,
+                        //               style: TextStyle(
+                        //                 color: Color(0xFF000000),
+                        //                 fontSize: 12.sm,
+                        //                 fontFamily: 'Poppins',
+                        //               ),
+                        //             ),
+                        //           ],
+                        //         ),
+                        //       ),
+                        //     ),
+                        //   ),
+                        // ),
+                        //SizedBox(height: 10.h),
+                        // Slidebar(
+                        //   image: '',
+                        //   title:
+                        //       'Lorem Ipsum is simply dummy text of the printing .',
+                        //   subtitle: '2 days ago',
+                        // ),
+                        // SizedBox(height: 10.h),
+                        // Divider(
+                        //   thickness: 1,
+                        //   color: Colors.grey,
+                        // ),
+                        // Slidebar(
+                        //   image: '',
+                        //   title:
+                        //       'Lorem Ipsum is simply dummy text of the printing .',
+                        //   subtitle: '2 days ago',
+                        // ),
+                        // SizedBox(height: 10.h),
+                        // Divider(
+                        //   thickness: 1,
+                        //   color: Colors.grey,
+                        // ),
+                        // Slidebar(
+                        //   image: '',
+                        //   title:
+                        //       'Lorem Ipsum is simply dummy text of the printing .',
+                        //   subtitle: '2 days ago',
+                        // ),
+                        // SizedBox(height: 10.h),
+                        // Divider(
+                        //   thickness: 1,
+                        //   color: Colors.grey,
+                        // ),
+                        // Slidebar(
+                        //   image: '',
+                        //   title:
+                        //       'Lorem Ipsum is simply dummy text of the printing .',
+                        //   subtitle: '2 days ago',
+                        // ),
+                        // SizedBox(height: 10.h),
+                        // Divider(
+                        //   thickness: 1,
+                        //   color: Colors.grey,
+                        // ),
+                        // Slidebar(
+                        //   image: '',
+                        //   title:
+                        //       'Lorem Ipsum is simply dummy text of the printing .',
+                        //   subtitle: '2 days ago',
+                        // ),
+                        // SizedBox(height: 10.h),
+                        // Divider(
+                        //   thickness: 1,
+                        //   color: Colors.grey,
+                        // ),
+                        // Slidebar(
+                        //   image: '',
+                        //   title:
+                        //       'Lorem Ipsum is simply dummy text of the printing .',
+                        //   subtitle: '2 days ago',
+                        // ),
+                        // SizedBox(height: 10.h),
+                        // Divider(
+                        //   thickness: 1,
+                        //   color: Colors.grey,
+                        // ),
+                        // Slidebar(
+                        //   image: '',
+                        //   title:
+                        //       'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                        //   subtitle: '2 days ago',
+                        // ),
+                        // SizedBox(height: 10.h),
+                        // Slidebar(
+                        //   image: '',
+                        //   title:
+                        //       'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
+                        //   subtitle: '2 days ago',
+                        // ),
+                        // SizedBox(
+                        //   height: 70.h,
+                        // )
+                        // ],
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

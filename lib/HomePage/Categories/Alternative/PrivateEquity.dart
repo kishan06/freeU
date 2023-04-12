@@ -59,7 +59,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: EdgeInsets.only(left: 16.w),
