@@ -91,12 +91,20 @@ class _SideBarState extends State<SideBar> {
                                           ),
                                         ),
                                       )
-                                    : SizedBox(
+                                    : Container(
                                         height: 50.w,
                                         width: 50.w,
-                                        child: Image.asset(
-                                          'assets/images/avatar.png',
-                                          fit: BoxFit.fill,
+                                        child:
+                                              // ClipRRect(
+                                              //   // borderRadius: BorderRadius.circular(100),
+                                              //   // child: Image.network("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",fit: BoxFit.fill,)),
+                                            ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(100),
+                                          child: Image.asset(
+                                            'assets/images/profie.png',
+                                            fit: BoxFit.fill,
+                                          ),
                                         ),
                                       ),
 
@@ -154,12 +162,20 @@ class _SideBarState extends State<SideBar> {
                                           ),
                                         ),
                                       )
-                                    : SizedBox(
+                                    : Container(
                                         height: 50.w,
                                         width: 50.w,
-                                        child: Image.asset(
-                                          'assets/images/avatar.png',
-                                          fit: BoxFit.fill,
+                                        child: 
+                                        // ClipRRect(
+                                        //   borderRadius: BorderRadius.circular(100),
+                                        //   child: Image.network("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",fit: BoxFit.fill,)),
+                                        ClipRRect(
+                                          borderRadius:
+                                              BorderRadius.circular(100),
+                                          child: Image.asset(
+                                            'assets/images/profie.png',
+                                            fit: BoxFit.fill,
+                                          ),
                                         ),
                                       ),
 
