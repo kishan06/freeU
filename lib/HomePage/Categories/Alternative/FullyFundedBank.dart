@@ -17,7 +17,6 @@ class FullyFundedBank extends StatefulWidget {
 }
 
 class _FullyFundedBankState extends State<FullyFundedBank> {
-
   final controllerEntryPoint = Get.put(EntryPointController());
 
   @override
@@ -44,7 +43,7 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
       //   ),
       // ),
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w,5.h,16.w,10.h),
+        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
             ontap: () {
               if (controllerEntryPoint.logedIn!) {
@@ -54,7 +53,6 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
               }
               // controllerEntryPoint.logedIn!?
               // investNow():SizedBox();
-
             },
             text: 'Invest now'),
       ),
@@ -683,7 +681,9 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
               sizedBoxHeight(30.h),
               CustomNextButton(
                   ontap: () {
-                    Get.toNamed("/fractionalpropertiespage");
+                    Get.back();
+                    Get.back();
+                    // Get.toNamed("/fractionalpropertiespage");
                   },
                   text: 'View more products')
             ],
