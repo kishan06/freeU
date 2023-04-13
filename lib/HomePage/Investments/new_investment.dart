@@ -808,11 +808,18 @@ class _NewInvestmentState extends State<NewInvestment> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 64, bottom: 18),
-                              child: SvgPicture.asset(
-                                  "assets/images/Investmentnumber.svg"),
-                            ),
+                                padding: const EdgeInsets.only(
+                                    right: 76, bottom: 18),
+                                child: Text(
+                                  "8 %",
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: Color(0XFF0F0C0C),
+                                  ),
+                                )
+                                // SvgPicture.asset(
+                                //     "assets/images/Investmentnumber.svg"),
+                                ),
                             Padding(
                                 padding: const EdgeInsets.only(
                                     right: 10, bottom: 18),
@@ -909,14 +916,21 @@ class _NewInvestmentState extends State<NewInvestment> {
                               ),
                             ),
                             Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 54, bottom: 18),
-                              child: SvgPicture.asset(
-                                  "assets/images/Investmentdecrement.svg"),
-                            ),
+                                padding:
+                                    const EdgeInsets.only(left: 10, bottom: 18),
+                                child: Text(
+                                  "8 %",
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: Color(0XFF0F0C0C),
+                                  ),
+                                )
+                                //  SvgPicture.asset(
+                                //     "assets/images/Investmentdecrement.svg"),
+                                ),
                             Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 10, bottom: 18),
+                                padding:
+                                    const EdgeInsets.only(left: 50, bottom: 18),
                                 child: Column(
                                   children: [
                                     SvgPicture.asset(

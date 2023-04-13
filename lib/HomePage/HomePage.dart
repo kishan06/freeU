@@ -45,29 +45,41 @@ class _HomePageState extends State<HomePage> {
   // int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 
+  List KnowledgeData = [
+    {
+      "imagePath": "assets/images/homepage.png",
+    },
+    {
+      "imagePath": "assets/images/homepagenight.png",
+    },
+    {
+      "imagePath": "assets/images/homepage.png",
+    },
+  ];
+
   List topPickData = [
     {
       // /
       "text1": "Fractional Real Estate",
-      "imageUrl": "assets/newImages/top_pick_img1.png",
+      "imageUrl": "assets/images/rahul-bhogal-Ub9LkIWxyec-unsplash.png",
       "title": "Vaishnavi Tech Park\nOpportunity",
       "add": "Outer Ring Road Sarjapur,\nBangalore",
     },
     {
       "text1": "Alternative investment funds",
-      "imageUrl": "assets/newImages/top_pick_img2.png",
+      "imageUrl": "assets/images/toppicks.png",
       "title": "Tata Consultancy\nServices",
       "add": "Banyan Park,\nMumbai",
     },
     {
       "text1": "Fractional Real Estate",
-      "imageUrl": "assets/newImages/top_pick_img1.png",
+      "imageUrl": "assets/images/rahul-bhogal-Ub9LkIWxyec-unsplash.png",
       "title": "Vaishnavi Tech Park\nOpportunity",
       "add": "Outer Ring Road Sarjapur,\nBangalore",
     },
     {
       "text1": "Alternative investment funds",
-      "imageUrl": "assets/newImages/top_pick_img2.png",
+      "imageUrl": "assets/images/toppicks.png",
       "title": "Tata Consultancy\nServices",
       "add": "Banyan Park,\nMumbai",
     },
@@ -161,7 +173,6 @@ class _HomePageState extends State<HomePage> {
         title: Row(
           children: [
             sizedBoxWidth(45.w),
-
             sizedBoxWidth(5.w),
             Text(
               'Welcome',
@@ -246,7 +257,6 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-
               SizedBox(
                 height: 15.h,
               ),
@@ -273,33 +283,47 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  SizedBox(
-                    height: 285.h,
-                    child: ListView.separated(
-                        shrinkWrap: true,
-                        separatorBuilder: (_, index) {
-                          return index == topPickData.length
-                              ? SizedBox()
-                              : sizedBoxWidth(20.w);
-                        },
-                        scrollDirection: Axis.horizontal,
-                        itemCount: topPickData.length,
-                        itemBuilder: (context, index) {
-                          return topPickCard(
-                            text1: topPickData[index]["text1"],
-                            imagePath: topPickData[index]["imageUrl"],
-                            title: topPickData[index]["title"],
-                            add: topPickData[index]["add"],
-                            // /
-                          );
-                        }),
-                  ),
+
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: List.generate(topPickData.length, (index) {
+                        return topPickCard(
+                          text1: topPickData[index]["text1"],
+                          imagePath: topPickData[index]["imageUrl"],
+                          title: topPickData[index]["title"],
+                          add: topPickData[index]["add"],
+                          // /
+                        );
+                      }),
+                    ),
+                  )
+                  // SizedBox(
+                  //   height: 275.h,
+                  //   child: ListView.separated(
+                  //       shrinkWrap: true,
+                  //       separatorBuilder: (_, index) {
+                  //         return index == topPickData.length
+                  //             ? SizedBox()
+                  //             : sizedBoxWidth(20.w);
+                  //       },
+                  //       scrollDirection: Axis.horizontal,
+                  //       itemCount: topPickData.length,
+                  //       itemBuilder: (context, index) {
+                  //         return topPickCard(
+                  //           text1: topPickData[index]["text1"],
+                  //           imagePath: topPickData[index]["imageUrl"],
+                  //           title: topPickData[index]["title"],
+                  //           add: topPickData[index]["add"],
+                  //           // /
+                  //         );
+                  //       }),
+                  // ),
                 ],
               ),
               SizedBox(
                 height: 20.h,
               ),
-
               twoText("Categories", "View more", onTap: () {
                 Get.toNamed("/EntryPoint",
                     arguments: 1, preventDuplicates: false);
@@ -320,7 +344,6 @@ class _HomePageState extends State<HomePage> {
 
                 // _selectedIndex = 1;
               }),
-
               sizedBoxHeight(10.h),
               SizedBox(
                 height: 133.h,
@@ -343,7 +366,7 @@ class _HomePageState extends State<HomePage> {
                               ? AlternativeInsvestment()
                               : FractionalRealestate());
                     }),
-             /*   child: Row(
+                /*   child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: List.generate(2, (index) => 
                   GestureDetector(
@@ -376,7 +399,6 @@ class _HomePageState extends State<HomePage> {
                 // ), openBuild: Get.to(screen)),
               ),
               sizedBoxHeight(15.h),
-
               OpenContainerWrappers(
                 closeBuild: twoText(
                   "Knowledge center",
@@ -384,24 +406,20 @@ class _HomePageState extends State<HomePage> {
                 ),
                 openBuild: Insights(),
               ),
-
               SizedBox(
                 height: 10.h,
               ),
-
               ListView.separated(
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),
                   itemBuilder: (_, index) {
-                    return tileCard();
+                    return tileCard(KnowledgeData[index]["imagePath"]);
                   },
                   separatorBuilder: (_, index) {
                     return sizedBoxHeight(10.h);
                   },
-                  itemCount: 3),
-
+                  itemCount: KnowledgeData.length),
               sizedBoxHeight(20.h)
-
             ],
           ),
         ),
@@ -409,33 +427,36 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget tileCard() {
-    return OpenContainerWrappers(
-        closeBuild: Container(
-          decoration: BoxDecoration(
-              color: Color(0xFFFFFFFF),
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.06),
-                  blurRadius: 10,
-                  spreadRadius: 2,
-                ),
-              ]),
-          child: Padding(
-            padding: const EdgeInsets.only(
-                top: 14.0, left: 10, right: 15, bottom: 10),
+  Widget tileCard(String path) {
+    return Container(
+      decoration: BoxDecoration(
+          color: Color(0xFFFFFFFF),
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.06),
+              blurRadius: 10,
+              spreadRadius: 2,
+            ),
+          ]),
+      child: OpenContainerWrappers(
+          closeBuild: Padding(
+            padding: EdgeInsets.only(
+                top: 14.h, left: 10.w, right: 15.w, bottom: 10.h),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(
-                  flex: 2,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SizedBox(
+                    height: 70.h,
+                    width: 90.w,
                     child: Image.asset(
-                      "assets/images/na_april_69.jpg",
-                      height: 70,
-                      width: 90,
+                      path,
+                      // height: 70.h,
+                      // width: 90.w,
+                      fit: BoxFit.fill,
                     ),
                   ),
                 ),
@@ -445,8 +466,8 @@ class _HomePageState extends State<HomePage> {
                     width: 20,
                   ),
                 ),
-                Expanded(
-                  flex: 5,
+                SizedBox(
+                  width: 150.w,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -476,8 +497,8 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-        ),
-        openBuild: InsightsInner());
+          openBuild: InsightsInner()),
+    );
   }
 
   Widget twoText(String text1, String text2, {void Function()? onTap}) {
@@ -513,10 +534,7 @@ class _HomePageState extends State<HomePage> {
               // border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)
               ),
           child: Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: 12.w,
-              // vertical: 14.h
-            ),
+            padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
