@@ -83,7 +83,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
           backgroundColor: Colors.white,
           flexibleSpace: SafeArea(
             child: Container(
-              padding: const EdgeInsets.only(right: 16),
+              padding: EdgeInsets.only(right: 6.w),
               child: Row(
                 children: <Widget>[
                   IconButton(
