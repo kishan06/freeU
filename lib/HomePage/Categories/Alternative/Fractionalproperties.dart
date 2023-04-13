@@ -1,7 +1,10 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
@@ -319,13 +322,39 @@ class SecondTab extends StatelessWidget {
             ),
             Padding(
               padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-              child: SizedBox(
+              child: Container(
                 height: 50.h,
-                child: CustomNextButton(
-                  text: 'View Investment',
-                  ontap: () {
-                    Get.toNamed("/propertiesinvestment");
-                  },
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Color.fromARGB(255, 220, 220, 226),
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(10.r),
+                  color: AppColors.blue143C6D,
+                ),
+                child: OpenContainerWrappers(
+                  openBuild: const PropertiesInvestment(),
+                  closeBuild: Container(
+                    width: double.infinity,
+                    height: 50.h,
+                    child: Center(
+                        child: Text(
+                      'View Investment',
+                      style: TextStyle(
+                        color: AppColors.white,
+                        fontSize: 18.sp,
+                      ),
+                    )),
+                  ),
+
+                  // CustomNextButton(
+                  //   text: 'View Investment',
+                  //   // ontap: () {
+                  //   //   Get.to(PropertiesInvestment());
+                  //   //   // Get.toNamed("/propertiesinvestment");
+                  //   // },
+                  // ),
                 ),
               ),
             )

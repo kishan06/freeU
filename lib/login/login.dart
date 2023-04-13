@@ -3,10 +3,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
+import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/screens/main_screen.dart';
 
 import 'package:get/get.dart';
@@ -23,6 +25,230 @@ class _LoginState extends State<Login> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   bool _isObscure = true;
   DateTime timebackPressed = DateTime.now();
+  TextEditingController pincontroller = TextEditingController();
+
+  Future<T?> bottomsheetfingerprint<T>(BuildContext context) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      builder: (context) {
+        return Container(
+          height: 400.h,
+          //margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.w),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 31.w),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "One-Touch",
+                      style: TextStyle(
+                          fontSize: 25.sp, fontWeight: FontWeight.w500),
+                    ),
+                  ],
+                ),
+                sizedBoxHeight(15.h),
+                Column(
+                  //mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Use your fingerprint to easily log in!",
+                      style:
+                          TextStyle(fontSize: 20.sp, color: Color(0XFF272424)),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: SizedBox(
+                        width: 64,
+                        height: 77,
+                        child: SvgPicture.asset(
+                          'assets/images/fingertouch.svg',
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          "Touch the fingerprint sensor",
+                          style: TextStyle(
+                              fontSize: 18.sp, color: Color(0XFF272424)),
+                        )),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Divider(
+                      thickness: 1,
+                      color: Color(0XFF707070),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: GestureDetector(
+                        onTap: () {
+                          bottomsheetpin(context);
+                        },
+                        child: Text(
+                          "Login with Pin",
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFF143C6D),
+                            decoration: TextDecoration.underline,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Future<T?> bottomsheetpin<T>(BuildContext context) {
+    return showModalBottomSheet(
+      isScrollControlled: true,
+      context: context,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
+        ),
+      ),
+      builder: (context) {
+        return Container(
+          margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.w),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 29),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Text(
+                      "4 Digit Pin",
+                      style: TextStyle(
+                        fontSize: 25.sp,
+                        fontWeight: FontWeight.w500,
+                        color: Color(0XFF0F0C0C),
+                      ),
+                    ),
+                  ],
+                ),
+                sizedBoxHeight(15.h),
+                Column(
+                  // mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "Use your 4 Digit Pin to easily log in!",
+                      style: TextStyle(
+                        fontSize: 17.sp,
+                        color: Colors.black,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    TextFormField(
+                      controller: pincontroller,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.all(20),
+                        hintText: 'Enter PIN',
+                        focusedBorder: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          borderSide:
+                              BorderSide(color: Color(0xFF707070), width: 1.0),
+                        ),
+                        enabledBorder: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          borderSide:
+                              BorderSide(color: Color(0xFF707070), width: 1.0),
+                        ),
+                        hintStyle: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFF303030).withOpacity(0.3)),
+                        errorBorder: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          borderSide: BorderSide(color: Colors.red, width: 1.0),
+                        ),
+                        focusedErrorBorder: const OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5)),
+                          borderSide: BorderSide(color: Colors.red, width: 1.0),
+                        ),
+                        errorStyle: const TextStyle(
+                          fontSize: 16.0,
+                        ),
+                        suffixIcon: Container(
+                          padding: EdgeInsets.only(right: 25),
+                          width: 10,
+                          height: 10,
+                          child: SvgPicture.asset(
+                            'assets/images/nextbuttonnew.svg',
+                          ),
+                        ),
+                      ),
+                      maxLength: 4,
+                      keyboardType: TextInputType.number,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return 'Pin is Empty';
+                        } else {
+                          return null;
+                        }
+                      },
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Forgot PIN?",
+                        style: TextStyle(
+                          fontSize: 18.sp,
+                          color: Color(0xFF143C6D),
+                          //fontWeight: FontWeight.w600
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -204,6 +430,10 @@ class _LoginState extends State<Login> {
                             if (isValid!) {
                               // Get.toNamed("/homepage");
                               // Get.to(MainScreen());
+
+                              //bottomsheetpin(context);
+
+                              //bottomsheetfingerprint(context);
 
                               final SharedPreferences prefs =
                                   await SharedPreferences.getInstance();
