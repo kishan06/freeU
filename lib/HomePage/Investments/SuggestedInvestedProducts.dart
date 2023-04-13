@@ -159,7 +159,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                         Padding(
                           padding: const EdgeInsets.only(right: 68),
                           child: Text(
-                            "P & L",
+                            "Return",
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 18.sp,
@@ -267,84 +267,57 @@ class common_crd_green extends StatelessWidget {
                     ),
                   ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.only(right: 84, bottom: 18),
-                //   child: SvgPicture.asset("assets/images/Investmentnumber.svg"),
-                // ),
-                // Padding(
-                //   padding: const EdgeInsets.only(right: 20, bottom: 18),
-                //   child: GestureDetector(
-                //     onTap: () {
-                //       showModalBottomSheet(
-                //         isScrollControlled: true,
-                //         context: context,
-                //         shape: const RoundedRectangleBorder(
-                //           borderRadius: BorderRadius.only(
-                //             topLeft: Radius.circular(30),
-                //             topRight: Radius.circular(30),
-                //           ),
-                //         ),
-                //         builder: (context) {
-                //           return Container(
-                //             margin: const EdgeInsets.symmetric(
-                //                 horizontal: 16, vertical: 30),
-                //             child: Column(
-                //               mainAxisSize: MainAxisSize.min,
-                //               children: [
-                //                 SizedBox(
-                //                   height: 20.h,
-                //                 ),
-                //                 SvgPicture.asset(
-                //                     "assets/images/thankyouinvestment.svg"),
-                //                 SizedBox(
-                //                   height: 20,
-                //                 ),
-                //                 Padding(
-                //                   padding: const EdgeInsets.only(
-                //                       left: 15, right: 11),
-                //                   child: Text(
-                //                     'Thank You For Selling\n           Product',
-                //                     style: TextStyle(
-                //                         fontFamily: 'Poppins',
-                //                         fontSize: 30,
-                //                         color: Color(0xff0F0C0C),
-                //                         fontWeight: FontWeight.w500),
-                //                   ),
-                //                 ),
-                //                 SizedBox(
-                //                   height: 20.h,
-                //                 ),
-                //                 Padding(
-                //                   padding: const EdgeInsets.only(
-                //                       left: 40, right: 40),
-                //                   child: Text(
-                //                     'A FreeU Advisory Team will \n    get back to you soon.',
-                //                     style: TextStyle(
-                //                         fontFamily: 'Poppins',
-                //                         fontSize: 20,
-                //                         color: Color(0xff272424),
-                //                         fontWeight: FontWeight.w300),
-                //                   ),
-                //                 ),
-                //                 SizedBox(
-                //                   height: 30,
-                //                 ),
-                //               ],
-                //             ),
-                //           );
-                //         },
-                //       );
-                //     },
-                //     child: Text(
-                //       "Sell",
-                //       style: TextStyle(
-                //           decoration: TextDecoration.underline,
-                //           fontFamily: "Poppins",
-                //           color: Color(0xff143C6D),
-                //           fontSize: 18.sp),
-                //     ),
-                //   ),
-                // ),
+                Padding(
+                    padding: const EdgeInsets.only(right: 76, bottom: 18),
+                    child: Text(
+                      "8 %",
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        color: Color(0XFF0F0C0C),
+                      ),
+                    )
+                    // SvgPicture.asset(
+                    //     "assets/images/Investmentnumber.svg"),
+                    ),
+                Padding(
+                    padding: const EdgeInsets.only(right: 10, bottom: 18),
+                    child: Column(
+                      children: [
+                        SvgPicture.asset(
+                            "assets/images/investmentthumbs-up-hand.svg"),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          "Yes",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Color(0XFF000000),
+                          ),
+                        )
+                      ],
+                    )),
+                SizedBox(
+                  width: 5,
+                ),
+                Padding(
+                    padding: const EdgeInsets.only(right: 10, bottom: 18),
+                    child: Column(
+                      children: [
+                        SvgPicture.asset(
+                            "assets/images/investmentthumbs-down-hand.svg"),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          "No",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Color(0XFF000000),
+                          ),
+                        )
+                      ],
+                    )),
               ],
             ),
           ),
@@ -406,85 +379,57 @@ class common_crd_red extends StatelessWidget {
                     fontSize: 18.sp,
                   ),
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.only(right: 68, bottom: 18),
-                //   child:
-                //       SvgPicture.asset("assets/images/Investmentdecrement.svg"),
-                // ),
-                // Padding(
-                //   padding: const EdgeInsets.only(right: 22, bottom: 18),
-                //   child: GestureDetector(
-                //     onTap: () {
-                //       showModalBottomSheet(
-                //         isScrollControlled: true,
-                //         context: context,
-                //         shape: const RoundedRectangleBorder(
-                //           borderRadius: BorderRadius.only(
-                //             topLeft: Radius.circular(30),
-                //             topRight: Radius.circular(30),
-                //           ),
-                //         ),
-                //         builder: (context) {
-                //           return Container(
-                //             margin: const EdgeInsets.symmetric(
-                //                 horizontal: 16, vertical: 30),
-                //             child: Column(
-                //               mainAxisSize: MainAxisSize.min,
-                //               children: [
-                //                 SizedBox(
-                //                   height: 20.h,
-                //                 ),
-                //                 SvgPicture.asset(
-                //                     "assets/images/thankyouinvestment.svg"),
-                //                 SizedBox(
-                //                   height: 20,
-                //                 ),
-                //                 Padding(
-                //                   padding: const EdgeInsets.only(
-                //                       left: 15, right: 11),
-                //                   child: Text(
-                //                     'Thank You For Selling\n           Product',
-                //                     style: TextStyle(
-                //                         fontFamily: 'Poppins',
-                //                         fontSize: 30,
-                //                         color: Color(0xff0F0C0C),
-                //                         fontWeight: FontWeight.w500),
-                //                   ),
-                //                 ),
-                //                 SizedBox(
-                //                   height: 20.h,
-                //                 ),
-                //                 Padding(
-                //                   padding: const EdgeInsets.only(
-                //                       left: 40, right: 40),
-                //                   child: Text(
-                //                     'A FreeU Advisory Team will \n    get back to you soon.',
-                //                     style: TextStyle(
-                //                         fontFamily: 'Poppins',
-                //                         fontSize: 20,
-                //                         color: Color(0xff272424),
-                //                         fontWeight: FontWeight.w300),
-                //                   ),
-                //                 ),
-                //                 SizedBox(
-                //                   height: 30,
-                //                 ),
-                //               ],
-                //             ),
-                //           );
-                //         },
-                //       );
-                //     },
-                //     child: Text(
-                //       "Sell",
-                //       style: TextStyle(
-                //           decoration: TextDecoration.underline,
-                //           fontFamily: "Poppins",
-                //           color: Color(0xff143C6D),
-                //           fontSize: 18.sp),
-                //     ),
-                //   ),
-                // ),
+                Padding(
+                    padding: const EdgeInsets.only(left: 25, bottom: 18),
+                    child: Text(
+                      "8 %",
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        color: Color(0XFF0F0C0C),
+                      ),
+                    )
+                    // SvgPicture.asset(
+                    //     "assets/images/Investmentnumber.svg"),
+                    ),
+                Padding(
+                    padding: const EdgeInsets.only(left: 75, bottom: 18),
+                    child: Column(
+                      children: [
+                        SvgPicture.asset(
+                            "assets/images/investmentthumbs-up-hand.svg"),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          "Yes",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Color(0XFF000000),
+                          ),
+                        )
+                      ],
+                    )),
+                SizedBox(
+                  width: 5,
+                ),
+                Padding(
+                    padding: const EdgeInsets.only(right: 10, bottom: 18),
+                    child: Column(
+                      children: [
+                        SvgPicture.asset(
+                            "assets/images/investmentthumbs-down-hand.svg"),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          "No",
+                          style: TextStyle(
+                            fontSize: 14,
+                            color: Color(0XFF000000),
+                          ),
+                        )
+                      ],
+                    )),
               ],
             ),
           ),
