@@ -6,7 +6,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
 //import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
+ 
 import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
+
+import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
+
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
