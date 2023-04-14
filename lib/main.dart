@@ -13,11 +13,7 @@ import 'package:freeu/HomePage/Categories/Alternative/PrivateEquitydeals.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/PrivateEquityfund.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Realestatepage.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
-import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty1.dart';
-import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty2.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
-import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset1.dart';
-import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset2.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
@@ -138,14 +134,9 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/contactus', page: () => ContactUs()),
           GetPage(name: '/howtoinvest', page: () => HowToInvest()),
           GetPage(name: '/categoriesmain', page: () => CategoriesMain()),
-          GetPage(
-              name: '/fractionalrealestateproperty1',
-              page: () => FractionalRealEstateProperty1()),
-          GetPage(
-              name: '/fractionalrealestateproperty2',
-              page: () => FractionalRealEstateProperty2()),
-          GetPage(name: '/peerlendingasset1', page: () => PeerLendingAsset1()),
-          GetPage(name: '/peerlendingasset2', page: () => PeerLendingAsset2()),
+
+          //      GetPage(name: '/peerlendingasset1', page: () => PeerLendingAsset1()),
+          //    GetPage(name: '/peerlendingasset2', page: () => PeerLendingAsset2()),
           // GetPage(name: '/investmentmain', page: () => InvestmentMain()),
           GetPage(name: '/currentinvestment', page: () => CurrentInvestment()),
           GetPage(
