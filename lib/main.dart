@@ -71,6 +71,8 @@ import 'HomePage/Categories/Alternative/AIF Cateogary II/DebtFundViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/FundForDistressedAssetsViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/RealEstateAIFViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/AlternativeCategories2.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary III/PrivatePublicEquityViewMore.dart';
 import 'HomePage/Categories/Alternative/FullyFundedBank.dart';
 
 int bottomIndex = 0;
@@ -218,8 +220,17 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/angelfundviewmore',
               page: () => AngelFundViewMore()),
+          GetPage(
+              name: '/hedgeviewmore',
+              page: () => HedgeViewMore()),
+          GetPage(
+              name: '/privatepublicequityviewmore',
+              page: () => PrivatePublicEquityViewMore()),
 
           
+          
+
+
         ],
       ),
       designSize: Size(390, 844),

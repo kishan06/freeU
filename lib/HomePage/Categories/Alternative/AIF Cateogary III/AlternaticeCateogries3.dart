@@ -7,6 +7,8 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/components/accordion/gf_accordion.dart';
 
+import 'Cat3VerticalSlider.dart';
+
 class AlternaticeCateogries3 extends StatefulWidget {
   const AlternaticeCateogries3({super.key});
 
@@ -27,7 +29,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
         child: CustomNextButton(
           text: 'View Categories deals',
           ontap: () {
-            Get.to(Cat1VerticalSlider());
+            Get.to(Cat3VerticalSlider());
           },
         ),
       ),
@@ -43,7 +45,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
               children: [
                 Flexible(
                   child: Text(
-                    "Alternative Investment Funds Category I",
+                    "Alternative Investment Funds Category III",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -86,7 +88,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'Alternative Investment Funds Category I',
+          'Alternative Investment Funds Category III',
           style: TextStyle(
             color: Colors.black,
             fontSize: 18.sp,
@@ -115,7 +117,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              "As per SEBI Regulations Category, I AIF are AIFs that invests in early-stage startups, social ventures, SMEs, infrastructure startups, or other sectors or areas which the government considers socially or economically desirable. It includes investments such as venture capital funds, SME Funds, social venture funds, infrastructure funds, etc. ",
+              "As per SEBI Regulations Category III AIF are AIFs that employ diverse or complex trading strategies and may employ leverage including through investment in listed or unlisted derivatives. AIF such as hedge funds or funds that trade intending to make short-term returns or such other funds which are open-ended and for which no specific incentives or concessions are given by the government or any other Regulator shall be included. Therefore, funds under Category III are the most complex and use a diversified trading strategy to get high returns in a short time.",
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",
