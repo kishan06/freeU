@@ -16,8 +16,6 @@ import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 
 import 'package:freeu/HomePage/Categories/High_yield/High_yield_Properties.dart';
-import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset1.dart';
-import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset2.dart';
 
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
