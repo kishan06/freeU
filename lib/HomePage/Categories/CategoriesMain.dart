@@ -6,7 +6,11 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
 //import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
+ 
+import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
+
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
+
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
@@ -316,14 +320,60 @@ class _CategoriesMainState extends State<CategoriesMain> {
                 image: categoryData[index]["imageUrl"],
                 text: categoryData[index]["title"],
               ),
-              openBuild: index == 0
-                  ? const AlternativeInsvestment()
-                  : const FractionalRealestate(),
+              openBuild: navigate(index),
+              //  index == 0
+              //     ? const AlternativeInsvestment()
+              //     : index == 1
+              //         ? const FractionalRealestate()
+              //         : index == 9
+              //             ? HighYieldFinance()
+              //             : SizedBox(),
             );
           },
         ),
       ),
     );
+  }
+
+  Widget navigate(int index) {
+
+    // if (index == 0) {
+    //   // return 
+    // return AlternativeInsvestment();
+
+    // } else {
+    //   return AlternativeInsvestment();
+    // }
+    // return AlternativeInsvestment();
+    // var = page;
+    switch (index) {
+      case 0:
+        {
+         return  AlternativeInsvestment();
+        }
+
+        break;
+      case 1:
+        {
+          return FractionalRealestate();
+        }
+
+        break;
+
+       case 9:
+        {
+          return HighYieldFinance();
+        }
+
+        break;  
+
+      default: {
+        // Null;
+          return FractionalRealestate();
+
+      }
+    }
+    // return Page;
   }
 
   Widget categoryCard(

@@ -14,6 +14,11 @@ import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/Priva
 import 'package:freeu/HomePage/Categories/Alternative/Realestatepage.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
+
+import 'package:freeu/HomePage/Categories/High_yield/High_yield_Properties.dart';
+import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset1.dart';
+import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset2.dart';
+
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
@@ -204,6 +209,12 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/fractionalrealestate',
               page: () => FractionalRealEstate2()),
+
+
+            GetPage(
+              name: '/highyieldproperties',
+              page: () => HighYieldProperties()),    
+
           GetPage(name: '/debtfundviewmore', page: () => DebtFundViewMore()),
           GetPage(
               name: '/realestateaifviewmore',
@@ -220,6 +231,7 @@ class _MyAppState extends State<MyApp> {
               page: () => AngelFundViewMore()),
 
           
+
         ],
       ),
       designSize: Size(390, 844),
