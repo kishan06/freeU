@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20I/VentureViewMore.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Debtfundpage.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Distressedpage.dart';
@@ -7,9 +8,9 @@ import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
 //import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
-import 'package:freeu/HomePage/Categories/Alternative/PrivateEquity.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/PrivateEquity.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquitydeals.dart';
-import 'package:freeu/HomePage/Categories/Alternative/PrivateEquityfund.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/PrivateEquityfund.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Realestatepage.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty1.dart';
@@ -58,7 +59,7 @@ import 'package:freeu/profile/profile.dart';
 import 'package:freeu/screens/entry_point.dart';
 import 'package:freeu/screens/main_screen.dart';
 import 'package:freeu/screens/side_menu.dart';
-import 'package:freeu/screens/vertical_slider.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/vertical_slider.dart';
 import 'package:freeu/signUp/CompleteProfile.dart';
 import 'package:freeu/signUp/SecurityFirst.dart';
 import 'package:freeu/signUp/SecurityQuestion.dart';
@@ -68,7 +69,12 @@ import 'package:freeu/login/splash.dart';
 import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
 
-import 'HomePage/Categories/Alternative/AlternativeCategories2.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary I/AngelFundViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary I/InfrastructureViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary II/DebtFundViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary II/FundForDistressedAssetsViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary II/RealEstateAIFViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary II/AlternativeCategories2.dart';
 import 'HomePage/Categories/Alternative/FullyFundedBank.dart';
 
 int bottomIndex = 0;
@@ -109,7 +115,6 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/EntryPoint', page: () => EntryPoint()),
 
           GetPage(name: '/Insights', page: () => Insights()),
-          
 
           GetPage(name: '/VerticalSlider', page: () => VerticalSlider()),
           GetPage(name: '/', page: () => Splashslider()),
@@ -208,6 +213,22 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/fractionalrealestate',
               page: () => FractionalRealEstate2()),
+          GetPage(name: '/debtfundviewmore', page: () => DebtFundViewMore()),
+          GetPage(
+              name: '/realestateaifviewmore',
+              page: () => RealEstateAIFViewMore()),
+          GetPage(
+              name: '/funddistressedassetsviewmore',
+              page: () => FundForDistressedAssetsViewMore()),
+          GetPage(name: '/ventureviewmore', page: () => VentureViewMore()),
+          GetPage(
+              name: '/infrastructureviewmore',
+              page: () => InfrastructureViewMore()),
+          GetPage(
+              name: '/angelfundviewmore',
+              page: () => AngelFundViewMore()),
+
+          
         ],
       ),
       designSize: Size(390, 844),
