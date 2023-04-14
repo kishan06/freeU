@@ -15,6 +15,7 @@ import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty1.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/FractionalRealEstateProperty2.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
+import 'package:freeu/HomePage/Categories/High_yield/High_yield_Properties.dart';
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset1.dart';
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLendingAsset2.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
@@ -208,6 +209,10 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/fractionalrealestate',
               page: () => FractionalRealEstate2()),
+
+            GetPage(
+              name: '/highyieldproperties',
+              page: () => HighYieldProperties()),    
         ],
       ),
       designSize: Size(390, 844),
