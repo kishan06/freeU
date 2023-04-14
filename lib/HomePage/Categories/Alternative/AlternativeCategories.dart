@@ -6,6 +6,9 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
+import 'AIF Cateogary I/AlternativeCateogries1.dart';
+import 'AIF Cateogary III/AlternaticeCateogries3.dart';
+
 class AlternativeCategories extends StatefulWidget {
   const AlternativeCategories({super.key});
 
@@ -17,8 +20,8 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
+      backgroundColor: const Color(0xFFFFFFFF),
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -64,16 +67,17 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                       height: 37.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
                       child: GestureDetector(
                         onTap: () {
+                          Get.to(const AlternaticeCateogries1());
                         },
                         child: Container(
                           // width: 358.w,
                           // height: 325.h,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xff002555),
                             boxShadow: [
@@ -104,7 +108,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 25.sp,
-                                      color: Color(0XFFFFFFFF),
+                                      color: const Color(0XFFFFFFFF),
                                       fontWeight: FontWeight.w500),
                                 ),
                                 SizedBox(
@@ -120,7 +124,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                       height: 30.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
                       child: GestureDetector(
@@ -128,7 +132,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                           Get.toNamed('/altenativecategories2');
                         },
                         child: Container(
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xffB23C7E),
                             boxShadow: [
@@ -159,7 +163,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 25.sp,
-                                      color: Color(0XFFFFFFFF),
+                                      color: const Color(0XFFFFFFFF),
                                       fontWeight: FontWeight.w500),
                                 ),
                                 SizedBox(
@@ -175,48 +179,53 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                       height: 30.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                          color: Color(0xff008A5B),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0x48B9B9BE),
-                              blurRadius: 5.0,
-                              spreadRadius: 0,
-                              // offset: Offset(10, 10, 10, 10),
-                            )
-                          ],
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(
-                              left: 22.0, right: 22, top: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Image.asset(
-                                "assets/images/categoryreturninvestment.png",
-                                width: 180,
-                                height: 180,
-                              ),
-                              SizedBox(height: 21.h),
-                              Text(
-                                "Alternative Investment Funds Category III",
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontFamily: "Poppins",
-                                    fontSize: 25.sp,
-                                    color: Color(0XFFFFFFFF),
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              SizedBox(
-                                height: 27.h,
-                              ),
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.to(const AlternaticeCateogries3());
+                        },
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(15)),
+                            color: Color(0xff008A5B),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x48B9B9BE),
+                                blurRadius: 5.0,
+                                spreadRadius: 0,
+                                // offset: Offset(10, 10, 10, 10),
+                              )
                             ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 22.0, right: 22, top: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Image.asset(
+                                  "assets/images/categoryreturninvestment.png",
+                                  width: 180,
+                                  height: 180,
+                                ),
+                                SizedBox(height: 21.h),
+                                Text(
+                                  "Alternative Investment Funds Category III",
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontFamily: "Poppins",
+                                      fontSize: 25.sp,
+                                      color: const Color(0XFFFFFFFF),
+                                      fontWeight: FontWeight.w500),
+                                ),
+                                SizedBox(
+                                  height: 27.h,
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),

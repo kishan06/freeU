@@ -6,19 +6,19 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
-class PrivateEquityFund extends StatefulWidget {
-  const PrivateEquityFund({super.key});
+class InfrastructureViewMore extends StatefulWidget {
+  const InfrastructureViewMore({super.key});
 
   @override
-  State<PrivateEquityFund> createState() => _PrivateEquityFundState();
+  State<InfrastructureViewMore> createState() => _InfrastructureViewMoreState();
 }
 
-class _PrivateEquityFundState extends State<PrivateEquityFund> {
+class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w,5.h,16.w,10.h),
+        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
@@ -26,26 +26,11 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
           },
         ),
       ),
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
+      backgroundColor: const Color(0xFFFFFFFF),
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      //  AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
@@ -57,7 +42,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Private Equity Fund",
+                  "Infrastructure Fund",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -79,17 +64,6 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
                 ],
               ),
             )),
-
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
           ],
         ),
       ),
@@ -115,7 +89,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'How does it work?',
+          'Benefits of investing in Infrastructure Fund',
           style: TextStyle(
               color: Colors.black,
               fontSize: 20.sp,
@@ -145,7 +119,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              "Private Equity Funds is a collective investment scheme, used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership. There is a team of professionals in the private equity firm who raise the money and manage the entire fund. The fund managers utilize the funds for raising new capital, new technology for the companies, future acquisitions, and even investing in other companies to make the fund strong. Private Equity Funds usually have a high rate of return. Most of the investors in a PE are High- Net individuals, or Investment Banks.",
+              "Infrastructure Funds provide investors with steady and consistent returns, mainly because demand for infrastructural services remain constant, or are constantly on the rise, even when the country’s economic growth is slow. Compared with other investments, these funds potentially offer more security against volatile stocks, and hence better at risk-management.",
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",
@@ -176,7 +150,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'What is the minimum tenure of a private equity fund?',
+          'Features of Infrastructure AIF',
           style: TextStyle(
               color: Colors.black,
               fontSize: 18.sp,
@@ -205,7 +179,16 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              "Private Equity Funds is a collective investment scheme, used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership. There is a team of professionals in the private equity firm who raise the money and manage the entire fund. The fund managers utilize the funds for raising new capital, new technology for the companies, future acquisitions, and even investing in other companies to make the fund strong. Private Equity Funds usually have a high rate of return. Most of the investors in a PE are High- Net individuals, or Investment Banks.",
+              '>	A high risk-high return investment'
+              '\n\n>	Low liquidity'
+              '\n\n>	Long investment horizon'
+              '\n\n>	A chance to invest in high-potential sector '
+              '\n\n>	They can be listed on stock exchanges because  of their minimum trade amount of 1 crore.'
+              '\n\n>	AIF cannot invest more than 25% in a single infrastructure company.'
+              '\n\n>	At least 75% of the investible funds shall be invested in unlisted equity shares or equity instruments of a venture capital undertaking or in companies listed or proposed to be listed on a SME exchange or SME segment of an exchange.'
+              '\n\n>	The unit holder can invest in other subcategories of Category I AIF, but cannot invest in FoFs (Funds of Funds).'
+              '\n\n>	Infrastructure bonds are refrained from borrowing funds directly or indirectly to run their business operations.'
+              '\n\n>	Infrastructure fund allows only 1,000 investors per scheme.',
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",
@@ -236,7 +219,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'Difference between Venture Capital and Private Equity?',
+          'Tenure: ',
           style: TextStyle(
               color: Colors.black,
               fontSize: 18.sp,
@@ -250,13 +233,13 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -265,7 +248,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              "Private Equity Funds is a collective investment scheme, used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership. There is a team of professionals in the private equity firm who raise the money and manage the entire fund. The fund managers utilize the funds for raising new capital, new technology for the companies, future acquisitions, and even investing in other companies to make the fund strong. Private Equity Funds usually have a high rate of return. Most of the investors in a PE are High- Net individuals, or Investment Banks.",
+              "Since infrastructure funds come under category 1, these are close-ended and come with a minimum tenure of more than three years, which could be extended by additional two years. Liquidate within one year following expiry of fund tenure",
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",

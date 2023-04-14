@@ -1,13 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
@@ -17,13 +10,15 @@ class PrvateEquity extends StatefulWidget {
   String irr;
   String sih;
   Color color;
-  PrvateEquity({super.key,
-    required this.title,
-    required this.des,
-    required this.irr,
-    required this.sih,
-    required this.color
-  });
+  String ontapNamed;
+  PrvateEquity(
+      {super.key,
+      required this.title,
+      required this.des,
+      required this.irr,
+      required this.sih,
+      required this.color,
+      required this.ontapNamed});
 
   @override
   State<PrvateEquity> createState() => _PrvateEquityState();
@@ -34,45 +29,30 @@ class _PrvateEquityState extends State<PrvateEquity> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return
-        // SafeArea(
-        //child:
-        Scaffold(
+    return Scaffold(
       backgroundColor: widget.color,
       appBar: AppBar(
-        backgroundColor: widget.color,
-        elevation: 0,
-        titleSpacing: 0,
-        leading: SizedBox()
-        // IconButton(
-        //   onPressed: () {
-        //     Get.back();
-        //   },
-        //   icon: Icon(
-        //     Icons.arrow_back,
-        //   ),
-        //   iconSize: 26,
-        //   color: Color(0XFFFFFFFF),
-        // ),
-     
-      ),
+          backgroundColor: widget.color,
+          elevation: 0,
+          titleSpacing: 0,
+          leading: const SizedBox()),
       body: Center(
         child: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: EdgeInsets.only(left: 16.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    widget.title,
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        color: Color(0XFFFFFFFF),
-                        fontWeight: FontWeight.w500),
+                  Flexible(
+                    child: Text(
+                      widget.title,
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: 25.sp,
+                          color: const Color(0XFFFFFFFF),
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ],
               ),
@@ -94,7 +74,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         widget.des,
                         // "Private Equity Funds is a collective investment scheme used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership.",
                         style: TextStyle(
-                          color: Color(0XFFFFFFFF),
+                          color: const Color(0XFFFFFFFF),
                           fontSize: 18.sp,
                           //fontFamily: 'Poppins'
                         ),
@@ -106,7 +86,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed("/privateequityfund");
+                      Get.toNamed(widget.ontapNamed);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -114,7 +94,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         Text(
                           "Learn more",
                           style: TextStyle(
-                              color: Color(0XFFFFFFFF),
+                              color: const Color(0XFFFFFFFF),
                               fontSize: 16.sp,
                               decoration: TextDecoration.underline),
                         ),
@@ -142,7 +122,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         children: [
                           Text("Expected Return (IRR)",
                               style: TextStyle(
-                                color: Color(0XFFFBFBFB),
+                                color: const Color(0XFFFBFBFB),
                                 fontSize: 16.sp,
                                 fontFamily: "Poppins",
                               )),
@@ -169,8 +149,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                                "Suggested Investment Horizon",
+                            Text("Suggested Investment Horizon",
                                 style: TextStyle(
                                   color: Color(0XFFFBFBFB),
                                   fontSize: 16.sp,
@@ -205,7 +184,6 @@ class _PrvateEquityState extends State<PrvateEquity> {
                                 fontSize: 16.sp,
                                 fontFamily: "Poppins",
                               )),
-
                           text20White("1 Crore")
                         ],
                       ),
@@ -249,6 +227,5 @@ class _PrvateEquityState extends State<PrvateEquity> {
         ),
       ),
     );
-    // );
   }
 }
