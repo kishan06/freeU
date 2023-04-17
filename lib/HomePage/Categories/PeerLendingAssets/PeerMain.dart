@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLearnMore.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
@@ -54,7 +55,7 @@ class _PeerMainState extends State<PeerMain> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Peer-Peer Lending",
+                    "Peer to Peer Lending",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -77,7 +78,8 @@ class _PeerMainState extends State<PeerMain> {
                         height: 20.h,
                       ),
                       Text(
-                        "Peer-to-Peer lending, or P2P lending, is a new, innovative platform for alternate financing that allows individuals to directly acquire loans from other individuals, without going through banks, or other financial institutions.",
+                        "Peer to Peer lending connects the borrowers (investors) to the lenders directly, under a loan agreement, without having to go through any financial institutions like banks.",
+                        // "Peer-to-Peer lending, or P2P lending, is a new, innovative platform for alternate financing that allows individuals to directly acquire loans from other individuals, without going through banks, or other financial institutions.",
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -106,78 +108,95 @@ class _PeerMainState extends State<PeerMain> {
                         ),
                       ),
                       SizedBox(
-                        height: 29.h,
+                        height: 20.h,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/privatecategories.png",
+                        width: 70.w,
+                        height: 70.w,
+                      ),
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            "assets/images/privatecategories.png",
-                            width: 70.w,
-                            height: 70.w,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Text("Expected Return (IRR)\n ~ 15-24 % p.a.",
+                          Text("Expected Return (IRR)",
                               style: TextStyle(
-                                color: Color(0XFFFBFBFB),
-                                fontSize: 20.sp,
+                                color: const Color(0XFFFBFBFB),
+                                fontSize: 16.sp,
                                 fontFamily: "Poppins",
                               )),
+                          // text20White(widget.irr)
+                          text20White("~ 9-12% p.a.")
                         ],
                       ),
-                      SizedBox(
-                        height: 40.h,
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/privateequitytime.png",
+                        width: 70.w,
+                        height: 70.w,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            "assets/images/privateequitytime.png",
-                            width: 70.w,
-                            height: 70.w,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Expanded(
-                            child: Text(
-                                "Suggested Investment Horizon More than 8 Years",
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Suggested Investment Horizon",
                                 style: TextStyle(
                                   color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
+                                  fontSize: 16.sp,
                                   fontFamily: "Poppins",
                                 )),
-                          ),
-                        ],
+                            // text20White(widget.sih)
+                            text20White("~ 3-36 months")
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/funding.png",
+                        width: 70.w,
+                        height: 70.w,
                       ),
                       SizedBox(
-                        height: 40.h,
+                        width: 25.w,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            "assets/images/funding.png",
-                            width: 70.w,
-                            height: 70.w,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Expanded(
-                            child: Text("Minimum Investment 1 Crore",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                )),
-                          ),
+                          Text("Minimum Investment",
+                              style: TextStyle(
+                                color: Color(0XFFFBFBFB),
+                                fontSize: 16.sp,
+                                fontFamily: "Poppins",
+                              )),
+                          text20White("1,00,000")
                         ],
                       ),
-                      SizedBox(
-                        height: 92.h,
+                    ],
+                  ),
+                    SizedBox(
+                        height: 40.h,
                       ),
                       OpenContainerWrappers(
                         openBuild: const Fractionalproperties(),

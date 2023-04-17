@@ -118,11 +118,15 @@ Example: If you earn a 20% return from your investment and the non-performing as
               child: ListView.separated(
                   itemBuilder: (context, index) {
                     if (index == 1) {
-                      return fracReal4(PeerLearnMoreData[index]["bold"],
-                          PeerLearnMoreData[index]["sent"]);
+                      return fracReal4(
+                        // PeerLearnMoreData[index]["bold"],
+                        //   PeerLearnMoreData[index]["sent"]
+                        );
                     } else if (index == 2) {
-                      return fracReal5(PeerLearnMoreData[index]["bold"],
-                          PeerLearnMoreData[index]["sent"]);
+                      return fracReal5(
+                        // PeerLearnMoreData[index]["bold"],
+                        //   PeerLearnMoreData[index]["sent"]
+                        );
                     } else {
                       return fracReal1(PeerLearnMoreData[index]["question"],
                           PeerLearnMoreData[index]["ans"]);
@@ -218,7 +222,7 @@ Example: If you earn a 20% return from your investment and the non-performing as
     );
   }
 
-  Widget fracReal4(String bold, String sent) {
+  Widget fracReal4() {
     List bulletPoints = [
       {
         "bold": "No Middleman: ",
@@ -320,7 +324,7 @@ Example: If you earn a 20% return from your investment and the non-performing as
     );
   }
 
-  Widget fracReal5(String bold, String sent) {
+  Widget fracReal5() {
     List bulletPoints5 = [
       {
         "bold": "Default Risk by borrowers: ",

@@ -121,15 +121,19 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                     if (index == 0) {
                       return fracReal2();
                     } else if (index == 1) {
-                      return fracReal9(discountingLearnMoreData[index]["sent"],
-                          discountingLearnMoreData[index]["bold"]);
+                      return fracReal9(
+                        // discountingLearnMoreData[index]["sent"],
+                        //   discountingLearnMoreData[index]["bold"]
+                        );
                     } else if (index == 2) {
                       return fracReal3();
                     } else if (index == 3) {
                       return fracReal6();
                     } else if (index == 4) {
-                      return fracReal5(discountingLearnMoreData[index]["sent"],
-                          discountingLearnMoreData[index]["bold"]);
+                      return fracReal5(
+                        // discountingLearnMoreData[index]["sent"],
+                        //   discountingLearnMoreData[index]["bold"]
+                        );
                     } else if (index == 5) {
                       return fracReal8();
                     } else {
@@ -330,7 +334,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
     );
   }
 
-  Widget fracReal5(String bold, String sent) {
+  Widget fracReal5() {
     List bulletPoints5 = [
       {
         "bold": "Risk of defaulting: ",
@@ -1034,7 +1038,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
     );
   }
 
-  Widget fracReal9(String bold, String sent) {
+  Widget fracReal9() {
     List bulletPoints6 = [
       {
         "bold": "1. Payment flows: ",

@@ -4,6 +4,7 @@ import 'package:freeu/HomePage/Categories/InvoiceDiscounting/DiscountinglearnMor
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
+import '../../../Utils/texts.dart';
 import '../Alternative/Fractionalproperties.dart';
 
 class InvoiceDiscountingMain extends StatefulWidget {
@@ -76,7 +77,8 @@ class _InvoiceDiscountingState extends State<InvoiceDiscountingMain> {
                         height: 20.h,
                       ),
                       Text(
-                        "Invoice discounting is a form of financing that allows businesses to access cash by borrowing against their outstanding invoices.",
+                        "Invoice Discounting is the financial practice of using a company's unpaid invoices to get a working cash flow and fulfill its immediate financial needs.",
+                        // "Invoice discounting is a form of financing that allows businesses to access cash by borrowing against their outstanding invoices.",
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -105,78 +107,95 @@ class _InvoiceDiscountingState extends State<InvoiceDiscountingMain> {
                         ),
                       ),
                       SizedBox(
-                        height: 29.h,
+                        height: 20.h,
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/privatecategories.png",
+                        width: 70.w,
+                        height: 70.w,
+                      ),
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            "assets/images/privatecategories.png",
-                            width: 70.w,
-                            height: 70.w,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Text("Expected Return (IRR)\n ~ 15-24 % p.a.",
+                          Text("Expected Return (IRR)",
                               style: TextStyle(
-                                color: Color(0XFFFBFBFB),
-                                fontSize: 20.sp,
+                                color: const Color(0XFFFBFBFB),
+                                fontSize: 16.sp,
                                 fontFamily: "Poppins",
                               )),
+                          // text20White(widget.irr)
+                          text20White("~12-18% p.a.")
                         ],
                       ),
-                      SizedBox(
-                        height: 40.h,
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/privateequitytime.png",
+                        width: 70.w,
+                        height: 70.w,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            "assets/images/privateequitytime.png",
-                            width: 70.w,
-                            height: 70.w,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Expanded(
-                            child: Text(
-                                "Suggested Investment Horizon More than 8 Years",
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text("Suggested Investment Horizon",
                                 style: TextStyle(
                                   color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
+                                  fontSize: 16.sp,
                                   fontFamily: "Poppins",
                                 )),
-                          ),
-                        ],
+                            // text20White(widget.sih)
+                            text20White("~ 3-18 months")
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        "assets/images/funding.png",
+                        width: 70.w,
+                        height: 70.w,
                       ),
                       SizedBox(
-                        height: 40.h,
+                        width: 25.w,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Image.asset(
-                            "assets/images/funding.png",
-                            width: 70.w,
-                            height: 70.w,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Expanded(
-                            child: Text("Minimum Investment 1 Crore",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                )),
-                          ),
+                          Text("Minimum Investment",
+                              style: TextStyle(
+                                color: Color(0XFFFBFBFB),
+                                fontSize: 16.sp,
+                                fontFamily: "Poppins",
+                              )),
+                          text20White("1,00,000")
                         ],
                       ),
-                      SizedBox(
-                        height: 92.h,
+                    ],
+                  ),
+                    SizedBox(
+                        height: 40.h,
                       ),
                       OpenContainerWrappers(
                         openBuild: const Fractionalproperties(),
