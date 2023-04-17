@@ -11,6 +11,7 @@ import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceDiscountingM
 
  
 import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
+import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based.dart';
 
 
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
@@ -365,6 +366,20 @@ class _CategoriesMainState extends State<CategoriesMain> {
         }
 
         break;
+
+      case 2:
+        {
+          return PeerMain();
+        }
+
+        break;  
+
+      case 5:
+        {
+          return LeaseBased();
+        }
+
+        break;   
 
        case 9:
         {
