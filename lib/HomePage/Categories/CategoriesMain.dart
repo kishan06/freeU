@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
 //import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
- 
+
 import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
 
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
@@ -25,6 +25,7 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'CleanGreen/CleanGreenMain.dart';
 import 'FractionalRealEstateProperty/PropertiesInvestment.dart';
 
 class CategoriesMain extends StatefulWidget {
@@ -336,9 +337,8 @@ class _CategoriesMainState extends State<CategoriesMain> {
   }
 
   Widget navigate(int index) {
-
     // if (index == 0) {
-    //   // return 
+    //   // return
     // return AlternativeInsvestment();
 
     // } else {
@@ -349,7 +349,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
     switch (index) {
       case 0:
         {
-         return  AlternativeInsvestment();
+          return AlternativeInsvestment();
         }
 
         break;
@@ -359,19 +359,25 @@ class _CategoriesMainState extends State<CategoriesMain> {
         }
 
         break;
+      case 6:
+        {
+          return CleanGreenMain();
+        }
 
-       case 9:
+        break;
+
+      case 9:
         {
           return HighYieldFinance();
         }
 
-        break;  
+        break;
 
-      default: {
-        // Null;
+      default:
+        {
+          // Null;
           return FractionalRealestate();
-
-      }
+        }
     }
     // return Page;
   }

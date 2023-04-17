@@ -11,6 +11,7 @@ class PrvateEquity extends StatefulWidget {
   String sih;
   Color color;
   String ontapNamed;
+  String? minInvestment = '1 Crore';
   PrvateEquity(
       {super.key,
       required this.title,
@@ -18,7 +19,8 @@ class PrvateEquity extends StatefulWidget {
       required this.irr,
       required this.sih,
       required this.color,
-      required this.ontapNamed});
+      required this.ontapNamed,
+      this.minInvestment});
 
   @override
   State<PrvateEquity> createState() => _PrvateEquityState();
@@ -184,7 +186,9 @@ class _PrvateEquityState extends State<PrvateEquity> {
                                 fontSize: 16.sp,
                                 fontFamily: "Poppins",
                               )),
-                          text20White("1 Crore")
+                          text20White(widget.minInvestment == null
+                              ? '1 Crore'
+                              : widget.minInvestment!)
                         ],
                       ),
                     ],
