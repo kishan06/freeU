@@ -73,6 +73,8 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
               child: Column(
                 children: [
                   sizedBoxHeight(30.h),
+                  highyield0(),
+                  sizedBoxHeight(20.h),
                   highyield1(),
                   sizedBoxHeight(20.h),
                   highyield2(),
@@ -103,6 +105,76 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
     );
   }
 
+  Widget highyield0() {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        //showAccordion: true,
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          'High Yield Fixed Income',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: AppColors.purpleL_474E88,
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: AppColors.purpleL_474E88,
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Text(
+              '''High Yield Fixed Income refers to bonds or other fixed-income securities issued by companies, governments, or other organizations that are deemed to carry a higher risk of default. As such, these securities typically offer a higher yield, or rate of return, to compensate investors for the increased risk. High-yield fixed-income securities are also known as "junk bonds," reflecting the perception that they have a higher likelihood of default than investment-grade bonds. Investors who are willing to take on this additional risk may seek out high-yield fixed-income securities to potentially earn higher returns.''',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18.sp,
+                fontFamily: "Poppins",
+              ),
+            ),
+            sizedBoxHeight(10.h),
+            Text(
+              '''Usually, if a company has a low risk of default, they have a good credit rating and is great for investment purposes. Similarly, a company with a high risk of default is considered risky for investment. High Yield Bonds are bonds of such companies, with a low credit rating, and like any other corporate bond, they promise to pay much higher interest because of their low credit ratings proportionate to the level of risk the investors are willing to take when buying these bonds. These are called 'High-Yield' because these bonds have a high chance of getting defaulted- and hence the firms pay a high yield to compensate for the big risk the investors take.''',
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18.sp,
+                fontFamily: "Poppins",
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget highyield1() {
     return Container(
       decoration: BoxDecoration(
@@ -110,7 +182,7 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
-        showAccordion: true,
+        //showAccordion: true,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),
