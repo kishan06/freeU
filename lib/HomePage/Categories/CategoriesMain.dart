@@ -31,6 +31,7 @@ import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'FractionalRealEstateProperty/PropertiesInvestment.dart';
+import 'revenue_based_financing/revenue_based_main.dart';
 
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
@@ -372,7 +373,17 @@ class _CategoriesMainState extends State<CategoriesMain> {
           return PeerMain();
         }
 
-        break;  
+
+      break;
+
+      case 4:
+        {
+          return RevenueBasedMain();
+        }
+
+      break;
+
+       
 
       case 5:
         {
@@ -380,6 +391,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
         }
 
         break;   
+
 
        case 9:
         {
