@@ -20,7 +20,7 @@ class _InsightsInnerState extends State<InsightsInner> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150.h),
+        preferredSize: Size.fromHeight(170.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,

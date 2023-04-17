@@ -22,8 +22,12 @@ class _InsightsState extends State<Insights> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(180.h),
+
+      appBar: 
+
+
+      PreferredSize(
+        preferredSize: Size.fromHeight(200.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -95,7 +99,8 @@ class _InsightsState extends State<Insights> {
                       suffixIcon: PopupMenuButton(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(20.r)),
-                        constraints: BoxConstraints.expand(height: 150),
+                        // constraints: BoxConstraints.expand(height: 150,
+                        // ),
                         icon: Icon(
                           Icons.keyboard_arrow_down_rounded,
                           color: Colors.black,
@@ -120,12 +125,14 @@ class _InsightsState extends State<Insights> {
                       ),
                     ),
                   ),
+            
                 ],
               ),
             ),
           ],
         ),
       ),
+    
       body: Column(
         children: [
           Expanded(
