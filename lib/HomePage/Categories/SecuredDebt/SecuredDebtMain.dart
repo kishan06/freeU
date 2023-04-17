@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
@@ -19,9 +20,9 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blueL_006796,
+      backgroundColor: AppColors.greenL_089435,
       appBar: AppBar(
-        backgroundColor: AppColors.blueL_006796,
+        backgroundColor: AppColors.greenL_089435,
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
@@ -112,22 +113,14 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Expected Return (IRR)",
-                                style: TextStyle(
-                                  color: const Color(0XFFFBFBFB),
-                                  fontSize: 16.sp,
-                                  fontFamily: "Poppins",
-                                ),
-                              ),
-                              Text(
-                                "~ 12%-16% p.a.",
-                                style: TextStyle(
-                                  color: const Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                ),
-                              ),
+                              Text("Expected Return:",
+                                  style: TextStyle(
+                                    color: const Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              // text20White(widget.irr)
+                              text20White("~ 12-16%")
                             ],
                           ),
                         ],
@@ -150,18 +143,14 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Suggested Investment Horizon",
+                                Text("Investment Horizon:",
                                     style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
+                                      color: Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                Text("More than 3 Years",
-                                    style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
-                                      fontSize: 20.sp,
-                                      fontFamily: "Poppins",
-                                    )),
+                                // text20White(widget.sih)
+                                text20White("More than 3 Years")
                               ],
                             ),
                           ),
@@ -181,24 +170,17 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                           SizedBox(
                             width: 25.w,
                           ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Minimum Investment",
-                                    style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
-                                      fontSize: 20.sp,
-                                      fontFamily: "Poppins",
-                                    )),
-                                Text("5,00,000",
-                                    style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
-                                      fontSize: 20.sp,
-                                      fontFamily: "Poppins",
-                                    )),
-                              ],
-                            ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Minimum Investment:",
+                                  style: TextStyle(
+                                    color: Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              text20White("5,00,000")
+                            ],
                           ),
                         ],
                       ),

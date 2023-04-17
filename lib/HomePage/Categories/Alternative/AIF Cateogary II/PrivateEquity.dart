@@ -151,7 +151,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Suggested Investment Horizon",
+                            Text("Suggested Investment Horizon:",
                                 style: TextStyle(
                                   color: Color(0XFFFBFBFB),
                                   fontSize: 16.sp,
@@ -180,7 +180,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Minimum Investment",
+                          Text("Minimum Investment:",
                               style: TextStyle(
                                 color: Color(0XFFFBFBFB),
                                 fontSize: 16.sp,

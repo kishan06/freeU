@@ -8,6 +8,7 @@ import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart'
 import 'package:freeu/HomePage/Categories/High_yield/High_yield_Learn.dart';
 import 'package:freeu/HomePage/Categories/High_yield/High_yield_Properties.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/page_animation.dart';
@@ -64,7 +65,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "High Yield Finance",
+                    "High Yield Fixed Income",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -87,7 +88,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                         height: 20.h,
                       ),
                       Text(
-                        '''High Yield Fixed Income refers to bonds or other fixed-income securities issued by companies, governments, or other organizations that are deemed to carry a higher risk of default. As such, these securities typically offer a higher yield, or rate of return, to compensate investors for the increased risk. ''',
+                        "High-yield bonds or junk bonds are bonds that pay higher rates of interest, because of their low credit rates, compared to investment-grade bonds. Due to their higher chances to default, they pay a higher yield to compensate investors - hence called High yield Bonds.",
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -129,12 +130,19 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                           SizedBox(
                             width: 25.w,
                           ),
-                          Text("Expected Return (IRR)\n ~ 15-24 % p.a.",
-                              style: TextStyle(
-                                color: Color(0XFFFBFBFB),
-                                fontSize: 20.sp,
-                                fontFamily: "Poppins",
-                              )),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Expected Return:",
+                                  style: TextStyle(
+                                    color: const Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              // text20White(widget.irr)
+                              text20White("~ 12-18% p.a.")
+                            ],
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -152,13 +160,19 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                             width: 25.w,
                           ),
                           Expanded(
-                            child: Text(
-                                "Suggested Investment Horizon More than 8 Years",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                )),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Investment Horizon:",
+                                    style: TextStyle(
+                                      color: Color(0XFFFBFBFB),
+                                      fontSize: 16.sp,
+                                      fontFamily: "Poppins",
+                                    )),
+                                // text20White(widget.sih)
+                                text20White("~ 1-5 years")
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -176,13 +190,17 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                           SizedBox(
                             width: 25.w,
                           ),
-                          Expanded(
-                            child: Text("Minimum Investment 1 Crore",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                )),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Minimum Investment:",
+                                  style: TextStyle(
+                                    color: Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              text20White("1,00,000")
+                            ],
                           ),
                         ],
                       ),
