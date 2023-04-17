@@ -139,48 +139,48 @@ class _CategoriesMainState extends State<CategoriesMain> {
     viewportFraction: 0.75,
   );
 
-  void _selectedTab(int index) {
-    setState(() {
-      // _lastSelected = 'TAB: $index';
-      // print(_lastSelected);
+  // void _selectedTab(int index) {
+  //   setState(() {
+  //     // _lastSelected = 'TAB: $index';
+  //     // print(_lastSelected);
 
-      switch (index) {
-        case 0:
-          {
-            Get.toNamed("/homepage");
-          }
-          break;
+  //     switch (index) {
+  //       case 0:
+  //         {
+  //           Get.toNamed("/homepage");
+  //         }
+  //         break;
 
-        case 1:
-          {
-            Get.toNamed('/categoriesmain');
-          }
-          break;
+  //       case 1:
+  //         {
+  //           Get.toNamed('/categoriesmain');
+  //         }
+  //         break;
 
-        case 2:
-          {
-            Get.toNamed('/investmentmain');
-          }
-          break;
-        case 3:
-          {
-            Get.toNamed('/chatpage');
-          }
-          break;
-        case 4:
-          {
-            Get.toNamed('/myprofile');
-          }
-          break;
-        default:
-          {
-            throw Error();
-          }
-      }
-    });
-  }
+  //       case 2:
+  //         {
+  //           Get.toNamed('/investmentmain');
+  //         }
+  //         break;
+  //       case 3:
+  //         {
+  //           Get.toNamed('/chatpage');
+  //         }
+  //         break;
+  //       case 4:
+  //         {
+  //           Get.toNamed('/myprofile');
+  //         }
+  //         break;
+  //       default:
+  //         {
+  //           throw Error();
+  //         }
+  //     }
+  //   });
+  // }
 
-  DateTime timebackPressed = DateTime.now();
+  // DateTime timebackPressed = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
@@ -368,6 +368,35 @@ class _CategoriesMainState extends State<CategoriesMain> {
         }
 
         break;
+
+      case 2:
+        {
+          return PeerMain();
+        }
+
+        break;
+      
+      case 3:
+      {
+        return InvoiceDiscountingMain();
+      }
+
+      break;
+
+      case 4:
+        {
+          return RevenueBasedMain();
+        }
+
+        break;
+
+      case 5:
+        {
+          return LeaseBased();
+        }
+
+        break;
+
       case 6:
         {
           return CleanGreenMain();
@@ -390,27 +419,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
 
 
-      case 2:
-        {
-          return PeerMain();
-        }
-
-        break;
-
-      case 4:
-        {
-          return RevenueBasedMain();
-        }
-
-        break;
-
-      case 5:
-        {
-          return LeaseBased();
-        }
-
-        break;
-
+      
       case 9:
         {
           return HighYieldFinance();
