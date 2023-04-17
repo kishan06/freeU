@@ -6,6 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
 //import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
+import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceDiscountingMain.dart';
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Notification.dart';
@@ -318,7 +319,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
               ),
               openBuild: index == 0
                   ? const AlternativeInsvestment()
-                  : const FractionalRealestate(),
+                  : const InvoiceDiscountingMain(),
             );
           },
         ),
