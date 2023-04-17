@@ -14,6 +14,9 @@ import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/Priva
 import 'package:freeu/HomePage/Categories/Alternative/Realestatepage.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
+
+import 'package:freeu/HomePage/Categories/High_yield/High_yield_Properties.dart';
+
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
@@ -71,6 +74,8 @@ import 'HomePage/Categories/Alternative/AIF Cateogary II/DebtFundViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/FundForDistressedAssetsViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/RealEstateAIFViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/AlternativeCategories2.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary III/PrivatePublicEquityViewMore.dart';
 import 'HomePage/Categories/Alternative/FullyFundedBank.dart';
 
 int bottomIndex = 0;
@@ -204,6 +209,12 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/fractionalrealestate',
               page: () => FractionalRealEstate2()),
+
+
+            GetPage(
+              name: '/highyieldproperties',
+              page: () => HighYieldProperties()),    
+
           GetPage(name: '/debtfundviewmore', page: () => DebtFundViewMore()),
           GetPage(
               name: '/realestateaifviewmore',
@@ -218,8 +229,15 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/angelfundviewmore',
               page: () => AngelFundViewMore()),
+          GetPage(
+              name: '/hedgeviewmore',
+              page: () => HedgeViewMore()),
+          GetPage(
+              name: '/privatepublicequityviewmore',
+              page: () => PrivatePublicEquityViewMore()),
 
-          
+       
+
         ],
       ),
       designSize: Size(390, 844),
