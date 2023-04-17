@@ -7,7 +7,12 @@ import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
 //import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
 
+import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceDiscountingMain.dart';
+
+ 
 import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
+import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based.dart';
+
 
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
 
@@ -27,8 +32,12 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'CleanGreen/CleanGreenMain.dart';
 import 'FractionalRealEstateProperty/PropertiesInvestment.dart';
+
 import 'SecuredDebt/SecuredDebtMain.dart';
 import 'Venture debt/VentureDebtMain.dart';
+
+import 'revenue_based_financing/revenue_based_main.dart';
+
 
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
@@ -323,6 +332,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
                 image: categoryData[index]["imageUrl"],
                 text: categoryData[index]["title"],
               ),
+
               openBuild: navigate(index),
               //  index == 0
               //     ? const AlternativeInsvestment()
@@ -331,6 +341,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
               //         : index == 9
               //             ? HighYieldFinance()
               //             : SizedBox(),
+
             );
           },
         ),
@@ -374,6 +385,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
         break;
 
+
       case 8:
         {
           return SecureDebtMain();
@@ -382,6 +394,34 @@ class _CategoriesMainState extends State<CategoriesMain> {
         break;
 
       case 9:
+
+      case 2:
+        {
+          return PeerMain();
+        }
+
+
+      break;
+
+      case 4:
+        {
+          return RevenueBasedMain();
+        }
+
+      break;
+
+       
+
+      case 5:
+        {
+          return LeaseBased();
+        }
+
+        break;   
+
+
+       case 9:
+
         {
           return HighYieldFinance();
         }
