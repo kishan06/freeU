@@ -6,8 +6,12 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
 //import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
+
+import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceDiscountingMain.dart';
+
  
 import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
+
 
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
 
@@ -320,6 +324,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
                 image: categoryData[index]["imageUrl"],
                 text: categoryData[index]["title"],
               ),
+
               openBuild: navigate(index),
               //  index == 0
               //     ? const AlternativeInsvestment()
@@ -328,6 +333,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
               //         : index == 9
               //             ? HighYieldFinance()
               //             : SizedBox(),
+
             );
           },
         ),
