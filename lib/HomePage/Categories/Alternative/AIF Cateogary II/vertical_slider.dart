@@ -19,7 +19,6 @@ class _VerticalSliderState extends State<VerticalSlider> {
           '\n\nPE funds mostly invests in equity/equity-linked instruments or partnership interests of unlisted companies with potential for giving high returns, as these companies find it difficult to secure capital through equity and debt instruments.  In this manner PE funds can take part in ownership of the company',
       "IRR": "~ 15-24 % p.a.",
       "SIH": "More than 8 Years",
-      // "MI":"1 Crore",
       "color": AppColors.blue004E84,
       "ontap": '/privateequityfund'
     },
@@ -29,7 +28,6 @@ class _VerticalSliderState extends State<VerticalSlider> {
           "As the name suggests, Debt Funds invest in debt instruments of a company (both listed or unlisted). Therefore, if you are an investor, your money will be used in different company bonds, debentures, and other money market instruments. This is a relatively stable investment avenue, where risks are lower. But there are ways in which it can be a high risk because, essentially companies with a low credit score have high yield debt securities. This is the reason Debt Funds investors are mainly interested in companies that have a high growth potential, but without adequate capital. As per SEBI regulations, since AIF is mainly privately pooled investments, Debt Fund investments cannot be used for giving out loans.",
       "IRR": "~ 12-16 % p.a.",
       "SIH": "More than 4 Years",
-      // "MI":"1 Crore",
       "color": AppColors.pink873762,
       "ontap": '/debtfundviewmore'
     },
@@ -39,7 +37,6 @@ class _VerticalSliderState extends State<VerticalSlider> {
           "Funds for distressed assets are category II Alternative Investment Funds (AIFs), which invest in stressed assets of various companies, with the investment philosophy that not all NPAs are bad assets and a turnaround in these will provide a good return. The key to the success of a distressed asset fund lies in buying good underlying assets at reasonable valuations, which have the potential for a turnaround.",
       "IRR": "~15-24% p.a.",
       "SIH": "More than 6 Years",
-      // "MI":"1 Crore",
       "color": AppColors.blue002A5B,
       "ontap": '/funddistressedassetsviewmore'
     },

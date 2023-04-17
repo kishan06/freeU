@@ -30,8 +30,14 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'CleanGreen/CleanGreenMain.dart';
 import 'FractionalRealEstateProperty/PropertiesInvestment.dart';
+
+import 'SecuredDebt/SecuredDebtMain.dart';
+import 'Venture debt/VentureDebtMain.dart';
+
 import 'revenue_based_financing/revenue_based_main.dart';
+
 
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
@@ -344,9 +350,8 @@ class _CategoriesMainState extends State<CategoriesMain> {
   }
 
   Widget navigate(int index) {
-
     // if (index == 0) {
-    //   // return 
+    //   // return
     // return AlternativeInsvestment();
 
     // } else {
@@ -357,7 +362,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
     switch (index) {
       case 0:
         {
-         return  AlternativeInsvestment();
+          return AlternativeInsvestment();
         }
 
         break;
@@ -367,6 +372,28 @@ class _CategoriesMainState extends State<CategoriesMain> {
         }
 
         break;
+      case 6:
+        {
+          return CleanGreenMain();
+        }
+
+        break;
+      case 7:
+        {
+          return VentureDebtMain();
+        }
+
+        break;
+
+
+      case 8:
+        {
+          return SecureDebtMain();
+        }
+
+        break;
+
+      case 9:
 
       case 2:
         {
@@ -394,17 +421,18 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
 
        case 9:
+
         {
           return HighYieldFinance();
         }
 
-        break;  
+        break;
 
-      default: {
-        // Null;
+      default:
+        {
+          // Null;
           return FractionalRealestate();
-
-      }
+        }
     }
     // return Page;
   }
