@@ -27,6 +27,8 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'CleanGreen/CleanGreenMain.dart';
 import 'FractionalRealEstateProperty/PropertiesInvestment.dart';
+import 'SecuredDebt/SecuredDebtMain.dart';
+import 'Venture debt/VentureDebtMain.dart';
 
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
@@ -362,6 +364,19 @@ class _CategoriesMainState extends State<CategoriesMain> {
       case 6:
         {
           return CleanGreenMain();
+        }
+
+        break;
+      case 7:
+        {
+          return VentureDebtMain();
+        }
+
+        break;
+
+      case 8:
+        {
+          return SecureDebtMain();
         }
 
         break;

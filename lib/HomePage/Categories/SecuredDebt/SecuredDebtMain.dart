@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
-import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-import 'CleanGreenViewMore.dart';
+import 'SecuritizedViewMore.dart';
 
-class CleanGreenMain extends StatefulWidget {
-  const CleanGreenMain({super.key});
+class SecureDebtMain extends StatefulWidget {
+  const SecureDebtMain({super.key});
 
   @override
-  State<CleanGreenMain> createState() => _CleanGreenMainState();
+  State<SecureDebtMain> createState() => _SecureDebtMainState();
 }
 
-class _CleanGreenMainState extends State<CleanGreenMain> {
+class _SecureDebtMainState extends State<SecureDebtMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.redL_BE0F02,
+      backgroundColor: AppColors.blueL_006796,
       appBar: AppBar(
-        backgroundColor: AppColors.redL_BE0F02,
+        backgroundColor: AppColors.blueL_006796,
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
@@ -45,7 +44,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Clean and Green Assets",
+                    "Securitized Debt Instruments",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -68,7 +67,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                         height: 20.h,
                       ),
                       Text(
-                        "Clean and Green Asset investing is the method of investing in environmentally conscious, sustainable, and socially conscious companies.",
+                        "Securitization involves the creation of a pool of assets from illiquid financial assets which are repackaged or bundled into marketable securities. Securitized Debt Instruments are financial securities such as bonds/certificates that are created by securitizing individual loans (debt).",
                         style: TextStyle(
                           color: const Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -79,7 +78,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                         height: 9.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const CleanGreenViewMore(),
+                        openBuild: const SecuritizedViewMore(),
                         // onTap: () {
                         //   Get.toNamed("/fractionalrealestate");
                         // },
@@ -122,7 +121,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                                 ),
                               ),
                               Text(
-                                "~ 9%-12% p.a.",
+                                "~ 12%-16% p.a.",
                                 style: TextStyle(
                                   color: const Color(0XFFFBFBFB),
                                   fontSize: 20.sp,
@@ -157,7 +156,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                Text("6-36 months",
+                                Text("More than 3 Years",
                                     style: TextStyle(
                                       color: const Color(0XFFFBFBFB),
                                       fontSize: 20.sp,
@@ -192,7 +191,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                                       fontSize: 20.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                Text("50,000",
+                                Text("5,00,000",
                                     style: TextStyle(
                                       color: const Color(0XFFFBFBFB),
                                       fontSize: 20.sp,
@@ -218,7 +217,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                             child: Text(
                               "View more product",
                               style: TextStyle(
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontSize: 18.sp,
                               ),
                             ),

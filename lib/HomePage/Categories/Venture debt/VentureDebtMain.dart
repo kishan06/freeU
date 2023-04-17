@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
-import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-import 'CleanGreenViewMore.dart';
+import 'VentureDebtViewMore.dart';
 
-class CleanGreenMain extends StatefulWidget {
-  const CleanGreenMain({super.key});
+class VentureDebtMain extends StatefulWidget {
+  const VentureDebtMain({super.key});
 
   @override
-  State<CleanGreenMain> createState() => _CleanGreenMainState();
+  State<VentureDebtMain> createState() => _VentureDebtMainState();
 }
 
-class _CleanGreenMainState extends State<CleanGreenMain> {
+class _VentureDebtMainState extends State<VentureDebtMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.redL_BE0F02,
+      backgroundColor: AppColors.blueL_006796,
       appBar: AppBar(
-        backgroundColor: AppColors.redL_BE0F02,
+        backgroundColor: AppColors.blueL_006796,
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
@@ -45,7 +44,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Clean and Green Assets",
+                    "Venture Debt",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -68,7 +67,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                         height: 20.h,
                       ),
                       Text(
-                        "Clean and Green Asset investing is the method of investing in environmentally conscious, sustainable, and socially conscious companies.",
+                        "Venture Debt is a debt provided to venture capital-backed companies to raise working capital, to fulfill their financial shortfalls.",
                         style: TextStyle(
                           color: const Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -79,7 +78,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                         height: 9.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const CleanGreenViewMore(),
+                        openBuild: const VentureDebtViewMore(),
                         // onTap: () {
                         //   Get.toNamed("/fractionalrealestate");
                         // },
@@ -122,7 +121,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                                 ),
                               ),
                               Text(
-                                "~ 9%-12% p.a.",
+                                "~ 12%-18% p.a.",
                                 style: TextStyle(
                                   color: const Color(0XFFFBFBFB),
                                   fontSize: 20.sp,
@@ -157,7 +156,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                Text("6-36 months",
+                                Text("12-36 months",
                                     style: TextStyle(
                                       color: const Color(0XFFFBFBFB),
                                       fontSize: 20.sp,
@@ -192,7 +191,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                                       fontSize: 20.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                Text("50,000",
+                                Text("5,00,000",
                                     style: TextStyle(
                                       color: const Color(0XFFFBFBFB),
                                       fontSize: 20.sp,
@@ -218,7 +217,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                             child: Text(
                               "View more product",
                               style: TextStyle(
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontSize: 18.sp,
                               ),
                             ),
