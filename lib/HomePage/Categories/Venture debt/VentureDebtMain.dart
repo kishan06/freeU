@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
@@ -112,22 +113,14 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Expected Return (IRR)",
-                                style: TextStyle(
-                                  color: const Color(0XFFFBFBFB),
-                                  fontSize: 16.sp,
-                                  fontFamily: "Poppins",
-                                ),
-                              ),
-                              Text(
-                                "~ 12%-18% p.a.",
-                                style: TextStyle(
-                                  color: const Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                ),
-                              ),
+                              Text("Expected Return:",
+                                  style: TextStyle(
+                                    color: const Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              // text20White(widget.irr)
+                              text20White("~12%-18% p.a.")
                             ],
                           ),
                         ],
@@ -150,18 +143,14 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Suggested Investment Horizon",
+                                Text("Investment Horizon:",
                                     style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
+                                      color: Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                Text("12-36 months",
-                                    style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
-                                      fontSize: 20.sp,
-                                      fontFamily: "Poppins",
-                                    )),
+                                // text20White(widget.sih)
+                                text20White("~ 12-36 months")
                               ],
                             ),
                           ),
@@ -181,24 +170,17 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                           SizedBox(
                             width: 25.w,
                           ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text("Minimum Investment",
-                                    style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
-                                      fontSize: 20.sp,
-                                      fontFamily: "Poppins",
-                                    )),
-                                Text("5,00,000",
-                                    style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
-                                      fontSize: 20.sp,
-                                      fontFamily: "Poppins",
-                                    )),
-                              ],
-                            ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Minimum Investment:",
+                                  style: TextStyle(
+                                    color: Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              text20White("5,00,000")
+                            ],
                           ),
                         ],
                       ),

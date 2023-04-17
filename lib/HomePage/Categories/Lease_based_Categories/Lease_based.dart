@@ -10,6 +10,7 @@ import 'package:freeu/HomePage/Categories/High_yield/High_yield_Properties.dart'
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_learn.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_properties.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/page_animation.dart';
@@ -89,7 +90,7 @@ class _LeaseBasedState extends State<LeaseBased> {
                         height: 20.h,
                       ),
                       Text(
-                        "Lease-based financing, also known as leasing, is a type of financing that allows individuals or businesses to acquire the use of an asset.",
+                        "This is a kind of financing where the lender (lessor) gives another person, the lessee, the right to use an asset against periodical payments.",
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -131,12 +132,19 @@ class _LeaseBasedState extends State<LeaseBased> {
                           SizedBox(
                             width: 25.w,
                           ),
-                          Text("Expected Return (IRR)\n ~ 15-24 % p.a.",
-                              style: TextStyle(
-                                color: Color(0XFFFBFBFB),
-                                fontSize: 20.sp,
-                                fontFamily: "Poppins",
-                              )),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Expected Return (IRR):",
+                                  style: TextStyle(
+                                    color: const Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              // text20White(widget.irr)
+                              text20White("~ 12%-16% p.a.")
+                            ],
+                          ),
                         ],
                       ),
                       SizedBox(
@@ -154,13 +162,19 @@ class _LeaseBasedState extends State<LeaseBased> {
                             width: 25.w,
                           ),
                           Expanded(
-                            child: Text(
-                                "Suggested Investment Horizon More than 8 Years",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                )),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Investment Horizon:",
+                                    style: TextStyle(
+                                      color: Color(0XFFFBFBFB),
+                                      fontSize: 16.sp,
+                                      fontFamily: "Poppins",
+                                    )),
+                                // text20White(widget.sih)
+                                text20White("~ 12-36 months")
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -178,13 +192,17 @@ class _LeaseBasedState extends State<LeaseBased> {
                           SizedBox(
                             width: 25.w,
                           ),
-                          Expanded(
-                            child: Text("Minimum Investment 1 Crore",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                )),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Minimum Investment:",
+                                  style: TextStyle(
+                                    color: Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              text20White("1,00,000")
+                            ],
                           ),
                         ],
                       ),

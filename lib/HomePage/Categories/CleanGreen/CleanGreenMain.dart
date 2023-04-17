@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
@@ -113,22 +114,14 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                "Expected Return (IRR)",
-                                style: TextStyle(
-                                  color: const Color(0XFFFBFBFB),
-                                  fontSize: 16.sp,
-                                  fontFamily: "Poppins",
-                                ),
-                              ),
-                              Text(
-                                "~ 9%-12% p.a.",
-                                style: TextStyle(
-                                  color: const Color(0XFFFBFBFB),
-                                  fontSize: 20.sp,
-                                  fontFamily: "Poppins",
-                                ),
-                              ),
+                              Text("Expected Return:",
+                                  style: TextStyle(
+                                    color: const Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              // text20White(widget.irr)
+                              text20White("~ 9%-12% p.a.")
                             ],
                           ),
                         ],
@@ -151,18 +144,14 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Suggested Investment Horizon",
+                                Text("Investment Horizon:",
                                     style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
+                                      color: Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                Text("6-36 months",
-                                    style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
-                                      fontSize: 20.sp,
-                                      fontFamily: "Poppins",
-                                    )),
+                                // text20White(widget.sih)
+                                text20White("~ 6-36 months")
                               ],
                             ),
                           ),
@@ -186,18 +175,13 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Minimum Investment",
+                                Text("Minimum Investment:",
                                     style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
-                                      fontSize: 20.sp,
+                                      color: Color(0XFFFBFBFB),
+                                      fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                Text("50,000",
-                                    style: TextStyle(
-                                      color: const Color(0XFFFBFBFB),
-                                      fontSize: 20.sp,
-                                      fontFamily: "Poppins",
-                                    )),
+                                text20White("50,000")
                               ],
                             ),
                           ),

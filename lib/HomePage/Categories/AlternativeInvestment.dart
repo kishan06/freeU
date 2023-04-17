@@ -495,32 +495,32 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
                 itemBuilder: (context, index) {
                   return bulletText(bulletPoints[index]);
                 }),
-            sizedBoxHeight(5.h),
-            Text.rich(TextSpan(children: [
-              TextSpan(
-                text: "Structure of AIF",
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  color: Colors.black,
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              TextSpan(
-                text: "(Recreate below diagram for website)",
-                style: TextStyle(
-                  fontSize: 18.sp,
-                  color: Colors.red,
-                  fontFamily: "Poppins",
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ])),
-            Image.asset(
-              "assets/newImages/alternative.png",
-              height: 300.h,
-            ),
-            sizedBoxHeight(5.h),
+            //sizedBoxHeight(5.h),
+            // Text.rich(TextSpan(children: [
+            //   TextSpan(
+            //     text: "Structure of AIF",
+            //     style: TextStyle(
+            //       fontSize: 18.sp,
+            //       color: Colors.black,
+            //       fontFamily: "Poppins",
+            //       fontWeight: FontWeight.w600,
+            //     ),
+            //   ),
+            //   TextSpan(
+            //     text: "(Recreate below diagram for website)",
+            //     style: TextStyle(
+            //       fontSize: 18.sp,
+            //       color: Colors.red,
+            //       fontFamily: "Poppins",
+            //       fontWeight: FontWeight.w600,
+            //     ),
+            //   ),
+            // ])),
+            // Image.asset(
+            //   "assets/newImages/alternative.png",
+            //   height: 300.h,
+            // ),
+            // sizedBoxHeight(5.h),
           ],
         ),
       ),
