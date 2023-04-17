@@ -16,6 +16,7 @@ import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 
 import 'package:freeu/HomePage/Categories/High_yield/High_yield_Properties.dart';
+import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_properties.dart';
 
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
@@ -227,6 +228,10 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/angelfundviewmore',
               page: () => AngelFundViewMore()),
+
+           GetPage(
+              name: '/leasebasedproperties',
+              page: () => LeaseBasedProperties()),     
 
           
 
