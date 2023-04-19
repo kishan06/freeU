@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
+
 class CleanGreenFAQ extends StatefulWidget {
   const CleanGreenFAQ({super.key});
 
@@ -39,7 +40,7 @@ class _CleanGreenFAQState extends State<CleanGreenFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Fractional Real Estate FAQ",
+                  "Clean and Green Assets FAQ",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -83,7 +84,7 @@ class _CleanGreenFAQState extends State<CleanGreenFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'When I invest in a fractional ownership asset, what do I actually own?',
+                        'What is green asset investing?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -91,7 +92,7 @@ class _CleanGreenFAQState extends State<CleanGreenFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "You’ll own equity or debentures or both depending on the structure of SPV.",
+                          "Green asset investing is a socially responsible investment strategy that targets companies with a positive environmental impact, such as renewable energy, environmental technology, and natural resource conservation. While profit is not the primary focus, studies suggest that green investing can be more profitable than traditional assets.",
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -103,36 +104,34 @@ class _CleanGreenFAQState extends State<CleanGreenFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Is FRE investment compliant?',
+                      titleString:
+                          'What are examples of clean and green assets?',
                       contentString:
-                          'Yes. Since the investment is routed through an SPV and investors are given a shareholding in the very same SPV, all investment records are filed under the ROC (Registrar of Companies) and need to be compliant with the Companies Act. The investment portal dealing with FRE needs to have a license from RERA (Real Estate Regulatory Authority) in order to carry out its operations.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Can NRIs invest in Commercial Real Estate?',
-                      contentString:
-                          'Yes. Any Indian citizen or an NRI (Non-Resident Indian) can own commercial real estate provided that a valid KYC (Know Your Customer), and documents are there, and regulatory guidelines are met. But NRIs can only make investments through their NRO (non-resident ordinary) accounts.'),
+                          'Clean and green assets include renewable energy infrastructure like wind turbines, solar panels, and hydroelectric power plants, energy-efficient buildings such as LEED-certified buildings and green roofs, electric vehicles, waste reduction, and recycling facilities.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What are the documents needed to invest in fractional ownership of real estate?',
+                          'What are the risks associated with investing in clean and green assets?',
                       contentString:
-                          'PAN card, address proof (Aadhar/Passport), bank account details for transfer of money, and depending on the property, and the platform, sometimes demat account number.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Is fractional ownership risky? ',
-                      contentString:
-                          'All investments carry risks. Therefore, in the case of fractional ownership, risks inherent to properties are also applicable in fractional ownership. Typical risks include liquidity, re-lease ability if the tenant leaves, and potential loss of capital.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Modes of Exit from Fractional CRE?',
-                      contentString:
-                          "Exits happen in three ways—in the resale market is done through the investor's dashboard, private sales where investors are free to sell their fractional ownership to anyone on their own. The third way to exit fractional ownership is through complete asset sale, which requires agreement from the majority investors in the SPV."),
+                          'Investing in clean and green assets carries risks, particularly for investors unfamiliar with the technology or regulatory environment. Potential risks include changes in government policy or incentives, energy price fluctuations, and the possibility of technology becoming obsolete.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'How is Fractional Ownership different from investing in REIT?',
+                          'Benefits of investing in clean and green assets',
                       contentString:
-                          'REIT (Real Estate Investment Trust)  are similar to mutual funds in that they pool funds from investors and invest in profitable real estate assets such as government bonds, direct equity, and stocks, among others. However, investors cannot choose the property to invest in with REITs, whereas fractional ownership allows investors to select their desired property.'),
+                          'Investing in clean and green assets is crucial as it reduces the adverse environmental impact of human activities, including energy production and consumption. These assets also mitigate climate change effects by reducing greenhouse gas emissions and promoting the use of renewable energy sources. It also provides financial benefits through reduced operating costs, government incentives, and energy production revenue.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'How can investors participate in the clean and green asset market?',
+                      contentString:
+                          'Investors can participate in the clean and green asset market in several ways, including investing in publicly traded companies that specialize in clean energy or sustainable infrastructure, investing in mutual funds or exchange-traded funds (ETFs) that focus on clean and green assets, or investing directly in clean energy projects through private equity or debt financing.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'How is the clean and green asset market growing?',
+                      contentString:
+                          'The clean and green asset market is growing rapidly, driven by increasing demand for renewable energy, energy-efficient infrastructure, and sustainable buildings. In addition, many governments around the world are providing incentives for clean and green asset development, further driving growth in the market.'),
                   sizedBoxHeight(15.h),
                 ],
               ),

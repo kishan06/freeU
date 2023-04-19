@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Fractional Real Estate FAQ",
+                  "Alternative Investment Fund FAQ",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'When I invest in a fractional ownership asset, what do I actually own?',
+                        'Who can invest in an alternative investment fund?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "You’ll own equity or debentures or both depending on the structure of SPV.",
+                          "Due to the risks involved, investing in an alternative investment fund is typically limited to accredited investors, institutional investors, and high-net-worth individuals.",
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,36 +104,36 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Is FRE investment compliant?',
+                      titleString: 'Can NRIs invest in AIF?',
                       contentString:
-                          'Yes. Since the investment is routed through an SPV and investors are given a shareholding in the very same SPV, all investment records are filed under the ROC (Registrar of Companies) and need to be compliant with the Companies Act. The investment portal dealing with FRE needs to have a license from RERA (Real Estate Regulatory Authority) in order to carry out its operations.'),
+                          'NRIs (Non-Resident Indians) are allowed to invest in AIFs subject to compliance with the necessary rules and regulations as per the Foreign Exchange Management Act (FEMA) and other applicable laws.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Can NRIs invest in Commercial Real Estate?',
+                      titleString: 'How to invest in an AIF?',
                       contentString:
-                          'Yes. Any Indian citizen or an NRI (Non-Resident Indian) can own commercial real estate provided that a valid KYC (Know Your Customer), and documents are there, and regulatory guidelines are met. But NRIs can only make investments through their NRO (non-resident ordinary) accounts.'),
+                          'Proof of income, PAN card, and ID proof are required to invest in an AIF. The minimum investment amount for AIFs is INR 1 crore, while for angel funds, it is INR 25 lakhs.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What are the documents needed to invest in fractional ownership of real estate?',
+                      titleString: 'Who regulates the AIF?',
                       contentString:
-                          'PAN card, address proof (Aadhar/Passport), bank account details for transfer of money, and depending on the property, and the platform, sometimes demat account number.'),
+                          'The regulation of Alternative Investment Funds (AIF) in India is done by the Securities and Exchange Board of India (SEBI).  Investors can address their complaints against AIFs at the SEBI-regulated web-based centralized grievance redress system called SCORES or SEBI Complaint Redress System.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Is fractional ownership risky? ',
+                      titleString: 'How is an AIF tenure calculated?',
                       contentString:
-                          'All investments carry risks. Therefore, in the case of fractional ownership, risks inherent to properties are also applicable in fractional ownership. Typical risks include liquidity, re-lease ability if the tenant leaves, and potential loss of capital.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Modes of Exit from Fractional CRE?',
-                      contentString:
-                          "Exits happen in three ways—in the resale market is done through the investor's dashboard, private sales where investors are free to sell their fractional ownership to anyone on their own. The third way to exit fractional ownership is through complete asset sale, which requires agreement from the majority investors in the SPV."),
+                          'The tenure of any scheme of the AIF is calculated from the date of the final closing of the scheme.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'How is Fractional Ownership different from investing in REIT?',
+                          'What is the general fee structure under the AIF scheme?',
                       contentString:
-                          'REIT (Real Estate Investment Trust)  are similar to mutual funds in that they pool funds from investors and invest in profitable real estate assets such as government bonds, direct equity, and stocks, among others. However, investors cannot choose the property to invest in with REITs, whereas fractional ownership allows investors to select their desired property.'),
+                          'The fee structure under the AIF scheme includes a one-time setup fee (if applicable) and two types of compensation: a flat management fee charged proportionately every month based on the funds managed, and a performance-based fee computed based on a pre-agreed proportion of the profit earned over and above a predetermined threshold return.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'Can an AIF accept investments from more than one investor?',
+                      contentString:
+                          'An AIF accepts two individuals as joint partners for a minimum investment of one crore rupees. Joint investors may include an investor and their spouse, parent, or child. Only two persons can act as joint investors for an AIF, and for any other investors acting as joint investors, the minimum investment amount of INR 1 crore shall apply.'),
                   sizedBoxHeight(15.h),
                 ],
               ),
