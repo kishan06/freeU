@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
+
 class InvoiceFAQ extends StatefulWidget {
   const InvoiceFAQ({super.key});
 
@@ -39,7 +40,7 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Fractional Real Estate FAQ",
+                  "Invoice discounting FAQ",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -83,7 +84,7 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'When I invest in a fractional ownership asset, what do I actually own?',
+                        'What is invoice discounting?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -91,7 +92,7 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "You’ll own equity or debentures or both depending on the structure of SPV.",
+                          "Invoice Discounting is the practice of lending a working capital against a company’s unpaid invoices, in order to maintain the cash flow. This helps the companies with the capital crunch, and the lenders get back their money with interest",
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -103,36 +104,36 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Is FRE investment compliant?',
+                      titleString: 'How does invoice discounting work?',
                       contentString:
-                          'Yes. Since the investment is routed through an SPV and investors are given a shareholding in the very same SPV, all investment records are filed under the ROC (Registrar of Companies) and need to be compliant with the Companies Act. The investment portal dealing with FRE needs to have a license from RERA (Real Estate Regulatory Authority) in order to carry out its operations.'),
+                          'Invoice discounting involves three parties: the business selling its invoices (the seller), the financing company (the funder), and the customer who owes money to the business (the debtor). The seller submits unpaid invoices to the funder who pays a percentage upfront (around 80-90%). The funder collects the full amount from the debtor and deducts their fee before paying the remaining amount to the seller.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Can NRIs invest in Commercial Real Estate?',
+                      titleString: 'Is Invoice Discounting a Secured Product? ',
                       contentString:
-                          'Yes. Any Indian citizen or an NRI (Non-Resident Indian) can own commercial real estate provided that a valid KYC (Know Your Customer), and documents are there, and regulatory guidelines are met. But NRIs can only make investments through their NRO (non-resident ordinary) accounts.'),
+                          'No, Invoice Discounting is an Unsecured Product.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What are the documents needed to invest in fractional ownership of real estate?',
+                      titleString: 'Can an NRI invest in Invoice Discounting?',
                       contentString:
-                          'PAN card, address proof (Aadhar/Passport), bank account details for transfer of money, and depending on the property, and the platform, sometimes demat account number.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Is fractional ownership risky? ',
-                      contentString:
-                          'All investments carry risks. Therefore, in the case of fractional ownership, risks inherent to properties are also applicable in fractional ownership. Typical risks include liquidity, re-lease ability if the tenant leaves, and potential loss of capital.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Modes of Exit from Fractional CRE?',
-                      contentString:
-                          "Exits happen in three ways—in the resale market is done through the investor's dashboard, private sales where investors are free to sell their fractional ownership to anyone on their own. The third way to exit fractional ownership is through complete asset sale, which requires agreement from the majority investors in the SPV."),
+                          'An NRI can register, and invest in Invoice Discounting opportunities. But he/she needs to provide proof of Indian citizenship, along with an Indian Passport to complete KYC. Additionally, one will require an NRO bank account for debiting and crediting funds.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'How is Fractional Ownership different from investing in REIT?',
+                          'What is the repayment period for invoice discounting?',
                       contentString:
-                          'REIT (Real Estate Investment Trust)  are similar to mutual funds in that they pool funds from investors and invest in profitable real estate assets such as government bonds, direct equity, and stocks, among others. However, investors cannot choose the property to invest in with REITs, whereas fractional ownership allows investors to select their desired property.'),
+                          'The loan tenure is the credit period that the seller agreed with the buyer as per the terms of sale. The period gets over on the last date of the credit period of the invoice or on the date of payment of invoice value, whichever is earlier.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'What happens if the debtor does not pay the invoice?',
+                      contentString:
+                          "The main risk associated with invoice discounting is the risk of non-payment. If the debtor does not pay the invoice, the financing company may pursue legal action to recover the funds owed. However, the risk of non-payment is usually borne by the seller, who may be required to repurchase the invoice from the funder or provide additional collateral to secure the financing."),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'What will be the tax impact?',
+                      contentString:
+                          'These resulting gains are taxable at applicable marginal tax rates under the head “Income from Other Sources”. TDS provisions are not applicable.'),
                   sizedBoxHeight(15.h),
                 ],
               ),

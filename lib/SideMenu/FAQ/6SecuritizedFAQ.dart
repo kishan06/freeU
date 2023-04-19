@@ -40,7 +40,7 @@ class _SecuritizedFAQState extends State<SecuritizedFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Fractional Real Estate FAQ",
+                  "Securitized Debt Instrument FAQ",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _SecuritizedFAQState extends State<SecuritizedFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'When I invest in a fractional ownership asset, what do I actually own?',
+                        'How does securitization work?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _SecuritizedFAQState extends State<SecuritizedFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "You’ll own equity or debentures or both depending on the structure of SPV.",
+                          "Securitization works by creating a special purpose vehicle (SPV) that purchases a pool of similar debt instruments from a lender or originator. The SPV then issues securities that are backed by the payments on those debts.",
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,36 +104,38 @@ class _SecuritizedFAQState extends State<SecuritizedFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Is FRE investment compliant?',
+                      titleString:
+                          'What are the benefits of securitized debt instruments?',
                       contentString:
-                          'Yes. Since the investment is routed through an SPV and investors are given a shareholding in the very same SPV, all investment records are filed under the ROC (Registrar of Companies) and need to be compliant with the Companies Act. The investment portal dealing with FRE needs to have a license from RERA (Real Estate Regulatory Authority) in order to carry out its operations.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Can NRIs invest in Commercial Real Estate?',
-                      contentString:
-                          'Yes. Any Indian citizen or an NRI (Non-Resident Indian) can own commercial real estate provided that a valid KYC (Know Your Customer), and documents are there, and regulatory guidelines are met. But NRIs can only make investments through their NRO (non-resident ordinary) accounts.'),
+                          'Securitized debt instruments can provide several benefits, including diversification, liquidity, and potentially higher yields.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What are the documents needed to invest in fractional ownership of real estate?',
+                          'What are the risks of securitized debt instruments?',
                       contentString:
-                          'PAN card, address proof (Aadhar/Passport), bank account details for transfer of money, and depending on the property, and the platform, sometimes demat account number.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Is fractional ownership risky? ',
-                      contentString:
-                          'All investments carry risks. Therefore, in the case of fractional ownership, risks inherent to properties are also applicable in fractional ownership. Typical risks include liquidity, re-lease ability if the tenant leaves, and potential loss of capital.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Modes of Exit from Fractional CRE?',
-                      contentString:
-                          "Exits happen in three ways—in the resale market is done through the investor's dashboard, private sales where investors are free to sell their fractional ownership to anyone on their own. The third way to exit fractional ownership is through complete asset sale, which requires agreement from the majority investors in the SPV."),
+                          'Securitized debt instruments can be risky, especially if the underlying debt instruments are of low quality or if the credit ratings are not accurate. In addition, securitization can be complex and difficult to understand, which may lead to mispricing or overvaluation of the securities.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'How is Fractional Ownership different from investing in REIT?',
+                          'What types of debt instruments can be securitized?',
                       contentString:
-                          'REIT (Real Estate Investment Trust)  are similar to mutual funds in that they pool funds from investors and invest in profitable real estate assets such as government bonds, direct equity, and stocks, among others. However, investors cannot choose the property to invest in with REITs, whereas fractional ownership allows investors to select their desired property.'),
+                          'Almost any type of debt instrument can be securitized, including mortgages, auto loans, credit card debt, student loans, and corporate loans. The most common types of securitized debt instruments are mortgage-backed securities (MBS) and asset-backed securities (ABS).'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'What are the regulations governing the securitized debt market?',
+                      contentString:
+                          'SEBI (Issue and Listing of Securitized Debt Instruments and Security Receipts) Regulations, introduced in 2008, established SDI.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'Can NRI invest in SDI?',
+                      contentString:
+                          'Yes, Non-Resident Indians are permitted to invest in SDIs issued by Indian entities, subject to the rules and regulations set by the Reserve Bank of India (RBI) and the Securities and Exchange Board of India (SEBI).'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'Are SDIs liquid investments?',
+                      contentString:
+                          "SDIs' liquidity may vary based on the transaction structure and market conditions. SDIs can be traded on secondary markets, providing liquidity to investors, but careful consideration of liquidity needs is advised before investing."),
                   sizedBoxHeight(15.h),
                 ],
               ),
