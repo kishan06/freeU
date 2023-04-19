@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/SideMenu/FAQ/1Fractional.dart';
 import 'package:freeu/SideMenu/FAQ/2peerFAQ.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
@@ -64,34 +65,49 @@ class _FAQsState extends State<FAQs> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   sizedBoxHeight(20.h),
-                  const OpenContainerWrappers(
-                    openBuild: Fractional1(),
-                    closeBuild: Text('Fractional Real Estate FAQ'),
+                  OpenContainerWrappers(
+                    openBuild: const Fractional1(),
+                    closeBuild: catTitle('Fractional Real Estate FAQ',
+                        'assets/newImages/cat2.png', AppColors.blueL_006796),
                   ),
-                  sizedBoxHeight(15.h),
-                  const OpenContainerWrappers(
-                      openBuild: PeerFAQ(),
-                      closeBuild: Text('Peer to Peer Lending FAQ')),
-                  sizedBoxHeight(15.h),
-                  const OpenContainerWrappers(
-                    openBuild: InvoiceFAQ(),
-                    closeBuild: Text('Invoice discounting FAQ'),
-                  ),
-                  sizedBoxHeight(15.h),
-                  const OpenContainerWrappers(
-                    openBuild: AlternativeFAQ(),
-                    closeBuild: Text('Alternative Investment Fund FAQ'),
-                  ),
-                  sizedBoxHeight(15.h),
-                  const OpenContainerWrappers(
-                    openBuild: CleanGreenFAQ(),
-                    closeBuild: Text('Clean and Green Assets FAQ'),
-                  ),
-                  sizedBoxHeight(15.h),
-                  const OpenContainerWrappers(
-                    openBuild: SecuritizedFAQ(),
-                    closeBuild: Text('Securitized Debt Instrument FAQ'),
-                  ),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+                  // sizedBoxHeight(15.h),
+                  OpenContainerWrappers(
+                      openBuild: const PeerFAQ(),
+                      closeBuild: catTitle('Peer to Peer Lending FAQ',
+                          'assets/newImages/cat3.png', AppColors.greenL_089435)
+
+                      // Text('Peer to Peer Lending FAQ')
+                      ),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+
+                  OpenContainerWrappers(
+                      openBuild: const InvoiceFAQ(),
+                      closeBuild: catTitle(
+                          'Invoice discounting FAQ',
+                          'assets/newImages/cat4.png',
+                          AppColors.purpleL_474E88)),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+
+                  OpenContainerWrappers(
+                      openBuild: const AlternativeFAQ(),
+                      closeBuild: catTitle('Alternative Investment Fund FAQ',
+                          'assets/newImages/cat1.png', AppColors.redL_BE0F02)),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+
+                  OpenContainerWrappers(
+                      openBuild: const CleanGreenFAQ(),
+                      closeBuild: catTitle('Clean and Green Assets FAQ',
+                          'assets/newImages/cat7.png', AppColors.redL_BE0F02)),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+
+                  OpenContainerWrappers(
+                      openBuild: const SecuritizedFAQ(),
+                      closeBuild: catTitle(
+                          'Securitized Debt Instrument FAQ',
+                          'assets/newImages/cat9.png',
+                          AppColors.greenL_089435)),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
                   sizedBoxHeight(15.h),
                 ],
               ),
@@ -99,6 +115,37 @@ class _FAQsState extends State<FAQs> {
           ),
         ],
       )),
+    );
+  }
+
+  Widget catTitle(String title, String image, Color color) {
+    return SizedBox(
+      width: double.infinity - 32.w,
+      // height: 80.h,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Image.asset(
+            image,
+            height: 45.h,
+            width: 45.h,
+            color: color,
+          ),
+          sizedBoxWidth(20.w),
+          Flexible(
+            child: Text(
+              title,
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w500,
+                fontFamily: "Poppins",
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
