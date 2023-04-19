@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class FAQs extends StatefulWidget {
-  const FAQs({super.key});
+class AlternativeFAQ extends StatefulWidget {
+  const AlternativeFAQ({super.key});
 
   @override
-  State<FAQs> createState() => _FAQsState();
+  State<AlternativeFAQ> createState() => _AlternativeFAQState();
 }
 
-class _FAQsState extends State<FAQs> {
+class _AlternativeFAQState extends State<AlternativeFAQ> {
   bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
@@ -41,7 +40,7 @@ class _FAQsState extends State<FAQs> {
                   height: 10.h,
                 ),
                 Text(
-                  "FAQ's",
+                  "Fractional Real Estate FAQ",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -85,7 +84,7 @@ class _FAQsState extends State<FAQs> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'What is Free U?',
+                        'When I invest in a fractional ownership asset, what do I actually own?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -93,7 +92,7 @@ class _FAQsState extends State<FAQs> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Free U is a tech enabled commercial real estate investment platform that allows its users to access Grade A commercial, retail, and warehousing assets tenanted to multinational tenants.",
+                          "You’ll own equity or debentures or both depending on the structure of SPV.",
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,22 +103,38 @@ class _FAQsState extends State<FAQs> {
                     ),
                   ),
                   sizedBoxHeight(15.h),
-                  const FAQwidgets(), sizedBoxHeight(15.h),
-                  const FAQwidgets(), sizedBoxHeight(15.h),
-                  const FAQwidgets(), sizedBoxHeight(15.h),
-                  const FAQwidgets(), sizedBoxHeight(15.h),
-                  const FAQwidgets(), sizedBoxHeight(15.h),
-                  const FAQwidgets(), sizedBoxHeight(15.h),
-                  const FAQwidgets(), sizedBoxHeight(15.h),
-                  // ListView.separated(
-                  //     shrinkWrap: true,
-                  //     itemBuilder: (context, index) {
-                  //       return const FAQwidgets();
-                  //     },
-                  //     separatorBuilder: (context, index) {
-                  //       return sizedBoxHeight(15.h);
-                  //     },
-                  //     itemCount: 6),
+                  FaqBox(
+                      titleString: 'Is FRE investment compliant?',
+                      contentString:
+                          'Yes. Since the investment is routed through an SPV and investors are given a shareholding in the very same SPV, all investment records are filed under the ROC (Registrar of Companies) and need to be compliant with the Companies Act. The investment portal dealing with FRE needs to have a license from RERA (Real Estate Regulatory Authority) in order to carry out its operations.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'Can NRIs invest in Commercial Real Estate?',
+                      contentString:
+                          'Yes. Any Indian citizen or an NRI (Non-Resident Indian) can own commercial real estate provided that a valid KYC (Know Your Customer), and documents are there, and regulatory guidelines are met. But NRIs can only make investments through their NRO (non-resident ordinary) accounts.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'What are the documents needed to invest in fractional ownership of real estate?',
+                      contentString:
+                          'PAN card, address proof (Aadhar/Passport), bank account details for transfer of money, and depending on the property, and the platform, sometimes demat account number.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'Is fractional ownership risky? ',
+                      contentString:
+                          'All investments carry risks. Therefore, in the case of fractional ownership, risks inherent to properties are also applicable in fractional ownership. Typical risks include liquidity, re-lease ability if the tenant leaves, and potential loss of capital.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'Modes of Exit from Fractional CRE?',
+                      contentString:
+                          "Exits happen in three ways—in the resale market is done through the investor's dashboard, private sales where investors are free to sell their fractional ownership to anyone on their own. The third way to exit fractional ownership is through complete asset sale, which requires agreement from the majority investors in the SPV."),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'How is Fractional Ownership different from investing in REIT?',
+                      contentString:
+                          'REIT (Real Estate Investment Trust)  are similar to mutual funds in that they pool funds from investors and invest in profitable real estate assets such as government bonds, direct equity, and stocks, among others. However, investors cannot choose the property to invest in with REITs, whereas fractional ownership allows investors to select their desired property.'),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             ),
@@ -130,21 +145,20 @@ class _FAQsState extends State<FAQs> {
   }
 }
 
-class FAQwidgets extends StatefulWidget {
-  const FAQwidgets({super.key});
+class FaqBox extends StatefulWidget {
+  String titleString;
+  String contentString;
+  FaqBox({super.key, required this.titleString, required this.contentString});
 
   @override
-  State<FAQwidgets> createState() => _FAQwidgetsState();
+  State<FaqBox> createState() => _FaqBoxState();
 }
 
-class _FAQwidgetsState extends State<FAQwidgets> {
+class _FaqBoxState extends State<FaqBox> {
   bool isExpanded = false;
+
   @override
   Widget build(BuildContext context) {
-    return expansionFAQ();
-  }
-
-  Widget expansionFAQ() {
     return Container(
       decoration: BoxDecoration(
           border:
@@ -167,7 +181,7 @@ class _FAQwidgetsState extends State<FAQwidgets> {
           color: isExpanded ? Colors.white : Colors.black,
         ),
         title: Text(
-          'What is Free U?',
+          widget.titleString,
           style: TextStyle(
               fontFamily: "Poppins",
               fontSize: 20.sp,
@@ -175,7 +189,7 @@ class _FAQwidgetsState extends State<FAQwidgets> {
         ),
         children: <Widget>[
           Text(
-            "Free U is a tech enabled commercial real estate investment platform that allows its users to access Grade A commercial, retail, and warehousing assets tenanted to multinational tenants.",
+            widget.contentString,
             style: TextStyle(
                 color: Colors.white,
                 fontFamily: "Poppins",
