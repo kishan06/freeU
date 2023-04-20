@@ -57,6 +57,7 @@ class _Cat1VerticalSliderState extends State<Cat1VerticalSlider> {
               itemBuilder: (context, index) {
                 // var = ver
                 return PrvateEquity(
+                  swipeup: index == 2 ? true : false,
                   minInvestment: index == 2 ? '25 lakh' : null,
                   title: verticalSliderData[index]["title"],
                   des: verticalSliderData[index]["des"],
