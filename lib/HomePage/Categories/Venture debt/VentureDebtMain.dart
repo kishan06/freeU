@@ -175,7 +175,7 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                             children: [
                               Text("Minimum Investment:",
                                   style: TextStyle(
-                                    color: Color(0XFFFBFBFB),
+                                    color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 class PrvateEquity extends StatefulWidget {
   String title;
@@ -12,6 +13,7 @@ class PrvateEquity extends StatefulWidget {
   Color color;
   String ontapNamed;
   String? minInvestment = '1 Crore';
+  bool? swipeup;
   PrvateEquity(
       {super.key,
       required this.title,
@@ -20,7 +22,8 @@ class PrvateEquity extends StatefulWidget {
       required this.sih,
       required this.color,
       required this.ontapNamed,
-      this.minInvestment});
+      this.minInvestment,
+      this.swipeup});
 
   @override
   State<PrvateEquity> createState() => _PrvateEquityState();
@@ -182,7 +185,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         children: [
                           Text("Minimum Investment:",
                               style: TextStyle(
-                                color: Color(0XFFFBFBFB),
+                                color: const Color(0XFFFBFBFB),
                                 fontSize: 16.sp,
                                 fontFamily: "Poppins",
                               )),
@@ -204,7 +207,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         elevation: 5,
                         //shadowColor: Color.fromARGB(255, 220, 220, 226),
 
-                        backgroundColor: Color(0XFFFBFBFB),
+                        backgroundColor: const Color(0XFFFBFBFB),
 
                         //  color: Color(0xFFFFB600),
                         shape: RoundedRectangleBorder(
@@ -217,12 +220,18 @@ class _PrvateEquityState extends State<PrvateEquity> {
                       child: Text(
                         "View more product",
                         style: TextStyle(
-                          color: Color(0XFF000000),
+                          color: const Color(0XFF000000),
                           fontSize: 18.sp,
                         ),
                       ),
                     ),
                   ),
+                  sizedBoxHeight(10.h),
+                  widget.swipeup == false
+                      ? Lottie.asset(
+                          'assets/logos/swipeup.json',
+                        )
+                      : const SizedBox(),
                   sizedBoxHeight(38.h),
                 ],
               ),
