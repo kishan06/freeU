@@ -7,66 +7,69 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
-class ViewInvestment extends StatefulWidget {
+class PeerViewInvestment extends StatefulWidget {
   int pageIndex;
-
-  ViewInvestment({super.key, required this.pageIndex});
+  PeerViewInvestment({super.key, required this.pageIndex});
 
   @override
-  State<ViewInvestment> createState() => _ViewInvestmentState();
+  State<PeerViewInvestment> createState() => _PeerViewInvestmentState();
 }
 
-class _ViewInvestmentState extends State<ViewInvestment> {
+class _PeerViewInvestmentState extends State<PeerViewInvestment> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   List productDetails = [
     {
-      "Company Name": ['eChargeUp', 'Vilcart Services Pvt. Ltd.'],
+      "Company Name": [
+        'Freedom Plan',
+        'Fixed Term Plan',
+        'Fixed Term Plan',
+        'Fixed Term Plan',
+        'Monthly Income Plans',
+        'Monthly Income Plans'
+      ],
       "header": [
-        'Sector',
+        'Tenure (in Months)',
         "Minimum Investment",
-        "Tenure",
-        "Total Issue Size",
-        "Interest Payout",
-        "Principal Payout",
-        "Expected Return",
-        "Collateral & Cover Multiple",
-        "About the Company",
-        "Instrument Type",
-        'Face Value per unit',
-        'Prepayment Covenants',
-        'Source of funds for repayment of Debt'
+        "Maximum Investment",
+        "Returns",
       ],
       "content": [
         [
-          'Electric Vehicle Mobility',
-          '3,00,000',
-          '15 Months',
-          '3 CR',
-          'Monthly',
-          'Monthly',
-          '~19% IRR',
-          'Secured NCDs – 1.5x Cover of Loan',
-          '"ChargeUp offers Battery as a Service solving the high-cost problem and inconvenience of long charging hours through its distributed network of Battery Swapping HubsBacked by Capital A, Anicut Capital, MapmyIndia, Aman Gupta (boAt founder) and celebrity investors; raised \$2.5 million in pre-Series A round"',
-          'Senior, Secured, Redeemable, Unlisted, Unrated Non-Convertible Debentures.',
-          '1,00,000',
-          'Prepayable after 10 months',
-          'Operating Cashflows/Equity Raise'
+          'On Demand',
+          '1,50,000',
+          '50,00,000',
+          'up to 8.25% p.a. ( for term >30 days)',
         ],
         [
-          'Supply Chain Tech',
-          '5,00,000',
-          '15 Months',
-          '5 CR',
-          'At Maturity',
-          'At Maturity',
-          '"~17% XIRR\nFor investors participating for more than INR 25 lakhs, upside in the form warrants or equivalent instruments for 5% of their respective investment amount "',
-          '"Upfront security cheque\nFirst charge on inventory to the outstanding exposure of the facility"',
-          '"Upfront security cheque\nFirst charge on inventory to the outstanding exposure of the facility"',
-          'NCD',
+          '3',
           '1,00,000',
-          '',
-          'Operating Cashflows/Equity Raise'
+          '50,00,000',
+          'Up to 10% p.a.',
+        ],
+        [
+          '6',
+          '50,000',
+          '50,00,000',
+          'Up to 11% p.a.',
+        ],
+        [
+          '12',
+          '25,000',
+          '50,00,000',
+          'Up to 12% p.a.',
+        ],
+        [
+          '24',
+          '25,000',
+          '50,00,000',
+          'Up to 10% p.a.',
+        ],
+        [
+          '36',
+          '25,000',
+          '50,00,000',
+          'Up to 10.5% p.a.',
         ],
       ]
     },
