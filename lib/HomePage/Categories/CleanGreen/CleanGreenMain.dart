@@ -9,6 +9,7 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
 import 'CleanGreenViewMore.dart';
+import 'clean green view more product/CleanGreenViewMoreProduct.dart';
 
 class CleanGreenMain extends StatefulWidget {
   const CleanGreenMain({super.key});
@@ -191,7 +192,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                         height: 92.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const Fractionalproperties(),
+                        openBuild: const CleanGreenViewMoreProduct(),
                         closeBuild: Container(
                           decoration: BoxDecoration(
                               color: const Color(0XFFFBFBFB),
