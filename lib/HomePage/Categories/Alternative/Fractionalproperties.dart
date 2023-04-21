@@ -108,6 +108,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
                       ),
                     ],
                   ),
+                  sizedBoxHeight(15.h),
                   Expanded(
                     child: TabBarView(
                       children: [
@@ -142,223 +143,334 @@ class FirstTab extends StatelessWidget {
   }
 }
 
-class SecondTab extends StatelessWidget {
+class SecondTab extends StatefulWidget {
   const SecondTab({super.key});
 
   @override
+  State<SecondTab> createState() => _SecondTabState();
+}
+
+class _SecondTabState extends State<SecondTab> {
+  List contents = [
+    {
+      // "image": "assets/images/fractional.png",
+      "title": "Navi Mumbai Office \nOpportunity II",
+      // "image1": "assets/images/place.png",
+      // "text1": "Location:",
+      // "subtext1": "Seawoods, Navi Mumbai",
+      // "image2": "assets/images/investmentproperties (1).png",
+      // "text2": "Targeted IRR:",
+      // "subtext2": "12.7%",
+      // "image3": "assets/images/propertiestransfer.png",
+      // "text3": "Minimum investment amount",
+      // "subtext3": " 1 Crore",
+    },
+    {
+      //"image": "assets/images/fractional.png",
+      "title": "Prestige Tech Platina, \nBangalore",
+      // "image1": "assets/images/place.png",
+      // "text1": "Location:",
+      // "subtext1": "Seawoods, Navi Mumbai",
+      // "image2": "assets/images/investmentproperties (1).png",
+      // "text2": "Targeted IRR:",
+      // "subtext2": "12.7%",
+      // "image3": "assets/images/propertiestransfer.png",
+      // "text3": "Minimum investment amount",
+      // "subtext3": " 1 Crore",
+    },
+    {
+      //"image": "assets/images/fractional.png",
+      "title": "Bangalore Warehousing Opportunity I",
+      // "image1": "assets/images/place.png",
+      // "text1": "Location:",
+      // "subtext1": "Seawoods, Navi Mumbai",
+      // "image2": "assets/images/investmentproperties (1).png",
+      // "text2": "Targeted IRR:",
+      // "subtext2": "12.7%",
+      // "image3": "assets/images/propertiestransfer.png",
+      // "text3": "Minimum investment amount",
+      // "subtext3": " 1 Crore",
+    }
+  ];
+
+  @override
   Widget build(BuildContext context) {
+    return ListView.separated(
+        separatorBuilder: (context, index) {
+          return sizedBoxHeight(15.h);
+        },
+        itemCount: contents.length,
+        scrollDirection: Axis.vertical,
+        itemBuilder: (context, index) {
+          return properties(
+            //Contents[index]["image"],
+            contents[index]["title"],
+            // Contents[index]["image1"],
+            // Contents[index]["text1"],
+            // Contents[index]["subtext1"],
+            // Contents[index]["image2"],
+            // Contents[index]["text2"],
+            // Contents[index]["subtext2"],
+            // Contents[index]["image3"],
+            // Contents[index]["text3"],
+            // Contents[index]["subtext3"],
+          );
+        });
+  }
+
+  Widget properties(
+    // String image,
+    String title,
+    // String image1,
+    // String text1,
+    // String subtext1,
+    // String image2,
+    // String text2,
+    // String subtext2,
+    // String image3,
+    // String text3,
+    // String subtext3
+  ) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.only(
-          top: 25,
-        ),
-        child: Column(
-          children: [
-            Image.asset(
-              "assets/images/fractional.png",
-              width: 358,
-              height: 162,
-            ),
-            SizedBox(
-              height: 25.h,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Row(
-                children: [
-                  Text(
-                    "Navi Mumbai Office \nOpportunity II",
-                    style: TextStyle(
-                        fontSize: 25,
-                        fontFamily: 'Poppins',
-                        color: Color(0XFF000000),
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 30.h,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/images/place.png",
-                    width: 50.w,
-                    height: 50.h,
-                  ),
-                  SizedBox(
-                    width: 25.w,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 165),
-                        child: Text(
-                          "Location:",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            color: Color(0XFF000000),
-                            fontFamily: 'Poppins',
-                            //fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        "Seawoods, Navi Mumbai",
-                        style: TextStyle(
-                          fontSize: 20.sp,
-                          color: Color(0XFF000000),
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 30.h,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/images/investmentproperties (1).png",
-                    width: 50.w,
-                    height: 50.w,
-                  ),
-                  SizedBox(
-                    width: 25.w,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 145),
-                        child: Text(
-                          "Targeted IRR:",
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            color: Color(0XFF000000),
-                            fontFamily: 'Poppins',
-                            //fontWeight: FontWeight.w300,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 212),
-                        child: Text(
-                          "12.7%",
-                          style: TextStyle(
-                            fontSize: 20.sp,
-                            color: Color(0XFF000000),
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 30.h,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/images/propertiestransfer.png",
-                    width: 50,
-                    height: 50,
-                  ),
-                  SizedBox(
-                    width: 25.w,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Minimum investment amount",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontSize: 18.sp,
-                          color: Color(0XFF000000),
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w300,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 200),
-                        child: Text(
-                          " 1 Crore",
-                          textDirection: TextDirection.ltr,
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 20.sp,
-                            color: Color(0XFF000000),
-                            fontFamily: 'Poppins',
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 40.h,
-            ),
-            Padding(
-              padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-              child: Container(
-                height: 50.h,
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color.fromARGB(255, 220, 220, 226),
-                    )
-                  ],
-                  borderRadius: BorderRadius.circular(10.r),
-                  color: AppColors.blue143C6D,
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            color: Color(0xffffffff),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x48B9B9BE),
+                blurRadius: 20.0,
+                spreadRadius: 0,
+                // offset: Offset(-20, -20,),
+              )
+            ],
+          ),
+          child: Padding(
+            padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
+            child: Column(
+              children: [
+                Image.asset(
+                  // image,
+                  "assets/images/fractional.png",
+                  width: 358,
+                  height: 162,
                 ),
-                child: OpenContainerWrappers(
-                  openBuild: const PropertiesInvestment(),
-                  closeBuild: Container(
-                    width: double.infinity,
-                    height: 50.h,
-                    child: Center(
+                SizedBox(
+                  height: 25.h,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Row(
+                    children: [
+                      Flexible(
                         child: Text(
-                      'View Investment',
-                      style: TextStyle(
-                        color: AppColors.white,
-                        fontSize: 18.sp,
+                          title,
+                          //"Navi Mumbai Office \nOpportunity II",
+                          style: TextStyle(
+                              fontSize: 25,
+                              fontFamily: 'Poppins',
+                              color: Color(0XFF000000),
+                              fontWeight: FontWeight.w500),
+                        ),
                       ),
-                    )),
+                    ],
                   ),
+                ),
+                SizedBox(
+                  height: 30.h,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        // image1,
+                        "assets/images/place.png",
+                        width: 50.w,
+                        height: 50.h,
+                      ),
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 165),
+                            child: Text(
+                              //text1,
+                              "Location:",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 18.sp,
+                                color: Color(0XFF000000),
+                                fontFamily: 'Poppins',
+                                //fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            //subtext1,
+                            "Seawoods, Navi Mumbai",
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 30.h,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        //image2,
+                        "assets/images/investmentproperties (1).png",
+                        width: 50.w,
+                        height: 50.w,
+                      ),
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(right: 145),
+                            child: Text(
+                              // text2,
+                              "Targeted IRR:",
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 18.sp,
+                                color: Color(0XFF000000),
+                                fontFamily: 'Poppins',
+                                //fontWeight: FontWeight.w300,
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 212),
+                            child: Text(
+                              // subtext2,
+                              "12.7%",
+                              style: TextStyle(
+                                fontSize: 20.sp,
+                                color: Color(0XFF000000),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 30.h,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        // image3,
+                        "assets/images/propertiestransfer.png",
+                        width: 50,
+                        height: 50,
+                      ),
+                      SizedBox(
+                        width: 25.w,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            // text3,
+                            "Minimum investment amount",
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 18.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w300,
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(right: 200),
+                            child: Text(
+                              //subtext3,
+                              " 1 Crore",
+                              textDirection: TextDirection.ltr,
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                fontSize: 20.sp,
+                                color: Color(0XFF000000),
+                                fontFamily: 'Poppins',
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 40.h,
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+                  child: Container(
+                    height: 50.h,
+                    decoration: BoxDecoration(
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color.fromARGB(255, 220, 220, 226),
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(10.r),
+                      color: AppColors.blue143C6D,
+                    ),
+                    child: OpenContainerWrappers(
+                      openBuild: const PropertiesInvestment(),
+                      closeBuild: Container(
+                        width: double.infinity,
+                        height: 50.h,
+                        child: Center(
+                            child: Text(
+                          'View Investment',
+                          style: TextStyle(
+                            color: AppColors.white,
+                            fontSize: 18.sp,
+                          ),
+                        )),
+                      ),
 
-                  // CustomNextButton(
-                  //   text: 'View Investment',
-                  //   // ontap: () {
-                  //   //   Get.to(PropertiesInvestment());
-                  //   //   // Get.toNamed("/propertiesinvestment");
-                  //   // },
-                  // ),
+                      // CustomNextButton(
+                      //   text: 'View Investment',
+                      //   // ontap: () {
+                      //   //   Get.to(PropertiesInvestment());
+                      //   //   // Get.toNamed("/propertiesinvestment");
+                      //   // },
+                      // ),
+                    ),
+                  ),
                 ),
-              ),
-            )
-          ],
+              ],
+            ),
+          ),
         ),
       ),
     );
@@ -377,335 +489,5 @@ class ThirdTab extends StatelessWidget {
         const Text("No Data Found")
       ],
     );
-    // Center(
-    //   child: Column(
-    //     children: [
-    //       Padding(
-    //         padding: const EdgeInsets.only(top: 20),
-    //         child: Container(
-    //           decoration: BoxDecoration(
-    //             borderRadius: BorderRadius.all(Radius.circular(15)),
-    //             color: Color(0xffffffff),
-    //             boxShadow: [
-    //               BoxShadow(
-    //                 color: Color(0x48B9B9BE),
-    //                 blurRadius: 10.0,
-    //                 spreadRadius: 3.0,
-    //                 // offset: Offset(10, 10, 10, 10),
-    //               )
-    //             ],
-    //           ),
-    //           child: Padding(
-    //             padding: const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-    //             child: Column(
-    //               crossAxisAlignment: CrossAxisAlignment.center,
-    //               mainAxisAlignment: MainAxisAlignment.end,
-    //               children: [
-    //                 Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/alternative (6).png",
-    //                       width: 68,
-    //                       height: 38,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 20.h,
-    //                     ),
-    //                     Text(
-    //                       "HDFC AMC Select AIF \nFOF - 1",
-    //                       style: TextStyle(
-    //                           fontSize: 22,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     )
-    //                   ],
-    //                 ),
-    //                 Divider(
-    //                   thickness: 1,
-    //                   color: Color(0XFF6D6D6D29),
-    //                 ),
-    //                 SizedBox(height: 17.5.h),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(left: 15),
-    //                   child: Row(
-    //                     children: [
-    //                       Image.asset(
-    //                         "assets/images/investment (1).png",
-    //                         width: 25.w,
-    //                         height: 25.h,
-    //                       ),
-    //                       SizedBox(
-    //                         width: 15.w,
-    //                       ),
-    //                       Text(
-    //                         "Targeted IRR :",
-    //                         style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: 10.w,
-    //                       ),
-    //                       Text(
-    //                         "12.7%",
-    //                         style: TextStyle(
-    //                             fontSize: 20.sp,
-    //                             fontFamily: 'Poppins',
-    //                             color: Color(0XFF000000),
-    //                             fontWeight: FontWeight.w500),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 31.h,
-    //                 ),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(left: 15),
-    //                   child: Row(
-    //                     children: [
-    //                       Image.asset(
-    //                         "assets/images/back-in-time (1).png",
-    //                         width: 25.w,
-    //                         height: 25.h,
-    //                       ),
-    //                       SizedBox(
-    //                         width: 15.w,
-    //                       ),
-    //                       Text(
-    //                         "Commitment period :",
-    //                         style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: 8.w,
-    //                       ),
-    //                       Text(
-    //                         "5 Years",
-    //                         style: TextStyle(
-    //                             fontSize: 18.sp,
-    //                             fontFamily: 'Poppins',
-    //                             color: Color(0XFF000000),
-    //                             fontWeight: FontWeight.w500),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 31.h,
-    //                 ),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(left: 15),
-    //                   child: Row(
-    //                     children: [
-    //                       Image.asset(
-    //                         "assets/images/transfer.png",
-    //                         width: 25.w,
-    //                         height: 25.h,
-    //                       ),
-    //                       SizedBox(
-    //                         width: 15.w,
-    //                       ),
-    //                       Text(
-    //                         "Capital Commitment :",
-    //                         style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: 8.w,
-    //                       ),
-    //                       Text(
-    //                         "12.7%",
-    //                         style: TextStyle(
-    //                             fontSize: 18.sp,
-    //                             fontFamily: 'Poppins',
-    //                             color: Color(0XFF000000),
-    //                             fontWeight: FontWeight.w500),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 20.h,
-    //                 )
-    //               ],
-    //             ),
-    //           ),
-    //         ),
-    //       ),
-    //       SizedBox(
-    //         height: 30.h,
-    //       ),
-    //       Container(
-    //         decoration: BoxDecoration(
-    //           borderRadius: BorderRadius.all(Radius.circular(15)),
-    //           color: Color(0xffffffff),
-    //           boxShadow: [
-    //             BoxShadow(
-    //               color: Color(0x48B9B9BE),
-    //               blurRadius: 10.0,
-    //               spreadRadius: 3.0,
-    //               // offset: Offset(10, 10, 10, 10),
-    //             )
-    //           ],
-    //         ),
-    //         child: Padding(
-    //           padding: const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-    //           child: Column(
-    //             crossAxisAlignment: CrossAxisAlignment.center,
-    //             mainAxisAlignment: MainAxisAlignment.end,
-    //             children: [
-    //               Row(
-    //                 children: [
-    //                   Image.asset(
-    //                     "assets/images/Image 1.png",
-    //                     width: 68,
-    //                     height: 38,
-    //                   ),
-    //                   SizedBox(
-    //                     width: 20.h,
-    //                   ),
-    //                   Text(
-    //                     "Edelweiss Discovery \nFund – Series I",
-    //                     style: TextStyle(
-    //                         fontSize: 22,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                         fontWeight: FontWeight.w500),
-    //                   )
-    //                 ],
-    //               ),
-    //               Divider(
-    //                 thickness: 1,
-    //                 color: Color(0XFF6D6D6D29),
-    //               ),
-    //               SizedBox(height: 17.5.h),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(left: 15),
-    //                 child: Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/investment (1).png",
-    //                       width: 25.w,
-    //                       height: 25.h,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 15.w,
-    //                     ),
-    //                     Text(
-    //                       "Targeted IRR :",
-    //                       style: TextStyle(
-    //                         fontSize: 18.sp,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                       ),
-    //                     ),
-    //                     SizedBox(
-    //                       width: 10.w,
-    //                     ),
-    //                     Text(
-    //                       "12.7%",
-    //                       style: TextStyle(
-    //                           fontSize: 20.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //               SizedBox(
-    //                 height: 31.h,
-    //               ),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(left: 15),
-    //                 child: Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/back-in-time (1).png",
-    //                       width: 25.w,
-    //                       height: 25.h,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 15.w,
-    //                     ),
-    //                     Text(
-    //                       "Commitment period :",
-    //                       style: TextStyle(
-    //                         fontSize: 18.sp,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                       ),
-    //                     ),
-    //                     SizedBox(
-    //                       width: 8.w,
-    //                     ),
-    //                     Text(
-    //                       "5 Years",
-    //                       style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //               SizedBox(
-    //                 height: 31.h,
-    //               ),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(left: 15),
-    //                 child: Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/transfer.png",
-    //                       width: 25.w,
-    //                       height: 25.h,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 15.w,
-    //                     ),
-    //                     Text(
-    //                       "Capital Commitment :",
-    //                       style: TextStyle(
-    //                         fontSize: 18.sp,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                       ),
-    //                     ),
-    //                     SizedBox(
-    //                       width: 8.w,
-    //                     ),
-    //                     Text(
-    //                       "12.7%",
-    //                       style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //               SizedBox(
-    //                 height: 20.h,
-    //               )
-    //             ],
-    //           ),
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }
