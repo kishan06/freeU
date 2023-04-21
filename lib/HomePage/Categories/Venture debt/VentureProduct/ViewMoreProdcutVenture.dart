@@ -1,14 +1,11 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-
-import 'VilcartInvestment.dart';
-import 'eChargedUpInvestNow.dart';
+import 'VentureViewInvestment.dart';
 
 class VeiwMoreProductVenture extends StatefulWidget {
   const VeiwMoreProductVenture({super.key});
@@ -132,19 +129,23 @@ class SecondTab extends StatelessWidget {
       "Company Name": "eChargeUp",
       "Expected Return": "~19% IRR",
       "Minimum Investment": '3,00,000',
-      "View investment Route": const EcahrgedUpInvestNow()
+      "View investment Route": ViewInvestment(
+        pageIndex: 0,
+      )
     },
     {
       "Company Name": "Vilcart Services Pvt. Ltd.",
       "Expected Return": "~17% XIRR",
       "Minimum Investment": '5,00,000',
-      "View investment Route": const ViewInvestment()
+      "View investment Route": ViewInvestment(
+        pageIndex: 1,
+      )
     },
   ];
 
   @override
   Widget build(BuildContext context) {
-    return PageView.builder(
+    return ListView.builder(
       scrollDirection: Axis.vertical,
       itemCount: viewSlider.length,
       itemBuilder: (context, index) {
