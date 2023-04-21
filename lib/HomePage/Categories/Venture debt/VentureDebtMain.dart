@@ -8,6 +8,7 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
 import 'VentureDebtViewMore.dart';
+import 'VentureProduct/ViewMoreProdcutVenture.dart';
 
 class VentureDebtMain extends StatefulWidget {
   const VentureDebtMain({super.key});
@@ -188,7 +189,7 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                         height: 92.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const Fractionalproperties(),
+                        openBuild: const VeiwMoreProductVenture(),
                         closeBuild: Container(
                           decoration: BoxDecoration(
                               color: const Color(0XFFFBFBFB),
