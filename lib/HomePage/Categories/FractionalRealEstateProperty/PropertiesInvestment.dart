@@ -96,7 +96,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
               ),
               sizedBoxHeight(24.h),
               Text(
-                'Property details',
+                'Property details(Name and Location)',
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 20.sp,
@@ -289,7 +289,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                         ),
                       ),
                       Text(
-                        'Lock in',
+                        'Lock In',
                         style: TextStyle(
                             fontSize: 16.sp, color: const Color(0xff616161)),
                       ),
@@ -317,14 +317,14 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: MediaQuery.of(context).size.width / 2,
-                        child: Text(
-                          'Rent',
-                          style: TextStyle(
-                              fontSize: 16.sp, color: const Color(0xff616161)),
-                        ),
-                      ),
+                      // SizedBox(
+                      //   width: MediaQuery.of(context).size.width / 2,
+                      //   child: Text(
+                      //     'Rent',
+                      //     style: TextStyle(
+                      //         fontSize: 16.sp, color: const Color(0xff616161)),
+                      //   ),
+                      // ),
                       Text(
                         'Security deposit',
                         style: TextStyle(
@@ -338,16 +338,16 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                       SizedBox(
                         width: MediaQuery.of(context).size.width / 2,
                         child: Text(
-                          '3 Months',
+                          '3 Months Rent',
                           style: TextStyle(
                               fontSize: 18.sp, color: const Color(0xff0F0C0C)),
                         ),
                       ),
-                      Text(
-                        'N/A',
-                        style: TextStyle(
-                            fontSize: 18.sp, color: const Color(0xff0F0C0C)),
-                      ),
+                      // Text(
+                      //   'N/A',
+                      //   style: TextStyle(
+                      //       fontSize: 18.sp, color: const Color(0xff0F0C0C)),
+                      // ),
                     ],
                   ),
                 ],
@@ -408,7 +408,8 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                     color: Colors.grey.shade400,
                   ),
                   Text(
-                    '8.1% Additional 1% return in Year 1 for pre-booking',
+                    //'8.1% Additional 1% return in Year 1 for pre-booking',
+                    '''8.1% Additional 1% return in Year 1 for pre-booking''',
                     style: TextStyle(
                         fontSize: 18.sp, color: const Color(0xff272424)),
                   ),
@@ -560,7 +561,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                     color: Colors.grey.shade400,
                   ),
                   Text(
-                    '30%',
+                    '10%',
                     style: TextStyle(
                         fontSize: 18.sp, color: const Color(0xff272424)),
                   ),
