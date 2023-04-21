@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/InvoiceDiscounting/DiscountinglearnMore.dart';
+import 'package:freeu/HomePage/Categories/InvoiceDiscounting/Invoiceproperties.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
@@ -198,7 +199,7 @@ class _InvoiceDiscountingState extends State<InvoiceDiscountingMain> {
                         height: 40.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const Fractionalproperties(),
+                        openBuild: const InvoiceProperties(),
                         closeBuild: Container(
                           decoration: BoxDecoration(
                               color: const Color(0XFFFBFBFB),
