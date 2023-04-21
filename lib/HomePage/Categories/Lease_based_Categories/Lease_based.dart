@@ -18,6 +18,8 @@ import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
+import 'Lease view more product/LeaseViewMoreProduct.dart';
+
 //import 'Fractionalproperties.dart';
 
 class LeaseBased extends StatefulWidget {
@@ -210,7 +212,7 @@ class _LeaseBasedState extends State<LeaseBased> {
                         height: 92.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const LeaseBasedProperties(),
+                        openBuild: const LeaseViewMoreProduct(),
                         closeBuild: Container(
                           decoration: BoxDecoration(
                               color: const Color(0XFFFBFBFB),
