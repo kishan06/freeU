@@ -113,23 +113,28 @@ class _ViewInvestmentState extends State<ViewInvestment> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width - 132.w,
                     height: 75.h,
-                    child: ListView.builder(
-                      itemCount: 1,
-                      itemBuilder: (context, index) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              productDetails[0]['Company Name']
-                                  [widget.pageIndex],
-                              style: TextStyle(
-                                  fontSize: 22.sp, fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        );
-                      },
+                    child: Text(
+                      productDetails[0]['Company Name'][widget.pageIndex],
+                      style: TextStyle(
+                          fontSize: 22.sp, fontWeight: FontWeight.w500),
                     ),
+                    // child: ListView.builder(
+                    //   itemCount: 1,
+                    //   itemBuilder: (context, index) {
+                    //     return Column(
+                    //       mainAxisAlignment: MainAxisAlignment.center,
+                    //       crossAxisAlignment: CrossAxisAlignment.start,
+                    //       children: [
+                    //         Text(
+                    //           productDetails[0]['Company Name']
+                    //               [widget.pageIndex],
+                    //           style: TextStyle(
+                    //               fontSize: 22.sp, fontWeight: FontWeight.w500),
+                    //         ),
+                    //       ],
+                    //     );
+                    //   },
+                    // ),
                   )
                 ],
               ),
