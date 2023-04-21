@@ -6,16 +6,17 @@ import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'VentureViewInvestment.dart';
 
-class VeiwMoreProductVenture extends StatefulWidget {
-  const VeiwMoreProductVenture({super.key});
+import 'PeerViewInvestment.dart';
+
+class PeerViewMoreProduct extends StatefulWidget {
+  const PeerViewMoreProduct({super.key});
 
   @override
-  State<VeiwMoreProductVenture> createState() => _VeiwMoreProductVentureState();
+  State<PeerViewMoreProduct> createState() => _PeerViewMoreProductState();
 }
 
-class _VeiwMoreProductVentureState extends State<VeiwMoreProductVenture> {
+class _PeerViewMoreProductState extends State<PeerViewMoreProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +44,7 @@ class _VeiwMoreProductVentureState extends State<VeiwMoreProductVenture> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Companies",
+                  "Scheme",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -128,19 +129,51 @@ class SecondTab extends StatelessWidget {
 
   List viewSlider = [
     {
-      "Company Name": "eChargeUp",
-      "Expected Return": "~19% IRR",
-      "Minimum Investment": '3,00,000',
-      "View investment Route": ViewInvestment(
+      "Company Name": "Freedom Plan",
+      "Expected Return": "Up to 8.25% p.a.",
+      "Minimum Investment": '1,50,000',
+      "View investment Route": PeerViewInvestment(
         pageIndex: 0,
       )
     },
     {
-      "Company Name": "Vilcart Services Pvt. Ltd.",
-      "Expected Return": "~17% XIRR",
-      "Minimum Investment": '5,00,000',
-      "View investment Route": ViewInvestment(
+      "Company Name": "Fixed Term Plan",
+      "Expected Return": "Up to 10% p.a.",
+      "Minimum Investment": '1,00,000',
+      "View investment Route": PeerViewInvestment(
         pageIndex: 1,
+      )
+    },
+    {
+      "Company Name": "Fixed Term Plan",
+      "Expected Return": "Up to 11% p.a.",
+      "Minimum Investment": '50,000',
+      "View investment Route": PeerViewInvestment(
+        pageIndex: 2,
+      )
+    },
+    {
+      "Company Name": "Fixed Term Plan",
+      "Expected Return": "Up to 12% p.a.",
+      "Minimum Investment": '25,000',
+      "View investment Route": PeerViewInvestment(
+        pageIndex: 3,
+      )
+    },
+    {
+      "Company Name": "Monthly Income Plans",
+      "Expected Return": "Up to 10% p.a.",
+      "Minimum Investment": '25,000',
+      "View investment Route": PeerViewInvestment(
+        pageIndex: 4,
+      )
+    },
+    {
+      "Company Name": "Monthly Income Plans",
+      "Expected Return": "Up to 10.5% p.a.",
+      "Minimum Investment": '25,000',
+      "View investment Route": PeerViewInvestment(
+        pageIndex: 5,
       )
     },
   ];

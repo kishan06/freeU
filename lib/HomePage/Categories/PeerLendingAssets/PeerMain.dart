@@ -7,6 +7,7 @@ import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import '../Alternative/Fractionalproperties.dart';
+import 'Peer View More product/PeerViewMoreProduct.dart';
 
 class PeerMain extends StatefulWidget {
   const PeerMain({super.key});
@@ -20,30 +21,23 @@ class _PeerMainState extends State<PeerMain> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return
-        // SafeArea(
-        //child:
         Scaffold(
-      backgroundColor: Color(0xFF089435),
+      backgroundColor: const Color(0xFF089435),
       appBar:
-          // CustomSignupAppBar(
-          //   titleTxt: "",
-          //   bottomtext: false,
-          // ),
           AppBar(
-        backgroundColor: Color(0xFF089435),
+        backgroundColor: const Color(0xFF089435),
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
           onPressed: () {
             Get.back();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
           ),
-          iconSize: 26,
-          color: Color(0XFFFFFFFF),
+          iconSize: 26.sp,
+          color: const Color(0XFFFFFFFF),
         ),
       ),
       body: Center(
@@ -79,9 +73,8 @@ class _PeerMainState extends State<PeerMain> {
                       ),
                       Text(
                         "Peer to Peer lending connects the borrowers (investors) to the lenders directly, under a loan agreement, without having to go through any financial institutions like banks.",
-                        // "Peer-to-Peer lending, or P2P lending, is a new, innovative platform for alternate financing that allows individuals to directly acquire loans from other individuals, without going through banks, or other financial institutions.",
                         style: TextStyle(
-                          color: Color(0XFFFFFFFF),
+                          color: const Color(0XFFFFFFFF),
                           fontSize: 18.sp,
                           //fontFamily: 'Poppins'
                         ),
@@ -90,7 +83,7 @@ class _PeerMainState extends State<PeerMain> {
                         height: 9.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: PeerLearnMore(),
+                        openBuild: const PeerLearnMore(),
                         // onTap: () {
                         //   Get.toNamed("/fractionalrealestate");
                         // },
@@ -100,7 +93,7 @@ class _PeerMainState extends State<PeerMain> {
                             Text(
                               "Learn more",
                               style: TextStyle(
-                                  color: Color(0XFFFFFFFF),
+                                  color: const Color(0XFFFFFFFF),
                                   fontSize: 16.sp,
                                   decoration: TextDecoration.underline),
                             ),
@@ -156,7 +149,7 @@ class _PeerMainState extends State<PeerMain> {
                           children: [
                             Text("Suggested Investment Horizon",
                                 style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
+                                  color: const Color(0XFFFBFBFB),
                                   fontSize: 16.sp,
                                   fontFamily: "Poppins",
                                 )),
@@ -186,7 +179,7 @@ class _PeerMainState extends State<PeerMain> {
                         children: [
                           Text("Minimum Investment",
                               style: TextStyle(
-                                color: Color(0XFFFBFBFB),
+                                color: const Color(0XFFFBFBFB),
                                 fontSize: 16.sp,
                                 fontFamily: "Poppins",
                               )),
@@ -199,7 +192,7 @@ class _PeerMainState extends State<PeerMain> {
                         height: 40.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const Fractionalproperties(),
+                        openBuild: const PeerViewMoreProduct(),
                         closeBuild: Container(
                           decoration: BoxDecoration(
                               color: const Color(0XFFFBFBFB),
