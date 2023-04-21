@@ -135,11 +135,9 @@ class _ViewInvestmentState extends State<ViewInvestment> {
               ),
               sizedBoxHeight(24.h),
               SizedBox(
-                height: MediaQuery.of(context).size.height - 220.h,
-                //575.h,
+                height: MediaQuery.of(context).size.height - 265.h,
                 child: ListView.separated(
                     itemBuilder: (context, index) {
-                      print(productDetails[0]['content'][0][0]);
                       return Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -177,7 +175,25 @@ class _ViewInvestmentState extends State<ViewInvestment> {
                     },
                     itemCount: productDetails[0]['header'].length),
               ),
-              sizedBoxHeight(200.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'view ',
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15.sp,
+                        color: const Color(0xff1B8DC9)),
+                  ),
+                  Text(
+                    productDetails[0]['Company Name'][widget.pageIndex],
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 15.sp,
+                        color: const Color(0xff1B8DC9)),
+                  )
+                ],
+              )
             ],
           ),
         ),
