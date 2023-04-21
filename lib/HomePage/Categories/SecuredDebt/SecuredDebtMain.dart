@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
+import 'package:freeu/HomePage/Categories/SecuredDebt/Securitizedproperties.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/page_animation.dart';
@@ -188,7 +189,7 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                         height: 92.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const Fractionalproperties(),
+                        openBuild: const SecuritizedProperties(),
                         closeBuild: Container(
                           decoration: BoxDecoration(
                               color: const Color(0XFFFBFBFB),
