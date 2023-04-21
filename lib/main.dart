@@ -15,7 +15,7 @@ import 'package:freeu/HomePage/Categories/Alternative/Realestatepage.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 
-import 'package:freeu/HomePage/Categories/High_yield/High_yield_Properties.dart';
+import 'package:freeu/HomePage/Categories/High_yield/high_yield_more_products.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_properties.dart';
 
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
@@ -212,9 +212,9 @@ class _MyAppState extends State<MyApp> {
               page: () => FractionalRealEstate2()),
 
 
-            GetPage(
-              name: '/highyieldproperties',
-              page: () => HighYieldProperties()),    
+            // GetPage(
+            //   name: '/highyieldproperties',
+            //   page: () => HighYieldProperties()),    
 
           GetPage(name: '/debtfundviewmore', page: () => DebtFundViewMore()),
           GetPage(

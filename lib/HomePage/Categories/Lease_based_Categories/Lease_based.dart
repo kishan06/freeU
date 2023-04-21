@@ -6,7 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/HomePage/Categories/High_yield/High_yield_Learn.dart';
-import 'package:freeu/HomePage/Categories/High_yield/High_yield_Properties.dart';
+import 'package:freeu/HomePage/Categories/High_yield/high_yield_more_products.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_learn.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_properties.dart';
 import 'package:freeu/Utils/colors.dart';
