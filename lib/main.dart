@@ -212,8 +212,8 @@ class _MyAppState extends State<MyApp> {
               name: '/fractionalrealestate',
               page: () => FractionalRealEstate2()),
 
-          GetPage(
-              name: '/highyieldproperties', page: () => HighYieldProperties()),
+          // GetPage(
+          //     name: '/highyieldproperties', page: () => HighYieldProperties()),
 
 
             // GetPage(
