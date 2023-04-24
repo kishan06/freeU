@@ -22,7 +22,8 @@ class _VerticalSliderState extends State<VerticalSlider> {
       "IRR": "~ 15-24 % p.a.",
       "SIH": "More than 8 Years",
       "color": AppColors.blue004E84,
-      "ontap": '/privateequityfund'
+      "ontap": '/privateequityfund',
+      // "ontapViewPro":""
     },
     {
       "title": "02. Debt Fund",
@@ -32,7 +33,8 @@ class _VerticalSliderState extends State<VerticalSlider> {
       "IRR": "~ 12-16 % p.a.",
       "SIH": "More than 4 Years",
       "color": AppColors.pink873762,
-      "ontap": '/debtfundviewmore'
+      "ontap": '/debtfundviewmore',
+      // "ontapViewPro":""
     },
     {
       "title": "03. Fund for Distressed Asset",

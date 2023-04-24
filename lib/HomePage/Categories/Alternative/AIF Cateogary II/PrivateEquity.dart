@@ -218,7 +218,9 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         ),
                       ),
                       onPressed: () {
+                        // Get.toNamed("/privateequityfunddeals");
                         Get.toNamed(widget.viewMoreProdcut);
+
                       },
                       child: Text(
                         "View more product",
