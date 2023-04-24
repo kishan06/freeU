@@ -139,7 +139,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                     ],
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: 10.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -169,7 +169,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                     ],
                   ),
                   SizedBox(
-                    height: 30.h,
+                    height: 10.h,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -198,8 +198,9 @@ class _PrvateEquityState extends State<PrvateEquity> {
                       ),
                     ],
                   ),
+                  // Spacer(),
                   SizedBox(
-                    height: 40.h,
+                    height: 20.h,
                   ),
                   SizedBox(
                     width: double.infinity,
@@ -228,13 +229,14 @@ class _PrvateEquityState extends State<PrvateEquity> {
                       ),
                     ),
                   ),
-                  sizedBoxHeight(10.h),
+                  sizedBoxHeight(20.h),
                   widget.swipeup == false
                       ? Lottie.asset(
                           'assets/logos/swipeup.json',
+                          // height: 
                         )
                       : const SizedBox(),
-                  sizedBoxHeight(38.h),
+                  // sizedBoxHeight(38.h),
                 ],
               ),
             ),
