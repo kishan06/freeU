@@ -153,93 +153,84 @@ class SecondTab extends StatefulWidget {
 }
 
 class _SecondTabState extends State<SecondTab> {
-
   List<HighYieldProds> highYieldProductData = [
-    
     HighYieldProds(
-      securityName: "SPANDANA SPHOORTY FINANCIAL LIMITED 11.35 NCD",
-      securityType: "Debentures",
-      isin: "INE572J07489",
-      issuerCompany: "SPANDANA SPHOORTY FINANCIAL LIMITED", 
-      issueSize: "100 CR", 
-      issueType: "Private", 
-      listingDetails: "Yes", 
-      ratingCategory: "A", 
-      minInvestment: "10,00,000", 
-      couponRate: "11.35%", 
-      yieldInMaturity: "11.99%", 
-      InterestPayment: "Monthly", 
-      AllotmentDate: "Dec 08, 2022", 
-      MaturityDate: "Sept 08, 2024"
-    ),
+        securityName: "SPANDANA SPHOORTY FINANCIAL LIMITED 11.35 NCD",
+        securityType: "Debentures",
+        isin: "INE572J07489",
+        issuerCompany: "SPANDANA SPHOORTY FINANCIAL LIMITED",
+        issueSize: "100 CR",
+        issueType: "Private",
+        listingDetails: "Yes",
+        ratingCategory: "A",
+        minInvestment: "10,00,000",
+        couponRate: "11.35%",
+        yieldInMaturity: "11.99%",
+        InterestPayment: "Monthly",
+        AllotmentDate: "Dec 08, 2022",
+        MaturityDate: "Sept 08, 2024"),
     HighYieldProds(
-      securityName: "Five-Star Business Finance Limited 11.4%",
-      securityType: "NCD",
-      isin: "INE128S07366",
-      issuerCompany: "Five Star Business Finance Limited", 
-      issueSize: "30 CR", 
-      issueType: "N/A",
-      listingDetails: "Listed on NSE/BSE", 
-      ratingCategory: "ICRA A+", 
-      minInvestment: "10,000", 
-      couponRate: "11.40%", 
-      yieldInMaturity: "8.40%", 
-      InterestPayment: "Monthly", 
-      AllotmentDate: "Apr 11, 2019", 
-      MaturityDate: "Apr 11, 2024"
-    ),
+        securityName: "Five-Star Business Finance Limited 11.4%",
+        securityType: "NCD",
+        isin: "INE128S07366",
+        issuerCompany: "Five Star Business Finance Limited",
+        issueSize: "30 CR",
+        issueType: "N/A",
+        listingDetails: "Listed on NSE/BSE",
+        ratingCategory: "ICRA A+",
+        minInvestment: "10,000",
+        couponRate: "11.40%",
+        yieldInMaturity: "8.40%",
+        InterestPayment: "Monthly",
+        AllotmentDate: "Apr 11, 2019",
+        MaturityDate: "Apr 11, 2024"),
     HighYieldProds(
-      securityName: "NAVI",
-      securityType: "NCD",
-      isin: "N/A",
-      issuerCompany: "Navi Technologies Ltd", 
-      issueSize: "5 CR", 
-      issueType: "Private Placement", 
-      listingDetails: "N/A", 
-      ratingCategory: "A", 
-      minInvestment: "1,00,000", 
-      couponRate: "11.35%", 
-      yieldInMaturity: "11.96%", 
-      InterestPayment: "Monthly", 
-      AllotmentDate: "Mar 31,2023", 
-      MaturityDate: "Mar 31,2025"
-    ),
+        securityName: "NAVI",
+        securityType: "NCD",
+        isin: "N/A",
+        issuerCompany: "Navi Technologies Ltd",
+        issueSize: "5 CR",
+        issueType: "Private Placement",
+        listingDetails: "N/A",
+        ratingCategory: "A",
+        minInvestment: "1,00,000",
+        couponRate: "11.35%",
+        yieldInMaturity: "11.96%",
+        InterestPayment: "Monthly",
+        AllotmentDate: "Mar 31,2023",
+        MaturityDate: "Mar 31,2025"),
     HighYieldProds(
-      securityName: "Rupeek",
-      securityType: "NCD",
-      isin: "N/A",
-      issuerCompany: "Rupeek Capital", 
-      issueSize: "10 CR", 
-      issueType: "Private Placement", 
-      listingDetails: "N/A", 
-      ratingCategory: "BBB", 
-      minInvestment: "1,00,000", 
-      couponRate: "N/A", 
-      yieldInMaturity: "12.52%", 
-      InterestPayment: "Monthly", 
-      AllotmentDate: "Mar 21,2023", 
-      MaturityDate: "Mar 29,2024"
-    ),
+        securityName: "Rupeek",
+        securityType: "NCD",
+        isin: "N/A",
+        issuerCompany: "Rupeek Capital",
+        issueSize: "10 CR",
+        issueType: "Private Placement",
+        listingDetails: "N/A",
+        ratingCategory: "BBB",
+        minInvestment: "1,00,000",
+        couponRate: "N/A",
+        yieldInMaturity: "12.52%",
+        InterestPayment: "Monthly",
+        AllotmentDate: "Mar 21,2023",
+        MaturityDate: "Mar 29,2024"),
     HighYieldProds(
-      securityName: "Slice",
-      securityType: "NCD",
-      isin: "N/A",
-      issuerCompany: "Quadrillion Finance Private Limited", 
-      issueSize: "10 CR", 
-      issueType: "Private Placement", 
-      listingDetails: "N/A", 
-      ratingCategory: "BBB", 
-      minInvestment: "1,00,000", 
-      couponRate: "12.32%", 
-      yieldInMaturity: "13%", 
-      InterestPayment: "Monthly", 
-      AllotmentDate: "April 12,2023", 
-      MaturityDate: "April 30, 2023"
-    ),
-    
+        securityName: "Slice",
+        securityType: "NCD",
+        isin: "N/A",
+        issuerCompany: "Quadrillion Finance Private Limited",
+        issueSize: "10 CR",
+        issueType: "Private Placement",
+        listingDetails: "N/A",
+        ratingCategory: "BBB",
+        minInvestment: "1,00,000",
+        couponRate: "12.32%",
+        yieldInMaturity: "13%",
+        InterestPayment: "Monthly",
+        AllotmentDate: "April 12,2023",
+        MaturityDate: "April 30, 2023"),
   ];
 
-  
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
@@ -249,10 +240,7 @@ class _SecondTabState extends State<SecondTab> {
         itemCount: highYieldProductData.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
-          return properties(
-            highYieldProductData[index].securityName,
-            index
-          );
+          return properties(highYieldProductData[index].securityName, index);
         });
   }
 
@@ -423,6 +411,7 @@ class _SecondTabState extends State<SecondTab> {
                         width: 25.w,
                       ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
@@ -436,19 +425,16 @@ class _SecondTabState extends State<SecondTab> {
                               fontWeight: FontWeight.w300,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 200),
-                            child: Text(
-                              //subtext3,
-                              " 1 Crore",
-                              textDirection: TextDirection.ltr,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
-                              ),
+                          Text(
+                            //subtext3,
+                            " 1 Crore",
+                            textDirection: TextDirection.ltr,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ],
@@ -473,13 +459,14 @@ class _SecondTabState extends State<SecondTab> {
                       color: AppColors.blue143C6D,
                     ),
                     child: OpenContainerWrappers(
-                      openBuild: HighYieldViewInvestment(highYieldProds: highYieldProductData[index]),
+                      openBuild: HighYieldViewInvestment(
+                          highYieldProds: highYieldProductData[index]),
                       closeBuild: Container(
                         width: double.infinity,
                         height: 50.h,
                         child: Center(
                             child: Text(
-                          'View Investment',
+                          'View Details',
                           style: TextStyle(
                             color: AppColors.white,
                             fontSize: 18.sp,

@@ -71,6 +71,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
               itemBuilder: (context, index) {
                 // var = ver
                 return PrvateEquity(
+                  viewMoreProdcut: '/privateequityfunddeals',
                   swipeup: index == 3 ? true : false,
                   title: verticalSliderData[index]["title"],
                   des: verticalSliderData[index]["des"],
