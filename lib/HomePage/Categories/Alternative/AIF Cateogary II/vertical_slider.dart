@@ -23,6 +23,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
       "SIH": "More than 8 Years",
       "color": AppColors.blue004E84,
       "ontap": '/privateequityfund',
+      "viewMoreProdcut": '/privateequityfunddeals',
       // "ontapViewPro":""
     },
     {
@@ -34,6 +35,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
       "SIH": "More than 4 Years",
       "color": AppColors.pink873762,
       "ontap": '/debtfundviewmore',
+      "viewMoreProdcut": '/privateequityfunddeals',
       // "ontapViewPro":""
     },
     {
@@ -44,7 +46,8 @@ class _VerticalSliderState extends State<VerticalSlider> {
       "IRR": "~ 15-24% p.a.",
       "SIH": "More than 6 Years",
       "color": AppColors.blue002A5B,
-      "ontap": '/funddistressedassetsviewmore'
+      "ontap": '/funddistressedassetsviewmore',
+      "viewMoreProdcut": '/privateequityfunddeals',
     },
     {
       "title": "04. Private Real Estate Fund",
@@ -55,7 +58,8 @@ class _VerticalSliderState extends State<VerticalSlider> {
       "SIH": "More than 6 Years",
       // "MI":"1 Crore",
       "color": AppColors.green008A5B,
-      "ontap": '/realestateaifviewmore'
+      "ontap": '/realestateaifviewmore',
+      "viewMoreProdcut": '/realestateviewmoreproducts',
     },
   ];
 
@@ -71,7 +75,8 @@ class _VerticalSliderState extends State<VerticalSlider> {
               itemBuilder: (context, index) {
                 // var = ver
                 return PrvateEquity(
-                  viewMoreProdcut: '/privateequityfunddeals',
+                  viewMoreProdcut: verticalSliderData[index]['viewMoreProdcut'],
+                  //'/privateequityfunddeals',
                   swipeup: index == 3 ? true : false,
                   title: verticalSliderData[index]["title"],
                   des: verticalSliderData[index]["des"],
