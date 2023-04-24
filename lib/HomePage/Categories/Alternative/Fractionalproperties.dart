@@ -424,14 +424,14 @@ class _SecondTabState extends State<SecondTab> {
                             color: AppColors.blue143C6D,
                           ),
                           child: OpenContainerWrappers(
-                            openBuild:contents[index]['View investment Route'] ,
-                             //PropertiesInvestment(),
+                            openBuild: contents[index]['View investment Route'],
+                            //PropertiesInvestment(),
                             closeBuild: Container(
                               width: double.infinity,
                               height: 50.h,
                               child: Center(
                                   child: Text(
-                                'View Investment',
+                                'View Details',
                                 style: TextStyle(
                                   color: AppColors.white,
                                   fontSize: 18.sp,

@@ -154,7 +154,8 @@ class SecondTab extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         child: Container(
-          decoration: BoxDecoration(
+          // padding: EdgeInsets.symmetric(horizontal: 16.w),
+          decoration: const BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(15)),
             color: Color(0xffffffff),
             boxShadow: [
@@ -180,20 +181,13 @@ class SecondTab extends StatelessWidget {
                 SizedBox(
                   height: 25.h,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Row(
-                    children: [
-                      Text(
-                        "Securitized Debt Instrument",
-                        style: TextStyle(
-                            fontSize: 25,
-                            fontFamily: 'Poppins',
-                            color: Color(0XFF000000),
-                            fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
+                const Text(
+                  "Securitized Debt Instrument",
+                  style: TextStyle(
+                      fontSize: 25,
+                      fontFamily: 'Poppins',
+                      color: Color(0XFF000000),
+                      fontWeight: FontWeight.w500),
                 ),
                 SizedBox(
                   height: 30.h,
@@ -304,6 +298,7 @@ class SecondTab extends StatelessWidget {
                         width: 25.w,
                       ),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
@@ -311,23 +306,20 @@ class SecondTab extends StatelessWidget {
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontSize: 18.sp,
-                              color: Color(0XFF000000),
+                              color: const Color(0XFF000000),
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w300,
                             ),
                           ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 200),
-                            child: Text(
-                              " 1 Crore",
-                              textDirection: TextDirection.ltr,
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 20.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w500,
-                              ),
+                          Text(
+                            " 1 Crore",
+                            textDirection: TextDirection.ltr,
+                            textAlign: TextAlign.left,
+                            style: TextStyle(
+                              fontSize: 20.sp,
+                              color: Color(0XFF000000),
+                              fontFamily: 'Poppins',
+                              fontWeight: FontWeight.w500,
                             ),
                           ),
                         ],
@@ -358,7 +350,7 @@ class SecondTab extends StatelessWidget {
                         height: 50.h,
                         child: Center(
                             child: Text(
-                          'View Investment',
+                          'View Details',
                           style: TextStyle(
                             color: AppColors.white,
                             fontSize: 18.sp,
