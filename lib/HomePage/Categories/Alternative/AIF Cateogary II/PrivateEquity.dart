@@ -12,6 +12,7 @@ class PrvateEquity extends StatefulWidget {
   String sih;
   Color color;
   String ontapNamed;
+  String viewMoreProdcut;
   String? minInvestment = '1 Crore';
   bool? swipeup;
   PrvateEquity(
@@ -22,6 +23,7 @@ class PrvateEquity extends StatefulWidget {
       required this.sih,
       required this.color,
       required this.ontapNamed,
+      required this.viewMoreProdcut,
       this.minInvestment,
       this.swipeup});
 
@@ -215,7 +217,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                         ),
                       ),
                       onPressed: () {
-                        Get.toNamed("/privateequityfunddeals");
+                        Get.toNamed(widget.viewMoreProdcut);
                       },
                       child: Text(
                         "View more product",
