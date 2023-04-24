@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20I/VentureViewMore.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20III/PrivateViewproducts.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Debtfundpage.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Distressedpage.dart';
@@ -77,6 +78,7 @@ import 'HomePage/Categories/Alternative/AIF Cateogary II/FundForDistressedAssets
 import 'HomePage/Categories/Alternative/AIF Cateogary II/RealEstateAIFViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/AlternativeCategories2.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewProducts.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary III/PrivatePublicEquityViewMore.dart';
 import 'HomePage/Categories/Alternative/FullyFundedBank.dart';
 
@@ -212,8 +214,8 @@ class _MyAppState extends State<MyApp> {
               name: '/fractionalrealestate',
               page: () => FractionalRealEstate2()),
 
-          GetPage(
-              name: '/highyieldproperties', page: () => HighYieldProperties()),
+          // GetPage(
+          //     name: '/highyieldproperties', page: () => HighYieldProperties()),
 
 
             // GetPage(
@@ -244,6 +246,18 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/AngelFundMoreProduct',
               page: () => AngelFundMoreProduct()),
+
+           GetPage(
+              name: '/hedgeviewproducts',
+              page: () => HedgeViewmoreProducts()),
+
+              GetPage(
+              name: '/privateinvestmentproducts',
+              page: () => PrivateInvestmentProducts()),
+
+
+              
+              
         ],
       ),
       designSize: Size(390, 844),

@@ -45,7 +45,7 @@ class _Cat3VerticalSliderState extends State<Cat3VerticalSlider> {
               itemBuilder: (context, index) {
                 // var = ver
                 return PrvateEquity(
-                  viewMoreProdcut: '/privateequityfunddeals',
+                  viewMoreProdcut: index == 0? '/hedgeviewproducts' : '/privateinvestmentproducts',
                   swipeup: index == 1 ? true : false,
                   title: verticalSliderData[index]["title"],
                   des: verticalSliderData[index]["des"],
