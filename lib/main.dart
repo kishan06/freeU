@@ -69,6 +69,7 @@ import 'package:freeu/login/splash.dart';
 import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
 
+import 'HomePage/Categories/Alternative/AIF Cateogary I/AngelFundMoreProducts.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary I/AngelFundViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary I/InfrastructureViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/DebtFundViewMore.dart';
@@ -211,10 +212,8 @@ class _MyAppState extends State<MyApp> {
               name: '/fractionalrealestate',
               page: () => FractionalRealEstate2()),
 
-
-            GetPage(
-              name: '/highyieldproperties',
-              page: () => HighYieldProperties()),    
+          GetPage(
+              name: '/highyieldproperties', page: () => HighYieldProperties()),
 
           GetPage(name: '/debtfundviewmore', page: () => DebtFundViewMore()),
           GetPage(
@@ -227,24 +226,18 @@ class _MyAppState extends State<MyApp> {
           GetPage(
               name: '/infrastructureviewmore',
               page: () => InfrastructureViewMore()),
-          GetPage(
-              name: '/angelfundviewmore',
-              page: () => AngelFundViewMore()),
-          GetPage(
-              name: '/hedgeviewmore',
-              page: () => HedgeViewMore()),
+          GetPage(name: '/angelfundviewmore', page: () => AngelFundViewMore()),
+          GetPage(name: '/hedgeviewmore', page: () => HedgeViewMore()),
           GetPage(
               name: '/privatepublicequityviewmore',
               page: () => PrivatePublicEquityViewMore()),
 
-
-           GetPage(
+          GetPage(
               name: '/leasebasedproperties',
-              page: () => LeaseBasedProperties()),     
-
-          
-
-
+              page: () => LeaseBasedProperties()),
+          GetPage(
+              name: '/AngelFundMoreProduct',
+              page: () => AngelFundMoreProduct()),
         ],
       ),
       designSize: Size(390, 844),
