@@ -7,66 +7,100 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
-class ViewInvestment extends StatefulWidget {
+class InvoiceInvestment extends StatefulWidget {
   int pageIndex;
 
-  ViewInvestment({super.key, required this.pageIndex});
+  InvoiceInvestment({super.key, required this.pageIndex});
 
   @override
-  State<ViewInvestment> createState() => _ViewInvestmentState();
+  State<InvoiceInvestment> createState() => _InvoiceInvestmentState();
 }
 
-class _ViewInvestmentState extends State<ViewInvestment> {
+class _InvoiceInvestmentState extends State<InvoiceInvestment> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   List productDetails = [
     {
-      "Company Name": ['eChargeUp', 'Vilcart Services Pvt. Ltd.'],
+      "Company Name": ['Cocoblu', 'Zetwerk', 'Aris Infra'],
       "header": [
         'Sector',
-        "Minimum Investment",
-        "Tenure",
-        "Total Issue Size",
-        "Interest Payout",
-        "Principal Payout",
-        "Expected Return",
-        "Collateral & Cover Multiple",
         "About the Company",
-        "Instrument Type",
-        'Face Value per unit',
-        'Prepayment Covenants',
-        'Source of funds for repayment of Debt'
+        "Key Performance Metrics",
+        "Minimum Investment",
+        "Total Deal Size",
+        "Tenure",
+        "Pre-tax IRR",
+        "Coupon Rate",
+        "Vendor",
+        "Recourse On",
+        'Settlement Date',
+        'PayOut Frequency',
+        'Payment Obligor',
+        'Security Structure',
       ],
       "content": [
         [
-          'Electric Vehicle Mobility',
-          '3,00,000',
-          '15 Months',
+          'E-Commerce',
+          '''CocoBlu is an online-retail seller operating on e-commerce marketplace - Amazon; started its operations in Feb-22
+Promoter has infused INR 350 crs. of equity in the company.
+Product Categories : Office Products, Musical Instruments, Eyewear, Handbags, Apparel, Shoes, Wireless accessories, Books''',
+          '''Sales ~459 Crores (Sep, 2022)
+Cash (including liquid investments) ~297 crores (Sep, 2022)
+Profitable Company; Provisional PBT for Q2FY23 ~1.8%''',
+          '95000',
           '3 CR',
-          'Monthly',
-          'Monthly',
-          '~19% IRR',
-          'Secured NCDs – 1.5x Cover of Loan',
-          '"ChargeUp offers Battery as a Service solving the high-cost problem and inconvenience of long charging hours through its distributed network of Battery Swapping HubsBacked by Capital A, Anicut Capital, MapmyIndia, Aman Gupta (boAt founder) and celebrity investors; raised \$2.5 million in pre-Series A round"',
-          'Senior, Secured, Redeemable, Unlisted, Unrated Non-Convertible Debentures.',
-          '1,00,000',
-          'Prepayable after 10 months',
-          'Operating Cashflows/Equity Raise'
+          '90 days',
+          '12.50%',
+          '11.95%',
+          'Cocoblu',
+          'Cocoblu',
+          '19 Jul 2023',
+          'At Maturity',
+          'Cocoblu',
+          'Upfront security cheque obtained from vendor for the entire invoice amount',
         ],
         [
-          'Supply Chain Tech',
-          '5,00,000',
-          '15 Months',
-          '5 CR',
+          'Manufacturing Tech',
+          '''Zetwerk, founded by IIT Graduates in 2017, is a technology driven company that uses technology to streamline manufacturing across domains.
+Zetwerk serves 200+ clients such as Indian Railways, GE, Indian Oil, L&T, TATA Steel, etc.
+Zetwerk recently bagged a Rs. 126 cr order from L&T for the Mumbai – Ahmedabad bullet train project.''',
+          '''Revenue for FY22(Provisional) are Rs. 4,309Cr.
+PAT of Rs.11.8 Cr.
+Cash and Bank Balances: Rs. 2,653 Cr
+Total Debt of Rs. 275Cr
+Strong pipeline worth Rs. 6000 Crores''',
+          '95000',
+          '2 CR',
+          '90 days',
+          '12.25%',
+          '11.72%',
+          'Zetwerk',
+          'Zetwerk',
+          '16-May-23',
           'At Maturity',
-          'At Maturity',
-          '"~17% XIRR\nFor investors participating for more than INR 25 lakhs, upside in the form warrants or equivalent instruments for 5% of their respective investment amount "',
-          '"Upfront security cheque\nFirst charge on inventory to the outstanding exposure of the facility"',
-          '"Upfront security cheque\nFirst charge on inventory to the outstanding exposure of the facility"',
-          'NCD',
-          '1,00,000',
+          'Zetwek',
+          'Upfront security cheque obtained from Zetwerk for the entire invoice amount.',
+        ],
+        [
+          'Construction Material',
+          '''Aris Infra is a technology based B2B platform providing a wide array of building material products across the construction life cycle.
+Aris is enabling Better Price Discovery and Transparency in construction material sector which currently is highly fragmented which helps construction companies to save on input cost. It Provides one-stop B2B platform for all construction and building material
+Optimizing pricing by removing multiple brokers/retailers in input supply chain for construction companies''',
+          '''Revenue CAGR of 25% during FY2022 on m-o-m basis
+~50% of revenue from top 10 customers
+~80-90% repeat business''',
+          '95000',
+          '1.42 CR',
+          '60 days',
           '',
-          'Operating Cashflows/Equity Raise'
+          '11.65%',
+          'Aris Infra',
+          'Aris Infra',
+          '19-June-2023',
+          'At Maturity',
+          'Aris Infra',
+          '''Upfront security cheque obtained from vendor for the entire invoice amount
+Entire cash flow to be routed through escrow mechanism''',
         ],
       ]
     },
@@ -172,33 +206,36 @@ class _ViewInvestmentState extends State<ViewInvestment> {
                       );
                     },
                     separatorBuilder: (context, index) {
-                      return Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
+                      return SizedBox(
+                        height: 0.h,
                       );
+                      // Divider(
+                      //   height: 25.h,
+                      //   thickness: 1.h,
+                      //   color: Colors.grey.shade400,
+                      // );
                     },
                     itemCount: productDetails[0]['header'].length),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'view ',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15.sp,
-                        color: const Color(0xff1B8DC9)),
-                  ),
-                  Text(
-                    productDetails[0]['Company Name'][widget.pageIndex],
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15.sp,
-                        color: const Color(0xff1B8DC9)),
-                  )
-                ],
-              )
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              //   children: [
+              //     Text(
+              //       'view ',
+              //       style: TextStyle(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 15.sp,
+              //           color: const Color(0xff1B8DC9)),
+              //     ),
+              //     Text(
+              //       productDetails[0]['Company Name'][widget.pageIndex],
+              //       style: TextStyle(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 15.sp,
+              //           color: const Color(0xff1B8DC9)),
+              //     )
+              //   ],
+              // )
             ],
           ),
         ),

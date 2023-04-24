@@ -405,14 +405,14 @@ class _SecuritizedProperties2State extends State<SecuritizedProperties2> {
                   //       fontSize: 18.sp, color: const Color(0xff272424)),
                   // ),
                   sizedBoxHeight(45.h),
-                  Text(
-                    'View Securitized Debt Instrument',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15.sp,
-                        color: const Color(0xff1B8DC9)),
-                  ),
-                  sizedBoxHeight(10.h),
+                  // Text(
+                  //   'View Securitized Debt Instrument',
+                  //   style: TextStyle(
+                  //       fontWeight: FontWeight.w500,
+                  //       fontSize: 15.sp,
+                  //       color: const Color(0xff1B8DC9)),
+                  // ),
+                  //sizedBoxHeight(10.h),
                 ],
               ),
               sizedBoxHeight(65.h)
