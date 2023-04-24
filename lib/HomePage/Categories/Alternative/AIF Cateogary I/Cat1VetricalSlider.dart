@@ -14,9 +14,7 @@ class Cat1VerticalSlider extends StatefulWidget {
 class _Cat1VerticalSliderState extends State<Cat1VerticalSlider> {
   List verticalSliderData = [
     {
-      // "title": "01. Venture Capital Fund (VCF)",
       "title": "01. Venture Capital Fund",
-
       "des": 'VCF is an AIF which invests primarily in unlisted securities of start-ups, emerging or early-stage venture capital undertakings mainly involved in new products, new services, technology or intellectual property right based activities or a new business model and shall include an angel fund.'
           '\n\nVenture Capital Funds or VCFs make investments in start-ups that have lucrative growth potential, but lack funds to set up in the initial phase or during expansion. These startups face a lot of difficulty in securing funds through traditional capital markets. Therefore, VCFs provide a wholesome solution to their financial difficulties. Venture capital fund provides early-stage financing along with additional skills and resources to a startup during the pre-start stage. It provides overall resources to a startup so that it can develop the technological innovation from scratch.'
           '\n\nVCFs are regulated by the SEBI. There is a high-risk involved in funding new projects, or startups. But with VCFs, investors are usually willing to take the risk, because the high-growth potential of these projects usually results in high returns on investments. ',
@@ -24,6 +22,7 @@ class _Cat1VerticalSliderState extends State<Cat1VerticalSlider> {
       "SIH": "More than 7 Years",
       "color": AppColors.blue004E84,
       "ontap": '/ventureviewmore',
+      "ViewMoreProduct": '/AngelFundMoreProduct',
     },
     {
       "title": "02. Infrastructure Fund",
@@ -32,7 +31,8 @@ class _Cat1VerticalSliderState extends State<Cat1VerticalSlider> {
       "IRR": "~ 13-20 % p.a.",
       "SIH": "More than 6 Years",
       "color": AppColors.pink873762,
-      "ontap": '/infrastructureviewmore'
+      "ontap": '/infrastructureviewmore',
+      "ViewMoreProduct": '/AngelFundMoreProduct',
     },
     {
       "title": "03. Angel Fund",
@@ -41,7 +41,8 @@ class _Cat1VerticalSliderState extends State<Cat1VerticalSlider> {
       "IRR": "~18-24% p.a.",
       "SIH": "More than 6 Years",
       "color": AppColors.blue002A5B,
-      "ontap": '/angelfundviewmore'
+      "ontap": '/angelfundviewmore',
+      "ViewMoreProduct": '/AngelFundMoreProduct',
     },
   ];
 
@@ -57,9 +58,7 @@ class _Cat1VerticalSliderState extends State<Cat1VerticalSlider> {
               itemBuilder: (context, index) {
                 // var = ver
                 return PrvateEquity(
-                  viewMoreProdcut: index == 2
-                      ? '/AngelFundMoreProduct'
-                      : '/privateequityfunddeals',
+                  viewMoreProdcut: verticalSliderData[index]['ViewMoreProduct'],
                   swipeup: index == 2 ? true : false,
                   minInvestment: index == 2 ? '25 lakh' : null,
                   title: verticalSliderData[index]["title"],

@@ -70,8 +70,8 @@ import 'package:freeu/login/splash.dart';
 import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
 
-import 'HomePage/Categories/Alternative/AIF Cateogary I/AngelFundMoreProducts.dart';
-import 'HomePage/Categories/Alternative/AIF Cateogary I/AngelFundViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary I/Angel Fund/AngelFundMoreProducts.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary I/Angel Fund/AngelFundViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary I/InfrastructureViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/DebtFundViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/FundForDistressedAssetsViewMore.dart';
