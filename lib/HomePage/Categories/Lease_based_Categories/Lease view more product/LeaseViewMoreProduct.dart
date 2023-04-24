@@ -352,7 +352,7 @@ class SecondTab extends StatelessWidget {
                             height: 50.h,
                             child: Center(
                                 child: Text(
-                              'View Investment',
+                              'View Details',
                               style: TextStyle(
                                 color: AppColors.white,
                                 fontSize: 18.sp,
