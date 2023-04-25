@@ -60,30 +60,30 @@ class _AngelFundViewDetailsState extends State<AngelFundViewDetails> {
           'Closed',
           '"1. Invest only in start ups that have exponential growth business model 2.Business should not require constant infusion of capital to support growth 3.Tech has to be the core driver of business. Invest in bits and not atoms 4. Invest in founders first. Business models pivot  5. Invest along with other active investors who actively provide mentorship and guidance to young founders  6. Stay invested for as long as possible in successful start ups. Water the roses and cut the weeds 7.Reduce the impact of high mortality by building a portfolio of 30 to 40 companies"',
           'India',
-          '',
+          'N/A',
           'https://www.piperserica.com/	',
           'https://www.piperserica.com/	',
           'Piper Serica',
           'Piper Serica Advisors',
           'Piper Serica Advisors',
-          '',
-          '',
-          '',
-          '',
-          '',
+          'N/A',
+          'N/A',
+          'N/A',
+          'N/A',
+          'N/A',
           '########',
-          '',
+          'N/A',
           '10 Years',
           'Rupees',
           '100 Cr',
           'Minimum 2.5% or INR 50 lakhs whichever is lower',
           '"Minimum commitment of Rs. 25 lakh to be invested over 3 years."',
           '40%',
-          '',
-          '',
+          'N/A',
+          'N/A',
           '"Management Fee - 2% upto 1 Cr of aggregate capital commitment, otherwise 1.5% Performance Fee - 20% for Unit A & B holders (plus taxes & levies as applicable)"',
-          '',
-          '',
+          'N/A',
+          'N/A',
           'Tech based Start-Up',
         ],
       ]
@@ -185,25 +185,25 @@ class _AngelFundViewDetailsState extends State<AngelFundViewDetails> {
                       );
                     },
                     separatorBuilder: (context, index) {
-                      return sizedBoxHeight(25.h);
+                      return sizedBoxHeight(0.h);
                     },
                     itemCount: productDetails[0]['header'].length),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Flexible(
-                    child: Text(
-                      "view " +
-                          productDetails[0]['Company Name'][widget.pageIndex],
-                      style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 15.sp,
-                          color: const Color(0xff1B8DC9)),
-                    ),
-                  )
-                ],
-              )
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              //   children: [
+              //     Flexible(
+              //       child: Text(
+              //         "view " +
+              //             productDetails[0]['Company Name'][widget.pageIndex],
+              //         style: TextStyle(
+              //             fontWeight: FontWeight.w500,
+              //             fontSize: 15.sp,
+              //             color: const Color(0xff1B8DC9)),
+              //       ),
+              //     )
+              //   ],
+              // )
             ],
           ),
         ),
