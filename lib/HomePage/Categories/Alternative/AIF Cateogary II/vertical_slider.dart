@@ -35,7 +35,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
       "SIH": "More than 4 Years",
       "color": AppColors.pink873762,
       "ontap": '/debtfundviewmore',
-      "viewMoreProdcut": '/privateequityfunddeals',
+      "viewMoreProdcut": '/DebtFundProd',
       // "ontapViewPro":""
     },
     {

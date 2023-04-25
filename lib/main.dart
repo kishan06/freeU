@@ -78,6 +78,7 @@ import 'HomePage/Categories/Alternative/AIF Cateogary II/FundForDistressedAssets
 import 'HomePage/Categories/Alternative/AIF Cateogary II/RealEstateAIFViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/AlternativeCategories2.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/RealEstateProducts.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary II/debt_fund_pro.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewProducts.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary III/PrivatePublicEquityViewMore.dart';
@@ -199,6 +200,8 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/realestatepage', page: () => RealEstatepage()),
 
           GetPage(name: '/distressedasset', page: () => DistressedAsset()),
+          
+          GetPage(name: '/DebtFundProd', page: () => DebtFundProd()),
 
           GetPage(
               name: '/fractionalrealpage', page: () => FractionalRealestate()),

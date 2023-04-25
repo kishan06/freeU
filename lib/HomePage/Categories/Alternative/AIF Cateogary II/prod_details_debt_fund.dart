@@ -7,22 +7,22 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
-class ProductsDetails extends StatefulWidget {
+class ProductsDetailsDebtFund extends StatefulWidget {
   int pageIndex;
-  ProductsDetails({super.key, required this.pageIndex});
+  ProductsDetailsDebtFund({super.key, required this.pageIndex});
 
   @override
-  State<ProductsDetails> createState() => _ProductsDetailsState();
+  State<ProductsDetailsDebtFund> createState() => _ProductsDetailsDebtFundState();
 }
 
-class _ProductsDetailsState extends State<ProductsDetails> {
+class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   List productDetails = [
     {
       "Company Name": [
-        "HDFC AMC Select AIF FOF – I",
-        "Edelweiss Discovery Fund"
+        "Vivriti Alpha Debt Fund Enhanced",
+        "Structured Debt Opportunities Fund III"
       ],
       "header": [
         "Registration No.",
@@ -55,74 +55,71 @@ class _ProductsDetailsState extends State<ProductsDetails> {
         "Hurdle Rate",
         "Other Expenses",
         "Focused Sectors (Industries in which they are investing)",
-        "Regions Covered (Geographical Locations covered by the fund)"
       ],
       "content": [
         [
-          "N/A",
+          "IN/AIF2/19-20/0742",
           "II",
           "Closed",
-          "Invest in ~ 15 VC/PE funds.Up to 50% in venture capital funds and balance in private equity funds \nMaximum exposure to co-investment opportunities will be capped at 30% of the corpus",
-          "N/A",
-          "HDFC AMC",
-          "N/A",
-          "N/A",
-          "N/A",
-          "N/A",
+          "Invest in Senior Secured MLDs",
+          "India",
+          "Mohamed Irfan",
+          "https://vivritiamc.com/funds/alpha-debt-fund-enhanced/",
+          "Private credit fund manager with expertise in originating, negotiating, structuring, and lifecycle management of exposures across the risk/return spectrum. Currently managing 7 live funds across the risk/return spectrum.",
           "N/A",
           "N/A",
           "N/A",
           "N/A",
           "N/A",
+          "ICRA A+ (SO)",
           "N/A",
           "N/A",
-          "11 + 1 + 1 years",
-          "5 Years",
+          "Mar-23",
+          "3.5 years",
           "N/A",
-          "₹ 1,500 crore + green shoe of up to ₹ 1,500 crore",
-          "10% of Capital Commitment raised",
+          "N/A",
+          "500 Cr including green shoe",
+          "N/A",
           "1 Crore",
           "N/A",
           "N/A",
+          "11.40% (post expenses, pre tax)",
           "N/A",
-          "2.5% p.a. Management Fee & 20% Carry with full catchup",
-          "XIRR of 10% (pre-tax) on Capital Contributions received",
-          "N/A",
+          "11.20% annualized	",
           "N/A",
           "N/A",
         ],
         [
-          "IN/AIF2/21-22/1021",
+          "IN/AIF2/17-18/0358",
           "II",
           "Closed",
-          "Invest in mid-stage businesses that are leaders of emerging sectors",
+          "invest across strategies in the credit space, with the overall strategy to generate high risk-adjusted rewards with downside protection",
           "India",
-          "Ashish Agarwal",
+          "Ritesh Nambiar",
+          "https://www.utimf.com/about/other-business/aif/",
+          "Ritesh Nambiar is a qualified CFA, FRM and MBA Prior to joining UTI, he has worked with CRISIL and TransMarket Group Research In",
+          "UTI AMC",
+          "UTI Capital",
+          "IDBI Trustee",
+          "Affiliate of KPMG",
+          "EY / PWC",
           "N/A",
-          "Fund Manager has 16 years experience in mid stage PE.",
           "N/A",
-          "Edelweiss Asset Management Limited",
+          "Sept 30, 2022",
+          "By Sept 30, 2024 (may be extended by 12 months)",
+          "4 years from Final close (1+1 extension permitted with investor approval as per regulations) ",
           "N/A",
-          "N/A",
-          "N/A",
-          "N/A",
-          "N/A",
-          "Sept-2022",
-          "24 months from the initial close",
-          "N/A",
-          "30M from Initial Closing",
           "Rupees",
-          "N/A",
-          "2.5% of the Fund size or INR 5 crores, whichever is lower",
+          "Upto 15,000 mm",
+          "INR 1,500 mm",
           "1 Crore",
           "N/A",
           "N/A",
           "N/A",
-          "Entry Fee - Up to 2% of commitment amount \nManagement Fee - Class A1 INR 1 crore and INR 5 crore commitment, Class A2 => INR 5 crore commitment and < INR 10 crore commitment, Class A3 => INR 10 Crore \nPerformance Fee 20% over a hurdle rate of 10%",
+          "Management Fee - 1%-1.5 p.a. depending upon commitment Carried Interest - 10% with catch-up",
+          "10% for less than 100 Mm Commitment and 12% for others ",
           "N/A",
-          "N/A",
-          "Consumer brands and Tech-enabled B2B services",
-          "N/A",
+          "Economic, Social and Governance",
         ],
         
 
@@ -227,10 +224,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                       );
                     },
                     separatorBuilder: (context, index) {
-                      return  SizedBox(
-                        
-                      );
-                      // Divider(
+                      return sizedBoxHeight(0);                      // Divider(
                       //   height: 25.h,
                       //   thickness: 1.h,
                       //   color: Colors.grey.shade400,
