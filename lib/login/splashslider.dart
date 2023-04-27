@@ -9,6 +9,7 @@ import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/login/contentModel.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Splashslider extends StatefulWidget {
   const Splashslider({Key? key}) : super(key: key);
@@ -156,7 +157,10 @@ class _SplashsliderState extends State<Splashslider> {
                               fontFamily: "Poppins",
                             ),
                           ),
-                          onTap: () {
+                          onTap: () async {
+                            final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+                            await prefs.setBool('OnBoardDone', true);
                             Get.toNamed('/EntryPoint', arguments: 0);
                           },
                         )
