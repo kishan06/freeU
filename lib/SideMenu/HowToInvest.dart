@@ -54,7 +54,7 @@ class _HowToInvestState extends State<HowToInvest> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "How to invest",
+                    "How to invest".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -102,7 +102,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               ),
                               SizedBox(height: 20.h),
                               Text(
-                                "1. Create An Account",
+                                "1. Create An Account".tr,
                                 style: TextStyle(
                                     fontFamily: "Poppins",
                                     fontSize: 22.sp,
@@ -161,7 +161,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               ),
                               SizedBox(height: 20.h),
                               Text(
-                                "2. Choose an asset",
+                                "2. Choose an asset".tr,
                                 style: TextStyle(
                                     fontFamily: "Poppins",
                                     fontSize: 22.sp,
@@ -220,7 +220,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               ),
                               SizedBox(height: 20.h),
                               Text(
-                                "3. Invest",
+                                "3. Invest".tr,
                                 style: TextStyle(
                                     fontFamily: "Poppins",
                                     fontSize: 22.sp,
@@ -279,7 +279,7 @@ class _HowToInvestState extends State<HowToInvest> {
                               ),
                               SizedBox(height: 20.h),
                               Text(
-                                "4. Easy returns",
+                                "4. Easy returns".tr,
                                 style: TextStyle(
                                     fontFamily: "Poppins",
                                     fontSize: 22.sp,

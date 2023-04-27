@@ -48,7 +48,7 @@ class _FAQsState extends State<FAQs> {
                   height: 10.h,
                 ),
                 Text(
-                  "FAQ's",
+                  "FAQ's".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -67,14 +67,14 @@ class _FAQsState extends State<FAQs> {
                   sizedBoxHeight(20.h),
                   OpenContainerWrappers(
                     openBuild: const Fractional1(),
-                    closeBuild: catTitle('Fractional Real Estate FAQ',
+                    closeBuild: catTitle('Fractional Real Estate FAQ'.tr,
                         'assets/newImages/cat2.png', AppColors.blueL_006796),
                   ),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
                   // sizedBoxHeight(15.h),
                   OpenContainerWrappers(
                       openBuild: const PeerFAQ(),
-                      closeBuild: catTitle('Peer to Peer Lending FAQ',
+                      closeBuild: catTitle('Peer to Peer Lending FAQ'.tr,
                           'assets/newImages/cat3.png', AppColors.greenL_089435)
 
                       // Text('Peer to Peer Lending FAQ')
@@ -84,27 +84,27 @@ class _FAQsState extends State<FAQs> {
                   OpenContainerWrappers(
                       openBuild: const InvoiceFAQ(),
                       closeBuild: catTitle(
-                          'Invoice discounting FAQ',
+                          'Invoice discounting FAQ'.tr,
                           'assets/newImages/cat4.png',
                           AppColors.purpleL_474E88)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
 
                   OpenContainerWrappers(
                       openBuild: const AlternativeFAQ(),
-                      closeBuild: catTitle('Alternative Investment Fund FAQ',
+                      closeBuild: catTitle('Alternative Investment Fund FAQ'.tr,
                           'assets/newImages/cat1.png', AppColors.redL_BE0F02)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
 
                   OpenContainerWrappers(
                       openBuild: const CleanGreenFAQ(),
-                      closeBuild: catTitle('Clean and Green Assets FAQ',
+                      closeBuild: catTitle('Clean and Green Assets FAQ'.tr,
                           'assets/newImages/cat7.png', AppColors.redL_BE0F02)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
 
                   OpenContainerWrappers(
                       openBuild: const SecuritizedFAQ(),
                       closeBuild: catTitle(
-                          'Securitized Debt Instrument FAQ',
+                          'Securitized Debt Instrument FAQ'.tr,
                           'assets/newImages/cat9.png',
                           AppColors.greenL_089435)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),

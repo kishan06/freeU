@@ -42,7 +42,7 @@ class _InsightsState extends State<Insights> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Insights',
+                    'Insights'.tr,
                     style: TextStyle(
                         color: Color(0xff000000),
                         fontSize: 25.sp,
@@ -91,7 +91,7 @@ class _InsightsState extends State<Insights> {
                           color: Color(0x80000000),
                           fontSize: 16.sp,
                           fontFamily: "Poppins"),
-                      hintText: 'Search',
+                      hintText: 'Search'.tr,
                       prefixIcon: Icon(
                         Icons.search_outlined,
                         color: Colors.black,
@@ -108,17 +108,17 @@ class _InsightsState extends State<Insights> {
                         itemBuilder: (context) => [
                           PopupMenuItem(
                             child: Text(
-                              'All',
+                              'All'.tr,
                             ),
                           ),
                           PopupMenuItem(
                             child: Text(
-                              'Fractional Real Estate',
+                              'Fractional Real Estate'.tr,
                             ),
                           ),
                           PopupMenuItem(
                             child: Text(
-                              'Peer to Peer',
+                              'Peer to Peer'.tr,
                             ),
                           ),
                         ],
@@ -213,7 +213,7 @@ class _InsightsState extends State<Insights> {
                                           horizontal: 20, vertical: 7),
                                       child: Center(
                                         child: Text(
-                                          'Read More',
+                                          'Read More'.tr,
                                           style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 18.sp,

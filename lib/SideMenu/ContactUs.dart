@@ -41,7 +41,7 @@ class _ContactUsState extends State<ContactUs> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "Contact us",
+                      "Contact us".tr,
                       style: TextStyle(
                           fontFamily: "Poppins",
                           fontSize: 25.sp,
@@ -61,7 +61,7 @@ class _ContactUsState extends State<ContactUs> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "Name*",
+                          "Name*".tr,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -75,12 +75,12 @@ class _ContactUsState extends State<ContactUs> {
                     CustomTextFormField(
                         validator: (value) {
                           if (value == null || value.isEmpty) {
-                            return "Please Enter Your Name";
+                            return "Please Enter Your Name".tr;
                           }
                           return null;
                         },
-                        hintText: "  Enter Full Name",
-                        validatorText: "Please Enter Full Name"),
+                        hintText: "  Enter Full Name".tr,
+                        validatorText: "Please Enter Full Name".tr),
                     SizedBox(
                       height: 25.h,
                     ),
@@ -88,7 +88,7 @@ class _ContactUsState extends State<ContactUs> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "Email ID*",
+                          "Email ID*".tr,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -102,23 +102,23 @@ class _ContactUsState extends State<ContactUs> {
                     CustomTextFormField(
                         validator: (value) {
                           if (value.isEmpty) {
-                            return "Please Enter Your Email";
+                            return "profile_emailV1".tr;
                           }
                           if (!RegExp(
                                   r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
                               .hasMatch(value)) {
-                            return 'Enter a Valid Email address';
+                            return 'profile_emailV2'.tr;
                           }
                           return null;
                         },
-                        hintText: "  Enter Email Address",
-                        validatorText: "Please Enter Email Address"),
+                        hintText: "profile_emailV3".tr,
+                        validatorText: "profile_emailV3".tr),
                     SizedBox(height: 25.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "Mobile number*",
+                          "Mobile number*".tr,
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 20.sp,
@@ -133,22 +133,22 @@ class _ContactUsState extends State<ContactUs> {
                         texttype: TextInputType.phone,
                         validator: (value) {
                           if (value == value.isEmpty) {
-                            return 'Mobile number is required';
+                            return 'profile_phoneV1'.tr;
                           } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
                               .hasMatch(value)) {
-                            return 'Enter valid mobile number';
+                            return 'profile_phoneV2'.tr;
                           }
                           // v3 = true;
                           return null;
                         },
-                        hintText: "  Enter Mobile Number",
-                        validatorText: "Please Enter Mobile Number"),
+                        hintText: "profile_phoneV3".tr,
+                        validatorText: "profile_phoneV3".tr),
                     SizedBox(height: 25.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Text(
-                          "Subject",
+                          "Subject".tr,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -162,12 +162,12 @@ class _ContactUsState extends State<ContactUs> {
                     CustomTextFormField(
                         validator: (value) {
                           if (value.isEmpty) {
-                            return 'Subject is required';
+                            return 'Subject is required'.tr;
                           }
                           return null;
                         },
-                        hintText: "  Enter Subject",
-                        validatorText: "Please Enter Subject"),
+                        hintText: "  Enter Subject".tr,
+                        validatorText: "  Enter Subject".tr),
                     SizedBox(
                       height: 25.h,
                     ),
@@ -206,14 +206,14 @@ class _ContactUsState extends State<ContactUs> {
                         ),
                         hintStyle: TextStyle(
                             color: const Color(0x80000000), fontSize: 16.sp),
-                        hintText: "  Message",
+                        hintText: "  Message".tr,
                       ),
                       minLines: 5,
                       maxLines: null,
                     ),
                     SizedBox(height: 40.h),
                     CustomNextButton(
-                      text: "Send Now",
+                      text: "Send Now".tr,
                       ontap: () {
                         final isValid = _form.currentState?.validate();
                         if (isValid!) {
@@ -242,7 +242,7 @@ class _ContactUsState extends State<ContactUs> {
                                       height: 28.h,
                                     ),
                                     Text(
-                                      "Thankyou for contacting.\nWill reach back to you",
+                                      "ContactThankyou".tr,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Color(0xFF444444),
@@ -262,7 +262,7 @@ class _ContactUsState extends State<ContactUs> {
                     ),
                     Center(
                       child: Text(
-                        "*Required Field",
+                        "*Required Field".tr,
                         style: TextStyle(
                             fontSize: 12.sp, color: const Color(0xFF6B6B6B)),
                       ),

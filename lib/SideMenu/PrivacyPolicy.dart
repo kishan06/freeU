@@ -33,7 +33,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Privacy policy",
+                    "Privacy policy".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -54,7 +54,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                     child: Column(
                       children: [
                         Text(
-                          '1. What Information Does the Service Collect?',
+                          'policytxt1'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 18.sp,
@@ -65,7 +65,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                           height: 13.h,
                         ),
                         Text(
-                          'By accessing this web site, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. ',
+                          'policytxt2'.tr,
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontFamily: 'Poppins',
@@ -78,7 +78,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            'If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.',
+                            'policytxt3'.tr,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontFamily: 'Poppins',
@@ -88,7 +88,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                         ),
                         SizedBox(height: 20.h),
                         Text(
-                          '2. Information You Provide About a Third Party',
+                          'policytxt4'.tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontSize: 18.sp,
@@ -99,7 +99,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                           height: 15.h,
                         ),
                         Text(
-                          'Whilst we try to ensure that the standard of the Website remains high and to maintain the continuity of it, the internet is not an inherently stable medium, and errors, omissions, interruptions of service and delays may occur at any time. ',
+                          'policytxt5'.tr,
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Color(0xff131313),
@@ -109,7 +109,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                           height: 20.h,
                         ),
                         Text(
-                          'We do not accept any liability arising from any such errors, omissions, interruptions or delays or any ongoing obligation or responsibility to operate the Website (or any particular part of it) or to provide the service offered on the Website. We may vary the specification of this site from time to time without notice.',
+                          'policytxt6'.tr,
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Color(0xff131313),
@@ -120,7 +120,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              '3. Revisions and Errata',
+                              'policytxt7'.tr,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 18.sp,
@@ -133,7 +133,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                           height: 15.h,
                         ),
                         Text(
-                          'You may only use the Website for lawful purposes when seeking employment or help with your career, when purchasing training courses or when recruiting staff. You must not under any circumstances seek to undermine the security of the Website or any information submitted to or available through it. In particular, but without limitation, you must not seek to access, alter or delete any information to which you do not have authorised access, seek to overload the system via spamming or flooding, take any action or use any device, routine or software to crash, delay, damage or otherwise interfere with the operation of the Website or attempt to decipher, disassemble or modify any of the software, coding or information comprised in the Website.',
+                          'policytxt8'.tr,
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Color(0xff131313),

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class About extends StatefulWidget {
@@ -40,7 +41,7 @@ class _AboutState extends State<About> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'What is FreeU ?',
+                'What is FreeU ?'.tr,
                 style: TextStyle(
                     color: Color(0xff0F0C0C),
                     fontSize: 25.sp,
@@ -49,7 +50,7 @@ class _AboutState extends State<About> {
               ),
               sizedBoxHeight(17.h),
               Text(
-                'FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering thebest risk adjusted returns to our investors.',
+                'whatsFreeU'.tr,
                 style: TextStyle(
                     color: Color(0xff616161),
                     fontSize: 20.sp,
@@ -61,7 +62,7 @@ class _AboutState extends State<About> {
                 color: Color(0xff616161).withOpacity(0.3),
               ),
               Text(
-                'Why FreeU ?',
+                'Why FreeU ?'.tr,
                 style: TextStyle(
                     color: Color(0xff0F0C0C),
                     fontSize: 25.sp,
@@ -70,7 +71,7 @@ class _AboutState extends State<About> {
               ),
               sizedBoxHeight(17.h),
               Text(
-                'Freeu is one-stop shop for Alternate Investments. We want you to learn, compare, and choose before you invest. Luckily, we have curated the best of the best’s options for you',
+                'WhyFreeU'.tr,
                 style: TextStyle(
                     color: Color(0xff616161),
                     fontSize: 20.sp,
@@ -96,7 +97,7 @@ class _AboutState extends State<About> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Experience',
+                          'Experience'.tr,
                           style: TextStyle(
                               color: Color(0xff0F0C0C),
                               fontSize: 22.sp,
@@ -104,7 +105,7 @@ class _AboutState extends State<About> {
                               fontFamily: 'Poppins'),
                         ),
                         Text(
-                          'Our great team of more than 1400 software experts.',
+                          'ExpDiscr'.tr,
                           style: TextStyle(
                               color: Color(0xff272424),
                               fontSize: 18.sp,
@@ -139,7 +140,7 @@ class _AboutState extends State<About> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Quick Support',
+                          'Quick Support'.tr,
                           style: TextStyle(
                               color: Color(0xff0F0C0C),
                               fontSize: 22.sp,
@@ -147,7 +148,7 @@ class _AboutState extends State<About> {
                               fontFamily: 'Poppins'),
                         ),
                         Text(
-                          'We’ll help you test bold new ideas while sharing your.',
+                          'QuickSupportDisc'.tr,
                           style: TextStyle(
                               color: Color(0xff272424),
                               fontSize: 18.sp,
@@ -162,7 +163,7 @@ class _AboutState extends State<About> {
               SizedBox(
                 width: double.infinity,
                 child: Text(
-                  'Our Great Team',
+                  'Our Great Team'.tr,
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       color: Color(0xff0F0C0C),
@@ -244,7 +245,7 @@ class _AboutState extends State<About> {
                                         fontWeight: FontWeight.w500),
                                   ),
                                   Text(
-                                    'Founder, CEO',
+                                    'Founder, CEO'.tr,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       color: Color(0xff272424),

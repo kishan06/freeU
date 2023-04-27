@@ -41,7 +41,7 @@ class _KYC2State extends State<KYC2> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "KYC",
+                    "kyc".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.w500,
@@ -60,7 +60,7 @@ class _KYC2State extends State<KYC2> {
                       children: [
                         // ignore: prefer_const_constructors
                         Text(
-                          "Step 2 : Complete your KYC",
+                          "kycStep2".tr,
                           style: TextStyle(
                             fontSize: 22.sp,
                             fontWeight: FontWeight.w500,
@@ -72,7 +72,7 @@ class _KYC2State extends State<KYC2> {
                           height: 5.h,
                         ),
                         Text(
-                          "Address Details",
+                          "kycStep2_add".tr,
                           style: TextStyle(
                             fontSize: 18.sp,
                             fontFamily: 'Poppins',
@@ -84,7 +84,7 @@ class _KYC2State extends State<KYC2> {
                           height: 5.h,
                         ),
                         Text(
-                          "Provide your current correspondance address and upload an address proof of the same",
+                          "kycText1".tr,
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontFamily: 'Poppins',
@@ -95,7 +95,7 @@ class _KYC2State extends State<KYC2> {
                           height: 15.h,
                         ),
                         Text(
-                          "Country",
+                          "Country".tr,
                           // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontSize: 20.sp,
@@ -113,7 +113,7 @@ class _KYC2State extends State<KYC2> {
                           height: 13.h,
                         ),
                         Text(
-                          "Pincode",
+                          "Pincode".tr,
                           // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontSize: 20.sp,
@@ -124,11 +124,11 @@ class _KYC2State extends State<KYC2> {
                           height: 6.h,
                         ),
                         CustomTextFormField(
-                            hintText: "Please Enter Pincode",
-                            validatorText: "Please Enter Pincode"),
+                            hintText: "pincodeV1".tr,
+                            validatorText: "pincodeV1".tr),
                         SizedBox(height: 13.h),
                         Text(
-                          "Address - Area and Street",
+                          "streetAdd".tr,
                           // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontSize: 20.sp,
@@ -183,7 +183,7 @@ class _KYC2State extends State<KYC2> {
                         ),
                         SizedBox(height: 13.h),
                         Text(
-                          "City",
+                          "City".tr,
                           // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -199,7 +199,7 @@ class _KYC2State extends State<KYC2> {
                             showDropDown: true),
                         SizedBox(height: 13.h),
                         Text(
-                          "State / Province/ Region",
+                          "State / Province/ Region".tr,
                           // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontSize: 20.sp,
@@ -215,7 +215,7 @@ class _KYC2State extends State<KYC2> {
                             showDropDown: true),
                         SizedBox(height: 20.h),
                         Text(
-                          "Document Type",
+                          "Document Type".tr,
                           // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontSize: 20.sp,
@@ -231,7 +231,7 @@ class _KYC2State extends State<KYC2> {
                             showDropDown: true),
                         SizedBox(height: 10.h),
                         Text(
-                          "Document Number",
+                          "Document Number".tr,
                           // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontSize: 20.sp,
@@ -242,11 +242,11 @@ class _KYC2State extends State<KYC2> {
                           height: 6.h,
                         ),
                         CustomTextFormField(
-                            hintText: "Please Enter Document Number",
-                            validatorText: "Please Enter Document Number"),
+                            hintText: "docV1".tr,
+                            validatorText: "docV1".tr),
                         SizedBox(height: 10.h),
                         Text(
-                          "Please upload document front side",
+                          "kyctxt4".tr,
                           // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontSize: 20.sp,
@@ -305,7 +305,7 @@ class _KYC2State extends State<KYC2> {
                         ),
                         SizedBox(height: 10.h),
                         Text(
-                          "Please upload document back side(if applicable)",
+                          "kyctxt5".tr,
                           // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontSize: 20.sp,
@@ -364,7 +364,7 @@ class _KYC2State extends State<KYC2> {
                         ),
                         SizedBox(height: 40.h),
                         CustomNextButton(
-                          text: "Continue",
+                          text: "Continue".tr,
                           ontap: () {
                             setState(() {
                               Get.toNamed('/kyc3');

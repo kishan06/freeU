@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ",
+                  "Alternative Investment Fund FAQ".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'Who can invest in an alternative investment fund?',
+                        'AlternativeFAQ1'.tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Due to the risks involved, investing in an alternative investment fund is typically limited to accredited investors, institutional investors, and high-net-worth individuals.",
+                          "AlternativeFAQ2".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,36 +104,28 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Can NRIs invest in AIF?',
-                      contentString:
-                          'NRIs (Non-Resident Indians) are allowed to invest in AIFs subject to compliance with the necessary rules and regulations as per the Foreign Exchange Management Act (FEMA) and other applicable laws.'),
+                      titleString: 'AlternativeFAQ3'.tr,
+                      contentString: 'AlternativeFAQ4'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'How to invest in an AIF?',
-                      contentString:
-                          'Proof of income, PAN card, and ID proof are required to invest in an AIF. The minimum investment amount for AIFs is INR 1 crore, while for angel funds, it is INR 25 lakhs.'),
+                      titleString: 'AlternativeFAQ5'.tr,
+                      contentString: 'AlternativeFAQ6'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Who regulates the AIF?',
-                      contentString:
-                          'The regulation of Alternative Investment Funds (AIF) in India is done by the Securities and Exchange Board of India (SEBI).  Investors can address their complaints against AIFs at the SEBI-regulated web-based centralized grievance redress system called SCORES or SEBI Complaint Redress System.'),
+                      titleString: 'AlternativeFAQ7'.tr,
+                      contentString: 'AlternativeFAQ8'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'How is an AIF tenure calculated?',
-                      contentString:
-                          'The tenure of any scheme of the AIF is calculated from the date of the final closing of the scheme.'),
+                      titleString: 'AlternativeFAQ9'.tr,
+                      contentString: 'AlternativeFAQ10'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What is the general fee structure under the AIF scheme?',
-                      contentString:
-                          'The fee structure under the AIF scheme includes a one-time setup fee (if applicable) and two types of compensation: a flat management fee charged proportionately every month based on the funds managed, and a performance-based fee computed based on a pre-agreed proportion of the profit earned over and above a predetermined threshold return.'),
+                      titleString: 'AlternativeFAQ11'.tr,
+                      contentString: 'AlternativeFAQ12'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'Can an AIF accept investments from more than one investor?',
-                      contentString:
-                          'An AIF accepts two individuals as joint partners for a minimum investment of one crore rupees. Joint investors may include an investor and their spouse, parent, or child. Only two persons can act as joint investors for an AIF, and for any other investors acting as joint investors, the minimum investment amount of INR 1 crore shall apply.'),
+                      titleString: 'AlternativeFAQ13'.tr,
+                      contentString: 'AlternativeFAQ14'.tr),
                   sizedBoxHeight(15.h),
                 ],
               ),

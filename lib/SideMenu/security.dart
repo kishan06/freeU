@@ -38,7 +38,7 @@ class _SecurityState extends State<Security> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Text(
-                            "Security",
+                            "Security".tr,
                             style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontWeight: FontWeight.w500,
@@ -58,7 +58,7 @@ class _SecurityState extends State<Security> {
                           SizedBox(
                             width: double.infinity,
                             child: Text(
-                              "Current Login PIN",
+                              "Current Login PIN".tr,
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -69,15 +69,15 @@ class _SecurityState extends State<Security> {
                             height: 14.h,
                           ),
                           CustomTextFormField(
-                              hintText: "Enter 4 digit login pin",
-                              validatorText: "Enter 4 digit login pin"),
+                              hintText: "Enter 4 digit login pin".tr,
+                              validatorText: "Enter 4 digit login pin".tr),
                           SizedBox(
                             height: 25.h,
                           ),
                           SizedBox(
                             width: double.infinity,
                             child: Text(
-                              "New Login PIN",
+                              "New Login PIN".tr,
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -88,15 +88,15 @@ class _SecurityState extends State<Security> {
                             height: 14.h,
                           ),
                           CustomTextFormField(
-                              hintText: "Enter 4 digit login pin",
-                              validatorText: "Enter 4 digit login pin"),
+                              hintText: "Enter 4 digit login pin".tr,
+                              validatorText: "Enter 4 digit login pin".tr),
                           SizedBox(
                             height: 25.h,
                           ),
                           SizedBox(
                             width: double.infinity,
                             child: Text(
-                              "Confirm Login PIN",
+                              "Confirm Login PIN".tr,
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -107,8 +107,8 @@ class _SecurityState extends State<Security> {
                             height: 14.h,
                           ),
                           CustomTextFormField(
-                              hintText: "Enter 4 digit login pin",
-                              validatorText: "Enter 4 digit login pin"),
+                              hintText: "Enter 4 digit login pin".tr,
+                              validatorText: "Enter 4 digit login pin".tr),
                           SizedBox(
                             height: 60.h,
                           ),
@@ -116,7 +116,7 @@ class _SecurityState extends State<Security> {
                               ontap: (() {
                                 Navigator.pop(context);
                               }),
-                              text: "Update")
+                              text: "profile_update".tr)
                         ],
                       ),
                     )),

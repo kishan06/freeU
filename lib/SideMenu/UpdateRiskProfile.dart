@@ -46,7 +46,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Update risk profile",
+                        "Update Risk Profile".tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.w500,
@@ -64,7 +64,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            "Enter your First name ?",
+                            "enterName".tr,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 20.sp,
@@ -81,7 +81,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            "Enter your age?",
+                            "enterAge",
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 20.sp,
@@ -98,7 +98,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            "How would you describe your level of familiarity ?",
+                            "enterDiscription".tr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -119,7 +119,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                           height: 25.h,
                         ),
                         Text(
-                          "What is the primary reason you're interested in investing?",
+                          "enterReason".tr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -142,7 +142,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            "What is your annual income ?",
+                            "enterIncome".tr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -165,7 +165,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            "How long do you plan to invest?",
+                            "enterPlan".tr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -185,7 +185,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                           height: 25.h,
                         ),
                         Text(
-                          "How much do you hope to invest on a monthly/yearly basis?",
+                          "enterHope".tr,
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 20.sp,
@@ -228,7 +228,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                                         ),
                                         Center(
                                           child: Text(
-                                            'Thankyou for updating your\n Risk Profile',
+                                            'riskThankyou'.tr,
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',
@@ -245,7 +245,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                                 },
                               );
                             },
-                            text: "Submit"),
+                            text: "Submit".tr),
                         sizedBoxHeight(41.h)
                       ],
                     ),

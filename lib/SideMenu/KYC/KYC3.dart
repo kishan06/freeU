@@ -44,7 +44,7 @@ class _KYC3State extends State<KYC3> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "KYC",
+                      "kyc".tr,
                       style: TextStyle(
                           fontFamily: "Poppins",
                           fontWeight: FontWeight.w500,
@@ -62,7 +62,7 @@ class _KYC3State extends State<KYC3> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Step 3 : Complete your KYC",
+                            "kycStep3".tr,
                             style: TextStyle(
                               fontSize: 22.sp,
                               fontFamily: 'Poppins',
@@ -74,7 +74,7 @@ class _KYC3State extends State<KYC3> {
                             height: 5.h,
                           ),
                           Text(
-                            "PAN & Aadhar details",
+                            "PAN & Aadhar details".tr,
                             style: TextStyle(
                               fontSize: 18.sp,
                               fontFamily: 'Poppins',
@@ -86,7 +86,7 @@ class _KYC3State extends State<KYC3> {
                             height: 5.h,
                           ),
                           Text(
-                            "Provide your PAN & Aadhar details",
+                            "Provide your PAN & Aadhar details".tr,
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 14.sp,
@@ -97,7 +97,7 @@ class _KYC3State extends State<KYC3> {
                             height: 15.h,
                           ),
                           Text(
-                            "PAN Number",
+                            "PAN Number".tr,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 20.sp,
@@ -107,13 +107,12 @@ class _KYC3State extends State<KYC3> {
                             height: 6.h,
                           ),
                           CustomTextFormField(
-                              hintText: "Please Enter PAN Number",
-                              validatorText: "Please Enter PAN Number"),
+                              hintText: "panV1".tr, validatorText: "panV1".tr),
                           SizedBox(
                             height: 13.h,
                           ),
                           Text(
-                            "Upload PAN card front side",
+                            "panUpload".tr,
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -170,7 +169,7 @@ class _KYC3State extends State<KYC3> {
                           ),
                           SizedBox(height: 10.h),
                           Text(
-                            "Aadhar Number",
+                            "Aadhar Number".tr,
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -181,11 +180,11 @@ class _KYC3State extends State<KYC3> {
                             height: 6.h,
                           ),
                           CustomTextFormField(
-                              hintText: "Please Enter Aadhar Number",
-                              validatorText: "Please Enter Aadhar Number"),
+                              hintText: "aadharV1".tr,
+                              validatorText: "aadharV1".tr),
                           SizedBox(height: 10.h),
                           Text(
-                            "Upload Aadhar card",
+                            "Upload Aadhar card".tr,
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -242,7 +241,7 @@ class _KYC3State extends State<KYC3> {
                           ),
                           SizedBox(height: 40.h),
                           CustomNextButton(
-                              text: "Continue",
+                              text: "Continue".tr,
                               ontap: () {
                                 setState(() {
                                   Get.toNamed('/kyc4');

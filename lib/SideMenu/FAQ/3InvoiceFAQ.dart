@@ -40,7 +40,7 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Invoice discounting FAQ",
+                  "Invoice discounting FAQ".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'What is invoice discounting?',
+                        'InvoiceFAQ1'.tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Invoice Discounting is the practice of lending a working capital against a company’s unpaid invoices, in order to maintain the cash flow. This helps the companies with the capital crunch, and the lenders get back their money with interest",
+                          "InvoiceFAQ2".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,36 +104,31 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'How does invoice discounting work?',
-                      contentString:
-                          'Invoice discounting involves three parties: the business selling its invoices (the seller), the financing company (the funder), and the customer who owes money to the business (the debtor). The seller submits unpaid invoices to the funder who pays a percentage upfront (around 80-90%). The funder collects the full amount from the debtor and deducts their fee before paying the remaining amount to the seller.'),
+                      titleString: 'InvoiceFAQ3'.tr,
+                      contentString: 'InvoiceFAQ4'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Is Invoice Discounting a Secured Product? ',
-                      contentString:
-                          'No, Invoice Discounting is an Unsecured Product.'),
+                      titleString: 'InvoiceFAQ5'.tr,
+                      contentString: 'InvoiceFAQ6'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Can an NRI invest in Invoice Discounting?',
-                      contentString:
-                          'An NRI can register, and invest in Invoice Discounting opportunities. But he/she needs to provide proof of Indian citizenship, along with an Indian Passport to complete KYC. Additionally, one will require an NRO bank account for debiting and crediting funds.'),
+                      titleString: 'InvoiceFAQ7'.tr,
+                      contentString: 'InvoiceFAQ8'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What is the repayment period for invoice discounting?',
-                      contentString:
-                          'The loan tenure is the credit period that the seller agreed with the buyer as per the terms of sale. The period gets over on the last date of the credit period of the invoice or on the date of payment of invoice value, whichever is earlier.'),
+                      titleString: 'InvoiceFAQ9'.tr,
+                      contentString: 'InvoiceFAQ10'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What happens if the debtor does not pay the invoice?',
+                          'InvoiceFAQ11'.tr,
                       contentString:
-                          "The main risk associated with invoice discounting is the risk of non-payment. If the debtor does not pay the invoice, the financing company may pursue legal action to recover the funds owed. However, the risk of non-payment is usually borne by the seller, who may be required to repurchase the invoice from the funder or provide additional collateral to secure the financing."),
+                          "InvoiceFAQ12".tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'What will be the tax impact?',
+                      titleString: 'InvoiceFAQ13'.tr,
                       contentString:
-                          'These resulting gains are taxable at applicable marginal tax rates under the head “Income from Other Sources”. TDS provisions are not applicable.'),
+                          'InvoiceFAQ14'.tr),
                   sizedBoxHeight(15.h),
                 ],
               ),

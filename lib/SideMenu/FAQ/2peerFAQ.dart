@@ -40,7 +40,7 @@ class _PeerFAQState extends State<PeerFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Peer To Peer Lending FAQ",
+                  "Peer to Peer Lending FAQ".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _PeerFAQState extends State<PeerFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'How does Peer-to-Peer Lending work?',
+                        'PeerFAQ1'.tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _PeerFAQState extends State<PeerFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "The Peer-2-Peer online platforms connects the lender (investor) with the borrower directly, after evaluating the credit worthiness of the borrowers. The borrower gets the loan, and the investor earn interest on the loan payments.",
+                          "PeerFAQ2".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,38 +104,25 @@ class _PeerFAQState extends State<PeerFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What are the benefits of peer-to-peer lending? ',
-                      contentString:
-                          'Peer-to-peer lending can provide several benefits, including lower interest rates for borrowers, higher returns for investors, and more flexible loan terms. Peer-to-peer lending can also provide access to credit for borrowers who may not qualify for traditional bank loans.'),
+                      titleString: 'PeerFAQ3'.tr, contentString: 'PeerFAQ4'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Who can invest in Peer-to-peer?',
-                      contentString:
-                          'Any individual, body of individuals, HUF, firm, society or any artificial body, whether incorporated or not, with a valid bank account in India and PAN card can be a lender on a P2P Platform. Also, any NBFC listed by the RBI or companies under the Indian Companies Act can apply as lenders or investors as well.'),
+                      titleString: 'PeerFAQ5'.tr, contentString: 'PeerFAQ6'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What happens in the case of delayed non-payment by a borrower?',
-                      contentString:
-                          'Usually, the borrower is charged with an additional penal interest charge for the duration of the delay, and the borrower will be required to pay directly to his lender.'),
+                      titleString: 'PeerFAQ7'.tr, contentString: 'PeerFAQ8'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'Are there any restrictions on the maximum amount a lender can invest on peer-to-peer?',
-                      contentString:
-                          'Across all peer-to-peer lending platforms regulated by the RBI you can invest a maximum of ₹50 lakhs. However, if a lender lends above Rs 10,00,000, a certificate from a practising Chartered Accountant certifying minimum net-worth of Rs 50,00,000.'),
+                      titleString: 'PeerFAQ9'.tr,
+                      contentString: 'PeerFAQ10'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Is P2P lending regulated?',
-                      contentString:
-                          "Yes, only NBFCs with P2P license can enable P2P Lending. Every P2P lender should obtain a certificate of registration from the RBI."),
+                      titleString: 'PeerFAQ11'.tr,
+                      contentString: "PeerFAQ12".tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What are the risks of peer-to-peer lending?',
-                      contentString:
-                          'The main risk of peer-to-peer lending is the possibility of default by the borrower. If the borrower defaults on the loan, investors may lose a portion or all of their investment. All the P2P platforms try and minimize the lender’s risks through a strict, thorough verification and credit underwriting process.'),
+                      titleString: 'PeerFAQ13'.tr,
+                      contentString: 'PeerFAQ14'.tr),
                   sizedBoxHeight(15.h),
                 ],
               ),

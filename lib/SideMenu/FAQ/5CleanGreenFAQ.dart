@@ -40,7 +40,7 @@ class _CleanGreenFAQState extends State<CleanGreenFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Clean and Green Assets FAQ",
+                  "Clean and Green Assets FAQ".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _CleanGreenFAQState extends State<CleanGreenFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'What is green asset investing?',
+                        'CleanFAQ1'.tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _CleanGreenFAQState extends State<CleanGreenFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Green asset investing is a socially responsible investment strategy that targets companies with a positive environmental impact, such as renewable energy, environmental technology, and natural resource conservation. While profit is not the primary focus, studies suggest that green investing can be more profitable than traditional assets.",
+                          "CleanFAQ2".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,34 +104,24 @@ class _CleanGreenFAQState extends State<CleanGreenFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What are examples of clean and green assets?',
-                      contentString:
-                          'Clean and green assets include renewable energy infrastructure like wind turbines, solar panels, and hydroelectric power plants, energy-efficient buildings such as LEED-certified buildings and green roofs, electric vehicles, waste reduction, and recycling facilities.'),
+                      titleString: 'CleanFAQ3'.tr,
+                      contentString: 'CleanFAQ4'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What are the risks associated with investing in clean and green assets?',
-                      contentString:
-                          'Investing in clean and green assets carries risks, particularly for investors unfamiliar with the technology or regulatory environment. Potential risks include changes in government policy or incentives, energy price fluctuations, and the possibility of technology becoming obsolete.'),
+                      titleString: 'CleanFAQ5'.tr,
+                      contentString: 'CleanFAQ6'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'Benefits of investing in clean and green assets',
-                      contentString:
-                          'Investing in clean and green assets is crucial as it reduces the adverse environmental impact of human activities, including energy production and consumption. These assets also mitigate climate change effects by reducing greenhouse gas emissions and promoting the use of renewable energy sources. It also provides financial benefits through reduced operating costs, government incentives, and energy production revenue.'),
+                      titleString: 'CleanFAQ7'.tr,
+                      contentString: 'CleanFAQ8'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'How can investors participate in the clean and green asset market?',
-                      contentString:
-                          'Investors can participate in the clean and green asset market in several ways, including investing in publicly traded companies that specialize in clean energy or sustainable infrastructure, investing in mutual funds or exchange-traded funds (ETFs) that focus on clean and green assets, or investing directly in clean energy projects through private equity or debt financing.'),
+                      titleString: 'CleanFAQ9'.tr,
+                      contentString: 'CleanFAQ10'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'How is the clean and green asset market growing?',
-                      contentString:
-                          'The clean and green asset market is growing rapidly, driven by increasing demand for renewable energy, energy-efficient infrastructure, and sustainable buildings. In addition, many governments around the world are providing incentives for clean and green asset development, further driving growth in the market.'),
+                      titleString: 'CleanFAQ11'.tr,
+                      contentString: 'CleanFAQ12'.tr),
                   sizedBoxHeight(15.h),
                 ],
               ),

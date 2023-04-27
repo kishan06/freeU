@@ -40,7 +40,7 @@ class _SecuritizedFAQState extends State<SecuritizedFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Securitized Debt Instrument FAQ",
+                  "Securitized Debt Instrument FAQ".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _SecuritizedFAQState extends State<SecuritizedFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'How does securitization work?',
+                        'SecureFAQ1'.tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _SecuritizedFAQState extends State<SecuritizedFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Securitization works by creating a special purpose vehicle (SPV) that purchases a pool of similar debt instruments from a lender or originator. The SPV then issues securities that are backed by the payments on those debts.",
+                          "SecureFAQ2".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,38 +104,29 @@ class _SecuritizedFAQState extends State<SecuritizedFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What are the benefits of securitized debt instruments?',
-                      contentString:
-                          'Securitized debt instruments can provide several benefits, including diversification, liquidity, and potentially higher yields.'),
+                      titleString: 'SecureFAQ3'.tr,
+                      contentString: 'SecureFAQ4'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What are the risks of securitized debt instruments?',
-                      contentString:
-                          'Securitized debt instruments can be risky, especially if the underlying debt instruments are of low quality or if the credit ratings are not accurate. In addition, securitization can be complex and difficult to understand, which may lead to mispricing or overvaluation of the securities.'),
+                      titleString: 'SecureFAQ5'.tr,
+                      contentString: 'SecureFAQ6'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What types of debt instruments can be securitized?',
-                      contentString:
-                          'Almost any type of debt instrument can be securitized, including mortgages, auto loans, credit card debt, student loans, and corporate loans. The most common types of securitized debt instruments are mortgage-backed securities (MBS) and asset-backed securities (ABS).'),
+                      titleString: 'SecureFAQ7'.tr,
+                      contentString: 'SecureFAQ8'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What are the regulations governing the securitized debt market?',
-                      contentString:
-                          'SEBI (Issue and Listing of Securitized Debt Instruments and Security Receipts) Regulations, introduced in 2008, established SDI.'),
+                      titleString: 'SecureFAQ9'.tr,
+                      contentString: 'SecureFAQ10'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Can NRI invest in SDI?',
-                      contentString:
-                          'Yes, Non-Resident Indians are permitted to invest in SDIs issued by Indian entities, subject to the rules and regulations set by the Reserve Bank of India (RBI) and the Securities and Exchange Board of India (SEBI).'),
+                      titleString: 'SecureFAQ11'.tr,
+                      contentString: 'SecureFAQ12'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Are SDIs liquid investments?',
+                      titleString: 'SecureFAQ13'.tr,
                       contentString:
-                          "SDIs' liquidity may vary based on the transaction structure and market conditions. SDIs can be traded on secondary markets, providing liquidity to investors, but careful consideration of liquidity needs is advised before investing."),
+                          "SecureFAQ14".tr),
                   sizedBoxHeight(15.h),
                 ],
               ),

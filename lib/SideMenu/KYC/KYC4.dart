@@ -48,7 +48,7 @@ class _KYC4State extends State<KYC4> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "KYC",
+                      "kyc".tr,
                       style: TextStyle(
                           fontFamily: "Poppins",
                           fontWeight: FontWeight.w500,
@@ -66,7 +66,7 @@ class _KYC4State extends State<KYC4> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Step 4 : Complete your KYC",
+                            "kycStep4".tr,
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 22.sp,
@@ -77,7 +77,7 @@ class _KYC4State extends State<KYC4> {
                             height: 5.h,
                           ),
                           Text(
-                            "Bank account details",
+                            "Bank account details".tr,
                             style: TextStyle(
                               fontSize: 18.sp,
                               fontFamily: 'Poppins',
@@ -89,7 +89,7 @@ class _KYC4State extends State<KYC4> {
                             height: 5.h,
                           ),
                           Text(
-                            "Provide your Bank account details",
+                            "kycStep4_txt1".tr,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontFamily: 'Poppins',
@@ -100,7 +100,7 @@ class _KYC4State extends State<KYC4> {
                             height: 15.h,
                           ),
                           Text(
-                            "IFSC code",
+                            "IFSC code".tr,
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontSize: 20.sp,
@@ -111,13 +111,13 @@ class _KYC4State extends State<KYC4> {
                             height: 6.h,
                           ),
                           CustomTextFormField(
-                              hintText: "Please Enter IFSC code",
-                              validatorText: "Please Enter IFSC code"),
+                              hintText: "Please Enter IFSC code".tr,
+                              validatorText: "Please Enter IFSC code".tr),
                           SizedBox(
                             height: 13,
                           ),
                           Text(
-                            "Account Number",
+                            "Account Number".tr,
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontSize: 20.sp,
@@ -128,13 +128,13 @@ class _KYC4State extends State<KYC4> {
                             height: 6.h,
                           ),
                           CustomTextFormField(
-                              hintText: "Please Enter Account Number",
-                              validatorText: "Please Enter Account Number"),
+                              hintText: "Please Enter Account Number".tr,
+                              validatorText: "Please Enter Account Number".tr),
                           SizedBox(
                             height: 13.h,
                           ),
                           Text(
-                            "Upload cancelled check/ Bank statement",
+                            "kycStep4_txt2".tr,
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontSize: 20.sp,
@@ -191,7 +191,7 @@ class _KYC4State extends State<KYC4> {
                           ),
                           SizedBox(height: 10.h),
                           Text(
-                            "Bank Name",
+                            "Bank Name".tr,
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontSize: 20.sp,
@@ -202,11 +202,11 @@ class _KYC4State extends State<KYC4> {
                             height: 6.h,
                           ),
                           CustomTextFormField(
-                              hintText: "Please Enter Bank Name",
-                              validatorText: "Please Enter Bank Name"),
+                              hintText: "Please Enter Bank Name".tr,
+                              validatorText: "Please Enter Bank Name".tr),
                           SizedBox(height: 40.h),
                           CustomNextButton(
-                            text: "Submit",
+                            text: "Submit".tr,
                             ontap: () {
                               Timer(
                                   Duration(seconds: 2),
@@ -237,7 +237,7 @@ class _KYC4State extends State<KYC4> {
                                         ),
                                         Center(
                                           child: Text(
-                                            'Thankyou for updating\n your KYC',
+                                            'kycThankyou'.tr,
                                             textAlign: TextAlign.center,
                                             style: TextStyle(
                                                 fontFamily: 'Poppins',

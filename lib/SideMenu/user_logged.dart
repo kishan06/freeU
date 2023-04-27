@@ -67,7 +67,7 @@ class _UserState extends State<User> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Profile Photo',
+                  'Profile Photo'.tr,
                   style: TextStyle(
                       color: const Color(0xff444444),
                       fontSize: 22.sp,
@@ -98,7 +98,7 @@ class _UserState extends State<User> {
                             height: 6.h,
                           ),
                           Text(
-                            'Camera',
+                            'Camera'.tr,
                             style: TextStyle(
                                 fontSize: 13.sp,
                                 color: const Color(0xff444444),
@@ -128,7 +128,7 @@ class _UserState extends State<User> {
                             height: 6.h,
                           ),
                           Text(
-                            'Gallery',
+                            'Gallery'.tr,
                             style: TextStyle(
                                 fontSize: 13.sp,
                                 color: const Color(0xff444444),
@@ -189,7 +189,7 @@ class _UserState extends State<User> {
                 height: 10.h,
               ),
               Text(
-                "Investor profile",
+                "Investor profile".tr,
                 style: TextStyle(
                     fontFamily: "Poppins",
                     fontSize: 25.sp,
@@ -339,7 +339,7 @@ class _UserState extends State<User> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'SMS updates',
+                              'sms'.tr,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 20.sp,
@@ -428,7 +428,7 @@ class _UserState extends State<User> {
           ),
           sizedBoxHeight(33.h),
           Text(
-            "First Name",
+            "profile_name".tr,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -440,20 +440,20 @@ class _UserState extends State<User> {
           CustomTextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter a Username';
+                  return 'profile_nameV1'.tr;
                 }
                 if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
-                  return 'Please enter a valid username (letters and numbers only)';
+                  return 'profile_nameV2'.tr;
                 }
                 // v1 = true;
                 return null;
               },
               textEditingController: nameController,
-              hintText: 'Enter First Name',
-              validatorText: 'Enter First Name'),
+              hintText: 'profile_nameFirst'.tr,
+              validatorText: 'profile_nameFirst'.tr),
           SizedBox(height: 20.h),
           Text(
-            "Last Name",
+            "profile_lastName".tr,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -465,20 +465,20 @@ class _UserState extends State<User> {
           CustomTextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter lastname';
+                  return 'profile_lastnameV1'.tr;
                 }
                 if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
-                  return 'Please enter a valid name (letters and numbers only)';
+                  return 'profile_lastnameV2'.tr;
                 }
                 // v1 = true;
                 return null;
               },
               textEditingController: lastNameController,
-              hintText: 'Enter Last Name',
-              validatorText: 'Enter Last Name'),
+              hintText: 'profile_lastNameV1'.tr,
+              validatorText: 'profile_lastNameV1'.tr),
           SizedBox(height: 20.h),
           Text(
-            "Phone Number",
+            "profile_phone",
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -491,20 +491,20 @@ class _UserState extends State<User> {
               texttype: TextInputType.phone,
               validator: (value) {
                 if (value == value.isEmpty) {
-                  return 'Mobile number is required';
+                  return 'profile_phoneV1'.tr;
                 } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
                     .hasMatch(value)) {
-                  return 'Enter valid mobile number';
+                  return 'profile_phoneV2'.tr;
                 }
                 // v3 = true;
                 return null;
               },
               textEditingController: phoneController,
-              hintText: 'Enter Phone Number',
-              validatorText: 'Enter Phone Number'),
+              hintText: 'profile_phoneV3'.tr,
+              validatorText: 'profile_phoneV3'.tr),
           SizedBox(height: 20.h),
           Text(
-            "Email Id",
+            "profile_email".tr,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -516,18 +516,18 @@ class _UserState extends State<User> {
           CustomTextFormField(
               validator: (value) {
                 if (value == value.isEmpty) {
-                  return 'Please enter your email';
+                  return 'profile_emailV1'.tr;
                 }
                 if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                     .hasMatch(value)) {
-                  return 'Please enter a valid email address';
+                  return 'profile_emailV2'.tr;
                 }
                 // v4 = true;
                 return null;
               },
               textEditingController: emailController,
-              hintText: 'Enter Email Id',
-              validatorText: 'Enter Email Id '),
+              hintText: 'profile_emailV3'.tr,
+              validatorText: 'profile_emailV3'.tr),
           SizedBox(height: 20.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -536,17 +536,17 @@ class _UserState extends State<User> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: const [
+                    children: [
                       Text(
-                        'SMS updates',
+                        'sms'.tr,
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 14.sp,
                           fontFamily: 'Poppins',
                         ),
                       ),
                       SizedBox(
-                        width: 70,
+                        width: 70.w,
                       )
                     ],
                   ),
@@ -580,12 +580,12 @@ class _UserState extends State<User> {
                       const SizedBox(
                         width: 10,
                       ),
-                      const Text(
-                        'Opt Out / Opt In',
+                      Text(
+                        'smsOption'.tr,
                         textAlign: TextAlign.left,
                         style: TextStyle(
-                          color: Color(0xff737373),
-                          fontSize: 14,
+                          color: const Color(0xff737373),
+                          fontSize: 14.sp,
                           fontFamily: 'Poppins',
                         ),
                       ),
@@ -596,7 +596,7 @@ class _UserState extends State<User> {
             ],
           ),
           Text(
-            "Address",
+            "profile_add".tr,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -639,7 +639,7 @@ class _UserState extends State<User> {
               ),
               hintStyle:
                   const TextStyle(color: Color(0x80000000), fontSize: 14),
-              hintText: "Address",
+              hintText: "profile_add".tr,
             ),
             minLines: 5,
             maxLines: null,
@@ -648,7 +648,7 @@ class _UserState extends State<User> {
             height: 30.h,
           ),
           CustomNextButton(
-            text: 'Update',
+            text: 'profile_update'.tr,
             ontap: (() {
               _submit();
             }),

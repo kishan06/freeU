@@ -33,16 +33,16 @@ class _SideBarState extends State<SideBar> {
 
   List sideBarData = [
     {"imagePath": "assets/logos/side1.png", "text": "kyc".tr},
-    {"imagePath": "assets/logos/side2.png", "text": "Security"},
-    {"imagePath": "assets/logos/side3.png", "text": "How to Invest"},
-    {"imagePath": "assets/logos/side4.png", "text": "Update Risk Profile"},
-    {"imagePath": "assets/logos/side5.png", "text": "About FreeU"},
-    {"imagePath": "assets/logos/side6.png", "text": "Our Insights"},
-    {"imagePath": "assets/logos/side7.png", "text": "FAQ's"},
-    {"imagePath": "assets/logos/side8.png", "text": "Privacy Policy"},
-    {"imagePath": "assets/logos/side9.png", "text": "Terms and condition"},
-    {"imagePath": "assets/logos/side10.png", "text": "Contact Us"},
-    {"imagePath": "assets/logos/side11.png", "text": "Logout"},
+    {"imagePath": "assets/logos/side2.png", "text": "Security".tr},
+    {"imagePath": "assets/logos/side3.png", "text": "How to Invest".tr},
+    {"imagePath": "assets/logos/side4.png", "text": "Update Risk Profile".tr},
+    {"imagePath": "assets/logos/side5.png", "text": "About FreeU".tr},
+    {"imagePath": "assets/logos/side6.png", "text": "Our Insights".tr},
+    {"imagePath": "assets/logos/side7.png", "text": "FAQ's".tr},
+    {"imagePath": "assets/logos/side8.png", "text": "Privacy Policy".tr},
+    {"imagePath": "assets/logos/side9.png", "text": "Terms and condition".tr},
+    {"imagePath": "assets/logos/side10.png", "text": "Contact Us".tr},
+    {"imagePath": "assets/logos/side11.png", "text": "Logout".tr},
   ];
   // Menu selectedSideMenu = sidebarMenus.first;
 
@@ -120,7 +120,7 @@ class _SideBarState extends State<SideBar> {
                                           ? 'Kartikey Adani'
                                           : '$nameValue $lastNameValue',
                                     ),
-                                    text14White("Investor")
+                                    text14White("Investor".tr)
                                   ],
                                 ),
 
@@ -188,10 +188,10 @@ class _SideBarState extends State<SideBar> {
                                   children: [
                                     text16White(
                                       nameValue == null || nameValue!.isEmpty
-                                          ? 'Guest'
+                                          ? 'Guest'.tr
                                           : '$nameValue $lastNameValue',
                                     ),
-                                    text14White("Sign In/Sign up")
+                                    text14White("Sign In/Sign up".tr)
                                   ],
                                 ),
 
@@ -295,7 +295,7 @@ class _SideBarState extends State<SideBar> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            title: const Text('Language'),
+                            title: Text('Language'.tr),
                             content: Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -304,7 +304,7 @@ class _SideBarState extends State<SideBar> {
                                 ),
                                 Center(
                                   child: Text(
-                                    'Select Language',
+                                    'Select Language'.tr,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                         fontSize: 17.sp,
@@ -328,7 +328,7 @@ class _SideBarState extends State<SideBar> {
                                         });
                                         Get.back();
                                       },
-                                      child: const Text('English')),
+                                      child: Text('English'.tr)),
                                 ),
                                 SizedBox(
                                   height: 20.h,
@@ -351,8 +351,8 @@ class _SideBarState extends State<SideBar> {
                                           });
                                           Get.back();
                                         },
-                                        child: const Text(
-                                          "Hindi",
+                                        child: Text(
+                                          "Hindi".tr,
                                         ),
                                       ),
                                     ),
@@ -366,12 +366,12 @@ class _SideBarState extends State<SideBar> {
                     },
                     child: Column(
                       children: [
-                        const Text(
-                          'Langauge',
+                        Text(
+                          'Language'.tr,
                         ),
                         sizedBoxHeight(5.h),
                         Text(
-                          language == null ? 'English' : '$language',
+                          language == null ? 'English'.tr : '$language',
                         ),
                       ],
                     ),
@@ -499,7 +499,7 @@ Future<dynamic> logoutDailog(BuildContext context) {
             // ),
             Center(
               child: Text(
-                'Are you sure want to log out?',
+                'Loguot_Dialogue'.tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 17.sm, color: Color(0xFF444444)),
               ),
@@ -516,7 +516,7 @@ Future<dynamic> logoutDailog(BuildContext context) {
                   width: double.infinity,
                   height: 50.h,
                   child: CustomNextButton(
-                    text: "Log out",
+                    text: "Logout".tr,
                     ontap: () async {
                       final SharedPreferences prefs =
                           await SharedPreferences.getInstance();
@@ -565,7 +565,7 @@ Future<dynamic> logoutDailog(BuildContext context) {
                   ),
                   child: Center(
                     child: Text(
-                      "Cancel",
+                      "Cancel".tr,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'Poppins',

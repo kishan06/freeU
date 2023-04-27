@@ -44,7 +44,7 @@ class _KYC1State extends State<KYC1> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "KYC",
+                  "kyc".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w500,
@@ -64,7 +64,7 @@ class _KYC1State extends State<KYC1> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Step 1 : Complete your KYC",
+                        "kyc_step1".tr,
                         style: TextStyle(
                             fontSize: 22.sp,
                             color: Color(0xFF143C6D),
@@ -75,7 +75,7 @@ class _KYC1State extends State<KYC1> {
                         height: 5.h,
                       ),
                       Text(
-                        "Personal Information",
+                        "kyc_step1_info".tr,
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 18.sp,
@@ -87,7 +87,7 @@ class _KYC1State extends State<KYC1> {
                         height: 5.h,
                       ),
                       Text(
-                        "Provide your personal information as per your Bank Account",
+                        "kyc_step1_info1".tr,
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 14.sp,
@@ -98,7 +98,7 @@ class _KYC1State extends State<KYC1> {
                         height: 15.h,
                       ),
                       Text(
-                        "Contact Number",
+                        "kyc_step1_number".tr,
                         // ignore: prefer_const_constructors
                         style: TextStyle(
                             fontFamily: 'Poppins',
@@ -109,13 +109,13 @@ class _KYC1State extends State<KYC1> {
                         height: 6.h,
                       ),
                       CustomTextFormField(
-                          hintText: "Please Enter Phone Number",
-                          validatorText: "Please Enter Phone Number"),
+                          hintText: "kykyc_step1_numberV1".tr,
+                          validatorText: "kykyc_step1_numberV1".tr),
                       SizedBox(
                         height: 20.h,
                       ),
                       Text(
-                        "Email ID",
+                        "profile_email".tr,
                         // ignore: prefer_const_constructors
                         style: TextStyle(
                             fontFamily: 'Poppins',
@@ -126,11 +126,11 @@ class _KYC1State extends State<KYC1> {
                         height: 6.h,
                       ),
                       CustomTextFormField(
-                          hintText: "Please Enter Email Id",
-                          validatorText: "Please Enter Email Id"),
+                          hintText: "profile_emailV1".tr,
+                          validatorText: "profile_emailV1".tr),
                       SizedBox(height: 20.h),
                       Text(
-                        "Residential Status",
+                        "kyc_residential".tr,
                         // ignore: prefer_const_constructors
                         style: TextStyle(
                             fontFamily: 'Poppins',
@@ -146,7 +146,7 @@ class _KYC1State extends State<KYC1> {
                           showDropDown: true),
                       SizedBox(height: 20.h),
                       Text(
-                        "Date of Birth",
+                        "dob".tr,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -193,7 +193,7 @@ class _KYC1State extends State<KYC1> {
                       //     hintText: "", validatorText: "Please Enter Email Id"),
                       SizedBox(height: 20.h),
                       Text(
-                        "Occupation",
+                        "Occupation".tr,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -204,9 +204,9 @@ class _KYC1State extends State<KYC1> {
                       ),
                       CustomTextDropdown(
                           item: [
-                            "Marketing manager",
-                            "financial operations.",
-                            "Software developer."
+                            "Marketing manager".tr,
+                            "financial operations".tr,
+                            "Software developer".tr
                           ],
                           controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
@@ -216,7 +216,7 @@ class _KYC1State extends State<KYC1> {
                       //     validatorText: "Please Enter Occupation"),
                       SizedBox(height: 20.h),
                       Text(
-                        "Father's Name",
+                        "Father's Name".tr,
                         // ignore: prefer_const_constructors
                         style: TextStyle(
                             fontFamily: 'Poppins',
@@ -227,11 +227,11 @@ class _KYC1State extends State<KYC1> {
                         height: 6.h,
                       ),
                       CustomTextFormField(
-                          hintText: "Please Enter Father's Name",
-                          validatorText: "Please Enter Father's Name"),
+                          hintText: "Please Enter Father's Name".tr,
+                          validatorText: "Please Enter Father's Name".tr),
                       SizedBox(height: 40.h),
                       CustomNextButton(
-                        text: "Continue",
+                        text: "Continue".tr,
                         ontap: () {
                           setState(() {
                             Get.toNamed('/kyc2');

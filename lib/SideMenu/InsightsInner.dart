@@ -163,7 +163,7 @@ class _InsightsInnerState extends State<InsightsInner> {
                 Get.back();
                 Get.to(InsightsInner());
               },
-              text: "Next",
+              text: "Next".tr,
             ),
             sizedBoxHeight(20.h)
           ],

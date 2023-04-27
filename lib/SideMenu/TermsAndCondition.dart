@@ -33,7 +33,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Terms & condition",
+                    "Terms & condition".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -57,7 +57,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              '1. Terms',
+                              '1. Terms'.tr,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 18.sp,
@@ -70,7 +70,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           height: 13.h,
                         ),
                         Text(
-                          'By accessing this web site, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. ',
+                          'Termstxt1'.tr,
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontFamily: 'Poppins',
@@ -83,7 +83,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            'If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.',
+                            'Termstxt2'.tr,
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontFamily: 'Poppins',
@@ -96,7 +96,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              '2. Limitations',
+                              '2. Limitations'.tr,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 18.sp,
@@ -109,7 +109,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           height: 15.h,
                         ),
                         Text(
-                          'Whilst we try to ensure that the standard of the Website remains high and to maintain the continuity of it, the internet is not an inherently stable medium, and errors, omissions, interruptions of service and delays may occur at any time. ',
+                          'Termstxt3'.tr,
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Color(0xff131313),
@@ -119,7 +119,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           height: 20.h,
                         ),
                         Text(
-                          'We do not accept any liability arising from any such errors, omissions, interruptions or delays or any ongoing obligation or responsibility to operate the Website (or any particular part of it) or to provide the service offered on the Website. We may vary the specification of this site from time to time without notice.',
+                          'Termstxt4'.tr,
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Color(0xff131313),
@@ -130,7 +130,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
-                              '3. Revisions and Errata',
+                              '3. Revisions and Errata'.tr,
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 18.sp,
@@ -143,7 +143,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           height: 15.h,
                         ),
                         Text(
-                          'You may only use the Website for lawful purposes when seeking employment or help with your career, when purchasing training courses or when recruiting staff. You must not under any circumstances seek to undermine the security of the Website or any information submitted to or available through it. In particular, but without limitation, you must not seek to access, alter or delete any information to which you do not have authorised access, seek to overload the system via spamming or flooding, take any action or use any device, routine or software to crash, delay, damage or otherwise interfere with the operation of the Website or attempt to decipher, disassemble or modify any of the software, coding or information comprised in the Website.',
+                          'Termstxt5'.tr,
                           style: TextStyle(
                             fontSize: 14.sp,
                             color: Color(0xff131313),
