@@ -138,6 +138,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                                   },
                                   hintText: "Enter your Phone Number",
                                   validatorText: "Enter your Phone Number"),
+                          
                             ],
                           ),
                           SizedBox(

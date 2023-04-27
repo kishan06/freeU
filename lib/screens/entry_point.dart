@@ -44,12 +44,13 @@ class _EntryPointState extends State<EntryPoint>
   // late bool Loge;
   // var selectedIndex = 0.obs;
   var screens = [
-    HomePage(),
-    CategoriesMain(),
-    NewInvestment(),
-    ChatPage(),
-    Profile()
+    const HomePage(),
+    const CategoriesMain(),
+    const NewInvestment(),
+    const ChatPage(),
+    const Profile()
   ];
+
 
   // changePage(){
   //   setState(() {
@@ -59,12 +60,13 @@ class _EntryPointState extends State<EntryPoint>
 
   @override
   void initState() {
+    super.initState();
     controllerEntryPoint.checkLogin();
     // final SharedPreferences prefs = await SharedPreferences.getInstance();
     // logedIn = prefs.getBool('LogedIn') ?? false;
     // checkLogin();
     // print("checked");
-    selectedIndex = Get.arguments;
+    selectedIndex = Get.arguments??0;
     // controllerEntryPoint.selectedIndex = Get.arguments;
     // controllerEntryPoint.selectedPage(Get.arguments);
     // print(selectedIndex);
@@ -75,7 +77,7 @@ class _EntryPointState extends State<EntryPoint>
         //     // setState(() {});
         //   });
         // })
-        AnimationController(vsync: this, duration: Duration(milliseconds: 200))
+        AnimationController(vsync: this, duration: const Duration(milliseconds: 200))
           ..addListener(() {
             setState(() {});
           });
@@ -87,7 +89,7 @@ class _EntryPointState extends State<EntryPoint>
         parent: _animationController, curve: Curves.fastOutSlowIn));
     //
     // TODO: implement initState
-    super.initState();
+    // super.initState();
   }
 
   @override
@@ -106,22 +108,22 @@ class _EntryPointState extends State<EntryPoint>
       child: Container(
         color: AppColors.white,
         child: SafeArea(
-          child: Scaffold(
+          child: GetBuilder<EntryPointController>(builder: (_){
+            return controllerEntryPoint.isLoading!
+              ? const SizedBox()
+              : Scaffold(
               backgroundColor: AppColors.blue143C6D,
               resizeToAvoidBottomInset: false,
               extendBody: true,
-              body: GetBuilder<EntryPointController>(builder: (_) {
-                return controllerEntryPoint.isLoading!
-                    ? Center(child: const CircularProgressIndicator())
-                    : Stack(
+              body: Stack(
                         children: [
                           AnimatedPositioned(
-                              duration: Duration(milliseconds: 200),
+                              duration: const Duration(milliseconds: 200),
                               curve: Curves.fastOutSlowIn,
                               left: isSideMenuClosed ? -300.w : 0,
                               width: 300.w,
                               height: MediaQuery.of(context).size.height,
-                              child: SideBar()),
+                              child: const SideBar()),
                           Transform(
                             alignment: Alignment.center,
                             transform: Matrix4.identity()
@@ -144,7 +146,7 @@ class _EntryPointState extends State<EntryPoint>
                                         ))),
                           ),
                           AnimatedPositioned(
-                            duration: Duration(milliseconds: 200),
+                            duration: const Duration(milliseconds: 200),
                             curve: Curves.fastOutSlowIn,
                             // left: isSideMenuClosed ? 0 ? 220,
                             top: 5.h,
@@ -180,8 +182,8 @@ class _EntryPointState extends State<EntryPoint>
                             ),
                           ),
                         ],
-                      );
-              }),
+                      ),
+                      
               bottomNavigationBar: isSideMenuClosed
                   ? BottomNavigationBar(
                       // height
@@ -316,7 +318,10 @@ class _EntryPointState extends State<EntryPoint>
                   //     ),
 
                   //   )
-                  : SizedBox()),
+                  : const SizedBox());
+      
+          })
+          
         ),
       ),
     );
