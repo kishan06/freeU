@@ -142,7 +142,7 @@ class _ChatPageState extends State<ChatPage> {
             sizedBoxWidth(45.w),
             sizedBoxWidth(5.w),
             Text(
-              'Chats',
+              'chats'.tr,
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(

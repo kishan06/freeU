@@ -60,28 +60,28 @@ class _HomePageState extends State<HomePage> {
   List topPickData = [
     {
       // /
-      "text1": "Fractional Real Estate",
+      "text1": "homepage_list_text1".tr,
       "imageUrl": "assets/images/rahul-bhogal-Ub9LkIWxyec-unsplash.png",
-      "title": "Vaishnavi Tech Park\nOpportunity",
-      "add": "Outer Ring Road Sarjapur,\nBangalore",
+      "title": "homepage_list_title1".tr,
+      "add": "homepage_list_add1".tr,
     },
     {
-      "text1": "Alternative investment funds",
+      "text1": "homepage_list_text2".tr,
       "imageUrl": "assets/images/toppicks.png",
-      "title": "Tata Consultancy\nServices",
-      "add": "Banyan Park,\nMumbai",
+      "title": "homepage_list_title2".tr,
+      "add": "homepage_list_add2".tr,
     },
     {
-      "text1": "Fractional Real Estate",
+      "text1": "homepage_list_text1".tr,
       "imageUrl": "assets/images/rahul-bhogal-Ub9LkIWxyec-unsplash.png",
-      "title": "Vaishnavi Tech Park\nOpportunity",
-      "add": "Outer Ring Road Sarjapur,\nBangalore",
+      "title": "homepage_list_title1".tr,
+      "add": "homepage_list_add1".tr,
     },
     {
-      "text1": "Alternative investment funds",
+      "text1": "homepage_list_text2".tr,
       "imageUrl": "assets/images/toppicks.png",
-      "title": "Tata Consultancy\nServices",
-      "add": "Banyan Park,\nMumbai",
+      "title": "homepage_list_title2".tr,
+      "add": "homepage_list_add2".tr,
     },
   ];
 
@@ -92,70 +92,70 @@ class _HomePageState extends State<HomePage> {
       "colorD": AppColors.redD_5F0801,
       "bgImage": "assets/newImages/bgRed.svg",
       "imageUrl": "assets/newImages/cat1.png",
-      "title": "Alternative Investment Funds",
+      "title": "homepage_list_text2".tr,
     },
     {
       "colorL": AppColors.blueL_006796,
       "colorD": AppColors.blueD_00344B,
       "bgImage": "assets/newImages/bgBlue.svg",
       "imageUrl": "assets/newImages/cat2.png",
-      "title": "Fractional Real Estate",
+      "title": "homepage_list_text1".tr,
     },
     {
       "colorL": AppColors.greenL_089435,
       "colorD": AppColors.greenD_044A1B,
       "bgImage": "assets/newImages/bgGreen.svg",
       "imageUrl": "assets/newImages/cat3.png",
-      "title": "Peer- Peer lending",
+      "title": "homepage_list_title3".tr,
     },
     {
       "colorL": AppColors.purpleL_474E88,
       "colorD": AppColors.purpleD_242744,
       "bgImage": "assets/newImages/bgPurple (2).svg",
       "imageUrl": "assets/newImages/cat4.png",
-      "title": "Invoice Discounting",
+      "title": "homepage_list_title4".tr,
     },
     {
       "colorL": AppColors.brownL_973926,
       "colorD": AppColors.brownD_4C1D13,
       "bgImage": "assets/newImages/bgBrown.svg",
       "imageUrl": "assets/newImages/cat5.png",
-      "title": "Revenue based Financing",
+      "title": "homepage_list_title5".tr,
     },
     {
       "colorL": AppColors.pinkL_E6088B,
       "colorD": AppColors.pinkD_730446,
       "bgImage": "assets/newImages/bgPink.svg",
       "imageUrl": "assets/newImages/cat6.png",
-      "title": "Lease based Financing",
+      "title": "homepage_list_title6".tr,
     },
     {
       "colorL": AppColors.redL_BE0F02,
       "colorD": AppColors.redD_5F0801,
       "bgImage": "assets/newImages/bgRed.svg",
       "imageUrl": "assets/newImages/cat7.png",
-      "title": "Clean and Green Assets",
+      "title": "homepage_list_title7".tr,
     },
     {
       "colorL": AppColors.blueL_006796,
       "colorD": AppColors.blueD_00344B,
       "bgImage": "assets/newImages/bgBlue.svg",
       "imageUrl": "assets/newImages/cat8.png",
-      "title": "Venture Debt",
+      "title": "homepage_list_title8".tr,
     },
     {
       "colorL": AppColors.greenL_089435,
       "colorD": AppColors.greenD_044A1B,
       "bgImage": "assets/newImages/bgGreen.svg",
       "imageUrl": "assets/newImages/cat9.png",
-      "title": "Secured Debt",
+      "title": "homepage_list_title9".tr,
     },
     {
       "colorL": AppColors.purpleL_474E88,
       "colorD": AppColors.purpleD_242744,
       "bgImage": "assets/newImages/bgPurple (2).svg",
       "imageUrl": "assets/newImages/cat10.png",
-      "title": "High Yield Finance",
+      "title": "homepage_list_title10".tr,
     },
   ];
 
@@ -175,7 +175,7 @@ class _HomePageState extends State<HomePage> {
             sizedBoxWidth(45.w),
             sizedBoxWidth(5.w),
             Text(
-              'Welcome',
+              "homepage_title1".tr,
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -250,8 +250,7 @@ class _HomePageState extends State<HomePage> {
                       Spacer(),
 
                       // Text(data)
-                      text16White(
-                          "We do not just provide you options. We want you to learn about the ones best suited for your needs.",
+                      text16White("homepage_title2".tr,
                           textAlign: TextAlign.center)
                     ],
                   ),
@@ -266,7 +265,7 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      text20Black("Top Picks"),
+                      text20Black("homepage_topPics".tr),
                       InkWell(
                           onTap: () {
                             Get.toNamed("/EntryPoint",
@@ -277,7 +276,7 @@ class _HomePageState extends State<HomePage> {
                             // selectedIndex = 1;
                             // setState(() {});
                           },
-                          child: text14Grey272424("View more"))
+                          child: text14Grey272424("homepage_ViewMore".tr))
                     ],
                   ),
                   SizedBox(
@@ -324,7 +323,8 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20.h,
               ),
-              twoText("Categories", "View more", onTap: () {
+              twoText("homepage_Categories".tr, "homepage_ViewMore".tr,
+                  onTap: () {
                 Get.toNamed("/EntryPoint",
                     arguments: 1, preventDuplicates: false);
                 // controllerEntryPoint.selectedPage(1);
@@ -401,8 +401,8 @@ class _HomePageState extends State<HomePage> {
               sizedBoxHeight(15.h),
               OpenContainerWrappers(
                 closeBuild: twoText(
-                  "Knowledge center",
-                  "View more",
+                  "homepage_KnowlegeCenter".tr,
+                  "homepage_ViewMore".tr,
                 ),
                 openBuild: Insights(),
               ),
@@ -473,7 +473,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Retail banks wake up to digital",
+                        "homepage_Scard".tr,
                         style: blackStyle14(),
                       ),
                       Row(
@@ -486,7 +486,7 @@ class _HomePageState extends State<HomePage> {
                             width: 5,
                           ),
                           Text(
-                            "October 17 , 2022",
+                            "homepage_Date".tr,
                             style: blackStyle12(),
                           ),
                         ],

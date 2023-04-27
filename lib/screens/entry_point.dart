@@ -204,7 +204,7 @@ class _EntryPointState extends State<EntryPoint>
                           icon: inactiveIcon(
                               "assets/images/home-svgrepo-com.svg"),
                           // icon: Icon(Icons.home),
-                          label: "Home",
+                          label: "entrypoint_bottombar1".tr,
                         ),
                         BottomNavigationBarItem(
                           // icon: Icon(Icons.explore),
@@ -212,7 +212,7 @@ class _EntryPointState extends State<EntryPoint>
                               "assets/images/category-alt-svgrepo-com (1).svg"),
                           icon: inactiveIcon(
                               "assets/images/category-alt-svgrepo-com.svg"),
-                          label: "Categories",
+                          label: "entrypoint_bottombar2".tr,
                         ),
                         BottomNavigationBarItem(
                           activeIcon:
@@ -221,20 +221,20 @@ class _EntryPointState extends State<EntryPoint>
                               "assets/images/money-dollar-coin-svgrepo-com.svg"),
 
                           // icon: Icon(Icons.circle, size: 0),
-                          label: "Investment",
+                          label: "entrypoint_bottombar3".tr,
                         ),
                         BottomNavigationBarItem(
                           activeIcon: activeIcon(
                               "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
                           icon: inactiveIcon(
                               "assets/images/chat-left-3-svgrepo-com (2).svg"),
-                          label: "Chat",
+                          label: "entrypoint_bottombar4".tr,
                         ),
                         BottomNavigationBarItem(
                           activeIcon:
                               activeIcon("assets/images/Path 30132.svg"),
                           icon: inactiveIcon("assets/images/profile.svg"),
-                          label: "Profile",
+                          label: "entrypoint_bottombar5".tr,
                         ),
                       ],
                       currentIndex: selectedIndex,
@@ -341,7 +341,7 @@ class _EntryPointState extends State<EntryPoint>
                 borderRadius: BorderRadius.circular(10.r)),
             insetPadding: const EdgeInsets.symmetric(vertical: 10),
             title: Text(
-              "Exit App",
+              "entrypoint_exit1".tr,
               style: TextStyle(
                   fontFamily: 'Studio Pro',
                   fontWeight: FontWeight.bold,
@@ -351,7 +351,7 @@ class _EntryPointState extends State<EntryPoint>
             content: SizedBox(
               width: MediaQuery.of(context).size.width,
               child: Text(
-                "Are you sure you want to Exit App?",
+                "entrypoint_exit2".tr,
                 style: TextStyle(
                     fontFamily: 'Roboto',
                     fontSize: 16.sp,
@@ -364,7 +364,7 @@ class _EntryPointState extends State<EntryPoint>
                   Get.back();
                 },
                 child: Text(
-                  "No",
+                  "entrypoint_exit3".tr,
                   style: TextStyle(
                       fontFamily: "Roboto",
                       fontWeight: FontWeight.w500,
@@ -378,7 +378,7 @@ class _EntryPointState extends State<EntryPoint>
                   SystemNavigator.pop();
                 },
                 child: Text(
-                  "Yes",
+                  "entrypoint_exit4".tr,
                   style: TextStyle(
                       fontFamily: "Roboto",
                       fontWeight: FontWeight.w500,

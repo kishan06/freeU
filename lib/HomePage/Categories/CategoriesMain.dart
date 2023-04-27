@@ -57,70 +57,70 @@ class _CategoriesMainState extends State<CategoriesMain> {
       "colorD": AppColors.redD_5F0801,
       "bgImage": "assets/newImages/bgRed.svg",
       "imageUrl": "assets/newImages/cat1.png",
-      "title": "Alternative Investment Funds",
+      "title": "homepage_list_text2".tr,
     },
     {
       "colorL": AppColors.blueL_006796,
       "colorD": AppColors.blueD_00344B,
       "bgImage": "assets/newImages/bgBlue.svg",
       "imageUrl": "assets/newImages/cat2.png",
-      "title": "Fractional Real Estate",
+      "title": "homepage_list_text1".tr,
     },
     {
       "colorL": AppColors.greenL_089435,
       "colorD": AppColors.greenD_044A1B,
       "bgImage": "assets/newImages/bgGreen.svg",
       "imageUrl": "assets/newImages/cat3.png",
-      "title": "Peer- Peer lending",
+      "title": "homepage_list_title3".tr,
     },
     {
       "colorL": AppColors.purpleL_474E88,
       "colorD": AppColors.purpleD_242744,
       "bgImage": "assets/newImages/bgPurple (2).svg",
       "imageUrl": "assets/newImages/cat4.png",
-      "title": "Invoice Discounting",
+      "title": "homepage_list_title4".tr,
     },
     {
       "colorL": AppColors.brownL_973926,
       "colorD": AppColors.brownD_4C1D13,
       "bgImage": "assets/newImages/bgBrown.svg",
       "imageUrl": "assets/newImages/cat5.png",
-      "title": "Revenue based Financing",
+      "title": "homepage_list_title5".tr,
     },
     {
       "colorL": AppColors.pinkL_E6088B,
       "colorD": AppColors.pinkD_730446,
       "bgImage": "assets/newImages/bgPink.svg",
       "imageUrl": "assets/newImages/cat6.png",
-      "title": "Lease based Financing",
+      "title": "homepage_list_title6".tr,
     },
     {
       "colorL": AppColors.redL_BE0F02,
       "colorD": AppColors.redD_5F0801,
       "bgImage": "assets/newImages/bgRed.svg",
       "imageUrl": "assets/newImages/cat7.png",
-      "title": "Clean and Green Assets",
+      "title": "homepage_list_title7".tr,
     },
     {
       "colorL": AppColors.blueL_006796,
       "colorD": AppColors.blueD_00344B,
       "bgImage": "assets/newImages/bgBlue.svg",
       "imageUrl": "assets/newImages/cat8.png",
-      "title": "Venture Debt",
+      "title": "homepage_list_title8".tr,
     },
     {
       "colorL": AppColors.greenL_089435,
       "colorD": AppColors.greenD_044A1B,
       "bgImage": "assets/newImages/bgGreen.svg",
       "imageUrl": "assets/newImages/cat9.png",
-      "title": "Secured Debt",
+      "title": "homepage_list_title9".tr,
     },
     {
       "colorL": AppColors.purpleL_474E88,
       "colorD": AppColors.purpleD_242744,
       "bgImage": "assets/newImages/bgPurple (2).svg",
       "imageUrl": "assets/newImages/cat10.png",
-      "title": "High Yield Finance",
+      "title": "homepage_list_title10".tr,
     },
   ];
 
@@ -212,7 +212,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
             sizedBoxWidth(5.w),
             Text(
-              'Categories',
+              'homepage_Categories'.tr,
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -375,13 +375,13 @@ class _CategoriesMainState extends State<CategoriesMain> {
         }
 
         break;
-      
-      case 3:
-      {
-        return InvoiceDiscountingMain();
-      }
 
-      break;
+      case 3:
+        {
+          return InvoiceDiscountingMain();
+        }
+
+        break;
 
       case 4:
         {
@@ -417,9 +417,6 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
         break;
 
-
-
-      
       case 9:
         {
           return HighYieldFinance();

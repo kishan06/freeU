@@ -83,6 +83,7 @@ import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewProducts.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary III/PrivatePublicEquityViewMore.dart';
 import 'HomePage/Categories/Alternative/FullyFundedBank.dart';
+import 'common/Language/LocalString.dart';
 
 int bottomIndex = 0;
 
@@ -108,6 +109,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (BuildContext context, Widget? child) => GetMaterialApp(
+        translations: LocalString(),
+        locale: const Locale('en', 'US'),
         debugShowCheckedModeBanner: false,
         title: 'FreeU',
         // initialRoute: '/SideBar',
@@ -200,7 +203,7 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/realestatepage', page: () => RealEstatepage()),
 
           GetPage(name: '/distressedasset', page: () => DistressedAsset()),
-          
+
           GetPage(name: '/DebtFundProd', page: () => DebtFundProd()),
 
           GetPage(
@@ -221,11 +224,9 @@ class _MyAppState extends State<MyApp> {
           // GetPage(
           //     name: '/highyieldproperties', page: () => HighYieldProperties()),
 
-
-            // GetPage(
-            //   name: '/highyieldproperties',
-            //   page: () => HighYieldProperties()),    
-
+          // GetPage(
+          //   name: '/highyieldproperties',
+          //   page: () => HighYieldProperties()),
 
           GetPage(name: '/debtfundviewmore', page: () => DebtFundViewMore()),
           GetPage(
@@ -251,18 +252,16 @@ class _MyAppState extends State<MyApp> {
               name: '/AngelFundMoreProduct',
               page: () => AngelFundMoreProduct()),
 
-           GetPage(
-              name: '/hedgeviewproducts',
-              page: () => HedgeViewmoreProducts()),
+          GetPage(
+              name: '/hedgeviewproducts', page: () => HedgeViewmoreProducts()),
 
-              GetPage(
+          GetPage(
               name: '/privateinvestmentproducts',
-              page: () => PrivateInvestmentProducts()), 
+              page: () => PrivateInvestmentProducts()),
 
-                    GetPage(
+          GetPage(
               name: '/realestateviewmoreproducts',
               page: () => RealEstateViewmoreProducts()),
-              
         ],
       ),
       designSize: Size(390, 844),

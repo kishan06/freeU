@@ -260,7 +260,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                           ),
                           hintStyle:
                               TextStyle(color: Colors.black, fontSize: 16.sp),
-                          hintText: "Type a Message",
+                          hintText: "chats2".tr,
                           suffixIcon: Icon(
                             Icons.attach_file,
                             color: Colors.black,
@@ -296,7 +296,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                             borderRadius: BorderRadius.circular(10.r)),
                         child: Center(
                             child: Text(
-                          'Send',
+                          'chats1'.tr,
                           style:
                               TextStyle(color: Colors.white, fontSize: 16.sp),
                         ))),

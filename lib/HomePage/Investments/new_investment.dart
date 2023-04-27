@@ -51,7 +51,7 @@ class _NewInvestmentState extends State<NewInvestment> {
             sizedBoxWidth(45.w),
             sizedBoxWidth(5.w),
             Text(
-              'Your investments',
+              'investment_title'.tr,
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -141,7 +141,7 @@ class _NewInvestmentState extends State<NewInvestment> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      "Current Investment",
+                      "investment_txt1".tr,
                       style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 20.sp,
@@ -153,7 +153,7 @@ class _NewInvestmentState extends State<NewInvestment> {
                       //   Get.toNamed('/currentinvestment');
                       // },
                       closeBuild: Text(
-                        "View All",
+                        "investment_txt2".tr,
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           color: Color(0XFF000000),
@@ -488,12 +488,15 @@ class _NewInvestmentState extends State<NewInvestment> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Previously Invested\nProducts",
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w500),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2,
+                      child: Text(
+                        "investment_txt3".tr,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
                     OpenContainerWrappers(
                       openBuild: PreviouslyInvestedProducts(),
@@ -503,7 +506,7 @@ class _NewInvestmentState extends State<NewInvestment> {
                       closeBuild: Padding(
                         padding: const EdgeInsets.only(bottom: 30),
                         child: Text(
-                          "View All",
+                          "investment_txt2".tr,
                           style: TextStyle(
                             color: Color(0XFF000000),
                             fontFamily: 'Poppins',
@@ -692,24 +695,28 @@ class _NewInvestmentState extends State<NewInvestment> {
                   height: 30.h,
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "Suggested Invested\nProducts",
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w500),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2 - 10.w,
+                      child: Text(
+                        "investment_txt4".tr,
+                        style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
-                    OpenContainerWrappers(
-                      openBuild: SuggestedInvestedProducts(),
-                      // onTap: () {
-                      //   Get.toNamed('/suggestedinvestedproducts');
-                      // },
-                      closeBuild: Padding(
-                        padding: const EdgeInsets.only(bottom: 30),
-                        child: Text(
-                          "View All",
+                    sizedBoxWidth(5.w),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width / 2.54,
+                      child: OpenContainerWrappers(
+                        openBuild: SuggestedInvestedProducts(),
+                        // onTap: () {
+                        //   Get.toNamed('/suggestedinvestedproducts');
+                        // },
+                        closeBuild: Text(
+                          "investment_txt3".tr,
+                          textAlign: TextAlign.start,
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             color: Color(0XFF000000),
@@ -1024,7 +1031,8 @@ class _NewInvestmentState extends State<NewInvestment> {
               Padding(
                 padding: const EdgeInsets.only(left: 15, right: 11),
                 child: Text(
-                  'Thank You For Selling\n           Product',
+                  'investment_txt5'.tr,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 30,
@@ -1038,7 +1046,8 @@ class _NewInvestmentState extends State<NewInvestment> {
               Padding(
                 padding: const EdgeInsets.only(left: 40, right: 40),
                 child: Text(
-                  'A FreeU Advisory Team will \n    get back to you soon.',
+                  'investment_txt6'.tr,
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 20,

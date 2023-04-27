@@ -106,7 +106,7 @@ class _ProfileState extends State<Profile> {
               sizedBoxWidth(45.w),
               sizedBoxWidth(5.w),
               Text(
-                'Your Profile',
+                'profile_title'.tr,
                 softWrap: true,
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -132,18 +132,21 @@ class _ProfileState extends State<Profile> {
                   tabs: [
                     Tab(
                         child: Text(
-                      'Profile',
-                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                      'profile'.tr,
+                      style:
+                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                     )),
                     Tab(
                         child: Text(
-                      'KYC',
-                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                      'kyc'.tr,
+                      style:
+                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                     )),
                     Tab(
                         child: Text(
-                      'Risk Profile',
-                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                      'profile_risk'.tr,
+                      style:
+                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                     )),
                   ],
                 ),
@@ -467,7 +470,7 @@ class _profiletabState extends State<profiletab> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'SMS updates',
+                            'sms'.tr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontSize: 20.sp,
@@ -556,7 +559,7 @@ class _profiletabState extends State<profiletab> {
           ),
           sizedBoxHeight(33.h),
           Text(
-            "First Name",
+            "profile_name".tr,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -568,20 +571,19 @@ class _profiletabState extends State<profiletab> {
           CustomTextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter a Username';
+                  return 'profile_nameV1'.tr;
                 }
                 if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
-                  return 'Please enter a valid username (letters and numbers only)';
+                  return 'profile_nameV2'.tr;
                 }
-                // v1 = true;
                 return null;
               },
               textEditingController: nameController,
-              hintText: 'Enter First Name',
-              validatorText: 'Enter First Name'),
+              hintText: 'profile_nameFirst'.tr,
+              validatorText: 'profile_nameFirst'.tr),
           SizedBox(height: 20.h),
           Text(
-            "Last Name",
+            "profile_lastName".tr,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -593,20 +595,20 @@ class _profiletabState extends State<profiletab> {
           CustomTextFormField(
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Please enter lastname';
+                  return 'profile_lastnameV1'.tr;
                 }
                 if (!RegExp(r'^[a-zA-Z0-9 ]+$').hasMatch(value)) {
-                  return 'Please enter a valid name (letters and numbers only)';
+                  return 'profile_lastnameV2'.tr;
                 }
                 // v1 = true;
                 return null;
               },
               textEditingController: lastNameController,
-              hintText: 'Enter Last Name',
-              validatorText: 'Enter Last Name'),
+              hintText: 'profile_lastNameV1'.tr,
+              validatorText: 'profile_lastNameV1'.tr),
           SizedBox(height: 20.h),
           Text(
-            "Phone Number",
+            "profile_phone".tr,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -619,20 +621,20 @@ class _profiletabState extends State<profiletab> {
               texttype: TextInputType.phone,
               validator: (value) {
                 if (value == value.isEmpty) {
-                  return 'Mobile number is required';
+                  return 'profile_phoneV1'.tr;
                 } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
                     .hasMatch(value)) {
-                  return 'Enter valid mobile number';
+                  return 'profile_phoneV2'.tr;
                 }
                 // v3 = true;
                 return null;
               },
               textEditingController: phoneController,
-              hintText: 'Enter Phone Number',
-              validatorText: 'Enter Phone Number'),
+              hintText: 'profile_phoneV3'.tr,
+              validatorText: 'profile_phoneV3'.tr),
           SizedBox(height: 20.h),
           Text(
-            "Email Id",
+            "profile_email".tr,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -644,18 +646,18 @@ class _profiletabState extends State<profiletab> {
           CustomTextFormField(
               validator: (value) {
                 if (value == value.isEmpty) {
-                  return 'Please enter your email';
+                  return 'profile_emailV1'.tr;
                 }
                 if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$')
                     .hasMatch(value)) {
-                  return 'Please enter a valid email address';
+                  return 'profile_emailV2'.tr;
                 }
                 // v4 = true;
                 return null;
               },
               textEditingController: emailController,
-              hintText: 'Enter Email Id',
-              validatorText: 'Enter Email Id '),
+              hintText: 'profile_emailV3'.tr,
+              validatorText: 'profile_emailV3'.tr),
           SizedBox(height: 20.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
@@ -666,7 +668,7 @@ class _profiletabState extends State<profiletab> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Text(
-                        'SMS updates',
+                        'sms'.tr,
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontSize: 14,
@@ -708,8 +710,8 @@ class _profiletabState extends State<profiletab> {
                       const SizedBox(
                         width: 10,
                       ),
-                      const Text(
-                        'Opt Out / Opt In',
+                      Text(
+                        'smsOption'.tr,
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           color: Color(0xff737373),
@@ -724,7 +726,7 @@ class _profiletabState extends State<profiletab> {
             ],
           ),
           Text(
-            "Address",
+            "profile_add".tr,
             style: TextStyle(
               fontFamily: 'Poppins',
               fontSize: 20.sp,
@@ -764,7 +766,7 @@ class _profiletabState extends State<profiletab> {
               ),
               hintStyle:
                   const TextStyle(color: Color(0x80000000), fontSize: 14),
-              hintText: "Address",
+              hintText: "profile_add".tr,
             ),
             minLines: 5,
             maxLines: null,
@@ -773,7 +775,7 @@ class _profiletabState extends State<profiletab> {
             height: 30.h,
           ),
           CustomNextButton(
-            text: 'Update',
+            text: 'profile_update'.tr,
             ontap: (() {
               _submit();
             }),
@@ -905,14 +907,13 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc1() {
     return SingleChildScrollView(
-      child:
-       Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Step 1 : Complete your KYC",
+                "kyc_step1".tr,
                 style: TextStyle(
                     fontSize: 22.sp,
                     color: Color(0xFF143C6D),
@@ -923,7 +924,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 5.h,
               ),
               Text(
-                "Personal Information",
+                "kyc_step1_info".tr,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 18.sp,
@@ -935,7 +936,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 5.h,
               ),
               Text(
-                "Provide your personal information as per your Bank Account",
+                "kyc_step1_info1".tr,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 14.sp,
@@ -946,7 +947,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 15.h,
               ),
               Text(
-                "Contact Number",
+                "kyc_step1_number".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -957,13 +958,13 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 6.h,
               ),
               CustomTextFormField(
-                  hintText: "Please Enter Phone Number",
-                  validatorText: "Please Enter Phone Number"),
+                  hintText: "kykyc_step1_numberV1".tr,
+                  validatorText: "kykyc_step1_numberV1".tr),
               SizedBox(
                 height: 20.h,
               ),
               Text(
-                "Email ID",
+                "profile_email".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -974,11 +975,11 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 6.h,
               ),
               CustomTextFormField(
-                  hintText: "Please Enter Email Id",
-                  validatorText: "Please Enter Email Id"),
+                  hintText: "profile_emailV1".tr,
+                  validatorText: "profile_emailV1".tr),
               SizedBox(height: 20.h),
               Text(
-                "Residential Status",
+                "kyc_residential".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -994,7 +995,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   showDropDown: true),
               SizedBox(height: 20.h),
               Text(
-                "Date of Birth",
+                "dob".tr,
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
@@ -1039,7 +1040,7 @@ class _KYCtabsState extends State<KYCtabs> {
               //     hintText: "", validatorText: "Please Enter Email Id"),
               SizedBox(height: 20.h),
               Text(
-                "Occupation",
+                "Occupation".tr,
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
@@ -1050,9 +1051,9 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               CustomTextDropdown(
                   item: [
-                    "Marketing manager",
-                    "financial operations.",
-                    "Software developer."
+                    "Marketing manager".tr,
+                    "financial operations".tr,
+                    "Software developer.".tr
                   ],
                   controller: residentialstatustexteditingcontroller,
                   showDropDown: true),
@@ -1062,7 +1063,7 @@ class _KYCtabsState extends State<KYCtabs> {
               //     validatorText: "Please Enter Occupation"),
               SizedBox(height: 20.h),
               Text(
-                "Father's Name",
+                "Father's Name".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -1073,11 +1074,11 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 6.h,
               ),
               CustomTextFormField(
-                  hintText: "Please Enter Father's Name",
-                  validatorText: "Please Enter Father's Name"),
+                  hintText: "Please Enter Father's Name".tr,
+                  validatorText: "Please Enter Father's Name".tr),
               SizedBox(height: 40.h),
               CustomNextButton(
-                text: "Continue",
+                text: "Continue".tr,
                 ontap: () {
                   setState(() {
                     _controller.animateToPage(currentIndex = 1,
@@ -1095,8 +1096,7 @@ class _KYCtabsState extends State<KYCtabs> {
   }
 
   Widget kyc2() {
-    return 
-    SingleChildScrollView(
+    return SingleChildScrollView(
       child: Center(
         child: Form(
           child: Column(
@@ -1104,7 +1104,7 @@ class _KYCtabsState extends State<KYCtabs> {
             children: [
               // ignore: prefer_const_constructors
               Text(
-                "Step 2 : Complete your KYC",
+                "kycStep2".tr,
                 style: TextStyle(
                   fontSize: 22.sp,
                   fontWeight: FontWeight.w500,
@@ -1116,7 +1116,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 5.h,
               ),
               Text(
-                "Address Details",
+                "kycStep2_add".tr,
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontFamily: 'Poppins',
@@ -1128,7 +1128,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 5.h,
               ),
               Text(
-                "Provide your current correspondance address and upload an address proof of the same",
+                "kycText1".tr,
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontFamily: 'Poppins',
@@ -1139,7 +1139,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 15.h,
               ),
               Text(
-                "Country",
+                "Country".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1157,7 +1157,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 13.h,
               ),
               Text(
-                "Pincode",
+                "Pincode".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1168,11 +1168,10 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 6.h,
               ),
               CustomTextFormField(
-                  hintText: "Please Enter Pincode",
-                  validatorText: "Please Enter Pincode"),
+                  hintText: "pincodeV1".tr, validatorText: "pincodeV1".tr),
               SizedBox(height: 13.h),
               Text(
-                "Address - Area and Street",
+                "streetAdd".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1222,7 +1221,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               SizedBox(height: 13.h),
               Text(
-                "City",
+                "City".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -1238,7 +1237,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   showDropDown: true),
               SizedBox(height: 13.h),
               Text(
-                "State / Province/ Region",
+                "State / Province/ Region".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1254,7 +1253,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   showDropDown: true),
               SizedBox(height: 20.h),
               Text(
-                "Document Type",
+                "Document Type".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1270,7 +1269,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   showDropDown: true),
               SizedBox(height: 10.h),
               Text(
-                "Document Number",
+                "Document Number".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1281,11 +1280,10 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 6.h,
               ),
               CustomTextFormField(
-                  hintText: "Please Enter Document Number",
-                  validatorText: "Please Enter Document Number"),
+                  hintText: "docV1".tr, validatorText: "docV1".tr),
               SizedBox(height: 10.h),
               Text(
-                "Please upload document front side",
+                "kyctxt4".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1339,7 +1337,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               SizedBox(height: 10.h),
               Text(
-                "Please upload document back side(if applicable)",
+                "kyctxt5".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1412,14 +1410,13 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc3() {
     return SingleChildScrollView(
-      child: 
-      Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Step 3 : Complete your KYC",
+                "kycStep3".tr,
                 style: TextStyle(
                   fontSize: 22.sp,
                   fontFamily: 'Poppins',
@@ -1431,7 +1428,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 5.h,
               ),
               Text(
-                "PAN & Aadhar details",
+                "PAN & Aadhar details".tr,
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontFamily: 'Poppins',
@@ -1443,7 +1440,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 5.h,
               ),
               Text(
-                "Provide your PAN & Aadhar details",
+                "Provide your PAN & Aadhar details".tr,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 14.sp,
@@ -1454,7 +1451,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 15.h,
               ),
               Text(
-                "PAN Number",
+                "PAN Number".tr,
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
@@ -1464,13 +1461,12 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 6.h,
               ),
               CustomTextFormField(
-                  hintText: "Please Enter PAN Number",
-                  validatorText: "Please Enter PAN Number"),
+                  hintText: "panV1".tr, validatorText: "panV1".tr),
               SizedBox(
                 height: 13.h,
               ),
               Text(
-                "Upload PAN card front side",
+                "panUpload".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -1521,7 +1517,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               SizedBox(height: 10.h),
               Text(
-                "Aadhar Number",
+                "Aadhar Number".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -1532,11 +1528,10 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 6.h,
               ),
               CustomTextFormField(
-                  hintText: "Please Enter Aadhar Number",
-                  validatorText: "Please Enter Aadhar Number"),
+                  hintText: "aadharV1".tr, validatorText: "aadharV1".tr),
               SizedBox(height: 10.h),
               Text(
-                "Upload Aadhar card",
+                "Upload Aadhar card".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontFamily: 'Poppins',
@@ -1587,7 +1582,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               SizedBox(height: 40.h),
               CustomNextButton(
-                  text: "Continue",
+                  text: "Continue".tr,
                   ontap: () {
                     setState(() {
                       _controller.animateToPage(currentIndex = 3,
@@ -1605,14 +1600,13 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc4() {
     return SingleChildScrollView(
-      child:
-       Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Step 4 : Complete your KYC",
+                "kycStep4".tr,
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 22.sp,
@@ -1623,7 +1617,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 5.h,
               ),
               Text(
-                "Bank account details",
+                "Bank account details".tr,
                 style: TextStyle(
                   fontSize: 18.sp,
                   fontFamily: 'Poppins',
@@ -1635,7 +1629,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 5.h,
               ),
               Text(
-                "Provide your Bank account details",
+                "kycStep4_txt1".tr,
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontFamily: 'Poppins',
@@ -1646,7 +1640,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 15.h,
               ),
               Text(
-                "IFSC code",
+                "IFSC code".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1663,7 +1657,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 13,
               ),
               Text(
-                "Account Number",
+                "Account Number".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1680,7 +1674,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 height: 13.h,
               ),
               Text(
-                "Upload cancelled check/ Bank statement",
+                "kycStep4_txt2".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1731,7 +1725,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               SizedBox(height: 10.h),
               Text(
-                "Bank Name",
+                "Bank Name".tr,
                 // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
@@ -1746,7 +1740,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   validatorText: "Please Enter Bank Name"),
               SizedBox(height: 40.h),
               CustomNextButton(
-                text: "Submit",
+                text: "Submit".tr,
                 ontap: () {
                   showModalBottomSheet(
                     isScrollControlled: true,
@@ -1773,7 +1767,7 @@ class _KYCtabsState extends State<KYCtabs> {
                             ),
                             Center(
                               child: Text(
-                                'Thankyou for updating\n your KYC',
+                                'kycThankyou'.tr,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
@@ -1850,17 +1844,10 @@ class _riskprofileState extends State<riskprofile> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // SvgPicture.asset(
-                      //   'assets/images/risk.svg',
-                      //   // width: 120.w,
-                      // ),
-                      // SizedBox(
-                      //   height: 20.h,
-                      // ),
                       SizedBox(
                         width: double.infinity,
                         child: Text(
-                          "Enter your First name ?",
+                          "enterName".tr,
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 20.sp,
@@ -1877,7 +1864,7 @@ class _riskprofileState extends State<riskprofile> {
                       SizedBox(
                         width: double.infinity,
                         child: Text(
-                          "Enter your age?",
+                          "enterAge".tr,
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 20.sp,
@@ -1892,7 +1879,7 @@ class _riskprofileState extends State<riskprofile> {
                         height: 20.h,
                       ),
                       Text(
-                        "How would you describe your level of familiarity ?",
+                        "enterDiscription".tr,
                         textAlign: TextAlign.left,
                         style: TextStyle(
                             fontFamily: 'Poppins',
@@ -1912,7 +1899,7 @@ class _riskprofileState extends State<riskprofile> {
                         height: 20.h,
                       ),
                       Text(
-                        "What is the primary reason you're interested in investing?",
+                        "enterReason".tr,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -1932,7 +1919,7 @@ class _riskprofileState extends State<riskprofile> {
                         height: 20.h,
                       ),
                       Text(
-                        "What is your annual income ?",
+                        "enterIncome".tr,
                         textAlign: TextAlign.left,
                         style: TextStyle(
                             fontFamily: 'Poppins',
@@ -1952,7 +1939,7 @@ class _riskprofileState extends State<riskprofile> {
                         height: 20.h,
                       ),
                       Text(
-                        "How long do you plan to invest?",
+                        "enterPlan".tr,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -1970,7 +1957,7 @@ class _riskprofileState extends State<riskprofile> {
                         height: 20.h,
                       ),
                       Text(
-                        "How much do you hope to invest on a monthly/yearly basis?",
+                        "enterHope".tr,
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -2013,7 +2000,7 @@ class _riskprofileState extends State<riskprofile> {
                                       ),
                                       Center(
                                         child: Text(
-                                          'Thankyou for updating your Risk Profile',
+                                          'riskThankyou'.tr,
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
                                               fontFamily: 'Poppins',

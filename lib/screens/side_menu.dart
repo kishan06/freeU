@@ -32,7 +32,7 @@ class _SideBarState extends State<SideBar> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   List sideBarData = [
-    {"imagePath": "assets/logos/side1.png", "text": "KYC"},
+    {"imagePath": "assets/logos/side1.png", "text": "kyc".tr},
     {"imagePath": "assets/logos/side2.png", "text": "Security"},
     {"imagePath": "assets/logos/side3.png", "text": "How to Invest"},
     {"imagePath": "assets/logos/side4.png", "text": "Update Risk Profile"},
@@ -45,6 +45,9 @@ class _SideBarState extends State<SideBar> {
     {"imagePath": "assets/logos/side11.png", "text": "Logout"},
   ];
   // Menu selectedSideMenu = sidebarMenus.first;
+
+  String? language;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +69,6 @@ class _SideBarState extends State<SideBar> {
                 // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   sizedBoxHeight(60.h),
-
                   InkWell(onTap: () {
                     // Get.toNamed("/userlogged");
                   }, child: GetBuilder<EntryPointController>(builder: (_) {
@@ -95,9 +97,9 @@ class _SideBarState extends State<SideBar> {
                                         height: 50.w,
                                         width: 50.w,
                                         child:
-                                              // ClipRRect(
-                                              //   // borderRadius: BorderRadius.circular(100),
-                                              //   // child: Image.network("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",fit: BoxFit.fill,)),
+                                            // ClipRRect(
+                                            //   // borderRadius: BorderRadius.circular(100),
+                                            //   // child: Image.network("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",fit: BoxFit.fill,)),
                                             ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(100),
@@ -165,11 +167,11 @@ class _SideBarState extends State<SideBar> {
                                     : Container(
                                         height: 50.w,
                                         width: 50.w,
-                                        child: 
-                                        // ClipRRect(
-                                        //   borderRadius: BorderRadius.circular(100),
-                                        //   child: Image.network("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",fit: BoxFit.fill,)),
-                                        ClipRRect(
+                                        child:
+                                            // ClipRRect(
+                                            //   borderRadius: BorderRadius.circular(100),
+                                            //   child: Image.network("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",fit: BoxFit.fill,)),
+                                            ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(100),
                                           child: Image.asset(
@@ -273,21 +275,107 @@ class _SideBarState extends State<SideBar> {
                       // ),
 
                       ),
-
                   ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: sideBarData.length,
-                      itemBuilder: (_, index) {
-                        return sideBarTile(
-                          image: sideBarData[index]["imagePath"],
-                          text: sideBarData[index]["text"],
-                          onTap: () {
-                            navigateTo(index, context);
-                          },
-                        );
-                      })
-
-                  // sideBarTile()
+                    shrinkWrap: true,
+                    itemCount: sideBarData.length,
+                    itemBuilder: (_, index) {
+                      return sideBarTile(
+                        image: sideBarData[index]["imagePath"],
+                        text: sideBarData[index]["text"],
+                        onTap: () {
+                          navigateTo(index, context);
+                        },
+                      );
+                    },
+                  ),
+                  sizedBoxHeight(15.h),
+                  GestureDetector(
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            title: const Text('Language'),
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                SizedBox(
+                                  height: 30.h,
+                                ),
+                                Center(
+                                  child: Text(
+                                    'Select Language',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: 17.sp,
+                                        color: const Color(0xFF444444)),
+                                  ),
+                                ),
+                                SizedBox(
+                                  height: 37.h,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 15,
+                                    right: 15,
+                                  ),
+                                  child: GestureDetector(
+                                      onTap: () {
+                                        setState(() {
+                                          var locale = const Locale('en', 'US');
+                                          Get.updateLocale(locale);
+                                          language = 'English';
+                                        });
+                                        Get.back();
+                                      },
+                                      child: const Text('English')),
+                                ),
+                                SizedBox(
+                                  height: 20.h,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                    left: 15,
+                                    right: 15,
+                                  ),
+                                  child: SizedBox(
+                                    width: double.infinity,
+                                    height: 50.h,
+                                    child: Center(
+                                      child: GestureDetector(
+                                        onTap: () {
+                                          var locale = const Locale('hi', 'IN');
+                                          Get.updateLocale(locale);
+                                          setState(() {
+                                            language = 'हिंदी';
+                                          });
+                                          Get.back();
+                                        },
+                                        child: const Text(
+                                          "Hindi",
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        const Text(
+                          'Langauge',
+                        ),
+                        sizedBoxHeight(5.h),
+                        Text(
+                          language == null ? 'English' : '$language',
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
