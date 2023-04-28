@@ -130,24 +130,24 @@ class SecondTab extends StatelessWidget {
   List viewSlider = [
     {
       "Company Name": "Cocoblu",
-      "Expected Return": "12.7%",
-      "Minimum Investment": '1 Crore',
+      "Expected Return": "12.50%",
+      "Minimum Investment": '95,000',
       "View investment Route": InvoiceInvestment(
         pageIndex: 0,
       )
     },
     {
       "Company Name": "Zetwerk",
-      "Expected Return": "12.7%",
-      "Minimum Investment": '1 Crore',
+      "Expected Return": "12.25%",
+      "Minimum Investment": '95,000',
       "View investment Route": InvoiceInvestment(
         pageIndex: 1,
       )
     },
     {
       "Company Name": "Aris Infra",
-      "Expected Return": "12.7%",
-      "Minimum Investment": '1 Crore',
+      "Expected Return": "N/A",
+      "Minimum Investment": '95,000',
       "View investment Route": InvoiceInvestment(
         pageIndex: 2,
       )
@@ -185,13 +185,13 @@ class SecondTab extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    Image.asset(
-                      "assets/images/fractional.png",
-                      width: 358.w,
-                      height: 162.h,
-                    ),
+                    // Image.asset(
+                    //   "assets/images/fractional.png",
+                    //   width: 358.w,
+                    //   height: 162.h,
+                    // ),
                     SizedBox(
-                      height: 25.h,
+                      height: 10.h,
                     ),
                     Padding(
                       padding: EdgeInsets.only(left: 16.w),
@@ -211,50 +211,50 @@ class SecondTab extends StatelessWidget {
                     SizedBox(
                       height: 30.h,
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16.w),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/place.png",
-                            width: 50.w,
-                            height: 50.h,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: EdgeInsets.only(right: 165.w),
-                                child: Text(
-                                  "Location:",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontSize: 18.sp,
-                                    color: const Color(0XFF000000),
-                                    fontFamily: 'Poppins',
-                                  ),
-                                ),
-                              ),
-                              Text(
-                                "Seawoods, Navi Mumbai",
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  color: const Color(0XFF000000),
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
+                    // Padding(
+                    //   padding: EdgeInsets.only(left: 16.w),
+                    //   child: Row(
+                    //     children: [
+                    //       Image.asset(
+                    //         "assets/images/place.png",
+                    //         width: 50.w,
+                    //         height: 50.h,
+                    //       ),
+                    //       SizedBox(
+                    //         width: 25.w,
+                    //       ),
+                    //       Column(
+                    //         mainAxisAlignment: MainAxisAlignment.start,
+                    //         children: [
+                    //           Padding(
+                    //             padding: EdgeInsets.only(right: 165.w),
+                    //             child: Text(
+                    //               "Location:",
+                    //               textAlign: TextAlign.left,
+                    //               style: TextStyle(
+                    //                 fontSize: 18.sp,
+                    //                 color: const Color(0XFF000000),
+                    //                 fontFamily: 'Poppins',
+                    //               ),
+                    //             ),
+                    //           ),
+                    //           Text(
+                    //             "Seawoods, Navi Mumbai",
+                    //             style: TextStyle(
+                    //               fontSize: 20.sp,
+                    //               color: const Color(0XFF000000),
+                    //               fontFamily: 'Poppins',
+                    //               fontWeight: FontWeight.w500,
+                    //             ),
+                    //           ),
+                    //         ],
+                    //       )
+                    //     ],
+                    //   ),
+                    // ),
+                    // SizedBox(
+                    //   height: 30.h,
+                    // ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Row(
@@ -272,7 +272,7 @@ class SecondTab extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Text(
-                                "Targeted IRR:",
+                                "Pre-tax IRR:",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   fontSize: 18.sp,

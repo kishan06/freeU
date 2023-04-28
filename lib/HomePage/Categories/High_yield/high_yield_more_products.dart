@@ -156,6 +156,7 @@ class _SecondTabState extends State<SecondTab> {
   List<HighYieldProds> highYieldProductData = [
     HighYieldProds(
         securityName: "SPANDANA SPHOORTY FINANCIAL LIMITED 11.35 NCD",
+        minimum: "10,00,000",
         securityType: "Debentures",
         isin: "INE572J07489",
         issuerCompany: "SPANDANA SPHOORTY FINANCIAL LIMITED",
@@ -171,6 +172,7 @@ class _SecondTabState extends State<SecondTab> {
         MaturityDate: "Sept 08, 2024"),
     HighYieldProds(
         securityName: "Five-Star Business Finance Limited 11.4%",
+        minimum: "10,000",
         securityType: "NCD",
         isin: "INE128S07366",
         issuerCompany: "Five Star Business Finance Limited",
@@ -186,6 +188,7 @@ class _SecondTabState extends State<SecondTab> {
         MaturityDate: "Apr 11, 2024"),
     HighYieldProds(
         securityName: "NAVI",
+        minimum: "1,00,000",
         securityType: "NCD",
         isin: "N/A",
         issuerCompany: "Navi Technologies Ltd",
@@ -201,6 +204,7 @@ class _SecondTabState extends State<SecondTab> {
         MaturityDate: "Mar 31,2025"),
     HighYieldProds(
         securityName: "Rupeek",
+        minimum: "1,00,000",
         securityType: "NCD",
         isin: "N/A",
         issuerCompany: "Rupeek Capital",
@@ -216,6 +220,7 @@ class _SecondTabState extends State<SecondTab> {
         MaturityDate: "Mar 29,2024"),
     HighYieldProds(
         securityName: "Slice",
+        minimum: "1,00,000",
         securityType: "NCD",
         isin: "N/A",
         issuerCompany: "Quadrillion Finance Private Limited",
@@ -240,12 +245,14 @@ class _SecondTabState extends State<SecondTab> {
         itemCount: highYieldProductData.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
-          return properties(highYieldProductData[index].securityName, index);
+          return properties(highYieldProductData[index].securityName,
+              highYieldProductData[index].minimum, index);
         });
   }
 
   Widget properties(
     String title,
+    String minimum,
     int index,
   ) {
     return SingleChildScrollView(
@@ -268,14 +275,14 @@ class _SecondTabState extends State<SecondTab> {
             padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
             child: Column(
               children: [
-                Image.asset(
-                  // image,
-                  "assets/images/fractional.png",
-                  width: 358,
-                  height: 162,
-                ),
+                // Image.asset(
+                //   // image,
+                //   "assets/images/fractional.png",
+                //   width: 358,
+                //   height: 162,
+                // ),
                 SizedBox(
-                  height: 25.h,
+                  height: 10.h,
                 ),
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
@@ -298,54 +305,54 @@ class _SecondTabState extends State<SecondTab> {
                 SizedBox(
                   height: 30.h,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        // image1,
-                        "assets/images/place.png",
-                        width: 50.w,
-                        height: 50.h,
-                      ),
-                      SizedBox(
-                        width: 25.w,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 165),
-                            child: Text(
-                              //text1,
-                              "Location:",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 18.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins',
-                                //fontWeight: FontWeight.w300,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            //subtext1,
-                            "Seawoods, Navi Mumbai",
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              color: Color(0XFF000000),
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(left: 16),
+                //   child: Row(
+                //     children: [
+                //       Image.asset(
+                //         // image1,
+                //         "assets/images/place.png",
+                //         width: 50.w,
+                //         height: 50.h,
+                //       ),
+                //       SizedBox(
+                //         width: 25.w,
+                //       ),
+                //       Column(
+                //         mainAxisAlignment: MainAxisAlignment.start,
+                //         children: [
+                //           Padding(
+                //             padding: const EdgeInsets.only(right: 165),
+                //             child: Text(
+                //               //text1,
+                //               "Location:",
+                //               textAlign: TextAlign.left,
+                //               style: TextStyle(
+                //                 fontSize: 18.sp,
+                //                 color: Color(0XFF000000),
+                //                 fontFamily: 'Poppins',
+                //                 //fontWeight: FontWeight.w300,
+                //               ),
+                //             ),
+                //           ),
+                //           Text(
+                //             //subtext1,
+                //             "Seawoods, Navi Mumbai",
+                //             style: TextStyle(
+                //               fontSize: 20.sp,
+                //               color: Color(0XFF000000),
+                //               fontFamily: 'Poppins',
+                //               fontWeight: FontWeight.w500,
+                //             ),
+                //           ),
+                //         ],
+                //       )
+                //     ],
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 30.h,
+                // ),
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
                   child: Row(
@@ -427,7 +434,8 @@ class _SecondTabState extends State<SecondTab> {
                           ),
                           Text(
                             //subtext3,
-                            " 1 Crore",
+                            minimum,
+                            // " 1 Crore",
                             textDirection: TextDirection.ltr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
