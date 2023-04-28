@@ -46,7 +46,7 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Venture Debt",
+                    "Venture Debt".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -69,7 +69,7 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                         height: 20.h,
                       ),
                       Text(
-                        "Venture Debt is a debt provided to venture capital-backed companies to raise working capital, to fulfill their financial shortfalls.",
+                        "VentureDisc".tr,
                         style: TextStyle(
                           color: const Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -88,7 +88,7 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Learn more",
+                              "Learn more".tr,
                               style: TextStyle(
                                   color: const Color(0XFFFFFFFF),
                                   fontSize: 16.sp,
@@ -114,14 +114,14 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Expected Return:",
+                              Text("Expected Return:".tr,
                                   style: TextStyle(
                                     color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
                               // text20White(widget.irr)
-                              text20White("~12%-18% p.a.")
+                              text20White("~12%-18% p.a.".tr)
                             ],
                           ),
                         ],
@@ -144,14 +144,14 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Investment Horizon:",
+                                Text("Investment Horizon:".tr,
                                     style: TextStyle(
                                       color: Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
                                 // text20White(widget.sih)
-                                text20White("~ 12-36 months")
+                                text20White("~ 12-36 months".tr)
                               ],
                             ),
                           ),
@@ -174,7 +174,7 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Minimum Investment:",
+                              Text("Minimum Investment".tr,
                                   style: TextStyle(
                                     color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
@@ -198,7 +198,7 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                           height: 50.h,
                           child: Center(
                             child: Text(
-                              "View more product",
+                              "View more product".tr,
                               style: TextStyle(
                                 color: const Color(0XFF000000),
                                 fontSize: 18.sp,

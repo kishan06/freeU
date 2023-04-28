@@ -27,7 +27,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
-          text: 'View Categories deals',
+          text: 'View Categories deals'.tr,
           ontap: () {
             Get.to(Cat3VerticalSlider());
           },
@@ -45,7 +45,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
               children: [
                 Flexible(
                   child: Text(
-                    "Alternative Investment Funds Category III",
+                    "Alternative Investment Funds Category III".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -88,7 +88,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'Alternative Investment Funds Category III',
+          "Alternative Investment Funds Category III".tr,
           style: TextStyle(
             color: Colors.black,
             fontSize: 18.sp,
@@ -117,7 +117,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              "As per SEBI Regulations Category III AIF are AIFs that employ diverse or complex trading strategies and may employ leverage including through investment in listed or unlisted derivatives. AIF such as hedge funds or funds that trade intending to make short-term returns or such other funds which are open-ended and for which no specific incentives or concessions are given by the government or any other Regulator shall be included. Therefore, funds under Category III are the most complex and use a diversified trading strategy to get high returns in a short time.",
+              "AIFC3Ans1".tr,
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",

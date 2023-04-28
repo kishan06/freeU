@@ -163,9 +163,7 @@ class LocalString extends Translations {
           "Enter 4 digit login pin": "Enter 4 digit login pin",
           "New Login PIN": "New Login PIN",
           "Confirm Login PIN": "Confirm Login PIN",
-          "Enter 4 digit login pin"
-              "Enter 4 digit login pin"
-              "How to invest": "How to invest",
+          "How to invest": "How to invest",
           "1. Create An Account": "1. Create An Account",
           "2. Choose an asset": "2. Choose an asset",
           "3. Invest": "3. Invest",
@@ -374,6 +372,123 @@ class LocalString extends Translations {
           'SecureFAQ13': 'Are SDIs liquid investments?',
           'SecureFAQ14':
               "SDIs' liquidity may vary based on the transaction structure and market conditions. SDIs can be traded on secondary markets, providing liquidity to investors, but careful consideration of liquidity needs is advised before investing.",
+          "What are AIFs?": "What are AIFs?",
+          "AIFAns1":
+              "Alternative Investment Fund (AIF) is a type of investment fund that is registered with the Securities and Exchange Board of India (SEBI). They are privately pooled investment vehicles generally set up by high-net-worth individuals, Indian or foreign, as per a defined investment policy. AIFs are distinctly different from traditional investment vehicles like mutual funds, or ETFs, and invest in non-traditional avenues such as venture capital, private equity, hedge funds, managed futures, etc, to make a profit, or benefit investors. AIFs provide an opportunity for investors to participate in alternative investments and diversify their portfolios, while also offering fund managers greater flexibility in their investment strategies.",
+          "Who can invest in AIF?": "Who can invest in AIF?",
+          "AIFAns2":
+              "Any investor whether Indian, foreign, or non-resident Indian can invest in an AIF, as long as she/he has the required funds for investment, and is willing to take a risk on the unlisted and illiquid securities. To invest in an AIF investor must provide proof of income, PAN card, and ID proof",
+          "What is the minimum amount needed to invest in AIF?":
+              "What is the minimum amount needed to invest in AIF?",
+          "AIFAns3":
+              """All AIF categories in India except "angel fund" need a minimum investment of Rs. 1 crore, whereas, for the angel fund, that amount is Rs. 25 lakhs.  In the case of an employee or director of AIF, the minimum value of investment shall be Rs. 25 lakhs.""",
+          "In Which Formats Can an AIF Be Set Up?":
+              "In Which Formats Can an AIF Be Set Up?",
+          "AIFAns4":
+              "The AIF funds are set up in the form of a trust, limited liability partnership (LLP), or corporate body.",
+          "Size of the AIF scheme": "Size of the AIF scheme",
+          "AIFAns5":
+              "Each AIF scheme should have a minimum corpus of Rs. 20 crores (Rs. 10 crores for angel funds). Along with that, there is also a cap on the number of investors each scheme can have. Most schemes cannot have more than 1000 investors, whereas angel funds can cater to a maximum of 200 investors.",
+          "Alternative Investment Funds v/s Mutual Funds":
+              "Alternative Investment Funds v/s Mutual Funds",
+          "AIFAns6":
+              '''Alternative Investment Funds offer a higher degree of flexibility than mutual funds as they invest in unlisted shares and also use shorting and leverage For HNIs who are looking to diversify their portfolios and increase long-term returns on their investments while willing to take a considerable risk, AIFs seem like decent investment alternatives. But for those who can take low to high risk, mutual funds are the way to go. The decision between alternative investment funds and mutual funds should be based on your investment objectives, available capital, and long-term intentions.''',
+          "Difference between AIF and PMS": "Difference between AIF and PMS",
+          "AIFAns7":
+              "In Portfolio Management System (PMS), each investor portfolio is different, and it’s a customized offering. PMS cannot pool money from different investors to create an investment fund. PMS investors can also choose to exit their investments anytime they want. On the other hand, AIFs pool money from investors and have a lock-in period ranging from 3 to 5 years.",
+          "View Categories": "View Categories",
+          "Alternative Investment Funds(AIF)":
+              "Alternative Investment Funds(AIF)",
+          'What are the benefits of investing through an AIF?':
+              'What are the benefits of investing through an AIF?',
+          "> Regulations are in place:": "> Regulations are in place:",
+          "AIFAns8":
+              " AIF is \n   regulated under SEBI AIF \n   Regulations. As per SEBI, if \n   investors pool funds to invest \n   collectively, they can only do it \n   through AIF. They cannot invest \n   through LLP, Private Limited \n   Companies, etc.",
+          "Higher Returns:": "> Higher Returns:",
+          "AIFAns9":
+              " AIFs give investors \n   exposure to alternate securities \n   and provide higher returns as \n   compared to traditional \n   investments. Therefore, by \n   investing in AIFs, investors improve \n   the overall performance of their \n   portfolios and help achieve long-\n   term capital appreciation.",
+          "Low Volatility:": "> Low Volatility:",
+          "AIFAns10":
+              " AIF investments, \n   unlike traditional investments, are \n   not dependent on the ups and \n   downs of the market and hence \n   less volatile as compared to \n   traditional equity investments.",
+          "> Diversification:": "> Diversification:",
+          "AIFAns11":
+              " AIF gives vast \n   scope for diversification due to its \n   flexibility. Fund managers have the \n   scope to adopt multiple \n   investment options and market \n   strategies. This, in turn, helps in \n   the diversification of a portfolio.",
+          "> Better Negotiation with AIF:": "> Better Negotiation with AIF:",
+          "AIFAns12":
+              " AIF \n   deals with pooled funds that are \n   invested in good-sized amounts, \n   and hence provide better \n   negotiating powers to the \n   investors. In traditional \n   investments, investors only get \n   minimal ownership.",
+          "> Professional Guidance:": "> Professional Guidance:",
+          "AIFAns13": " Money is \n   managed by expert professionals",
+          'Downsides of AIF Investment': 'Downsides of AIF Investment',
+          "AIFAns14":
+              "Although AIF is not correlated with conventional investments, these funds are also subject to higher volatility. Sometimes it does happen that if an AIF idea does not work in the market, the funds suffer heavy losses.",
+          "AIFAns15":
+              "The liquidity crisis is also another downside of AIF investments. Even after the lock-in is over, sometimes you cannot withdraw your investment completely. ",
+          "AIFAns16":
+              "Significant credit defaults on debt papers are also a possibility.",
+          "AIFAns17":
+              "The expense ratios are also very high in AIFs. High taxation rates, especially on the Category III AIFs may reduce the returns you receive from the fund.",
+          "Alternative Investment Funds categories":
+              "Alternative Investment Funds categories",
+          "Alternative Investment Funds Category I":
+              "Alternative Investment Funds Category I",
+          "Alternative Investment Funds Category II":
+              "Alternative Investment Funds Category II",
+          "Alternative Investment Funds Category III":
+              "Alternative Investment Funds Category III",
+          'View Categories deals': 'View Categories deals',
+          "AIFC1Ans1":
+              "As per SEBI Regulations Category, I AIF are AIFs that invests in early-stage startups, social ventures, SMEs, infrastructure startups, or other sectors or areas which the government considers socially or economically desirable. It includes investments such as venture capital funds, SME Funds, social venture funds, infrastructure funds, etc. ",
+          "AIFC2Ans1":
+              "As per SEBI Regulations Category II AIF are AIFs which does not fall in Category I and III and which do not undertake leverage or borrowing other than to meet day-to-day operational requirements. The government or the regulator does not offer any concessions or incentives for these funds. Private equity funds or debt funds are examples of Category II AIFs. This category comprises 80% AIFs and is the most popular among AIFs.",
+          "AIFC3Ans1":
+              "As per SEBI Regulations Category III AIF are AIFs that employ diverse or complex trading strategies and may employ leverage including through investment in listed or unlisted derivatives. AIF such as hedge funds or funds that trade intending to make short-term returns or such other funds which are open-ended and for which no specific incentives or concessions are given by the government or any other Regulator shall be included. Therefore, funds under Category III are the most complex and use a diversified trading strategy to get high returns in a short time.",
+          "FractionalTxt1":
+              "Fractional Real Estate investing allows investors to buy fractions of a real estate property, and get returns on it like rent, capital appreciation, etc. The investors split the cost, and share any profit that comes from that asset without the hassle of paperwork, property maintenance, etc. ",
+          "Learn more": "Learn more",
+          "Expected Return (IRR)": "Expected Return (IRR)",
+          "~ 11-13% p.a.": "~ 11-13% p.a.",
+          "Suggested Investment Horizon": "Suggested Investment Horizon",
+          "More than 4 Years": "More than 4 Years",
+          "Minimum Investment": "Minimum Investment",
+          "25,00,000": "25,00,000",
+          "View more product": "View more product",
+          "Peer to Peer Lending": "Peer to Peer Lending",
+          "PeerDisc":
+              "Peer to Peer lending connects the borrowers (investors) to the lenders directly, under a loan agreement, without having to go through any financial institutions like banks.",
+          "Invoice Discounting": "Invoice Discounting",
+          "InvoiceDisc":
+              "Invoice Discounting is the financial practice of using a company's unpaid invoices to get a working cash flow and fulfill its immediate financial needs.",
+          "~12-18% p.a.": "~12-18% p.a.",
+          "~ 3-18 months": "~ 3-18 months",
+          "1,00,000": "1,00,000",
+          "Revenue-based Financing": "Revenue-based Financing",
+          "RevenueDisc":
+              "Revenue-based financing is an investment done to help small and rising startups grow their business with the invested capital, in return for a fixed percentage of their ongoing gross revenues, measured mainly as monthly revenues.",
+          "~ 12%-16% p.a.": "~ 12%-16% p.a.",
+          "~ 1-4 years": "~ 1-4 years",
+          "5,00,000": "5,00,000",
+          "Lease based Financing": "Lease based Financing",
+          "LeaseDisc":
+              "This is a kind of financing where the lender (lessor) gives another person, the lessee, the right to use an asset against periodical payments.",
+          "Investment Horizon:": "Investment Horizon:",
+          "~ 12-36 months": "~ 12-36 months",
+          "Clean and Green Assets": "Clean and Green Assets",
+          "CleanDisc":
+              "Clean and Green Asset investing is the method of investing in environmentally conscious, sustainable, and socially conscious companies.",
+          "~ 9%-12% p.a.": "~ 9%-12% p.a.",
+          "~ 6-36 months": "~ 6-36 months",
+          "50,000": "50,000",
+          "Securitized Debt Instruments": "Securitized Debt Instruments",
+          "SecureDisc":
+              "Securitization involves the creation of a pool of assets from illiquid financial assets which are repackaged or bundled into marketable securities. Securitized Debt Instruments are financial securities such as bonds/certificates that are created by securitizing individual loans (debt).",
+          "More than 3 Years": "More than 3 Years",
+          "High Yield Fixed Income": "High Yield Fixed Income",
+          "HighDisc":
+              "High-yield bonds or junk bonds are bonds that pay higher rates of interest, because of their low credit rates, compared to investment-grade bonds. Due to their higher chances to default, they pay a higher yield to compensate investors - hence called High yield Bonds.",
+          "~ 1-5 years": "~ 1-5 years",
+          "Venture Debt": "Venture Debt",
+          "VentureDisc":
+              "Venture Debt is a debt provided to venture capital-backed companies to raise working capital, to fulfill their financial shortfalls.",
         },
         'hi_IN': {
           'entrypoint_bottombar1': 'होम',
@@ -533,9 +648,7 @@ class LocalString extends Translations {
           "Enter 4 digit login pin": "4 अंकों का लॉगिन पिन दर्ज करें।",
           "New Login PIN": "नया लॉगिन पिन दर्ज करें",
           "Confirm Login PIN": "लॉगिन पिन की पुष्टि करें",
-          "Enter 4 digit login pin"
-              "4 अंकों वाला लॉगिन पिन दर्ज करें"
-              "How to invest": "इन्वेस्ट कैसे करें",
+          "How to invest": "इन्वेस्ट कैसे करें",
           "1. Create An Account": "1. खाता बनाएँ",
           "2. Choose an asset": "2. एक संपत्ति चुनें",
           "3. Invest": "3. निवेश करें",
@@ -749,6 +862,121 @@ class LocalString extends Translations {
           'SecureFAQ13': 'क्या एसडीआई तरल निवेश हैं?',
           'SecureFAQ14':
               "एसडीआई की तरलता लेनदेन संरचना और बाजार स्थितियों के आधार पर भिन्न हो सकती है। निवेशकों को तरलता प्रदान करते हुए एसडीआई का द्वितीयक बाजारों में कारोबार किया जा सकता है, लेकिन निवेश करने से पहले तरलता की जरूरतों पर सावधानीपूर्वक विचार करने की सलाह दी जाती है।",
+          "What are AIFs?": "एआईएफ क्या हैं?",
+          "AIFAns1":
+              "वैकल्पिक निवेश कोष (एआईएफ) एक प्रकार का निवेश कोष है जो भारतीय प्रतिभूति और विनिमय बोर्ड (सेबी) के साथ पंजीकृत है। वे आम तौर पर उच्च-निवल-मूल्य वाले व्यक्तियों, भारतीय या विदेशी द्वारा स्थापित निजी तौर पर जमा किए गए निवेश वाहन हैं। परिभाषित निवेश नीति के अनुसार। एआईएफ पारंपरिक निवेश वाहनों जैसे म्युचुअल फंड या ईटीएफ से अलग हैं, और लाभ कमाने के लिए गैर-पारंपरिक रास्ते जैसे उद्यम पूंजी, निजी इक्विटी, हेज फंड, प्रबंधित वायदा, आदि में निवेश करते हैं, या निवेशकों को लाभ। एआईएफ निवेशकों को वैकल्पिक निवेश में भाग लेने और अपने पोर्टफोलियो में विविधता लाने का अवसर प्रदान करते हैं, जबकि फंड मैनेजरों को उनकी निवेश रणनीतियों में अधिक लचीलेपन की पेशकश भी करते हैं।",
+          "Who can invest in AIF?": "एआईएफ में कौन निवेश कर सकता है?",
+          "AIFAns2":
+              "कोई भी निवेशक, चाहे वह भारतीय, विदेशी, या अनिवासी भारतीय हो, एआईएफ में निवेश कर सकता है, जब तक कि उसके पास निवेश के लिए आवश्यक धन है, और असूचीबद्ध और अतरलक्षित प्रतिभूतियों पर जोखिम लेने को तैयार है। एआईएफ में निवेश करने के लिए निवेशक को आय, पैन कार्ड और आईडी प्रमाण का प्रमाण देना होगा",
+          "What is the minimum amount needed to invest in AIF?":
+              "एआईएफ में निवेश करने के लिए आवश्यक न्यूनतम राशि क्या है?",
+          "AIFAns3":
+              """एंजेल फंड" को छोड़कर भारत में सभी एआईएफ श्रेणियों को न्यूनतम 1 करोड़ रुपये के निवेश की आवश्यकता है, जबकि एंजेल फंड के लिए यह राशि 25 लाख रुपये है। एआईएफ के कर्मचारी या निदेशक के मामले में, निवेश का न्यूनतम मूल्य 25 लाख रुपये होगा।""",
+          "In Which Formats Can an AIF Be Set Up?":
+              "किस प्रारूप में एआईएफ स्थापित किया जा सकता है?",
+          "AIFAns4":
+              "एआईएफ फंड एक ट्रस्ट, सीमित देयता भागीदारी (एलएलपी), या कॉर्पोरेट निकाय के रूप में स्थापित किए जाते हैं।",
+          "Size of the AIF scheme": "एआईएफ योजना का आकार",
+          "AIFAns5":
+              "प्रत्येक एआईएफ योजना में न्यूनतम 20 करोड़ रुपये (एंजल फंड के लिए 10 करोड़ रुपये) का कोष होना चाहिए। इसके साथ ही, प्रत्येक योजना में निवेशकों की संख्या पर भी एक सीमा है। अधिकांश योजनाओं में 1000 से अधिक नहीं हो सकते हैं। निवेशक, जबकि एंजेल फंड अधिकतम 200 निवेशकों को पूरा कर सकते हैं।",
+          "Alternative Investment Funds v/s Mutual Funds":
+              "वैकल्पिक निवेश कोष v/s म्युचुअल फंड",
+          "AIFAns6":
+              'वैकल्पिक निवेश फंड म्यूचुअल फंड की तुलना में अधिक लचीलेपन की पेशकश करते हैं क्योंकि वे गैर-सूचीबद्ध शेयरों में निवेश करते हैं और शॉर्टिंग और लीवरेज का भी उपयोग करते हैं। काफी जोखिम, एआईएफ निवेश के अच्छे विकल्प लगते हैं। लेकिन जो लोग कम से ज्यादा जोखिम उठा सकते हैं, उनके लिए म्युचुअल फंड एक रास्ता है। वैकल्पिक निवेश कोष और म्युचुअल फंड के बीच निर्णय आपके निवेश उद्देश्यों, उपलब्ध पूंजी और दीर्घकालिक इरादों पर आधारित होना चाहिए।',
+          "Difference between AIF and PMS": "एआईएफ और पीएमएस के बीच अंतर",
+          "AIFAns7":
+              "पोर्टफोलियो मैनेजमेंट सिस्टम (पीएमएस) में, प्रत्येक निवेशक का पोर्टफोलियो अलग होता है, और यह एक अनुकूलित पेशकश है। पीएमएस एक निवेश कोष बनाने के लिए विभिन्न निवेशकों से धन एकत्र नहीं कर सकता है। पीएमएस निवेशक जब चाहें अपने निवेश से बाहर निकलने का विकल्प चुन सकते हैं। दूसरी ओर एआईएफ निवेशकों से धन एकत्र करते हैं और इसकी लॉक-इन अवधि 3 से 5 वर्ष तक होती है।",
+          "View Categories": "श्रेणियां देखें",
+          "Alternative Investment Funds(AIF)": "वैकल्पिक निवेश कोष (एआईएफ)",
+          'What are the benefits of investing through an AIF?':
+              'एआईएफ के जरिए निवेश करने के क्या फायदे हैं?',
+          "> Regulations are in place:": "> विनियम लागू हैं:",
+          "AIFAns8":
+              "एआईएफ को सेबी एआईएफ विनियमों के तहत विनियमित किया जाता है। सेबी के अनुसार, यदि निवेशक सामूहिक रूप से निवेश करने के लिए धन जमा करते हैं, तो वे इसे केवल एआईएफ के माध्यम से कर सकते हैं। वे एलएलपी, प्राइवेट लिमिटेड कंपनियों आदि के माध्यम से निवेश नहीं कर सकते।",
+          "> Higher Returns:": "> उच्च रिटर्न:",
+          "AIFAns9":
+              "एआईएफ निवेशकों को वैकल्पिक प्रतिभूतियों में \n एक्सपोजर देते हैं \n और पारंपरिक \n निवेशों की तुलना में \n अधिक रिटर्न देते हैं। इसलिए, एआईएफ में \n निवेश करके, निवेशक अपने \n पोर्टफोलियो के समग्र प्रदर्शन में सुधार करते हैं और हासिल करने में मदद करते हैं। लॉन्ग-\n टर्म कैपिटल एप्रिसिएशन।",
+          "> Low Volatility:": "> कम अस्थिरता:",
+          "AIFAns10":
+              "एआईएफ निवेश, पारंपरिक निवेशों के विपरीत, \n बाजार के उतार-चढ़ाव पर निर्भर नहीं हैं और इसलिए पारंपरिक इक्विटी निवेशों की तुलना में \n कम अस्थिर हैं।",
+          "> Diversification:": "> विविधीकरण:",
+          "AIFAns11":
+              "एआईएफ अपने \n लचीलेपन के कारण विविधीकरण के लिए व्यापक \n गुंजाइश देता है। कोष प्रबंधकों के पास कई \n निवेश विकल्पों और बाजार \n रणनीतियों को अपनाने की \n गुंजाइश होती है। बदले में, यह एक पोर्टफोलियो के विविधीकरण में \n मदद करता है। ",
+          "> Better Negotiation with AIF:": "> एआईएफ के साथ बेहतर बातचीत:",
+          "AIFAns12":
+              "एआईएफ \n पूल किए गए धन के साथ सौदा करता है जो \n अच्छे आकार की मात्रा में निवेश किया जाता है, \n और इसलिए \n निवेशकों को बेहतर \n बातचीत करने की शक्ति प्रदान करता है। पारंपरिक \n निवेश में, निवेशकों को केवल \n न्यूनतम स्वामित्व मिलता है।",
+          "> Professional Guidance:": "> व्यावसायिक मार्गदर्शन:",
+          "AIFAns13": "पैसा \n विशेषज्ञ पेशेवरों द्वारा प्रबंधित किया जाता है",
+          'Downsides of AIF Investment': 'एआईएफ निवेश के नकारात्मक पहलू',
+          "AIFAns14":
+              "हालांकि एआईएफ पारंपरिक निवेश से संबंधित नहीं है, लेकिन ये फंड भी उच्च अस्थिरता के अधीन हैं। कभी-कभी ऐसा होता है कि अगर कोई एआईएफ विचार बाजार में काम नहीं करता है, तो फंड को भारी नुकसान होता है।",
+          "AIFAns15":
+              "तरलता संकट भी एआईएफ निवेश का एक और नकारात्मक पहलू है। लॉक-इन खत्म होने के बाद भी, कभी-कभी आप अपना निवेश पूरी तरह से वापस नहीं ले सकते।",
+          "AIFAns16": "ऋण पत्रों पर महत्वपूर्ण ऋण चूक भी एक संभावना है।",
+          "AIFAns17":
+              "एआईएफ में व्यय अनुपात भी बहुत अधिक है। उच्च कराधान दरें, विशेष रूप से श्रेणी III एआईएफ पर आपको फंड से मिलने वाले रिटर्न को कम कर सकती हैं।",
+          "Alternative Investment Funds categories":
+              "वैकल्पिक निवेश निधि श्रेणियां",
+          "Alternative Investment Funds Category I":
+              "वैकल्पिक निवेश कोष श्रेणी I",
+          "Alternative Investment Funds Category II":
+              "वैकल्पिक निवेश कोष श्रेणी II",
+          "Alternative Investment Funds Category III":
+              "वैकल्पिक निवेश कोष श्रेणी III",
+          'View Categories deals': 'श्रेणी के सौदे देखें',
+          "AIFC1Ans1":
+              "सेबी विनियम श्रेणी के अनुसार, I AIF वे AIF हैं जो प्रारंभिक चरण के स्टार्टअप, सामाजिक उद्यम, SME, बुनियादी ढांचा स्टार्टअप, या अन्य क्षेत्रों या क्षेत्रों में निवेश करते हैं, जिन्हें सरकार सामाजिक या आर्थिक रूप से वांछनीय मानती है। इसमें उद्यम पूंजी निधि जैसे निवेश शामिल हैं। एसएमई फंड, सोशल वेंचर फंड, इंफ्रास्ट्रक्चर फंड आदि।",
+          "AIFC2Ans1":
+              "सेबी के विनियमों के अनुसार श्रेणी II एआईएफ एआईएफ हैं जो श्रेणी I और III में नहीं आते हैं और जो दिन-प्रतिदिन की परिचालन आवश्यकताओं को पूरा करने के अलावा अन्य लाभ या उधार नहीं लेते हैं। सरकार या नियामक किसी भी रियायत की पेशकश नहीं करता है या इन निधियों के लिए प्रोत्साहन। निजी इक्विटी फंड या डेट फंड श्रेणी II एआईएफ के उदाहरण हैं। इस श्रेणी में 80% एआईएफ शामिल हैं और एआईएफ के बीच सबसे लोकप्रिय हैं।",
+          "AIFC3Ans1":
+              "सेबी विनियमों के अनुसार श्रेणी III एआईएफ एआईएफ हैं जो विविध या जटिल व्यापारिक रणनीतियों को नियोजित करते हैं और सूचीबद्ध या गैर-सूचीबद्ध डेरिवेटिव्स में निवेश के माध्यम से लाभ उठा सकते हैं। एआईएफ जैसे हेज फंड या फंड जो अल्पकालिक रिटर्न या ऐसे अन्य फंड बनाने का इरादा रखते हैं। जो ओपन-एंडेड हैं और जिनके लिए सरकार या किसी अन्य नियामक द्वारा कोई विशिष्ट प्रोत्साहन या रियायतें नहीं दी जाती हैं। इसलिए, श्रेणी III के तहत फंड सबसे जटिल हैं और कम समय में उच्च रिटर्न प्राप्त करने के लिए एक विविध व्यापार रणनीति का उपयोग करते हैं। ",
+          "FractionalTxt1":
+              "आंशिक रियल एस्टेट निवेश निवेशकों को एक अचल संपत्ति संपत्ति के अंश खरीदने की अनुमति देता है, और उस पर किराया, पूंजीगत प्रशंसा आदि जैसे रिटर्न प्राप्त करता है। निवेशक लागत को विभाजित करते हैं, और कागजी कार्रवाई की परेशानी के बिना उस संपत्ति से आने वाले किसी भी लाभ को साझा करते हैं, संपत्ति का रखरखाव, आदि।",
+          "Learn more": "और अधिक जानें",
+          "Expected Return (IRR)": "अपेक्षित वापसी (आईआरआर)",
+          "~ 11-13% p.a.": "~ 11-13% प्रति वर्ष",
+          "Suggested Investment Horizon": "सुझाए गए निवेश क्षितिज",
+          "More than 4 Years": "4 साल से अधिक",
+          "Minimum Investment": "न्यूनतम निवेश",
+          "25,00,000": "25,00,000",
+          "View more product": "अधिक उत्पाद देखें",
+          "Peer to Peer Lending": "पीयर टू पीयर लेंडिंग",
+          "PeerDisc":
+              "पीयर टू पीयर लेंडिंग कर्जदारों (निवेशकों) को ऋण समझौते के तहत, बैंकों जैसे किसी भी वित्तीय संस्थान के माध्यम से जाने के बिना, सीधे उधारदाताओं से जोड़ता है।",
+          "Invoice Discounting": "बिल में छूट",
+          "InvoiceDisc":
+              "इनवॉयस डिस्काउंटिंग एक कार्यशील नकदी प्रवाह प्राप्त करने और अपनी तत्काल वित्तीय जरूरतों को पूरा करने के लिए कंपनी के अवैतनिक चालानों का उपयोग करने का वित्तीय अभ्यास है।",
+          "~12-18% p.a.": "~12-18% प्रति वर्ष",
+          "~ 3-18 months": "~ 3-18 महीने",
+          "1,00,000": "1,00,000",
+          "Revenue-based Financing": "राजस्व आधारित वित्तपोषण",
+          "RevenueDisc":
+              "राजस्व-आधारित वित्तपोषण एक निवेश है जो छोटे और बढ़ते स्टार्टअप को निवेशित पूंजी के साथ अपने व्यापार को बढ़ाने में मदद करता है, बदले में उनके चालू सकल राजस्व के एक निश्चित प्रतिशत के बदले में, मुख्य रूप से मासिक राजस्व के रूप में मापा जाता है।",
+          "~ 12%-16% p.a.": "~ 12%-16% प्रति वर्ष",
+          "~ 1-4 years": "~ 1-4 महीने",
+          "5,00,000": "5,00,000",
+          "Lease based Financing": "पट्टा आधारित वित्तपोषण",
+          "LeaseDisc":
+              "यह एक प्रकार का वित्तपोषण है जहां ऋणदाता (पट्टादाता) किसी अन्य व्यक्ति, पट्टेदार, को आवधिक भुगतानों के खिलाफ संपत्ति का उपयोग करने का अधिकार देता है।",
+          "Investment Horizon:": "निवेश क्षितिज:",
+          "~ 12-36 months": "~ 12-36 महीने",
+          "Clean and Green Assets": "स्वच्छ और हरित संपत्ति",
+          "CleanDisc":
+              "क्लीन एंड ग्रीन एसेट इन्वेस्टमेंट पर्यावरण के प्रति जागरूक, टिकाऊ और सामाजिक रूप से जागरूक कंपनियों में निवेश करने का तरीका है।",
+          "~ 9%-12% p.a.": "~ 9%-12% प्रति वर्ष",
+          "~ 6-36 months": "~ 6-36 महीने",
+          "50,000": "50,000",
+          "Securitized Debt Instruments": "प्रतिभूतिकृत ऋण लिखत",
+          "SecureDisc":
+              "प्रतिभूतिकरण में गैर-तरल वित्तीय संपत्तियों से संपत्ति के एक पूल का निर्माण शामिल है, जिन्हें बाजार योग्य प्रतिभूतियों में पुनर्पैकेज या बंडल किया जाता है। प्रतिभूतिकृत ऋण उपकरण वित्तीय प्रतिभूतियां हैं जैसे बांड/प्रमाण पत्र जो व्यक्तिगत ऋण (ऋण) को सुरक्षित करके बनाए जाते हैं।",
+          "More than 3 Years": "3 साल से अधिक",
+          "High Yield Fixed Income": "हाई यील्ड फिक्स्ड इनकम",
+          "HighDisc":
+              "हाई-यील्ड बॉन्ड या जंक बॉन्ड ऐसे बॉन्ड होते हैं जो निवेश-ग्रेड बॉन्ड की तुलना में कम क्रेडिट दरों के कारण ब्याज की उच्च दरों का भुगतान करते हैं। डिफ़ॉल्ट होने की उनकी उच्च संभावना के कारण, वे निवेशकों को क्षतिपूर्ति करने के लिए उच्च उपज का भुगतान करते हैं - इसलिए कहा जाता है उच्च उपज बांड।",
+          "~ 1-5 years": "~ 1-5 साल",
+          "Venture Debt": "उद्यम ऋण",
+          "VentureDisc":
+              "उद्यम ऋण उद्यम पूंजी समर्थित कंपनियों को उनकी वित्तीय कमी को पूरा करने के लिए कार्यशील पूंजी जुटाने के लिए प्रदान किया गया ऋण है।",
         },
       };
 }

@@ -46,7 +46,7 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Securitized Debt Instruments",
+                    "Securitized Debt Instruments".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -69,7 +69,7 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                         height: 20.h,
                       ),
                       Text(
-                        "Securitization involves the creation of a pool of assets from illiquid financial assets which are repackaged or bundled into marketable securities. Securitized Debt Instruments are financial securities such as bonds/certificates that are created by securitizing individual loans (debt).",
+                        "SecureDisc".tr,
                         style: TextStyle(
                           color: const Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -88,7 +88,7 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Learn more",
+                              "Learn more".tr,
                               style: TextStyle(
                                   color: const Color(0XFFFFFFFF),
                                   fontSize: 16.sp,
@@ -114,14 +114,14 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Expected Return:",
+                              Text("Expected Return (IRR)".tr,
                                   style: TextStyle(
                                     color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
                               // text20White(widget.irr)
-                              text20White("~ 12-16%")
+                              text20White("~ 12%-16% p.a.".tr)
                             ],
                           ),
                         ],
@@ -144,14 +144,14 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Investment Horizon:",
+                                Text("Investment Horizon:".tr,
                                     style: TextStyle(
                                       color: Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
                                 // text20White(widget.sih)
-                                text20White("More than 3 Years")
+                                text20White("More than 3 Years".tr)
                               ],
                             ),
                           ),
@@ -174,7 +174,7 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Minimum Investment:",
+                              Text("Minimum Investment".tr,
                                   style: TextStyle(
                                     color: Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
@@ -198,7 +198,7 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                           height: 50.h,
                           child: Center(
                             child: Text(
-                              "View more product",
+                              "View more product".tr,
                               style: TextStyle(
                                 color: const Color(0XFF000000),
                                 fontSize: 18.sp,

@@ -59,7 +59,7 @@ class _RevenueBasedMainState extends State<RevenueBasedMain> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Revenue-based Financing",
+                    "Revenue-based Financing".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -82,7 +82,7 @@ class _RevenueBasedMainState extends State<RevenueBasedMain> {
                         height: 20.h,
                       ),
                       Text(
-                        "Revenue-based financing is an investment done to help small and rising startups grow their business with the invested capital, in return for a fixed percentage of their ongoing gross revenues, measured mainly as monthly revenues.",
+                        "RevenueDisc".tr,
                         // "Peer-to-Peer lending, or P2P lending, is a new, innovative platform for alternate financing that allows individuals to directly acquire loans from other individuals, without going through banks, or other financial institutions.",
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
@@ -106,7 +106,7 @@ class _RevenueBasedMainState extends State<RevenueBasedMain> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Learn more",
+                              "Learn more".tr,
                               style: TextStyle(
                                   color: Color(0XFFFFFFFF),
                                   fontSize: 16.sp,
@@ -119,91 +119,91 @@ class _RevenueBasedMainState extends State<RevenueBasedMain> {
                         height: 20.h,
                       ),
                       Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/images/privatecategories.png",
-                        width: 70.w,
-                        height: 70.w,
-                      ),
-                      SizedBox(
-                        width: 25.w,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Expected Return (IRR)",
-                              style: TextStyle(
-                                color: const Color(0XFFFBFBFB),
-                                fontSize: 16.sp,
-                                fontFamily: "Poppins",
-                              )),
-                          // text20White(widget.irr)
-                          text20White("~ 12%-16% p.a.")
+                          Image.asset(
+                            "assets/images/privatecategories.png",
+                            width: 70.w,
+                            height: 70.w,
+                          ),
+                          SizedBox(
+                            width: 25.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Expected Return (IRR)".tr,
+                                  style: TextStyle(
+                                    color: const Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              // text20White(widget.irr)
+                              text20White("~ 12%-16% p.a.".tr)
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/images/privateequitytime.png",
-                        width: 70.w,
-                        height: 70.w,
-                      ),
                       SizedBox(
-                        width: 25.w,
+                        height: 30.h,
                       ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Suggested Investment Horizon",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 16.sp,
-                                  fontFamily: "Poppins",
-                                )),
-                            // text20White(widget.sih)
-                            text20White("~ 1-4 years")
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/images/funding.png",
-                        width: 70.w,
-                        height: 70.w,
-                      ),
-                      SizedBox(
-                        width: 25.w,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Minimum Investment",
-                              style: TextStyle(
-                                color: Color(0XFFFBFBFB),
-                                fontSize: 16.sp,
-                                fontFamily: "Poppins",
-                              )),
-                          text20White("5,00,000")
+                          Image.asset(
+                            "assets/images/privateequitytime.png",
+                            width: 70.w,
+                            height: 70.w,
+                          ),
+                          SizedBox(
+                            width: 25.w,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Suggested Investment Horizon".tr,
+                                    style: TextStyle(
+                                      color: Color(0XFFFBFBFB),
+                                      fontSize: 16.sp,
+                                      fontFamily: "Poppins",
+                                    )),
+                                // text20White(widget.sih)
+                                text20White("~ 1-4 years".tr)
+                              ],
+                            ),
+                          ),
                         ],
                       ),
-                    ],
-                  ),
-                    SizedBox(
+                      SizedBox(
+                        height: 30.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            "assets/images/funding.png",
+                            width: 70.w,
+                            height: 70.w,
+                          ),
+                          SizedBox(
+                            width: 25.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Minimum Investment".tr,
+                                  style: TextStyle(
+                                    color: Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              text20White("5,00,000".tr)
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(
                         height: 40.h,
                       ),
                       OpenContainerWrappers(
@@ -216,7 +216,7 @@ class _RevenueBasedMainState extends State<RevenueBasedMain> {
                           height: 50.h,
                           child: Center(
                             child: Text(
-                              "View more product",
+                              "View more product".tr,
                               style: TextStyle(
                                 color: Color(0XFF000000),
                                 fontSize: 18.sp,

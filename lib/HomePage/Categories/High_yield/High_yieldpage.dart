@@ -65,7 +65,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "High Yield Fixed Income",
+                    "High Yield Fixed Income".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -88,7 +88,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                         height: 20.h,
                       ),
                       Text(
-                        "High-yield bonds or junk bonds are bonds that pay higher rates of interest, because of their low credit rates, compared to investment-grade bonds. Due to their higher chances to default, they pay a higher yield to compensate investors - hence called High yield Bonds.",
+                        "HighDisc".tr,
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -107,7 +107,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Learn more",
+                              "Learn more".tr,
                               style: TextStyle(
                                   color: Color(0XFFFFFFFF),
                                   fontSize: 16.sp,
@@ -133,14 +133,14 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Expected Return:",
+                              Text("Expected Return (IRR)".tr,
                                   style: TextStyle(
                                     color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
                               // text20White(widget.irr)
-                              text20White("~ 12-18% p.a.")
+                              text20White("~12-18% p.a.".tr)
                             ],
                           ),
                         ],
@@ -163,14 +163,14 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Investment Horizon:",
+                                Text("Investment Horizon:".tr,
                                     style: TextStyle(
                                       color: Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
                                 // text20White(widget.sih)
-                                text20White("~ 1-5 years")
+                                text20White("~ 1-5 years".tr)
                               ],
                             ),
                           ),
@@ -193,13 +193,13 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Minimum Investment:",
+                              Text("Minimum Investment".tr,
                                   style: TextStyle(
                                     color: Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
-                              text20White("1,00,000")
+                              text20White("1,00,000".tr)
                             ],
                           ),
                         ],
@@ -217,7 +217,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                           height: 50.h,
                           child: Center(
                             child: Text(
-                              "View more product",
+                              "View more product".tr,
                               style: TextStyle(
                                 color: Color(0XFF000000),
                                 fontSize: 18.sp,

@@ -24,7 +24,7 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
-          text: 'View Categories deals',
+          text: 'View Categories deals'.tr,
           ontap: () {
             Get.toNamed("/VerticalSlider");
 
@@ -44,7 +44,7 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
               children: [
                 Flexible(
                   child: Text(
-                    "Alternative Investment Funds Category II",
+                    "Alternative Investment Funds Category II".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -87,7 +87,7 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'Alternative Investment Funds Category II',
+          "Alternative Investment Funds Category II".tr,
           style: TextStyle(
             color: Colors.black,
             fontSize: 18.sp,
@@ -116,7 +116,7 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              "As per SEBI Regulations Category II AIF are AIFs which does not fall in Category I and III and which do not undertake leverage or borrowing other than to meet day-to-day operational requirements. The government or the regulator does not offer any concessions or incentives for these funds. Private equity funds or debt funds are examples of Category II AIFs. This category comprises 80% AIFs and is the most popular among AIFs.",
+              "AIFC2Ans1".tr,
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",

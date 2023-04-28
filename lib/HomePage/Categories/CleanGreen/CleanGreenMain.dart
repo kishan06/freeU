@@ -47,7 +47,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Clean and Green Assets",
+                    "Clean and Green Assets".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -70,7 +70,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                         height: 20.h,
                       ),
                       Text(
-                        "Clean and Green Asset investing is the method of investing in environmentally conscious, sustainable, and socially conscious companies.",
+                        "CleanDisc".tr,
                         style: TextStyle(
                           color: const Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -89,7 +89,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Learn more",
+                              "Learn more".tr,
                               style: TextStyle(
                                   color: const Color(0XFFFFFFFF),
                                   fontSize: 16.sp,
@@ -115,14 +115,14 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Expected Return:",
+                              Text("Expected Return (IRR)".tr,
                                   style: TextStyle(
                                     color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
                               // text20White(widget.irr)
-                              text20White("~ 9%-12% p.a.")
+                              text20White("~ 9%-12% p.a.".tr)
                             ],
                           ),
                         ],
@@ -145,14 +145,14 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Investment Horizon:",
+                                Text("Investment Horizon:".tr,
                                     style: TextStyle(
                                       color: Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
                                 // text20White(widget.sih)
-                                text20White("~ 6-36 months")
+                                text20White("~ 6-36 months".tr)
                               ],
                             ),
                           ),
@@ -176,13 +176,13 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Minimum Investment:",
+                                Text("Minimum Investment".tr,
                                     style: TextStyle(
                                       color: Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                text20White("50,000")
+                                text20White("50,000".tr)
                               ],
                             ),
                           ),
@@ -201,7 +201,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                           height: 50.h,
                           child: Center(
                             child: Text(
-                              "View more product",
+                              "View more product".tr,
                               style: TextStyle(
                                 color: Color(0XFF000000),
                                 fontSize: 18.sp,

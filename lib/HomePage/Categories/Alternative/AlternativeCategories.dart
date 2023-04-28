@@ -44,18 +44,13 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Alternative Investment \nFunds categories",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Text(
+                "Alternative Investment Funds categories".tr,
+                style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w500),
               ),
             ),
             Expanded(
@@ -103,7 +98,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                 ),
                                 SizedBox(height: 21.h),
                                 Text(
-                                  "Alternative Investment Funds Category I",
+                                  "Alternative Investment Funds Category I".tr,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: "Poppins",
@@ -158,7 +153,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                 ),
                                 SizedBox(height: 21.h),
                                 Text(
-                                  "Alternative Investment Funds Category II",
+                                  "Alternative Investment Funds Category II".tr,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: "Poppins",
@@ -213,7 +208,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                 ),
                                 SizedBox(height: 21.h),
                                 Text(
-                                  "Alternative Investment Funds Category III",
+                                  "Alternative Investment Funds Category III".tr,
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontFamily: "Poppins",

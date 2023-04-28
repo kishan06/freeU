@@ -81,7 +81,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           width: double.infinity,
                           child: Text(
-                            "enterAge",
+                            "enterAge".tr,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 20.sp,

@@ -25,7 +25,7 @@ class _AlternaticeCateogries1State extends State<AlternaticeCateogries1> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
-          text: 'View Categories deals',
+          text: 'View Categories deals'.tr,
           ontap: () {
             Get.to(Cat1VerticalSlider());
           },
@@ -43,7 +43,7 @@ class _AlternaticeCateogries1State extends State<AlternaticeCateogries1> {
               children: [
                 Flexible(
                   child: Text(
-                    "Alternative Investment Funds Category I",
+                    "Alternative Investment Funds Category I".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -86,7 +86,7 @@ class _AlternaticeCateogries1State extends State<AlternaticeCateogries1> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'Alternative Investment Funds Category I',
+          "Alternative Investment Funds Category I".tr,
           style: TextStyle(
             color: Colors.black,
             fontSize: 18.sp,
@@ -115,7 +115,7 @@ class _AlternaticeCateogries1State extends State<AlternaticeCateogries1> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              "As per SEBI Regulations Category, I AIF are AIFs that invests in early-stage startups, social ventures, SMEs, infrastructure startups, or other sectors or areas which the government considers socially or economically desirable. It includes investments such as venture capital funds, SME Funds, social venture funds, infrastructure funds, etc. ",
+              "AIFC1Ans1".tr,
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",

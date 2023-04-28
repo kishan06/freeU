@@ -59,7 +59,7 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Fractional Real Estate",
+                    "Fractional Real Estate".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -82,7 +82,7 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                         height: 20.h,
                       ),
                       Text(
-                        "Fractional Real Estate investing allows investors to buy fractions of a real estate property, and get returns on it like rent, capital appreciation, etc. The investors split the cost, and share any profit that comes from that asset without the hassle of paperwork, property maintenance, etc. ",
+                        "FractionalTxt1".tr,
                         // "Revenue-based financing is an investment done to help small and rising startups grow their business with the invested capital, in return for a fixed percentage of their ongoing gross revenues, measured mainly as monthly revenues.",
                         // "Peer-to-Peer lending, or P2P lending, is a new, innovative platform for alternate financing that allows individuals to directly acquire loans from other individuals, without going through banks, or other financial institutions.",
                         style: TextStyle(
@@ -107,7 +107,7 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Learn more",
+                              "Learn more".tr,
                               style: TextStyle(
                                   color: Color(0XFFFFFFFF),
                                   fontSize: 16.sp,
@@ -120,91 +120,91 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                         height: 20.h,
                       ),
                       Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/images/privatecategories.png",
-                        width: 70.w,
-                        height: 70.w,
-                      ),
-                      SizedBox(
-                        width: 25.w,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Expected Return (IRR)",
-                              style: TextStyle(
-                                color: const Color(0XFFFBFBFB),
-                                fontSize: 16.sp,
-                                fontFamily: "Poppins",
-                              )),
-                          // text20White(widget.irr)
-                          text20White("~ 11-13% p.a.")
+                          Image.asset(
+                            "assets/images/privatecategories.png",
+                            width: 70.w,
+                            height: 70.w,
+                          ),
+                          SizedBox(
+                            width: 25.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Expected Return (IRR)".tr,
+                                  style: TextStyle(
+                                    color: const Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              // text20White(widget.irr)
+                              text20White("~ 11-13% p.a.".tr)
+                            ],
+                          ),
                         ],
                       ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/images/privateequitytime.png",
-                        width: 70.w,
-                        height: 70.w,
-                      ),
                       SizedBox(
-                        width: 25.w,
+                        height: 30.h,
                       ),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text("Suggested Investment Horizon",
-                                style: TextStyle(
-                                  color: Color(0XFFFBFBFB),
-                                  fontSize: 16.sp,
-                                  fontFamily: "Poppins",
-                                )),
-                            // text20White(widget.sih)
-                            text20White("More than 4 Years")
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        "assets/images/funding.png",
-                        width: 70.w,
-                        height: 70.w,
-                      ),
-                      SizedBox(
-                        width: 25.w,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          Text("Minimum Investment",
-                              style: TextStyle(
-                                color: Color(0XFFFBFBFB),
-                                fontSize: 16.sp,
-                                fontFamily: "Poppins",
-                              )),
-                          text20White("25,00,000")
+                          Image.asset(
+                            "assets/images/privateequitytime.png",
+                            width: 70.w,
+                            height: 70.w,
+                          ),
+                          SizedBox(
+                            width: 25.w,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text("Suggested Investment Horizon".tr,
+                                    style: TextStyle(
+                                      color: Color(0XFFFBFBFB),
+                                      fontSize: 16.sp,
+                                      fontFamily: "Poppins",
+                                    )),
+                                // text20White(widget.sih)
+                                text20White("More than 4 Years".tr)
+                              ],
+                            ),
+                          ),
                         ],
                       ),
-                    ],
-                  ),
-                    SizedBox(
+                      SizedBox(
+                        height: 30.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            "assets/images/funding.png",
+                            width: 70.w,
+                            height: 70.w,
+                          ),
+                          SizedBox(
+                            width: 25.w,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("Minimum Investment".tr,
+                                  style: TextStyle(
+                                    color: Color(0XFFFBFBFB),
+                                    fontSize: 16.sp,
+                                    fontFamily: "Poppins",
+                                  )),
+                              text20White("25,00,000".tr)
+                            ],
+                          ),
+                        ],
+                      ),
+                      SizedBox(
                         height: 40.h,
                       ),
                       OpenContainerWrappers(
@@ -217,7 +217,7 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                           height: 50.h,
                           child: Center(
                             child: Text(
-                              "View more product",
+                              "View more product".tr,
                               style: TextStyle(
                                 color: Color(0XFF000000),
                                 fontSize: 18.sp,

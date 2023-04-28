@@ -69,7 +69,7 @@ class _LeaseBasedState extends State<LeaseBased> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Lease based Financing",
+                    "Lease based Financing".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
@@ -92,7 +92,7 @@ class _LeaseBasedState extends State<LeaseBased> {
                         height: 20.h,
                       ),
                       Text(
-                        "This is a kind of financing where the lender (lessor) gives another person, the lessee, the right to use an asset against periodical payments.",
+                        "LeaseDisc".tr,
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
                           fontSize: 18.sp,
@@ -111,7 +111,7 @@ class _LeaseBasedState extends State<LeaseBased> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
                             Text(
-                              "Learn more",
+                              "Learn more".tr,
                               style: TextStyle(
                                   color: Color(0XFFFFFFFF),
                                   fontSize: 16.sp,
@@ -137,14 +137,14 @@ class _LeaseBasedState extends State<LeaseBased> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Expected Return (IRR):",
+                              Text("Expected Return (IRR)".tr,
                                   style: TextStyle(
                                     color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
                               // text20White(widget.irr)
-                              text20White("~ 12%-16% p.a.")
+                              text20White("~ 12%-16% p.a.".tr)
                             ],
                           ),
                         ],
@@ -167,14 +167,14 @@ class _LeaseBasedState extends State<LeaseBased> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Investment Horizon:",
+                                Text("Investment Horizon:".tr,
                                     style: TextStyle(
                                       color: Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
                                 // text20White(widget.sih)
-                                text20White("~ 12-36 months")
+                                text20White("~ 12-36 months".tr)
                               ],
                             ),
                           ),
@@ -197,13 +197,13 @@ class _LeaseBasedState extends State<LeaseBased> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Minimum Investment:",
+                              Text("Minimum Investment".tr,
                                   style: TextStyle(
                                     color: Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
-                              text20White("1,00,000")
+                              text20White("1,00,000".tr)
                             ],
                           ),
                         ],
@@ -221,7 +221,7 @@ class _LeaseBasedState extends State<LeaseBased> {
                           height: 50.h,
                           child: Center(
                             child: Text(
-                              "View more product",
+                              "View more product".tr,
                               style: TextStyle(
                                 color: Color(0XFF000000),
                                 fontSize: 18.sp,
