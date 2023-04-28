@@ -1,5 +1,6 @@
 class HighYieldProds {
   String securityName;
+  String minimum;
   String securityType;
   String isin;
   String issuerCompany;
@@ -15,7 +16,8 @@ class HighYieldProds {
   String MaturityDate;
 
   HighYieldProds({
-    required this.securityName, 
+    required this.securityName,
+    required this.minimum, 
     required this.securityType,
     required this.isin,
     required this.issuerCompany, 

@@ -1,12 +1,21 @@
 // ignore_for_file: prefer_const_constructors
 // part 'HomePage.dart';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
+import 'package:freeu/HomePage/Categories/CleanGreen/CleanGreenMain.dart';
+import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
+import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceDiscountingMain.dart';
+import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based.dart';
+import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
+import 'package:freeu/HomePage/Categories/SecuredDebt/SecuredDebtMain.dart';
+import 'package:freeu/HomePage/Categories/Venture%20debt/VentureDebtMain.dart';
+import 'package:freeu/HomePage/Categories/revenue_based_financing/revenue_based_main.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
 import 'package:freeu/SideMenu/insights.dart';
@@ -159,7 +168,33 @@ class _HomePageState extends State<HomePage> {
     },
   ];
 
+  List content = [
+    {
+      "text":
+          "We do not just provide you options. We want you to learn about the ones best suited to your needs.",
+      "colorL": AppColors.blue143C6D,
+    },
+    {
+      "text": "Know. Learn. Invest.",
+      "colorL": AppColors.redL_BE0F02,
+    },
+    {
+      "text": "Create your customized investment world.",
+      "colorL": AppColors.greenD_044A1B,
+    },
+    {
+      "text": "Investing simplified. One platform to choose from",
+      "colorL": AppColors.purpleD_242744,
+    },
+    {
+      "text": "One platform, multiple options. Simplified for you.",
+      "colorL": AppColors.brownD_4C1D13,
+    },
+  ];
+
   final controllerEntryPoint = Get.put(EntryPointController());
+  var sliderPage = 0.obs;
+  final CarouselController carouselController = CarouselController();
 
   // DateTime timebackPressed = DateTime.now();
   @override
@@ -218,42 +253,86 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 15.h,
               ),
-              Container(
-                height: 159.h,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    color: AppColors.blue143C6D,
-                    borderRadius: BorderRadius.circular(15.h),
-                    image: DecorationImage(
-                        image: AssetImage("assets/newImages/Group 51336.png"),
-                        fit: BoxFit.fill)
-                    // boxShadow: [
-                    //   BoxShadow(
-                    //     color: Colors.black.withOpacity(0.06),
-                    //     blurRadius: 10,
-                    //     spreadRadius: 2,
-                    //   )
-                    // ]
-                    ),
-                child: Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
-                  child: Column(
-                    children: [
-                      // Image.asset(name)
-                      SvgPicture.asset(
-                        "assets/newImages/quotes-svgrepo-com.svg",
-                        width: 24.w,
-                        height: 15.h,
+              CarouselSlider.builder(
+                carouselController: CarouselController(),
+                itemCount: 5,
+                itemBuilder: (context, index, realIndex) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    child: Container(
+                      height: 159.h,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          color:
+                              //content[index]['colorL'],
+                              AppColors.blue143C6D,
+                          borderRadius: BorderRadius.circular(15.h),
+                          image: DecorationImage(
+                              image: AssetImage(
+                                  "assets/newImages/Group 51336.png"),
+                              fit: BoxFit.fill)
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //     color: Colors.black.withOpacity(0.06),
+                          //     blurRadius: 10,
+                          //     spreadRadius: 2,
+                          //   )
+                          // ]
+                          ),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 10.w, vertical: 20.h),
+                        child: Column(
+                          children: [
+                            // Image.asset(name)
+                            SvgPicture.asset(
+                              "assets/newImages/quotes-svgrepo-com.svg",
+                              width: 24.w,
+                              height: 15.h,
+                            ),
+
+                            Spacer(),
+
+                            // Text(data)
+                            text16White(content[index]['text'],
+
+                                //"We do not just provide you options. We want you to learn about the ones best suited for your needs.",
+                                textAlign: TextAlign.center),
+                            Spacer(),
+                          ],
+                        ),
                       ),
-
-                      Spacer(),
-
-                      // Text(data)
-                      text16White(
-                          "We do not just provide you options. We want you to learn about the ones best suited for your needs.",
-                          textAlign: TextAlign.center)
-                    ],
+                    ),
+                  );
+                },
+                options: CarouselOptions(
+                    autoPlay: true,
+                    height: 159.h,
+                    autoPlayAnimationDuration: Duration(seconds: 3),
+                    viewportFraction: 1,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        sliderPage.value = index;
+                      });
+                    }),
+              ),
+              sizedBoxHeight(12.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  5,
+                  (index) => GestureDetector(
+                    onTap: () => carouselController.animateToPage(index),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: AppColors.blue143C6D,
+                          borderRadius: BorderRadius.circular(25.r)),
+                      width: 12.w,
+                      height: sliderPage.value == index ? 3.h : 2.h,
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 3.0,
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -349,22 +428,24 @@ class _HomePageState extends State<HomePage> {
                 height: 133.h,
                 child: ListView.separated(
                     separatorBuilder: (_, index) {
-                      return index == 2 ? SizedBox() : sizedBoxWidth(20.w);
+                      return index == 9 ? SizedBox() : sizedBoxWidth(20.w);
                     },
                     scrollDirection: Axis.horizontal,
-                    itemCount: 2,
+                    itemCount: categoryData.length,
                     itemBuilder: (context, index) {
                       return OpenContainerWrappers(
-                          closeBuild: categoryCard(
-                            color1: categoryData[index]["colorL"],
-                            color2: categoryData[index]["colorD"],
-                            bgImage: categoryData[index]["bgImage"],
-                            image: categoryData[index]["imageUrl"],
-                            text: categoryData[index]["title"],
-                          ),
-                          openBuild: index == 0
-                              ? AlternativeInsvestment()
-                              : FractionalRealestate());
+                        closeBuild: categoryCard(
+                          color1: categoryData[index]["colorL"],
+                          color2: categoryData[index]["colorD"],
+                          bgImage: categoryData[index]["bgImage"],
+                          image: categoryData[index]["imageUrl"],
+                          text: categoryData[index]["title"],
+                        ),
+                        openBuild: navigate(index),
+                        // index == 0
+                        //     ? AlternativeInsvestment()
+                        //     : FractionalRealestate()
+                      );
                     }),
                 /*   child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -425,6 +506,85 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  Widget navigate(int index) {
+    switch (index) {
+      case 0:
+        {
+          return AlternativeInsvestment();
+        }
+
+        break;
+      case 1:
+        {
+          return FractionalRealestate();
+        }
+
+        break;
+
+      case 2:
+        {
+          return PeerMain();
+        }
+
+        break;
+
+      case 3:
+        {
+          return InvoiceDiscountingMain();
+        }
+
+        break;
+
+      case 4:
+        {
+          return RevenueBasedMain();
+        }
+
+        break;
+
+      case 5:
+        {
+          return LeaseBased();
+        }
+
+        break;
+
+      case 6:
+        {
+          return CleanGreenMain();
+        }
+
+        break;
+      case 7:
+        {
+          return VentureDebtMain();
+        }
+
+        break;
+
+      case 8:
+        {
+          return SecureDebtMain();
+        }
+
+        break;
+
+      case 9:
+        {
+          return HighYieldFinance();
+        }
+
+        break;
+
+      default:
+        {
+          // Null;
+          return FractionalRealestate();
+        }
+    }
+    // return Page;
   }
 
   Widget tileCard(String path) {

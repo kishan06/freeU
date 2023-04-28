@@ -375,13 +375,13 @@ class _CategoriesMainState extends State<CategoriesMain> {
         }
 
         break;
-      
-      case 3:
-      {
-        return InvoiceDiscountingMain();
-      }
 
-      break;
+      case 3:
+        {
+          return InvoiceDiscountingMain();
+        }
+
+        break;
 
       case 4:
         {
@@ -417,9 +417,6 @@ class _CategoriesMainState extends State<CategoriesMain> {
 
         break;
 
-
-
-      
       case 9:
         {
           return HighYieldFinance();
