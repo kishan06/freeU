@@ -37,7 +37,7 @@ class _SplashsliderState extends State<Splashslider> {
         timebackPressed = DateTime.now();
 
         if (isExitWarning) {
-          final message = "Press back again to exit";
+          final message = "Press back again to exit".tr;
           Fluttertoast.showToast(
             msg: message,
             fontSize: 18,
@@ -126,7 +126,7 @@ class _SplashsliderState extends State<Splashslider> {
               SizedBox(
                 width: 330.w,
                 child: CustomNextButton(
-                  text: "Next",
+                  text: "Next".tr,
                   ontap: () {
                     setState(() {
                       _controller.animateToPage(currentIndex + 1,
@@ -149,7 +149,7 @@ class _SplashsliderState extends State<Splashslider> {
                   currentIndex < 3
                       ? GestureDetector(
                           child: Text(
-                            "Skip",
+                            "Skip".tr,
                             style: TextStyle(
                               color: Color(0xFF6B6B6B),
                               fontSize: 16.sp,
@@ -186,12 +186,11 @@ class _SplashsliderState extends State<Splashslider> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          text30BlackM("What is FreeU ?"),
+          text30BlackM("What is FreeU ?".tr),
 
           sizedBoxHeight(15.h),
 
-          text18Grey(
-              "FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering the best risk adjusted returns to our investors."),
+          text18Grey('whatsFreeU'.tr),
 
           sizedBoxHeight(37.h),
 
@@ -239,12 +238,11 @@ class _SplashsliderState extends State<Splashslider> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          text30BlackM("What are \nAlternative Assets?"),
+          text30BlackM("What are Alternative Assets?".tr),
 
           sizedBoxHeight(15.h),
 
-          text18Grey(
-              "As the name suggests, Alternative investments are financial investments that cannot be categorized as a traditional, or conventional investment."),
+          text18Grey('splashTxt1'.tr),
 
           sizedBoxHeight(53.h),
 
@@ -281,12 +279,11 @@ class _SplashsliderState extends State<Splashslider> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           text30BlackM(
-              "Difference between Alternative & \nTraditional Investments"),
+              "Difference between Alternative & Traditional Investments".tr),
 
           sizedBoxHeight(15.h),
 
-          text18Grey(
-              "Traditional investments are investments that can be bought, sold, and traded on a public market"),
+          text18Grey('splashTxt2'.tr),
 
           // sizedBoxHeight(30.h),
           const Spacer(),
@@ -306,7 +303,7 @@ class _SplashsliderState extends State<Splashslider> {
                 ),
               ),
 
-              text30BlackM("vs"),
+              text30BlackM("vs".tr),
 
               SizedBox(
                 height: 120.h,
@@ -340,7 +337,7 @@ class _SplashsliderState extends State<Splashslider> {
           const Spacer(),
 
           text18Grey(
-              "Alternative investments, on the other hand, are not publicly traded."),
+              'splashTxt3'.tr),
 
           const Spacer(),
         ],
@@ -354,12 +351,12 @@ class _SplashsliderState extends State<Splashslider> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          text30BlackM("Why FreeU ?"),
+          text30BlackM("Why FreeU ?".tr),
 
           sizedBoxHeight(15.h),
 
           text18Grey(
-              "Freeu is one-stop shop for Alternate Investments. We want you to learn, compare, and choose before you invest. Luckily, we have curated the best of the best’s options for you"),
+              'WhyFreeU'.tr),
 
           sizedBoxHeight(50.h),
 

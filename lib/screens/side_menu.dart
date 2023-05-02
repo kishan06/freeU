@@ -12,6 +12,10 @@ import 'package:freeu/profile/profile.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../main.dart';
+
+String? language;
+
 class SideBar extends StatefulWidget {
   const SideBar({
     super.key,
@@ -32,7 +36,7 @@ class _SideBarState extends State<SideBar> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   List sideBarData = [
-    {"imagePath": "assets/logos/side1.png", "text": "kyc".tr},
+    {"imagePath": "assets/logos/side1.png", "text": "KYC"},
     {"imagePath": "assets/logos/side2.png", "text": "Security".tr},
     {"imagePath": "assets/logos/side3.png", "text": "How to Invest".tr},
     {"imagePath": "assets/logos/side4.png", "text": "Update Risk Profile".tr},
@@ -45,8 +49,6 @@ class _SideBarState extends State<SideBar> {
     {"imagePath": "assets/logos/side11.png", "text": "Logout".tr},
   ];
   // Menu selectedSideMenu = sidebarMenus.first;
-
-  String? language;
 
   @override
   Widget build(BuildContext context) {
@@ -275,19 +277,23 @@ class _SideBarState extends State<SideBar> {
                       // ),
 
                       ),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: sideBarData.length,
-                    itemBuilder: (_, index) {
-                      return sideBarTile(
-                        image: sideBarData[index]["imagePath"],
-                        text: sideBarData[index]["text"],
-                        onTap: () {
-                          navigateTo(index, context);
-                        },
-                      );
-                    },
-                  ),
+                  StreamBuilder<bool>(
+                      stream: null,
+                      builder: (context, snapshot) {
+                        return ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: sideBarData.length,
+                          itemBuilder: (_, index) {
+                            return sideBarTile(
+                              image: sideBarData[index]["imagePath".tr],
+                              text: sideBarData[index]["text".tr],
+                              onTap: () {
+                                navigateTo(index, context);
+                              },
+                            );
+                          },
+                        );
+                      }),
                   sizedBoxHeight(15.h),
                   GestureDetector(
                     onTap: () {
@@ -344,11 +350,13 @@ class _SideBarState extends State<SideBar> {
                                     child: Center(
                                       child: GestureDetector(
                                         onTap: () {
-                                          var locale = const Locale('hi', 'IN');
-                                          Get.updateLocale(locale);
                                           setState(() {
+                                            var locale =
+                                                const Locale('hi', 'IN');
                                             language = 'हिंदी';
+                                            Get.updateLocale(locale);
                                           });
+
                                           Get.back();
                                         },
                                         child: Text(
@@ -368,10 +376,13 @@ class _SideBarState extends State<SideBar> {
                       children: [
                         Text(
                           'Language'.tr,
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         sizedBoxHeight(5.h),
                         Text(
                           language == null ? 'English'.tr : '$language',
+                          style: const TextStyle(
+                              color: Colors.blue, fontWeight: FontWeight.bold),
                         ),
                       ],
                     ),
@@ -584,7 +595,7 @@ Future<dynamic> logoutDailog(BuildContext context) {
   );
 }
 
-class sideBarTile extends StatelessWidget {
+class sideBarTile extends StatefulWidget {
   String image;
   String text;
   void Function()? onTap;
@@ -597,6 +608,11 @@ class sideBarTile extends StatelessWidget {
   });
 
   @override
+  State<sideBarTile> createState() => _sideBarTileState();
+}
+
+class _sideBarTileState extends State<sideBarTile> {
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -605,7 +621,7 @@ class sideBarTile extends StatelessWidget {
           color: AppColors.white,
         ),
         InkWell(
-          onTap: onTap,
+          onTap: widget.onTap,
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 1.h),
             child: Row(
@@ -615,7 +631,7 @@ class sideBarTile extends StatelessWidget {
                   height: 30.h,
                   width: 30.h,
                   child: Image.asset(
-                    image,
+                    widget.image.tr,
                     // height: ,
                     color: AppColors.white,
                     fit: BoxFit.fill,
@@ -624,7 +640,7 @@ class sideBarTile extends StatelessWidget {
                 SizedBox(
                   width: 15.w,
                 ),
-                text16White(text)
+                text16White(widget.text.tr)
               ],
             ),
           ),

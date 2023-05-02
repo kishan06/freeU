@@ -66,7 +66,7 @@ class _otpVerificationState extends State<otpVerification> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Forgot Password",
+                        "Forgot Password".tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _otpVerificationState extends State<otpVerification> {
                           height: 20.h,
                         ),
                         Text(
-                          "We will send a verification email to the email address on your account in order to reset your password",
+                          'forgotPwdtxt1'.tr,
                           style: TextStyle(
                             fontSize: 18.sp,
                             color: Color(0XFF272424),
@@ -122,7 +122,7 @@ class _otpVerificationState extends State<otpVerification> {
                                       width: 1, //<-- SEE HERE
                                       color: Color(0xFF6B6B6B)),
                                 ),
-                                hintText: "Enter number",
+                                hintText: "Enter number".tr,
                                 hintStyle: TextStyle(
                                     fontFamily: "Poppins", fontSize: 15.sm),
                                 prefixIcon: Align(
@@ -139,11 +139,11 @@ class _otpVerificationState extends State<otpVerification> {
                               },
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return "Please Enter a Phone Number";
+                                  return "Please Enter a Phone Number".tr;
                                 } else if (!RegExp(
                                         r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
                                     .hasMatch(value)) {
-                                  return "Please Enter a Valid Phone Number";
+                                  return "Please Enter a Valid Phone Number".tr;
                                 }
                                 return null;
                               },
@@ -152,7 +152,7 @@ class _otpVerificationState extends State<otpVerification> {
                               height: 30.h,
                             ),
                             Text(
-                              "Enter OTP",
+                              "Enter OTP".tr,
                               style: blackStyle16().copyWith(
                                 color: Color(0xff303030),
                               ),
@@ -169,9 +169,9 @@ class _otpVerificationState extends State<otpVerification> {
                               errorTextSpace: 22,
                               validator: (value) {
                                 if (value != null && value.isEmpty) {
-                                  return "Please Enter verification code";
+                                  return "Please Enter verification code".tr;
                                 } else if (value != null && value.length < 4) {
-                                  return "OTP length should be atleast 4";
+                                  return "OTP length should be atleast 4".tr;
                                 }
                                 return null;
                               },
@@ -214,7 +214,7 @@ class _otpVerificationState extends State<otpVerification> {
                               height: 80.h,
                             ),
                             CustomNextButton(
-                              text: "Proceed",
+                              text: "Proceed".tr,
                               ontap: () {
                                 final isValid = _form.currentState?.validate();
                                 if (isValid!) {

@@ -43,7 +43,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                 children: [
                   Center(
                     child: Text(
-                      "Let's set your 4 Digit Pin",
+                      "Let's set your 4 Digit Pin".tr,
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 20.sm,
@@ -80,9 +80,9 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           ],
                           validator: (value) {
                             if (value != null && value.isEmpty) {
-                              return "Please Enter 4 Digit PIN";
+                              return "Please Enter 4 Digit PIN".tr;
                             } else if (value != null && value.length < 4) {
-                              return "PIN length should be atleast 4";
+                              return "PIN length should be atleast 4".tr;
                             }
                             return null;
                           },
@@ -92,7 +92,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           cursorHeight: 10,
                           decoration: InputDecoration(
                             helperText: "",
-                            hintText: "Choose a PIN of Your choice",
+                            hintText: "Choose a PIN of Your choice".tr,
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             border: UnderlineInputBorder(
                               borderSide: BorderSide(
@@ -127,10 +127,10 @@ class _SecurityFirstState extends State<SecurityFirst> {
                       ],
                       validator: (val) {
                         if (val == null || val.isEmpty) {
-                          return 'PIN is Empty';
+                          return 'PIN is Empty'.tr;
                         }
                         if (val != pincontroller.text) {
-                          return 'Password Not Matched';
+                          return 'Password Not Matched'.tr;
                         }
                         return null;
                       },
@@ -138,7 +138,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                       controller: confirmpincontroller,
                       decoration: InputDecoration(
                         helperText: "",
-                        hintText: "Please Re-Enter the PIN",
+                        hintText: "Please Re-Enter the PIN".tr,
                         floatingLabelBehavior: FloatingLabelBehavior.always,
                         border: UnderlineInputBorder(
                           borderSide: BorderSide(
@@ -177,7 +177,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                               snackPosition: SnackPosition.BOTTOM);
                         }
                       },
-                      text: 'Submit',
+                      text: 'Submit'.tr,
                     ),
                   ),
                   const SizedBox(
@@ -192,7 +192,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
     );
   }
 
-  String gender = "security-first";
+  String gender = "security-first".tr;
   bool onclickoftouchid = false;
   bool onclickofpin = false;
   TextEditingController pincontroller = TextEditingController();
@@ -214,7 +214,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Security First",
+                  "Security First".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontWeight: FontWeight.w500,
@@ -233,7 +233,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                   height: 25.h,
                 ),
                 Text(
-                  "Select to login Method",
+                  "Select to login Method".tr,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 18.sp,
@@ -263,7 +263,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     ),
                     onTap: () {},
                     title: Text(
-                      "4 Digit PIN",
+                      "4 Digit PIN".tr,
                       style: TextStyle(
                         color: onclickofpin ? Colors.white : Colors.black,
                         fontSize: 18,
@@ -274,7 +274,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                       scale: 1.5,
                       child: Radio(
                           activeColor: (Colors.white),
-                          value: "4 Digit PIN",
+                          value: "4 Digit PIN".tr,
                           groupValue: gender,
                           onChanged: (value) {
                             setState(() {
@@ -310,7 +310,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           : "assets/images/touch-black.svg",
                     ),
                     title: Text(
-                      "Touch Id",
+                      "Touch Id".tr,
                       style: TextStyle(
                           color: onclickoftouchid ? Colors.white : Colors.black,
                           fontFamily: 'Poppins',
@@ -323,7 +323,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           //     MaterialStateProperty.all<Color>(Color(0xff143C6D)),
                           focusColor: const Color(0xff143C6D),
                           activeColor: (Colors.white),
-                          value: "Touch Id",
+                          value: "Touch Id".tr,
                           groupValue: gender,
                           onChanged: (value) {
                             setState(() {

@@ -37,7 +37,7 @@ class _TouchIdState extends State<TouchId> {
     bool? isAuth = false;
     try {
       isAuth = await authentication.authenticate(
-        localizedReason: 'add your finger print to login',
+        localizedReason: 'add your finger print to login'.tr,
         options: AuthenticationOptions(
             biometricOnly: true, useErrorDialogs: true, stickyAuth: true),
       );
@@ -77,7 +77,7 @@ class _TouchIdState extends State<TouchId> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  "Set-up Touch Id",
+                  "Set-up Touch Id".tr,
                   style: TextStyle(
                     fontSize: 25.sp,
                     fontWeight: FontWeight.w500,
@@ -99,7 +99,7 @@ class _TouchIdState extends State<TouchId> {
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: CustomNextButton(
-                    text: "Set up Now!",
+                    text: "Set up Now!".tr,
                     ontap: () {
                       Get.snackbar("Verify Your Biometric",
                           "Please Touch Your Finger print",
@@ -119,7 +119,7 @@ class _TouchIdState extends State<TouchId> {
                     Get.toNamed('/completeprofile');
                   },
                   child: Text(
-                    'will do it later',
+                    'will do it later'.tr,
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 14.sp,

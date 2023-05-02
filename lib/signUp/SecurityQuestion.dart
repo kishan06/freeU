@@ -41,7 +41,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Security questions",
+                      "Security questions".tr,
                       style: TextStyle(
                           fontFamily: "Poppins",
                           fontWeight: FontWeight.w500,
@@ -61,7 +61,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       height: 30.h,
                     ),
                     Text(
-                      "In what city were you born?",
+                      "In what city were you born?".tr,
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                           fontSize: 20.sp,
@@ -72,11 +72,11 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       height: 15.h,
                     ),
                     CustomTextFormField(
-                      hintText: "Answer",
-                      validatorText: "Please Enter Answer",
+                      hintText: "Answer".tr,
+                      validatorText: "Please Enter Answer".tr,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Please Enter Answer";
+                          return "Please Enter Answer".tr;
                         }
                         return null;
                       },
@@ -85,7 +85,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       height: 25.h,
                     ),
                     Text(
-                      "What is the name of your favorite pet?",
+                      "What is the name of your favorite pet?".tr,
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                           fontSize: 20.sp,
@@ -96,11 +96,11 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       height: 15.h,
                     ),
                     CustomTextFormField(
-                      hintText: "Answer",
-                      validatorText: "Please Enter Answer",
+                      hintText: "Answer".tr,
+                      validatorText: "Please Enter Answer".tr,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Please Enter Answer";
+                          return "Please Enter Answer".tr;
                         }
                         return null;
                       },
@@ -119,7 +119,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       height: 25.h,
                     ),
                     Text(
-                      "What is your mother's maiden name?",
+                      "What is your mother's maiden name?".tr,
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                           fontSize: 20.sp,
@@ -130,11 +130,11 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       height: 15.h,
                     ),
                     CustomTextFormField(
-                      hintText: "Answer",
-                      validatorText: "Please Enter Answer",
+                      hintText: "Answer".tr,
+                      validatorText: "Please Enter Answer".tr,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Please Enter Answer";
+                          return "Please Enter Answer".tr;
                         }
                         return null;
                       },
@@ -153,7 +153,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       height: 25.h,
                     ),
                     Text(
-                      "What high school did you attend?",
+                      "What high school did you attend?".tr,
                       // ignore: prefer_const_constructors
                       style: TextStyle(
                           fontSize: 20.sp,
@@ -164,11 +164,11 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       height: 15.h,
                     ),
                     CustomTextFormField(
-                      hintText: "Answer",
-                      validatorText: "Please Enter Answer",
+                      hintText: "Answer".tr,
+                      validatorText: "Please Enter Answer".tr,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Please Enter Answer";
+                          return "Please Enter Answer".tr;
                         }
                         return null;
                       },
@@ -185,7 +185,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                     // ),
                     SizedBox(height: 45.h),
                     CustomNextButton(
-                      text: "Next",
+                      text: "Next".tr,
                       ontap: () {
                         final isValid = _form.currentState?.validate();
                         if (isValid!) {
@@ -210,7 +210,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                             Get.toNamed("/securityfirst");
                           },
                           child: Text(
-                            "Skip",
+                            "Skip".tr,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: Color(0xff6B6B6B),

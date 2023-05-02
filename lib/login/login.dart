@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "One-Touch",
+                      "One-Touch".tr,
                       style: TextStyle(
                           fontSize: 25.sp, fontWeight: FontWeight.w500),
                     ),
@@ -63,7 +63,7 @@ class _LoginState extends State<Login> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Use your fingerprint to easily log in!",
+                      "Use your fingerprint to easily log in!".tr,
                       style:
                           TextStyle(fontSize: 20.sp, color: Color(0XFF272424)),
                     ),
@@ -86,7 +86,7 @@ class _LoginState extends State<Login> {
                     Align(
                         alignment: Alignment.center,
                         child: Text(
-                          "Touch the fingerprint sensor",
+                          "Touch the fingerprint sensor".tr,
                           style: TextStyle(
                               fontSize: 18.sp, color: Color(0XFF272424)),
                         )),
@@ -107,7 +107,7 @@ class _LoginState extends State<Login> {
                           bottomsheetpin(context);
                         },
                         child: Text(
-                          "Login with Pin",
+                          "Login with Pin".tr,
                           style: TextStyle(
                             fontSize: 18.sp,
                             fontWeight: FontWeight.bold,
@@ -149,7 +149,7 @@ class _LoginState extends State<Login> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "4 Digit Pin",
+                      "4 Digit Pin".tr,
                       style: TextStyle(
                         fontSize: 25.sp,
                         fontWeight: FontWeight.w500,
@@ -165,7 +165,7 @@ class _LoginState extends State<Login> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Use your 4 Digit Pin to easily log in!",
+                      "Use your 4 Digit Pin to easily log in!".tr,
                       style: TextStyle(
                         fontSize: 17.sp,
                         color: Colors.black,
@@ -178,7 +178,7 @@ class _LoginState extends State<Login> {
                       controller: pincontroller,
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.all(20),
-                        hintText: 'Enter PIN',
+                        hintText: 'Enter PIN'.tr,
                         focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(5)),
                           borderSide:
@@ -218,7 +218,7 @@ class _LoginState extends State<Login> {
                       autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (val) {
                         if (val == null || val.isEmpty) {
-                          return 'Pin is Empty';
+                          return 'Pin is Empty'.tr;
                         } else {
                           return null;
                         }
@@ -230,7 +230,7 @@ class _LoginState extends State<Login> {
                     Align(
                       alignment: Alignment.center,
                       child: Text(
-                        "Forgot PIN?",
+                        "Forgot PIN?".tr,
                         style: TextStyle(
                           fontSize: 18.sp,
                           color: Color(0xFF143C6D),
@@ -248,7 +248,6 @@ class _LoginState extends State<Login> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -259,7 +258,7 @@ class _LoginState extends State<Login> {
         timebackPressed = DateTime.now();
 
         if (isExitWarning) {
-          final message = "Press back again to exit";
+          final message = "Press back again to exit".tr;
           Fluttertoast.showToast(
             msg: message,
             fontSize: 18.sm,
@@ -299,7 +298,7 @@ class _LoginState extends State<Login> {
                                 );
                               },
                               child: Text(
-                                "Skip",
+                                "Skip".tr,
                                 style: TextStyle(
                                   color: Color(0xFF143C6D),
                                   fontSize: 14.sp,
@@ -318,7 +317,7 @@ class _LoginState extends State<Login> {
                           height: 30.h,
                         ),
                         Text(
-                          "Welcome to FreeU",
+                          "Welcome to FreeU".tr,
                           style: TextStyle(
                               fontFamily: "Nunito",
                               fontSize: 28.sp,
@@ -328,7 +327,7 @@ class _LoginState extends State<Login> {
                           height: 5.h,
                         ),
                         Text(
-                          "Sign in to continue.",
+                          "Sign in to continue.".tr,
                           style: TextStyle(
                             fontFamily: "Nunito",
                             fontSize: 20.sp,
@@ -341,8 +340,7 @@ class _LoginState extends State<Login> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Email / Phone",
-                              // ignore: prefer_const_constructors
+                              "Email / Phone".tr,
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -352,11 +350,12 @@ class _LoginState extends State<Login> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
-                              hintText: "Enter Email or Phone Number",
+                              hintText: "Enter Email or Phone Number".tr,
                               validatorText: "Enter Email or Phone Number",
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return "Please Enter Email or Phone Number";
+                                  return "Please Enter Email or Phone Number"
+                                      .tr;
                                 }
                                 return null;
                               },
@@ -371,7 +370,7 @@ class _LoginState extends State<Login> {
                                 Get.toNamed('/loginUsingOTP');
                               },
                               child: Text(
-                                'Login Using OTP',
+                                'Login Using OTP'.tr,
                                 style: blackStyle12().copyWith(
                                   color: Color(0xFF143C6D),
                                 ),
@@ -383,7 +382,7 @@ class _LoginState extends State<Login> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Password",
+                              "Password".tr,
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -395,13 +394,13 @@ class _LoginState extends State<Login> {
                             CustomTextFormField(
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
-                                    return "Please Enter Password";
+                                    return "Please Enter Password".tr;
                                   }
                                   return null;
                                 },
                                 isInputPassword: true,
-                                hintText: "Enter Password",
-                                validatorText: "Please Enter Password")
+                                hintText: "Enter Password".tr,
+                                validatorText: "Please Enter Password".tr)
                           ],
                         ),
                         Row(
@@ -412,7 +411,7 @@ class _LoginState extends State<Login> {
                                 Get.toNamed('/forgotPassword');
                               },
                               child: Text(
-                                'Forgot Password?',
+                                'Forgot Password?'.tr,
                                 textAlign: TextAlign.end,
                                 style: blackStyle12().copyWith(
                                   color: Color(0xFF143C6D),
@@ -449,7 +448,7 @@ class _LoginState extends State<Login> {
                                   snackPosition: SnackPosition.BOTTOM);
                             }
                           },
-                          text: 'Sign In',
+                          text: 'Sign In'.tr,
                         ),
                         SizedBox(
                           height: 20.h,
@@ -458,7 +457,7 @@ class _LoginState extends State<Login> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Text(
-                              "Don't have an account?",
+                              "Don't have an account?".tr,
                               style: blackStyle14().copyWith(
                                 color: Color(0x9F333332),
                               ),
@@ -468,7 +467,7 @@ class _LoginState extends State<Login> {
                                 Get.toNamed('/signup');
                               },
                               child: Text(
-                                'Create account',
+                                'Create account'.tr,
                                 style: blackStyle14().copyWith(
                                   color: Color(0xFF143C6D),
                                 ),

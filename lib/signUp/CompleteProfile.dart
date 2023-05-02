@@ -47,7 +47,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                 SizedBox(
                   width: double.infinity,
                   child: Text(
-                    'Would you like a guided tour of our app?',
+                    'Would you like a guided tour of our app?'.tr,
                     textAlign: TextAlign.left,
                     style: TextStyle(
                       fontSize: 25.sp,
@@ -80,7 +80,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       ),
                     ),
                     Text(
-                      "Don't show this message again",
+                      "Don't show this message again".tr,
                       style: TextStyle(
                         fontSize: 14.sm,
                         fontFamily: 'Poppins',
@@ -148,7 +148,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           );
                         },
                         child: Text(
-                          "No",
+                          "No".tr,
                           style: TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 16.sm,
@@ -176,7 +176,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         ),
                         onPressed: () {},
                         child: Text(
-                          "Yes",
+                          "Yes".tr,
                           style: TextStyle(
                               fontFamily: "Poppins",
                               fontSize: 16.sm,
@@ -274,7 +274,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
             );
           },
           child: Text(
-            "Skip",
+            "Skip".tr,
             style: TextStyle(
               color: Color(0xff6B6B6B),
               fontSize: 14.sm,
@@ -299,7 +299,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "Complete Your Profile",
+                      "Complete Your Profile".tr,
                       style: TextStyle(
                           fontFamily: "Poppins",
                           fontWeight: FontWeight.w500,
@@ -322,46 +322,46 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Enter your full name",
+                        Text("Enter your full name".tr,
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
-                          hintText: "Full Name*",
-                          validatorText: "Full Name",
+                          hintText: "Full Name*".tr,
+                          validatorText: "Full Name".tr,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Please Enter Full Name";
+                              return "Please Enter Full Name".tr;
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: 25.h),
-                        Text("Enter your email address",
+                        Text("Enter your email address".tr,
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
-                          hintText: "Email Id*",
-                          validatorText: "Email Id",
+                          hintText: "Email Id*".tr,
+                          validatorText: "Email Id".tr,
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return 'Enter your Email address';
+                              return 'Enter your Email address'.tr;
                             }
                             if (!RegExp(
                                     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
                                 .hasMatch(value)) {
-                              return 'Enter a Valid Email address';
+                              return 'Enter a Valid Email address'.tr;
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: 25.h),
-                        Text("Enter your phone number",
+                        Text("Enter your phone number".tr,
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
@@ -373,17 +373,17 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             LengthLimitingTextInputFormatter(10),
                             FilteringTextInputFormatter.digitsOnly
                           ],
-                          hintText: "Phone Number*",
+                          hintText: "Phone Number*".tr,
                           validatorText: "Phone Number",
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Please Enter Phone Number";
+                              return "Please Enter Phone Number".tr;
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: 25.h),
-                        Text("Enter your date of birth",
+                        Text("Enter your date of birth".tr,
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
@@ -435,24 +435,24 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         //   },
                         // ),
                         SizedBox(height: 25.h),
-                        Text("Enter your occupation",
+                        Text("Enter your occupation".tr,
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
-                          hintText: "Occupation*",
-                          validatorText: "Occupation",
+                          hintText: "Occupation*".tr,
+                          validatorText: "Occupation".tr,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Please Enter Occupation";
+                              return "Please Enter Occupation".tr;
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: 25.h),
-                        Text("Enter your address",
+                        Text("Enter your address".tr,
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
@@ -496,13 +496,13 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           maxLines: null,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Please Enter Address";
+                              return "Please Enter Address".tr;
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: 25.h),
-                        Text("Enter Aadhar Number",
+                        Text("Enter Aadhar Number".tr,
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
@@ -513,19 +513,18 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp('[0-9]')),
                             LengthLimitingTextInputFormatter(12)
-                            
                           ],
-                          hintText: "Enter Aadhar Number",
-                          validatorText: "Enter Aadhar Number",
+                          hintText: "Enter Aadhar Number".tr,
+                          validatorText: "Enter Aadhar Number".tr,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Please Enter Aadhar Number";
+                              return "Please Enter Aadhar Number".tr;
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: 25.h),
-                        Text("Enter PAN Number",
+                        Text("Enter PAN Number".tr,
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
@@ -535,13 +534,14 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           textCapital: true,
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(10),
-                            FilteringTextInputFormatter.allow(RegExp('[A-Z,0-9]')),
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[A-Z,0-9]')),
                           ],
-                          hintText: "Enter PAN Number",
-                          validatorText: "Enter PAN Number",
+                          hintText: "Enter PAN Number".tr,
+                          validatorText: "Enter PAN Number".tr,
                           validator: (value) {
                             if (value == null || value.isEmpty) {
-                              return "Please Enter PAN Number";
+                              return "Please Enter PAN Number".tr;
                             }
                             return null;
                           },
@@ -563,7 +563,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                               snackPosition: SnackPosition.BOTTOM);
                         }
                       },
-                      text: 'Submit',
+                      text: 'Submit'.tr,
                     ),
                     SizedBox(
                       height: 20.h,

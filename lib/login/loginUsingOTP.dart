@@ -63,7 +63,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                       width: 3.w,
                     ),
                     Text(
-                      "Login with OTP",
+                      "Login with OTP".tr,
                       style: TextStyle(
                           fontFamily: "Poppins",
                           fontWeight: FontWeight.w500,
@@ -85,7 +85,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            "Please enter your mobile number",
+                            "Please enter your mobile number".tr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -163,9 +163,9 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                               ),
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return "Please Enter Mobile Number";
+                                  return "Please Enter Mobile Number".tr;
                                 } else if (value.length < 10) {
-                                  return "Please Enter Correct Mobile Number";
+                                  return "Please Enter Correct Mobile Number".tr;
                                 }
                                 return null;
                               },
@@ -177,7 +177,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                         height: 40.h,
                       ),
                       CustomNextButton(
-                        text: "Next",
+                        text: "Next".tr,
                         ontap: () {
                           final isValid = _form.currentState?.validate();
                           if (isValid!) {

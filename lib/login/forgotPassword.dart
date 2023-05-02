@@ -66,7 +66,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Forgot Password",
+                      "Forgot Password".tr,
                       style: TextStyle(
                           fontFamily: "Poppins",
                           fontSize: 25.sp,
@@ -85,7 +85,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                         height: 20.h,
                       ),
                       Text(
-                        "We will send a verification email to the email address on your account in order to reset your password",
+                        'forgotPwdtxt1'.tr,
                         style: TextStyle(
                           fontFamily: "Poppins",
                           fontSize: 18.sp,
@@ -102,7 +102,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Phone number",
+                            "Phone number".tr,
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                               fontFamily: "Poppins",
@@ -128,16 +128,16 @@ class _forgotPasswordState extends State<forgotPassword> {
                                   ],
                                   validator: (value) {
                                     if (value!.isEmpty) {
-                                      return "Please Enter a Phone Number";
+                                      return "Please Enter a Phone Number".tr;
                                     } else if (!RegExp(
                                             r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
                                         .hasMatch(value)) {
-                                      return "Please Enter a Valid Phone Number";
+                                      return "Please Enter a Valid Phone Number".tr;
                                     }
                                     return null;
                                   },
-                                  hintText: "Enter your Phone Number",
-                                  validatorText: "Enter your Phone Number"),
+                                  hintText: "Please Enter Phone Number".tr,
+                                  validatorText: "Please Enter Phone Number".tr),
                             ],
                           ),
                           SizedBox(
@@ -149,7 +149,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                               TextButton(
                                 onPressed: () {},
                                 child: Text(
-                                  'OTP Sent to registered mobile number',
+                                  'OTP Sent to registered mobile number'.tr,
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                     fontFamily: 'Poppins',
@@ -163,7 +163,7 @@ class _forgotPasswordState extends State<forgotPassword> {
                             height: 80.h,
                           ),
                           CustomNextButton(
-                            text: "Proceed",
+                            text: "Proceed".tr,
                             ontap: () {
                               final isValid = _form.currentState?.validate();
                               if (isValid!) {

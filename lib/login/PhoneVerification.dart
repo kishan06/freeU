@@ -65,7 +65,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Login with OTP",
+                        "Login with OTP".tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontWeight: FontWeight.w500,
@@ -80,7 +80,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       children: [
                         SizedBox(height: 40.h),
                         Text(
-                          "OTP sent to",
+                          "OTP sent to".tr,
                           // ignore: prefer_const_constructors
                           style: blackStyle20().copyWith(
                             color: Color(0xff000000),
@@ -145,18 +145,18 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           },
                           validator: (value) {
                             if (value!.isEmpty) {
-                              return "Please Enter a Phone Number";
+                              return "Please Enter Mobile Number".tr;
                             } else if (!RegExp(
                                     r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
                                 .hasMatch(value)) {
-                              return "Please Enter a Valid Phone Number";
+                              return "Please Enter Correct Mobile Number".tr;
                             }
                             return null;
                           },
                         ),
                         SizedBox(height: 30.h),
                         Text(
-                          "Enter OTP",
+                          "Enter OTP".tr,
                           style: blackStyle20().copyWith(
                             color: Color(0xff000000),
                           ),
@@ -177,9 +177,9 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           errorTextSpace: 22,
                           validator: (value) {
                             if (value != null && value.isEmpty) {
-                              return "Please Enter verification code";
+                              return "Please Enter verification code".tr;
                             } else if (value != null && value.length < 4) {
-                              return "OTP length should be atleast 4";
+                              return "OTP length should be atleast 4".tr;
                             }
                             return null;
                           },
@@ -223,14 +223,14 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text("Didn't you receive any code ?",
+                            Text("Didn't you receive any code ?".tr,
                                 style: TextStyle(
                                   color: Color.fromARGB(159, 51, 51, 50),
                                   fontSize: 14.sm,
                                 )),
                             TextButton(
                               child: Text(
-                                'Resend',
+                                'Resend'.tr,
                                 style: TextStyle(
                                   color: Color(0xFF143C6D),
                                   fontSize: 14.sm,
@@ -244,7 +244,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                         ),
                         SizedBox(height: 50.h),
                         CustomNextButton(
-                          text: "Verify",
+                          text: "Verify".tr,
                           ontap: () {
                             final isValid = _form.currentState?.validate();
                             if (isValid!) {

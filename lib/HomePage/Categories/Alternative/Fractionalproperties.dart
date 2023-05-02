@@ -374,6 +374,7 @@ class _SecondTabState extends State<SecondTab> {
                               width: 25.w,
                             ),
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
@@ -387,19 +388,16 @@ class _SecondTabState extends State<SecondTab> {
                                     fontWeight: FontWeight.w300,
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 200),
-                                  child: Text(
-                                    //subtext3,
-                                    " 1 Crore",
-                                    textDirection: TextDirection.ltr,
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      color: Color(0XFF000000),
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                Text(
+                                  //subtext3,
+                                  " 1 Crore",
+                                  textDirection: TextDirection.ltr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    color: Color(0XFF000000),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
                               ],

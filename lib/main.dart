@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20I/VentureViewMore.dart';
@@ -52,6 +54,7 @@ import 'package:freeu/login/forgotPassword.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/login/loginUsingOTP.dart';
 import 'package:freeu/login/resetPassword.dart';
+import 'package:freeu/login/select_language.dart';
 import 'package:freeu/profile/kyctabs1.dart';
 import 'package:freeu/profile/kyctabs2.dart';
 import 'package:freeu/profile/kyctabs3.dart';
@@ -127,7 +130,7 @@ class _MyAppState extends State<MyApp> {
           GetPage(name: '/Insights', page: () => Insights()),
 
           GetPage(name: '/VerticalSlider', page: () => VerticalSlider()),
-          GetPage(name: '/', page: () => Splashslider()),
+          GetPage(name: '/', page: () => SelectLanguage()),
           GetPage(name: '/login', page: () => Login()),
           GetPage(name: '/signup', page: () => SignUp()),
           GetPage(name: '/loginUsingOTP', page: () => LoginUsingOTP()),

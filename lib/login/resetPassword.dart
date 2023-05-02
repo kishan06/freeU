@@ -62,7 +62,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Reset Password",
+                      "Reset Password".tr,
                       style: TextStyle(
                           fontFamily: "Poppins",
                           fontSize: 25.sp,
@@ -83,12 +83,11 @@ class _ResetPasswordState extends State<ResetPassword> {
                             height: 30.h,
                           ),
                           Text(
-                            "New Password",
-                            // ignore: prefer_const_constructors
+                            "New Password".tr,
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 18.sp,
-                                color: Color(0xff000000)),
+                                color: const Color(0xff000000)),
                           ),
                           SizedBox(
                             height: 15.h,
@@ -146,7 +145,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                 //  errorStyle: const TextStyle(
                                 //    fontSize: 16.0,
                                 //   ),
-                                hintText: 'Enter your password',
+                                hintText: 'Enter your password'.tr,
                                 suffixIcon: Padding(
                                   padding: const EdgeInsets.only(right: 20),
                                   child: IconButton(
@@ -167,12 +166,12 @@ class _ResetPasswordState extends State<ResetPassword> {
                                 )),
                             validator: (val) {
                               if (val!.isEmpty) {
-                                return 'Password is Empty';
+                                return 'Password is Empty'.tr;
                               }
                               if (!RegExp(
                                       r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
                                   .hasMatch(val)) {
-                                return 'Enter valid password';
+                                return 'Enter valid password'.tr;
                               } else {
                                 return null;
                               }
@@ -204,7 +203,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                               Padding(
                                 padding: EdgeInsets.only(left: 10),
                                 child: Text(
-                                  'Has at least 8 characters',
+                                  'Has at least 8 characters'.tr,
                                   style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontSize: 14.sm,
@@ -245,7 +244,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                 child: Padding(
                                   padding: EdgeInsets.only(left: 10),
                                   child: Text(
-                                    'Has at least 1 uppercase letter and symbol',
+                                    'Has at least 1 uppercase letter and symbol'.tr,
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
                                         fontSize: 14.sm,
@@ -285,7 +284,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                               Padding(
                                 padding: EdgeInsets.only(left: 10),
                                 child: Text(
-                                  'Has a number',
+                                  'Has a number'.tr,
                                   style: TextStyle(
                                       fontFamily: 'Poppins',
                                       fontSize: 14.sm,
@@ -300,7 +299,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                             height: 30.h,
                           ),
                           Text(
-                            "Confirm Password",
+                            "Confirm Password".tr,
                             // ignore: prefer_const_constructors
                             style: TextStyle(
                                 fontFamily: 'Poppins',
@@ -364,7 +363,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                 //  errorStyle: const TextStyle(
                                 //    fontSize: 16.0,
                                 //   ),
-                                hintText: 'Confirm Password',
+                                hintText: "Confirm Password".tr,
                                 suffixIcon: Padding(
                                   padding: const EdgeInsets.only(right: 20),
                                   child: IconButton(
@@ -386,10 +385,10 @@ class _ResetPasswordState extends State<ResetPassword> {
                                 )),
                             validator: (val) {
                               if (val == null || val.isEmpty) {
-                                return 'Password is Empty';
+                                return 'Password is Empty'.tr;
                               }
                               if (val != passwordcontroller.text) {
-                                return 'Password Not Matched';
+                                return 'Password Not Matched'.tr;
                               }
                               return null;
                             },
@@ -419,7 +418,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                         height: 60.h,
                       ),
                       CustomNextButton(
-                        text: "Reset Password",
+                        text: "Reset Password".tr,
                         ontap: () {
                           final isValid = _form.currentState?.validate();
                           if (isValid!) {

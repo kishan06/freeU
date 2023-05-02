@@ -43,7 +43,6 @@ class _SignUpState extends State<SignUp> {
       final numricRegex = RegExp(r'[0-9]');
       final alphaRegex = RegExp('(?=.*[A-Z])(?=.*[!@#\$%^&*])');
 
-
       _isPasswordEightCar = false;
       if (password.length >= 8) _isPasswordEightCar = true;
 
@@ -103,8 +102,8 @@ class _SignUpState extends State<SignUp> {
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 12, horizontal: 12),
-                      child:
-                          Text("Terms And Conditions", style: blackStyle16()),
+                      child: Text("Terms And Conditions".tr,
+                          style: blackStyle16()),
                     ),
                     Padding(
                       padding:
@@ -153,7 +152,7 @@ class _SignUpState extends State<SignUp> {
                           child: Text(
                             maxLines: 1,
                             softWrap: false,
-                            'I accept Terms & Conditions',
+                            'I accept Terms & Conditions'.tr,
                             style: TextStyle(
                               fontSize: 14.sm,
                               fontFamily: 'Poppins',
@@ -167,7 +166,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     Center(
                         child: CustomNextButton(
-                      text: "Continue",
+                      text: "Continue".tr,
                       ontap: () {
                         Navigator.pop(context);
                         Get.toNamed("/securityquestion");
@@ -223,7 +222,7 @@ class _SignUpState extends State<SignUp> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    "Sign up",
+                    "Sign up".tr,
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.w500,
@@ -251,7 +250,7 @@ class _SignUpState extends State<SignUp> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Enter your full name",
+                              "Enter your full name".tr,
                               // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
@@ -265,12 +264,12 @@ class _SignUpState extends State<SignUp> {
                                 textEditingController: nameController,
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Enter your name';
+                                    return 'Enter your name'.tr;
                                   }
                                   return null;
                                 },
-                                hintText: "Full Name*",
-                                validatorText: "Full Name"),
+                                hintText: "Full Name*".tr,
+                                validatorText: "Full Name".tr),
                           ],
                         ),
                         // FullnameTextFormField(
@@ -286,7 +285,7 @@ class _SignUpState extends State<SignUp> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Enter your email address",
+                              'Enter your Email address'.tr,
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -297,16 +296,16 @@ class _SignUpState extends State<SignUp> {
                             ),
                             CustomTextFormField(
                               textEditingController: emailController,
-                              hintText: "Email Id*",
-                              validatorText: "Email Id",
+                              hintText: "Email Id*".tr,
+                              validatorText: "Email Id".tr,
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return 'Enter your Email address';
+                                  return 'Enter your Email address'.tr;
                                 }
                                 if (!RegExp(
                                         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
                                     .hasMatch(value)) {
-                                  return 'Enter a Valid Email address';
+                                  return 'Enter a Valid Email address'.tr;
                                 }
                                 return null;
                               },
@@ -389,7 +388,7 @@ class _SignUpState extends State<SignUp> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Enter your phone number",
+                              "Enter your phone number".tr,
                               // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
@@ -403,21 +402,22 @@ class _SignUpState extends State<SignUp> {
                                 //maxLength: 10,
                                 validator: (value) {
                                   if (value == value.isEmpty) {
-                                    return 'Mobile number is required';
+                                    return 'Mobile number is required'.tr;
                                   } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
                                       .hasMatch(value)) {
-                                    return 'Enter valid mobile number';
+                                    return 'Enter valid mobile number'.tr;
                                   }
                                   // v3 = true;
                                   return null;
                                 },
                                 inputFormatters: [
                                   LengthLimitingTextInputFormatter(10),
-                                  FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp('[0-9]')),
                                 ],
                                 texttype: TextInputType.phone,
-                                hintText: "Phone Number*",
-                                validatorText: "Phone Number"),
+                                hintText: "Phone Number*".tr,
+                                validatorText: "Phone Number".tr),
                           ],
                         ),
                         SizedBox(
@@ -427,7 +427,7 @@ class _SignUpState extends State<SignUp> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Enter your password",
+                              "Enter your password".tr,
                               // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
@@ -487,7 +487,7 @@ class _SignUpState extends State<SignUp> {
                                     fontFamily: "Poppins"),
                                 fillColor: Colors.white,
                                 filled: true,
-                                hintText: 'Enter your password',
+                                hintText: 'Enter your password'.tr,
                                 suffixIcon: GestureDetector(
                                   onTap: () => setState(() =>
                                       _passwordVisible = !_passwordVisible),
@@ -530,12 +530,12 @@ class _SignUpState extends State<SignUp> {
                               ),
                               validator: (val) {
                                 if (val!.isEmpty) {
-                                  return 'Password is Empty';
+                                  return 'Password is Empty'.tr;
                                 }
                                 if (!RegExp(
                                         r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
                                     .hasMatch(val)) {
-                                  return 'Enter valid password';
+                                  return 'Enter valid password'.tr;
                                 } else {
                                   return null;
                                 }
@@ -569,7 +569,7 @@ class _SignUpState extends State<SignUp> {
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
-                                'Has at least 8 characters',
+                                'Has at least 8 characters'.tr,
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.sp,
@@ -605,7 +605,7 @@ class _SignUpState extends State<SignUp> {
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
-                                'Has at least 1 uppercase letter and symbol',
+                                'Has at least 1 uppercase letter and symbol'.tr,
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.sm,
@@ -641,7 +641,7 @@ class _SignUpState extends State<SignUp> {
                             Padding(
                               padding: EdgeInsets.only(left: 10),
                               child: Text(
-                                'Has a number',
+                                'Has a number'.tr,
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.sm,
@@ -659,7 +659,7 @@ class _SignUpState extends State<SignUp> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              "Enter your password",
+                              "Enter your password".tr,
                               // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
@@ -672,14 +672,14 @@ class _SignUpState extends State<SignUp> {
                             CustomTextFormField(
                               isInputPassword: true,
                               textEditingController: confirmpasscontroller,
-                              hintText: "Confirm Password",
-                              validatorText: "Confirm Password",
+                              hintText: "Confirm Password".tr,
+                              validatorText: "Confirm Password".tr,
                               validator: (val) {
                                 if (val == null || val.isEmpty) {
-                                  return 'Password is Empty';
+                                  return 'Password is Empty'.tr;
                                 }
                                 if (val != passwordcontroller.text) {
-                                  return 'Password Not Matched';
+                                  return 'Password Not Matched'.tr;
                                 }
                                 return null;
                               },
@@ -720,14 +720,14 @@ class _SignUpState extends State<SignUp> {
                                   child: Row(
                                     children: [
                                       Text(
-                                        "I accept the ",
+                                        "I accept the ".tr,
                                         style: TextStyle(
                                           color: Colors.black,
                                           fontSize: 14.sm,
                                         ),
                                       ),
                                       Text(
-                                        "Terms & Conditions*",
+                                        "Terms & Conditions*".tr,
                                         style: TextStyle(
                                           fontSize: 14.sm,
                                           color: Color(0xff143C6D),
@@ -754,7 +754,7 @@ class _SignUpState extends State<SignUp> {
                       child: Padding(
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: CustomNextButton(
-                          text: "Sign up",
+                          text: "Sign up".tr,
                           ontap: () {
                             final isValid = _form.currentState?.validate();
                             if (isValid == false) {
