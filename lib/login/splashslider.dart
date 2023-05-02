@@ -129,11 +129,14 @@ class _SplashsliderState extends State<Splashslider> {
                 child: CustomNextButton(
                   text: "Next",
                   ontap: () {
-                    setState(() {
+                    setState(() async {
                       _controller.animateToPage(currentIndex + 1,
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.linear);
                       if (currentIndex == 3) {
+                        final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+                        await prefs.setBool('OnBoardDone', true);
                         Get.toNamed('/EntryPoint', arguments: 0);
                       }
                     });

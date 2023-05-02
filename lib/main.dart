@@ -114,6 +114,7 @@ class _MyAppState extends State<MyApp> {
   checkOnboard() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     onBoardDone = prefs.getBool('OnBoardDone') ?? false;
+    print(onBoardDone);
     setState(() {
       
     });
@@ -125,12 +126,14 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
+    print("build $onBoardDone");
+
     return onBoardDone == null ? CircularProgressIndicator() :ScreenUtilInit(
       builder: (BuildContext context, Widget? child) => GetMaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'FreeU',
         // initialRoute: '/SideBar',
-        initialRoute: onBoardDone! ? '/' : '/EntryPoint',
+        initialRoute: onBoardDone ?? false ? '/EntryPoint' : '/',
 
         theme: ThemeData(
           scaffoldBackgroundColor: AppColors.white,
@@ -139,9 +142,7 @@ class _MyAppState extends State<MyApp> {
         getPages: [
           GetPage(name: '/SideBar', page: () => const SideBar()),
           GetPage(name: '/EntryPoint', page: () => EntryPoint()),
-
           GetPage(name: '/Insights', page: () => const Insights()),
-
           GetPage(name: '/VerticalSlider', page: () => const VerticalSlider()),
           GetPage(name: '/', page: () => const Splashslider()),
           GetPage(name: '/login', page: () => const Login()),
