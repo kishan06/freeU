@@ -564,18 +564,18 @@ class _LeaseBasedProperties2State extends State<LeaseBasedProperties2> {
                     style: TextStyle(
                         fontSize: 18.sp, color: const Color(0xff272424)),
                   ),
-                  sizedBoxHeight(45.h),
-                  Text(
-                    'View Navi Mumbai Office Opportunity II document',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15.sp,
-                        color: const Color(0xff1B8DC9)),
-                  ),
-                  sizedBoxHeight(10.h),
+                  //sizedBoxHeight(45.h),
+                  // Text(
+                  //   'View Navi Mumbai Office Opportunity II document',
+                  //   style: TextStyle(
+                  //       fontWeight: FontWeight.w500,
+                  //       fontSize: 15.sp,
+                  //       color: const Color(0xff1B8DC9)),
+                  // ),
+                  // sizedBoxHeight(10.h),
                 ],
               ),
-              sizedBoxHeight(65.h)
+              sizedBoxHeight(15.h)
             ],
           ),
         ),
