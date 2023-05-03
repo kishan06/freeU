@@ -15,13 +15,13 @@ import '../PeerLendingAssets/Peer View More product/PeerViewInvestment.dart';
 
 List productsData = [
   {
-    "Company Name": "HDFC AMC Select AIF FOF – I",
+    "Company Name": "HDFC AMC Select AIF FOF – I".tr,
     "View investment Route": ProductsDetails(
       pageIndex: 0,
     )
   },
   {
-    "Company Name": "Edelweiss Discovery Fund",
+    "Company Name": "Edelweiss Discovery Fund".tr,
     "View investment Route": ProductsDetails(
       pageIndex: 1,
     )
@@ -69,7 +69,7 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
               children: [
                 // /
                 Text(
-                  "Private Equity Fund Deals",
+                  "Private Equity Fund Deals".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -103,13 +103,13 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
                       ),
                       tabs: [
                         Tab(
-                          text: "Open",
+                          text: "Open".tr,
                         ),
                         Tab(
-                          text: "Fully funded",
+                          text: "Fully funded".tr,
                         ),
                         Tab(
-                          text: "Resale",
+                          text: "Resale".tr,
                         ),
                       ],
                     ),
@@ -142,7 +142,7 @@ class FirstTab extends StatelessWidget {
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
         // sizedBoxHeight(20.h),
-        const Text("No Data Found")
+         Text("No Data Found".tr)
       ],
     );
   }
@@ -400,7 +400,7 @@ class SecondTab extends StatelessWidget {
                       width: 15.w,
                     ),
                     Text(
-                      "Targeted IRR :",
+                      "Targeted IRR :".tr,
                       style: TextStyle(
                         fontSize: 17.sp,
                         fontFamily: 'Poppins',
@@ -436,7 +436,7 @@ class SecondTab extends StatelessWidget {
                     ),
                     Flexible(
                       child: Text(
-                        "Commitment period :",
+                        "Commitment period :".tr,
                         style: TextStyle(
                           fontSize: 17.sp,
                           fontFamily: 'Poppins',
@@ -448,7 +448,7 @@ class SecondTab extends StatelessWidget {
                       width: 8.w,
                     ),
                     Text(
-                      "5 Years",
+                      "5 Years".tr,
                       style: TextStyle(
                           fontSize: 18.sp,
                           fontFamily: 'Poppins',
@@ -471,7 +471,7 @@ class SecondTab extends StatelessWidget {
                       width: 15.w,
                     ),
                     Text(
-                      "Capital Commitment :",
+                      "Capital Commitment :".tr,
                       style: TextStyle(
                         fontSize: 17.sp,
                         fontFamily: 'Poppins',
@@ -503,7 +503,7 @@ class SecondTab extends StatelessWidget {
                       width: double.infinity,
                       child: Center(
                           child: Text(
-                        'View Details',
+                        'View Details'.tr,
                         style: TextStyle(fontSize: 18.sp, color: Colors.white),
                       )),
                     )
@@ -541,7 +541,7 @@ class ThirdTab extends StatelessWidget {
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
         // sizedBoxHeight(20.h),
-        const Text("No Data Found")
+        Text("No Data Found".tr)
       ],
     );
     // Center(

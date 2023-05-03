@@ -9,6 +9,7 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/profile/profile.dart';
+import 'package:freeu/screens/entry_point.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -277,23 +278,26 @@ class _SideBarState extends State<SideBar> {
                       // ),
 
                       ),
-                  StreamBuilder<bool>(
-                      stream: null,
-                      builder: (context, snapshot) {
-                        return ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: sideBarData.length,
-                          itemBuilder: (_, index) {
-                            return sideBarTile(
-                              image: sideBarData[index]["imagePath".tr],
-                              text: sideBarData[index]["text".tr],
-                              onTap: () {
-                                navigateTo(index, context);
-                              },
-                            );
-                          },
-                        );
-                      }),
+                  // StreamBuilder<bool>(
+                  //   stream: null,
+                  //   builder: (context, snapshot) {
+                  // return
+
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: sideBarData.length,
+                    itemBuilder: (_, index) {
+                      return sideBarTile(
+                        image: sideBarData[index]["imagePath"],
+                        text: sideBarData[index]["text"],
+                        onTap: () {
+                          navigateTo(index, context);
+                        },
+                      );
+                    },
+                  ),
+                  //   },
+                  // ),
                   sizedBoxHeight(15.h),
                   GestureDetector(
                     onTap: () {
@@ -353,10 +357,9 @@ class _SideBarState extends State<SideBar> {
                                           setState(() {
                                             var locale =
                                                 const Locale('hi', 'IN');
-                                            language = 'हिंदी';
                                             Get.updateLocale(locale);
+                                            language = 'हिंदी';
                                           });
-
                                           Get.back();
                                         },
                                         child: Text(

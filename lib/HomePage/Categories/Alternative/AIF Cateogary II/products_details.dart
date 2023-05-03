@@ -21,52 +21,51 @@ class _ProductsDetailsState extends State<ProductsDetails> {
   List productDetails = [
     {
       "Company Name": [
-        "HDFC AMC Select AIF FOF – I",
-        "Edelweiss Discovery Fund"
+        "HDFC AMC Select AIF FOF – I".tr,
+        "Edelweiss Discovery Fund".tr
       ],
       "header": [
-        "Registration No.",
-        "Fund Category (I/II/III)",
-        "Fund Structure (Open/Closed)",
-        "Fund Strategy",
-        "Fund Domicile",
-        "Fund Manager Name",
-        "Website of the fund",
-        "Fund Manager Experience",
-        "Sponsor",
-        "Manager",
-        "Trustee",
-        "Auditor",
-        "Valuer / Tax Advisor",
-        "Credit Rating (if any)",
-        "Open Date",
-        "1st Close Date",
-        "Final Close Date",
-        "Tenure from Final Close",
-        "Commitment Period",
-        "Native Currency",
-        "Target Corpus",
-        "Investment Manager Contribution",
-        "Minimum Capital Commitment",
-        "Initial Drawdown",
-        "Accepting Overseas investment?",
-        "Target IRR (%)",
-        "Management Fees and Carry \n- Set Up Fee \n- Management Fee \n- Performance Fee",
-        "Hurdle Rate",
-        "Other Expenses",
-        "Focused Sectors (Industries in which they are investing)",
-        "Regions Covered (Geographical Locations covered by the fund)"
+        "Registration No.".tr,
+        "Fund Category (I/II/III)".tr,
+        "Fund Structure (Open/Closed)".tr,
+        "Fund Strategy".tr,
+        "Fund Domicile".tr,
+        "Fund Manager Name".tr,
+        "Website of the fund".tr,
+        "Fund Manager Experience".tr,
+        "Sponsor".tr,
+        "Manager".tr,
+        "Trustee".tr,
+        "Auditor".tr,
+        "Valuer / Tax Advisor".tr,
+        "Credit Rating (if any)".tr,
+        "Open Date".tr,
+        "1st Close Date".tr,
+        "Final Close Date".tr,
+        "Tenure from Final Close".tr,
+        "Commitment Period".tr,
+        "Native Currency".tr,
+        "Target Corpus".tr,
+        "Investment Manager Contribution".tr,
+        "Minimum Capital Commitment".tr,
+        "Initial Drawdown".tr,
+        "Accepting Overseas investment?".tr,
+        "Target IRR (%)".tr,
+        '"Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee"'
+            .tr,
+        "Hurdle Rate".tr,
+        "Other Expenses".tr,
+        "Focused Sectors (Industries in which they are investing)".tr,
+        "Regions Covered (Geographical Locations covered by the fund)".tr
       ],
       "content": [
         [
           "N/A",
           "II",
-          "Closed",
-          "Invest in ~ 15 VC/PE funds.Up to 50% in venture capital funds and balance in private equity funds \nMaximum exposure to co-investment opportunities will be capped at 30% of the corpus",
+          "Closed".tr,
+          "Invest in ~ 15 VC/PE funds.Up to 50% in venture capital funds and balance in private equity funds \nMaximum exposure to co-investment opportunities will be capped at 30% of the corpus".tr,
           "N/A",
-          "HDFC AMC",
-          "N/A",
-          "N/A",
+          "HDFC AMC".tr,
           "N/A",
           "N/A",
           "N/A",
@@ -76,17 +75,19 @@ class _ProductsDetailsState extends State<ProductsDetails> {
           "N/A",
           "N/A",
           "N/A",
-          "11 + 1 + 1 years",
-          "5 Years",
-          "N/A",
-          "₹ 1,500 crore + green shoe of up to ₹ 1,500 crore",
-          "10% of Capital Commitment raised",
-          "1 Crore",
           "N/A",
           "N/A",
+          "11 + 1 + 1 years".tr,
+          "5 Years".tr,
           "N/A",
-          "2.5% p.a. Management Fee & 20% Carry with full catchup",
-          "XIRR of 10% (pre-tax) on Capital Contributions received",
+          "₹ 1,500 crore + green shoe of up to ₹ 1,500 crore".tr,
+          "10% of Capital Commitment raised".tr,
+          "1 Crore".tr,
+          "N/A",
+          "N/A",
+          "N/A",
+          "2.5% p.a. Management Fee & 20% Carry with full catchup".tr,
+          "XIRR of 10% (pre-tax) on Capital Contributions received".tr,
           "N/A",
           "N/A",
           "N/A",
@@ -95,37 +96,35 @@ class _ProductsDetailsState extends State<ProductsDetails> {
           "IN/AIF2/21-22/1021",
           "II",
           "Closed",
-          "Invest in mid-stage businesses that are leaders of emerging sectors",
-          "India",
-          "Ashish Agarwal",
+          "Invest in mid-stage businesses that are leaders of emerging sectors".tr,
+          "India".tr,
+          "Ashish Agarwal".tr,
           "N/A",
-          "Fund Manager has 16 years experience in mid stage PE.",
+          "Fund Manager has 16 years experience in mid stage PE.".tr,
           "N/A",
-          "Edelweiss Asset Management Limited",
-          "N/A",
-          "N/A",
+          "Edelweiss Asset Management Limited".tr,
           "N/A",
           "N/A",
           "N/A",
-          "Sept-2022",
-          "24 months from the initial close",
-          "N/A",
-          "30M from Initial Closing",
-          "Rupees",
-          "N/A",
-          "2.5% of the Fund size or INR 5 crores, whichever is lower",
-          "1 Crore",
           "N/A",
           "N/A",
+          "Sept-2022".tr,
+          "24 months from the initial close".tr,
           "N/A",
-          "Entry Fee - Up to 2% of commitment amount \nManagement Fee - Class A1 INR 1 crore and INR 5 crore commitment, Class A2 => INR 5 crore commitment and < INR 10 crore commitment, Class A3 => INR 10 Crore \nPerformance Fee 20% over a hurdle rate of 10%",
+          "30M from Initial Closing".tr,
+          "Rupees".tr,
+          "N/A",
+          "2.5% of the Fund size or INR 5 crores, whichever is lower".tr,
+          "1 Crore".tr,
           "N/A",
           "N/A",
-          "Consumer brands and Tech-enabled B2B services",
+          "N/A",
+          "Entry Fee - Up to 2% of commitment amount \nManagement Fee - Class A1 INR 1 crore and INR 5 crore commitment, Class A2 => INR 5 crore commitment and < INR 10 crore commitment, Class A3 => INR 10 Crore \nPerformance Fee 20% over a hurdle rate of 10%".tr,
+          "N/A",
+          "N/A",
+          "Consumer brands and Tech-enabled B2B services".tr,
           "N/A",
         ],
-        
-
       ]
     },
   ];
@@ -149,7 +148,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                 Get.toNamed("/login");
               }
             },
-            text: 'Invest now'),
+            text: 'Invest now'.tr),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -227,9 +226,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                       );
                     },
                     separatorBuilder: (context, index) {
-                      return  SizedBox(
-                        
-                      );
+                      return SizedBox();
                       // Divider(
                       //   height: 25.h,
                       //   thickness: 1.h,
@@ -257,7 +254,6 @@ class _ProductsDetailsState extends State<ProductsDetails> {
               //     )
               //   ],
               // )
-            
             ],
           ),
         ),
@@ -283,7 +279,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
             children: [
               SvgPicture.asset("assets/images/thankyouinvestment.svg"),
               Text(
-                "Thank You For Showing Your Interest",
+                "Thank You For Showing Your Interest".tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: const Color(0xff0F0C0C),
@@ -292,7 +288,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
               ),
               sizedBoxHeight(30.h),
               Text(
-                "A FreeU Advisory Team will get back to you soon.",
+                "A FreeU Advisory Team will get back to you soon.".tr,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     color: const Color(0xff272424),
@@ -305,7 +301,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                     Get.back();
                     Get.back();
                   },
-                  text: 'View more products')
+                  text: 'View more products'.tr)
             ],
           ),
         );

@@ -1,4 +1,4 @@
-import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:get/get.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 
 class LocalString extends Translations {
@@ -622,7 +622,213 @@ class LocalString extends Translations {
           'vs': 'vs',
           'splashTxt3':
               "Alternative investments, on the other hand, are not publicly traded.",
-
+          "01. Venture Capital Fund": "01. Venture Capital Fund",
+          'ventureDes':
+              """VCF is an AIF which invests primarily in unlisted securities of start-ups, emerging or early-stage venture capital undertakings mainly involved in new products, new services, technology or intellectual property right based activities or a new business model and shall include an angel fund.
+          Venture Capital Funds or VCFs make investments in start-ups that have lucrative growth potential, but lack funds to set up in the initial phase or during expansion. These startups face a lot of difficulty in securing funds through traditional capital markets. Therefore, VCFs provide a wholesome solution to their financial difficulties. Venture capital fund provides early-stage financing along with additional skills and resources to a startup during the pre-start stage. It provides overall resources to a startup so that it can develop the technological innovation from scratch.
+          VCFs are regulated by the SEBI. There is a high-risk involved in funding new projects, or startups. But with VCFs, investors are usually willing to take the risk, because the high-growth potential of these projects usually results in high returns on investments.""",
+          "More than 7 Years": "More than 7 Years",
+          "02. Infrastructure Fund": "02. Infrastructure Fund",
+          "InfrastrutureDes":
+              "As per SEBI Regulations, “Infrastructure fund” means an AIF which invests primarily in unlisted securities or partnership interest or listed debt or securitized debt instruments of investee companies or special purpose vehicles engaged in or formed for the purpose of operating, developing, or holding infrastructure projects;"
+                  'Infrastructure fund, a category 1 Alternative Investment Fund (AIF), raises capital by pooling investments from private players and primarily invest in companies that develop infrastructure projects. Infrastructure funds invest in the development of public infrastructure like roads, airport, renewable energy, water, railways, transmissions, and municipal solid waste. The Indian Government has incentives and concessions in order to encourage infrastructure funds, since they help positively impact the Indian economy. ',
+          "More than 6 Years": "More than 6 Years",
+          "03. Angel Fund": "03. Angel Fund",
+          'AngelDes':
+              "Angel funds are a type of venture capital fund that focuses on providing the much-needed capital to high-growth potential startups during their early development stages, when traditional sources of financing may not be available. Angel funds play an important role in strengthening the startup ecosystem by supporting them and helping them to develop into successful businesses."
+                  '\n\nAn ‘Angel Investor’ is usually a high-net worth individual who provides funds for start-ups or entrepreneurs in exchange for ownership equity in the company. It can either be a one-time investment, or consistent financial support through the struggling years of the start-up. For many small companies, without financial backing, angel investing is the only primary source of investment that works. In addition to providing funding, angel funds also offer startups valuable resources such as management mentoring, guidance, and industry contacts that can help them grow and succeed.',
+          "Angel Fund": "Angel Fund",
+          "Open": "Open",
+          "Fully funded": "Fully funded",
+          "Resale": "Resale",
+          "No Data Found": "No Data Found",
+          "Piper Serica Angel Fund": "Piper Serica Angel Fund",
+          "Targeted IRR :": "Targeted IRR :",
+          "Commitment period :": "Commitment period :",
+          "10 Years": "10 Years",
+          "Capital Commitment :": "Capital Commitment :",
+          "25 Lakh": "25 Lakh",
+          'View Details': 'View Details',
+          'Registration No.': 'Registration No.',
+          'Fund Category (I/II/III)': 'Fund Category (I/II/III)',
+          'Fund Structure (Open/Closed)': 'Fund Structure (Open/Closed)',
+          'Fund Strategy': 'Fund Strategy',
+          'Fund Domicile': 'Fund Domicile',
+          'Fund Manager Name': 'Fund Manager Name',
+          'Website of the fund': 'Website of the fund',
+          'Fund Manager Experience': 'Fund Manager Experience',
+          'Sponsor': 'Sponsor',
+          'Manager': 'Manager',
+          'Trustee': 'Trustee',
+          'Auditor': 'Auditor',
+          'Valuer / Tax Advisor': 'Valuer / Tax Advisor',
+          'Credit Rating (if any)': 'Credit Rating (if any)',
+          'Open Date': 'Open Date',
+          '1st Close Date': '1st Close Date',
+          'Final Close Date': 'Final Close Date',
+          'Tenure from Final Close': 'Tenure from Final Close',
+          'Commitment Period': 'Commitment Period',
+          'Native Currency': 'Native Currency',
+          'Target Corpus': 'Target Corpus',
+          'Investment Manager Contribution': 'Investment Manager Contribution',
+          'Minimum Capital Commitment': 'Minimum Capital Commitment',
+          'Initial Drawdown': 'Initial Drawdown',
+          'Accepting Overseas investment?': 'Accepting Overseas investment?',
+          'Target IRR (%)': 'Target IRR (%)',
+          '"Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee"':
+              '"Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee"',
+          'Hurdle Rate': 'Hurdle Rate',
+          'Other Expenses': 'Other Expenses',
+          'Focused Sectors (Industries in which they are investing)':
+              'Focused Sectors (Industries in which they are investing)',
+          "Regions Covered (Geographical Locations covered by the fund)":
+              "Regions Covered (Geographical Locations covered by the fund)",
+          'Closed': 'Closed',
+          '"1. Invest only in start ups that have exponential growth business model 2.Business should not require constant infusion of capital to support growth 3.Tech has to be the core driver of business. Invest in bits and not atoms 4. Invest in founders first. Business models pivot  5. Invest along with other active investors who actively provide mentorship and guidance to young founders  6. Stay invested for as long as possible in successful start ups. Water the roses and cut the weeds 7.Reduce the impact of high mortality by building a portfolio of 30 to 40 companies"':
+              '"1. Invest only in start ups that have exponential growth business model 2.Business should not require constant infusion of capital to support growth 3.Tech has to be the core driver of business. Invest in bits and not atoms 4. Invest in founders first. Business models pivot  5. Invest along with other active investors who actively provide mentorship and guidance to young founders  6. Stay invested for as long as possible in successful start ups. Water the roses and cut the weeds 7.Reduce the impact of high mortality by building a portfolio of 30 to 40 companies"',
+          'India': 'India',
+          'Piper Serica': 'Piper Serica',
+          'Piper Serica Advisors': 'Piper Serica Advisors',
+          'Rupees': 'Rupees',
+          'Minimum 2.5% or INR 50 lakhs whichever is lower':
+              'Minimum 2.5% or INR 50 lakhs whichever is lower',
+          '"Minimum commitment of Rs. 25 lakh to be invested over 3 years."':
+              '"Minimum commitment of Rs. 25 lakh to be invested over 3 years."',
+          '"Management Fee - 2% upto 1 Cr of aggregate capital commitment, otherwise 1.5% Performance Fee - 20% for Unit A & B holders (plus taxes & levies as applicable)"':
+              '"Management Fee - 2% upto 1 Cr of aggregate capital commitment, otherwise 1.5% Performance Fee - 20% for Unit A & B holders (plus taxes & levies as applicable)"',
+          'Tech based Start-Up': 'Tech based Start-Up',
+          'Invest now': 'Invest now',
+          "Thank You For Showing Your Interest":
+              "Thank You For Showing Your Interest",
+          "A FreeU Advisory Team will get back to you soon.":
+              "A FreeU Advisory Team will get back to you soon.",
+          'View more products': 'View more products',
+          "Infrastructure Fund": "Infrastructure Fund",
+          'Benefits of investing in Infrastructure Fund':
+              'Benefits of investing in Infrastructure Fund',
+          "Infrastructure Funds provide investors with steady and consistent returns, mainly because demand for infrastructural services remain constant, or are constantly on the rise, even when the country’s economic growth is slow. Compared with other investments, these funds potentially offer more security against volatile stocks, and hence better at risk-management.":
+              "Infrastructure Funds provide investors with steady and consistent returns, mainly because demand for infrastructural services remain constant, or are constantly on the rise, even when the country’s economic growth is slow. Compared with other investments, these funds potentially offer more security against volatile stocks, and hence better at risk-management.",
+          'Features of Infrastructure AIF': 'Features of Infrastructure AIF',
+          'infraTxt1': '>	A high risk-high return investment'
+              '\n\n>	Low liquidity'
+              '\n\n>	Long investment horizon'
+              '\n\n>	A chance to invest in high-potential sector '
+              '\n\n>	They can be listed on stock exchanges because  of their minimum trade amount of 1 crore.'
+              '\n\n>	AIF cannot invest more than 25% in a single infrastructure company.'
+              '\n\n>	At least 75% of the investible funds shall be invested in unlisted equity shares or equity instruments of a venture capital undertaking or in companies listed or proposed to be listed on a SME exchange or SME segment of an exchange.'
+              '\n\n>	The unit holder can invest in other subcategories of Category I AIF, but cannot invest in FoFs (Funds of Funds).'
+              '\n\n>	Infrastructure bonds are refrained from borrowing funds directly or indirectly to run their business operations.'
+              '\n\n>	Infrastructure fund allows only 1,000 investors per scheme.',
+          'Tenure: ': 'Tenure: ',
+          "infrraTxt2":
+              "Since infrastructure funds come under category 1, these are close-ended and come with a minimum tenure of more than three years, which could be extended by additional two years. Liquidate within one year following expiry of fund tenure",
+          "Venture Capital Fund (VCF)": "Venture Capital Fund (VCF)",
+          'So how does a VCF work?': 'So how does a VCF work?',
+          "VentureTxt1":
+              "VCF pool in funds from the prospective investors wanting to make equity investments in different/ multiple ventures, depending on their business plans, profiles, and development phases. Once the investors commit, the VCF finalizes the investment amounts of each potential investor to collect the capital. Then the fund manager (VCF) sought out private equity investments with a high growth potential that have the best chances of giving investors a return. "
+                  '\n\nThe VCFs are mostly done in the early stages, and each investor gets their share/ return on investment profit proportional to their investment amount.'
+                  '\n\nVenture Capital Funds are growing in India, especially because of HNIs, who have a lot of capital and seek high-risk return investment options. Since their inclusion under AIF, these funding has seen a lot of NRIs investing in startups in India, helping the economy grow.',
+          'Types of VC Funds': 'Types of VC Funds',
+          'VentureTxt2': "Based on the fund utilization in different phases of a business, Venture Capital Funds are classified into three broad categories. Early-stage financing, Expansion financing, and Acquisition/Buyout financing."
+              '\n\n>	Early-stage Financing: There are 3 sub-categories in early-stage financing. These are seed financing, startup financing, and first stage financing.'
+              '\nSeed financing is a small sum given to the entrepreneur to serve the purpose of qualifying for a startup loan. When early-stage companies receive funds to complete their services and product developments, it is called Start-Up financing.  Lastly, First-stage financing occurs when companies use the venture capital to commence full-fledged business activities.'
+              '\n\n>	Expansion financing: Expansion financing is classified into second stage financing, bridge financing, and third stage financing. Second-stage and third-stage financing is a kind of expansion financing, typically provided to companies so that they can companies scale up their business and operations. Bridge financing, on the other hand, is a kind of financing that is typically provided to companies whose business strategy includes the plan to go public through an IPO.'
+              '\n\n>	Acquisition or buyout financing: Acquisition or buyout financing is a type of financing that is used to fund acquisitions or leveraged buyouts. In an acquisition, one company purchases another company or part of another company. In a leveraged buyout, a management group of one company wants to acquire a product of another company.',
+          'Benefits of Venture Capital Fund':
+              'Benefits of Venture Capital Fund',
+          'VentureTxt3': '>	VCF ensure that the venture capital (money provided in the VCF) is used only for projects, startups with a potential for high growth. Hence, in spite of a high-risk, they have the potential of giving extremely high returns on investments.'
+              '\n\n>	For any company in early stages of growth, networking is significant, and that is the biggest advantage the VCF investors bring. Influential, rich, investors with a lot of connect promote these startups, increasing their visibility, exposure, through positive marketing, helping them grow.'
+              '\n\n>	The investors in the VCF, often bring to the table knowledge and experience, that help the companies, or startups grow as per their vision and goal. These sophisticated investors of VCF, can also sometimes contribute to the growth of the company by helping in developing new products, services, and even help them to acquire the latest, advanced technologies to increase efficiency.'
+              '\n\n>	VCFs have a lot of hold on the companies they invest in, and hence can influence the decisions.'
+              '\n\n>	The VCFs also have the ability to invest in multiple projects at the same time. This can mitigate the high-risk that is usually involved in investing in this category. Out of many startups, at least one can grow massively, giving them high returns to cover their entire investment.',
+          'Disadvantages of Venture Capital Fund':
+              'Disadvantages of Venture Capital Fund',
+          'VentureTxt4':
+              "The process is lengthy, and complex, and contains a high risk. Investments are for a long term which means profits made are realized in the very long run.",
+          'As a potential investor, what should you be looking at in order to invest in a VCF?':
+              'As a potential investor, what should you be looking at in order to invest in a VCF?',
+          "VentureTxt5":
+              '>	It is always a good idea to look for potential startups having a very strong management team, with inimitable/unique ideas or products and a good potential market for it. '
+                  '\n\n>	Investment structure and strategy of the fund'
+                  '\n\n>	Industries in which it is investing. It is also a smart idea to invest in industries you are familiar in, thus can advise, nurture, in order to ensure growth, and get high returns on investments.'
+                  '\n\n>	Startups that the VCF has funded '
+                  '\n\n>	Minimum Lock in period',
+          'How Does a VC Differ from an Angel Investor?':
+              'How Does a VC Differ from an Angel Investor?',
+          'AngelTxt1':
+              "While both provide money to startup companies, venture capitalists are typically professional investors who invest in a broad portfolio of new companies and provide hands-on guidance and leverage their professional networks to help the new firm. Angel investors, on the other hand, tend to be wealthy individuals who like to invest in new companies more as a hobby or side-project and may not provide the same expert guidance. Angel investors also usually invest first and are then followed by venture capitalists. Venture capital funds are focused on investing in later stages of business, angel investor provides the much-needed support in the initial stages of the business.",
+          'Who can qualify as an angel investor?':
+              'Who can qualify as an angel investor?',
+          'AngelTxt2':
+              "As per SEBI regulations, Angel investor can be anyone who wants to invest in an angel fund and fulfils one of the following conditions",
+          'AngelTxt3':
+              "	an individual investor who has net tangible assets of at least two crore rupees excluding value of his principal residence, and who: ",
+          'AngelTxt4':
+              "	has early stage investment experience (i.e., prior experience in investing in start-up or emerging or early-stage ventures), or ",
+          'AngelTxt5':
+              "	has experience as a serial entrepreneur (i.e., a person who has promoted or co-promoted more than one start-up venture), or",
+          'AngelTxt6':
+              "	is a senior management professional with at least ten years of experience;",
+          'AngelTxt7':
+              "	Is a corporate body with a net worth of at least ten crore rupees",
+          'AngelTxt8':
+              "AIF registered under these regulations or a VCF registered under the SEBI (Venture Capital Funds) Regulations, 1996. ",
+          'How much money do you need to be an angel fund investor in India?':
+              'How much money do you need to be an angel fund investor in India?',
+          'AngelTxt9':
+              "An Angel Investor need to invest a minimum of 25 lakhs INR over five years in the startups he/she likes, through the Angel Fund.",
+          'Benefits of Angel Investing': 'Benefits of Angel Investing',
+          'AngelTxt10': "-	Business Agreements are more flexible. "
+              "\n\n-	Due Diligence processes less complex than traditional investments"
+              "\n\n-	Angel investors can become valuable advisor and counsel for the start up.",
+          'AngelTxt11': 'How is an Angel Fund different from other AIFs?',
+          'AngelTxt12': "Following are the points of difference between the two categories:"
+              "\n\n1.	Corpus: Angel funds shall have a corpus of at least 5 Crore. Other AIF require to have a corpus of 20 crores."
+              "\n\n2.	Minimum investment limit for a single investor is set at Rs. 25 lakhs for Angel Funds unlike other AIF where the limit is set at Rs. 1 Crore Rupees"
+              "\n\n3.	The Sponsor/ Manager is required to have a continuing interest in the Angel Funds will be lower of the two; 2.5% of corpus or Rs. 50 lakhs. However, in case of other AIF, this requirement is way higher.",
+          'Key Features': 'Key Features',
+          'AngelTxt14': "Under AIF Regulations Angel Funds can be set up and they will have following key features:"
+              "\n\n1.	Such funds can accept investment from maximum 200 investors, earlier it was limited to 49 investors."
+              "\n\n2.	Investment by an angel fund in the venture capital undertaking shall not be less than Rs. 25 lakhs and shall not exceed Rs. 10 crore."
+              "\n\n3.	The Lock in period required for Angel investor is reduced from 3 years to one year."
+              "\n\n4.	AIF are allowed to make investments in organizations incorporated in previous 5 years. Previously, this incorporation limit was set at 3 years."
+              "\n\n5.	As per markets regulator Sebi, each scheme of an angel fund is an independent investment vehicle with its own set of investors. Investors in angel fund have the option to selectively participate in investment schemes as each investment being a separate one. In addition, investors will be considered investors of only those specific schemes for which they have given approval."
+              "\n\n6.	Angel funds shall not invest more than 25% of their total investments under all its scheme in one venture capital undertaking."
+              '\n\n7.	An angel fund can invest in the securities of companies incorporated outside India subject to such conditions or guidelines that may be stipulated or issued by the Reserve Bank of India and the Board.',
+          "HDFC AMC Select AIF FOF – I": "HDFC AMC Select AIF FOF – I",
+          "Edelweiss Discovery Fund": "Edelweiss Discovery Fund",
+          "Private Equity Fund Deals": "Private Equity Fund Deals",
+          "5 Years": "5 Years",
+          "Invest in ~ 15 VC/PE funds.Up to 50% in venture capital funds and balance in private equity funds \nMaximum exposure to co-investment opportunities will be capped at 30% of the corpus":
+              "Invest in ~ 15 VC/PE funds.Up to 50% in venture capital funds and balance in private equity funds \nMaximum exposure to co-investment opportunities will be capped at 30% of the corpus",
+          "HDFC AMC": "HDFC AMC",
+          "11 + 1 + 1 years": "11 + 1 + 1 years",
+          "₹ 1,500 crore + green shoe of up to ₹ 1,500 crore":
+              "₹ 1,500 crore + green shoe of up to ₹ 1,500 crore",
+          "10% of Capital Commitment raised":
+              "10% of Capital Commitment raised",
+          "1 Crore": "1 Crore",
+          "2.5% p.a. Management Fee & 20% Carry with full catchup":
+              "2.5% p.a. Management Fee & 20% Carry with full catchup",
+          "XIRR of 10% (pre-tax) on Capital Contributions received":
+              "XIRR of 10% (pre-tax) on Capital Contributions received",
+          "Invest in mid-stage businesses that are leaders of emerging sectors":
+              "Invest in mid-stage businesses that are leaders of emerging sectors",
+          "Ashish Agarwal": "Ashish Agarwal",
+          "Fund Manager has 16 years experience in mid stage PE.":
+              "Fund Manager has 16 years experience in mid stage PE.",
+          "Edelweiss Asset Management Limited":
+              "Edelweiss Asset Management Limited",
+          "Sept-2022": "Sept-2022",
+          "24 months from the initial close":
+              "24 months from the initial close",
+          "30M from Initial Closing": "30M from Initial Closing",
+          "2.5% of the Fund size or INR 5 crores, whichever is lower":
+              "2.5% of the Fund size or INR 5 crores, whichever is lower",
+          "Entry Fee - Up to 2% of commitment amount \nManagement Fee - Class A1 INR 1 crore and INR 5 crore commitment, Class A2 => INR 5 crore commitment and < INR 10 crore commitment, Class A3 => INR 10 Crore \nPerformance Fee 20% over a hurdle rate of 10%":
+              "Entry Fee - Up to 2% of commitment amount \nManagement Fee - Class A1 INR 1 crore and INR 5 crore commitment, Class A2 => INR 5 crore commitment and < INR 10 crore commitment, Class A3 => INR 10 Crore \nPerformance Fee 20% over a hurdle rate of 10%",
+          "Consumer brands and Tech-enabled B2B services":
+              "Consumer brands and Tech-enabled B2B services",
         },
         'hi_IN': {
           'entrypoint_bottombar1': 'होम',
@@ -1244,6 +1450,125 @@ class LocalString extends Translations {
           'vs': 'बनाम',
           'splashTxt3':
               "अल्टरनेटिव निवेश दूसरी ओर, सार्वजनिक बाजार में नहीं बिकते।",
+          "01. Venture Capital Fund": "01. वेंचर कैपिटल फंड",
+          'ventureDes':
+              """वीसीएफ एक एआईएफ है जो मुख्य रूप से नए उत्पादों, नई सेवाओं, प्रौद्योगिकी या बौद्धिक संपदा अधिकार आधारित गतिविधियों या एक नए व्यापार मॉडल में शामिल स्टार्ट-अप, उभरते या शुरुआती चरण के उद्यम पूंजी उपक्रमों की गैर-सूचीबद्ध प्रतिभूतियों में निवेश करता है और इसमें शामिल होगा एक परी निधि।
+          वेंचर कैपिटल फंड या वीसीएफ स्टार्ट-अप्स में निवेश करते हैं जिनमें आकर्षक विकास क्षमता होती है, लेकिन प्रारंभिक चरण में या विस्तार के दौरान स्थापित करने के लिए धन की कमी होती है। इन स्टार्टअप्स को पारंपरिक पूंजी बाजारों के जरिए फंड हासिल करने में काफी मुश्किलों का सामना करना पड़ता है। इसलिए, वीसीएफ उनकी वित्तीय कठिनाइयों का एक संपूर्ण समाधान प्रदान करते हैं। वेंचर कैपिटल फंड स्टार्टअप के प्री-स्टार्ट चरण के दौरान अतिरिक्त कौशल और संसाधनों के साथ प्रारंभिक चरण का वित्तपोषण प्रदान करता है। यह एक स्टार्टअप को समग्र संसाधन प्रदान करता है ताकि वह खरोंच से तकनीकी नवाचार विकसित कर सके।
+          वीसीएफ को सेबी द्वारा नियंत्रित किया जाता है। नई परियोजनाओं, या स्टार्टअप्स के वित्तपोषण में एक उच्च जोखिम शामिल है। लेकिन वीसीएफ के साथ, निवेशक आमतौर पर जोखिम लेने को तैयार होते हैं, क्योंकि इन परियोजनाओं की उच्च विकास क्षमता के परिणामस्वरूप आमतौर पर निवेश पर उच्च रिटर्न मिलता है।""",
+          "More than 7 Years": "7 साल से अधिक",
+          "02. Infrastructure Fund": "02. इंफ्रास्ट्रक्चर फंड",
+          "InfrastrutureDes":
+              "सेबी के विनियमों के अनुसार, “इन्फ्रास्ट्रक्चर फंड” का अर्थ एक एआईएफ है जो मुख्य रूप से असूचीबद्ध प्रतिभूतियों या साझेदारी हित या सूचीबद्ध ऋण या निवेशित कंपनियों के प्रतिभूतिकृत ऋण उपकरणों या संचालन, विकास या होल्डिंग के उद्देश्य से गठित विशेष प्रयोजन वाहनों में निवेश करता है। मूलढ़ांचा परियोजनाएं;"
+                  'इन्फ्रास्ट्रक्चर फंड, एक श्रेणी 1 वैकल्पिक निवेश कोष (एआईएफ), निजी खिलाड़ियों से निवेश करके पूंजी जुटाता है और मुख्य रूप से उन कंपनियों में निवेश करता है जो बुनियादी ढांचा परियोजनाओं का विकास करती हैं। इंफ्रास्ट्रक्चर फंड सार्वजनिक बुनियादी ढांचे जैसे सड़क, हवाई अड्डे, नवीकरणीय ऊर्जा, पानी, रेलवे, ट्रांसमिशन और नगरपालिका ठोस अपशिष्ट के विकास में निवेश करते हैं। इंफ्रास्ट्रक्चर फंड को प्रोत्साहित करने के लिए भारत सरकार के पास प्रोत्साहन और रियायतें हैं, क्योंकि वे भारतीय अर्थव्यवस्था को सकारात्मक रूप से प्रभावित करने में मदद करते हैं। ',
+          "More than 6 Years": "6 से अधिक वर्ष",
+          "03. Angel Fund": "03. एंजेल फंड",
+          'AngelDes':
+              "एंजेल फंड एक प्रकार का वेंचर कैपिटल फंड है जो उच्च विकास क्षमता वाले स्टार्टअप को उनके शुरुआती विकास चरणों के दौरान आवश्यक पूंजी प्रदान करने पर ध्यान केंद्रित करता है, जब वित्तपोषण के पारंपरिक स्रोत उपलब्ध नहीं हो सकते हैं। एंजेल फंड मजबूत बनाने में महत्वपूर्ण भूमिका निभाते हैं। स्टार्टअप पारिस्थितिकी तंत्र उनका समर्थन करके और उन्हें सफल व्यवसायों में विकसित करने में मदद कर रहा है।"
+                  '\n\nएक ‘एंजेल इन्वेस्टर’ आमतौर पर एक उच्च-निवल मूल्य वाला व्यक्ति होता है जो कंपनी में स्वामित्व इक्विटी के बदले स्टार्ट-अप या उद्यमियों के लिए धन प्रदान करता है। यह या तो एक बार का निवेश हो सकता है, या स्टार्ट-अप के संघर्षपूर्ण वर्षों के दौरान लगातार वित्तीय सहायता हो सकती है। कई छोटी कंपनियों के लिए, वित्तीय समर्थन के बिना, एंजल निवेश निवेश का एकमात्र प्राथमिक स्रोत है जो काम करता है। फंडिंग प्रदान करने के अलावा, एंजल फंड स्टार्टअप्स को मूल्यवान संसाधन जैसे प्रबंधन सलाह, मार्गदर्शन और उद्योग संपर्क भी प्रदान करते हैं जो उन्हें बढ़ने और सफल होने में मदद कर सकते हैं।',
+          "Angel Fund": "एंजल फंड",
+          "Open": "खुला हुआ",
+          "Fully funded": "पूरी तरह से वित्तपोषित",
+          "Resale": "पुनर्विक्रय",
+          "No Data Found": "कोई डेटा नहीं मिला",
+          "Piper Serica Angel Fund": "पाइपर सेरिका एंजल फंड",
+          "Targeted IRR :": "लक्षित IRR :",
+          "Commitment period :": "प्रतिबद्धता अवधि :",
+          "10 Years": "10 वर्ष",
+          "Capital Commitment :": "पूंजी प्रतिबद्धता :",
+          "25 Lakh": "25 लाख",
+          'View Details': 'विवरण देखें',
+          'Registration No.': 'पंजीयन संख्या:',
+          'Fund Category (I/II/III)': 'फंड श्रेणी (I/II/III)',
+          'Fund Structure (Open/Closed)': 'फंड संरचना (खुला / बंद)',
+          'Fund Strategy': 'फंड रणनीति',
+          'Fund Domicile': 'फंड निवास स्थान',
+          'Fund Manager Name': 'फंड प्रबंधक का नाम',
+          'Website of the fund': 'फंड की वेबसाइट',
+          'Fund Manager Experience': 'फंड प्रबंधक अनुभव',
+          'Sponsor': 'स्पॉन्सर',
+          'Manager': 'प्रबंधक',
+          'Trustee': 'ट्रस्टी',
+          'Auditor': 'समीक्षाकर्ता',
+          'Valuer / Tax Advisor': 'मूल्यांकनकर्ता / टैक्स सलाहकार',
+          'Credit Rating (if any)': 'क्रेडिट रेटिंग (यदि हो)',
+          'Open Date': 'खुलने की तारीख',
+          '1st Close Date': 'पहली बंद करने की तारीख',
+          'Final Close Date': 'अंतिम बंद करने की तारीख',
+          'Tenure from Final Close': 'अंतिम बंद होने के बाद अवधि',
+          'Commitment Period': 'निष्ठा अवधि',
+          'Native Currency': 'देशज मुद्रा',
+          'Target Corpus': 'लक्ष्य कोरपस',
+          'Investment Manager Contribution': 'निवेश प्रबंधक योगदान',
+          'Minimum Capital Commitment': 'न्यूनतम पूंजी वादा',
+          'Initial Drawdown': 'प्रारंभिक निकासी',
+          'Accepting Overseas investment?': 'विदेशी निवेश स्वीकार कर रहे हैं?',
+          'Target IRR (%)': 'लक्ष्य IRR (%)',
+          '"Management Fees and Carry - Set Up Fee - Management Fee - Performance Fee"':
+              '"प्रबंधन शुल्क और कैरी - सेटअप शुल्क - प्रबंधन शुल्क - प्रदर्शन शुल्क"',
+          'Hurdle Rate': 'हर्डल दर',
+          'Other Expenses': 'अन्य व्यय',
+          'Focused Sectors (Industries in which they are investing)':
+              'फोकस किए गए क्षेत्र (उन उद्योगों में जिनमें वे निवेश कर रहे हैं)',
+          "Regions Covered (Geographical Locations covered by the fund)":
+              "कवर किए गए क्षेत्र (फंड द्वारा कवर किए गए भौगोलिक स्थान)",
+          'Closed': 'बंद',
+          '"1. Invest only in start ups that have exponential growth business model 2.Business should not require constant infusion of capital to support growth 3.Tech has to be the core driver of business. Invest in bits and not atoms 4. Invest in founders first. Business models pivot 5. Invest along with other active investors who actively provide mentorship and guidance to young founders 6. Stay invested for as long as possible in successful start ups. Water the roses and cut the weeds 7.Reduce the impact of high mortality by building a portfolio of 30 to 40 companies"':
+              '"1. केवल स्टार्ट अप्स में निवेश करें जिनके पास घातीय वृद्धि व्यवसाय मॉडल है 2. व्यवसाय को विकास का समर्थन करने के लिए पूंजी के निरंतर प्रवाह की आवश्यकता नहीं होनी चाहिए 3. तकनीक को व्यवसाय का मुख्य चालक होना चाहिए। बिट्स में निवेश करें न कि परमाणुओं में 4. निवेश करें पहले संस्थापक। व्यवसाय मॉडल धुरी 5. अन्य सक्रिय निवेशकों के साथ निवेश करें जो सक्रिय रूप से युवा संस्थापकों को सलाह और मार्गदर्शन प्रदान करते हैं। 6. सफल स्टार्ट अप में यथासंभव लंबे समय तक निवेशित रहें। गुलाबों को पानी दें और मातम काट दें 7. 30 से 40 कंपनियों का पोर्टफोलियो बनाकर उच्च मृत्यु दर"',
+          'India': 'भारत',
+          'Piper Serica': 'पाइपर सेरिका',
+          'Piper Serica Advisors': 'पाइपर सेरिका सलाहकार',
+          'Rupees': 'रुपये',
+          'Minimum 2.5% or INR 50 lakhs whichever is lower':
+              'न्यूनतम 2.5% या INR 50 लाख जो कि कम होता है',
+          '"Minimum commitment of Rs. 25 lakh to be invested over 3 years."':
+              '"3 साल में निवेश करने के लिए न्यूनतम 25 लाख रुपए की प्रतिबद्धता।"',
+          '"Management Fee - 2% upto 1 Cr of aggregate capital commitment, otherwise 1.5% Performance Fee - 20% for Unit A & B holders (plus taxes & levies as applicable)"':
+              '"प्रबंधन शुल्क - एकत्र पूंजी की प्रतिबद्धता तक 2%, अन्यथा 1.5% प्रदर्शन शुल्क - यूनिट A और B धारकों के लिए 20% (लागू होने वाले कर और शुल्कों के साथ)"',
+          'Tech based Start-Up': 'टेक आधारित स्टार्ट-अप',
+          'Invest now': 'अभी निवेश करें',
+          "Thank You For Showing Your Interest":
+              "आपके दिखाए गए रुझान के लिए धन्यवाद",
+          "A FreeU Advisory Team will get back to you soon.":
+              "फ्रीयू सलाहकार टीम जल्द ही आपसे संपर्क करेगी।",
+          'View more products': 'अधिक उत्पाद देखें',
+          "Infrastructure Fund": "इंफ्रास्ट्रक्चर फंड",
+          'Benefits of investing in Infrastructure Fund':
+              'इंफ्रास्ट्रक्चर फंड में निवेश करने के फायदे',
+          "Infrastructure Funds provide investors with steady and consistent returns, mainly because demand for infrastructural services remain constant, or are constantly on the rise, even when the country’s economic growth is slow. Compared with other investments, these funds potentially offer more security against volatile stocks, and hence better at risk-management.":
+              "इंफ्रास्ट्रक्चर फंड निवेशकों को स्थिर और संयत रिटर्न प्रदान करते हैं, मुख्य रूप से इसलिए कि इंफ्रास्ट्रक्चर सेवाओं की मांग स्थिर रहती है, या देश की आर्थिक वृद्धि धीमी होने पर भी लगातार बढ़ती है। अन्य निवेशों की तुलना में, ये फंड अस्थिर स्टॉक के खिलाफ अधिक सुरक्षा प्रदान करते हैं, और इसलिए जोखिम-प्रबंधन में बेहतर होते हैं।",
+          'Features of Infrastructure AIF': 'इंफ्रास्ट्रक्चर AIF की विशेषताएं',
+          'infraTxt1': '> उच्च जोखिम-उच्च रिटर्न निवेश'
+              '\n\n> कम नकदता'
+              '\n\n> लंबी निवेश अवधि'
+              '\n\n> उच्च-क्षमता क्षेत्र में निवेश करने का मौका'
+              '\n\n> वे स्टॉक एक्सचेंज पर सूचीबद्ध हो सकते हैं क्योंकि उनकी न्यूनतम व्यापार राशि 1 करोड़ होती है।'
+              '\n\n> एक इंफ्रास्ट्रक्चर कंपनी में 25% से अधिक निवेश नहीं किया जा सकता।'
+              '\n\n> न्यूनतम 75% निवेशीय धन कंपनियों के अनोटेड इक्विटी शेयरों या इक्विटी इंस्ट्रुमेंट में निवेश किए जाने चाहिए या फिर स्मॉल एंड मीडियम इंटरप्राइज एक्सचेंज या एक्सचेंज के स्मॉल एंड सेगमेंट में लिस्ट होने वाली कंपनियों में निवेश किए जाने चाहिए।'
+              '\n\n> यूनिट होल्डर वर्ग I AIF के अन्य सबकैटेगरियों में निवेश कर सकते हैं, लेकिन FoF (फंड ऑफ फंड्स) में नहीं निवेश कर सकते।'
+              '\n\n> इंफ्रास्ट्रक्चर बॉन्ड को उन्होंने अपने व्यवसाय कार्यों को चलाने के लिए सीधे या अप्रत्यक्ष रूप से धन का उधार न लेने के लिए निषिद्ध किया है।'
+              '\n\n> इंफ्रास्ट्रक्चर फंड प्रत्येक योजना प्रति 1,000 निवेशकों को ही अनुमति देता है।',
+          'Tenure: ': 'कार्यकाल: ',
+          "infrraTxt2":
+              "क्योंकि इंफ्रास्ट्रक्चर फंड श्रेणी 1 में आते हैं, इनके क्लोज-एंडेड होते हैं और इनकी न्यूनतम अवधि तीन साल से अधिक होती है, जो अतिरिक्त दो साल तक बढ़ाई जा सकती है। फंड अवधि के समाप्त होने के एक साल के भीतर निपटाएं",
+          "Venture Capital Fund (VCF)": "वेंचर कैपिटल फंड (वीसीएफ)",
+          "So how does a VCF work?": "वीसीएफ कैसे काम करता है?",
+          "VentureTxt1":
+              "वीसीएफ उन प्रत्येक निवेशकों से फंड पूल करते हैं जो अलग-अलग/ एकाधिक उद्यमों में निवेश करना चाहते हैं, उनके व्यवसाय योजनाओं, प्रोफाइल और विकास चरणों के आधार पर। एक बार निवेशकों ने प्रतिबद्धता जताई हो तो, वीसीएफ निवेशकों की पूंजी इकट्ठा करने के लिए हर संभव निवेशक के निवेश राशि को अंतिम रूप देता है। फिर फंड प्रबंधक (वीसीएफ) हाई ग्रोथ के साथ निजी इक्विटी निवेश ढूंढते हैं, जो निवेशकों को लाभ देने के सबसे अच्छे अवसर हो सकते हैं।"
+                  '\n\n"वीसीएफ" का अधिकतर निवेश पहले चरणों में होता है और प्रत्येक निवेशक अपनी निवेश राशि के प्रतिशत के अनुसार लाभ प्राप्त करता है।'
+                  '\n\nवेंचर कैपिटल फंड भारत में बढ़ रहे हैं, खासकर एचएनआईजी के कारण, जो बहुत सी पूंजी रखते हैं और उच्च जोखिम वाले रिटर्न निवेश विकल्पों की तलाश करते हैं। एआईएफ के तहत उनकी सम्मिलितता के बाद से, ये फंडिंग में बहुत सारे एनआरआई ने भारत में स्टार्टअप में निवेश करते हुए देखे हैं, जिससे अर्थव्यवस्था में वृद्धि हुई है।',
+          'Types of VC Funds': 'वेंचर कैपिटल फंड के प्रकार',
+          'VentureTxt2': "व्यवसाय के विभिन्न चरणों में फंड उपयोग के आधार पर, वेंचर कैपिटल फंडों को तीन विस्तृत श्रेणियों में वर्गीकृत किया गया है। शुरुआती-चरण वित्त, विस्तार वित्त, और अधिग्रहण / बयाउट वित्त।"
+              '\n\n> शुरुआती-चरण वित्त: शुरुआती-चरण वित्त में 3 उप-श्रेणियां होती हैं। ये सीड वित्त, स्टार्टअप वित्त और पहले चरण का वित्त होता है।'
+              '\nसीड वित्त उद्यमी को एक स्टार्टअप ऋण के लिए योग्यता प्राप्त करने के उद्देश्य से दिया जाता है। जब शुरुआती-चरण की कंपनियों को उनकी सेवाओं और उत्पाद विकास को पूरा करने के लिए धन की आवश्यकता होती है, तब इसे स्टार्टअप वित्त कहा जाता है। अंततः, जब कंपनियां वेंचर कैपिटल का उपयोग पूरी तरह से व्यवसाय गतिविधियों को शुरू करने के लिए करती हैं, तब यह पहले चरण का वित्त होता है।'
+              '\n\n> विस्तार वित्तपोषण: विस्तार वित्तपोषण को दूसरे चरण के वित्तपोषण, पुल वित्तपोषण और तीसरे चरण के वित्तपोषण में वर्गीकृत किया गया है। दूसरे चरण और तीसरे चरण का वित्तपोषण एक प्रकार का विस्तार वित्तपोषण है, जो आम तौर पर कंपनियों को प्रदान किया जाता है ताकि वे कंपनियां अपने व्यवसाय और संचालन को बढ़ा सकें। दूसरी ओर, ब्रिज फाइनेंसिंग एक प्रकार का फाइनेंसिंग है जो आम तौर पर उन कंपनियों को प्रदान किया जाता है जिनकी व्यावसायिक रणनीति में आईपीओ के माध्यम से सार्वजनिक रूप से जाने की योजना शामिल है।'
+              '\n\n> अधिग्रहण या बायआउट वित्तपोषण: अधिग्रहण या बायआउट वित्तपोषण एक प्रकार का वित्तपोषण है जिसका उपयोग अधिग्रहण या लीवरेज्ड बायआउट के लिए किया जाता है। एक अधिग्रहण में, एक कंपनी दूसरी कंपनी या किसी अन्य कंपनी का हिस्सा खरीदती है। लीवरेज्ड बायआउट में, एक कंपनी का प्रबंधन समूह दूसरी कंपनी के उत्पाद का अधिग्रहण करना चाहता है।',
+          'Benefits of Venture Capital Fund': 'वेंचर कैपिटल फंड के लाभ',
+          'VentureTxt3': '> वीसीएफ यह सुनिश्चित करता है कि वेंचर कैपिटल (वीसीएफ में प्रदान किया गया धन) का उपयोग केवल उच्च विकास की संभावना वाले प्रोजेक्ट्स, स्टार्टअप्स के लिए किया जाता है। इसलिए, उच्च जोखिम के बावजूद, उनके पास निवेश पर अत्यधिक उच्च प्रतिफल देने की क्षमता है।'
+              '\n\n> विकास के शुरुआती चरणों में किसी भी कंपनी के लिए, नेटवर्किंग महत्वपूर्ण है, और यह वीसीएफ निवेशकों का सबसे बड़ा फायदा है। प्रभावशाली, अमीर, बहुत सारे कनेक्ट वाले निवेशक इन स्टार्टअप्स को बढ़ावा देते हैं, उनकी दृश्यता, एक्सपोजर को बढ़ाते हैं, सकारात्मक मार्केटिंग के माध्यम से उन्हें बढ़ने में मदद करते हैं।'
+              '\n\n> वीसीएफ में निवेशक अक्सर ज्ञान और अनुभव लाते हैं, जो कंपनियों या स्टार्टअप को उनकी दृष्टि और लक्ष्य के अनुसार बढ़ने में मदद करते हैं। वीसीएफ के ये परिष्कृत निवेशक कभी-कभी नए उत्पादों, सेवाओं को विकसित करने में मदद करके कंपनी के विकास में योगदान दे सकते हैं, और दक्षता बढ़ाने के लिए नवीनतम, उन्नत तकनीकों को हासिल करने में भी उनकी मदद कर सकते हैं।'
+              '\n\n> जिन कंपनियों में वे निवेश करते हैं, उन पर वीसीएफ की बहुत पकड़ होती है, और इसलिए वे निर्णयों को प्रभावित कर सकते हैं।'
+              '\n\n> वीसीएफ के पास एक ही समय में कई परियोजनाओं में निवेश करने की क्षमता भी है। यह उस उच्च जोखिम को कम कर सकता है जो आमतौर पर इस श्रेणी में निवेश करने में शामिल होता है। कई स्टार्टअप्स में से, कम से कम एक बड़े पैमाने पर विकास कर सकता है, जिससे उन्हें अपने पूरे निवेश को कवर करने के लिए उच्च रिटर्न मिलता है।',
+          'Disadvantages of Venture Capital Fund': 'वेंचर कैपिटल फंड के नुकसान',
         },
       };
 }

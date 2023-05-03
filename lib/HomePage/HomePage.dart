@@ -282,7 +282,6 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 10.h,
                   ),
-
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -296,7 +295,24 @@ class _HomePageState extends State<HomePage> {
                         );
                       }),
                     ),
-                  )
+                  ),
+
+                  // Obx(
+                  //   () => SingleChildScrollView(
+                  //     scrollDirection: Axis.horizontal,
+                  //     child: Row(
+                  //       children: List.generate(topPickData.length, (index) {
+                  //         return topPickCard(
+                  //           text1: topPickData[index]["text1"],
+                  //           imagePath: topPickData[index]["imageUrl"],
+                  //           title: topPickData[index]["title"],
+                  //           add: topPickData[index]["add"],
+                  //           // /
+                  //         );
+                  //       }),
+                  //     ),
+                  //   ),
+                  // ),
                   // SizedBox(
                   //   height: 275.h,
                   //   child: ListView.separated(
@@ -540,7 +556,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  text1,
+                  text1.tr,
                   style:
                       TextStyle(fontWeight: FontWeight.w500, fontSize: 14.sp),
                 ),
@@ -558,7 +574,7 @@ class _HomePageState extends State<HomePage> {
                 // Spacer(),
                 sizedBoxHeight(10.h),
 
-                text14Black(title),
+                text14Black(title.tr),
 
                 // Spacer(),
                 sizedBoxHeight(5.h),
@@ -575,7 +591,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     sizedBoxWidth(5.w),
-                    Expanded(child: text13Grey707070(add))
+                    Expanded(child: text13Grey707070(add.tr))
                   ],
                 )
 

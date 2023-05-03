@@ -1,6 +1,7 @@
 // part 'HomePage.dart';
 // part 'HomePage.dart';
 
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -85,17 +86,18 @@ class _EntryPointState extends State<EntryPoint>
 
     scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(CurvedAnimation(
         parent: _animationController, curve: Curves.fastOutSlowIn));
-    //
-    // TODO: implement initState
     super.initState();
+
+    _streamController = StreamController<dynamic>();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _animationController.dispose();
     super.dispose();
   }
+
+   StreamController<dynamic>? _streamController;
 
   // late SMI
   // late
@@ -106,217 +108,224 @@ class _EntryPointState extends State<EntryPoint>
       child: Container(
         color: AppColors.white,
         child: SafeArea(
-          child: Scaffold(
-              backgroundColor: AppColors.blue143C6D,
-              resizeToAvoidBottomInset: false,
-              extendBody: true,
-              body: GetBuilder<EntryPointController>(builder: (_) {
-                return controllerEntryPoint.isLoading!
-                    ? Center(child: const CircularProgressIndicator())
-                    : Stack(
-                        children: [
-                          AnimatedPositioned(
-                              duration: Duration(milliseconds: 200),
-                              curve: Curves.fastOutSlowIn,
-                              left: isSideMenuClosed ? -300.w : 0,
-                              width: 300.w,
-                              height: MediaQuery.of(context).size.height,
-                              child: SideBar()),
-                          Transform(
-                            alignment: Alignment.center,
-                            transform: Matrix4.identity()
-                              ..setEntry(3, 2, 0.001)
-                              ..rotateY(animation.value -
-                                  30 * animation.value * pi / 180),
-                            child: Transform.translate(
-                                offset: Offset(animation.value * 300.w, 0),
-                                child: Transform.scale(
-                                    scale: scaleAnimation.value,
-                                    child: ClipRRect(
-                                        // bord
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(
-                                                isSideMenuClosed ? 0 : 24)),
-                                        child: screens[selectedIndex]
-                                        // Obx(() => screens[selectedIndex])
-                                        // screens[selectedIndex.value]
-                                        // HomePage()
-                                        ))),
-                          ),
-                          AnimatedPositioned(
-                            duration: Duration(milliseconds: 200),
-                            curve: Curves.fastOutSlowIn,
-                            // left: isSideMenuClosed ? 0 ? 220,
-                            top: 5.h,
-                            child: IconButton(
-                              onPressed: () {
-                                if (isSideMenuClosed) {
-                                  _animationController.forward();
-                                } else {
-                                  _animationController.reverse();
-                                }
-                                setState(() {
-                                  isSideMenuClosed = !isSideMenuClosed;
-                                });
-                              },
-                              icon: isSideMenuClosed
-                                  ? SizedBox(
-                                      height: 20.h,
-                                      width: 25.w,
-                                      child: SvgPicture.asset(
-                                        "assets/images/menu.svg",
-                                        // height: 20.h,
-                                        // width: 10.w,
-                                        fit: BoxFit.fill,
-                                      ),
-                                    )
-                                  : Icon(
-                                      Icons.cancel_outlined,
-                                      size: 25.w,
-                                      color: AppColors.white,
-                                    ),
-                              // color: Colors.red,
-                              // iconSize: 100.h,
-                            ),
-                          ),
-                        ],
-                      );
+          child: StreamBuilder<dynamic>(
+              stream: _streamController?.stream,
+              builder: (context, snapshot) {
+                return Scaffold(
+                    backgroundColor: AppColors.blue143C6D,
+                    resizeToAvoidBottomInset: false,
+                    extendBody: true,
+                    body: GetBuilder<EntryPointController>(builder: (_) {
+                      return controllerEntryPoint.isLoading!
+                          ? Center(child: const CircularProgressIndicator())
+                          : Stack(
+                              children: [
+                                AnimatedPositioned(
+                                    duration: Duration(milliseconds: 200),
+                                    curve: Curves.fastOutSlowIn,
+                                    left: isSideMenuClosed ? -300.w : 0,
+                                    width: 300.w,
+                                    height: MediaQuery.of(context).size.height,
+                                    child: SideBar()),
+                                Transform(
+                                  alignment: Alignment.center,
+                                  transform: Matrix4.identity()
+                                    ..setEntry(3, 2, 0.001)
+                                    ..rotateY(animation.value -
+                                        30 * animation.value * pi / 180),
+                                  child: Transform.translate(
+                                      offset:
+                                          Offset(animation.value * 300.w, 0),
+                                      child: Transform.scale(
+                                          scale: scaleAnimation.value,
+                                          child: ClipRRect(
+                                              // bord
+                                              borderRadius: BorderRadius.all(
+                                                  Radius.circular(
+                                                      isSideMenuClosed
+                                                          ? 0
+                                                          : 24)),
+                                              child: screens[selectedIndex]
+                                              // Obx(() => screens[selectedIndex])
+                                              // screens[selectedIndex.value]
+                                              // HomePage()
+                                              ))),
+                                ),
+                                AnimatedPositioned(
+                                  duration: Duration(milliseconds: 200),
+                                  curve: Curves.fastOutSlowIn,
+                                  // left: isSideMenuClosed ? 0 ? 220,
+                                  top: 5.h,
+                                  child: IconButton(
+                                    onPressed: () {
+                                      if (isSideMenuClosed) {
+                                        _animationController.forward();
+                                      } else {
+                                        _animationController.reverse();
+                                      }
+                                      setState(() {
+                                        isSideMenuClosed = !isSideMenuClosed;
+                                      });
+                                    },
+                                    icon: isSideMenuClosed
+                                        ? SizedBox(
+                                            height: 20.h,
+                                            width: 25.w,
+                                            child: SvgPicture.asset(
+                                              "assets/images/menu.svg",
+                                              // height: 20.h,
+                                              // width: 10.w,
+                                              fit: BoxFit.fill,
+                                            ),
+                                          )
+                                        : Icon(
+                                            Icons.cancel_outlined,
+                                            size: 25.w,
+                                            color: AppColors.white,
+                                          ),
+                                    // color: Colors.red,
+                                    // iconSize: 100.h,
+                                  ),
+                                ),
+                              ],
+                            );
+                    }),
+                    bottomNavigationBar: isSideMenuClosed
+                        ? BottomNavigationBar(
+                            // height
+                            // fixedColor: AppColors.transparent,
+                            // fixedColor: Colors.transparent,
+
+                            selectedLabelStyle: TextStyle(fontSize: 12.sp),
+                            unselectedLabelStyle: TextStyle(fontSize: 12.sp),
+                            iconSize: 20.h,
+                            selectedItemColor: AppColors.blue143C6D,
+                            unselectedItemColor: AppColors.black,
+                            elevation: 0,
+                            // labe
+                            backgroundColor: AppColors.white,
+                            type: BottomNavigationBarType.fixed,
+                            items: <BottomNavigationBarItem>[
+                              BottomNavigationBarItem(
+                                activeIcon: activeIcon(
+                                    "assets/images/home-svgrepo-com (1).svg"),
+                                icon: inactiveIcon(
+                                    "assets/images/home-svgrepo-com.svg"),
+                                // icon: Icon(Icons.home),
+                                label: "entrypoint_bottombar1".tr,
+                              ),
+                              BottomNavigationBarItem(
+                                // icon: Icon(Icons.explore),
+                                activeIcon: activeIcon(
+                                    "assets/images/category-alt-svgrepo-com (1).svg"),
+                                icon: inactiveIcon(
+                                    "assets/images/category-alt-svgrepo-com.svg"),
+                                label: "entrypoint_bottombar2".tr,
+                              ),
+                              BottomNavigationBarItem(
+                                activeIcon:
+                                    activeIcon("assets/images/Group 51109.svg"),
+                                icon: inactiveIcon(
+                                    "assets/images/money-dollar-coin-svgrepo-com.svg"),
+
+                                // icon: Icon(Icons.circle, size: 0),
+                                label: "entrypoint_bottombar3".tr,
+                              ),
+                              BottomNavigationBarItem(
+                                activeIcon: activeIcon(
+                                    "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
+                                icon: inactiveIcon(
+                                    "assets/images/chat-left-3-svgrepo-com (2).svg"),
+                                label: "entrypoint_bottombar4".tr,
+                              ),
+                              BottomNavigationBarItem(
+                                activeIcon:
+                                    activeIcon("assets/images/Path 30132.svg"),
+                                icon: inactiveIcon("assets/images/profile.svg"),
+                                label: "entrypoint_bottombar5".tr,
+                              ),
+                            ],
+                            currentIndex: selectedIndex,
+
+                            onTap: (int index) {
+                              selectedIndex = index;
+                              setState(() {});
+                              // controllerEntryPoint.selectedPage(index);
+                              // if (index != 2) {
+                              // controllerEntryPoint.selectedIndex = index;
+                              // setState(() {});
+                              // }
+                            },
+                          )
+
+                        // Obx(
+                        //     () => BottomNavigationBar(
+                        //       // height
+                        //       // fixedColor: AppColors.transparent,
+                        //       // fixedColor: Colors.transparent,
+
+                        //       selectedLabelStyle: TextStyle(fontSize: 12.sp),
+                        //       unselectedLabelStyle: TextStyle(fontSize: 12.sp),
+                        //       iconSize: 20.h,
+                        //       selectedItemColor: AppColors.blue143C6D,
+                        //       unselectedItemColor: AppColors.black,
+                        //       elevation: 0,
+                        //       // labe
+                        //       backgroundColor: AppColors.white,
+                        //       type: BottomNavigationBarType.fixed,
+                        //       items: <BottomNavigationBarItem>[
+                        //         BottomNavigationBarItem(
+                        //           activeIcon: activeIcon(
+                        //               "assets/images/home-svgrepo-com (1).svg"),
+                        //           icon: inactiveIcon(
+                        //               "assets/images/home-svgrepo-com.svg"),
+                        //           // icon: Icon(Icons.home),
+                        //           label: "Home",
+                        //         ),
+                        //         BottomNavigationBarItem(
+                        //           // icon: Icon(Icons.explore),
+                        //           activeIcon: activeIcon(
+                        //               "assets/images/category-alt-svgrepo-com (1).svg"),
+                        //           icon: inactiveIcon(
+                        //               "assets/images/category-alt-svgrepo-com.svg"),
+                        //           label: "Categories",
+                        //         ),
+                        //         BottomNavigationBarItem(
+                        //           activeIcon:
+                        //               activeIcon("assets/images/Group 51109.svg"),
+                        //           icon: inactiveIcon(
+                        //               "assets/images/money-dollar-coin-svgrepo-com.svg"),
+
+                        //           // icon: Icon(Icons.circle, size: 0),
+                        //           label: "Investment",
+                        //         ),
+                        //         BottomNavigationBarItem(
+                        //           activeIcon: activeIcon(
+                        //               "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
+                        //           icon: inactiveIcon(
+                        //               "assets/images/chat-left-3-svgrepo-com (2).svg"),
+                        //           label: "Chat",
+                        //         ),
+                        //         BottomNavigationBarItem(
+                        //           activeIcon:
+                        //               activeIcon("assets/images/Path 30132.svg"),
+                        //           icon: inactiveIcon("assets/images/profile.svg"),
+                        //           label: "Profile",
+                        //         ),
+                        //       ],
+                        //       currentIndex: selectedIndex,
+
+                        //       onTap: (int index) {
+                        //         // if (index != 2) {
+                        //         selectedIndex = index;
+                        //         setState(() {});
+                        //         // }
+                        //       },
+                        //     ),
+
+                        //   )
+                        : SizedBox());
               }),
-              bottomNavigationBar: isSideMenuClosed
-                  ? BottomNavigationBar(
-                      // height
-                      // fixedColor: AppColors.transparent,
-                      // fixedColor: Colors.transparent,
-
-                      selectedLabelStyle: TextStyle(fontSize: 12.sp),
-                      unselectedLabelStyle: TextStyle(fontSize: 12.sp),
-                      iconSize: 20.h,
-                      selectedItemColor: AppColors.blue143C6D,
-                      unselectedItemColor: AppColors.black,
-                      elevation: 0,
-                      // labe
-                      backgroundColor: AppColors.white,
-                      type: BottomNavigationBarType.fixed,
-                      items: <BottomNavigationBarItem>[
-                        BottomNavigationBarItem(
-                          activeIcon: activeIcon(
-                              "assets/images/home-svgrepo-com (1).svg"),
-                          icon: inactiveIcon(
-                              "assets/images/home-svgrepo-com.svg"),
-                          // icon: Icon(Icons.home),
-                          label: "entrypoint_bottombar1".tr,
-                        ),
-                        BottomNavigationBarItem(
-                          // icon: Icon(Icons.explore),
-                          activeIcon: activeIcon(
-                              "assets/images/category-alt-svgrepo-com (1).svg"),
-                          icon: inactiveIcon(
-                              "assets/images/category-alt-svgrepo-com.svg"),
-                          label: "entrypoint_bottombar2".tr,
-                        ),
-                        BottomNavigationBarItem(
-                          activeIcon:
-                              activeIcon("assets/images/Group 51109.svg"),
-                          icon: inactiveIcon(
-                              "assets/images/money-dollar-coin-svgrepo-com.svg"),
-
-                          // icon: Icon(Icons.circle, size: 0),
-                          label: "entrypoint_bottombar3".tr,
-                        ),
-                        BottomNavigationBarItem(
-                          activeIcon: activeIcon(
-                              "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
-                          icon: inactiveIcon(
-                              "assets/images/chat-left-3-svgrepo-com (2).svg"),
-                          label: "entrypoint_bottombar4".tr,
-                        ),
-                        BottomNavigationBarItem(
-                          activeIcon:
-                              activeIcon("assets/images/Path 30132.svg"),
-                          icon: inactiveIcon("assets/images/profile.svg"),
-                          label: "entrypoint_bottombar5".tr,
-                        ),
-                      ],
-                      currentIndex: selectedIndex,
-
-                      onTap: (int index) {
-                        selectedIndex = index;
-                        setState(() {});
-                        // controllerEntryPoint.selectedPage(index);
-                        // if (index != 2) {
-                        // controllerEntryPoint.selectedIndex = index;
-                        // setState(() {});
-                        // }
-                      },
-                    )
-
-                  // Obx(
-                  //     () => BottomNavigationBar(
-                  //       // height
-                  //       // fixedColor: AppColors.transparent,
-                  //       // fixedColor: Colors.transparent,
-
-                  //       selectedLabelStyle: TextStyle(fontSize: 12.sp),
-                  //       unselectedLabelStyle: TextStyle(fontSize: 12.sp),
-                  //       iconSize: 20.h,
-                  //       selectedItemColor: AppColors.blue143C6D,
-                  //       unselectedItemColor: AppColors.black,
-                  //       elevation: 0,
-                  //       // labe
-                  //       backgroundColor: AppColors.white,
-                  //       type: BottomNavigationBarType.fixed,
-                  //       items: <BottomNavigationBarItem>[
-                  //         BottomNavigationBarItem(
-                  //           activeIcon: activeIcon(
-                  //               "assets/images/home-svgrepo-com (1).svg"),
-                  //           icon: inactiveIcon(
-                  //               "assets/images/home-svgrepo-com.svg"),
-                  //           // icon: Icon(Icons.home),
-                  //           label: "Home",
-                  //         ),
-                  //         BottomNavigationBarItem(
-                  //           // icon: Icon(Icons.explore),
-                  //           activeIcon: activeIcon(
-                  //               "assets/images/category-alt-svgrepo-com (1).svg"),
-                  //           icon: inactiveIcon(
-                  //               "assets/images/category-alt-svgrepo-com.svg"),
-                  //           label: "Categories",
-                  //         ),
-                  //         BottomNavigationBarItem(
-                  //           activeIcon:
-                  //               activeIcon("assets/images/Group 51109.svg"),
-                  //           icon: inactiveIcon(
-                  //               "assets/images/money-dollar-coin-svgrepo-com.svg"),
-
-                  //           // icon: Icon(Icons.circle, size: 0),
-                  //           label: "Investment",
-                  //         ),
-                  //         BottomNavigationBarItem(
-                  //           activeIcon: activeIcon(
-                  //               "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
-                  //           icon: inactiveIcon(
-                  //               "assets/images/chat-left-3-svgrepo-com (2).svg"),
-                  //           label: "Chat",
-                  //         ),
-                  //         BottomNavigationBarItem(
-                  //           activeIcon:
-                  //               activeIcon("assets/images/Path 30132.svg"),
-                  //           icon: inactiveIcon("assets/images/profile.svg"),
-                  //           label: "Profile",
-                  //         ),
-                  //       ],
-                  //       currentIndex: selectedIndex,
-
-                  //       onTap: (int index) {
-                  //         // if (index != 2) {
-                  //         selectedIndex = index;
-                  //         setState(() {});
-                  //         // }
-                  //       },
-                  //     ),
-
-                  //   )
-                  : SizedBox()),
         ),
       ),
     );

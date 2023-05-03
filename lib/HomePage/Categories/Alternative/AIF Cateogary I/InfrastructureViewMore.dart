@@ -20,7 +20,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
-          text: 'View Categories',
+          text: 'View Categories'.tr,
           ontap: () {
             Get.toNamed("/privateequityfunddeals");
           },
@@ -42,7 +42,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Infrastructure Fund",
+                  "Infrastructure Fund".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -89,7 +89,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'Benefits of investing in Infrastructure Fund',
+          'Benefits of investing in Infrastructure Fund'.tr,
           style: TextStyle(
               color: Colors.black,
               fontSize: 20.sp,
@@ -119,7 +119,8 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              "Infrastructure Funds provide investors with steady and consistent returns, mainly because demand for infrastructural services remain constant, or are constantly on the rise, even when the country’s economic growth is slow. Compared with other investments, these funds potentially offer more security against volatile stocks, and hence better at risk-management.",
+              "Infrastructure Funds provide investors with steady and consistent returns, mainly because demand for infrastructural services remain constant, or are constantly on the rise, even when the country’s economic growth is slow. Compared with other investments, these funds potentially offer more security against volatile stocks, and hence better at risk-management."
+                  .tr,
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",
@@ -150,7 +151,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'Features of Infrastructure AIF',
+          'Features of Infrastructure AIF'.tr,
           style: TextStyle(
               color: Colors.black,
               fontSize: 18.sp,
@@ -179,16 +180,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              '>	A high risk-high return investment'
-              '\n\n>	Low liquidity'
-              '\n\n>	Long investment horizon'
-              '\n\n>	A chance to invest in high-potential sector '
-              '\n\n>	They can be listed on stock exchanges because  of their minimum trade amount of 1 crore.'
-              '\n\n>	AIF cannot invest more than 25% in a single infrastructure company.'
-              '\n\n>	At least 75% of the investible funds shall be invested in unlisted equity shares or equity instruments of a venture capital undertaking or in companies listed or proposed to be listed on a SME exchange or SME segment of an exchange.'
-              '\n\n>	The unit holder can invest in other subcategories of Category I AIF, but cannot invest in FoFs (Funds of Funds).'
-              '\n\n>	Infrastructure bonds are refrained from borrowing funds directly or indirectly to run their business operations.'
-              '\n\n>	Infrastructure fund allows only 1,000 investors per scheme.',
+              'infraTxt1'.tr,
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",
@@ -219,7 +211,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'Tenure: ',
+          'Tenure: '.tr,
           style: TextStyle(
               color: Colors.black,
               fontSize: 18.sp,
@@ -248,7 +240,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
             ),
             sizedBoxHeight(15.h),
             Text(
-              "Since infrastructure funds come under category 1, these are close-ended and come with a minimum tenure of more than three years, which could be extended by additional two years. Liquidate within one year following expiry of fund tenure",
+              'infrraTxt2'.tr,
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",

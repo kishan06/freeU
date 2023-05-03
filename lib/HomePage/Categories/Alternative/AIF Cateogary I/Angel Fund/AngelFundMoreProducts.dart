@@ -5,6 +5,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import 'AngelFundViewDetails.dart';
@@ -33,7 +34,7 @@ class _AngelFundMoreProductState extends State<AngelFundMoreProduct> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Angel Fund",
+                  "Angel Fund".tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -66,15 +67,15 @@ class _AngelFundMoreProductState extends State<AngelFundMoreProduct> {
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
-                      tabs: const [
+                      tabs: [
                         Tab(
-                          text: "Open",
+                          text: "Open".tr,
                         ),
                         Tab(
-                          text: "Fully funded",
+                          text: "Fully funded".tr,
                         ),
                         Tab(
-                          text: "Resale",
+                          text: "Resale".tr,
                         ),
                       ],
                     ),
@@ -106,7 +107,7 @@ class FirstTab extends StatelessWidget {
     return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        const Text("No Data Found")
+         Text("No Data Found".tr)
       ],
     );
   }
@@ -156,13 +157,13 @@ class SecondTab extends StatelessWidget {
                             SizedBox(
                               width: 20.h,
                             ),
-                            const Flexible(
+                            Flexible(
                               child: Text(
-                                "Piper Serica Angel Fund",
+                                "Piper Serica Angel Fund".tr,
                                 style: TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 22.sp,
                                     fontFamily: 'Poppins',
-                                    color: Color(0XFF000000),
+                                    color: const Color(0XFF000000),
                                     fontWeight: FontWeight.w500),
                               ),
                             )
@@ -184,7 +185,7 @@ class SecondTab extends StatelessWidget {
                               width: 15.w,
                             ),
                             Text(
-                              "Targeted IRR :",
+                              "Targeted IRR :".tr,
                               style: TextStyle(
                                 fontSize: 17.sp,
                                 fontFamily: 'Poppins',
@@ -220,7 +221,7 @@ class SecondTab extends StatelessWidget {
                             ),
                             Flexible(
                               child: Text(
-                                "Commitment period :",
+                                "Commitment period :".tr,
                                 style: TextStyle(
                                   fontSize: 17.sp,
                                   fontFamily: 'Poppins',
@@ -232,7 +233,7 @@ class SecondTab extends StatelessWidget {
                               width: 8.w,
                             ),
                             Text(
-                              "10 Years",
+                              "10 Years".tr,
                               style: TextStyle(
                                   fontSize: 18.sp,
                                   fontFamily: 'Poppins',
@@ -256,7 +257,7 @@ class SecondTab extends StatelessWidget {
                             ),
                             Flexible(
                               child: Text(
-                                "Capital Commitment :",
+                                "Capital Commitment :".tr,
                                 style: TextStyle(
                                   fontSize: 17.sp,
                                   fontFamily: 'Poppins',
@@ -268,7 +269,7 @@ class SecondTab extends StatelessWidget {
                               width: 8.w,
                             ),
                             Text(
-                              "25 Lakh",
+                              "25 Lakh".tr,
                               style: TextStyle(
                                   fontSize: 18.sp,
                                   fontFamily: 'Poppins',
@@ -290,7 +291,7 @@ class SecondTab extends StatelessWidget {
                             height: 50.h,
                             child: Center(
                                 child: Text(
-                              'View Details',
+                              'View Details'.tr,
                               style: TextStyle(
                                 color: AppColors.white,
                                 fontSize: 18.sp,
@@ -324,7 +325,7 @@ class ThirdTab extends StatelessWidget {
     return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        const Text("No Data Found")
+        Text("No Data Found".tr)
       ],
     );
   }
