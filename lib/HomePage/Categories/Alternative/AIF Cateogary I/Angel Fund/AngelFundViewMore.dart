@@ -22,7 +22,7 @@ class _AngelFundViewMoreState extends State<AngelFundViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/AngelFundMoreProduct");
           },
         ),
       ),

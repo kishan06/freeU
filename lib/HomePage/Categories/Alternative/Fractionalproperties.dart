@@ -52,7 +52,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Properties",
+                  "Fractional Real Estate",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

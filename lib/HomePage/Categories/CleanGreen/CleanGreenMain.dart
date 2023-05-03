@@ -189,7 +189,7 @@ class _CleanGreenMainState extends State<CleanGreenMain> {
                         ],
                       ),
                       SizedBox(
-                        height: 92.h,
+                        height: 40.h,
                       ),
                       OpenContainerWrappers(
                         openBuild: const CleanGreenViewMoreProduct(),

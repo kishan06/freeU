@@ -22,7 +22,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/AngelFundMoreProduct");
           },
         ),
       ),

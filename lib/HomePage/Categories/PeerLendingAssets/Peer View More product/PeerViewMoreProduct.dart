@@ -44,7 +44,7 @@ class _PeerViewMoreProductState extends State<PeerViewMoreProduct> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Scheme",
+                  "Peer - Peer Lending",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

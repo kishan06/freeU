@@ -70,7 +70,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/fractionalpropertiespage");
+            Get.toNamed("/invoiceviewproductsproducts");
           },
         ),
       ),

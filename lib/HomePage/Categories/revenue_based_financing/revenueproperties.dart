@@ -53,7 +53,7 @@ class _RevenuePropertiesState extends State<RevenueProperties> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Properties",
+                  "Revenue-based Financing",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

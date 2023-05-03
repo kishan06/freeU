@@ -44,7 +44,7 @@ class _VLeaseViewMoreProduct extends State<LeaseViewMoreProduct> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Company",
+                  "Lease based Financing",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

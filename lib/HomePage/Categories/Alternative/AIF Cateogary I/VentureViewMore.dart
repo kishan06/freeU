@@ -22,7 +22,7 @@ class _VentureViewMoreState extends State<VentureViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/AngelFundMoreProduct");
           },
         ),
       ),
