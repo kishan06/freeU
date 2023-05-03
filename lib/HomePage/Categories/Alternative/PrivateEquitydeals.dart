@@ -69,7 +69,7 @@ class _PrivateEquityFundDealsState extends State<PrivateEquityFundDeals> {
               children: [
                 // /
                 Text(
-                  "Private Equity Fund Deals",
+                  "Private Equity Fund",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

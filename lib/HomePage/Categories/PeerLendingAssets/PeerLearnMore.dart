@@ -69,7 +69,7 @@ Example: If you earn a 20% return from your investment and the non-performing as
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/fractionalpropertiespage");
+            Get.toNamed("/peerproducts");
           },
         ),
       ),

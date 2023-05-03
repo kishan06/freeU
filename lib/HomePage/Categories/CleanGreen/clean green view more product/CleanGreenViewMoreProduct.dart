@@ -45,7 +45,7 @@ class _CleanGreenViewMoreProductState extends State<CleanGreenViewMoreProduct> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Project Name",
+                  "Clean and Green Assets",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

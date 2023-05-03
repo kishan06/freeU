@@ -54,7 +54,7 @@ class _HighYieldMoreProductState extends State<HighYieldMoreProduct> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Properties",
+                  "High Yield Fixed Income",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

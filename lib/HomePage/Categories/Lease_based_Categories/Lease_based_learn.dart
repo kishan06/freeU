@@ -23,7 +23,7 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/leasebasedproperties");
+            Get.toNamed("/leaseproducts");
           },
         ),
       ),

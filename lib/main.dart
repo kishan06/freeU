@@ -17,6 +17,8 @@ import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 
 import 'package:freeu/HomePage/Categories/High_yield/high_yield_more_products.dart';
+import 'package:freeu/HomePage/Categories/InvoiceDiscounting/Invoiceproperties.dart';
+import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease%20view%20more%20product/LeaseViewMoreProduct.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_properties.dart';
 
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
@@ -84,6 +86,11 @@ import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary III/HedgeViewProducts.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary III/PrivatePublicEquityViewMore.dart';
 import 'HomePage/Categories/Alternative/FullyFundedBank.dart';
+import 'HomePage/Categories/CleanGreen/clean green view more product/CleanGreenViewMoreProduct.dart';
+import 'HomePage/Categories/PeerLendingAssets/Peer View More product/PeerViewMoreProduct.dart';
+import 'HomePage/Categories/SecuredDebt/Securitizedproperties.dart';
+import 'HomePage/Categories/Venture debt/VentureProduct/ViewMoreProdcutVenture.dart';
+import 'HomePage/Categories/revenue_based_financing/revenueproperties.dart';
 
 int bottomIndex = 0;
 
@@ -282,6 +289,39 @@ class _MyAppState extends State<MyApp> {
                     GetPage(
               name: '/realestateviewmoreproducts',
               page: () => const RealEstateViewmoreProducts()),
+
+              GetPage(
+              name: '/cleangreenviewproducts',
+              page: () => const CleanGreenViewMoreProduct()),
+              
+              
+              GetPage(
+              name: '/securedebtproducts',
+              page: () => const SecuritizedProperties()),
+
+              GetPage(
+              name: '/highyieldproducts',
+              page: () => const HighYieldMoreProduct()),
+
+              GetPage(
+              name: '/ventureviewproduct',
+              page: () => const VeiwMoreProductVenture()),
+              
+              GetPage(
+              name: '/leaseproducts',
+              page: () => const LeaseViewMoreProduct()),
+              
+              GetPage(
+              name: '/invoiceviewproductsproducts',
+              page: () => const InvoiceProperties()),
+
+              GetPage(
+              name: '/peerproducts',
+              page: () => const PeerViewMoreProduct()),
+              
+              GetPage(
+              name: '/revenueviewproducts',
+              page: () => const RevenueProperties()),              
               
         ],
       ),

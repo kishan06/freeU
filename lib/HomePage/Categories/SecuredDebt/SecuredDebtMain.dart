@@ -186,7 +186,7 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                         ],
                       ),
                       SizedBox(
-                        height: 92.h,
+                        height: 40.h,
                       ),
                       OpenContainerWrappers(
                         openBuild: const SecuritizedProperties(),

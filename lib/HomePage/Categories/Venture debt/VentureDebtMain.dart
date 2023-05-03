@@ -186,7 +186,7 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                         ],
                       ),
                       SizedBox(
-                        height: 92.h,
+                        height: 40.h,
                       ),
                       OpenContainerWrappers(
                         openBuild: const VeiwMoreProductVenture(),

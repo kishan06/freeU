@@ -23,7 +23,7 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/highyieldproperties");
+            Get.toNamed("/highyieldproducts");
           },
         ),
       ),

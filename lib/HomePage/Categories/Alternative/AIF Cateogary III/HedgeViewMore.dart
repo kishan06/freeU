@@ -22,7 +22,7 @@ class _HedgeViewMoreState extends State<HedgeViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/hedgeviewproducts");
           },
         ),
       ),

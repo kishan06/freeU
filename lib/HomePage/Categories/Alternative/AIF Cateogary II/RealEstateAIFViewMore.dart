@@ -22,7 +22,7 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/realestateviewmoreproducts");
           },
         ),
       ),

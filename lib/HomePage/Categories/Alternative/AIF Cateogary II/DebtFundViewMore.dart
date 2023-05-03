@@ -24,7 +24,7 @@ class _DebtFundViewMoreState extends State<DebtFundViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/DebtFundProd");
           },
         ),
       ),
