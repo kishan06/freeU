@@ -295,6 +295,7 @@ class _RevenueBasedLearnMoreState extends State<RevenueBasedLearnMore> {
             "Raising capital through RBF is easier, and faster as mostly, it does not require any collateral or personal guarantee."
       },
     ];
+  
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
