@@ -57,11 +57,75 @@ class _DebtFundViewMoreState extends State<DebtFundViewMore> {
               child: Column(
                 children: [
                   sizedBoxHeight(20.h),
+                  faqAccod0(),
+                  sizedBoxHeight(15.h),
                   faqAccod(),
                   sizedBoxHeight(15.h),
                 ],
               ),
             )),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget faqAccod0() {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        showAccordion: false,
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          'What is Debt Fund?',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            sizedBoxHeight(20.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Color(0xFF143C6D),
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFF143C6D),
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Text(
+              "As the name suggests, Debt Funds invest in debt instruments of a company (both listed or unlisted). Therefore, if you are an investor, your money will be used in different company bonds, debentures, and other money market instruments. This is a relatively stable investment avenue, where risks are lower. But there are ways in which it can be a high risk because, essentially companies with a low credit score have high yield debt securities. This is the reason Debt Funds investors are mainly interested in companies that have a high growth potential, but without adequate capital. As per SEBI regulations, since AIF is mainly privately pooled investments, Debt Fund investments cannot be used for giving out loans.",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Poppins",
+                fontSize: 18.sp,
+              ),
+            ),
           ],
         ),
       ),
@@ -75,7 +139,7 @@ class _DebtFundViewMoreState extends State<DebtFundViewMore> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
-        showAccordion: true,
+        showAccordion: false,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),

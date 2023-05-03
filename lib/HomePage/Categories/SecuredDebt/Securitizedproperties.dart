@@ -268,7 +268,7 @@ class SecondTab extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(right: 212),
                             child: Text(
-                              "11.20%",
+                              "11.2%",
                               style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
