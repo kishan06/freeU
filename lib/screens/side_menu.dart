@@ -37,17 +37,17 @@ class _SideBarState extends State<SideBar> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   List sideBarData = [
-    {"imagePath": "assets/logos/side1.png", "text": "KYC"},
-    {"imagePath": "assets/logos/side2.png", "text": "Security".tr},
-    {"imagePath": "assets/logos/side3.png", "text": "How to Invest".tr},
-    {"imagePath": "assets/logos/side4.png", "text": "Update Risk Profile".tr},
-    {"imagePath": "assets/logos/side5.png", "text": "About FreeU".tr},
-    {"imagePath": "assets/logos/side6.png", "text": "Our Insights".tr},
-    {"imagePath": "assets/logos/side7.png", "text": "FAQ's".tr},
-    {"imagePath": "assets/logos/side8.png", "text": "Privacy Policy".tr},
-    {"imagePath": "assets/logos/side9.png", "text": "Terms and condition".tr},
-    {"imagePath": "assets/logos/side10.png", "text": "Contact Us".tr},
-    {"imagePath": "assets/logos/side11.png", "text": "Logout".tr},
+    {"imagePath": "assets/logos/side1.png", "text": "kyc"},
+    {"imagePath": "assets/logos/side2.png", "text": "Security"},
+    {"imagePath": "assets/logos/side3.png", "text": "How to Invest"},
+    {"imagePath": "assets/logos/side4.png", "text": "Update Risk Profile"},
+    {"imagePath": "assets/logos/side5.png", "text": "About FreeU"},
+    {"imagePath": "assets/logos/side6.png", "text": "Our Insights"},
+    {"imagePath": "assets/logos/side7.png", "text": "FAQ's"},
+    {"imagePath": "assets/logos/side8.png", "text": "Privacy Policy"},
+    {"imagePath": "assets/logos/side9.png", "text": "Terms and condition"},
+    {"imagePath": "assets/logos/side10.png", "text": "Contact Us"},
+    {"imagePath": "assets/logos/side11.png", "text": "Logout"},
   ];
   // Menu selectedSideMenu = sidebarMenus.first;
 

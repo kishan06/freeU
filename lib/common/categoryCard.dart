@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/texts.dart';
+import 'package:get/get.dart';
 
 Widget categoryCard(
     {required Color color1,
@@ -44,7 +45,7 @@ Widget categoryCard(
                 width: 45.h,
               ),
               Spacer(),
-              text14White(text)
+              text14White(text.tr)
             ],
           ),
         ),
