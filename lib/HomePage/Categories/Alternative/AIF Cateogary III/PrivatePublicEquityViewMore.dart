@@ -59,6 +59,9 @@ class _PrivatePublicEquityViewMoreState
               child: Column(
                 children: [
                   sizedBoxHeight(20.h),
+                  faqAccod('What is Private Investment in Public Equity Fund?',
+                      'PIPE funds are privately sourced funds from investors, usually reserved for public equity investments – which refers to the practice of private investors means buying shares of publicly traded stock at a price below the current price available to the public. Such sales are not executed through the stock exchanges.'),
+                  sizedBoxHeight(15.h),
                   faqAccod(
                       'How does it work? ',
                       'Investors in PIPE, purchases a company stake and the company in return receives a capital to grow its business. The PIPE transactions give access to a capital at a lower cost than other underwritten offerings. This also increases institutional investments in the company, and improve the public float of securities.'

@@ -58,7 +58,7 @@ class _AlternativeCategories2State extends State<AlternativeCategories2> {
               child: Column(
                 children: [
                   sizedBoxHeight(20.h),
-                  faqAccod(expandAccod: true),
+                  faqAccod(expandAccod: false),
                 ],
               ),
             )),

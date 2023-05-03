@@ -59,7 +59,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
               child: Column(
                 children: [
                   sizedBoxHeight(20.h),
-                  faqAccod(expandAccod: true),
+                  faqAccod(expandAccod: false),
                 ],
               ),
             )),
