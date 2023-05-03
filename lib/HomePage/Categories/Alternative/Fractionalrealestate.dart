@@ -37,79 +37,79 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
     {"question": "", "ans": ""},
     {"question": "", "ans": ""},
     {"question": "", "ans": ""},
-    {"question": "", "ans": ""},
-    {
-      "question":
-          "How are the investments structured, and what will I own as a fractional owner of a property?",
-      "ans":
-          "Each property is acquired in an independent SPV, and each SPV will be used to finance, manage, and own the underlying property. Fractional investors will own a proportional shareholding of the SPV that will represent their investment in the opportunity and the underlying property. The platform serves as the manager of the SPV, property, tenant, and investors."
-    },
-    {
-      "question": "Do you get direct ownership of the assets in FRE?",
-      "ans":
-          "No, you do not. The FRE assets are acquired under a  Special Purpose Vehicle(SPV) /entity and each investor then becomes a shareholder of the same entity, in proportion to their investment amounts or fraction. "
-    },
-    {
-      "question": "Is FRE investment compliant?",
-      "ans":
-          "Yes. Since the investment is routed through an SPV and investors are given a shareholding in the very same SPV, all investment records are filed under the ROC (Registrar of Companies) and need to be compliant with the Companies Act. The investment portal dealing with FRE needs to have a license from RERA (Real Estate Regulatory Authority) in order to carry out its operations."
-    },
-    {
-      "question":
-          "In FRE who manages the property, tenant, and other related issues?",
-      "ans":
-          "The online platform from where you choose your listing will take care of all property-related management issues on the behalf of the investors. This includes property tax, tenancy management, and other payments, insurance, and day-to-day management "
-    },
-    {
-      "question":
-          "What happens to your investment if, for any reason, the online platform goes out of business?",
-      "ans":
-          "Your asset is registered as a separate entity. The online platform is just the asset manager. If a firm closes, it could be replaced by another asset management firm and would continue to provide the same services."
-    },
-    {
-      "question": "Can NRIs invest in Commercial Real Estate?",
-      "ans":
-          "Yes. Any Indian citizen or an NRI (Non-Resident Indian) can own commercial real estate provided that a valid KYC (Know Your Customer), and documents are there, and regulatory guidelines are met. But NRIs can only make investments through their NRO (non-resident ordinary) accounts."
-    },
-    {
-      "question":
-          "What are the documents needed to invest in fractional ownership of real estate?",
-      "ans":
-          "PAN card, address proof (Aadhar/Passport), bank account details for transfer of money, and depending on the property, and the platform, sometimes demat account number."
-    },
-    {
-      "question":
-          "What happens to my investment, if a property fails to be fully funded by investors?",
-      "ans":
-          "In that case, Investor's funds will be reimbursed to their registered bank account."
-    },
-    {
-      "question": "Is my investment in FRE liquid?",
-      "ans":
-          "Yes. As an Investor, you can exit the asset anytime by selling your share of the property directly to another investor or by listing it on the platform. When you list it on the platform, you can sell only when there is a willing buyer on the platform."
-    },
-    {
-      "question": "Is fractional ownership risky? ",
-      "ans":
-          "All investments carry risks. Therefore, in the case of fractional ownership, risks inherent to properties are also applicable in fractional ownership. Typical risks include liquidity, re-lease ability if the tenant leaves, and potential loss of capital."
-    },
-    {
-      "question":
-          "Do the investment platforms guarantee returns from Fractional Real Estate?",
-      "ans":
-          "The investment platforms DO NOT guarantee any returns. Though the rents on property listed on the platform are always known, the risk of non-payment of the rent will always remain due to underlying real estate asset and leasing risk. Most “assured return” schemes have been banned by SEBI, and freeu advises investors to be careful of such offerings, and consult freeu in case they have questions. "
-    },
-    {
-      "question": "Modes of Exit from Fractional CRE?",
-      "ans":
-          "Exits happen in three ways—in the resale market is done through the investor's dashboard, private sales where investors are free to sell their fractional ownership to anyone on their own, which is subject to valid KYC and regulatory guidelines. The third way to exit is through the complete sale of the asset. Complete exit is only possible when all Fractional owners holding majority investments in the SPV agree to it."
-    },
-    {
-      "question":
-          "How is Fractional Ownership different from investing in REIT?",
-      "ans":
-          "REIT (Real Estate Investment Trust) is like mutual funds. Just like mutual funds pool money for investments like government bonds, direct equity, stocks, etc., REITs do the same to invest in profitable real estate on your(investors) behalf. Such properties are then leased out to business organizations, through which the fractional owners get their share of the capital. But with REITs, the investors cannot pick or choose the property to invest in. Compared to that, when investors buy commercial real estate through fractional ownership, the investors can choose the property of their choice. "
-    },
+    // {"question": "", "ans": ""},
+    // {
+    //   "question":
+    //       "How are the investments structured, and what will I own as a fractional owner of a property?",
+    //   "ans":
+    //       "Each property is acquired in an independent SPV, and each SPV will be used to finance, manage, and own the underlying property. Fractional investors will own a proportional shareholding of the SPV that will represent their investment in the opportunity and the underlying property. The platform serves as the manager of the SPV, property, tenant, and investors."
+    // },
+    // {
+    //   "question": "Do you get direct ownership of the assets in FRE?",
+    //   "ans":
+    //       "No, you do not. The FRE assets are acquired under a  Special Purpose Vehicle(SPV) /entity and each investor then becomes a shareholder of the same entity, in proportion to their investment amounts or fraction. "
+    // },
+    // {
+    //   "question": "Is FRE investment compliant?",
+    //   "ans":
+    //       "Yes. Since the investment is routed through an SPV and investors are given a shareholding in the very same SPV, all investment records are filed under the ROC (Registrar of Companies) and need to be compliant with the Companies Act. The investment portal dealing with FRE needs to have a license from RERA (Real Estate Regulatory Authority) in order to carry out its operations."
+    // },
+    // {
+    //   "question":
+    //       "In FRE who manages the property, tenant, and other related issues?",
+    //   "ans":
+    //       "The online platform from where you choose your listing will take care of all property-related management issues on the behalf of the investors. This includes property tax, tenancy management, and other payments, insurance, and day-to-day management "
+    // },
+    // {
+    //   "question":
+    //       "What happens to your investment if, for any reason, the online platform goes out of business?",
+    //   "ans":
+    //       "Your asset is registered as a separate entity. The online platform is just the asset manager. If a firm closes, it could be replaced by another asset management firm and would continue to provide the same services."
+    // },
+    // {
+    //   "question": "Can NRIs invest in Commercial Real Estate?",
+    //   "ans":
+    //       "Yes. Any Indian citizen or an NRI (Non-Resident Indian) can own commercial real estate provided that a valid KYC (Know Your Customer), and documents are there, and regulatory guidelines are met. But NRIs can only make investments through their NRO (non-resident ordinary) accounts."
+    // },
+    // {
+    //   "question":
+    //       "What are the documents needed to invest in fractional ownership of real estate?",
+    //   "ans":
+    //       "PAN card, address proof (Aadhar/Passport), bank account details for transfer of money, and depending on the property, and the platform, sometimes demat account number."
+    // },
+    // {
+    //   "question":
+    //       "What happens to my investment, if a property fails to be fully funded by investors?",
+    //   "ans":
+    //       "In that case, Investor's funds will be reimbursed to their registered bank account."
+    // },
+    // {
+    //   "question": "Is my investment in FRE liquid?",
+    //   "ans":
+    //       "Yes. As an Investor, you can exit the asset anytime by selling your share of the property directly to another investor or by listing it on the platform. When you list it on the platform, you can sell only when there is a willing buyer on the platform."
+    // },
+    // {
+    //   "question": "Is fractional ownership risky? ",
+    //   "ans":
+    //       "All investments carry risks. Therefore, in the case of fractional ownership, risks inherent to properties are also applicable in fractional ownership. Typical risks include liquidity, re-lease ability if the tenant leaves, and potential loss of capital."
+    // },
+    // {
+    //   "question":
+    //       "Do the investment platforms guarantee returns from Fractional Real Estate?",
+    //   "ans":
+    //       "The investment platforms DO NOT guarantee any returns. Though the rents on property listed on the platform are always known, the risk of non-payment of the rent will always remain due to underlying real estate asset and leasing risk. Most “assured return” schemes have been banned by SEBI, and freeu advises investors to be careful of such offerings, and consult freeu in case they have questions. "
+    // },
+    // {
+    //   "question": "Modes of Exit from Fractional CRE?",
+    //   "ans":
+    //       "Exits happen in three ways—in the resale market is done through the investor's dashboard, private sales where investors are free to sell their fractional ownership to anyone on their own, which is subject to valid KYC and regulatory guidelines. The third way to exit is through the complete sale of the asset. Complete exit is only possible when all Fractional owners holding majority investments in the SPV agree to it."
+    // },
+    // {
+    //   "question":
+    //       "How is Fractional Ownership different from investing in REIT?",
+    //   "ans":
+    //       "REIT (Real Estate Investment Trust) is like mutual funds. Just like mutual funds pool money for investments like government bonds, direct equity, stocks, etc., REITs do the same to invest in profitable real estate on your(investors) behalf. Such properties are then leased out to business organizations, through which the fractional owners get their share of the capital. But with REITs, the investors cannot pick or choose the property to invest in. Compared to that, when investors buy commercial real estate through fractional ownership, the investors can choose the property of their choice. "
+    // },
   ];
 
   @override
