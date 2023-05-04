@@ -341,6 +341,11 @@ class _SideBarState extends State<SideBar> {
                                                 .getInstance();
                                         await prefs.setString(
                                             'langSelected', 'English');
+                                        final SharedPreferences prefsLang =
+                                            await SharedPreferences
+                                                .getInstance();
+                                        await prefsLang.setString(
+                                            'LanguageSet', 'English');
                                         Get.back();
                                       },
                                       child: Text('English'.tr)),
@@ -371,6 +376,11 @@ class _SideBarState extends State<SideBar> {
                                                   .getInstance();
                                           await prefs.setString(
                                               'langSelected', 'हिंदी');
+                                          final SharedPreferences prefsLang =
+                                              await SharedPreferences
+                                                  .getInstance();
+                                          await prefsLang.setString(
+                                              'LanguageSet', 'हिंदी');
                                           Get.back();
                                         },
                                         child: Text(

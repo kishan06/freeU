@@ -126,6 +126,7 @@ class _MyAppState extends State<MyApp> {
     onBoardDone = prefs.getBool('OnBoardDone') ?? false;
     print(onBoardDone);
     langSel = prefs.getString('langSelected');
+    language = prefs.getString('LanguageSet');
 
     setState(() {});
   }
