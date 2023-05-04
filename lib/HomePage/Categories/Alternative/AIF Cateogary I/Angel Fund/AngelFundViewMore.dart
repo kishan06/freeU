@@ -369,7 +369,7 @@ class _AngelFundViewMoreState extends State<AngelFundViewMore> {
                 ),
                 Flexible(
                   child: Text(
-                    "	b)	Is a corporate body with a net worth of at least ten crore rupees",
+                    "Is a corporate body with a net worth of at least ten crore rupees",
                     style: TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins",
@@ -393,7 +393,7 @@ class _AngelFundViewMoreState extends State<AngelFundViewMore> {
                 ),
                 Flexible(
                   child: Text(
-                    "	c)	AIF registered under these regulations or a VCF registered under the SEBI (Venture Capital Funds) Regulations, 1996. ",
+                    "AIF registered under these regulations or a VCF registered under the SEBI (Venture Capital Funds) Regulations, 1996. ",
                     style: TextStyle(
                       color: Colors.black,
                       fontFamily: "Poppins",
