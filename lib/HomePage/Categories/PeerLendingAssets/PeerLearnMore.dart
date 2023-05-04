@@ -16,8 +16,17 @@ class PeerLearnMore extends StatefulWidget {
 class _PeerLearnMorexState extends State<PeerLearnMore> {
   List PeerLearnMoreData = [
     // /
+
     {
       "index": 0,
+      "question": "What is Peer-to-peer lending?",
+      "ans":
+          """Peer-to-Peer lending, or P2P lending, is a new, innovative platform for alternate financing that allows individuals to directly acquire loans from other individuals, without going through banks, or other financial institutions. This financial innovation allows the P2P investors to get a good return on their invested amounts, much higher than they usually would get from bank savings or Fixed Deposits. Basically, the idea is a traditional banking concept but just done with 100% transparency, unlike banks, and usually with much better returns.  It is a modern business of money lending transactions taking place online i.e. digitally.
+P2P lending is also termed "social lending" or "crowd lending", and has been increasingly gaining popularity since it began in 2005.
+"""
+    },
+    {
+      // "index": 0,
       "question": "How does P2P Lending work?",
       "ans":
           """The concept is straightforward. The P2P platforms or online platforms connect the potential borrowers directly with the investors or the lenders. Therefore, there are three parties involved. The Investing platform, the borrower, and the lender. 
@@ -117,16 +126,16 @@ Example: If you earn a 20% return from your investment and the non-performing as
             Expanded(
               child: ListView.separated(
                   itemBuilder: (context, index) {
-                    if (index == 1) {
+                    if (index == 2) {
                       return fracReal4(
-                        // PeerLearnMoreData[index]["bold"],
-                        //   PeerLearnMoreData[index]["sent"]
-                        );
-                    } else if (index == 2) {
+                          // PeerLearnMoreData[index]["bold"],
+                          //   PeerLearnMoreData[index]["sent"]
+                          );
+                    } else if (index == 3) {
                       return fracReal5(
-                        // PeerLearnMoreData[index]["bold"],
-                        //   PeerLearnMoreData[index]["sent"]
-                        );
+                          // PeerLearnMoreData[index]["bold"],
+                          //   PeerLearnMoreData[index]["sent"]
+                          );
                     } else {
                       return fracReal1(PeerLearnMoreData[index]["question"],
                           PeerLearnMoreData[index]["ans"]);
