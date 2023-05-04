@@ -40,7 +40,7 @@ class _SideBarState extends State<SideBar> {
     {"imagePath": "assets/logos/side1.png", "text": "kyc"},
     {"imagePath": "assets/logos/side2.png", "text": "Security"},
     {"imagePath": "assets/logos/side3.png", "text": "How to Invest"},
-    {"imagePath": "assets/logos/side4.png", "text": "Update Risk Profile"},
+    // {"imagePath": "assets/logos/side4.png", "text": "Update Risk Profile"},
     {"imagePath": "assets/logos/side5.png", "text": "About FreeU"},
     {"imagePath": "assets/logos/side6.png", "text": "Our Insights"},
     {"imagePath": "assets/logos/side7.png", "text": "FAQ's"},
@@ -420,49 +420,49 @@ void navigateTo(int index, BuildContext context) {
       }
       break;
 
-    case 3:
-      {
-        Get.toNamed("/updaterisk");
-      }
-      break;
+    // case 3:
+    //   {
+    //     Get.toNamed("/updaterisk");
+    //   }
+    //   break;
 
-    case 4:
+    case 3:
       {
         Get.toNamed("/about");
       }
       break;
 
-    case 5:
+    case 4:
       {
         Get.toNamed("/insights");
       }
       break;
 
-    case 6:
+    case 5:
       {
         Get.toNamed("/faqs");
       }
       break;
 
-    case 7:
+    case 6:
       {
         Get.toNamed("/privacypolicy");
       }
       break;
 
-    case 8:
+    case 7:
       {
         Get.toNamed("/termsandconditions");
       }
       break;
 
-    case 9:
+    case 8:
       {
         Get.toNamed("/contactus");
       }
       break;
 
-    case 10:
+    case 9:
       {
         // logoutDailog();
         logoutDailog(context);

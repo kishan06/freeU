@@ -22,7 +22,7 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/realestateviewmoreproducts");
           },
         ),
       ),
@@ -55,11 +55,75 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
               child: Column(
                 children: [
                   sizedBoxHeight(20.h),
+                  faqAccod0(),
+                  sizedBoxHeight(15.h),
                   faqAccod(),
                   sizedBoxHeight(15.h),
                 ],
               ),
             )),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget faqAccod0() {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        showAccordion: false,
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          'What is Real Estate AIF?',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            sizedBoxHeight(20.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Color(0xFF143C6D),
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFF143C6D),
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Text(
+              "Real Estate AIF has seen big growth in India in the last few years, mainly from High-Net-Worth investors intending to grow their capital through non-traditional investment routes. AIF managers for Real Estate are constantly on the lookout for lucrative stand-alone, real estate investment opportunities that help in portfolio diversification. Through AIF Real Estate, investors can spread their investments over a wide range of real estate properties.",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Poppins",
+                fontSize: 18.sp,
+              ),
+            ),
           ],
         ),
       ),
@@ -73,7 +137,7 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
-        showAccordion: true,
+        showAccordion: false,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),

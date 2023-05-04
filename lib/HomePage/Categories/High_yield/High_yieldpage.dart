@@ -205,7 +205,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                         ],
                       ),
                       SizedBox(
-                        height: 92.h,
+                        height: 40.h,
                       ),
                       OpenContainerWrappers(
                         openBuild: const HighYieldMoreProduct(),

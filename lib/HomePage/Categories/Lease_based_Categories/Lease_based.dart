@@ -209,7 +209,7 @@ class _LeaseBasedState extends State<LeaseBased> {
                         ],
                       ),
                       SizedBox(
-                        height: 92.h,
+                        height: 40.h,
                       ),
                       OpenContainerWrappers(
                         openBuild: const LeaseViewMoreProduct(),

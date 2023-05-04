@@ -2,6 +2,7 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
+import 'package:freeu/HomePage/Categories/revenue_based_financing/revenuedetailspage.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/page_animation.dart';
@@ -11,14 +12,14 @@ import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:lottie/lottie.dart';
 
-class Fractionalproperties extends StatefulWidget {
-  const Fractionalproperties({super.key});
+class RevenueProperties extends StatefulWidget {
+  const RevenueProperties({super.key});
 
   @override
-  State<Fractionalproperties> createState() => _FractionalpropertiesState();
+  State<RevenueProperties> createState() => _RevenuePropertiesState();
 }
 
-class _FractionalpropertiesState extends State<Fractionalproperties> {
+class _RevenuePropertiesState extends State<RevenueProperties> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +53,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Fractional Real Estate",
+                  "Revenue-based Financing",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -155,9 +156,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       // "image": "assets/images/fractional.png",
       "title": "Navi Mumbai Office \nOpportunity II",
-      "taxirr": "12.50%",
-      "minimum": "95,000",
-      "View investment Route": PropertiesInvestment(
+      "View investment Route": RevenueDetails(
         pageIndex: 0,
       )
       // "image1": "assets/images/place.png",
@@ -173,9 +172,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       //"image": "assets/images/fractional.png",
       "title": "Prestige Tech Platina, \nBangalore",
-      "taxirr": "12.25%",
-      "minimum": "95,000",
-      "View investment Route": PropertiesInvestment(
+      "View investment Route": RevenueDetails(
         pageIndex: 1,
       )
       // "image1": "assets/images/place.png",
@@ -191,9 +188,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       //"image": "assets/images/fractional.png",
       "title": "Bangalore Warehousing Opportunity I",
-      "taxirr": "",
-      "minimum": "95,000",
-      "View investment Route": PropertiesInvestment(
+      "View investment Route": RevenueDetails(
         pageIndex: 2,
       )
       // "image1": "assets/images/place.png",
@@ -237,14 +232,14 @@ class _SecondTabState extends State<SecondTab> {
                   padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
                   child: Column(
                     children: [
-                      Image.asset(
-                        // image,
-                        "assets/images/fractional.png",
-                        width: 358,
-                        height: 162,
-                      ),
+                      // Image.asset(
+                      //   // image,
+                      //   "assets/images/fractional.png",
+                      //   width: 358,
+                      //   height: 162,
+                      // ),
                       SizedBox(
-                        height: 25.h,
+                        height: 10.h,
                       ),
                       Padding(
                         padding: const EdgeInsets.only(left: 16),
@@ -267,54 +262,54 @@ class _SecondTabState extends State<SecondTab> {
                       SizedBox(
                         height: 30.h,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 16),
-                        child: Row(
-                          children: [
-                            Image.asset(
-                              // image1,
-                              "assets/images/place.png",
-                              width: 50.w,
-                              height: 50.h,
-                            ),
-                            SizedBox(
-                              width: 25.w,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 179),
-                                  child: Text(
-                                    //text1,
-                                    "Location:",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: Color(0XFF000000),
-                                      fontFamily: 'Poppins',
-                                      //fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                ),
-                                Text(
-                                  //subtext1,
-                                  "Seawoods, Navi Mumbai",
-                                  style: TextStyle(
-                                    fontSize: 20.sp,
-                                    color: Color(0XFF000000),
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 30.h,
-                      ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(left: 16),
+                      //   child: Row(
+                      //     children: [
+                      //       Image.asset(
+                      //         // image1,
+                      //         "assets/images/place.png",
+                      //         width: 50.w,
+                      //         height: 50.h,
+                      //       ),
+                      //       SizedBox(
+                      //         width: 25.w,
+                      //       ),
+                      //       Column(
+                      //         mainAxisAlignment: MainAxisAlignment.start,
+                      //         children: [
+                      //           Padding(
+                      //             padding: const EdgeInsets.only(right: 165),
+                      //             child: Text(
+                      //               //text1,
+                      //               "Location:",
+                      //               textAlign: TextAlign.left,
+                      //               style: TextStyle(
+                      //                 fontSize: 18.sp,
+                      //                 color: Color(0XFF000000),
+                      //                 fontFamily: 'Poppins',
+                      //                 //fontWeight: FontWeight.w300,
+                      //               ),
+                      //             ),
+                      //           ),
+                      //           Text(
+                      //             //subtext1,
+                      //             "Seawoods, Navi Mumbai",
+                      //             style: TextStyle(
+                      //               fontSize: 20.sp,
+                      //               color: Color(0XFF000000),
+                      //               fontFamily: 'Poppins',
+                      //               fontWeight: FontWeight.w500,
+                      //             ),
+                      //           ),
+                      //         ],
+                      //       )
+                      //     ],
+                      //   ),
+                      // ),
+                      // SizedBox(
+                      //   height: 30.h,
+                      // ),
                       Padding(
                         padding: const EdgeInsets.only(left: 16),
                         child: Row(
@@ -332,10 +327,10 @@ class _SecondTabState extends State<SecondTab> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 167),
+                                  padding: const EdgeInsets.only(right: 145),
                                   child: Text(
                                     // text2,
-                                    "Pre-tax IRR:",
+                                    "Targeted IRR:",
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 18.sp,
@@ -346,11 +341,10 @@ class _SecondTabState extends State<SecondTab> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 210),
+                                  padding: const EdgeInsets.only(right: 212),
                                   child: Text(
                                     // subtext2,
-                                    contents[index]["taxirr"],
-                                    //"12.7%",
+                                    "12.7%",
                                     style: TextStyle(
                                       fontSize: 20.sp,
                                       color: Color(0XFF000000),
@@ -381,34 +375,32 @@ class _SecondTabState extends State<SecondTab> {
                               width: 25.w,
                             ),
                             Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: EdgeInsets.only(right: 1.w),
-                                  child: Text(
-                                    // text3,
-                                    "Minimum investment amount",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: Color(0XFF000000),
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w300,
-                                    ),
-                                  ),
-                                ),
                                 Text(
-                                  //subtext3,
-                                  contents[index]["minimum"],
-                                  //" 1 Crore",
-                                  textDirection: TextDirection.ltr,
+                                  // text3,
+                                  "Minimum investment amount",
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
-                                    fontSize: 20.sp,
+                                    fontSize: 18.sp,
                                     color: Color(0XFF000000),
                                     fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500,
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 200),
+                                  child: Text(
+                                    //subtext3,
+                                    " 1 Crore",
+                                    textDirection: TextDirection.ltr,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 20.sp,
+                                      color: Color(0XFF000000),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w500,
+                                    ),
                                   ),
                                 ),
                               ],

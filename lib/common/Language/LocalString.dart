@@ -829,6 +829,13 @@ class LocalString extends Translations {
               "Entry Fee - Up to 2% of commitment amount \nManagement Fee - Class A1 INR 1 crore and INR 5 crore commitment, Class A2 => INR 5 crore commitment and < INR 10 crore commitment, Class A3 => INR 10 Crore \nPerformance Fee 20% over a hurdle rate of 10%",
           "Consumer brands and Tech-enabled B2B services":
               "Consumer brands and Tech-enabled B2B services",
+          "Know. Learn. Invest.": "Know. Learn. Invest.",
+          "Create your customized investment world.":
+              "Create your customized investment world.",
+          "Investing simplified. One platform to choose from":
+              "Investing simplified. One platform to choose from",
+          "One platform, multiple options. Simplified for you.":
+              "One platform, multiple options. Simplified for you.",
         },
         'hi_IN': {
           'entrypoint_bottombar1': 'होम',
@@ -1654,6 +1661,13 @@ class LocalString extends Translations {
               "Entry Fee - अनुमान राशि के उपरांत तकनीकी शुल्क - क्लास A1 रुपये 1 करोड़ और रुपये 5 करोड़ का वचन, क्लास A2 => रुपये 5 करोड़ का वचन और < रुपये 10 करोड़ का वचन, क्लास A3 => रुपये 10 करोड़ \nप्रदर्शन शुल्क 20% - 10% के हर्डल दर से ऊपर",
           "Consumer brands and Tech-enabled B2B services":
               "उपभोक्ता ब्रांड और टेक-एनेबल्ड बी2बी सेवाएं",
+          "Know. Learn. Invest.": "जानें। सीखिए। निवेश करें।",
+          "Create your customized investment world.":
+              "अपनी अनुकूलित निवेश दुनिया बनाएं।",
+          "Investing simplified. One platform to choose from":
+              "निवेश सरलीकृत। चुनने के लिए एक मंच",
+          "One platform, multiple options. Simplified for you.":
+              "एक मंच, कई विकल्प। आपके लिए सरलीकृत।",
         },
       };
 }

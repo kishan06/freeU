@@ -208,7 +208,8 @@ class _otpVerificationState extends State<otpVerification> {
                                 return true;
                               },
                               appContext: context,
-                            )),
+                            )
+                            ),
 
                             SizedBox(
                               height: 80.h,

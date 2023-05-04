@@ -170,33 +170,36 @@ class _PeerViewInvestmentState extends State<PeerViewInvestment> {
                       );
                     },
                     separatorBuilder: (context, index) {
-                      return Divider(
-                        height: 25.h,
-                        thickness: 1.h,
-                        color: Colors.grey.shade400,
+                      return SizedBox(
+                        height: 0.h,
                       );
+                      // Divider(
+                      //   height: 25.h,
+                      //   thickness: 1.h,
+                      //   color: Colors.grey.shade400,
+                      // );
                     },
                     itemCount: productDetails[0]['header'].length),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'view ',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15.sp,
-                        color: const Color(0xff1B8DC9)),
-                  ),
-                  Text(
-                    productDetails[0]['Company Name'][widget.pageIndex],
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 15.sp,
-                        color: const Color(0xff1B8DC9)),
-                  )
-                ],
-              )
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.start,
+              //   children: [
+              //     Text(
+              //       'view ',
+              //       style: TextStyle(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 15.sp,
+              //           color: const Color(0xff1B8DC9)),
+              //     ),
+              //     Text(
+              //       productDetails[0]['Company Name'][widget.pageIndex],
+              //       style: TextStyle(
+              //           fontWeight: FontWeight.w500,
+              //           fontSize: 15.sp,
+              //           color: const Color(0xff1B8DC9)),
+              //     )
+              //   ],
+              // )
             ],
           ),
         ),

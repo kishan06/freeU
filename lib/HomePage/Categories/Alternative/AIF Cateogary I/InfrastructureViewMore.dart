@@ -22,7 +22,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
         child: CustomNextButton(
           text: 'View Categories'.tr,
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/AngelFundMoreProduct");
           },
         ),
       ),
@@ -55,6 +55,8 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
               child: Column(
                 children: [
                   sizedBoxHeight(20.h),
+                  faqAccod0(),
+                  sizedBoxHeight(20.h),
                   faqAccod(),
                   sizedBoxHeight(15.h),
                   faqAccod1(),
@@ -70,6 +72,71 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
     );
   }
 
+  Widget faqAccod0() {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        showAccordion: false,
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          'Infrastructure Fund',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // sizedBoxHeight(20.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Color(0xFF143C6D),
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFF143C6D),
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Text(
+              'As per SEBI Regulations, “Infrastructure fund” means an AIF which invests primarily in unlisted securities or partnership interest or listed debt or securitized debt instruments of investee companies or special purpose vehicles engaged in or formed for the purpose of operating, developing, or holding infrastructure projects;'
+              '\n\nInfrastructure fund, a category 1 Alternative Investment Fund (AIF), raises capital by pooling investments from private players and primarily invest in companies that develop infrastructure projects. Infrastructure funds invest in the development of public infrastructure like roads, airport, renewable energy, water, railways, transmissions, and municipal solid waste. The Indian Government has incentives and concessions in order to encourage infrastructure funds, since they help positively impact the Indian economy. ',
+              // "Infrastructure Funds provide investors with steady and consistent returns, mainly because demand for infrastructural services remain constant, or are constantly on the rise, even when the country’s economic growth is slow. Compared with other investments, these funds potentially offer more security against volatile stocks, and hence better at risk-management.",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Poppins",
+                fontSize: 18.sp,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
   Widget faqAccod() {
     return Container(
       decoration: BoxDecoration(
@@ -77,7 +144,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
-        showAccordion: true,
+        showAccordion: false,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),
@@ -99,7 +166,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
         contentChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            sizedBoxHeight(20.h),
+            // sizedBoxHeight(20.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [

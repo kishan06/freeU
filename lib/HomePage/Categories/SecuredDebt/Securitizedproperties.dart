@@ -173,13 +173,13 @@ class SecondTab extends StatelessWidget {
             ),
             child: Column(
               children: [
-                Image.asset(
-                  "assets/images/fractional.png",
-                  width: 358,
-                  height: 162,
-                ),
+                // Image.asset(
+                //   "assets/images/fractional.png",
+                //   width: 358,
+                //   height: 162,
+                // ),
                 SizedBox(
-                  height: 25.h,
+                  height: 15.h,
                 ),
                 const Text(
                   "Securitized Debt Instrument",
@@ -192,51 +192,51 @@ class SecondTab extends StatelessWidget {
                 SizedBox(
                   height: 30.h,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        "assets/images/place.png",
-                        width: 50.w,
-                        height: 50.h,
-                      ),
-                      SizedBox(
-                        width: 25.w,
-                      ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.only(right: 165),
-                            child: Text(
-                              "Location:",
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 18.sp,
-                                color: Color(0XFF000000),
-                                fontFamily: 'Poppins',
-                                //fontWeight: FontWeight.w300,
-                              ),
-                            ),
-                          ),
-                          Text(
-                            "Seawoods, Navi Mumbai",
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              color: Color(0XFF000000),
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
+                // Padding(
+                //   padding: const EdgeInsets.only(left: 16),
+                //   child: Row(
+                //     children: [
+                //       Image.asset(
+                //         "assets/images/place.png",
+                //         width: 50.w,
+                //         height: 50.h,
+                //       ),
+                //       SizedBox(
+                //         width: 25.w,
+                //       ),
+                //       Column(
+                //         mainAxisAlignment: MainAxisAlignment.start,
+                //         children: [
+                //           Padding(
+                //             padding: const EdgeInsets.only(right: 165),
+                //             child: Text(
+                //               "Location:",
+                //               textAlign: TextAlign.left,
+                //               style: TextStyle(
+                //                 fontSize: 18.sp,
+                //                 color: Color(0XFF000000),
+                //                 fontFamily: 'Poppins',
+                //                 //fontWeight: FontWeight.w300,
+                //               ),
+                //             ),
+                //           ),
+                //           Text(
+                //             "Seawoods, Navi Mumbai",
+                //             style: TextStyle(
+                //               fontSize: 20.sp,
+                //               color: Color(0XFF000000),
+                //               fontFamily: 'Poppins',
+                //               fontWeight: FontWeight.w500,
+                //             ),
+                //           ),
+                //         ],
+                //       )
+                //     ],
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 30.h,
+                // ),
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
                   child: Row(
@@ -268,7 +268,7 @@ class SecondTab extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(right: 212),
                             child: Text(
-                              "12.7%",
+                              "11.2%",
                               style: TextStyle(
                                 fontSize: 20.sp,
                                 color: Color(0XFF000000),
@@ -312,7 +312,7 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            " 1 Crore",
+                            "1,00,000",
                             textDirection: TextDirection.ltr,
                             textAlign: TextAlign.left,
                             style: TextStyle(

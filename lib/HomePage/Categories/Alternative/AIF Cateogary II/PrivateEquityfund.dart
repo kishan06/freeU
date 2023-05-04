@@ -55,6 +55,8 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
               child: Column(
                 children: [
                   sizedBoxHeight(20.h),
+                  faqAccod0(),
+                  sizedBoxHeight(15.h),
                   faqAccod(),
                   sizedBoxHeight(15.h),
                   faqAccod1(),
@@ -70,6 +72,69 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
     );
   }
 
+  Widget faqAccod0() {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        showAccordion: false,
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          'What is Private Equity Funds?',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            sizedBoxHeight(20.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Color(0xFF143C6D),
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFF143C6D),
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Text(
+              '''As per SEBI Regulations, “Private equity fund” means an Alternative Investment Fund which invests primarily in equity or equity linked instruments or partnership interests of investee companies according to the stated objective of the fund.
+PE funds mostly invests in equity/equity-linked instruments or partnership interests of unlisted companies with potential for giving high returns, as these companies find it difficult to secure capital through equity and debt instruments.  In this manner PE funds can take part in ownership of the company''',
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Poppins",
+                fontSize: 18.sp,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget faqAccod() {
     return Container(
       decoration: BoxDecoration(
@@ -77,7 +142,7 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
-        showAccordion: true,
+        showAccordion: false,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),

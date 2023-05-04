@@ -23,7 +23,7 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/highyieldproperties");
+            Get.toNamed("/highyieldproducts");
           },
         ),
       ),
@@ -124,7 +124,7 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'High Yield Fixed Income',
+          'What is High Yield Fixed Income?',
           style: TextStyle(
               color: Colors.black,
               fontSize: 20.sp,

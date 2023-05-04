@@ -7,16 +7,16 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
-class PropertiesInvestment extends StatefulWidget {
+class RevenueDetails extends StatefulWidget {
   int pageIndex;
 
-  PropertiesInvestment({super.key, required this.pageIndex});
+  RevenueDetails({super.key, required this.pageIndex});
 
   @override
-  State<PropertiesInvestment> createState() => _PropertiesInvestmentState();
+  State<RevenueDetails> createState() => _RevenueDetailsState();
 }
 
-class _PropertiesInvestmentState extends State<PropertiesInvestment> {
+class _RevenueDetailsState extends State<RevenueDetails> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   List productDetails = [

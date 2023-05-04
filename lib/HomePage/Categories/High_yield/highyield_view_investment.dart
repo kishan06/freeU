@@ -10,10 +10,11 @@ import 'package:get/get.dart';
 
 class HighYieldViewInvestment extends StatefulWidget {
   HighYieldProds highYieldProds;
-  HighYieldViewInvestment({super.key,required this.highYieldProds});
+  HighYieldViewInvestment({super.key, required this.highYieldProds});
 
   @override
-  State<HighYieldViewInvestment> createState() => _HighYieldViewInvestmentState();
+  State<HighYieldViewInvestment> createState() =>
+      _HighYieldViewInvestmentState();
 }
 
 class _HighYieldViewInvestmentState extends State<HighYieldViewInvestment> {
@@ -98,7 +99,6 @@ class _HighYieldViewInvestmentState extends State<HighYieldViewInvestment> {
                 ],
               ),
               sizedBoxHeight(24.h),
-              
               Text(
                 'Security Type',
                 style: TextStyle(
@@ -289,7 +289,6 @@ class _HighYieldViewInvestmentState extends State<HighYieldViewInvestment> {
                     TextStyle(fontSize: 18.sp, color: const Color(0xff272424)),
               ),
               sizedBoxHeight(28.h),
-
               Text(
                 'Interest payment frequency',
                 style: TextStyle(

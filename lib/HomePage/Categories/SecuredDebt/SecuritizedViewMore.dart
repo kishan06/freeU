@@ -22,7 +22,7 @@ class _SecuritizedViewMoreState extends State<SecuritizedViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/securedebtproducts");
           },
         ),
       ),
@@ -57,7 +57,7 @@ class _SecuritizedViewMoreState extends State<SecuritizedViewMore> {
                 children: [
                   sizedBoxHeight(20.h),
                   faqAccod(
-                      'Securitization',
+                      'What is Securitization?',
                       'Securitization involves creation of pool of assets from illiquid financial assets which are repackaged or rebundled into marketable securities. It is the process of conversion of illiquid assets into liquid asset.'
                           '\n\nIlliquid financial assets refer to the future loans and receivable such as automobile loans, credit card receivables, residential mortgages, etc.'),
                   sizedBoxHeight(15.h),

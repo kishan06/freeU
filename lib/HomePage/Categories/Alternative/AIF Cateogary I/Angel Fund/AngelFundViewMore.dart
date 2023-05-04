@@ -22,7 +22,7 @@ class _AngelFundViewMoreState extends State<AngelFundViewMore> {
         child: CustomNextButton(
           text: 'View Categories'.tr,
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/AngelFundMoreProduct");
           },
         ),
       ),
@@ -55,6 +55,8 @@ class _AngelFundViewMoreState extends State<AngelFundViewMore> {
               child: Column(
                 children: [
                   sizedBoxHeight(20.h),
+                  faqAccod0(),
+                  sizedBoxHeight(20.h),
                   faqAccod(),
                   sizedBoxHeight(15.h),
                   faqAccod1(),
@@ -76,6 +78,71 @@ class _AngelFundViewMoreState extends State<AngelFundViewMore> {
     );
   }
 
+  Widget faqAccod0() {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        showAccordion: false,
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          'Angel Fund',
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            sizedBoxHeight(20.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: Color(0xFF143C6D),
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFF143C6D),
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Text(
+              "Angel funds are a type of venture capital fund that focuses on providing the much-needed capital to high-growth potential startups during their early development stages, when traditional sources of financing may not be available. Angel funds play an important role in strengthening the startup ecosystem by supporting them and helping them to develop into successful businesses."
+              "\n\nAn ‘Angel Investor’ is usually a high-net worth individual who provides funds for start-ups or entrepreneurs in exchange for ownership equity in the company. It can either be a one-time investment, or consistent financial support through the struggling years of the start-up. For many small companies, without financial backing, angel investing is the only primary source of investment that works. In addition to providing funding, angel funds also offer startups valuable resources such as management mentoring, guidance, and industry contacts that can help them grow and succeed.",
+              // "While both provide money to startup companies, venture capitalists are typically professional investors who invest in a broad portfolio of new companies and provide hands-on guidance and leverage their professional networks to help the new firm. Angel investors, on the other hand, tend to be wealthy individuals who like to invest in new companies more as a hobby or side-project and may not provide the same expert guidance. Angel investors also usually invest first and are then followed by venture capitalists. Venture capital funds are focused on investing in later stages of business, angel investor provides the much-needed support in the initial stages of the business.",
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Poppins",
+                fontSize: 18.sp,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+
   Widget faqAccod() {
     return Container(
       decoration: BoxDecoration(
@@ -83,7 +150,7 @@ class _AngelFundViewMoreState extends State<AngelFundViewMore> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
-        showAccordion: true,
+        showAccordion: false,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),

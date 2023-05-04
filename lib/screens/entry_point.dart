@@ -45,11 +45,11 @@ class _EntryPointState extends State<EntryPoint>
   // late bool Loge;
   // var selectedIndex = 0.obs;
   var screens = [
-    HomePage(),
-    CategoriesMain(),
-    NewInvestment(),
-    ChatPage(),
-    Profile()
+    const HomePage(),
+    const CategoriesMain(),
+    const NewInvestment(),
+    const ChatPage(),
+    const Profile()
   ];
 
   // changePage(){
@@ -60,12 +60,13 @@ class _EntryPointState extends State<EntryPoint>
 
   @override
   void initState() {
+    super.initState();
     controllerEntryPoint.checkLogin();
     // final SharedPreferences prefs = await SharedPreferences.getInstance();
     // logedIn = prefs.getBool('LogedIn') ?? false;
     // checkLogin();
     // print("checked");
-    selectedIndex = Get.arguments;
+    selectedIndex = Get.arguments ?? 0;
     // controllerEntryPoint.selectedIndex = Get.arguments;
     // controllerEntryPoint.selectedPage(Get.arguments);
     // print(selectedIndex);
@@ -76,7 +77,8 @@ class _EntryPointState extends State<EntryPoint>
         //     // setState(() {});
         //   });
         // })
-        AnimationController(vsync: this, duration: Duration(milliseconds: 200))
+        AnimationController(
+            vsync: this, duration: const Duration(milliseconds: 200))
           ..addListener(() {
             setState(() {});
           });
@@ -97,7 +99,7 @@ class _EntryPointState extends State<EntryPoint>
     super.dispose();
   }
 
-   StreamController<dynamic>? _streamController;
+  StreamController<dynamic>? _streamController;
 
   // late SMI
   // late

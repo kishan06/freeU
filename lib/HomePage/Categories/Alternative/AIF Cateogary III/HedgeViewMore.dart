@@ -22,7 +22,7 @@ class _HedgeViewMoreState extends State<HedgeViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/privateequityfunddeals");
+            Get.toNamed("/hedgeviewproducts");
           },
         ),
       ),
@@ -55,6 +55,13 @@ class _HedgeViewMoreState extends State<HedgeViewMore> {
               child: Column(
                 children: [
                   sizedBoxHeight(20.h),
+                  faqAccod(
+                    'What is Hedge Funds?',
+                    '''As per SEBI Regulations, Hedge Fund means an AIF which employs diverse or complex trading strategies and invests in securities having diverse risks or complex products including listed and unlisted derivatives.
+Hedge Funds are investments which collects capital from institutional and accredited investors, and invests them in domestic and international markets in order to generate high returns that are not corelated with market index returns. Naturally, hedge funds use risky investment strategies, and use a high minimum investment, charging a much higher rate compared to traditional investment funds.
+''',
+                  ),
+                  sizedBoxHeight(15.h),
                   faqAccod(
                       'What are the features in a Hedge Fund?',
                       '>	Firstly, it is imperative to understand that Hedge Funds are only for extremely rich, high-net worth individuals. '

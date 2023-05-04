@@ -95,7 +95,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 2,
       child: Scaffold(
         key: _key,
         backgroundColor: Color.fromARGB(255, 255, 255, 255),
@@ -142,12 +142,12 @@ class _ProfileState extends State<Profile> {
                       style:
                           TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                     )),
-                    Tab(
-                        child: Text(
-                      'profile_risk'.tr,
-                      style:
-                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                    )),
+                    // Tab(
+                    //     child: Text(
+                    //   'profile_risk'.tr,
+                    //   style:
+                    //       TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                    // )),
                   ],
                 ),
               ),
@@ -156,7 +156,7 @@ class _ProfileState extends State<Profile> {
                   children: [
                     profiletab(),
                     KYCtabs(),
-                    riskprofile(),
+                    // riskprofile(), I have commented this because of client requiremnet.
                   ],
                 ),
               ),

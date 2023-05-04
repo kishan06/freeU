@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLearnMore.dart';
 import 'package:freeu/HomePage/Categories/revenue_based_financing/revenue_based_learn_more.dart';
+import 'package:freeu/HomePage/Categories/revenue_based_financing/revenueproperties.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/page_animation.dart';
@@ -207,7 +208,7 @@ class _RevenueBasedMainState extends State<RevenueBasedMain> {
                         height: 40.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const Fractionalproperties(),
+                        openBuild: const RevenueProperties(),
                         closeBuild: Container(
                           decoration: BoxDecoration(
                               color: const Color(0XFFFBFBFB),
