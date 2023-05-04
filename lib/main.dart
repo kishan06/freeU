@@ -112,6 +112,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool? onBoardDone;
+  String? langSel;
   @override
   void initState() {
     super.initState();
@@ -124,6 +125,8 @@ class _MyAppState extends State<MyApp> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     onBoardDone = prefs.getBool('OnBoardDone') ?? false;
     print(onBoardDone);
+    langSel = prefs.getString('langSelected');
+
     setState(() {});
   }
 
@@ -140,7 +143,7 @@ class _MyAppState extends State<MyApp> {
         : ScreenUtilInit(
             builder: (BuildContext context, Widget? child) => GetMaterialApp(
               translations: LocalString(),
-              locale: language == 'हिंदी'
+              locale: langSel == 'हिंदी'
                   ? const Locale('hi', 'IN')
                   : const Locale('en', 'US'),
               debugShowCheckedModeBanner: false,

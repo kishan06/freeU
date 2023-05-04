@@ -5,6 +5,7 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/login/splashslider.dart';
 import 'package:freeu/screens/side_menu.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SelectLanguage extends StatefulWidget {
   const SelectLanguage({super.key});
@@ -52,12 +53,16 @@ class _SelectLanguageState extends State<SelectLanguage> {
                               right: 15,
                             ),
                             child: GestureDetector(
-                                onTap: () {
+                                onTap: () async {
                                   setState(() {
                                     var locale = const Locale('en', 'US');
                                     Get.updateLocale(locale);
                                     language = 'English';
                                   });
+                                  final SharedPreferences prefs =
+                                      await SharedPreferences.getInstance();
+                                  await prefs.setString(
+                                      'langSelected', 'English');
                                   Get.back();
                                 },
                                 child: Text('English'.tr)),
@@ -75,12 +80,17 @@ class _SelectLanguageState extends State<SelectLanguage> {
                               height: 50.h,
                               child: Center(
                                 child: GestureDetector(
-                                  onTap: () {
+                                  onTap: () async {
                                     var locale = const Locale('hi', 'IN');
                                     Get.updateLocale(locale);
                                     setState(() {
                                       language = 'हिंदी';
                                     });
+
+                                    final SharedPreferences prefs =
+                                        await SharedPreferences.getInstance();
+                                    await prefs.setString(
+                                        'langSelected', 'हिंदी');
                                     Get.back();
                                   },
                                   child: Text(

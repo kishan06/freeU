@@ -330,12 +330,17 @@ class _SideBarState extends State<SideBar> {
                                     right: 15,
                                   ),
                                   child: GestureDetector(
-                                      onTap: () {
+                                      onTap: () async {
                                         setState(() {
                                           var locale = const Locale('en', 'US');
                                           Get.updateLocale(locale);
                                           language = 'English';
                                         });
+                                        final SharedPreferences prefs =
+                                            await SharedPreferences
+                                                .getInstance();
+                                        await prefs.setString(
+                                            'langSelected', 'English');
                                         Get.back();
                                       },
                                       child: Text('English'.tr)),
@@ -353,13 +358,19 @@ class _SideBarState extends State<SideBar> {
                                     height: 50.h,
                                     child: Center(
                                       child: GestureDetector(
-                                        onTap: () {
+                                        onTap: () async {
                                           setState(() {
                                             var locale =
                                                 const Locale('hi', 'IN');
                                             Get.updateLocale(locale);
                                             language = 'हिंदी';
                                           });
+
+                                          final SharedPreferences prefs =
+                                              await SharedPreferences
+                                                  .getInstance();
+                                          await prefs.setString(
+                                              'langSelected', 'हिंदी');
                                           Get.back();
                                         },
                                         child: Text(
