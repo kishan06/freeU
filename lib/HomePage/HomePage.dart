@@ -183,7 +183,7 @@ class _HomePageState extends State<HomePage> {
       "colorL": AppColors.greenD_044A1B,
     },
     {
-      "text": "Investing simplified. One platform to choose from",
+      "text": "Easy to use online platform for Alternative investments",
       "colorL": AppColors.purpleD_242744,
     },
     {

@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class AlternativeFAQ extends StatefulWidget {
-  const AlternativeFAQ({super.key});
+class VentureDebtFAQ extends StatefulWidget {
+  const VentureDebtFAQ({super.key});
 
   @override
-  State<AlternativeFAQ> createState() => _AlternativeFAQState();
+  State<VentureDebtFAQ> createState() => _VentureDebtFAQState();
 }
 
-class _AlternativeFAQState extends State<AlternativeFAQ> {
+class _VentureDebtFAQState extends State<VentureDebtFAQ> {
   bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ",
+                  'Venture Debt FAQ',
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'Who can invest in an alternative investment fund?',
+                        'How does venture debt work?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Due to the risks involved, investing in an alternative investment fund is typically limited to accredited investors, institutional investors, and high-net-worth individuals.",
+                          "Venture debt is typically available to startups and high-growth companies that have already raised equity financing from venture capitalists or angel investors. The lender may evaluate the company's financials, business plan, and growth prospects before approving the loan. In exchange for the loan, the lender receives interest payments and other fees.",
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,42 +104,31 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Can NRIs invest in AIF?',
+                      titleString: 'Why do companies need Venture Debt?',
                       contentString:
-                          'NRIs (Non-Resident Indians) are allowed to invest in AIFs subject to compliance with the necessary rules and regulations as per the Foreign Exchange Management Act (FEMA) and other applicable laws.'),
+                          'Venture Debt offers companies a flexible way to raise capital while avoiding the dilution of ownership that can come with equity financing. This allows companies to maintain greater control over their operations and future growth.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'How to invest in an AIF?',
+                      titleString: 'Who facilitates Venture debt?',
                       contentString:
-                          'Proof of income, PAN card, and ID proof are required to invest in an AIF. The minimum investment amount for AIFs is INR 1 crore, while for angel funds, it is INR 25 lakhs.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Who regulates the AIF?',
-                      contentString:
-                          'The regulation of Alternative Investment Funds (AIF) in India is done by the Securities and Exchange Board of India (SEBI).  Investors can address their complaints against AIFs at the SEBI-regulated web-based centralized grievance redress system called SCORES or SEBI Complaint Redress System.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'How is an AIF tenure calculated?',
-                      contentString:
-                          'The tenure of any scheme of the AIF is calculated from the date of the final closing of the scheme.'),
+                          'Venture debt is primarily facilitated by specialized lenders that have a better understanding of the unique needs and risks of startups, rather than traditional banks.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the general fee structure under the AIF scheme?',
+                          'The investor will receive which instrument?',
                       contentString:
-                          'The fee structure under the AIF scheme includes a one-time setup fee (if applicable) and two types of compensation: a flat management fee charged proportionately every month based on the funds managed, and a performance-based fee computed based on a pre-agreed proportion of the profit earned over and above a predetermined threshold return.'),
+                          'Investments in Venture Debt may be made through debt instruments such as non-convertible debentures (NCDs), bonds, or commercial paper.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'Can an AIF accept investments from more than one investor?',
+                      titleString: 'What will be the tax implications?',
                       contentString:
-                          'An AIF accepts two individuals as joint partners for a minimum investment of one crore rupees. Joint investors may include an investor and their spouse, parent, or child. Only two persons can act as joint investors for an AIF, and for any other investors acting as joint investors, the minimum investment amount of INR 1 crore shall apply.'),
+                          'The interest earned will be taxed as per the investor&#39;s applicable tax slab.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What is the taxation on the secondary sale of AIF units by investors?',
+                      titleString: 'What are the risks of venture debt?',
                       contentString:
-                          'When an investor exits an AIF by a transfer of units or partnership interests to another investor (this transaction is called a ‘secondary transfer’), gains on the sale of units may be taxable directly in the hands of the investors. The taxability of gains on the sale of AIF units during a secondary transfer will depend on the holding period of the units. If the holding period is more than 36 months, the sale would be categorized as a long-term capital gain and taxed at 20% with indexation. If the holding period is less than 36 months, it would be considered a short-term capital gain and taxed at the applicable slab rates.')
+                          "Startups and high-growth companies are more prone to failure, which makes venture debt riskier than other forms of debt financing. The lender may charge higher interest rates and fees to compensate for the higher risk. In case of loan default, the lender may seize the company's assets, which can have a negative impact on its operations."),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             ),

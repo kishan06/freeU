@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class AlternativeFAQ extends StatefulWidget {
-  const AlternativeFAQ({super.key});
+class RevenueFAQ extends StatefulWidget {
+  const RevenueFAQ({super.key});
 
   @override
-  State<AlternativeFAQ> createState() => _AlternativeFAQState();
+  State<RevenueFAQ> createState() => _RevenueFAQState();
 }
 
-class _AlternativeFAQState extends State<AlternativeFAQ> {
+class _RevenueFAQState extends State<RevenueFAQ> {
   bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ",
+                  'Revenue Based Financing FAQ',
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'Who can invest in an alternative investment fund?',
+                        'How does revenue-based financing work?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Due to the risks involved, investing in an alternative investment fund is typically limited to accredited investors, institutional investors, and high-net-worth individuals.",
+                          'In a revenue-based financing arrangement, the investor provides funding to the company in exchange for a percentage of its revenue. The percentage is usually in the range of 1% to 10%, depending on the size of the investment and the risk level of the company. The company then makes regular payments to the investor based on its revenue until the predetermined amount has been paid back, plus a return on the investment.',
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,42 +104,38 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Can NRIs invest in AIF?',
+                      titleString:
+                          'How does revenue-based financing differ from traditional financing?',
                       contentString:
-                          'NRIs (Non-Resident Indians) are allowed to invest in AIFs subject to compliance with the necessary rules and regulations as per the Foreign Exchange Management Act (FEMA) and other applicable laws.'),
+                          'Revenue-based financing differs from traditional financing in that it is based on a percentage of future revenue rather than taking on debt or giving up equity. It also offers more flexible repayment terms and can be a better fit for companies with limited assets or a non-traditional business model.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'How to invest in an AIF?',
-                      contentString:
-                          'Proof of income, PAN card, and ID proof are required to invest in an AIF. The minimum investment amount for AIFs is INR 1 crore, while for angel funds, it is INR 25 lakhs.'),
+                    titleString: 'How can NRIs invest?',
+                    contentString:
+                        'Non-Resident investors can invest through an NRO or NRE Account, although the returns and sale proceeds will be credited to their NRO account.',
+                  ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Who regulates the AIF?',
+                      titleString: 'What are the risks of RBF for investors?',
                       contentString:
-                          'The regulation of Alternative Investment Funds (AIF) in India is done by the Securities and Exchange Board of India (SEBI).  Investors can address their complaints against AIFs at the SEBI-regulated web-based centralized grievance redress system called SCORES or SEBI Complaint Redress System.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'How is an AIF tenure calculated?',
-                      contentString:
-                          'The tenure of any scheme of the AIF is calculated from the date of the final closing of the scheme.'),
+                          "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company&#39;s revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue."),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the general fee structure under the AIF scheme?',
+                          'What happens if a company fails to repay an RBF investment?',
                       contentString:
-                          'The fee structure under the AIF scheme includes a one-time setup fee (if applicable) and two types of compensation: a flat management fee charged proportionately every month based on the funds managed, and a performance-based fee computed based on a pre-agreed proportion of the profit earned over and above a predetermined threshold return.'),
+                          "If a company fails to repay an RBF investment, the investor may have the right to take legal action to ecover the outstanding amount. However, the investor's ability to recover the investment may depend on the terms of the agreement and the assets that the company has available to repay the investment."),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'Can an AIF accept investments from more than one investor?',
+                      titleString: 'Who invests in revenue-based financing?',
                       contentString:
-                          'An AIF accepts two individuals as joint partners for a minimum investment of one crore rupees. Joint investors may include an investor and their spouse, parent, or child. Only two persons can act as joint investors for an AIF, and for any other investors acting as joint investors, the minimum investment amount of INR 1 crore shall apply.'),
+                          'Revenue-based financing can be provided by angel investors, venture capital firms, and other financial institutions. Any Indian citizen, HUF, Company, and NRI can invest in an RBF opportunity.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString:
-                          'What is the taxation on the secondary sale of AIF units by investors?',
+                      titleString: 'What will be the tax implications?',
                       contentString:
-                          'When an investor exits an AIF by a transfer of units or partnership interests to another investor (this transaction is called a ‘secondary transfer’), gains on the sale of units may be taxable directly in the hands of the investors. The taxability of gains on the sale of AIF units during a secondary transfer will depend on the holding period of the units. If the holding period is more than 36 months, the sale would be categorized as a long-term capital gain and taxed at 20% with indexation. If the holding period is less than 36 months, it would be considered a short-term capital gain and taxed at the applicable slab rates.')
+                          'The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab. TDS of 10% is applicable on the interest component of payouts.'),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             ),
