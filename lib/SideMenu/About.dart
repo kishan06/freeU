@@ -49,7 +49,8 @@ class _AboutState extends State<About> {
               ),
               sizedBoxHeight(17.h),
               Text(
-                'FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering thebest risk adjusted returns to our investors.',
+                "FreeU is an online platform that has handpicked the best Alternate Investment Assets in India, offering the best returns for our investors. It is the only platform, that doesn't tell you what to do, but lets you decide and shop from the best. Read, research, and find out everything you need to know about Alternate Asset Investments before you invest!"
+                '\nOur investment experts and wealth counselors have carefully selected and analyzed a range of high-return alternate investment assets, which are available for investors to choose from on the FreeU online platform. These opportunities have been handpicked based on extensive research and a proven track record of performance, providing investors with the assurance that they are investing in some of the best alternative investment options available in India.',
                 style: TextStyle(
                     color: Color(0xff616161),
                     fontSize: 20.sp,
@@ -70,99 +71,101 @@ class _AboutState extends State<About> {
               ),
               sizedBoxHeight(17.h),
               Text(
-                'Freeu is one-stop shop for Alternate Investments. We want you to learn, compare, and choose before you invest. Luckily, we have curated the best of the best’s options for you',
+                "Though alternative assets deliver higher returns and are not linked to the volatile market, their risks are higher. Therefore, it is imperative that as an investor you know exactly what alternate assets are, what is expected from your investment, and whether it at all works for you."
+                '\nFreeU is the one-stop shop for Alternate Investments. We want you to learn, compare, and choose before you invest. Luckily, we have curated the best of the best’s options for you.',
                 style: TextStyle(
                     color: Color(0xff616161),
                     fontSize: 20.sp,
                     fontFamily: 'Poppins'),
               ),
-              sizedBoxHeight(25.h),
-              Row(
-                children: [
-                  CircleAvatar(
-                    radius: 45.r,
-                    backgroundColor: Color(0xffA0EF87),
-                    child: Image.asset(
-                      'assets/images/13536.png',
-                      width: 42.w,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15.w,
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Experience',
-                          style: TextStyle(
-                              color: Color(0xff0F0C0C),
-                              fontSize: 22.sp,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Poppins'),
-                        ),
-                        Text(
-                          'Our great team of more than 1400 software experts.',
-                          style: TextStyle(
-                              color: Color(0xff272424),
-                              fontSize: 18.sp,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
-              Divider(
-                height: 58.h,
-                thickness: 1.2.h,
-                color: Color(0xff616161).withOpacity(0.1),
-              ),
-              Row(
-                children: [
-                  CircleAvatar(
-                    radius: 45.r,
-                    backgroundColor: Color(0xff4981C9),
-                    child: Image.asset(
-                      'assets/images/13540.png',
-                      width: 45.w,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 15.w,
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Quick Support',
-                          style: TextStyle(
-                              color: Color(0xff0F0C0C),
-                              fontSize: 22.sp,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: 'Poppins'),
-                        ),
-                        Text(
-                          'We’ll help you test bold new ideas while sharing your.',
-                          style: TextStyle(
-                              color: Color(0xff272424),
-                              fontSize: 18.sp,
-                              fontFamily: 'Poppins'),
-                        ),
-                      ],
-                    ),
-                  )
-                ],
-              ),
+              // sizedBoxHeight(25.h),
+              // Row(
+              //   children: [
+              //     CircleAvatar(
+              //       radius: 45.r,
+              //       backgroundColor: Color(0xffA0EF87),
+              //       child: Image.asset(
+              //         'assets/images/13536.png',
+              //         width: 42.w,
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 15.w,
+              //     ),
+              //     Expanded(
+              //       child: Column(
+              //         mainAxisAlignment: MainAxisAlignment.start,
+              //         crossAxisAlignment: CrossAxisAlignment.start,
+              //         children: [
+              //           Text(
+              //             'Experience',
+              //             style: TextStyle(
+              //                 color: Color(0xff0F0C0C),
+              //                 fontSize: 22.sp,
+              //                 fontWeight: FontWeight.w500,
+              //                 fontFamily: 'Poppins'),
+              //           ),
+              //           Text(
+              //             'Our great team of more than 1400 software experts.',
+              //             style: TextStyle(
+              //                 color: Color(0xff272424),
+              //                 fontSize: 18.sp,
+              //                 fontFamily: 'Poppins'),
+              //           ),
+              //         ],
+              //       ),
+              //     )
+              //   ],
+              // ),
+              // Divider(
+              //   height: 58.h,
+              //   thickness: 1.2.h,
+              //   color: Color(0xff616161).withOpacity(0.1),
+              // ),
+              // Row(
+              //   children: [
+              //     CircleAvatar(
+              //       radius: 45.r,
+              //       backgroundColor: Color(0xff4981C9),
+              //       child: Image.asset(
+              //         'assets/images/13540.png',
+              //         width: 45.w,
+              //       ),
+              //     ),
+              //     SizedBox(
+              //       width: 15.w,
+              //     ),
+              //     Expanded(
+              //       child: Column(
+              //         mainAxisAlignment: MainAxisAlignment.start,
+              //         crossAxisAlignment: CrossAxisAlignment.start,
+              //         children: [
+              //           Text(
+              //             'Quick Support',
+              //             style: TextStyle(
+              //                 color: Color(0xff0F0C0C),
+              //                 fontSize: 22.sp,
+              //                 fontWeight: FontWeight.w500,
+              //                 fontFamily: 'Poppins'),
+              //           ),
+              //           Text(
+              //             'We’ll help you test bold new ideas while sharing your.',
+              //             style: TextStyle(
+              //                 color: Color(0xff272424),
+              //                 fontSize: 18.sp,
+              //                 fontFamily: 'Poppins'),
+              //           ),
+              //         ],
+              //       ),
+              //     )
+              //   ],
+              // ),
+
               sizedBoxHeight(48.h),
               SizedBox(
                 width: double.infinity,
                 child: Text(
-                  'Our Great Team',
+                  'Meet Our Founder',
                   textAlign: TextAlign.left,
                   style: TextStyle(
                       color: Color(0xff0F0C0C),
@@ -178,14 +181,12 @@ class _AboutState extends State<About> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Expanded(
-                      flex: 3,
-                      child: Image.asset(
-                        'assets/images/team01.png',
-                      )),
-                  SizedBox(
-                    width: 15.w,
-                  ),
+                  // Expanded(
+                  //   flex: 3,
+                  //   child: Image.asset(
+                  //     'assets/images/team01.png',
+                  //   ),
+                  // ),
                   Flexible(
                       flex: 4,
                       child: Column(
@@ -206,7 +207,7 @@ class _AboutState extends State<About> {
                               //         color: Color(0xff0F0C0C))),
                               Expanded(
                                 child: Text(
-                                    'Lorem ipsum contains the typefaces more in use, an aspect that allows you to',
+                                    'He has 18+ years of experience in banking and financial markets. Before starting his entrepreneurial journey, he had worked in the corporate world with HSBC Bank, Kotak Securities, Religare Macquarie Private Wealth and others. He has done MBA and CFP and has deep experience in the financial industry.',
                                     style: TextStyle(
                                         fontSize: 18.sp,
                                         color: Color(0xff0F0C0C))),
@@ -231,27 +232,27 @@ class _AboutState extends State<About> {
                                 width: 30.w,
                               ),
                               sizedBoxWidth(10.w),
+                              Text(
+                                'Abhishek Sipani',
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                    color: Color(0xff0F0C0C),
+                                    fontSize: 16.sp,
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500),
+                              ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    'Rushabh Parekh',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                        color: Color(0xff0F0C0C),
-                                        fontSize: 16.sp,
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    'Founder, CEO',
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      color: Color(0xff272424),
-                                      fontSize: 14.sp,
-                                      fontFamily: 'Poppins',
-                                    ),
-                                  ),
+                                  // Text(
+                                  //   'Founder, CEO',
+                                  //   textAlign: TextAlign.left,
+                                  //   style: TextStyle(
+                                  //     color: Color(0xff272424),
+                                  //     fontSize: 14.sp,
+                                  //     fontFamily: 'Poppins',
+                                  //   ),
+                                  // ),
                                 ],
                               ),
                             ],
@@ -272,4 +273,3 @@ class _AboutState extends State<About> {
     );
   }
 }
-

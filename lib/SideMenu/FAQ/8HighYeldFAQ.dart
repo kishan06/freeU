@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class AlternativeFAQ extends StatefulWidget {
-  const AlternativeFAQ({super.key});
+class HighYeldFAQ extends StatefulWidget {
+  const HighYeldFAQ({super.key});
 
   @override
-  State<AlternativeFAQ> createState() => _AlternativeFAQState();
+  State<HighYeldFAQ> createState() => _HighYeldFAQState();
 }
 
-class _AlternativeFAQState extends State<AlternativeFAQ> {
+class _HighYeldFAQState extends State<HighYeldFAQ> {
   bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ",
+                  'High Yield Finance FAQ',
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'Who can invest in an alternative investment fund?',
+                        'How does high yield fixed income differ from investment-grade fixed income?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Due to the risks involved, investing in an alternative investment fund is typically limited to accredited investors, institutional investors, and high-net-worth individuals.",
+                          'High yield fixed income is issued by riskier companies with lower credit ratings, while investment- grade fixed income is issued by more creditworthy companies. High yield fixed income provides higher yields but also higher risk.',
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,42 +104,39 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Can NRIs invest in AIF?',
+                      titleString:
+                          'What types of securities are considered high yield fixed income?',
                       contentString:
-                          'NRIs (Non-Resident Indians) are allowed to invest in AIFs subject to compliance with the necessary rules and regulations as per the Foreign Exchange Management Act (FEMA) and other applicable laws.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'How to invest in an AIF?',
-                      contentString:
-                          'Proof of income, PAN card, and ID proof are required to invest in an AIF. The minimum investment amount for AIFs is INR 1 crore, while for angel funds, it is INR 25 lakhs.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Who regulates the AIF?',
-                      contentString:
-                          'The regulation of Alternative Investment Funds (AIF) in India is done by the Securities and Exchange Board of India (SEBI).  Investors can address their complaints against AIFs at the SEBI-regulated web-based centralized grievance redress system called SCORES or SEBI Complaint Redress System.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'How is an AIF tenure calculated?',
-                      contentString:
-                          'The tenure of any scheme of the AIF is calculated from the date of the final closing of the scheme.'),
+                          'High yield fixed income securities include corporate bonds, municipal bonds, and asset-backed securities, among others. In the majority of cases the underlying instrument is a Non-Convertible Debenture (NCD)'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the general fee structure under the AIF scheme?',
+                          'Is it possible for the investor to exit their investment before the maturity date?',
                       contentString:
-                          'The fee structure under the AIF scheme includes a one-time setup fee (if applicable) and two types of compensation: a flat management fee charged proportionately every month based on the funds managed, and a performance-based fee computed based on a pre-agreed proportion of the profit earned over and above a predetermined threshold return.'),
+                          'The investment is in the form of NCD, which can be transferred to another person provided one is able to find the buyer.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'Who can invest in high yielding NCDs?',
+                      contentString:
+                          'Resident investors and unincorporated bodies are eligible to invest in NCDs, while NRIs may invest in NCDs if the rules of the issuing company permit them to do so. It is rare for companies in India to allow NRIs to invest in a public issue NCD.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'How will the investor receive repayments?',
+                      contentString:
+                          'Repayment to the investor will be made directly to the bank account linked to their demat account.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'Can an AIF accept investments from more than one investor?',
+                          'What is the course of action in case of default in NCD investments?',
                       contentString:
-                          'An AIF accepts two individuals as joint partners for a minimum investment of one crore rupees. Joint investors may include an investor and their spouse, parent, or child. Only two persons can act as joint investors for an AIF, and for any other investors acting as joint investors, the minimum investment amount of INR 1 crore shall apply.'),
+                          'In such a scenario, the debenture trustee, who acts in the best interest of the debenture holders (investors), will take necessary measures to ensure that the issuer (borrower) rectifies the default and/or enforces security to recover the invested amount.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the taxation on the secondary sale of AIF units by investors?',
+                          'Does the borrower deduct TDS on a payout in NCD investments, and what is the applicable rate?',
                       contentString:
-                          'When an investor exits an AIF by a transfer of units or partnership interests to another investor (this transaction is called a ‘secondary transfer’), gains on the sale of units may be taxable directly in the hands of the investors. The taxability of gains on the sale of AIF units during a secondary transfer will depend on the holding period of the units. If the holding period is more than 36 months, the sale would be categorized as a long-term capital gain and taxed at 20% with indexation. If the holding period is less than 36 months, it would be considered a short-term capital gain and taxed at the applicable slab rates.')
+                          "Yes, TDS is applicable on the interest component of the payout, and the borrower deducts 10% TDS at the source. The deducted TDS amount will be automatically reflected in the investor's form 26AS."),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             ),

@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class AlternativeFAQ extends StatefulWidget {
-  const AlternativeFAQ({super.key});
+class LeasingFAQ extends StatefulWidget {
+  const LeasingFAQ({super.key});
 
   @override
-  State<AlternativeFAQ> createState() => _AlternativeFAQState();
+  State<LeasingFAQ> createState() => _LeasingFAQState();
 }
 
-class _AlternativeFAQState extends State<AlternativeFAQ> {
+class _LeasingFAQState extends State<LeasingFAQ> {
   bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ",
+                  'Asset backed leasing FAQ',
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'Who can invest in an alternative investment fund?',
+                        'How does lease-based financing work?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Due to the risks involved, investing in an alternative investment fund is typically limited to accredited investors, institutional investors, and high-net-worth individuals.",
+                          'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.',
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,42 +104,45 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Can NRIs invest in AIF?',
+                      titleString:
+                          'How does lease-based financing differ from traditional financing?',
                       contentString:
-                          'NRIs (Non-Resident Indians) are allowed to invest in AIFs subject to compliance with the necessary rules and regulations as per the Foreign Exchange Management Act (FEMA) and other applicable laws.'),
+                          'Lease-based financing is distinct from traditional financing as the company leases the asset instead of owning it. It requires less upfront capital and provides greater equipment flexibility. However, it can be more expensive overall due to finance charges and interest payments.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'How to invest in an AIF?',
+                      titleString: 'Who provides lease-based financing?',
                       contentString:
-                          'Proof of income, PAN card, and ID proof are required to invest in an AIF. The minimum investment amount for AIFs is INR 1 crore, while for angel funds, it is INR 25 lakhs.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'Who regulates the AIF?',
-                      contentString:
-                          'The regulation of Alternative Investment Funds (AIF) in India is done by the Securities and Exchange Board of India (SEBI).  Investors can address their complaints against AIFs at the SEBI-regulated web-based centralized grievance redress system called SCORES or SEBI Complaint Redress System.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'How is an AIF tenure calculated?',
-                      contentString:
-                          'The tenure of any scheme of the AIF is calculated from the date of the final closing of the scheme.'),
+                          'Lease-based financing can be provided by banks, leasing companies, and other financial institutions.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the general fee structure under the AIF scheme?',
+                          'What types of assets can be leased through lease-based financing?',
                       contentString:
-                          'The fee structure under the AIF scheme includes a one-time setup fee (if applicable) and two types of compensation: a flat management fee charged proportionately every month based on the funds managed, and a performance-based fee computed based on a pre-agreed proportion of the profit earned over and above a predetermined threshold return.'),
+                          'Almost any type of asset can be leased through lease-based financing, including equipment, machinery, vehicles, and real estate.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'Can an AIF accept investments from more than one investor?',
+                          'Is lease-based financing a secured investment?',
                       contentString:
-                          'An AIF accepts two individuals as joint partners for a minimum investment of one crore rupees. Joint investors may include an investor and their spouse, parent, or child. Only two persons can act as joint investors for an AIF, and for any other investors acting as joint investors, the minimum investment amount of INR 1 crore shall apply.'),
+                          'Lease-based financing is considered secure as it is backed by assets as collateral.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the taxation on the secondary sale of AIF units by investors?',
+                          'Is ownership of the asset preserved in lease-based financing?',
                       contentString:
-                          'When an investor exits an AIF by a transfer of units or partnership interests to another investor (this transaction is called a ‘secondary transfer’), gains on the sale of units may be taxable directly in the hands of the investors. The taxability of gains on the sale of AIF units during a secondary transfer will depend on the holding period of the units. If the holding period is more than 36 months, the sale would be categorized as a long-term capital gain and taxed at 20% with indexation. If the holding period is less than 36 months, it would be considered a short-term capital gain and taxed at the applicable slab rates.')
+                          'Yes. the lessor (person leasing) will transfer all risk and rewards associated with ownership of the asset to the lessee (borrower) but without transferring the asset’s ownership.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'Is there a default risk with lease-backed financing?',
+                      contentString:
+                          'In the event that a company fails to repay a lease rental investment, the investor may have the right to take legal action to recover the outstanding amount. While there is no 100% guarantee, most platforms have safeguards in place for reclaiming the asset and for releasing the same.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'What will be the tax implications?',
+                      contentString:
+                          'The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab.'),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             ),

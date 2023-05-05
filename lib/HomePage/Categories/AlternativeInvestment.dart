@@ -32,7 +32,7 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
           '''All AIF categories in India except "angel fund" need a minimum investment of Rs. 1 crore, whereas, for the angel fund, that amount is Rs. 25 lakhs.  In the case of an employee or director of AIF, the minimum value of investment shall be Rs. 25 lakhs.''',
     },
     {
-      "question": "In Which Formats Can an AIF Be Set Up?",
+      "question": "In which formats can an AIF be set up?",
       "ans":
           "The AIF funds are set up in the form of a trust, limited liability partnership (LLP), or corporate body."
     },
