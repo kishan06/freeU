@@ -26,8 +26,19 @@ class _AlternativeInsvestmentState extends State<AlternativeInsvestment> {
       "ans": 'AIFAns3'.tr,
     },
     {
-      "question": "In Which Formats Can an AIF Be Set Up?".tr,
-      "ans": "AIFAns4".tr
+      "question": "What is the minimum amount needed to invest in AIF?",
+      "ans":
+          '''All AIF categories in India except "angel fund" need a minimum investment of Rs. 1 crore, whereas, for the angel fund, that amount is Rs. 25 lakhs.  In the case of an employee or director of AIF, the minimum value of investment shall be Rs. 25 lakhs.''',
+    },
+    {
+      "question": "In which formats can an AIF be set up?",
+      "ans":
+          "The AIF funds are set up in the form of a trust, limited liability partnership (LLP), or corporate body."
+    },
+    {
+      "question": "Size of the AIF scheme",
+      "ans":
+          "Each AIF scheme should have a minimum corpus of Rs. 20 crores (Rs. 10 crores for angel funds). Along with that, there is also a cap on the number of investors each scheme can have. Most schemes cannot have more than 1000 investors, whereas angel funds can cater to a maximum of 200 investors."
     },
     {"question": "Size of the AIF scheme".tr, "ans": "AIFAns5".tr},
     {"question": "", "ans": ""},

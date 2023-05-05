@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class AlternativeFAQ extends StatefulWidget {
-  const AlternativeFAQ({super.key});
+class HighYeldFAQ extends StatefulWidget {
+  const HighYeldFAQ({super.key});
 
   @override
-  State<AlternativeFAQ> createState() => _AlternativeFAQState();
+  State<HighYeldFAQ> createState() => _HighYeldFAQState();
 }
 
-class _AlternativeFAQState extends State<AlternativeFAQ> {
+class _HighYeldFAQState extends State<HighYeldFAQ> {
   bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ".tr,
+                  'High Yield Finance FAQ'.tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'AlternativeFAQ1'.tr,
+                        'How does high yield fixed income differ from investment-grade fixed income?'.tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "AlternativeFAQ2".tr,
+                          'High yield fixed income is issued by riskier companies with lower credit ratings, while investment- grade fixed income is issued by more creditworthy companies. High yield fixed income provides higher yields but also higher risk.'.tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,34 +104,39 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'AlternativeFAQ3'.tr,
-                      contentString: 'AlternativeFAQ4'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ5'.tr,
-                      contentString: 'AlternativeFAQ6'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ7'.tr,
-                      contentString: 'AlternativeFAQ8'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ9'.tr,
-                      contentString: 'AlternativeFAQ10'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ11'.tr,
-                      contentString: 'AlternativeFAQ12'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ13'.tr,
-                      contentString: 'AlternativeFAQ14'.tr),
+                      titleString:
+                          'What types of securities are considered high yield fixed income?'.tr,
+                      contentString:
+                          'High yield fixed income securities include corporate bonds, municipal bonds, and asset-backed securities, among others. In the majority of cases the underlying instrument is a Non-Convertible Debenture (NCD)'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the taxation on the secondary sale of AIF units by investors?'
-                              .tr,
-                      contentString: 'AlternativeFAQ15'.tr)
+                          'Is it possible for the investor to exit their investment before the maturity date?'.tr,
+                      contentString:
+                          'The investment is in the form of NCD, which can be transferred to another person provided one is able to find the buyer.'.tr),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'Who can invest in high yielding NCDs?'.tr,
+                      contentString:
+                          'Resident investors and unincorporated bodies are eligible to invest in NCDs, while NRIs may invest in NCDs if the rules of the issuing company permit them to do so. It is rare for companies in India to allow NRIs to invest in a public issue NCD.'.tr),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'How will the investor receive repayments?'.tr,
+                      contentString:
+                          'Repayment to the investor will be made directly to the bank account linked to their demat account.'.tr),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'What is the course of action in case of default in NCD investments?'.tr,
+                      contentString:
+                          'In such a scenario, the debenture trustee, who acts in the best interest of the debenture holders (investors), will take necessary measures to ensure that the issuer (borrower) rectifies the default and/or enforces security to recover the invested amount.'.tr),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'Does the borrower deduct TDS on a payout in NCD investments, and what is the applicable rate?'.tr,
+                      contentString:
+                          "Yes, TDS is applicable on the interest component of the payout, and the borrower deducts 10% TDS at the source. The deducted TDS amount will be automatically reflected in the investor's form 26AS.".tr),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             ),

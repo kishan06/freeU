@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class AlternativeFAQ extends StatefulWidget {
-  const AlternativeFAQ({super.key});
+class RevenueFAQ extends StatefulWidget {
+  const RevenueFAQ({super.key});
 
   @override
-  State<AlternativeFAQ> createState() => _AlternativeFAQState();
+  State<RevenueFAQ> createState() => _RevenueFAQState();
 }
 
-class _AlternativeFAQState extends State<AlternativeFAQ> {
+class _RevenueFAQState extends State<RevenueFAQ> {
   bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ".tr,
+                  'Revenue Based Financing FAQ'.tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'AlternativeFAQ1'.tr,
+                        'How does revenue-based financing work?'.tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "AlternativeFAQ2".tr,
+                          'In a revenue-based financing arrangement, the investor provides funding to the company in exchange for a percentage of its revenue. The percentage is usually in the range of 1% to 10%, depending on the size of the investment and the risk level of the company. The company then makes regular payments to the investor based on its revenue until the predetermined amount has been paid back, plus a return on the investment.'.tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,34 +104,38 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'AlternativeFAQ3'.tr,
-                      contentString: 'AlternativeFAQ4'.tr),
+                      titleString:
+                          'How does revenue-based financing differ from traditional financing?'.tr,
+                      contentString:
+                          'Revenue-based financing differs from traditional financing in that it is based on a percentage of future revenue rather than taking on debt or giving up equity. It also offers more flexible repayment terms and can be a better fit for companies with limited assets or a non-traditional business model.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'AlternativeFAQ5'.tr,
-                      contentString: 'AlternativeFAQ6'.tr),
+                    titleString: 'How can NRIs invest?'.tr,
+                    contentString:
+                        'Non-Resident investors can invest through an NRO or NRE Account, although the returns and sale proceeds will be credited to their NRO account.'.tr,
+                  ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'AlternativeFAQ7'.tr,
-                      contentString: 'AlternativeFAQ8'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ9'.tr,
-                      contentString: 'AlternativeFAQ10'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ11'.tr,
-                      contentString: 'AlternativeFAQ12'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ13'.tr,
-                      contentString: 'AlternativeFAQ14'.tr),
+                      titleString: 'What are the risks of RBF for investors?'.tr,
+                      contentString:
+                          "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company&#39;s revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue.".tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the taxation on the secondary sale of AIF units by investors?'
-                              .tr,
-                      contentString: 'AlternativeFAQ15'.tr)
+                          'What happens if a company fails to repay an RBF investment?'.tr,
+                      contentString:
+                          "If a company fails to repay an RBF investment, the investor may have the right to take legal action to ecover the outstanding amount. However, the investor's ability to recover the investment may depend on the terms of the agreement and the assets that the company has available to repay the investment.".tr),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'Who invests in revenue-based financing?'.tr,
+                      contentString:
+                          'Revenue-based financing can be provided by angel investors, venture capital firms, and other financial institutions. Any Indian citizen, HUF, Company, and NRI can invest in an RBF opportunity.'.tr),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'What will be the tax implications?'.tr,
+                      contentString:
+                          'The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab. TDS of 10% is applicable on the interest component of payouts.'.tr),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             ),

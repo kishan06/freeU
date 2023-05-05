@@ -7,10 +7,14 @@ import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
+import '10VentureDebtFAQ.dart';
 import '3InvoiceFAQ.dart';
 import '4AlternativeFAQ.dart';
 import '5CleanGreenFAQ.dart';
 import '6SecuritizedFAQ.dart';
+import '7RevenueFAQ.dart';
+import '8HighYeldFAQ.dart';
+import '9LeasingFAQ.dart';
 
 class FAQs extends StatefulWidget {
   const FAQs({super.key});
@@ -107,6 +111,30 @@ class _FAQsState extends State<FAQs> {
                           'Securitized Debt Instrument FAQ'.tr,
                           'assets/newImages/cat9.png',
                           AppColors.greenL_089435)),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+                  OpenContainerWrappers(
+                      openBuild: const RevenueFAQ(),
+                      closeBuild: catTitle(
+                          'Revenue Based Financing FAQ',
+                          'assets/newImages/cat5.png',
+                          AppColors.brownL_973926)),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+                  OpenContainerWrappers(
+                      openBuild: const HighYeldFAQ(),
+                      closeBuild: catTitle(
+                          'High Yield Finance FAQ',
+                          'assets/newImages/cat10.png',
+                          AppColors.purpleL_474E88)),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+                  OpenContainerWrappers(
+                      openBuild: const LeasingFAQ(),
+                      closeBuild: catTitle('Asset backed leasing FAQ',
+                          'assets/newImages/cat6.png', AppColors.pinkL_E6088B)),
+                  Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+                  OpenContainerWrappers(
+                      openBuild: const VentureDebtFAQ(),
+                      closeBuild: catTitle('Venture Debt FAQ',
+                          'assets/newImages/cat8.png', AppColors.blueL_006796)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
                   sizedBoxHeight(15.h),
                 ],

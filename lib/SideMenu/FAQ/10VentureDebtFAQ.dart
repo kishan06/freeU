@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class AlternativeFAQ extends StatefulWidget {
-  const AlternativeFAQ({super.key});
+class VentureDebtFAQ extends StatefulWidget {
+  const VentureDebtFAQ({super.key});
 
   @override
-  State<AlternativeFAQ> createState() => _AlternativeFAQState();
+  State<VentureDebtFAQ> createState() => _VentureDebtFAQState();
 }
 
-class _AlternativeFAQState extends State<AlternativeFAQ> {
+class _VentureDebtFAQState extends State<VentureDebtFAQ> {
   bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ".tr,
+                  'Venture Debt FAQ',
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'AlternativeFAQ1'.tr,
+                        'How does venture debt work?',
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "AlternativeFAQ2".tr,
+                          "Venture debt is typically available to startups and high-growth companies that have already raised equity financing from venture capitalists or angel investors. The lender may evaluate the company's financials, business plan, and growth prospects before approving the loan. In exchange for the loan, the lender receives interest payments and other fees.",
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,34 +104,31 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'AlternativeFAQ3'.tr,
-                      contentString: 'AlternativeFAQ4'.tr),
+                      titleString: 'Why do companies need Venture Debt?',
+                      contentString:
+                          'Venture Debt offers companies a flexible way to raise capital while avoiding the dilution of ownership that can come with equity financing. This allows companies to maintain greater control over their operations and future growth.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'AlternativeFAQ5'.tr,
-                      contentString: 'AlternativeFAQ6'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ7'.tr,
-                      contentString: 'AlternativeFAQ8'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ9'.tr,
-                      contentString: 'AlternativeFAQ10'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ11'.tr,
-                      contentString: 'AlternativeFAQ12'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ13'.tr,
-                      contentString: 'AlternativeFAQ14'.tr),
+                      titleString: 'Who facilitates Venture debt?',
+                      contentString:
+                          'Venture debt is primarily facilitated by specialized lenders that have a better understanding of the unique needs and risks of startups, rather than traditional banks.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the taxation on the secondary sale of AIF units by investors?'
-                              .tr,
-                      contentString: 'AlternativeFAQ15'.tr)
+                          'The investor will receive which instrument?',
+                      contentString:
+                          'Investments in Venture Debt may be made through debt instruments such as non-convertible debentures (NCDs), bonds, or commercial paper.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'What will be the tax implications?',
+                      contentString:
+                          'The interest earned will be taxed as per the investor&#39;s applicable tax slab.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'What are the risks of venture debt?',
+                      contentString:
+                          "Startups and high-growth companies are more prone to failure, which makes venture debt riskier than other forms of debt financing. The lender may charge higher interest rates and fees to compensate for the higher risk. In case of loan default, the lender may seize the company's assets, which can have a negative impact on its operations."),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             ),

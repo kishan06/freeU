@@ -836,6 +836,15 @@ class LocalString extends Translations {
               "Investing simplified. One platform to choose from",
           "One platform, multiple options. Simplified for you.":
               "One platform, multiple options. Simplified for you.",
+          "Easy to use online platform for Alternative investments":
+              "Easy to use online platform for Alternative investments",
+          'Meet Our Founder': 'Meet Our Founder',
+          "FounderDesc":
+              'He has 18+ years of experience in banking and financial markets. Before starting his entrepreneurial journey, he had worked in the corporate world with HSBC Bank, Kotak Securities, Religare Macquarie Private Wealth and others. He has done MBA and CFP and has deep experience in the financial industry.',
+          'What is the taxation on the secondary sale of AIF units by investors?':
+              'What is the taxation on the secondary sale of AIF units by investors?',
+          'AlternativeFAQ15':
+              'When an investor exits an AIF by a transfer of units or partnership interests to another investor (this transaction is called a ‘secondary transfer’), gains on the sale of units may be taxable directly in the hands of the investors. The taxability of gains on the sale of AIF units during a secondary transfer will depend on the holding period of the units. If the holding period is more than 36 months, the sale would be categorized as a long-term capital gain and taxed at 20% with indexation. If the holding period is less than 36 months, it would be considered a short-term capital gain and taxed at the applicable slab rates.',
         },
         'hi_IN': {
           'entrypoint_bottombar1': 'होम',
@@ -1668,6 +1677,77 @@ class LocalString extends Translations {
               "निवेश सरलीकृत। चुनने के लिए एक मंच",
           "One platform, multiple options. Simplified for you.":
               "एक मंच, कई विकल्प। आपके लिए सरलीकृत।",
+          "Easy to use online platform for Alternative investments":
+              "वैकल्पिक निवेश के लिए ऑनलाइन प्लेटफॉर्म का उपयोग करना आसान",
+          'Meet Our Founder': 'हमारे संस्थापक से मिलें',
+          "FounderDesc":
+              'उनके पास बैंकिंग और वित्तीय बाजारों में 18+ साल का अनुभव है। अपनी उद्यमशीलता की यात्रा शुरू करने से पहले, उन्होंने एचएसबीसी बैंक, कोटक सिक्योरिटीज, रेलिगेयर मैक्वेरी प्राइवेट वेल्थ और अन्य के साथ कॉर्पोरेट जगत में काम किया था। उन्होंने MBA और CFP किया है और उन्हें वित्तीय उद्योग में गहरा अनुभव है।',
+          'What is the taxation on the secondary sale of AIF units by investors?':
+              'निवेशकों द्वारा एआईएफ इकाइयों की द्वितीयक बिक्री पर कराधान क्या है?',
+          'AlternativeFAQ15':
+              "जब एक निवेशक किसी अन्य निवेशक को इकाइयों या साझेदारी हितों के हस्तांतरण द्वारा एआईएफ से बाहर निकलता है (इस लेनदेन को 'द्वितीयक हस्तांतरण' कहा जाता है), इकाइयों की बिक्री पर लाभ सीधे निवेशकों के हाथ में कर योग्य हो सकता है। द्वितीयक अंतरण के दौरान एआईएफ इकाइयों की बिक्री पर लाभ की करदेयता इकाइयों की होल्डिंग अवधि पर निर्भर करेगी। यदि होल्डिंग अवधि 36 महीने से अधिक है, तो बिक्री को दीर्घकालिक पूंजीगत लाभ के रूप में वर्गीकृत किया जाएगा और इंडेक्सेशन के साथ 20% कर लगाया जाएगा। अगर होल्डिंग की अवधि 36 महीने से कम है, तो इसे शॉर्ट-टर्म कैपिटल गेन माना जाएगा और लागू स्लैब दरों पर टैक्स लगाया जाएगा।",
+          'Revenue Based Financing FAQ': 'Revenue Based Financing FAQ',
+          'How does revenue-based financing work?':
+              'How does revenue-based financing work?',
+          'In a revenue-based financing arrangement, the investor provides funding to the company in exchange for a percentage of its revenue. The percentage is usually in the range of 1% to 10%, depending on the size of the investment and the risk level of the company. The company then makes regular payments to the investor based on its revenue until the predetermined amount has been paid back, plus a return on the investment.':
+              'In a revenue-based financing arrangement, the investor provides funding to the company in exchange for a percentage of its revenue. The percentage is usually in the range of 1% to 10%, depending on the size of the investment and the risk level of the company. The company then makes regular payments to the investor based on its revenue until the predetermined amount has been paid back, plus a return on the investment.',
+          'How does revenue-based financing differ from traditional financing?':
+              'How does revenue-based financing differ from traditional financing?',
+          'Revenue-based financing differs from traditional financing in that it is based on a percentage of future revenue rather than taking on debt or giving up equity. It also offers more flexible repayment terms and can be a better fit for companies with limited assets or a non-traditional business model.':
+              'Revenue-based financing differs from traditional financing in that it is based on a percentage of future revenue rather than taking on debt or giving up equity. It also offers more flexible repayment terms and can be a better fit for companies with limited assets or a non-traditional business model.',
+          'How can NRIs invest?': 'How can NRIs invest?',
+          'Non-Resident investors can invest through an NRO or NRE Account, although the returns and sale proceeds will be credited to their NRO account.':
+              'Non-Resident investors can invest through an NRO or NRE Account, although the returns and sale proceeds will be credited to their NRO account.',
+          'What are the risks of RBF for investors?':
+              'What are the risks of RBF for investors?',
+          "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company&#39;s revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue.":
+              "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company&#39;s revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue.",
+          'What happens if a company fails to repay an RBF investment?':
+              'What happens if a company fails to repay an RBF investment?',
+          "If a company fails to repay an RBF investment, the investor may have the right to take legal action to ecover the outstanding amount. However, the investor's ability to recover the investment may depend on the terms of the agreement and the assets that the company has available to repay the investment.":
+              "If a company fails to repay an RBF investment, the investor may have the right to take legal action to ecover the outstanding amount. However, the investor's ability to recover the investment may depend on the terms of the agreement and the assets that the company has available to repay the investment.",
+          'Who invests in revenue-based financing?':
+              'Who invests in revenue-based financing?',
+          'Revenue-based financing can be provided by angel investors, venture capital firms, and other financial institutions. Any Indian citizen, HUF, Company, and NRI can invest in an RBF opportunity.':
+              'Revenue-based financing can be provided by angel investors, venture capital firms, and other financial institutions. Any Indian citizen, HUF, Company, and NRI can invest in an RBF opportunity.',
+          'What will be the tax implications?':
+              'What will be the tax implications?',
+          'The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab. TDS of 10% is applicable on the interest component of payouts.':
+              'The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab. TDS of 10% is applicable on the interest component of payouts.',
+          'High Yield Finance FAQ': 'High Yield Finance FAQ',
+          'How does high yield fixed income differ from investment-grade fixed income?':
+              'How does high yield fixed income differ from investment-grade fixed income?',
+          'High yield fixed income is issued by riskier companies with lower credit ratings, while investment- grade fixed income is issued by more creditworthy companies. High yield fixed income provides higher yields but also higher risk.':
+              'High yield fixed income is issued by riskier companies with lower credit ratings, while investment- grade fixed income is issued by more creditworthy companies. High yield fixed income provides higher yields but also higher risk.',
+          'What types of securities are considered high yield fixed income?':
+              'What types of securities are considered high yield fixed income?',
+          'High yield fixed income securities include corporate bonds, municipal bonds, and asset-backed securities, among others. In the majority of cases the underlying instrument is a Non-Convertible Debenture (NCD)':
+              'High yield fixed income securities include corporate bonds, municipal bonds, and asset-backed securities, among others. In the majority of cases the underlying instrument is a Non-Convertible Debenture (NCD)',
+          'Is it possible for the investor to exit their investment before the maturity date?':
+              'Is it possible for the investor to exit their investment before the maturity date?',
+          'The investment is in the form of NCD, which can be transferred to another person provided one is able to find the buyer.':
+              'The investment is in the form of NCD, which can be transferred to another person provided one is able to find the buyer.',
+          'Who can invest in high yielding NCDs?':
+              'Who can invest in high yielding NCDs?',
+          'Resident investors and unincorporated bodies are eligible to invest in NCDs, while NRIs may invest in NCDs if the rules of the issuing company permit them to do so. It is rare for companies in India to allow NRIs to invest in a public issue NCD.':
+              'Resident investors and unincorporated bodies are eligible to invest in NCDs, while NRIs may invest in NCDs if the rules of the issuing company permit them to do so. It is rare for companies in India to allow NRIs to invest in a public issue NCD.',
+          'How will the investor receive repayments?':
+              'How will the investor receive repayments?',
+          'Repayment to the investor will be made directly to the bank account linked to their demat account.':
+              'Repayment to the investor will be made directly to the bank account linked to their demat account.',
+          'What is the course of action in case of default in NCD investments?':
+              'What is the course of action in case of default in NCD investments?',
+          'In such a scenario, the debenture trustee, who acts in the best interest of the debenture holders (investors), will take necessary measures to ensure that the issuer (borrower) rectifies the default and/or enforces security to recover the invested amount.':
+              'In such a scenario, the debenture trustee, who acts in the best interest of the debenture holders (investors), will take necessary measures to ensure that the issuer (borrower) rectifies the default and/or enforces security to recover the invested amount.',
+          'Does the borrower deduct TDS on a payout in NCD investments, and what is the applicable rate?':
+              'Does the borrower deduct TDS on a payout in NCD investments, and what is the applicable rate?',
+          "Yes, TDS is applicable on the interest component of the payout, and the borrower deducts 10% TDS at the source. The deducted TDS amount will be automatically reflected in the investor's form 26AS.":
+              "Yes, TDS is applicable on the interest component of the payout, and the borrower deducts 10% TDS at the source. The deducted TDS amount will be automatically reflected in the investor's form 26AS.",
+          'Asset backed leasing FAQ': 'Asset backed leasing FAQ',
+          'How does lease-based financing work?':
+              'How does lease-based financing work?',
+          'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.':
+              'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.',
         },
       };
 }

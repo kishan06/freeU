@@ -3,14 +3,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
-class AlternativeFAQ extends StatefulWidget {
-  const AlternativeFAQ({super.key});
+class LeasingFAQ extends StatefulWidget {
+  const LeasingFAQ({super.key});
 
   @override
-  State<AlternativeFAQ> createState() => _AlternativeFAQState();
+  State<LeasingFAQ> createState() => _LeasingFAQState();
 }
 
-class _AlternativeFAQState extends State<AlternativeFAQ> {
+class _LeasingFAQState extends State<LeasingFAQ> {
   bool notCollapsed = true;
   @override
   Widget build(BuildContext context) {
@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ".tr,
+                  'Asset backed leasing FAQ'.tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'AlternativeFAQ1'.tr,
+                        'How does lease-based financing work?'.tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "AlternativeFAQ2".tr,
+                          'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.'.tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,34 +104,45 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'AlternativeFAQ3'.tr,
-                      contentString: 'AlternativeFAQ4'.tr),
+                      titleString:
+                          'How does lease-based financing differ from traditional financing?',
+                      contentString:
+                          'Lease-based financing is distinct from traditional financing as the company leases the asset instead of owning it. It requires less upfront capital and provides greater equipment flexibility. However, it can be more expensive overall due to finance charges and interest payments.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'AlternativeFAQ5'.tr,
-                      contentString: 'AlternativeFAQ6'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ7'.tr,
-                      contentString: 'AlternativeFAQ8'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ9'.tr,
-                      contentString: 'AlternativeFAQ10'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ11'.tr,
-                      contentString: 'AlternativeFAQ12'.tr),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString: 'AlternativeFAQ13'.tr,
-                      contentString: 'AlternativeFAQ14'.tr),
+                      titleString: 'Who provides lease-based financing?',
+                      contentString:
+                          'Lease-based financing can be provided by banks, leasing companies, and other financial institutions.'),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'What is the taxation on the secondary sale of AIF units by investors?'
-                              .tr,
-                      contentString: 'AlternativeFAQ15'.tr)
+                          'What types of assets can be leased through lease-based financing?',
+                      contentString:
+                          'Almost any type of asset can be leased through lease-based financing, including equipment, machinery, vehicles, and real estate.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'Is lease-based financing a secured investment?',
+                      contentString:
+                          'Lease-based financing is considered secure as it is backed by assets as collateral.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'Is ownership of the asset preserved in lease-based financing?',
+                      contentString:
+                          'Yes. the lessor (person leasing) will transfer all risk and rewards associated with ownership of the asset to the lessee (borrower) but without transferring the asset’s ownership.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString:
+                          'Is there a default risk with lease-backed financing?',
+                      contentString:
+                          'In the event that a company fails to repay a lease rental investment, the investor may have the right to take legal action to recover the outstanding amount. While there is no 100% guarantee, most platforms have safeguards in place for reclaiming the asset and for releasing the same.'),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'What will be the tax implications?',
+                      contentString:
+                          'The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab.'),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             ),
