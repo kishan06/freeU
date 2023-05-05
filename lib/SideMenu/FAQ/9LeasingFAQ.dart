@@ -105,43 +105,43 @@ class _LeasingFAQState extends State<LeasingFAQ> {
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'How does lease-based financing differ from traditional financing?',
+                          'How does lease-based financing differ from traditional financing?'.tr,
                       contentString:
-                          'Lease-based financing is distinct from traditional financing as the company leases the asset instead of owning it. It requires less upfront capital and provides greater equipment flexibility. However, it can be more expensive overall due to finance charges and interest payments.'),
+                          'Lease-based financing is distinct from traditional financing as the company leases the asset instead of owning it. It requires less upfront capital and provides greater equipment flexibility. However, it can be more expensive overall due to finance charges and interest payments.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Who provides lease-based financing?',
+                      titleString: 'Who provides lease-based financing?'.tr,
                       contentString:
-                          'Lease-based financing can be provided by banks, leasing companies, and other financial institutions.'),
-                  sizedBoxHeight(15.h),
-                  FaqBox(
-                      titleString:
-                          'What types of assets can be leased through lease-based financing?',
-                      contentString:
-                          'Almost any type of asset can be leased through lease-based financing, including equipment, machinery, vehicles, and real estate.'),
+                          'Lease-based financing can be provided by banks, leasing companies, and other financial institutions.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'Is lease-based financing a secured investment?',
+                          'What types of assets can be leased through lease-based financing?'.tr,
                       contentString:
-                          'Lease-based financing is considered secure as it is backed by assets as collateral.'),
+                          'Almost any type of asset can be leased through lease-based financing, including equipment, machinery, vehicles, and real estate.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'Is ownership of the asset preserved in lease-based financing?',
+                          'Is lease-based financing a secured investment?'.tr,
                       contentString:
-                          'Yes. the lessor (person leasing) will transfer all risk and rewards associated with ownership of the asset to the lessee (borrower) but without transferring the asset’s ownership.'),
+                          'Lease-based financing is considered secure as it is backed by assets as collateral.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'Is there a default risk with lease-backed financing?',
+                          'Is ownership of the asset preserved in lease-based financing?'.tr,
                       contentString:
-                          'In the event that a company fails to repay a lease rental investment, the investor may have the right to take legal action to recover the outstanding amount. While there is no 100% guarantee, most platforms have safeguards in place for reclaiming the asset and for releasing the same.'),
+                          'Yes. the lessor (person leasing) will transfer all risk and rewards associated with ownership of the asset to the lessee (borrower) but without transferring the asset’s ownership.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'What will be the tax implications?',
+                      titleString:
+                          'Is there a default risk with lease-backed financing?'.tr,
                       contentString:
-                          'The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab.'),
+                          'In the event that a company fails to repay a lease rental investment, the investor may have the right to take legal action to recover the outstanding amount. While there is no 100% guarantee, most platforms have safeguards in place for reclaiming the asset and for releasing the same.'.tr),
+                  sizedBoxHeight(15.h),
+                  FaqBox(
+                      titleString: 'What will be the tax implications?'.tr,
+                      contentString:
+                          'The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab.'.tr),
                   sizedBoxHeight(15.h),
                 ],
               ),

@@ -845,6 +845,115 @@ class LocalString extends Translations {
               'What is the taxation on the secondary sale of AIF units by investors?',
           'AlternativeFAQ15':
               'When an investor exits an AIF by a transfer of units or partnership interests to another investor (this transaction is called a ‘secondary transfer’), gains on the sale of units may be taxable directly in the hands of the investors. The taxability of gains on the sale of AIF units during a secondary transfer will depend on the holding period of the units. If the holding period is more than 36 months, the sale would be categorized as a long-term capital gain and taxed at 20% with indexation. If the holding period is less than 36 months, it would be considered a short-term capital gain and taxed at the applicable slab rates.',
+          'Revenue Based Financing FAQ': 'Revenue Based Financing FAQ',
+          'How does revenue-based financing work?':
+              'How does revenue-based financing work?',
+          'In a revenue-based financing arrangement, the investor provides funding to the company in exchange for a percentage of its revenue. The percentage is usually in the range of 1% to 10%, depending on the size of the investment and the risk level of the company. The company then makes regular payments to the investor based on its revenue until the predetermined amount has been paid back, plus a return on the investment.':
+              'In a revenue-based financing arrangement, the investor provides funding to the company in exchange for a percentage of its revenue. The percentage is usually in the range of 1% to 10%, depending on the size of the investment and the risk level of the company. The company then makes regular payments to the investor based on its revenue until the predetermined amount has been paid back, plus a return on the investment.',
+          'How does revenue-based financing differ from traditional financing?':
+              'How does revenue-based financing differ from traditional financing?',
+          'Revenue-based financing differs from traditional financing in that it is based on a percentage of future revenue rather than taking on debt or giving up equity. It also offers more flexible repayment terms and can be a better fit for companies with limited assets or a non-traditional business model.':
+              'Revenue-based financing differs from traditional financing in that it is based on a percentage of future revenue rather than taking on debt or giving up equity. It also offers more flexible repayment terms and can be a better fit for companies with limited assets or a non-traditional business model.',
+          'How can NRIs invest?': 'How can NRIs invest?',
+          'Non-Resident investors can invest through an NRO or NRE Account, although the returns and sale proceeds will be credited to their NRO account.':
+              'Non-Resident investors can invest through an NRO or NRE Account, although the returns and sale proceeds will be credited to their NRO account.',
+          'What are the risks of RBF for investors?':
+              'What are the risks of RBF for investors?',
+          "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company&#39;s revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue.":
+              "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company&#39;s revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue.",
+          'What happens if a company fails to repay an RBF investment?':
+              'What happens if a company fails to repay an RBF investment?',
+          "If a company fails to repay an RBF investment, the investor may have the right to take legal action to ecover the outstanding amount. However, the investor's ability to recover the investment may depend on the terms of the agreement and the assets that the company has available to repay the investment.":
+              "If a company fails to repay an RBF investment, the investor may have the right to take legal action to ecover the outstanding amount. However, the investor's ability to recover the investment may depend on the terms of the agreement and the assets that the company has available to repay the investment.",
+          'Who invests in revenue-based financing?':
+              'Who invests in revenue-based financing?',
+          'Revenue-based financing can be provided by angel investors, venture capital firms, and other financial institutions. Any Indian citizen, HUF, Company, and NRI can invest in an RBF opportunity.':
+              'Revenue-based financing can be provided by angel investors, venture capital firms, and other financial institutions. Any Indian citizen, HUF, Company, and NRI can invest in an RBF opportunity.',
+          'What will be the tax implications?':
+              'What will be the tax implications?',
+          'The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab. TDS of 10% is applicable on the interest component of payouts.':
+              'The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab. TDS of 10% is applicable on the interest component of payouts.',
+          'High Yield Finance FAQ': 'High Yield Finance FAQ',
+          'How does high yield fixed income differ from investment-grade fixed income?':
+              'How does high yield fixed income differ from investment-grade fixed income?',
+          'High yield fixed income is issued by riskier companies with lower credit ratings, while investment- grade fixed income is issued by more creditworthy companies. High yield fixed income provides higher yields but also higher risk.':
+              'High yield fixed income is issued by riskier companies with lower credit ratings, while investment- grade fixed income is issued by more creditworthy companies. High yield fixed income provides higher yields but also higher risk.',
+          'What types of securities are considered high yield fixed income?':
+              'What types of securities are considered high yield fixed income?',
+          'High yield fixed income securities include corporate bonds, municipal bonds, and asset-backed securities, among others. In the majority of cases the underlying instrument is a Non-Convertible Debenture (NCD)':
+              'High yield fixed income securities include corporate bonds, municipal bonds, and asset-backed securities, among others. In the majority of cases the underlying instrument is a Non-Convertible Debenture (NCD)',
+          'Is it possible for the investor to exit their investment before the maturity date?':
+              'Is it possible for the investor to exit their investment before the maturity date?',
+          'The investment is in the form of NCD, which can be transferred to another person provided one is able to find the buyer.':
+              'The investment is in the form of NCD, which can be transferred to another person provided one is able to find the buyer.',
+          'Who can invest in high yielding NCDs?':
+              'Who can invest in high yielding NCDs?',
+          'Resident investors and unincorporated bodies are eligible to invest in NCDs, while NRIs may invest in NCDs if the rules of the issuing company permit them to do so. It is rare for companies in India to allow NRIs to invest in a public issue NCD.':
+              'Resident investors and unincorporated bodies are eligible to invest in NCDs, while NRIs may invest in NCDs if the rules of the issuing company permit them to do so. It is rare for companies in India to allow NRIs to invest in a public issue NCD.',
+          'How will the investor receive repayments?':
+              'How will the investor receive repayments?',
+          'Repayment to the investor will be made directly to the bank account linked to their demat account.':
+              'Repayment to the investor will be made directly to the bank account linked to their demat account.',
+          'What is the course of action in case of default in NCD investments?':
+              'What is the course of action in case of default in NCD investments?',
+          'In such a scenario, the debenture trustee, who acts in the best interest of the debenture holders (investors), will take necessary measures to ensure that the issuer (borrower) rectifies the default and/or enforces security to recover the invested amount.':
+              'In such a scenario, the debenture trustee, who acts in the best interest of the debenture holders (investors), will take necessary measures to ensure that the issuer (borrower) rectifies the default and/or enforces security to recover the invested amount.',
+          'Does the borrower deduct TDS on a payout in NCD investments, and what is the applicable rate?':
+              'Does the borrower deduct TDS on a payout in NCD investments, and what is the applicable rate?',
+          "Yes, TDS is applicable on the interest component of the payout, and the borrower deducts 10% TDS at the source. The deducted TDS amount will be automatically reflected in the investor's form 26AS.":
+              "Yes, TDS is applicable on the interest component of the payout, and the borrower deducts 10% TDS at the source. The deducted TDS amount will be automatically reflected in the investor's form 26AS.",
+          'Asset backed leasing FAQ': 'Asset backed leasing FAQ',
+          'How does lease-based financing work?':
+              'How does lease-based financing work?',
+          'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.':
+              'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.',
+          'How does lease-based financing differ from traditional financing?':
+              'How does lease-based financing differ from traditional financing?',
+          'Lease-based financing is distinct from traditional financing as the company leases the asset instead of owning it. It requires less upfront capital and provides greater equipment flexibility. However, it can be more expensive overall due to finance charges and interest payments.':
+              'Lease-based financing is distinct from traditional financing as the company leases the asset instead of owning it. It requires less upfront capital and provides greater equipment flexibility. However, it can be more expensive overall due to finance charges and interest payments.',
+          'Who provides lease-based financing?':
+              'Who provides lease-based financing?',
+          'Lease-based financing can be provided by banks, leasing companies, and other financial institutions.':
+              'Lease-based financing can be provided by banks, leasing companies, and other financial institutions.',
+          'What types of assets can be leased through lease-based financing?':
+              'What types of assets can be leased through lease-based financing?',
+          'Almost any type of asset can be leased through lease-based financing, including equipment, machinery, vehicles, and real estate.':
+              'Almost any type of asset can be leased through lease-based financing, including equipment, machinery, vehicles, and real estate.',
+          'Is lease-based financing a secured investment?':
+              'Is lease-based financing a secured investment?',
+          'Lease-based financing is considered secure as it is backed by assets as collateral.':
+              'Lease-based financing is considered secure as it is backed by assets as collateral.',
+          'Is ownership of the asset preserved in lease-based financing?':
+              'Is ownership of the asset preserved in lease-based financing?',
+          'Yes. the lessor (person leasing) will transfer all risk and rewards associated with ownership of the asset to the lessee (borrower) but without transferring the asset’s ownership.':
+              'Yes. the lessor (person leasing) will transfer all risk and rewards associated with ownership of the asset to the lessee (borrower) but without transferring the asset’s ownership.',
+          'Is there a default risk with lease-backed financing?':
+              'Is there a default risk with lease-backed financing?',
+          'In the event that a company fails to repay a lease rental investment, the investor may have the right to take legal action to recover the outstanding amount. While there is no 100% guarantee, most platforms have safeguards in place for reclaiming the asset and for releasing the same.':
+              'In the event that a company fails to repay a lease rental investment, the investor may have the right to take legal action to recover the outstanding amount. While there is no 100% guarantee, most platforms have safeguards in place for reclaiming the asset and for releasing the same.',
+          'The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab.':
+              'The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab.',
+          'Venture Debt FAQ': 'Venture Debt FAQ',
+          'How does venture debt work?': 'How does venture debt work?',
+          "Venture debt is typically available to startups and high-growth companies that have already raised equity financing from venture capitalists or angel investors. The lender may evaluate the company's financials, business plan, and growth prospects before approving the loan. In exchange for the loan, the lender receives interest payments and other fees.":
+              "Venture debt is typically available to startups and high-growth companies that have already raised equity financing from venture capitalists or angel investors. The lender may evaluate the company's financials, business plan, and growth prospects before approving the loan. In exchange for the loan, the lender receives interest payments and other fees.",
+          'Why do companies need Venture Debt?':
+              'Why do companies need Venture Debt?',
+          'Venture Debt offers companies a flexible way to raise capital while avoiding the dilution of ownership that can come with equity financing. This allows companies to maintain greater control over their operations and future growth.':
+              'Venture Debt offers companies a flexible way to raise capital while avoiding the dilution of ownership that can come with equity financing. This allows companies to maintain greater control over their operations and future growth.',
+          'Who facilitates Venture debt?': 'Who facilitates Venture debt?',
+          'Venture debt is primarily facilitated by specialized lenders that have a better understanding of the unique needs and risks of startups, rather than traditional banks.':
+              'Venture debt is primarily facilitated by specialized lenders that have a better understanding of the unique needs and risks of startups, rather than traditional banks.',
+          'The investor will receive which instrument?':
+              'The investor will receive which instrument?',
+          'Investments in Venture Debt may be made through debt instruments such as non-convertible debentures (NCDs), bonds, or commercial paper.':
+              'Investments in Venture Debt may be made through debt instruments such as non-convertible debentures (NCDs), bonds, or commercial paper.',
+          'The interest earned will be taxed as per the investor&#39;s applicable tax slab.':
+              'The interest earned will be taxed as per the investor&#39;s applicable tax slab.',
+          'What are the risks of venture debt?':
+              'What are the risks of venture debt?',
+          "Startups and high-growth companies are more prone to failure, which makes venture debt riskier than other forms of debt financing. The lender may charge higher interest rates and fees to compensate for the higher risk. In case of loan default, the lender may seize the company's assets, which can have a negative impact on its operations.":
+              "Startups and high-growth companies are more prone to failure, which makes venture debt riskier than other forms of debt financing. The lender may charge higher interest rates and fees to compensate for the higher risk. In case of loan default, the lender may seize the company's assets, which can have a negative impact on its operations.",
         },
         'hi_IN': {
           'entrypoint_bottombar1': 'होम',
@@ -1686,68 +1795,113 @@ class LocalString extends Translations {
               'निवेशकों द्वारा एआईएफ इकाइयों की द्वितीयक बिक्री पर कराधान क्या है?',
           'AlternativeFAQ15':
               "जब एक निवेशक किसी अन्य निवेशक को इकाइयों या साझेदारी हितों के हस्तांतरण द्वारा एआईएफ से बाहर निकलता है (इस लेनदेन को 'द्वितीयक हस्तांतरण' कहा जाता है), इकाइयों की बिक्री पर लाभ सीधे निवेशकों के हाथ में कर योग्य हो सकता है। द्वितीयक अंतरण के दौरान एआईएफ इकाइयों की बिक्री पर लाभ की करदेयता इकाइयों की होल्डिंग अवधि पर निर्भर करेगी। यदि होल्डिंग अवधि 36 महीने से अधिक है, तो बिक्री को दीर्घकालिक पूंजीगत लाभ के रूप में वर्गीकृत किया जाएगा और इंडेक्सेशन के साथ 20% कर लगाया जाएगा। अगर होल्डिंग की अवधि 36 महीने से कम है, तो इसे शॉर्ट-टर्म कैपिटल गेन माना जाएगा और लागू स्लैब दरों पर टैक्स लगाया जाएगा।",
-          'Revenue Based Financing FAQ': 'Revenue Based Financing FAQ',
+          'Revenue Based Financing FAQ': 'राजस्व आधारित वित्तपोषण',
           'How does revenue-based financing work?':
-              'How does revenue-based financing work?',
+              'राजस्व आधारित वित्तपोषण कैसे काम करता है?',
           'In a revenue-based financing arrangement, the investor provides funding to the company in exchange for a percentage of its revenue. The percentage is usually in the range of 1% to 10%, depending on the size of the investment and the risk level of the company. The company then makes regular payments to the investor based on its revenue until the predetermined amount has been paid back, plus a return on the investment.':
-              'In a revenue-based financing arrangement, the investor provides funding to the company in exchange for a percentage of its revenue. The percentage is usually in the range of 1% to 10%, depending on the size of the investment and the risk level of the company. The company then makes regular payments to the investor based on its revenue until the predetermined amount has been paid back, plus a return on the investment.',
+              'राजस्व आधारित वित्तपोषण व्यवस्था में, निवेशक अपने राजस्व के प्रतिशत के बदले में कंपनी को धन उपलब्ध कराता है। निवेश के आकार और कंपनी के जोखिम स्तर के आधार पर प्रतिशत आमतौर पर 1% से 10% की सीमा में होता है। कंपनी तब अपने राजस्व के आधार पर निवेशक को नियमित भुगतान करती है जब तक कि पूर्व निर्धारित राशि का भुगतान नहीं किया जाता है, साथ ही निवेश पर रिटर्न भी मिलता है।',
           'How does revenue-based financing differ from traditional financing?':
-              'How does revenue-based financing differ from traditional financing?',
+              'राजस्व आधारित वित्तपोषण पारंपरिक वित्तपोषण से कैसे भिन्न है?',
           'Revenue-based financing differs from traditional financing in that it is based on a percentage of future revenue rather than taking on debt or giving up equity. It also offers more flexible repayment terms and can be a better fit for companies with limited assets or a non-traditional business model.':
-              'Revenue-based financing differs from traditional financing in that it is based on a percentage of future revenue rather than taking on debt or giving up equity. It also offers more flexible repayment terms and can be a better fit for companies with limited assets or a non-traditional business model.',
-          'How can NRIs invest?': 'How can NRIs invest?',
+              'राजस्व आधारित वित्त पोषण पारंपरिक वित्त पोषण से अलग है क्योंकि यह ऋण लेने या इक्विटी छोड़ने के बजाय भविष्य के राजस्व के प्रतिशत पर आधारित है। यह अधिक लचीली चुकौती शर्तें भी प्रदान करता है और सीमित संपत्ति या गैर-पारंपरिक व्यापार मॉडल वाली कंपनियों के लिए बेहतर हो सकता है।',
+          'How can NRIs invest?': 'एनआरआई कैसे निवेश कर सकते हैं?',
           'Non-Resident investors can invest through an NRO or NRE Account, although the returns and sale proceeds will be credited to their NRO account.':
-              'Non-Resident investors can invest through an NRO or NRE Account, although the returns and sale proceeds will be credited to their NRO account.',
+              'अनिवासी निवेशक एनआरओ या एनआरई खाते के माध्यम से निवेश कर सकते हैं, हालांकि रिटर्न और बिक्री आय उनके एनआरओ खाते में जमा की जाएगी।',
           'What are the risks of RBF for investors?':
-              'What are the risks of RBF for investors?',
+              'निवेशकों के लिए आरबीएफ के जोखिम क्या हैं?',
           "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company&#39;s revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue.":
-              "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company&#39;s revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue.",
+              "जैसा कि किसी भी निवेश के साथ होता है, आरबीएफ से जुड़े जोखिम होते हैं। इनमें कंपनी द्वारा निवेश को चुकाने के लिए पर्याप्त राजस्व उत्पन्न नहीं करने की संभावना और बाजार या उद्योग में बदलाव की संभावना शामिल है जो कंपनी के राजस्व पर नकारात्मक प्रभाव डाल सकती है। इसके अतिरिक्त, कंपनी के राजस्व को सटीक रूप से ट्रैक करने और सत्यापित करने में भी चुनौतियाँ हो सकती हैं।",
           'What happens if a company fails to repay an RBF investment?':
-              'What happens if a company fails to repay an RBF investment?',
+              'अगर कोई कंपनी आरबीएफ निवेश चुकाने में विफल रहती है तो क्या होता है?',
           "If a company fails to repay an RBF investment, the investor may have the right to take legal action to ecover the outstanding amount. However, the investor's ability to recover the investment may depend on the terms of the agreement and the assets that the company has available to repay the investment.":
-              "If a company fails to repay an RBF investment, the investor may have the right to take legal action to ecover the outstanding amount. However, the investor's ability to recover the investment may depend on the terms of the agreement and the assets that the company has available to repay the investment.",
+              "अगर कोई कंपनी आरबीएफ निवेश चुकाने में विफल रहती है, तो निवेशक को बकाया राशि की वसूली के लिए कानूनी कार्रवाई करने का अधिकार हो सकता है। हालांकि, निवेशक की निवेश की वसूली की क्षमता समझौते की शर्तों और कंपनी की संपत्ति पर निर्भर हो सकती है। निवेश चुकाने के लिए उपलब्ध है।",
           'Who invests in revenue-based financing?':
-              'Who invests in revenue-based financing?',
+              'राजस्व आधारित वित्तपोषण में कौन निवेश करता है?',
           'Revenue-based financing can be provided by angel investors, venture capital firms, and other financial institutions. Any Indian citizen, HUF, Company, and NRI can invest in an RBF opportunity.':
-              'Revenue-based financing can be provided by angel investors, venture capital firms, and other financial institutions. Any Indian citizen, HUF, Company, and NRI can invest in an RBF opportunity.',
-          'What will be the tax implications?':
-              'What will be the tax implications?',
+              'राजस्व आधारित वित्तपोषण एंजेल निवेशकों, उद्यम पूंजी फर्मों और अन्य वित्तीय संस्थानों द्वारा प्रदान किया जा सकता है। कोई भी भारतीय नागरिक, एचयूएफ, कंपनी और एनआरआई आरबीएफ अवसर में निवेश कर सकते हैं।',
+          'What will be the tax implications?': 'कर प्रभाव क्या होगा?',
           'The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab. TDS of 10% is applicable on the interest component of payouts.':
-              'The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab. TDS of 10% is applicable on the interest component of payouts.',
-          'High Yield Finance FAQ': 'High Yield Finance FAQ',
+              'राजस्व आधारित वित्तपोषण निवेश पर अर्जित ब्याज "अन्य स्रोतों से आय" शीर्षक के तहत कर योग्य है। लागू कर की दर निवेशक के आयकर स्लैब पर निर्भर करती है। भुगतान के ब्याज घटक पर 10% का टीडीएस लागू है।',
+          'High Yield Finance FAQ': 'हाई यील्ड फाइनेंस',
           'How does high yield fixed income differ from investment-grade fixed income?':
-              'How does high yield fixed income differ from investment-grade fixed income?',
+              'उच्च प्रतिफल निश्चित आय निवेश-श्रेणी की निश्चित आय से कैसे भिन्न होती है?',
           'High yield fixed income is issued by riskier companies with lower credit ratings, while investment- grade fixed income is issued by more creditworthy companies. High yield fixed income provides higher yields but also higher risk.':
-              'High yield fixed income is issued by riskier companies with lower credit ratings, while investment- grade fixed income is issued by more creditworthy companies. High yield fixed income provides higher yields but also higher risk.',
+              'उच्च उपज निश्चित आय जोखिम वाली कंपनियों द्वारा कम क्रेडिट रेटिंग के साथ जारी की जाती है, जबकि निवेश-ग्रेड निश्चित आय अधिक क्रेडिट योग्य कंपनियों द्वारा जारी की जाती है। उच्च उपज निश्चित आय उच्च उपज प्रदान करती है लेकिन उच्च जोखिम भी।',
           'What types of securities are considered high yield fixed income?':
-              'What types of securities are considered high yield fixed income?',
+              'किस प्रकार की प्रतिभूतियों को उच्च प्रतिफल निश्चित आय माना जाता है?',
           'High yield fixed income securities include corporate bonds, municipal bonds, and asset-backed securities, among others. In the majority of cases the underlying instrument is a Non-Convertible Debenture (NCD)':
-              'High yield fixed income securities include corporate bonds, municipal bonds, and asset-backed securities, among others. In the majority of cases the underlying instrument is a Non-Convertible Debenture (NCD)',
+              'उच्च उपज निश्चित आय प्रतिभूतियों में कॉर्पोरेट बॉन्ड, नगरपालिका बांड और संपत्ति-समर्थित प्रतिभूतियां शामिल हैं। अधिकांश मामलों में अंतर्निहित लिखत एक गैर-परिवर्तनीय डिबेंचर (एनसीडी) होता है।',
           'Is it possible for the investor to exit their investment before the maturity date?':
-              'Is it possible for the investor to exit their investment before the maturity date?',
+              'क्या निवेशक के लिए परिपक्वता तिथि से पहले अपने निवेश से बाहर निकलना संभव है?',
           'The investment is in the form of NCD, which can be transferred to another person provided one is able to find the buyer.':
-              'The investment is in the form of NCD, which can be transferred to another person provided one is able to find the buyer.',
+              'निवेश एनसीडी के रूप में है, जिसे किसी अन्य व्यक्ति को हस्तांतरित किया जा सकता है, बशर्ते कोई खरीदार खोजने में सक्षम हो।',
           'Who can invest in high yielding NCDs?':
-              'Who can invest in high yielding NCDs?',
+              'उच्च प्रतिफल वाले एनसीडी में कौन निवेश कर सकता है?',
           'Resident investors and unincorporated bodies are eligible to invest in NCDs, while NRIs may invest in NCDs if the rules of the issuing company permit them to do so. It is rare for companies in India to allow NRIs to invest in a public issue NCD.':
-              'Resident investors and unincorporated bodies are eligible to invest in NCDs, while NRIs may invest in NCDs if the rules of the issuing company permit them to do so. It is rare for companies in India to allow NRIs to invest in a public issue NCD.',
+              'निवासी निवेशक और अनिगमित निकाय एनसीडी में निवेश करने के लिए पात्र हैं, जबकि एनआरआई एनसीडी में निवेश कर सकते हैं यदि जारी करने वाली कंपनी के नियम उन्हें ऐसा करने की अनुमति देते हैं। भारत में कंपनियों के लिए अनिवासी भारतीयों को सार्वजनिक निर्गम एनसीडी में निवेश करने की अनुमति देना दुर्लभ है।',
           'How will the investor receive repayments?':
-              'How will the investor receive repayments?',
+              'निवेशक को चुकौती कैसे मिलेगी?',
           'Repayment to the investor will be made directly to the bank account linked to their demat account.':
-              'Repayment to the investor will be made directly to the bank account linked to their demat account.',
+              'निवेशक को चुकौती सीधे उनके डीमैट खाते से जुड़े बैंक खाते में की जाएगी।',
           'What is the course of action in case of default in NCD investments?':
-              'What is the course of action in case of default in NCD investments?',
+              'एनसीडी निवेश में चूक के मामले में कार्रवाई का तरीका क्या है?',
           'In such a scenario, the debenture trustee, who acts in the best interest of the debenture holders (investors), will take necessary measures to ensure that the issuer (borrower) rectifies the default and/or enforces security to recover the invested amount.':
-              'In such a scenario, the debenture trustee, who acts in the best interest of the debenture holders (investors), will take necessary measures to ensure that the issuer (borrower) rectifies the default and/or enforces security to recover the invested amount.',
+              'ऐसे परिदृश्य में, डिबेंचर ट्रस्टी, जो डिबेंचर धारकों (निवेशकों) के सर्वोत्तम हित में कार्य करता है, यह सुनिश्चित करने के लिए आवश्यक उपाय करेगा कि जारीकर्ता (उधारकर्ता) निवेशित राशि की वसूली के लिए डिफ़ॉल्ट और/या सुरक्षा लागू करता है। ',
           'Does the borrower deduct TDS on a payout in NCD investments, and what is the applicable rate?':
-              'Does the borrower deduct TDS on a payout in NCD investments, and what is the applicable rate?',
+              'क्या उधारकर्ता एनसीडी निवेशों में भुगतान पर टीडीएस काटता है, और लागू दर क्या है?',
           "Yes, TDS is applicable on the interest component of the payout, and the borrower deducts 10% TDS at the source. The deducted TDS amount will be automatically reflected in the investor's form 26AS.":
-              "Yes, TDS is applicable on the interest component of the payout, and the borrower deducts 10% TDS at the source. The deducted TDS amount will be automatically reflected in the investor's form 26AS.",
-          'Asset backed leasing FAQ': 'Asset backed leasing FAQ',
+              "हां, टीडीएस भुगतान के ब्याज घटक पर लागू होता है, और उधारकर्ता स्रोत पर 10% टीडीएस काटता है। कटौती की गई टीडीएस राशि स्वचालित रूप से निवेशक के फॉर्म 26AS में दिखाई देगी।",
+          'Asset backed leasing FAQ': 'एसेट समर्थित लीजिंग',
           'How does lease-based financing work?':
-              'How does lease-based financing work?',
+              'पट्टा आधारित वित्तपोषण कैसे काम करता है?',
           'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.':
-              'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.',
+              'लीज-आधारित वित्तपोषण व्यवस्था में, लीजिंग कंपनी संपत्ति खरीदती है और इसे नियमित लीज भुगतान के बदले में कंपनी को पट्टे पर देती है। पट्टे के भुगतान में आम तौर पर एक वित्त शुल्क शामिल होता है जो संपत्ति की लागत और ब्याज को कवर करता है, और पट्टे की अवधि आमतौर पर संपत्ति के अपेक्षित उपयोगी जीवन से कम होती है।',
+          'How does lease-based financing differ from traditional financing?':
+              'पट्टा-आधारित वित्तपोषण पारंपरिक वित्तपोषण से कैसे भिन्न है?',
+          'Lease-based financing is distinct from traditional financing as the company leases the asset instead of owning it. It requires less upfront capital and provides greater equipment flexibility. However, it can be more expensive overall due to finance charges and interest payments.':
+              'लीज-आधारित वित्तपोषण पारंपरिक वित्तपोषण से अलग है क्योंकि कंपनी संपत्ति के मालिक होने के बजाय इसे पट्टे पर देती है। इसके लिए कम अग्रिम पूंजी की आवश्यकता होती है और यह अधिक उपकरण लचीलापन प्रदान करता है। हालांकि, वित्त शुल्क और ब्याज भुगतान के कारण कुल मिलाकर यह अधिक महंगा हो सकता है।',
+          'Who provides lease-based financing?':
+              'पट्टा आधारित वित्तपोषण कौन प्रदान करता है?',
+          'Lease-based financing can be provided by banks, leasing companies, and other financial institutions.':
+              'लीज-आधारित वित्तपोषण बैंकों, लीजिंग कंपनियों और अन्य वित्तीय संस्थानों द्वारा प्रदान किया जा सकता है।',
+          'What types of assets can be leased through lease-based financing?':
+              'किस प्रकार की संपत्तियों को लीज़-आधारित वित्तपोषण के माध्यम से पट्टे पर दिया जा सकता है?',
+          'Almost any type of asset can be leased through lease-based financing, including equipment, machinery, vehicles, and real estate.':
+              'उपकरण, मशीनरी, वाहन और रियल एस्टेट सहित पट्टे पर आधारित वित्तपोषण के माध्यम से लगभग किसी भी प्रकार की संपत्ति को पट्टे पर दिया जा सकता है।',
+          'Is lease-based financing a secured investment?':
+              'क्या पट्टा-आधारित वित्तपोषण एक सुरक्षित निवेश है?',
+          'Lease-based financing is considered secure as it is backed by assets as collateral.':
+              'लीज-आधारित वित्तपोषण को सुरक्षित माना जाता है क्योंकि यह संपत्ति द्वारा संपार्श्विक के रूप में समर्थित है।',
+          'Is ownership of the asset preserved in lease-based financing?':
+              'क्या पट्टे पर आधारित वित्तपोषण में संपत्ति का स्वामित्व संरक्षित है?',
+          'Yes. the lessor (person leasing) will transfer all risk and rewards associated with ownership of the asset to the lessee (borrower) but without transferring the asset’s ownership.':
+              'हाँ। पट्टेदार (पट्टे पर देने वाला व्यक्ति) संपत्ति के स्वामित्व से जुड़े सभी जोखिमों और पुरस्कारों को पट्टेदार (उधारकर्ता) को स्थानांतरित कर देगा, लेकिन संपत्ति के स्वामित्व को स्थानांतरित किए बिना।',
+          'Is there a default risk with lease-backed financing?':
+              'क्या पट्टा-समर्थित वित्त पोषण के साथ कोई डिफ़ॉल्ट जोखिम है?',
+          'In the event that a company fails to repay a lease rental investment, the investor may have the right to take legal action to recover the outstanding amount. While there is no 100% guarantee, most platforms have safeguards in place for reclaiming the asset and for releasing the same.':
+              'अगर कोई कंपनी लीज रेंटल निवेश चुकाने में विफल रहती है, तो निवेशक को बकाया राशि की वसूली के लिए कानूनी कार्रवाई करने का अधिकार हो सकता है। जबकि कोई 100% गारंटी नहीं है, अधिकांश प्लेटफार्मों में संपत्ति को पुनः प्राप्त करने और उसे जारी करने के लिए सुरक्षा उपाय हैं।',
+          'The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab.':
+              'लीज-आधारित वित्तपोषण निवेश से अर्जित किराया "अन्य स्रोतों से आय" शीर्षक के तहत कर योग्य है। लागू कर की दर निवेशक के आयकर स्लैब पर निर्भर करती है।',
+          'Venture Debt FAQ': 'उद्यम ऋण अक्सर पूछे जाने वाले प्रश्न',
+          'How does venture debt work?': 'उद्यम ऋण कैसे काम करता है?',
+          "Venture debt is typically available to startups and high-growth companies that have already raised equity financing from venture capitalists or angel investors. The lender may evaluate the company's financials, business plan, and growth prospects before approving the loan. In exchange for the loan, the lender receives interest payments and other fees.":
+              "उद्यम ऋण आम तौर पर स्टार्टअप और उच्च विकास वाली कंपनियों के लिए उपलब्ध है, जिन्होंने पहले ही उद्यम पूंजीपतियों या देवदूत निवेशकों से इक्विटी वित्तपोषण जुटा लिया है। ऋणदाता ऋण स्वीकृत करने से पहले कंपनी की वित्तीय, व्यावसायिक योजना और विकास की संभावनाओं का मूल्यांकन कर सकता है। ऋण के बदले में , ऋणदाता ब्याज भुगतान और अन्य शुल्क प्राप्त करता है।",
+          'Why do companies need Venture Debt?':
+              'कंपनियों को उद्यम ऋण की आवश्यकता क्यों है?',
+          'Venture Debt offers companies a flexible way to raise capital while avoiding the dilution of ownership that can come with equity financing. This allows companies to maintain greater control over their operations and future growth.':
+              'उद्यम ऋण कंपनियों को इक्विटी वित्तपोषण के साथ आने वाले स्वामित्व के कमजोर पड़ने से बचते हुए पूंजी जुटाने का एक लचीला तरीका प्रदान करता है। यह कंपनियों को अपने संचालन और भविष्य के विकास पर अधिक नियंत्रण बनाए रखने की अनुमति देता है।',
+          'Who facilitates Venture debt?': 'उद्यम ऋण की सुविधा कौन देता है?',
+          'Venture debt is primarily facilitated by specialized lenders that have a better understanding of the unique needs and risks of startups, rather than traditional banks.':
+              'उद्यम ऋण मुख्य रूप से विशिष्ट उधारदाताओं द्वारा सुगम किया जाता है, जिन्हें पारंपरिक बैंकों के बजाय स्टार्टअप्स की अनूठी जरूरतों और जोखिमों की बेहतर समझ होती है।',
+          'The investor will receive which instrument?':
+              'निवेशक कौन सा साधन प्राप्त होगा?',
+          'Investments in Venture Debt may be made through debt instruments such as non-convertible debentures (NCDs), bonds, or commercial paper.':
+              'उद्यम ऋण में निवेश गैर-परिवर्तनीय डिबेंचर (एनसीडी), बांड, या वाणिज्यिक पत्र जैसे ऋण उपकरणों के माध्यम से किया जा सकता है।',
+          'The interest earned will be taxed as per the investor&#39;s applicable tax slab.':
+              'अर्जित ब्याज पर निवेशक के लागू कर स्लैब के अनुसार कर लगाया जाएगा।',
+          'What are the risks of venture debt?': 'उद्यम ऋण के जोखिम क्या हैं?',
+          "Startups and high-growth companies are more prone to failure, which makes venture debt riskier than other forms of debt financing. The lender may charge higher interest rates and fees to compensate for the higher risk. In case of loan default, the lender may seize the company's assets, which can have a negative impact on its operations.":
+              "स्टार्टअप और उच्च विकास वाली कंपनियां विफलता के लिए अधिक प्रवण हैं, जो ऋण वित्तपोषण के अन्य रूपों की तुलना में उद्यम ऋण को जोखिम भरा बनाता है। ऋणदाता उच्च जोखिम की भरपाई के लिए उच्च ब्याज दर और शुल्क ले सकता है। ऋण चूक के मामले में, ऋणदाता हो सकता है कंपनी की संपत्तियों को जब्त कर लें, जिसका इसके संचालन पर नकारात्मक प्रभाव पड़ सकता है।",
         },
       };
 }

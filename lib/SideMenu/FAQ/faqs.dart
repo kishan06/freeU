@@ -115,25 +115,25 @@ class _FAQsState extends State<FAQs> {
                   OpenContainerWrappers(
                       openBuild: const RevenueFAQ(),
                       closeBuild: catTitle(
-                          'Revenue Based Financing FAQ',
+                          'Revenue Based Financing FAQ'.tr,
                           'assets/newImages/cat5.png',
                           AppColors.brownL_973926)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
                   OpenContainerWrappers(
                       openBuild: const HighYeldFAQ(),
                       closeBuild: catTitle(
-                          'High Yield Finance FAQ',
+                          'High Yield Finance FAQ'.tr,
                           'assets/newImages/cat10.png',
                           AppColors.purpleL_474E88)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
                   OpenContainerWrappers(
                       openBuild: const LeasingFAQ(),
-                      closeBuild: catTitle('Asset backed leasing FAQ',
+                      closeBuild: catTitle('Asset backed leasing FAQ'.tr,
                           'assets/newImages/cat6.png', AppColors.pinkL_E6088B)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
                   OpenContainerWrappers(
                       openBuild: const VentureDebtFAQ(),
-                      closeBuild: catTitle('Venture Debt FAQ',
+                      closeBuild: catTitle('Venture Debt FAQ'.tr,
                           'assets/newImages/cat8.png', AppColors.blueL_006796)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
                   sizedBoxHeight(15.h),

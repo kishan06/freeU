@@ -40,7 +40,7 @@ class _VentureDebtFAQState extends State<VentureDebtFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  'Venture Debt FAQ',
+                  'Venture Debt FAQ'.tr,
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
@@ -84,7 +84,7 @@ class _VentureDebtFAQState extends State<VentureDebtFAQ> {
                         color: notCollapsed ? Colors.white : Colors.black,
                       ),
                       title: Text(
-                        'How does venture debt work?',
+                        'How does venture debt work?'.tr,
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 20.sp,
@@ -92,7 +92,7 @@ class _VentureDebtFAQState extends State<VentureDebtFAQ> {
                       ),
                       children: <Widget>[
                         Text(
-                          "Venture debt is typically available to startups and high-growth companies that have already raised equity financing from venture capitalists or angel investors. The lender may evaluate the company's financials, business plan, and growth prospects before approving the loan. In exchange for the loan, the lender receives interest payments and other fees.",
+                          "Venture debt is typically available to startups and high-growth companies that have already raised equity financing from venture capitalists or angel investors. The lender may evaluate the company's financials, business plan, and growth prospects before approving the loan. In exchange for the loan, the lender receives interest payments and other fees.".tr,
                           style: TextStyle(
                               color: Colors.white,
                               fontFamily: "Poppins",
@@ -104,30 +104,30 @@ class _VentureDebtFAQState extends State<VentureDebtFAQ> {
                   ),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Why do companies need Venture Debt?',
+                      titleString: 'Why do companies need Venture Debt?'.tr,
                       contentString:
-                          'Venture Debt offers companies a flexible way to raise capital while avoiding the dilution of ownership that can come with equity financing. This allows companies to maintain greater control over their operations and future growth.'),
+                          'Venture Debt offers companies a flexible way to raise capital while avoiding the dilution of ownership that can come with equity financing. This allows companies to maintain greater control over their operations and future growth.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'Who facilitates Venture debt?',
+                      titleString: 'Who facilitates Venture debt?'.tr,
                       contentString:
-                          'Venture debt is primarily facilitated by specialized lenders that have a better understanding of the unique needs and risks of startups, rather than traditional banks.'),
+                          'Venture debt is primarily facilitated by specialized lenders that have a better understanding of the unique needs and risks of startups, rather than traditional banks.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
-                          'The investor will receive which instrument?',
+                          'The investor will receive which instrument?'.tr,
                       contentString:
-                          'Investments in Venture Debt may be made through debt instruments such as non-convertible debentures (NCDs), bonds, or commercial paper.'),
+                          'Investments in Venture Debt may be made through debt instruments such as non-convertible debentures (NCDs), bonds, or commercial paper.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'What will be the tax implications?',
+                      titleString: 'What will be the tax implications?'.tr,
                       contentString:
-                          'The interest earned will be taxed as per the investor&#39;s applicable tax slab.'),
+                          'The interest earned will be taxed as per the investor&#39;s applicable tax slab.'.tr),
                   sizedBoxHeight(15.h),
                   FaqBox(
-                      titleString: 'What are the risks of venture debt?',
+                      titleString: 'What are the risks of venture debt?'.tr,
                       contentString:
-                          "Startups and high-growth companies are more prone to failure, which makes venture debt riskier than other forms of debt financing. The lender may charge higher interest rates and fees to compensate for the higher risk. In case of loan default, the lender may seize the company's assets, which can have a negative impact on its operations."),
+                          "Startups and high-growth companies are more prone to failure, which makes venture debt riskier than other forms of debt financing. The lender may charge higher interest rates and fees to compensate for the higher risk. In case of loan default, the lender may seize the company's assets, which can have a negative impact on its operations.".tr),
                   sizedBoxHeight(15.h),
                 ],
               ),
