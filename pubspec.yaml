@@ -45,7 +45,7 @@ dependencies:
   accordion: ^2.5.1
   dropdown_button2: ^1.9.2
   pin_code_fields: ^7.4.0
-  fluttertoast: ^8.1.2
+  fluttertoast: any
   syncfusion_flutter_charts: ^20.4.49
   path_provider: ^2.0.12
   
