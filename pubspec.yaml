@@ -64,6 +64,12 @@ dependencies:
   lottie: ^2.3.2
   local_auth: ^2.1.6
   another_flushbar: ^1.12.29
+  flutter_launcher_icons: ^0.13.1
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/logos/logo_new.png"
+  
 
   
 

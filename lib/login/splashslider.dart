@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/login/contentModel.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -33,12 +30,12 @@ class _SplashsliderState extends State<Splashslider> {
     return WillPopScope(
       onWillPop: () async {
         final difference = DateTime.now().difference(timebackPressed);
-        final isExitWarning = difference >= Duration(seconds: 2);
+        final isExitWarning = difference >= const Duration(seconds: 2);
 
         timebackPressed = DateTime.now();
 
         if (isExitWarning) {
-          final message = "Press back again to exit";
+          const message = "Press back again to exit";
           Fluttertoast.showToast(
             msg: message,
             fontSize: 18,
@@ -155,7 +152,7 @@ class _SplashsliderState extends State<Splashslider> {
                           child: Text(
                             "Skip",
                             style: TextStyle(
-                              color: Color(0xFF6B6B6B),
+                              color: const Color(0xFF6B6B6B),
                               fontSize: 16.sp,
                               fontFamily: "Poppins",
                             ),
@@ -170,7 +167,7 @@ class _SplashsliderState extends State<Splashslider> {
                       : Text(
                           "",
                           style: TextStyle(
-                            color: Color(0xFFFFFFFF),
+                            color: const Color(0xFFFFFFFF),
                             fontSize: 16.sp,
                             fontFamily: "Poppins",
                           ),
@@ -202,7 +199,7 @@ class _SplashsliderState extends State<Splashslider> {
 
           sizedBoxHeight(37.h),
 
-          Container(
+          SizedBox(
             width: 180.h,
             height: 180.h,
             child: Image.asset(
@@ -215,7 +212,7 @@ class _SplashsliderState extends State<Splashslider> {
 
           Align(
             alignment: Alignment.centerRight,
-            child: Container(
+            child: SizedBox(
               width: 153.h,
               height: 153.h,
               child: Image.asset(
@@ -256,7 +253,7 @@ class _SplashsliderState extends State<Splashslider> {
           sizedBoxHeight(53.h),
 
           Center(
-            child: Container(
+            child: SizedBox(
               width: 250.h,
               height: 250.h,
               child: Image.asset(
@@ -302,7 +299,7 @@ class _SplashsliderState extends State<Splashslider> {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
+              SizedBox(
                 width: 120.h,
                 height: 120.h,
                 child: Image.asset(
@@ -331,7 +328,7 @@ class _SplashsliderState extends State<Splashslider> {
 
           Align(
             alignment: Alignment.centerRight,
-            child: Container(
+            child: SizedBox(
               width: 130.h,
               height: 130.h,
               child: Image.asset(
@@ -371,7 +368,7 @@ class _SplashsliderState extends State<Splashslider> {
           sizedBoxHeight(50.h),
 
           Center(
-            child: Container(
+            child: SizedBox(
               width: 250.h,
               height: 250.h,
               child: Image.asset(
