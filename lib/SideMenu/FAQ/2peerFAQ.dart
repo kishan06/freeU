@@ -40,7 +40,7 @@ class _PeerFAQState extends State<PeerFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Peer To Peer Lending FAQ",
+                  "Peer To Peer Lending",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

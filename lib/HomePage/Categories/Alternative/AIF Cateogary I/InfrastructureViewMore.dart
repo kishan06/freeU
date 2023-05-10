@@ -22,7 +22,7 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/AngelFundMoreProduct");
+            Get.toNamed("/InfractureViewMoreProduct");
           },
         ),
       ),
@@ -135,7 +135,6 @@ class _InfrastructureViewMoreState extends State<InfrastructureViewMore> {
       ),
     );
   }
-
 
   Widget faqAccod() {
     return Container(

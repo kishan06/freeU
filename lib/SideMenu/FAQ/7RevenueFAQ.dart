@@ -40,7 +40,7 @@ class _RevenueFAQState extends State<RevenueFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  'Revenue Based Financing FAQ',
+                  'Revenue Based Financing',
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

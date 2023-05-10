@@ -40,7 +40,7 @@ class _AlternativeFAQState extends State<AlternativeFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Alternative Investment Fund FAQ",
+                  "Alternative Investment Fund",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

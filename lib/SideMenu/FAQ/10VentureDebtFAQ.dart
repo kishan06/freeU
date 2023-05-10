@@ -40,7 +40,7 @@ class _VentureDebtFAQState extends State<VentureDebtFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  'Venture Debt FAQ',
+                  'Venture Debt',
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

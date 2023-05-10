@@ -174,6 +174,30 @@ class _AboutState extends State<About> {
                       fontWeight: FontWeight.w500),
                 ),
               ),
+              SizedBox(height: 8),
+              Row(
+                children: [
+                  Container(
+                    color: Color(0xff4981C9).withOpacity(0.7),
+                    height: 2.5.h,
+                    width: 30.w,
+                  ),
+                  sizedBoxWidth(10.w),
+                  Text(
+                    'Abhishek Sipani',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                        color: Color(0xff0F0C0C),
+                        fontSize: 16.sp,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w500),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [],
+                  ),
+                ],
+              ),
               SizedBox(
                 height: 16.h,
               ),
@@ -194,66 +218,12 @@ class _AboutState extends State<About> {
                         children: [
                           Row(
                             children: [
-                              // RichText(
-                              //   text: TextSpan(
-                              //     text: '66',
-                              //     style: TextStyle(
-                              //         color: Colors.black, fontSize: 10.sp),
-                              //   ),
-                              // ),
-                              // Text('"',
-                              //     style: TextStyle(
-                              //         fontSize: 50.sp,
-                              //         color: Color(0xff0F0C0C))),
                               Expanded(
                                 child: Text(
                                     'He has 18+ years of experience in banking and financial markets. Before starting his entrepreneurial journey, he had worked in the corporate world with HSBC Bank, Kotak Securities, Religare Macquarie Private Wealth and others. He has done MBA and CFP and has deep experience in the financial industry.',
                                     style: TextStyle(
                                         fontSize: 18.sp,
                                         color: Color(0xff0F0C0C))),
-                              ),
-                              // Row(
-                              //   crossAxisAlignment: CrossAxisAlignment.end,
-                              //   children: [
-                              //     Text(',,',
-                              //         style: TextStyle(
-                              //             fontSize: 50.sp,
-                              //             color: Color(0xff0F0C0C))),
-                              //   ],
-                              // ),
-                            ],
-                          ),
-                          SizedBox(height: 8),
-                          Row(
-                            children: [
-                              Container(
-                                color: Color(0xff4981C9).withOpacity(0.7),
-                                height: 2.5.h,
-                                width: 30.w,
-                              ),
-                              sizedBoxWidth(10.w),
-                              Text(
-                                'Abhishek Sipani',
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                    color: Color(0xff0F0C0C),
-                                    fontSize: 16.sp,
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w500),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  // Text(
-                                  //   'Founder, CEO',
-                                  //   textAlign: TextAlign.left,
-                                  //   style: TextStyle(
-                                  //     color: Color(0xff272424),
-                                  //     fontSize: 14.sp,
-                                  //     fontFamily: 'Poppins',
-                                  //   ),
-                                  // ),
-                                ],
                               ),
                             ],
                           ),

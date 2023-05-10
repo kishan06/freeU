@@ -424,60 +424,66 @@ class _HomePageState extends State<HomePage> {
                 // _selectedIndex = 1;
               }),
               sizedBoxHeight(10.h),
-              SizedBox(
-                height: 133.h,
-                child: ListView.separated(
-                    separatorBuilder: (_, index) {
-                      return index == 9 ? SizedBox() : sizedBoxWidth(20.w);
-                    },
-                    scrollDirection: Axis.horizontal,
-                    itemCount: categoryData.length,
-                    itemBuilder: (context, index) {
-                      return OpenContainerWrappers(
-                        closeBuild: categoryCard(
-                          color1: categoryData[index]["colorL"],
-                          color2: categoryData[index]["colorD"],
-                          bgImage: categoryData[index]["bgImage"],
-                          image: categoryData[index]["imageUrl"],
-                          text: categoryData[index]["title"],
-                        ),
-                        openBuild: navigate(index),
-                        // index == 0
-                        //     ? AlternativeInsvestment()
-                        //     : FractionalRealestate()
-                      );
-                    }),
-                /*   child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: List.generate(2, (index) => 
-                  GestureDetector(
-                        onTap: () {
-                          var screen;
-                          switch (index) {
-                            case 0:
-                              screen = AlternativeInsvestment();
-
-                              break;
-                            case 1:
-                              screen = FractionalRealestate();
-
-                              break;
-
-                            default:
-                          }
-                          Get.to(screen);
+              Column(
+                children: [
+                  SizedBox(
+                    height: 133.h,
+                    child: ListView.separated(
+                        separatorBuilder: (_, index) {
+                          return index == 9 ? SizedBox() : sizedBoxWidth(20.w);
                         },
-                        child: categoryCard(
-                          color1: categoryData[index]["colorL"],
-                          color2: categoryData[index]["colorD"],
-                          bgImage: categoryData[index]["bgImage"],
-                          image: categoryData[index]["imageUrl"],
-                          text: categoryData[index]["title"],
+                        scrollDirection: Axis.horizontal,
+                        itemCount: categoryData.length,
+                        itemBuilder: (context, index) {
+                          return OpenContainerWrappers(
+                            closeBuild: categoryCard(
+                              color1: categoryData[index]["colorL"],
+                              color2: categoryData[index]["colorD"],
+                              bgImage: categoryData[index]["bgImage"],
+                              image: categoryData[index]["imageUrl"],
+                              text: categoryData[index]["title"],
+                            ),
+                            openBuild: navigate(index),
+                            // index == 0
+                            //     ? AlternativeInsvestment()
+                            //     : FractionalRealestate()
+                          );
+                        }),
+                    /*   child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: List.generate(2, (index) => 
+                      GestureDetector(
+                            onTap: () {
+                              var screen;
+                              switch (index) {
+                                case 0:
+                                  screen = AlternativeInsvestment();
+
+                                  break;
+                                case 1:
+                                  screen = FractionalRealestate();
+
+                                  break;
+
+                                default:
+                              }
+                              Get.to(screen);
+                            },
+                            child: categoryCard(
+                              color1: categoryData[index]["colorL"],
+                              color2: categoryData[index]["colorD"],
+                              bgImage: categoryData[index]["bgImage"],
+                              image: categoryData[index]["imageUrl"],
+                              text: categoryData[index]["title"],
+                            ),
+                          )
                         ),
-                      )
-                    ),
-                )*/
-                // ), openBuild: Get.to(screen)),
+                    )*/
+                    // ), openBuild: Get.to(screen)),
+                  ),
+                  sizedBoxHeight(20.h),
+                  text30BlackM('--->--->>>')
+                ],
               ),
               sizedBoxHeight(15.h),
               OpenContainerWrappers(

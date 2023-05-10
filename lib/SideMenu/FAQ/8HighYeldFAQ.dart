@@ -40,7 +40,7 @@ class _HighYeldFAQState extends State<HighYeldFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  'High Yield Finance FAQ',
+                  'High Yield Finance',
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
