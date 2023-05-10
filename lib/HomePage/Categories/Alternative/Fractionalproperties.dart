@@ -329,34 +329,29 @@ class _SecondTabState extends State<SecondTab> {
                               width: 25.w,
                             ),
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 167),
-                                  child: Text(
-                                    // text2,
-                                    "Pre-tax IRR:",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: Color(0XFF000000),
-                                      fontFamily: 'Poppins',
-                                      //fontWeight: FontWeight.w300,
-                                    ),
+                                Text(
+                                  // text2,
+                                  "Pre-tax IRR:",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: Color(0XFF000000),
+                                    fontFamily: 'Poppins',
+                                    //fontWeight: FontWeight.w300,
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 210),
-                                  child: Text(
-                                    // subtext2,
-                                    contents[index]["taxirr"],
-                                    //"12.7%",
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      color: Color(0XFF000000),
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                Text(
+                                  // subtext2,
+                                  contents[index]["taxirr"],
+                                  //"12.7%",
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    color: Color(0XFF000000),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
                               ],
@@ -368,11 +363,10 @@ class _SecondTabState extends State<SecondTab> {
                         height: 30.h,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 16),
+                        padding: EdgeInsets.only(left: 16.w),
                         child: Row(
                           children: [
                             Image.asset(
-                              // image3,
                               "assets/images/propertiestransfer.png",
                               width: 50,
                               height: 50,
@@ -381,36 +375,30 @@ class _SecondTabState extends State<SecondTab> {
                               width: 25.w,
                             ),
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: EdgeInsets.only(right: 1.w),
-                                  child: Text(
-                                    // text3,
-                                    "Minimum investment amount",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: Color(0XFF000000),
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w300,
-                                    ),
+                                Text(
+                                  "Minimum investment amount",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: Color(0XFF000000),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w300,
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 210),
-                                  child: Text(
-                                    //subtext3,
-                                    contents[index]["minimum"],
-                                    //" 1 Crore",
-                                    textDirection: TextDirection.ltr,
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      color: Color(0XFF000000),
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                Text(
+                                  //subtext3,
+                                  contents[index]["minimum"],
+                                  //" 1 Crore",
+                                  textDirection: TextDirection.ltr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    color: Color(0XFF000000),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
                               ],

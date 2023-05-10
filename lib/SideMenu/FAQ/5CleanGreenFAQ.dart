@@ -40,7 +40,7 @@ class _CleanGreenFAQState extends State<CleanGreenFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Clean and Green Assets FAQ",
+                  "Clean and Green Assets",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

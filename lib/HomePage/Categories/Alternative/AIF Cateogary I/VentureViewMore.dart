@@ -23,7 +23,7 @@ class _VentureViewMoreState extends State<VentureViewMore> {
         child: CustomNextButton(
           text: 'View Categories',
           ontap: () {
-            Get.toNamed("/AngelFundMoreProduct");
+            Get.toNamed("/VentureViewMoreProduct");
           },
         ),
       ),
@@ -128,7 +128,7 @@ class _VentureViewMoreState extends State<VentureViewMore> {
               "VCF is an AIF which invests primarily in unlisted securities of start-ups, emerging or early-stage venture capital undertakings mainly involved in new products, new services, technology or intellectual property right based activities or a new business model and shall include an angel fund."
               '\n\nVenture Capital Funds or VCFs make investments in start-ups that have lucrative growth potential, but lack funds to set up in the initial phase or during expansion. These startups face a lot of difficulty in securing funds through traditional capital markets. Therefore, VCFs provide a wholesome solution to their financial difficulties. Venture capital fund provides early-stage financing along with additional skills and resources to a startup during the pre-start stage. It provides overall resources to a startup so that it can develop the technological innovation from scratch.'
               '\n\nVCFs are regulated by the SEBI. There is a high-risk involved in funding new projects, or startups. But with VCFs, investors are usually willing to take the risk, because the high-growth potential of these projects usually results in high returns on investments. ',
-              
+
               // "VCF pool in funds from the prospective investors wanting to make equity investments in different/ multiple ventures, depending on their business plans, profiles, and development phases. Once the investors commit, the VCF finalizes the investment amounts of each potential investor to collect the capital. Then the fund manager (VCF) sought out private equity investments with a high growth potential that have the best chances of giving investors a return. "
               // '\n\nThe VCFs are mostly done in the early stages, and each investor gets their share/ return on investment profit proportional to their investment amount.'
               // '\n\nVenture Capital Funds are growing in India, especially because of HNIs, who have a lot of capital and seek high-risk return investment options. Since their inclusion under AIF, these funding has seen a lot of NRIs investing in startups in India, helping the economy grow.',
@@ -143,7 +143,6 @@ class _VentureViewMoreState extends State<VentureViewMore> {
       ),
     );
   }
-
 
   Widget faqAccod() {
     return Container(
@@ -226,9 +225,8 @@ class _VentureViewMoreState extends State<VentureViewMore> {
         "desp":
             "Acquisition or buyout financing is a type of financing that is used to fund acquisitions or leveraged buyouts. In an acquisition, one company purchases another company or part of another company. In a leveraged buyout, a management group of one company wants to acquire a product of another company."
       },
-      
     ];
-  
+
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
@@ -274,7 +272,6 @@ class _VentureViewMoreState extends State<VentureViewMore> {
               ],
             ),
             sizedBoxHeight(15.h),
-
             Text(
               "Based on the fund utilization in different phases of a business, Venture Capital Funds are classified into three broad categories. Early-stage financing, Expansion financing, and Acquisition/Buyout financing.",
               // "Based on the fund utilization in different phases of a business, Venture Capital Funds are classified into three broad categories. Early-stage financing, Expansion financing, and Acquisition/Buyout financing."
@@ -288,9 +285,7 @@ class _VentureViewMoreState extends State<VentureViewMore> {
                 fontSize: 18.sp,
               ),
             ),
-
             sizedBoxHeight(20.h),
-            
             ListView.builder(
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
@@ -302,7 +297,6 @@ class _VentureViewMoreState extends State<VentureViewMore> {
                       // /
                       );
                 }),
-        
           ],
         ),
       ),

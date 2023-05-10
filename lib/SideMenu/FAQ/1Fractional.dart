@@ -40,7 +40,7 @@ class _Fractional1State extends State<Fractional1> {
                   height: 10.h,
                 ),
                 Text(
-                  "Fractional Real Estate FAQ",
+                  "Fractional Real Estate",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

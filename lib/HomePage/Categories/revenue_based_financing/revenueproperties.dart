@@ -114,7 +114,7 @@ class _RevenuePropertiesState extends State<RevenueProperties> {
                     child: TabBarView(
                       children: [
                         FirstTab(),
-                        SecondTab(),
+                        SecondTabTemprory(),
                         ThirdTab(),
                       ],
                     ),
@@ -139,6 +139,21 @@ class FirstTab extends StatelessWidget {
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
         // sizedBoxHeight(20.h),
         const Text("No Data Found")
+      ],
+    );
+  }
+}
+
+class SecondTabTemprory extends StatelessWidget {
+  const SecondTabTemprory({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        // sizedBoxHeight(20.h),
+        const Text("No Deals Currently Availavle")
       ],
     );
   }

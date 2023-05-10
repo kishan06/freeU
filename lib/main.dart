@@ -75,7 +75,9 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import 'HomePage/Categories/Alternative/AIF Cateogary I/Angel Fund/AngelFundMoreProducts.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary I/Angel Fund/AngelFundViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary I/Infrastructure Fund/infrastructure_viewmore_product.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary I/InfrastructureViewMore.dart';
+import 'HomePage/Categories/Alternative/AIF Cateogary I/Venture Capital/venture_viewmore_product.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/DebtFundViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/FundForDistressedAssetsViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary II/RealEstateAIFViewMore.dart';
@@ -107,7 +109,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
   bool? onBoardDone;
   @override
   void initState() {
@@ -115,16 +116,13 @@ class _MyAppState extends State<MyApp> {
     checkOnboard();
     // final SharedPreferences prefs = await SharedPreferences.getInstance();
     // onBoardDone = prefs.getBool('OnBoardDone') ?? false;
- 
   }
 
   checkOnboard() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     onBoardDone = prefs.getBool('OnBoardDone') ?? false;
     print(onBoardDone);
-    setState(() {
-      
-    });
+    setState(() {});
   }
 
   // String entryRoute(){
@@ -135,197 +133,248 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     print("build $onBoardDone");
 
-    return onBoardDone == null ? CircularProgressIndicator() :ScreenUtilInit(
-      builder: (BuildContext context, Widget? child) => GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'FreeU',
-        // initialRoute: '/SideBar',
-        initialRoute: onBoardDone ?? false ? '/EntryPoint' : '/',
+    return onBoardDone == null
+        ? CircularProgressIndicator()
+        : ScreenUtilInit(
+            builder: (BuildContext context, Widget? child) => GetMaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'FreeU',
+              // initialRoute: '/SideBar',
+              initialRoute: onBoardDone ?? false ? '/EntryPoint' : '/',
 
-        theme: ThemeData(
-          scaffoldBackgroundColor: AppColors.white,
-          fontFamily: "Poppins",
-        ),
-        getPages: [
-          GetPage(name: '/SideBar', page: () => const SideBar()),
-          GetPage(name: '/EntryPoint', page: () => EntryPoint()),
-          GetPage(name: '/Insights', page: () => const Insights()),
-          GetPage(name: '/VerticalSlider', page: () => const VerticalSlider()),
-          GetPage(name: '/', page: () => const Splashslider()),
-          GetPage(name: '/login', page: () => const Login()),
-          GetPage(name: '/signup', page: () => const SignUp()),
-          GetPage(name: '/loginUsingOTP', page: () => const LoginUsingOTP()),
-          GetPage(name: '/forgotPassword', page: () => const forgotPassword()),
-          GetPage(name: '/otpverification', page: () => const otpVerification()),
-          GetPage(name: '/phoneverification', page: () => const PhoneVerification()),
-          GetPage(name: '/resetpassword', page: () => const ResetPassword()),
-          GetPage(name: '/securityquestion', page: () => const SecurityQuestion()),
-          GetPage(name: '/securityfirst', page: () => const SecurityFirst()),
-          GetPage(name: '/completeprofile', page: () => const CompleteProfile()),
-          GetPage(name: '/touchid', page: () => const TouchId()),
-          GetPage(name: '/homepage', page: () => const HomePage()),
-          GetPage(name: '/kyc1', page: () => const KYC1()),
-          GetPage(name: '/kyc2', page: () => const KYC2()),
-          GetPage(name: '/kyc3', page: () => const KYC3()),
-          GetPage(name: '/kyc4', page: () => const KYC4()),
-          GetPage(name: '/notificationpage', page: () => const NotificationPage()),
-          GetPage(name: '/contactus', page: () => const ContactUs()),
-          GetPage(name: '/howtoinvest', page: () => const HowToInvest()),
-          GetPage(name: '/categoriesmain', page: () => const CategoriesMain()),
+              theme: ThemeData(
+                scaffoldBackgroundColor: AppColors.white,
+                fontFamily: "Poppins",
+              ),
+              getPages: [
+                GetPage(name: '/SideBar', page: () => const SideBar()),
+                GetPage(name: '/EntryPoint', page: () => EntryPoint()),
+                GetPage(name: '/Insights', page: () => const Insights()),
+                GetPage(
+                    name: '/VerticalSlider',
+                    page: () => const VerticalSlider()),
+                GetPage(name: '/', page: () => const Splashslider()),
+                GetPage(name: '/login', page: () => const Login()),
+                GetPage(name: '/signup', page: () => const SignUp()),
+                GetPage(
+                    name: '/loginUsingOTP', page: () => const LoginUsingOTP()),
+                GetPage(
+                    name: '/forgotPassword',
+                    page: () => const forgotPassword()),
+                GetPage(
+                    name: '/otpverification',
+                    page: () => const otpVerification()),
+                GetPage(
+                    name: '/phoneverification',
+                    page: () => const PhoneVerification()),
+                GetPage(
+                    name: '/resetpassword', page: () => const ResetPassword()),
+                GetPage(
+                    name: '/securityquestion',
+                    page: () => const SecurityQuestion()),
+                GetPage(
+                    name: '/securityfirst', page: () => const SecurityFirst()),
+                GetPage(
+                    name: '/completeprofile',
+                    page: () => const CompleteProfile()),
+                GetPage(name: '/touchid', page: () => const TouchId()),
+                GetPage(name: '/homepage', page: () => const HomePage()),
+                GetPage(name: '/kyc1', page: () => const KYC1()),
+                GetPage(name: '/kyc2', page: () => const KYC2()),
+                GetPage(name: '/kyc3', page: () => const KYC3()),
+                GetPage(name: '/kyc4', page: () => const KYC4()),
+                GetPage(
+                    name: '/notificationpage',
+                    page: () => const NotificationPage()),
+                GetPage(name: '/contactus', page: () => const ContactUs()),
+                GetPage(name: '/howtoinvest', page: () => const HowToInvest()),
+                GetPage(
+                    name: '/categoriesmain',
+                    page: () => const CategoriesMain()),
 
-          //      GetPage(name: '/peerlendingasset1', page: () => PeerLendingAsset1()),
-          //    GetPage(name: '/peerlendingasset2', page: () => PeerLendingAsset2()),
-          // GetPage(name: '/investmentmain', page: () => InvestmentMain()),
-          GetPage(name: '/currentinvestment', page: () => const CurrentInvestment()),
-          GetPage(
-              name: '/previouslyinvestedproducts',
-              page: () => const PreviouslyInvestedProducts()),
-          GetPage(
-              name: '/suggestedinvestedproducts',
-              page: () => const SuggestedInvestedProducts()),
-          GetPage(name: '/chatpage', page: () => const ChatPage()),
-          GetPage(name: '/chatdetailpage', page: () => const ChatDetailPage()),
-          GetPage(name: '/homepage2', page: () => EntryPoint()),
-          GetPage(name: '/success', page: () => const Success()),
-          GetPage(
-              name: '/successstoriesdetails',
-              page: () => const SuccessStoriesDetails()),
-          GetPage(name: '/myprofile', page: () => const Profile()),
-          GetPage(name: '/about', page: () => const About()),
-          GetPage(name: '/faqs', page: () => const FAQs()),
-          GetPage(name: '/security', page: () => const Security()),
-          GetPage(name: '/updaterisk', page: () => const UpdateRishProfile()),
-          GetPage(name: '/insights', page: () => const Insights()),
-          GetPage(name: '/insightsinner', page: () => const InsightsInner()),
-          GetPage(name: '/privacypolicy', page: () => const PrivacyPolicy()),
-          GetPage(name: '/termsandconditions', page: () => const TermsAndCondition()),
-          GetPage(name: '/kyctab1', page: () => const KYCtabs1()),
-          GetPage(name: '/kyctab2', page: () => const KYCTabs2()),
-          GetPage(name: '/kyctab3', page: () => const KYCTabs3()),
-          GetPage(name: '/kyctab4', page: () => const KYCTabs4()),
-          GetPage(name: '/userlogged', page: () => const User()),
-          GetPage(
-              name: '/altenativecategories',
-              page: () => const AlternativeCategories()),
+                //      GetPage(name: '/peerlendingasset1', page: () => PeerLendingAsset1()),
+                //    GetPage(name: '/peerlendingasset2', page: () => PeerLendingAsset2()),
+                // GetPage(name: '/investmentmain', page: () => InvestmentMain()),
+                GetPage(
+                    name: '/currentinvestment',
+                    page: () => const CurrentInvestment()),
+                GetPage(
+                    name: '/previouslyinvestedproducts',
+                    page: () => const PreviouslyInvestedProducts()),
+                GetPage(
+                    name: '/suggestedinvestedproducts',
+                    page: () => const SuggestedInvestedProducts()),
+                GetPage(name: '/chatpage', page: () => const ChatPage()),
+                GetPage(
+                    name: '/chatdetailpage',
+                    page: () => const ChatDetailPage()),
+                GetPage(name: '/homepage2', page: () => EntryPoint()),
+                GetPage(name: '/success', page: () => const Success()),
+                GetPage(
+                    name: '/successstoriesdetails',
+                    page: () => const SuccessStoriesDetails()),
+                GetPage(name: '/myprofile', page: () => const Profile()),
+                GetPage(name: '/about', page: () => const About()),
+                GetPage(name: '/faqs', page: () => const FAQs()),
+                GetPage(name: '/security', page: () => const Security()),
+                GetPage(
+                    name: '/updaterisk', page: () => const UpdateRishProfile()),
+                GetPage(name: '/insights', page: () => const Insights()),
+                GetPage(
+                    name: '/insightsinner', page: () => const InsightsInner()),
+                GetPage(
+                    name: '/privacypolicy', page: () => const PrivacyPolicy()),
+                GetPage(
+                    name: '/termsandconditions',
+                    page: () => const TermsAndCondition()),
+                GetPage(name: '/kyctab1', page: () => const KYCtabs1()),
+                GetPage(name: '/kyctab2', page: () => const KYCTabs2()),
+                GetPage(name: '/kyctab3', page: () => const KYCTabs3()),
+                GetPage(name: '/kyctab4', page: () => const KYCTabs4()),
+                GetPage(name: '/userlogged', page: () => const User()),
+                GetPage(
+                    name: '/altenativecategories',
+                    page: () => const AlternativeCategories()),
 
-          // GetPage(name: '/privateequity', page: () => PrvateEquity()),
+                // GetPage(name: '/privateequity', page: () => PrvateEquity()),
 
-          GetPage(
-              name: '/altenativecategories2',
-              page: () => const AlternativeCategories2()),
+                GetPage(
+                    name: '/altenativecategories2',
+                    page: () => const AlternativeCategories2()),
 
-          GetPage(name: '/fullyfundedbank', page: () => const FullyFundedBank()),
+                GetPage(
+                    name: '/fullyfundedbank',
+                    page: () => const FullyFundedBank()),
 
-          GetPage(name: '/privateequityfund', page: () => const PrivateEquityFund()),
+                GetPage(
+                    name: '/privateequityfund',
+                    page: () => const PrivateEquityFund()),
 
-          GetPage(
-              name: '/privateequityfunddeals',
-              page: () => const PrivateEquityFundDeals()),
+                GetPage(
+                    name: '/privateequityfunddeals',
+                    page: () => const PrivateEquityFundDeals()),
 
-          GetPage(name: '/debtfund', page: () => const Debtfund()),
+                GetPage(name: '/debtfund', page: () => const Debtfund()),
 
-          GetPage(name: '/realestatepage', page: () => const RealEstatepage()),
+                GetPage(
+                    name: '/realestatepage',
+                    page: () => const RealEstatepage()),
 
-          GetPage(name: '/distressedasset', page: () => const DistressedAsset()),
-          
-          GetPage(name: '/DebtFundProd', page: () => const DebtFundProd()),
+                GetPage(
+                    name: '/distressedasset',
+                    page: () => const DistressedAsset()),
 
-          GetPage(
-              name: '/fractionalrealpage', page: () => const FractionalRealestate()),
+                GetPage(
+                    name: '/DebtFundProd', page: () => const DebtFundProd()),
 
-          GetPage(
-              name: '/fractionalpropertiespage',
-              page: () => const Fractionalproperties()),
+                GetPage(
+                    name: '/fractionalrealpage',
+                    page: () => const FractionalRealestate()),
 
-          // GetPage(
-          //     name: '/propertiesinvestment',
-          //     page: () => PropertiesInvestment()),
+                GetPage(
+                    name: '/fractionalpropertiespage',
+                    page: () => const Fractionalproperties()),
 
-          GetPage(
-              name: '/fractionalrealestate',
-              page: () => const FractionalRealEstate2()),
+                // GetPage(
+                //     name: '/propertiesinvestment',
+                //     page: () => PropertiesInvestment()),
 
-          // GetPage(
-          //     name: '/highyieldproperties', page: () => HighYieldProperties()),
+                GetPage(
+                    name: '/fractionalrealestate',
+                    page: () => const FractionalRealEstate2()),
 
+                // GetPage(
+                //     name: '/highyieldproperties', page: () => HighYieldProperties()),
 
-            // GetPage(
-            //   name: '/highyieldproperties',
-            //   page: () => HighYieldProperties()),    
+                // GetPage(
+                //   name: '/highyieldproperties',
+                //   page: () => HighYieldProperties()),
 
+                GetPage(
+                    name: '/debtfundviewmore',
+                    page: () => const DebtFundViewMore()),
+                GetPage(
+                    name: '/realestateaifviewmore',
+                    page: () => const RealEstateAIFViewMore()),
+                GetPage(
+                    name: '/funddistressedassetsviewmore',
+                    page: () => const FundForDistressedAssetsViewMore()),
+                GetPage(
+                    name: '/ventureviewmore',
+                    page: () => const VentureViewMore()),
+                GetPage(
+                    name: '/infrastructureviewmore',
+                    page: () => const InfrastructureViewMore()),
+                GetPage(
+                    name: '/angelfundviewmore',
+                    page: () => const AngelFundViewMore()),
+                GetPage(
+                    name: '/hedgeviewmore', page: () => const HedgeViewMore()),
+                GetPage(
+                    name: '/privatepublicequityviewmore',
+                    page: () => const PrivatePublicEquityViewMore()),
 
-          GetPage(name: '/debtfundviewmore', page: () => const DebtFundViewMore()),
-          GetPage(
-              name: '/realestateaifviewmore',
-              page: () => const RealEstateAIFViewMore()),
-          GetPage(
-              name: '/funddistressedassetsviewmore',
-              page: () => const FundForDistressedAssetsViewMore()),
-          GetPage(name: '/ventureviewmore', page: () => const VentureViewMore()),
-          GetPage(
-              name: '/infrastructureviewmore',
-              page: () => const InfrastructureViewMore()),
-          GetPage(name: '/angelfundviewmore', page: () => const AngelFundViewMore()),
-          GetPage(name: '/hedgeviewmore', page: () => const HedgeViewMore()),
-          GetPage(
-              name: '/privatepublicequityviewmore',
-              page: () => const PrivatePublicEquityViewMore()),
+                GetPage(
+                    name: '/leasebasedproperties',
+                    page: () => const LeaseBasedProperties()),
+                GetPage(
+                    name: '/AngelFundMoreProduct',
+                    page: () => const AngelFundMoreProduct()),
 
-          GetPage(
-              name: '/leasebasedproperties',
-              page: () => const LeaseBasedProperties()),
-          GetPage(
-              name: '/AngelFundMoreProduct',
-              page: () => const AngelFundMoreProduct()),
+                GetPage(
+                    name: '/hedgeviewproducts',
+                    page: () => const HedgeViewmoreProducts()),
 
-           GetPage(
-              name: '/hedgeviewproducts',
-              page: () => const HedgeViewmoreProducts()),
+                GetPage(
+                    name: '/privateinvestmentproducts',
+                    page: () => const PrivateInvestmentProducts()),
 
-              GetPage(
-              name: '/privateinvestmentproducts',
-              page: () => const PrivateInvestmentProducts()), 
+                GetPage(
+                    name: '/realestateviewmoreproducts',
+                    page: () => const RealEstateViewmoreProducts()),
 
-                    GetPage(
-              name: '/realestateviewmoreproducts',
-              page: () => const RealEstateViewmoreProducts()),
+                GetPage(
+                    name: '/cleangreenviewproducts',
+                    page: () => const CleanGreenViewMoreProduct()),
 
-              GetPage(
-              name: '/cleangreenviewproducts',
-              page: () => const CleanGreenViewMoreProduct()),
-              
-              
-              GetPage(
-              name: '/securedebtproducts',
-              page: () => const SecuritizedProperties()),
+                GetPage(
+                    name: '/securedebtproducts',
+                    page: () => const SecuritizedProperties()),
 
-              GetPage(
-              name: '/highyieldproducts',
-              page: () => const HighYieldMoreProduct()),
+                GetPage(
+                    name: '/highyieldproducts',
+                    page: () => const HighYieldMoreProduct()),
 
-              GetPage(
-              name: '/ventureviewproduct',
-              page: () => const VeiwMoreProductVenture()),
-              
-              GetPage(
-              name: '/leaseproducts',
-              page: () => const LeaseViewMoreProduct()),
-              
-              GetPage(
-              name: '/invoiceviewproductsproducts',
-              page: () => const InvoiceProperties()),
+                GetPage(
+                    name: '/ventureviewproduct',
+                    page: () => const VeiwMoreProductVenture()),
 
-              GetPage(
-              name: '/peerproducts',
-              page: () => const PeerViewMoreProduct()),
-              
-              GetPage(
-              name: '/revenueviewproducts',
-              page: () => const RevenueProperties()),              
-              
-        ],
-      ),
-      designSize: const Size(390, 844),
-    );
+                GetPage(
+                    name: '/leaseproducts',
+                    page: () => const LeaseViewMoreProduct()),
+
+                GetPage(
+                    name: '/invoiceviewproductsproducts',
+                    page: () => const InvoiceProperties()),
+
+                GetPage(
+                    name: '/peerproducts',
+                    page: () => const PeerViewMoreProduct()),
+
+                GetPage(
+                    name: '/revenueviewproducts',
+                    page: () => const RevenueProperties()),
+
+                GetPage(
+                    name: '/VentureViewMoreProduct',
+                    page: () => const VentureViewMoreProduct()),
+
+                GetPage(
+                    name: '/InfractureViewMoreProduct',
+                    page: () => const InfractureViewMoreProduct()),
+              ],
+            ),
+            designSize: const Size(390, 844),
+          );
   }
 }

@@ -40,7 +40,7 @@ class _LeasingFAQState extends State<LeasingFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  'Asset backed leasing FAQ',
+                  'Asset backed leasing',
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

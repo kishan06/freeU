@@ -40,7 +40,7 @@ class _SecuritizedFAQState extends State<SecuritizedFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Securitized Debt Instrument FAQ",
+                  "Securitized Debt Instrument",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,

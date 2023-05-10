@@ -20,7 +20,7 @@ class _Cat1VerticalSliderState extends State<Cat1VerticalSlider> {
       "SIH": "More than 7 Years",
       "color": AppColors.blue004E84,
       "ontap": '/ventureviewmore',
-      "ViewMoreProduct": '/AngelFundMoreProduct',
+      "ViewMoreProduct": '/VentureViewMoreProduct',
     },
     {
       "title": "02. Infrastructure Fund",
@@ -29,7 +29,7 @@ class _Cat1VerticalSliderState extends State<Cat1VerticalSlider> {
       "SIH": "More than 6 Years",
       "color": AppColors.pink873762,
       "ontap": '/infrastructureviewmore',
-      "ViewMoreProduct": '/AngelFundMoreProduct',
+      "ViewMoreProduct": '/InfractureViewMoreProduct',
     },
     {
       "title": "03. Angel Fund",

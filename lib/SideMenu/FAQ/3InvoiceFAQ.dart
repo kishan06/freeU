@@ -40,7 +40,7 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
                   height: 10.h,
                 ),
                 Text(
-                  "Invoice discounting FAQ",
+                  "Invoice discounting",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
