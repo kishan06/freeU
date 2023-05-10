@@ -77,6 +77,42 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                           "We will retain your personal information for as long as necessary to provide the App and comply with legal and regulatory requirements. At Blue Feather, we take all suitable steps to safeguard, protect, and maintain your personal information and data by reasonable security safeguards against loss/theft, as well as unauthorized use and access, disclosure, replication, use or alteration. "
                           "\n\nBut keeping in mind the open nature of the internet, some data may occasionally move over other networks that are without any security measures, and as such maybe used, accessed by other people who are not the intended recipients of the data. In such cases where privacy and security breaches occur, Blue Feather will not take any responsibility for any losses and damages that are incurred by you. If you click on one of the links to third party websites, you may be taken to websites we, at Blue Feather, do not control. This policy does not apply to the privacy practices of those websites. Read the privacy policy of other websites carefully. We are not responsible for these third-party sites.",
                         ),
+                        sizedBoxHeight(20.h),
+                        boldtxt('YOUR CHOICES AND RIGHTS'),
+                        sizedBoxHeight(20.h),
+                        lightTxt(
+                          'You may choose to opt out of certain types of communications from us, such as marketing emails. You may also have the right to access, correct, or delete your personal information. To exercise these rights, please contact us using the contact information provided below.',
+                        ),
+                        sizedBoxHeight(20.h),
+                        boldtxt('CHANGES TO THIS PRIVACY POLICY'),
+                        sizedBoxHeight(20.h),
+                        lightTxt(
+                          "We also reserve the right to change our privacy policy any time with or without notifying users of our new privacy statement. This privacy policy is not intended to and does not create any contractual or other legal rights in or on behalf of any party. This privacy policy applies to the current, and former visitors to our website. By visiting and/or using our website, you agree with this privacy policy.",
+                        ),
+                        sizedBoxHeight(20.h),
+                        boldtxt('CONTACT US'),
+                        sizedBoxHeight(20.h),
+                        Text.rich(
+                          TextSpan(
+                            children: [
+                              TextSpan(
+                                text:
+                                    'If you have any questions about this Policy or other privacy concerns, you can also email us at ',
+                                style: TextStyle(
+                                  fontSize: 18.sp,
+                                ),
+                              ),
+                              TextSpan(
+                                text: 'info@freeu.in',
+                                style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  color: Colors.blue,
+                                  fontSize: 18.sp,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -94,11 +130,7 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
     return Text(
       txt,
       style: TextStyle(
-        fontSize: 18.sp,
-        color: Colors.black,
-        fontFamily: "Poppins",
-        fontWeight: FontWeight.w600,
-      ),
+          fontFamily: "Poppins", fontSize: 22.sp, fontWeight: FontWeight.w500),
     );
   }
 
