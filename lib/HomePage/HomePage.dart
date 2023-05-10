@@ -1,12 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-// part 'HomePage.dart';
-
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
 import 'package:freeu/HomePage/Categories/CleanGreen/CleanGreenMain.dart';
 import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
@@ -22,22 +17,13 @@ import 'package:freeu/SideMenu/insights.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/categoryCard.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/screens/entry_point.dart';
 import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
 import 'Categories/Alternative/Fractionalpage.dart';
-
 import '../controllers/entry_point_controller.dart';
-
-// part 'HomePage.dart';
 
 class HomePage extends StatefulWidget {
   // EntryPoint enttyPoint = EntryPoint();
@@ -48,10 +34,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  // final entryPoint = EntryPoint();
-  // int selectIndex = 0;
-
-  // int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   List KnowledgeData = [
@@ -195,14 +177,22 @@ class _HomePageState extends State<HomePage> {
   final controllerEntryPoint = Get.put(EntryPointController());
   var sliderPage = 0.obs;
   final CarouselController carouselController = CarouselController();
+  final RxInt categoryIndex = 0.obs;
+  final ScrollController scrollController = ScrollController();
 
-  // DateTime timebackPressed = DateTime.now();
+  @override
+  void initState() {
+    super.initState();
+    scrollController.addListener(() {
+      int index = (scrollController.offset / 170.w).round();
+      categoryIndex.value = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      // drawer: NavDrawer(),
-      // backgroundColor: Color(0xFFF5F8FA),
       appBar: AppBar(
         backgroundColor: AppColors.white,
         title: Row(
@@ -214,12 +204,9 @@ class _HomePageState extends State<HomePage> {
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 22.sp,
-                  // fontWeight: FontWeight.w400,
-                  color: Colors.black),
+                  fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
             ),
-            Spacer(),
+            const Spacer(),
             OpenContainerWrappers(
               closeBuild: IconButton(
                 onPressed: null,
@@ -232,19 +219,15 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              openBuild: NotificationPage(),
+              openBuild: const NotificationPage(),
             ),
           ],
         ),
-        // backgroundColor: Color(0xFFF5F8FA),
         elevation: 0,
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
       ),
-
-      // bottomNavigationBar:
-      //     CreateBottomBar(stateBottomNav, "BottombarHomepage", context),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(left: 16.0, right: 16),
@@ -263,42 +246,26 @@ class _HomePageState extends State<HomePage> {
                       height: 159.h,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          color:
-                              //content[index]['colorL'],
-                              AppColors.blue143C6D,
+                          color: AppColors.blue143C6D,
                           borderRadius: BorderRadius.circular(15.h),
-                          image: DecorationImage(
+                          image: const DecorationImage(
                               image: AssetImage(
                                   "assets/newImages/Group 51336.png"),
-                              fit: BoxFit.fill)
-                          // boxShadow: [
-                          //   BoxShadow(
-                          //     color: Colors.black.withOpacity(0.06),
-                          //     blurRadius: 10,
-                          //     spreadRadius: 2,
-                          //   )
-                          // ]
-                          ),
+                              fit: BoxFit.fill)),
                       child: Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 10.w, vertical: 20.h),
                         child: Column(
                           children: [
-                            // Image.asset(name)
                             SvgPicture.asset(
                               "assets/newImages/quotes-svgrepo-com.svg",
                               width: 24.w,
                               height: 15.h,
                             ),
-
-                            Spacer(),
-
-                            // Text(data)
+                            const Spacer(),
                             text16White(content[index]['text'],
-
-                                //"We do not just provide you options. We want you to learn about the ones best suited for your needs.",
                                 textAlign: TextAlign.center),
-                            Spacer(),
+                            const Spacer(),
                           ],
                         ),
                       ),
@@ -308,7 +275,7 @@ class _HomePageState extends State<HomePage> {
                 options: CarouselOptions(
                     autoPlay: true,
                     height: 159.h,
-                    autoPlayAnimationDuration: Duration(seconds: 3),
+                    autoPlayAnimationDuration: const Duration(seconds: 3),
                     viewportFraction: 1,
                     onPageChanged: (index, reason) {
                       setState(() {
@@ -350,11 +317,6 @@ class _HomePageState extends State<HomePage> {
                           onTap: () {
                             Get.toNamed("/EntryPoint",
                                 arguments: 1, preventDuplicates: false);
-                            // Get.toNamed(page)
-                            // controllerEntryPoint.selectedPage(1);
-                            // Get.toNamed("/EntryPoint", arguments: 1);
-                            // selectedIndex = 1;
-                            // setState(() {});
                           },
                           child: text14Grey272424("View more"))
                     ],
@@ -362,7 +324,6 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 10.h,
                   ),
-
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -372,32 +333,10 @@ class _HomePageState extends State<HomePage> {
                           imagePath: topPickData[index]["imageUrl"],
                           title: topPickData[index]["title"],
                           add: topPickData[index]["add"],
-                          // /
                         );
                       }),
                     ),
                   )
-                  // SizedBox(
-                  //   height: 275.h,
-                  //   child: ListView.separated(
-                  //       shrinkWrap: true,
-                  //       separatorBuilder: (_, index) {
-                  //         return index == topPickData.length
-                  //             ? SizedBox()
-                  //             : sizedBoxWidth(20.w);
-                  //       },
-                  //       scrollDirection: Axis.horizontal,
-                  //       itemCount: topPickData.length,
-                  //       itemBuilder: (context, index) {
-                  //         return topPickCard(
-                  //           text1: topPickData[index]["text1"],
-                  //           imagePath: topPickData[index]["imageUrl"],
-                  //           title: topPickData[index]["title"],
-                  //           add: topPickData[index]["add"],
-                  //           // /
-                  //         );
-                  //       }),
-                  // ),
                 ],
               ),
               SizedBox(
@@ -406,22 +345,6 @@ class _HomePageState extends State<HomePage> {
               twoText("Categories", "View more", onTap: () {
                 Get.toNamed("/EntryPoint",
                     arguments: 1, preventDuplicates: false);
-                // controllerEntryPoint.selectedPage(1);
-
-                // print("SD");
-                // selectedIndex = 1;
-                // setState(() {});
-
-                // widget.enttyPoint.se
-                // entryPoint._sel
-                // Get.toNamed("/",
-                //     // arguments: 1
-                // );
-                // Get.toNamed("/EntryPoint",
-                //   // arguments: 1
-                // );
-
-                // _selectedIndex = 1;
               }),
               sizedBoxHeight(10.h),
               Column(
@@ -429,8 +352,11 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: 133.h,
                     child: ListView.separated(
+                        controller: scrollController,
                         separatorBuilder: (_, index) {
-                          return index == 9 ? SizedBox() : sizedBoxWidth(20.w);
+                          return index == 9
+                              ? const SizedBox()
+                              : sizedBoxWidth(20.w);
                         },
                         scrollDirection: Axis.horizontal,
                         itemCount: categoryData.length,
@@ -444,45 +370,28 @@ class _HomePageState extends State<HomePage> {
                               text: categoryData[index]["title"],
                             ),
                             openBuild: navigate(index),
-                            // index == 0
-                            //     ? AlternativeInsvestment()
-                            //     : FractionalRealestate()
                           );
                         }),
-                    /*   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(2, (index) => 
-                      GestureDetector(
-                            onTap: () {
-                              var screen;
-                              switch (index) {
-                                case 0:
-                                  screen = AlternativeInsvestment();
-
-                                  break;
-                                case 1:
-                                  screen = FractionalRealestate();
-
-                                  break;
-
-                                default:
-                              }
-                              Get.to(screen);
-                            },
-                            child: categoryCard(
-                              color1: categoryData[index]["colorL"],
-                              color2: categoryData[index]["colorD"],
-                              bgImage: categoryData[index]["bgImage"],
-                              image: categoryData[index]["imageUrl"],
-                              text: categoryData[index]["title"],
-                            ),
-                          )
-                        ),
-                    )*/
-                    // ), openBuild: Get.to(screen)),
                   ),
-                  sizedBoxHeight(20.h),
-                  text30BlackM('--->--->>>')
+                  sizedBoxHeight(12.h),
+                  Obx(
+                    () => Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: List.generate(
+                        categoryData.length,
+                        (index) => Container(
+                          decoration: BoxDecoration(
+                              color: AppColors.blue143C6D,
+                              borderRadius: BorderRadius.circular(100.r)),
+                          width: categoryIndex.value == index ? 8.h : 4.h,
+                          height: categoryIndex.value == index ? 8.h : 4.h,
+                          margin: const EdgeInsets.symmetric(
+                            horizontal: 3.0,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
               sizedBoxHeight(15.h),
@@ -491,14 +400,14 @@ class _HomePageState extends State<HomePage> {
                   "Knowledge center",
                   "View more",
                 ),
-                openBuild: Insights(),
+                openBuild: const Insights(),
               ),
               SizedBox(
                 height: 10.h,
               ),
               ListView.separated(
                   shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   itemBuilder: (_, index) {
                     return tileCard(KnowledgeData[index]["imagePath"]);
                   },
