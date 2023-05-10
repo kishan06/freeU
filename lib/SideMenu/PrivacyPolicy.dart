@@ -52,94 +52,31 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
                   Padding(
                     padding: EdgeInsets.only(left: 16.w, right: 16.w),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          '1. What Information Does the Service Collect?',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: 'Poppins',
-                          ),
+                        lightTxt(
+                          "Blue Feather Ventures Private Limited is committed to protecting the privacy and security of our users' personal information. This Privacy Policy explains how we collect, use, and disclose personal information collected through our FreeU application (the “App”)."
+                          "\n\nWe recognize the importance of maintaining your privacy. We value your discretion and appreciate your trust and confidentiality in us. We acknowledge the importance of protecting and keeping strictly private, any, and all details pertaining to your personal, financial, and transactional information that have been shared with us. We will always safeguard your right to privacy, and only use the information you provide in ways that are beneficial to you.F",
                         ),
-                        SizedBox(
-                          height: 13.h,
+                        sizedBoxHeight(20.h),
+                        boldtxt('COLLECTION AND USE OF PERSONAL INFORMATION'),
+                        sizedBoxHeight(20.h),
+                        lightTxt(
+                          "We may collect personal information from you when you create an account or use the App, including your name, email address, KYC details and payment information. We may also collect information about your device, such as your IP address and device type. We shall only use the information you provide to us, for the purpose of providing you with the highest quality of services, that you have requested from us, within the scope of our professional commitment. We furthermore promise to ensure we only request as much information from you as is necessary, either under the existing rules, regulations, and laws of India, and also, in order to fulfill our duties, and professional commitment to the best of our abilities, to serve your purpose.",
                         ),
-                        Text(
-                          'By accessing this web site, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. ',
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            fontFamily: 'Poppins',
-                            color: Color(0xff131313),
-                          ),
+                        sizedBoxHeight(20.h),
+                        boldtxt('DISCLOSURE OF PERSONAL INFORMATION'),
+                        lightTxt(
+                          "We may share your personal information with third-party service providers that help us operate and improve our services service that is beneficial and profitable to you, such as payment processors, investment platforms, and customer support providers. We may also share your information with legal and regulatory authorities as required by law."
+                          "\n\nWe do not sell or rent your personal information to third parties for marketing purposes. We further promise to impose strict confidentiality standards and practices on the third party to protect your privacy.",
                         ),
-                        SizedBox(
-                          height: 20.h,
+                        sizedBoxHeight(20.h),
+                        boldtxt('DATA RETENTION AND SECURITY'),
+                        sizedBoxHeight(20.h),
+                        lightTxt(
+                          "We will retain your personal information for as long as necessary to provide the App and comply with legal and regulatory requirements. At Blue Feather, we take all suitable steps to safeguard, protect, and maintain your personal information and data by reasonable security safeguards against loss/theft, as well as unauthorized use and access, disclosure, replication, use or alteration. "
+                          "\n\nBut keeping in mind the open nature of the internet, some data may occasionally move over other networks that are without any security measures, and as such maybe used, accessed by other people who are not the intended recipients of the data. In such cases where privacy and security breaches occur, Blue Feather will not take any responsibility for any losses and damages that are incurred by you. If you click on one of the links to third party websites, you may be taken to websites we, at Blue Feather, do not control. This policy does not apply to the privacy practices of those websites. Read the privacy policy of other websites carefully. We are not responsible for these third-party sites.",
                         ),
-                        SizedBox(
-                          width: double.infinity,
-                          child: Text(
-                            'If you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.',
-                            style: TextStyle(
-                              fontSize: 14.sp,
-                              fontFamily: 'Poppins',
-                              color: Color(0xff131313),
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 20.h),
-                        Text(
-                          '2. Information You Provide About a Third Party',
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontSize: 18.sp,
-                            fontFamily: 'Poppins',
-                          ),
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Text(
-                          'Whilst we try to ensure that the standard of the Website remains high and to maintain the continuity of it, the internet is not an inherently stable medium, and errors, omissions, interruptions of service and delays may occur at any time. ',
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Color(0xff131313),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Text(
-                          'We do not accept any liability arising from any such errors, omissions, interruptions or delays or any ongoing obligation or responsibility to operate the Website (or any particular part of it) or to provide the service offered on the Website. We may vary the specification of this site from time to time without notice.',
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Color(0xff131313),
-                          ),
-                        ),
-                        SizedBox(height: 20.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              '3. Revisions and Errata',
-                              textAlign: TextAlign.left,
-                              style: TextStyle(
-                                fontSize: 18.sp,
-                                fontFamily: 'Poppins',
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 15.h,
-                        ),
-                        Text(
-                          'You may only use the Website for lawful purposes when seeking employment or help with your career, when purchasing training courses or when recruiting staff. You must not under any circumstances seek to undermine the security of the Website or any information submitted to or available through it. In particular, but without limitation, you must not seek to access, alter or delete any information to which you do not have authorised access, seek to overload the system via spamming or flooding, take any action or use any device, routine or software to crash, delay, damage or otherwise interfere with the operation of the Website or attempt to decipher, disassemble or modify any of the software, coding or information comprised in the Website.',
-                          style: TextStyle(
-                            fontSize: 14.sp,
-                            color: Color(0xff131313),
-                          ),
-                        ),
-                        SizedBox(height: 20.h),
                       ],
                     ),
                   ),
@@ -149,6 +86,27 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
             )),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget boldtxt(String txt) {
+    return Text(
+      txt,
+      style: TextStyle(
+        fontSize: 18.sp,
+        color: Colors.black,
+        fontFamily: "Poppins",
+        fontWeight: FontWeight.w600,
+      ),
+    );
+  }
+
+  Widget lightTxt(String txt) {
+    return Text(
+      txt,
+      style: TextStyle(
+        fontSize: 18.sp,
       ),
     );
   }
