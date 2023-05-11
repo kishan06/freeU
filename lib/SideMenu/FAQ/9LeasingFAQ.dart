@@ -141,7 +141,7 @@ class _LeasingFAQState extends State<LeasingFAQ> {
                   FaqBox(
                       titleString: 'What will be the tax implications?',
                       contentString:
-                          'The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab.'),
+                          "The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources”. The applicable tax rate depends on the investor's income tax slab."),
                   sizedBoxHeight(15.h),
                 ],
               ),

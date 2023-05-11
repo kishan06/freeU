@@ -122,7 +122,7 @@ class _VentureDebtFAQState extends State<VentureDebtFAQ> {
                   FaqBox(
                       titleString: 'What will be the tax implications?',
                       contentString:
-                          'The interest earned will be taxed as per the investor&#39;s applicable tax slab.'),
+                          "The interest earned will be taxed as per the investor's applicable tax slab."),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString: 'What are the risks of venture debt?',
