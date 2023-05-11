@@ -118,7 +118,7 @@ class _RevenueFAQState extends State<RevenueFAQ> {
                   FaqBox(
                       titleString: 'What are the risks of RBF for investors?',
                       contentString:
-                          "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company&#39;s revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue."),
+                          "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company's revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue."),
                   sizedBoxHeight(15.h),
                   FaqBox(
                       titleString:
@@ -134,7 +134,7 @@ class _RevenueFAQState extends State<RevenueFAQ> {
                   FaqBox(
                       titleString: 'What will be the tax implications?',
                       contentString:
-                          'The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources&quot;. The applicable tax rate depends on the investor&#39;s income tax slab. TDS of 10% is applicable on the interest component of payouts.'),
+                          "The interest earned on revenue-based financing investments is taxable under the head “Income from Other Sources”. The applicable tax rate depends on the investor's income tax slab. TDS of 10% is applicable on the interest component of payouts."),
                   sizedBoxHeight(15.h),
                 ],
               ),
