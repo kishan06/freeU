@@ -8,6 +8,7 @@ import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/controllers/network_api.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/profile/profile.dart';
 
@@ -21,6 +22,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  NetworkApi networkApi = NetworkApi();
+
   bool design = false;
   bool _passwordVisible = false;
   bool _confirmpasswordVisible = false;
@@ -42,7 +45,6 @@ class _SignUpState extends State<SignUp> {
     setState(() {
       final numricRegex = RegExp(r'[0-9]');
       final alphaRegex = RegExp('(?=.*[A-Z])(?=.*[!@#\$%^&*])');
-
 
       _isPasswordEightCar = false;
       if (password.length >= 8) _isPasswordEightCar = true;
@@ -252,7 +254,6 @@ class _SignUpState extends State<SignUp> {
                           children: [
                             Text(
                               "Enter your full name",
-                              // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -413,7 +414,8 @@ class _SignUpState extends State<SignUp> {
                                 },
                                 inputFormatters: [
                                   LengthLimitingTextInputFormatter(10),
-                                  FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp('[0-9]')),
                                 ],
                                 texttype: TextInputType.phone,
                                 hintText: "Phone Number*",
@@ -772,7 +774,17 @@ class _SignUpState extends State<SignUp> {
                                   snackPosition: SnackPosition.BOTTOM);
                             }
                             if (isValid == true && design == true) {
-                              Get.toNamed("/securityquestion");
+                              Map myData = {
+                                "name": nameController.text,
+                                "email": emailidcontroller.text,
+                                "contact_number": phonecontroller.text,
+                                "password": passwordcontroller.text,
+                                "password_confirmation": confirmpasscontroller.text
+                              };
+                              networkApi.postApi(myData,
+                                  "https://pi.betadelivery.com/freeU_investment/api/sign-up");
+
+                              // Get.toNamed("/securityquestion");
                             }
                           },
                         ),
