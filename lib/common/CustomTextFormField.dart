@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomTextFormField extends StatefulWidget {
-  CustomTextFormField({
+  const CustomTextFormField({
     Key? key,
     this.validator,
     this.inputFormatters,
@@ -15,7 +15,6 @@ class CustomTextFormField extends StatefulWidget {
     this.textCapital = false,
     this.isInputPassword = false,
     this.outlineColor = const Color(0xFFFFB600),
-    // this.keyboardType,
     this.texttype,
   }) : super(key: key);
 
@@ -29,7 +28,6 @@ class CustomTextFormField extends StatefulWidget {
   final bool textCapital;
   final dynamic inputFormatters;
   final Color outlineColor;
-  // final TextInputType? keyboardType;
   final TextInputType? texttype;
 
   @override
@@ -66,15 +64,15 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
           fillColor: Colors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Color(0xFFCCCCCC), width: 1),
+            borderSide: const BorderSide(color: Color(0xFFCCCCCC), width: 1),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Color(0xFFCCCCCC), width: 1),
+            borderSide: const BorderSide(color: Color(0xFFCCCCCC), width: 1),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
-            borderSide: BorderSide(color: Color(0xFF707070), width: 1),
+            borderSide: const BorderSide(color: Color(0xFF707070), width: 1),
           ),
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
@@ -85,7 +83,7 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
             borderSide: const BorderSide(color: Colors.red, width: 1),
           ),
           hintStyle: TextStyle(
-              color: Color(0x80000000), fontSize: 16.sp, fontFamily: "Poppins"),
+              color: const Color(0x80000000), fontSize: 16.sp, fontFamily: "Poppins"),
           hintText: widget.hintText,
           prefixIcon: widget.leadingIcon == null
               ? null
@@ -101,17 +99,17 @@ class _CustomtextFormFieldState extends State<CustomTextFormField> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(right: 20.0),
+                              padding: const EdgeInsets.only(right: 20.0),
                               child: SvgPicture.asset(
                                 "assets/images/eye-closed-svgrepo-com.svg",
-                                color: Color(0XFF959595),
+                                color: const Color(0XFF959595),
                               ),
                             ),
                           ],
                         )
                       : Column(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
+                          children: const [
                             Padding(
                               padding: EdgeInsets.only(right: 20.0),
                               child: Icon(

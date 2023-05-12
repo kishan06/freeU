@@ -1,10 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/login/splashslider.dart';
-import 'package:get/get.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -17,13 +14,13 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     Timer(
-        Duration(seconds: 2),
+        const Duration(seconds: 2),
         () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => Splashslider())));
+            builder: (BuildContext context) => const Splashslider())));
 
     return Scaffold(
       body: Container(
-        color: Color(0xFF1B8DC9),
+        color: const Color(0xFF1B8DC9),
         child: Center(
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

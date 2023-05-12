@@ -1,10 +1,7 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:freeu/Utils/texts.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
 import '../common/customNextButton.dart';
@@ -38,14 +35,14 @@ class _TouchIdState extends State<TouchId> {
     try {
       isAuth = await authentication.authenticate(
         localizedReason: 'add your finger print to login',
-        options: AuthenticationOptions(
+        options: const AuthenticationOptions(
             biometricOnly: true, useErrorDialogs: true, stickyAuth: true),
       );
 
       isAuth
           ? Get.toNamed('/completeprofile')
           : Get.snackbar("Not Recogonized", "Please Try Again",
-              margin: EdgeInsets.all(8),
+              margin: const EdgeInsets.all(8),
               snackStyle: SnackStyle.FLOATING,
               snackPosition: SnackPosition.BOTTOM);
 
@@ -103,8 +100,8 @@ class _TouchIdState extends State<TouchId> {
                     ontap: () {
                       Get.snackbar("Verify Your Biometric",
                           "Please Touch Your Finger print",
-                          margin: EdgeInsets.all(8),
-                          duration: Duration(seconds: 1),
+                          margin: const EdgeInsets.all(8),
+                          duration: const Duration(seconds: 1),
                           snackStyle: SnackStyle.FLOATING,
                           snackPosition: SnackPosition.BOTTOM);
                       _checkBio();
@@ -123,7 +120,7 @@ class _TouchIdState extends State<TouchId> {
                     style: TextStyle(
                       fontFamily: 'Poppins',
                       fontSize: 14.sp,
-                      color: Color(0xFF585858),
+                      color: const Color(0xFF585858),
                     ),
                   ),
                 ),

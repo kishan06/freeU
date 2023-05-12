@@ -1,14 +1,9 @@
-// ignore_for_file: file_names, camel_case_types, prefer_const_constructors, duplicate_ignore, unused_import
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/signUp/SecurityFirst.dart';
-
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class SecurityQuestion extends StatefulWidget {
   const SecurityQuestion({super.key});
@@ -21,10 +16,8 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-
     return Scaffold(
-      appBar: CustomSignupAppBar(
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -90,7 +83,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                       style: TextStyle(
                           fontSize: 20.sp,
                           fontFamily: 'Poppins',
-                          color: Color(0xff000000)),
+                          color: const Color(0xff000000)),
                     ),
                     SizedBox(
                       height: 15.h,
@@ -105,16 +98,6 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         return null;
                       },
                     ),
-                    // TextFormField(
-                    //   decoration: InputDecoration(
-                    //     border: OutlineInputBorder(
-                    //       borderSide:
-                    //           BorderSide(width: 2, color: Color(0xFF707070)),
-                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                    //     ),
-                    //     hintText: "Answer",
-                    //   ),
-                    // ),
                     SizedBox(
                       height: 25.h,
                     ),
@@ -139,16 +122,6 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         return null;
                       },
                     ),
-                    // TextFormField(
-                    //   decoration: InputDecoration(
-                    //     border: OutlineInputBorder(
-                    //       borderSide:
-                    //           BorderSide(width: 2, color: Color(0xFF707070)),
-                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                    //     ),
-                    //     hintText: "Answer",
-                    //   ),
-                    // ),
                     SizedBox(
                       height: 25.h,
                     ),
@@ -173,16 +146,6 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         return null;
                       },
                     ),
-                    // TextFormField(
-                    //   decoration: InputDecoration(
-                    //     border: OutlineInputBorder(
-                    //       borderSide:
-                    //           BorderSide(width: 2, color: Color(0xFF707070)),
-                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                    //     ),
-                    //     hintText: "Answer",
-                    //   ),
-                    // ),
                     SizedBox(height: 45.h),
                     CustomNextButton(
                       text: "Next",
@@ -192,13 +155,12 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                           Get.toNamed('/securityfirst');
                         } else {
                           Get.snackbar("Error", "Please Enter Required Fields",
-                              margin: EdgeInsets.all(8),
+                              margin: const EdgeInsets.all(8),
                               snackStyle: SnackStyle.FLOATING,
                               snackPosition: SnackPosition.BOTTOM);
                         }
                       },
                     ),
-
                     SizedBox(
                       height: 20.h,
                     ),
@@ -213,7 +175,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                             "Skip",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              color: Color(0xff6B6B6B),
+                              color: const Color(0xff6B6B6B),
                               fontSize: 16.sp,
                               fontFamily: 'Poppins',
                             ),

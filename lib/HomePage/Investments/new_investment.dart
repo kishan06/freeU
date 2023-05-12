@@ -1,35 +1,15 @@
-// ignore_for_file: prefer_const_constructors
-// part 'NewInvestment.dart';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
 import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
 import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
 import 'package:freeu/Notification.dart';
-// import 'package:freeu/NewInvestment/Categories/AlternativeInvestment.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/Utils/textStyle.dart';
-import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
-import 'package:freeu/common/categoryCard.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/screens/entry_point.dart';
 import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
-
-// import 'Categories/Alternative/Fractionalpage.dart';
-
-// import '../controllers/entry_point_controller.dart';
-
-// part 'NewInvestment.dart';
 
 class NewInvestment extends StatefulWidget {
   // EntryPoint enttyPoint = EntryPoint();

@@ -33,89 +33,16 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
 
   @override
   Widget build(BuildContext context) {
-    // final List<String> items =
-    //     widget.item ?? ['Reetik', 'Hemant', 'Salman', 'Kisan', 'Chinmay'];
-
     return Container(
       padding: EdgeInsets.all(1.h),
       decoration: BoxDecoration(
-        border: Border.all(color: Color(0xffCCCCCC)),
+        border: Border.all(color: const Color(0xffCCCCCC)),
         borderRadius: BorderRadius.circular(
           10.r,
         ),
       ),
       child: Column(
         children: [
-          // SizedBox(
-          //   height: 55.h,
-          //   child: TextFormField(
-          //     readOnly: true,
-          //     onChanged: widget.onInput,
-          //     textAlignVertical: TextAlignVertical.top,
-          //     keyboardType: TextInputType.text,
-          //     validator: (value) {
-          //       if (value == null || value.isEmpty) {
-          //         return widget.errortext ?? "Please Enter Data";
-          //       }
-          //       return null;
-          //     },
-          //     controller: controller,
-          //     decoration: InputDecoration(
-          //       filled: true,
-          //       fillColor: Colors.white,
-          //       border: OutlineInputBorder(
-          //         borderRadius: BorderRadius.circular(30),
-          //         borderSide: BorderSide(color: Color(0xFF707070), width: 1),
-          //       ),
-          //       enabledBorder: OutlineInputBorder(
-          //         borderRadius: BorderRadius.circular(30),
-          //         borderSide: BorderSide(color: Color(0xFF707070), width: 1),
-          //       ),
-          //       focusedBorder: OutlineInputBorder(
-          //         borderRadius: BorderRadius.circular(30),
-          //         borderSide: BorderSide(color: widget.outlineColor, width: 1),
-          //       ),
-          //       errorBorder: OutlineInputBorder(
-          //         borderRadius: BorderRadius.circular(30),
-          //         borderSide: const BorderSide(color: Colors.red, width: 1),
-          //       ),
-          //       focusedErrorBorder: OutlineInputBorder(
-          //         borderRadius: BorderRadius.circular(30),
-          //         borderSide: const BorderSide(color: Colors.red, width: 1),
-          //       ),
-          //       suffixIcon: widget.showDropDown
-          //           ? PopupMenuButton<String>(
-          //               icon: const Icon(
-          //                 Icons.keyboard_arrow_down,
-          //                 color: Color(0xFFFFB600),
-          //               ),
-          //               offset: Offset.zero,
-          //               position: PopupMenuPosition.under,
-          //               onSelected: (String value) {
-          //                 setState(() {
-          //                   controller.text = value;
-          //                 });
-          //               },
-          //               shape: const RoundedRectangleBorder(
-          //                   borderRadius: BorderRadius.all(
-          //                 Radius.circular(10.0),
-          //               )),
-          //               itemBuilder: (BuildContext context) {
-          //                 return items.map<PopupMenuItem<String>>((String value) {
-          //                   return PopupMenuItem(
-          //                       child: Container(
-          //                           width: 200.w,
-          //                           child: Text(
-          //                             value,
-          //                           )),
-          //                       value: value);
-          //                 }).toList();
-          //               },
-          //             )
-          //           : null,
-          //     ),
-          //   ),
-          // ),
           SizedBox(
             height: 45.h,
             child: DropdownButtonHideUnderline(

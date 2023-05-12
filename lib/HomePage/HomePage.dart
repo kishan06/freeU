@@ -427,85 +427,55 @@ class _HomePageState extends State<HomePage> {
     switch (index) {
       case 0:
         {
-          return AlternativeInsvestment();
+          return const AlternativeInsvestment();
         }
-
-        break;
       case 1:
         {
-          return FractionalRealestate();
+          return const FractionalRealestate();
         }
-
-        break;
-
       case 2:
         {
-          return PeerMain();
+          return const PeerMain();
         }
-
-        break;
-
       case 3:
         {
-          return InvoiceDiscountingMain();
+          return const InvoiceDiscountingMain();
         }
-
-        break;
-
       case 4:
         {
-          return RevenueBasedMain();
+          return const RevenueBasedMain();
         }
-
-        break;
-
       case 5:
         {
-          return LeaseBased();
+          return const LeaseBased();
         }
-
-        break;
-
       case 6:
         {
-          return CleanGreenMain();
+          return const CleanGreenMain();
         }
-
-        break;
       case 7:
         {
-          return VentureDebtMain();
+          return const VentureDebtMain();
         }
-
-        break;
-
       case 8:
         {
-          return SecureDebtMain();
+          return const SecureDebtMain();
         }
-
-        break;
-
       case 9:
         {
-          return HighYieldFinance();
+          return const HighYieldFinance();
         }
-
-        break;
-
       default:
         {
-          // Null;
-          return FractionalRealestate();
+          return const FractionalRealestate();
         }
     }
-    // return Page;
   }
 
   Widget tileCard(String path) {
     return Container(
       decoration: BoxDecoration(
-          color: Color(0xFFFFFFFF),
+          color: const Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(15),
           boxShadow: [
             BoxShadow(
@@ -520,7 +490,6 @@ class _HomePageState extends State<HomePage> {
                 top: 14.h, left: 10.w, right: 15.w, bottom: 10.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
@@ -529,7 +498,6 @@ class _HomePageState extends State<HomePage> {
                     width: 90.w,
                     child: Image.asset(
                       path,
-                      // height: 70.h,
                       // width: 90.w,
                       fit: BoxFit.fill,
                     ),
@@ -553,11 +521,11 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Row(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.calendar_today_outlined,
                             size: 14,
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           Text(
@@ -572,7 +540,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          openBuild: InsightsInner()),
+          openBuild: const InsightsInner()),
     );
   }
 
@@ -595,7 +563,6 @@ class _HomePageState extends State<HomePage> {
       padding: EdgeInsets.all(5.h),
       child: Container(
           width: 241.w,
-          // color: AppColors.white,
           decoration: BoxDecoration(
               color: AppColors.white,
               borderRadius: BorderRadius.circular(15.h),
@@ -605,9 +572,7 @@ class _HomePageState extends State<HomePage> {
                   blurRadius: 10,
                   spreadRadius: 2,
                 )
-              ]
-              // border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)
-              ),
+              ]),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
             child: Column(
@@ -619,9 +584,7 @@ class _HomePageState extends State<HomePage> {
                   style:
                       TextStyle(fontWeight: FontWeight.w500, fontSize: 14.sp),
                 ),
-
                 sizedBoxHeight(10.h),
-
                 Container(
                   width: double.infinity,
                   height: 100.h,
@@ -629,15 +592,9 @@ class _HomePageState extends State<HomePage> {
                       image: DecorationImage(
                           image: AssetImage(imagePath), fit: BoxFit.fill)),
                 ),
-
-                // Spacer(),
                 sizedBoxHeight(10.h),
-
                 text14Black(title),
-
-                // Spacer(),
                 sizedBoxHeight(5.h),
-
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -653,8 +610,6 @@ class _HomePageState extends State<HomePage> {
                     Expanded(child: text13Grey707070(add))
                   ],
                 )
-
-                // text14Grey272424(text)
               ],
             ),
           )),
@@ -663,9 +618,8 @@ class _HomePageState extends State<HomePage> {
 
   titleText(String title) {
     return Text(
-      // "Your Investments",
       title,
-      style: TextStyle(
+      style: const TextStyle(
         fontSize: 20,
         fontFamily: 'Poppins',
         color: Color(0xFF1B8DC9),
@@ -673,71 +627,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  // Future<bool> _backbuttonpressed(BuildContext context) async {
-  //   bool exitapp = await showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return Padding(
-  //         padding:  EdgeInsets.all(15.w),
-  //         child: AlertDialog(
-  //            shape:
-  //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
-  //         insetPadding: const EdgeInsets.symmetric(vertical: 10),
-  //           title:Text(
-  //           "Exit App",
-  //           style: TextStyle(
-  //               fontFamily: 'Studio Pro',
-  //               fontWeight: FontWeight.bold,
-  //               fontSize: 18.sp,
-  //               color: const Color(0xff3B3F43)),
-  //         ),
-  //           content: SizedBox(
-  //           width: MediaQuery.of(context).size.width,
-  //           child: Text(
-  //             "Are you sure you want to Exit App?",
-  //             style: TextStyle(
-  //                 fontFamily: 'Roboto',
-  //                 fontSize: 16.sp,
-  //                 color: const Color(0xff54595F)),
-  //           ),
-  //         ),
-  //           actions: [
-  //            InkWell(
-  //             onTap: () {
-  //               Get.back();
-  //             },
-  //             child: Text(
-  //               "No",
-  //               style: TextStyle(
-  //                   fontFamily: "Roboto",
-  //                   fontWeight: FontWeight.w500,
-  //                   fontSize: 16.sp,
-  //                   color: const Color(0xff000000)),
-  //             ),
-  //           ),
-  //           sizedBoxWidth(15.sp),
-  //           InkWell(
-  //             onTap: () {
-  //               SystemNavigator.pop();
-  //             },
-  //             child: Text(
-  //               "Yes",
-  //               style: TextStyle(
-  //                   fontFamily: "Roboto",
-  //                   fontWeight: FontWeight.w500,
-  //                   fontSize: 16.sp,
-  //                   color: const Color(0xffB90101)),
-  //             ),
-  //           ),
-  //           sizedBoxWidth(15.sp),
-  //           ],
-  //         ),
-  //       );
-  //     },
-  //   );
-  //   return exitapp ?? false;
-  // }
 }
 
 class DougnutChart extends StatelessWidget {
@@ -749,27 +638,23 @@ class DougnutChart extends StatelessWidget {
       ChartData('David', 20),
       ChartData('Steve', 20),
     ];
-    return SfCircularChart(centerY: '55', centerX: '50', palette: <Color>[
+    return SfCircularChart(centerY: '55', centerX: '50', palette: const <Color>[
       Color.fromARGB(255, 113, 201, 248),
       Color(0xFF1B8DC9),
     ], annotations: <CircularChartAnnotation>[
       CircularChartAnnotation(
-        widget: Container(
-          child: PhysicalModel(
-            child: Container(),
-            shape: BoxShape.circle,
-            elevation: 10,
-            shadowColor: Colors.black,
-            color: const Color.fromRGBO(230, 230, 230, 1),
-          ),
+        widget: PhysicalModel(
+          shape: BoxShape.circle,
+          elevation: 10,
+          shadowColor: Colors.black,
+          color: const Color.fromRGBO(230, 230, 230, 1),
+          child: Container(),
         ),
       ),
       CircularChartAnnotation(
-        widget: Container(
-          child: const Text(
-            '50%',
-            style: TextStyle(color: Colors.black, fontSize: 16),
-          ),
+        widget: const Text(
+          '50%',
+          style: TextStyle(color: Colors.black, fontSize: 16),
         ),
       ),
     ], series: <CircularSeries>[

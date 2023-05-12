@@ -1,8 +1,5 @@
-// ignore_for_file: file_names, camel_case_types, prefer_const_constructors, duplicate_ignore, unused_import
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -28,8 +25,8 @@ class _KYC3State extends State<KYC3> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
+      backgroundColor: const Color(0xFFFFFFFF),
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -67,7 +64,7 @@ class _KYC3State extends State<KYC3> {
                               fontSize: 22.sp,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
-                              color: Color(0xFF143C6D),
+                              color: const Color(0xFF143C6D),
                             ),
                           ),
                           SizedBox(
@@ -79,7 +76,7 @@ class _KYC3State extends State<KYC3> {
                               fontSize: 18.sp,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
-                              color: Color(0xFF000000),
+                              color: const Color(0xFF000000),
                             ),
                           ),
                           SizedBox(
@@ -90,7 +87,7 @@ class _KYC3State extends State<KYC3> {
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 14.sp,
-                              color: Color(0xFF000000),
+                              color: const Color(0xFF000000),
                             ),
                           ),
                           SizedBox(
@@ -101,12 +98,12 @@ class _KYC3State extends State<KYC3> {
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 20.sp,
-                                color: Color(0xff000000)),
+                                color: const Color(0xff000000)),
                           ),
                           SizedBox(
                             height: 6.h,
                           ),
-                          CustomTextFormField(
+                          const CustomTextFormField(
                               hintText: "Please Enter PAN Number",
                               validatorText: "Please Enter PAN Number"),
                           SizedBox(
@@ -118,7 +115,7 @@ class _KYC3State extends State<KYC3> {
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 20.sp,
-                                color: Color(0xff000000)),
+                                color: const Color(0xff000000)),
                           ),
                           SizedBox(
                             height: 6.h,
@@ -134,17 +131,17 @@ class _KYC3State extends State<KYC3> {
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.r),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xffCCCCCC), width: 1),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.r),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xffCCCCCC), width: 1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.r),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xffCCCCCC), width: 1),
                               ),
                               errorBorder: OutlineInputBorder(
@@ -158,11 +155,12 @@ class _KYC3State extends State<KYC3> {
                                     color: Colors.red, width: 1),
                               ),
                               hintStyle: TextStyle(
-                                  color: Color(0x80000000), fontSize: 14.sp),
+                                  color: const Color(0x80000000),
+                                  fontSize: 14.sp),
                               hintText: "",
                               suffixIcon: IconButton(
                                   onPressed: () {},
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.file_upload_outlined,
                                     color: Colors.black,
                                   )),
@@ -175,12 +173,12 @@ class _KYC3State extends State<KYC3> {
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 20.sp,
-                                color: Color(0xff000000)),
+                                color: const Color(0xff000000)),
                           ),
                           SizedBox(
                             height: 6.h,
                           ),
-                          CustomTextFormField(
+                          const CustomTextFormField(
                               hintText: "Please Enter Aadhar Number",
                               validatorText: "Please Enter Aadhar Number"),
                           SizedBox(height: 10.h),
@@ -190,7 +188,7 @@ class _KYC3State extends State<KYC3> {
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 20.sp,
-                                color: Color(0xff000000)),
+                                color: const Color(0xff000000)),
                           ),
                           SizedBox(
                             height: 13.h,
@@ -206,17 +204,17 @@ class _KYC3State extends State<KYC3> {
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.r),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xffCCCCCC), width: 1),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.r),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xffCCCCCC), width: 1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.r),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xffCCCCCC), width: 1),
                               ),
                               errorBorder: OutlineInputBorder(
@@ -230,11 +228,12 @@ class _KYC3State extends State<KYC3> {
                                     color: Colors.red, width: 1),
                               ),
                               hintStyle: TextStyle(
-                                  color: Color(0x80000000), fontSize: 14.sp),
+                                  color: const Color(0x80000000),
+                                  fontSize: 14.sp),
                               hintText: "",
                               suffixIcon: IconButton(
                                   onPressed: () {},
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.file_upload_outlined,
                                     color: Colors.black,
                                   )),

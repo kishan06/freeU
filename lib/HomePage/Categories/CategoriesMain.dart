@@ -1,39 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
-//import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
-
 import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceDiscountingMain.dart';
-
 import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based.dart';
-
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
-
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/AppBarWithNotification.dart';
-import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/page_animation.dart';
-// import 'package:freeu/common/categoryCard.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import 'CleanGreen/CleanGreenMain.dart';
-import 'FractionalRealEstateProperty/PropertiesInvestment.dart';
-
 import 'SecuredDebt/SecuredDebtMain.dart';
 import 'Venture debt/VentureDebtMain.dart';
-
 import 'revenue_based_financing/revenue_based_main.dart';
 
 class CategoriesMain extends StatefulWidget {
@@ -45,7 +27,6 @@ class CategoriesMain extends StatefulWidget {
 
 class _CategoriesMainState extends State<CategoriesMain> {
   int selectIndex = 0;
-  int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
 
   HomePage home = const HomePage();
@@ -139,87 +120,21 @@ class _CategoriesMainState extends State<CategoriesMain> {
     viewportFraction: 0.75,
   );
 
-  // void _selectedTab(int index) {
-  //   setState(() {
-  //     // _lastSelected = 'TAB: $index';
-  //     // print(_lastSelected);
-
-  //     switch (index) {
-  //       case 0:
-  //         {
-  //           Get.toNamed("/homepage");
-  //         }
-  //         break;
-
-  //       case 1:
-  //         {
-  //           Get.toNamed('/categoriesmain');
-  //         }
-  //         break;
-
-  //       case 2:
-  //         {
-  //           Get.toNamed('/investmentmain');
-  //         }
-  //         break;
-  //       case 3:
-  //         {
-  //           Get.toNamed('/chatpage');
-  //         }
-  //         break;
-  //       case 4:
-  //         {
-  //           Get.toNamed('/myprofile');
-  //         }
-  //         break;
-  //       default:
-  //         {
-  //           throw Error();
-  //         }
-  //     }
-  //   });
-  // }
-
-  // DateTime timebackPressed = DateTime.now();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      // drawer: NavDrawer(),
       appBar: AppBar(
         backgroundColor: AppColors.white,
         title: Row(
           children: [
-            sizedBoxWidth(45.w),
-            // IconButton(
-            //   onPressed: () {
-            //     _key.currentState!.openDrawer();
-            //   },
-            //   icon: SizedBox(
-            //     height: 20.h,
-            //     width: 25.w,
-            //     child: SvgPicture.asset(
-            //       "assets/images/menu.svg",
-            //       // height: 20.h,
-            //       // width: 10.w,
-            //       fit: BoxFit.fill,
-            //     ),
-            //   ),
-            //   // color: Colors.red,
-            //   // iconSize: 100.h,
-            // ),
-
-            sizedBoxWidth(5.w),
+            sizedBoxWidth(50.w),
             Text(
               'Categories',
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 22.sp,
-                  // fontWeight: FontWeight.w400,
-                  color: Colors.black),
+                  fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
             ),
             const Spacer(),
             OpenContainerWrappers(
@@ -233,86 +148,19 @@ class _CategoriesMainState extends State<CategoriesMain> {
                     fit: BoxFit.fill,
                   ),
                 ),
-                // iconSize: 22,
-                // color: const Color(0xFF303030),
               ),
               openBuild: const NotificationPage(),
             ),
           ],
         ),
-        // backgroundColor: Color(0xFFF5F8FA),
         elevation: 0,
         shadowColor: Colors.black,
         automaticallyImplyLeading: false,
         titleSpacing: 0,
       ),
-
-      // backgroundColor: Color(0xFFF5F8FA),
-      // appBar: AppBar(
-      //   backgroundColor: AppColors.white,
-      //   title: Row(
-      //     children: [
-      //       IconButton(
-      //         onPressed: () {
-      //           _key.currentState!.openDrawer();
-      //         },
-      //         icon: SizedBox(
-      //           height: 20.h,
-      //           width: 25.w,
-      //           child: SvgPicture.asset(
-      //             "assets/images/menu.svg",
-      //             // height: 20.h,
-      //             // width: 10.w,
-      //             fit: BoxFit.fill,
-      //           ),
-      //         ),
-      //         // color: Colors.red,
-      //         // iconSize: 100.h,
-      //       ),
-      //       sizedBoxWidth(5.w),
-      //       Text(
-      //         'Categories',
-      //         softWrap: true,
-      //         textAlign: TextAlign.center,
-      //         style: TextStyle(
-      //             fontFamily: 'Poppins',
-      //             fontSize: 22.sp,
-      //             // fontWeight: FontWeight.w400,
-      //             color: Colors.black),
-      //       ),
-      //       Spacer(),
-      //       IconButton(
-      //         onPressed: () {
-      //           Get.toNamed('/notificationpage');
-      //         },
-      //         icon: SizedBox(
-      //           width: 18.w,
-      //           height: 25.h,
-      //           child: SvgPicture.asset(
-      //             'assets/images/notification-bell-svgrepo-com.svg',
-      //             fit: BoxFit.fill,
-      //           ),
-      //         ),
-      //         // iconSize: 22,
-      //         // color: const Color(0xFF303030),
-      //       ),
-      //     ],
-      //   ),
-      //   // backgroundColor: Color(0xFFF5F8FA),
-      //   elevation: 0,
-      //   shadowColor: Colors.black,
-      //   automaticallyImplyLeading: false,
-      //   titleSpacing: 0,
-      // ),
-
-      // bottomNavigationBar:
-      //     CreateBottomBar(stateBottomNav, "Bottombarcategoies", context),
-
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: GridView.builder(
-          // shrinkWrap: true,
-          // physics: NeverScrollableScrollPhysics(),
           itemCount: categoryData.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             childAspectRatio: 169 / 133,
@@ -329,15 +177,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
                 image: categoryData[index]["imageUrl"],
                 text: categoryData[index]["title"],
               ),
-
               openBuild: navigate(index),
-              //  index == 0
-              //     ? const AlternativeInsvestment()
-              //     : index == 1
-              //         ? const FractionalRealestate()
-              //         : index == 9
-              //             ? HighYieldFinance()
-              //             : SizedBox(),
             );
           },
         ),
@@ -346,91 +186,61 @@ class _CategoriesMainState extends State<CategoriesMain> {
   }
 
   Widget navigate(int index) {
-    // if (index == 0) {
-    //   // return
-    // return AlternativeInsvestment();
-
-    // } else {
-    //   return AlternativeInsvestment();
-    // }
-    // return AlternativeInsvestment();
-    // var = page;
     switch (index) {
       case 0:
         {
-          return AlternativeInsvestment();
+          return const AlternativeInsvestment();
         }
 
-        break;
       case 1:
         {
-          return FractionalRealestate();
+          return const FractionalRealestate();
         }
-
-        break;
 
       case 2:
         {
-          return PeerMain();
+          return const PeerMain();
         }
-
-        break;
 
       case 3:
         {
-          return InvoiceDiscountingMain();
+          return const InvoiceDiscountingMain();
         }
-
-        break;
-
       case 4:
         {
-          return RevenueBasedMain();
+          return const RevenueBasedMain();
         }
-
-        break;
 
       case 5:
         {
-          return LeaseBased();
+          return const LeaseBased();
         }
-
-        break;
 
       case 6:
         {
-          return CleanGreenMain();
+          return const CleanGreenMain();
         }
 
-        break;
       case 7:
         {
-          return VentureDebtMain();
+          return const VentureDebtMain();
         }
-
-        break;
 
       case 8:
         {
-          return SecureDebtMain();
+          return const SecureDebtMain();
         }
-
-        break;
 
       case 9:
         {
-          return HighYieldFinance();
+          return const HighYieldFinance();
         }
-
-        break;
 
       default:
         {
-          // Null;
-          return FractionalRealestate();
+          return const FractionalRealestate();
         }
     }
-    // return Page;
   }
 
   Widget categoryCard(
@@ -442,8 +252,6 @@ class _CategoriesMainState extends State<CategoriesMain> {
     return Stack(
       children: [
         Container(
-          // color: ,
-          // width: 169.w,
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
@@ -456,12 +264,9 @@ class _CategoriesMainState extends State<CategoriesMain> {
           right: 0,
           child: SvgPicture.asset(
             bgImage,
-            // width: 65.w,
-            // height: 133.h,
           ),
         ),
         SizedBox(
-          // width: 169.w,
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
             child: Column(
@@ -473,9 +278,6 @@ class _CategoriesMainState extends State<CategoriesMain> {
                   height: 45.h,
                   width: 45.h,
                 ),
-
-                // Spacer(),
-
                 text14White(text)
               ],
             ),
@@ -484,69 +286,4 @@ class _CategoriesMainState extends State<CategoriesMain> {
       ],
     );
   }
-
-  //  Future<bool> _backbuttonpressed(BuildContext context) async {
-  //   bool exitapp = await showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return Padding(
-  //         padding:  EdgeInsets.all(15.w),
-  //         child: AlertDialog(
-  //            shape:
-  //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
-  //         insetPadding: const EdgeInsets.symmetric(vertical: 10),
-  //           title:Text(
-  //           "Exit App",
-  //           style: TextStyle(
-  //               fontFamily: 'Studio Pro',
-  //               fontWeight: FontWeight.bold,
-  //               fontSize: 18.sp,
-  //               color: const Color(0xff3B3F43)),
-  //         ),
-  //           content: SizedBox(
-  //           width: MediaQuery.of(context).size.width,
-  //           child: Text(
-  //             "Are you sure you want to Exit App?",
-  //             style: TextStyle(
-  //                 fontFamily: 'Roboto',
-  //                 fontSize: 16.sp,
-  //                 color: const Color(0xff54595F)),
-  //           ),
-  //         ),
-  //           actions: [
-  //            InkWell(
-  //             onTap: () {
-  //               Get.back();
-  //             },
-  //             child: Text(
-  //               "No",
-  //               style: TextStyle(
-  //                   fontFamily: "Roboto",
-  //                   fontWeight: FontWeight.w500,
-  //                   fontSize: 16.sp,
-  //                   color: const Color(0xff000000)),
-  //             ),
-  //           ),
-  //           sizedBoxWidth(15.sp),
-  //           InkWell(
-  //             onTap: () {
-  //               SystemNavigator.pop();
-  //             },
-  //             child: Text(
-  //               "Yes",
-  //               style: TextStyle(
-  //                   fontFamily: "Roboto",
-  //                   fontWeight: FontWeight.w500,
-  //                   fontSize: 16.sp,
-  //                   color: const Color(0xffB90101)),
-  //             ),
-  //           ),
-  //           sizedBoxWidth(15.sp),
-  //           ],
-  //         ),
-  //       );
-  //     },
-  //   );
-  //   return exitapp ?? false;
-  // }
 }

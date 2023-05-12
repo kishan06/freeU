@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
 import 'package:freeu/HomePage/Categories/SecuredDebt/Securitizedproperties.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
@@ -81,9 +80,6 @@ class _SecureDebtMainState extends State<SecureDebtMain> {
                       ),
                       OpenContainerWrappers(
                         openBuild: const SecuritizedViewMore(),
-                        // onTap: () {
-                        //   Get.toNamed("/fractionalrealestate");
-                        // },
                         closeBuild: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [

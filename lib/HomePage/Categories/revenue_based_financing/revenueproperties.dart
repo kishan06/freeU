@@ -1,15 +1,11 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 import 'package:freeu/HomePage/Categories/revenue_based_financing/revenuedetailspage.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:lottie/lottie.dart';
 
 class RevenueProperties extends StatefulWidget {
@@ -23,22 +19,16 @@ class _RevenuePropertiesState extends State<RevenueProperties> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF1FAFF),
-      appBar:
-          //  CustomSignupAppBar(
-          //   titleTxt: "",
-          //   bottomtext: false,
-          // ),
-          AppBar(
-        backgroundColor: Color(0xFFF1FAFF),
+      backgroundColor: const Color(0xFFF1FAFF),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFF1FAFF),
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
           onPressed: () {
-            // Get.toNamed("/privateequity");
             Get.back();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
           ),
           iconSize: 26,
@@ -68,36 +58,26 @@ class _RevenuePropertiesState extends State<RevenueProperties> {
               length: 3,
               child: Column(
                 children: <Widget>[
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   ButtonsTabBar(
                     buttonMargin: EdgeInsets.zero,
-                    contentPadding: EdgeInsets.only(left: 27, right: 27),
+                    contentPadding: const EdgeInsets.only(left: 27, right: 27),
                     radius: 4,
-                    backgroundColor: Color(0xFF143C6D),
-                    unselectedBorderColor: Color(0xFFFFFFFF),
+                    backgroundColor: const Color(0xFF143C6D),
+                    unselectedBorderColor: const Color(0xFFFFFFFF),
                     //borderWidth: 1,
-                    borderColor: Color(0xFFFFFFFF),
-                    unselectedBackgroundColor: Color(0xFFFFFFFF),
-                    unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
+                    borderColor: const Color(0xFFFFFFFF),
+                    unselectedBackgroundColor: const Color(0xFFFFFFFF),
+                    unselectedLabelStyle:
+                        const TextStyle(color: Color(0xFF0F0C0C)),
                     labelStyle: const TextStyle(
                       color: Color(0xFFFFFFFF),
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
-                    // decoration: const BoxDecoration(
-                    //     color: Color(0xFF143C6D),
-                    //     //borderRadius: BorderRadius.circular(4),
-                    //     boxShadow: [
-                    //       BoxShadow(
-                    //         color: Colors.red,
-                    //         blurRadius: 3.0,
-                    //         spreadRadius: 4,
-                    //         offset: Offset(5.0, 5.0),
-                    //       )
-                    //     ]),
-                    tabs: [
+                    tabs: const [
                       Tab(
                         text: "Open",
                       ),
@@ -110,7 +90,7 @@ class _RevenuePropertiesState extends State<RevenueProperties> {
                     ],
                   ),
                   sizedBoxHeight(15.h),
-                  Expanded(
+                  const Expanded(
                     child: TabBarView(
                       children: [
                         FirstTab(),
@@ -169,52 +149,22 @@ class SecondTab extends StatefulWidget {
 class _SecondTabState extends State<SecondTab> {
   List contents = [
     {
-      // "image": "assets/images/fractional.png",
       "title": "Navi Mumbai Office \nOpportunity II",
       "View investment Route": RevenueDetails(
         pageIndex: 0,
       )
-      // "image1": "assets/images/place.png",
-      // "text1": "Location:",
-      // "subtext1": "Seawoods, Navi Mumbai",
-      // "image2": "assets/images/investmentproperties (1).png",
-      // "text2": "Targeted IRR:",
-      // "subtext2": "12.7%",
-      // "image3": "assets/images/propertiestransfer.png",
-      // "text3": "Minimum investment amount",
-      // "subtext3": " 1 Crore",
     },
     {
-      //"image": "assets/images/fractional.png",
       "title": "Prestige Tech Platina, \nBangalore",
       "View investment Route": RevenueDetails(
         pageIndex: 1,
       )
-      // "image1": "assets/images/place.png",
-      // "text1": "Location:",
-      // "subtext1": "Seawoods, Navi Mumbai",
-      // "image2": "assets/images/investmentproperties (1).png",
-      // "text2": "Targeted IRR:",
-      // "subtext2": "12.7%",
-      // "image3": "assets/images/propertiestransfer.png",
-      // "text3": "Minimum investment amount",
-      // "subtext3": " 1 Crore",
     },
     {
-      //"image": "assets/images/fractional.png",
       "title": "Bangalore Warehousing Opportunity I",
       "View investment Route": RevenueDetails(
         pageIndex: 2,
       )
-      // "image1": "assets/images/place.png",
-      // "text1": "Location:",
-      // "subtext1": "Seawoods, Navi Mumbai",
-      // "image2": "assets/images/investmentproperties (1).png",
-      // "text2": "Targeted IRR:",
-      // "subtext2": "12.7%",
-      // "image3": "assets/images/propertiestransfer.png",
-      // "text3": "Minimum investment amount",
-      // "subtext3": " 1 Crore",
     }
   ];
 
@@ -239,7 +189,6 @@ class _SecondTabState extends State<SecondTab> {
                       color: Color(0x48B9B9BE),
                       blurRadius: 20.0,
                       spreadRadius: 0,
-                      // offset: Offset(-20, -20,),
                     )
                   ],
                 ),
@@ -247,12 +196,6 @@ class _SecondTabState extends State<SecondTab> {
                   padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
                   child: Column(
                     children: [
-                      // Image.asset(
-                      //   // image,
-                      //   "assets/images/fractional.png",
-                      //   width: 358,
-                      //   height: 162,
-                      // ),
                       SizedBox(
                         height: 10.h,
                       ),
@@ -263,8 +206,7 @@ class _SecondTabState extends State<SecondTab> {
                             Flexible(
                               child: Text(
                                 contents[index]["title"],
-                                //"Navi Mumbai Office \nOpportunity II",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 25,
                                     fontFamily: 'Poppins',
                                     color: Color(0XFF000000),
@@ -277,54 +219,6 @@ class _SecondTabState extends State<SecondTab> {
                       SizedBox(
                         height: 30.h,
                       ),
-                      // Padding(
-                      //   padding: const EdgeInsets.only(left: 16),
-                      //   child: Row(
-                      //     children: [
-                      //       Image.asset(
-                      //         // image1,
-                      //         "assets/images/place.png",
-                      //         width: 50.w,
-                      //         height: 50.h,
-                      //       ),
-                      //       SizedBox(
-                      //         width: 25.w,
-                      //       ),
-                      //       Column(
-                      //         mainAxisAlignment: MainAxisAlignment.start,
-                      //         children: [
-                      //           Padding(
-                      //             padding: const EdgeInsets.only(right: 165),
-                      //             child: Text(
-                      //               //text1,
-                      //               "Location:",
-                      //               textAlign: TextAlign.left,
-                      //               style: TextStyle(
-                      //                 fontSize: 18.sp,
-                      //                 color: Color(0XFF000000),
-                      //                 fontFamily: 'Poppins',
-                      //                 //fontWeight: FontWeight.w300,
-                      //               ),
-                      //             ),
-                      //           ),
-                      //           Text(
-                      //             //subtext1,
-                      //             "Seawoods, Navi Mumbai",
-                      //             style: TextStyle(
-                      //               fontSize: 20.sp,
-                      //               color: Color(0XFF000000),
-                      //               fontFamily: 'Poppins',
-                      //               fontWeight: FontWeight.w500,
-                      //             ),
-                      //           ),
-                      //         ],
-                      //       )
-                      //     ],
-                      //   ),
-                      // ),
-                      // SizedBox(
-                      //   height: 30.h,
-                      // ),
                       Padding(
                         padding: const EdgeInsets.only(left: 16),
                         child: Row(
@@ -349,7 +243,7 @@ class _SecondTabState extends State<SecondTab> {
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 18.sp,
-                                      color: Color(0XFF000000),
+                                      color: const Color(0XFF000000),
                                       fontFamily: 'Poppins',
                                       //fontWeight: FontWeight.w300,
                                     ),
@@ -362,7 +256,7 @@ class _SecondTabState extends State<SecondTab> {
                                     "12.7%",
                                     style: TextStyle(
                                       fontSize: 20.sp,
-                                      color: Color(0XFF000000),
+                                      color: const Color(0XFF000000),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -398,7 +292,7 @@ class _SecondTabState extends State<SecondTab> {
                                   textAlign: TextAlign.left,
                                   style: TextStyle(
                                     fontSize: 18.sp,
-                                    color: Color(0XFF000000),
+                                    color: const Color(0XFF000000),
                                     fontFamily: 'Poppins',
                                     fontWeight: FontWeight.w300,
                                   ),
@@ -412,7 +306,7 @@ class _SecondTabState extends State<SecondTab> {
                                     textAlign: TextAlign.left,
                                     style: TextStyle(
                                       fontSize: 20.sp,
-                                      color: Color(0XFF000000),
+                                      color: const Color(0XFF000000),
                                       fontFamily: 'Poppins',
                                       fontWeight: FontWeight.w500,
                                     ),
@@ -431,7 +325,7 @@ class _SecondTabState extends State<SecondTab> {
                         child: Container(
                           height: 50.h,
                           decoration: BoxDecoration(
-                            boxShadow: [
+                            boxShadow: const [
                               BoxShadow(
                                 color: Color.fromARGB(255, 220, 220, 226),
                               )
@@ -454,14 +348,6 @@ class _SecondTabState extends State<SecondTab> {
                                 ),
                               )),
                             ),
-
-                            // CustomNextButton(
-                            //   text: 'View Investment',
-                            //   // ontap: () {
-                            //   //   Get.to(PropertiesInvestment());
-                            //   //   // Get.toNamed("/propertiesinvestment");
-                            //   // },
-                            // ),
                           ),
                         ),
                       ),
@@ -471,40 +357,8 @@ class _SecondTabState extends State<SecondTab> {
               ),
             ),
           );
-
-          // properties(
-          //Contents[index]["image"],
-          // contents[index]["title"],
-
-          // Contents[index]["image1"],
-          // Contents[index]["text1"],
-          // Contents[index]["subtext1"],
-          // Contents[index]["image2"],
-          // Contents[index]["text2"],
-          // Contents[index]["subtext2"],
-          // Contents[index]["image3"],
-          // Contents[index]["text3"],
-          // Contents[index]["subtext3"],
-          // );
         });
   }
-
-  // Widget properties(
-  //   // String image,
-  //   String title,
-  //   // String image1,
-  //   // String text1,
-  //   // String subtext1,
-  //   // String image2,
-  //   // String text2,
-  //   // String subtext2,
-  //   // String image3,
-  //   // String text3,
-  //   // String subtext3
-  // ) {
-  //   return
-
-  // }
 }
 
 class ThirdTab extends StatelessWidget {

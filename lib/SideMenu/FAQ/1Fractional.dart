@@ -200,49 +200,4 @@ class _FaqBoxState extends State<FaqBox> {
       ),
     );
   }
-
-  // Widget expansionFAQ(String titleString, String contentString) {
-  // return
-  //  Container(
-  //   decoration: BoxDecoration(
-  //       border:
-  //           isExpanded ? null : Border.all(color: const Color(0xffCCCCCC)),
-  //       color: isExpanded ? const Color(0xff143C6D) : Colors.white,
-  //       borderRadius: BorderRadius.circular(10.r)),
-  //   child: ExpansionTile(
-  //     childrenPadding: EdgeInsets.all(15.h),
-  //     initiallyExpanded: isExpanded,
-  //     onExpansionChanged: (bool expanding) {
-  //       setState(() {
-  //         isExpanded = expanding;
-  //       });
-  //     },
-  //     trailing: Icon(
-  //       isExpanded
-  //           ? Icons.remove_circle_outline_rounded
-  //           : Icons.add_circle_outline_rounded,
-  //       size: 18.sp,
-  //       color: isExpanded ? Colors.white : Colors.black,
-  //     ),
-  //     title: Text(
-  //       titleString,
-  //       style: TextStyle(
-  //           fontFamily: "Poppins",
-  //           fontSize: 20.sp,
-  //           color: isExpanded ? Colors.white : Colors.black),
-  //     ),
-  //     children: <Widget>[
-  //       Text(
-  //         contentString,
-  //         style: TextStyle(
-  //             color: Colors.white,
-  //             fontFamily: "Poppins",
-  //             fontSize: 16.sp,
-  //             fontWeight: FontWeight.w300),
-  //       ),
-  //     ],
-  //   ),
-  // );
-
-  // }
 }

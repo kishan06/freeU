@@ -1,9 +1,6 @@
-// ignore_for_file: prefer_const_constructors, file_names, camel_case_types
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
@@ -38,7 +35,7 @@ class _InsightsInnerState extends State<InsightsInner> {
                   Text(
                     'Retail banks wake up to digital',
                     style: TextStyle(
-                        color: Color(0xff000000),
+                        color: const Color(0xff000000),
                         fontSize: 25.sp,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'Poppins'),
@@ -50,7 +47,7 @@ class _InsightsInnerState extends State<InsightsInner> {
         ),
       ),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Center(
             child: Column(
@@ -66,7 +63,7 @@ class _InsightsInnerState extends State<InsightsInner> {
                   child: Icon(
                     Icons.calendar_today,
                     size: 15.sp,
-                    color: Color(0xff6B6B6B),
+                    color: const Color(0xff6B6B6B),
                   ),
                 ),
                 SizedBox(
@@ -74,7 +71,8 @@ class _InsightsInnerState extends State<InsightsInner> {
                 ),
                 Text(
                   'November 11, 2022',
-                  style: TextStyle(fontSize: 14.sp, color: Color(0xff6B6B6B)),
+                  style: TextStyle(
+                      fontSize: 14.sp, color: const Color(0xff6B6B6B)),
                 ),
                 SizedBox(
                   width: 5.w,
@@ -84,7 +82,7 @@ class _InsightsInnerState extends State<InsightsInner> {
                   child: Icon(
                     Icons.circle,
                     size: 14.sp,
-                    color: Color(0xff6B6B6B),
+                    color: const Color(0xff6B6B6B),
                   ),
                 ),
                 SizedBox(
@@ -92,7 +90,8 @@ class _InsightsInnerState extends State<InsightsInner> {
                 ),
                 Text(
                   '11 Min Raed',
-                  style: TextStyle(fontSize: 14.sp, color: Color(0xff6B6B6B)),
+                  style: TextStyle(
+                      fontSize: 14.sp, color: const Color(0xff6B6B6B)),
                 )
               ],
             ),
@@ -104,7 +103,7 @@ class _InsightsInnerState extends State<InsightsInner> {
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 16.sp,
-                color: Color(0xff000000),
+                color: const Color(0xff000000),
               ),
             ),
             SizedBox(
@@ -115,7 +114,7 @@ class _InsightsInnerState extends State<InsightsInner> {
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 16.sp,
-                color: Color(0xff000000),
+                color: const Color(0xff000000),
               ),
             ),
             SizedBox(
@@ -132,7 +131,7 @@ class _InsightsInnerState extends State<InsightsInner> {
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 16.sp,
-                color: Color(0xff000000),
+                color: const Color(0xff000000),
               ),
             ),
             SizedBox(
@@ -143,7 +142,7 @@ class _InsightsInnerState extends State<InsightsInner> {
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 16.sp,
-                color: Color(0xff000000),
+                color: const Color(0xff000000),
               ),
             ),
             SizedBox(
@@ -154,14 +153,14 @@ class _InsightsInnerState extends State<InsightsInner> {
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 16.sp,
-                color: Color(0xff000000),
+                color: const Color(0xff000000),
               ),
             ),
             sizedBoxHeight(15.h),
             CustomNextButton(
               ontap: () {
                 Get.back();
-                Get.to(InsightsInner());
+                Get.to(const InsightsInner());
               },
               text: "Next",
             ),

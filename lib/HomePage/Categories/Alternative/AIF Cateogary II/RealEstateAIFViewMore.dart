@@ -102,13 +102,13 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -164,13 +164,13 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,

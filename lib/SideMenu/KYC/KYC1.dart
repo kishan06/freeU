@@ -1,5 +1,3 @@
-// ignore_for_file: file_names, camel_case_types, prefer_const_constructors, duplicate_ignore, unused_import
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextDropDown.dart';
@@ -7,9 +5,7 @@ import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
-
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class KYC1 extends StatefulWidget {
   const KYC1({super.key});
@@ -20,7 +16,6 @@ class KYC1 extends StatefulWidget {
 
 class _KYC1State extends State<KYC1> {
   int currentIndex = 0;
-  late PageController _controller;
 
   String? datecontroller;
 
@@ -31,8 +26,8 @@ class _KYC1State extends State<KYC1> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
+      backgroundColor: const Color(0xFFFFFFFF),
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -67,7 +62,7 @@ class _KYC1State extends State<KYC1> {
                         "Step 1 : Complete your KYC",
                         style: TextStyle(
                             fontSize: 22.sp,
-                            color: Color(0xFF143C6D),
+                            color: const Color(0xFF143C6D),
                             fontFamily: 'Poppins',
                             fontWeight: FontWeight.w500),
                       ),
@@ -80,7 +75,7 @@ class _KYC1State extends State<KYC1> {
                           fontFamily: 'Poppins',
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
-                          color: Color(0xFF000000),
+                          color: const Color(0xFF000000),
                         ),
                       ),
                       SizedBox(
@@ -91,7 +86,7 @@ class _KYC1State extends State<KYC1> {
                         style: TextStyle(
                           fontFamily: 'Poppins',
                           fontSize: 14.sp,
-                          color: Color(0xFF000000),
+                          color: const Color(0xFF000000),
                         ),
                       ),
                       SizedBox(
@@ -103,12 +98,12 @@ class _KYC1State extends State<KYC1> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
                       ),
-                      CustomTextFormField(
+                      const CustomTextFormField(
                           hintText: "Please Enter Phone Number",
                           validatorText: "Please Enter Phone Number"),
                       SizedBox(
@@ -120,12 +115,12 @@ class _KYC1State extends State<KYC1> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
                       ),
-                      CustomTextFormField(
+                      const CustomTextFormField(
                           hintText: "Please Enter Email Id",
                           validatorText: "Please Enter Email Id"),
                       SizedBox(height: 20.h),
@@ -135,13 +130,13 @@ class _KYC1State extends State<KYC1> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
                       ),
                       CustomTextDropdown(
-                          item: ["1", "2", "3"],
+                          item: const ["1", "2", "3"],
                           controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       SizedBox(height: 20.h),
@@ -150,7 +145,7 @@ class _KYC1State extends State<KYC1> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
@@ -164,7 +159,7 @@ class _KYC1State extends State<KYC1> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             border: Border.all(
-                              color: Color(0xffCCCCCC),
+                              color: const Color(0xffCCCCCC),
                             ),
                             borderRadius: BorderRadius.circular(10.r),
                           ),
@@ -181,7 +176,7 @@ class _KYC1State extends State<KYC1> {
                               ),
                               Row(
                                 children: [
-                                  Icon(Icons.calendar_month_outlined),
+                                  const Icon(Icons.calendar_month_outlined),
                                   sizedBoxWidth(10.w)
                                 ],
                               ),
@@ -197,36 +192,31 @@ class _KYC1State extends State<KYC1> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
                       ),
                       CustomTextDropdown(
-                          item: [
+                          item: const [
                             "Marketing manager",
                             "financial operations.",
                             "Software developer."
                           ],
                           controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
-
-                      // CustomTextFormField(
-                      //     hintText: "Please Enter Occupation",
-                      //     validatorText: "Please Enter Occupation"),
                       SizedBox(height: 20.h),
                       Text(
                         "Father's Name",
-                        // ignore: prefer_const_constructors
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
                       ),
-                      CustomTextFormField(
+                      const CustomTextFormField(
                           hintText: "Please Enter Father's Name",
                           validatorText: "Please Enter Father's Name"),
                       SizedBox(height: 40.h),
@@ -251,7 +241,6 @@ class _KYC1State extends State<KYC1> {
   }
 
   void _presentDatePicker() {
-    // showDatePicker is a pre-made funtion of Flutter
     showDatePicker(
             context: context,
             initialDate: DateTime.now(),

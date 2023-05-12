@@ -152,23 +152,6 @@ Entire cash flow to be routed through escrow mechanism''',
                       style: TextStyle(
                           fontSize: 22.sp, fontWeight: FontWeight.w500),
                     ),
-                    // child: ListView.builder(
-                    //   itemCount: 1,
-                    //   itemBuilder: (context, index) {
-                    //     return Column(
-                    //       mainAxisAlignment: MainAxisAlignment.center,
-                    //       crossAxisAlignment: CrossAxisAlignment.start,
-                    //       children: [
-                    //         Text(
-                    //           productDetails[0]['Company Name']
-                    //               [widget.pageIndex],
-                    //           style: TextStyle(
-                    //               fontSize: 22.sp, fontWeight: FontWeight.w500),
-                    //         ),
-                    //       ],
-                    //     );
-                    //   },
-                    // ),
                   )
                 ],
               ),
@@ -209,33 +192,9 @@ Entire cash flow to be routed through escrow mechanism''',
                       return SizedBox(
                         height: 0.h,
                       );
-                      // Divider(
-                      //   height: 25.h,
-                      //   thickness: 1.h,
-                      //   color: Colors.grey.shade400,
-                      // );
                     },
                     itemCount: productDetails[0]['header'].length),
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     Text(
-              //       'view ',
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 15.sp,
-              //           color: const Color(0xff1B8DC9)),
-              //     ),
-              //     Text(
-              //       productDetails[0]['Company Name'][widget.pageIndex],
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 15.sp,
-              //           color: const Color(0xff1B8DC9)),
-              //     )
-              //   ],
-              // )
             ],
           ),
         ),

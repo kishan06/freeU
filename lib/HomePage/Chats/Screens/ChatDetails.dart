@@ -276,17 +276,6 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         maxLines: 1,
                       ),
                     ),
-                    // Container(
-                    //   margin: EdgeInsets.all(10.h),
-                    //   height: 60.h,
-                    //   decoration: BoxDecoration(
-                    //     color: const Color(0xffF6F8FA),
-                    //     borderRadius: BorderRadius.circular(10.r),
-                    //   ),
-                    //   child: Row(
-                    //     children: [Text('Send')],
-                    //   ),
-                    // ),
                     sizedBoxWidth(12.w),
                     Container(
                         width: 90.w,

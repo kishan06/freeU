@@ -52,14 +52,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
       "ans":
           "For investors, earning depends on the appetite for risks. It mainly depends on two things. The creditworthiness of the borrowers, and the tenure for which you lend. Therefore, the longer your lending period, the higher will be your returns."
     },
-
-//     {
-//       "question":
-//           "What are the two things to look out for when you are measuring your returns? ",
-//       "ans":
-//           """"The default rate, and platform fees. This is mainly because your return amount in actuality will get reduced because of these.
-// Example: If you earn a 20% return from your investment and the non-performing assets account for 5%, your net returns will come to 15%. If there is a 2% platform fee, your net return will be 13%."""
-//     },
   ];
 
   @override
@@ -74,26 +66,11 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
           },
         ),
       ),
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
+      backgroundColor: const Color(0xFFFFFFFF),
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
@@ -121,19 +98,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                     if (index == 0) {
                       return fracReal2();
                     } else if (index == 1) {
-                      return fracReal9(
-                        // discountingLearnMoreData[index]["sent"],
-                        //   discountingLearnMoreData[index]["bold"]
-                        );
+                      return fracReal9();
                     } else if (index == 2) {
                       return fracReal3();
                     } else if (index == 3) {
                       return fracReal6();
                     } else if (index == 4) {
-                      return fracReal5(
-                        // discountingLearnMoreData[index]["sent"],
-                        //   discountingLearnMoreData[index]["bold"]
-                        );
+                      return fracReal5();
                     } else if (index == 5) {
                       return fracReal8();
                     } else {
@@ -141,28 +112,12 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                           discountingLearnMoreData[index]["question"],
                           discountingLearnMoreData[index]["ans"]);
                     }
-
-                    // return fracReal1(
-                    //   FracRealEstData[index]["question"],
-                    //   FracRealEstData[index]["ans"]
-                    // );
                   },
                   separatorBuilder: (context, index) {
                     return sizedBoxHeight(20.h);
                   },
                   itemCount: discountingLearnMoreData.length),
             ),
-
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
           ],
         ),
       ),
@@ -203,13 +158,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -264,14 +219,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
         "sent":
             "For investing, the P2P lending platform is a lucrative medium. There are a few platforms that provide the benefits of p2p lending with full transparency. Some Lending platforms offer Fixed-Maturity Peer-to-Peer Plans with high expected returns."
       },
-
-      // "The SPV purchases the real estate property. All Fractional owners of the asset are shareholders in the SPV, in proportion to their investment-contribution in the real estate asset.",
-      // "The SPV is created with the only purpose to hold the property on behalf of the investors. The investment platform dealing with the FRE accepts the responsibility of the SPV and the underlying property.",
-      // "Each investors needs to sign relevant SPV agreements to be registered with the ‘Registrar of Companies (RoC)’ under the Ministry of Corporate Affairs (MCA).",
-      // "The sale agreement is registered with the ‘Sub-Registrar’ office under whose local jurisdiction the property is situated. All the documents can be signed either digitally or physically. ",
-      // "All the necessary documents, including the lease/rental agreement, title report, sale deed, and SPV agreement are shared with each of the investors. It is also accessible on the investor's dashboard in the investment platform portal. ",
-      // "The 'Property Sale Deed' along with the SPV agreement copy becomes the proof of ownership, and records of the same are maintained in government records, public databases, and the investor's dashboard.",
-      // "Once an investor expresses interest, he/she pays the initial amount to confirm. The investors can track and monitor the asset in real-time. If at any point, an investor wants to exit, there are multiple exit options usually available that offer a smooth exit. ",
     ];
     return Container(
       decoration: BoxDecoration(
@@ -306,13 +253,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -322,7 +269,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
             sizedBoxHeight(16.h),
             ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: bulletPoints.length,
                 itemBuilder: (context, index) {
                   return bulletText(
@@ -351,13 +298,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
         "sent":
             "There is a risk of errors or fraud in the invoice discounting process, such as fake invoices or the borrower misrepresenting the quality of their receivables. Investors should carefully assess the operational processes of the invoice discounting platform to ensure that there are appropriate controls and risk management procedures in place."
       },
-      // "The SPV purchases the real estate property. All Fractional owners of the asset are shareholders in the SPV, in proportion to their investment-contribution in the real estate asset.",
-      // "The SPV is created with the only purpose to hold the property on behalf of the investors. The investment platform dealing with the FRE accepts the responsibility of the SPV and the underlying property.",
-      // "Each investors needs to sign relevant SPV agreements to be registered with the ‘Registrar of Companies (RoC)’ under the Ministry of Corporate Affairs (MCA).",
-      // "The sale agreement is registered with the ‘Sub-Registrar’ office under whose local jurisdiction the property is situated. All the documents can be signed either digitally or physically. ",
-      // "All the necessary documents, including the lease/rental agreement, title report, sale deed, and SPV agreement are shared with each of the investors. It is also accessible on the investor's dashboard in the investment platform portal. ",
-      // "The 'Property Sale Deed' along with the SPV agreement copy becomes the proof of ownership, and records of the same are maintained in government records, public databases, and the investor's dashboard.",
-      // "Once an investor expresses interest, he/she pays the initial amount to confirm. The investors can track and monitor the asset in real-time. If at any point, an investor wants to exit, there are multiple exit options usually available that offer a smooth exit. ",
     ];
     return Container(
       decoration: BoxDecoration(
@@ -392,13 +332,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -408,13 +348,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
             sizedBoxHeight(16.h),
             ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: bulletPoints5.length,
                 itemBuilder: (context, index) {
                   return bulletText(bulletPoints5[index]["sent"],
                       bulletPoints5[index]["bold"]);
                 }),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           ],
@@ -434,7 +374,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
         Expanded(
           child: RichText(
             text: TextSpan(
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14.0,
                 color: Colors.black,
               ),
@@ -455,11 +395,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                     )),
               ],
             ),
-            // sent,
-            // style: TextStyle(
-            //   color: Colors.black,
-            //   fontFamily: "Poppins",
-            //   fontSize: 18.sp,
           ),
         ),
       ],
@@ -498,13 +433,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -656,13 +591,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -685,7 +620,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                 Expanded(
                   child: RichText(
                     text: TextSpan(
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.black,
                       ),
@@ -707,11 +642,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                             )),
                       ],
                     ),
-                    // sent,
-                    // style: TextStyle(
-                    //   color: Colors.black,
-                    //   fontFamily: "Poppins",
-                    //   fontSize: 18.sp,
                   ),
                 ),
               ],
@@ -722,7 +652,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                 Expanded(
                   child: RichText(
                     text: TextSpan(
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.black,
                       ),
@@ -744,11 +674,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                             )),
                       ],
                     ),
-                    // sent,
-                    // style: TextStyle(
-                    //   color: Colors.black,
-                    //   fontFamily: "Poppins",
-                    //   fontSize: 18.sp,
                   ),
                 ),
               ],
@@ -759,7 +684,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                 Expanded(
                   child: RichText(
                     text: TextSpan(
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.black,
                       ),
@@ -781,11 +706,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                             )),
                       ],
                     ),
-                    // sent,
-                    // style: TextStyle(
-                    //   color: Colors.black,
-                    //   fontFamily: "Poppins",
-                    //   fontSize: 18.sp,
                   ),
                 ),
               ],
@@ -806,7 +726,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                 Expanded(
                   child: RichText(
                     text: TextSpan(
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.black,
                       ),
@@ -828,11 +748,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                             )),
                       ],
                     ),
-                    // sent,
-                    // style: TextStyle(
-                    //   color: Colors.black,
-                    //   fontFamily: "Poppins",
-                    //   fontSize: 18.sp,
                   ),
                 ),
               ],
@@ -843,7 +758,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                 Expanded(
                   child: RichText(
                     text: TextSpan(
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.black,
                       ),
@@ -865,11 +780,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                             )),
                       ],
                     ),
-                    // sent,
-                    // style: TextStyle(
-                    //   color: Colors.black,
-                    //   fontFamily: "Poppins",
-                    //   fontSize: 18.sp,
                   ),
                 ),
               ],
@@ -880,7 +790,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                 Expanded(
                   child: RichText(
                     text: TextSpan(
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 14.0,
                         color: Colors.black,
                       ),
@@ -902,11 +812,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                             )),
                       ],
                     ),
-                    // sent,
-                    // style: TextStyle(
-                    //   color: Colors.black,
-                    //   fontFamily: "Poppins",
-                    //   fontSize: 18.sp,
                   ),
                 ),
               ],
@@ -950,13 +855,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -1010,13 +915,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -1060,13 +965,6 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
         "sent":
             "Factors may also verify the authenticity of the underlying invoices and validate the delivery of goods or services. This can help ensure that the invoices are not fraudulent and that the goods or services have been properly delivered."
       },
-      // "The SPV purchases the real estate property. All Fractional owners of the asset are shareholders in the SPV, in proportion to their investment-contribution in the real estate asset.",
-      // "The SPV is created with the only purpose to hold the property on behalf of the investors. The investment platform dealing with the FRE accepts the responsibility of the SPV and the underlying property.",
-      // "Each investors needs to sign relevant SPV agreements to be registered with the ‘Registrar of Companies (RoC)’ under the Ministry of Corporate Affairs (MCA).",
-      // "The sale agreement is registered with the ‘Sub-Registrar’ office under whose local jurisdiction the property is situated. All the documents can be signed either digitally or physically. ",
-      // "All the necessary documents, including the lease/rental agreement, title report, sale deed, and SPV agreement are shared with each of the investors. It is also accessible on the investor's dashboard in the investment platform portal. ",
-      // "The 'Property Sale Deed' along with the SPV agreement copy becomes the proof of ownership, and records of the same are maintained in government records, public databases, and the investor's dashboard.",
-      // "Once an investor expresses interest, he/she pays the initial amount to confirm. The investors can track and monitor the asset in real-time. If at any point, an investor wants to exit, there are multiple exit options usually available that offer a smooth exit. ",
     ];
     return Container(
       decoration: BoxDecoration(
@@ -1101,13 +999,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -1171,7 +1069,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
             sizedBoxHeight(10),
             RichText(
               text: TextSpan(
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 14.0,
                   color: Colors.black,
                 ),
@@ -1193,21 +1091,16 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                           fontWeight: FontWeight.w600)),
                 ],
               ),
-              // sent,
-              // style: TextStyle(
-              //   color: Colors.black,
-              //   fontFamily: "Poppins",
-              //   fontSize: 18.sp,
             ),
             ListView.builder(
                 shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemCount: bulletPoints6.length,
                 itemBuilder: (context, index) {
                   return bulletTextwithheading(bulletPoints6[index]["sent"],
                       bulletPoints6[index]["bold"]);
                 }),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
           ],
@@ -1223,7 +1116,7 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
         Expanded(
           child: RichText(
             text: TextSpan(
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 14.0,
                 color: Colors.black,
               ),
@@ -1244,134 +1137,9 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
                     )),
               ],
             ),
-            // sent,
-            // style: TextStyle(
-            //   color: Colors.black,
-            //   fontFamily: "Poppins",
-            //   fontSize: 18.sp,
           ),
         ),
       ],
     );
   }
-
-  // Widget fracReal4() {
-  //   return Container(
-  //     decoration: BoxDecoration(
-  //         border: Border.all(color: Colors.black.withOpacity(0.2)),
-  //         color: Colors.white,
-  //         borderRadius: BorderRadius.circular(5.r)),
-  //     child: GFAccordion(
-  //       titleBorderRadius: BorderRadius.circular(5.r),
-  //       contentBorderRadius: BorderRadius.only(
-  //         bottomLeft: Radius.circular(5.r),
-  //         bottomRight: Radius.circular(5.r),
-  //       ),
-  //       margin: const EdgeInsets.all(0),
-  //       titlePadding: EdgeInsets.all(10.h),
-  //       contentPadding: EdgeInsets.all(10.w),
-  //       expandedTitleBackgroundColor: Colors.white,
-  //       contentBackgroundColor: Colors.white,
-  //       titleChild: Text(
-  //         'Advantages of Fractional Real Estate Investing',
-  //         style: TextStyle(
-  //             color: Colors.black,
-  //             fontSize: 20.sp,
-  //             fontFamily: "Poppins",
-  //             fontWeight: FontWeight.w500),
-  //       ),
-  //       contentChild: Column(
-  //         crossAxisAlignment: CrossAxisAlignment.start,
-  //         children: [
-  //           Row(
-  //             mainAxisAlignment: MainAxisAlignment.start,
-  //             children: [
-  //               Container(
-  //                 color: Color(0xFF143C6D),
-  //                 height: 1,
-  //                 width: MediaQuery.of(context).size.width / 1.65,
-  //               ),
-  //               Container(
-  //                 decoration: BoxDecoration(
-  //                     color: Color(0xFF143C6D),
-  //                     borderRadius: BorderRadius.circular(100.r)),
-  //                 height: 8,
-  //                 width: 8,
-  //               )
-  //             ],
-  //           ),
-  //           sizedBoxHeight(15.h),
-  //           Text(
-  //             "Private Equity Funds is a collective investment scheme, used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership. There is a team of professionals in the private equity firm who raise the money and manage the entire fund. The fund managers utilize the funds for raising new capital, new technology for the companies, future acquisitions, and even investing in other companies to make the fund strong. Private Equity Funds usually have a high rate of return. Most of the investors in a PE are High- Net individuals, or Investment Banks.",
-  //             style: TextStyle(
-  //               color: Colors.black,
-  //               fontFamily: "Poppins",
-  //               fontSize: 18.sp,
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
-
-  // Widget fracReal5() {
-  //   return Container(
-  //     decoration: BoxDecoration(
-  //         border: Border.all(color: Colors.black.withOpacity(0.2)),
-  //         color: Colors.white,
-  //         borderRadius: BorderRadius.circular(5.r)),
-  //     child: GFAccordion(
-  //       titleBorderRadius: BorderRadius.circular(5.r),
-  //       contentBorderRadius: BorderRadius.only(
-  //         bottomLeft: Radius.circular(5.r),
-  //         bottomRight: Radius.circular(5.r),
-  //       ),
-  //       margin: const EdgeInsets.all(0),
-  //       titlePadding: EdgeInsets.all(10.h),
-  //       contentPadding: EdgeInsets.all(10.w),
-  //       expandedTitleBackgroundColor: Colors.white,
-  //       contentBackgroundColor: Colors.white,
-  //       titleChild: Text(
-  //         'Platforms that provide investment opportunity in Fractional Real Estate',
-  //         style: TextStyle(
-  //             color: Colors.black,
-  //             fontSize: 20.sp,
-  //             fontFamily: "Poppins",
-  //             fontWeight: FontWeight.w500),
-  //       ),
-  //       contentChild: Column(
-  //         crossAxisAlignment: CrossAxisAlignment.start,
-  //         children: [
-  //           Row(
-  //             mainAxisAlignment: MainAxisAlignment.start,
-  //             children: [
-  //               Container(
-  //                 color: Color(0xFF143C6D),
-  //                 height: 1,
-  //                 width: MediaQuery.of(context).size.width / 1.65,
-  //               ),
-  //               Container(
-  //                 decoration: BoxDecoration(
-  //                     color: Color(0xFF143C6D),
-  //                     borderRadius: BorderRadius.circular(100.r)),
-  //                 height: 8,
-  //                 width: 8,
-  //               )
-  //             ],
-  //           ),
-  //           sizedBoxHeight(15.h),
-  //           Text(
-  //             "Private Equity Funds is a collective investment scheme, used to invest in equities and debts, managed by the Private Equity Firm, or LLP. These PE funds invest in unlisted companies and secure a share of the ownership. There is a team of professionals in the private equity firm who raise the money and manage the entire fund. The fund managers utilize the funds for raising new capital, new technology for the companies, future acquisitions, and even investing in other companies to make the fund strong. Private Equity Funds usually have a high rate of return. Most of the investors in a PE are High- Net individuals, or Investment Banks.",
-  //             style: TextStyle(
-  //               color: Colors.black,
-  //               fontFamily: "Poppins",
-  //               fontSize: 18.sp,
-  //             ),
-  //           ),
-  //         ],
-  //       ),
-  //     ),
-  //   );
-  // }
 }

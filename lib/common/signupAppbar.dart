@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -36,9 +35,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
               child: Text(
                 "Steps to check for Clients other than Resident Individual",
                 textAlign: TextAlign.center,
-                style:
-                    //Theme.of(context).textTheme.headline5,
-                    TextStyle(
+                style:  TextStyle(
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         decorationColor: Colors.black,

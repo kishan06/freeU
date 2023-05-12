@@ -2,12 +2,10 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:lottie/lottie.dart';
 
 import 'HedgeFundDetails.dart';
@@ -23,27 +21,11 @@ class _HedgeViewmoreProductsState extends State<HedgeViewmoreProducts> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
+      backgroundColor: const Color(0xFFFFFFFF),
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       // Get.toNamed("/privateequity");
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16),
         child: Column(
@@ -66,25 +48,27 @@ class _HedgeViewmoreProductsState extends State<HedgeViewmoreProducts> {
                 length: 3,
                 child: Column(
                   children: <Widget>[
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     ButtonsTabBar(
                       buttonMargin: EdgeInsets.zero,
-                      contentPadding: EdgeInsets.only(left: 27, right: 27),
+                      contentPadding:
+                          const EdgeInsets.only(left: 27, right: 27),
                       radius: 4,
-                      backgroundColor: Color(0xFF143C6D),
-                      unselectedBorderColor: Color(0xFFFFFFFF),
+                      backgroundColor: const Color(0xFF143C6D),
+                      unselectedBorderColor: const Color(0xFFFFFFFF),
                       borderWidth: 2,
-                      borderColor: Color(0xFFFFFFFF),
-                      unselectedBackgroundColor: Color(0xFFFFFFFF),
-                      unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
-                      labelStyle: TextStyle(
+                      borderColor: const Color(0xFFFFFFFF),
+                      unselectedBackgroundColor: const Color(0xFFFFFFFF),
+                      unselectedLabelStyle:
+                          const TextStyle(color: Color(0xFF0F0C0C)),
+                      labelStyle: const TextStyle(
                         color: Color(0xFFFFFFFF),
                         fontWeight: FontWeight.bold,
                         fontSize: 18,
                       ),
-                      tabs: [
+                      tabs: const [
                         Tab(
                           text: "Open",
                         ),
@@ -99,9 +83,9 @@ class _HedgeViewmoreProductsState extends State<HedgeViewmoreProducts> {
                     Expanded(
                       child: TabBarView(
                         children: [
-                          FirstTab(),
+                          const FirstTab(),
                           SecondTab(),
-                          ThirdTab(),
+                          const ThirdTab(),
                         ],
                       ),
                     ),
@@ -124,340 +108,9 @@ class FirstTab extends StatelessWidget {
     return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        // sizedBoxHeight(20.h),
         const Text("No Data Found")
       ],
     );
-    // return Center(
-    //   child: Column(
-    //     children: [
-    //       Padding(
-    //         padding: const EdgeInsets.only(top: 20),
-    //         child: Container(
-    //           decoration: BoxDecoration(
-    //             borderRadius: BorderRadius.all(Radius.circular(15)),
-    //             color: Color(0xffffffff),
-    //             boxShadow: [
-    //               BoxShadow(
-    //                 color: Color(0x48B9B9BE),
-    //                 blurRadius: 10.0,
-    //                 spreadRadius: 3.0,
-    //                 // offset: Offset(10, 10, 10, 10),
-    //               )
-    //             ],
-    //           ),
-    //           child: Padding(
-    //             padding: const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-    //             child: Column(
-    //               crossAxisAlignment: CrossAxisAlignment.center,
-    //               mainAxisAlignment: MainAxisAlignment.end,
-    //               children: [
-    //                 Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/alternative (6).png",
-    //                       width: 68,
-    //                       height: 38,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 20.h,
-    //                     ),
-    //                     Text(
-    //                       "HDFC AMC Select AIF \nFOF - 1",
-    //                       style: TextStyle(
-    //                           fontSize: 22,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     )
-    //                   ],
-    //                 ),
-    //                 Divider(
-    //                   thickness: 1,
-    //                   color: Color(0XFF6D6D6D29),
-    //                 ),
-    //                 SizedBox(height: 17.5.h),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(left: 15),
-    //                   child: Row(
-    //                     children: [
-    //                       Image.asset(
-    //                         "assets/images/investment (1).png",
-    //                         width: 25.w,
-    //                         height: 25.h,
-    //                       ),
-    //                       SizedBox(
-    //                         width: 15.w,
-    //                       ),
-    //                       Text(
-    //                         "Targeted IRR :",
-    //                         style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: 10.w,
-    //                       ),
-    //                       Text(
-    //                         "12.7%",
-    //                         style: TextStyle(
-    //                             fontSize: 20.sp,
-    //                             fontFamily: 'Poppins',
-    //                             color: Color(0XFF000000),
-    //                             fontWeight: FontWeight.w500),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 31.h,
-    //                 ),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(left: 15),
-    //                   child: Row(
-    //                     children: [
-    //                       Image.asset(
-    //                         "assets/images/back-in-time (1).png",
-    //                         width: 25.w,
-    //                         height: 25.h,
-    //                       ),
-    //                       SizedBox(
-    //                         width: 15.w,
-    //                       ),
-    //                       Text(
-    //                         "Commitment period :",
-    //                         style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: 8.w,
-    //                       ),
-    //                       Text(
-    //                         "5 Years",
-    //                         style: TextStyle(
-    //                             fontSize: 18.sp,
-    //                             fontFamily: 'Poppins',
-    //                             color: Color(0XFF000000),
-    //                             fontWeight: FontWeight.w500),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 31.h,
-    //                 ),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(left: 15),
-    //                   child: Row(
-    //                     children: [
-    //                       Image.asset(
-    //                         "assets/images/transfer.png",
-    //                         width: 25.w,
-    //                         height: 25.h,
-    //                       ),
-    //                       SizedBox(
-    //                         width: 15.w,
-    //                       ),
-    //                       Text(
-    //                         "Capital Commitment :",
-    //                         style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: 8.w,
-    //                       ),
-    //                       Text(
-    //                         "12.7%",
-    //                         style: TextStyle(
-    //                             fontSize: 18.sp,
-    //                             fontFamily: 'Poppins',
-    //                             color: Color(0XFF000000),
-    //                             fontWeight: FontWeight.w500),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 20.h,
-    //                 )
-    //               ],
-    //             ),
-    //           ),
-    //         ),
-    //       ),
-    //       SizedBox(
-    //         height: 30.h,
-    //       ),
-    //       Container(
-    //         decoration: BoxDecoration(
-    //           borderRadius: BorderRadius.all(Radius.circular(15)),
-    //           color: Color(0xffffffff),
-    //           boxShadow: [
-    //             BoxShadow(
-    //               color: Color(0x48B9B9BE),
-    //               blurRadius: 10.0,
-    //               spreadRadius: 3.0,
-    //               // offset: Offset(10, 10, 10, 10),
-    //             )
-    //           ],
-    //         ),
-    //         child: Padding(
-    //           padding: const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-    //           child: Column(
-    //             crossAxisAlignment: CrossAxisAlignment.center,
-    //             mainAxisAlignment: MainAxisAlignment.end,
-    //             children: [
-    //               Row(
-    //                 children: [
-    //                   Image.asset(
-    //                     "assets/images/Image 1.png",
-    //                     width: 68,
-    //                     height: 38,
-    //                   ),
-    //                   SizedBox(
-    //                     width: 20.h,
-    //                   ),
-    //                   Text(
-    //                     "Edelweiss Discovery \nFund – Series I",
-    //                     style: TextStyle(
-    //                         fontSize: 22,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                         fontWeight: FontWeight.w500),
-    //                   )
-    //                 ],
-    //               ),
-    //               Divider(
-    //                 thickness: 1,
-    //                 color: Color(0XFF6D6D6D29),
-    //               ),
-    //               SizedBox(height: 17.5.h),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(left: 15),
-    //                 child: Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/investment (1).png",
-    //                       width: 25.w,
-    //                       height: 25.h,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 15.w,
-    //                     ),
-    //                     Text(
-    //                       "Targeted IRR :",
-    //                       style: TextStyle(
-    //                         fontSize: 18.sp,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                       ),
-    //                     ),
-    //                     SizedBox(
-    //                       width: 10.w,
-    //                     ),
-    //                     Text(
-    //                       "12.7%",
-    //                       style: TextStyle(
-    //                           fontSize: 20.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //               SizedBox(
-    //                 height: 31.h,
-    //               ),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(left: 15),
-    //                 child: Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/back-in-time (1).png",
-    //                       width: 25.w,
-    //                       height: 25.h,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 15.w,
-    //                     ),
-    //                     Text(
-    //                       "Commitment period :",
-    //                       style: TextStyle(
-    //                         fontSize: 18.sp,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                       ),
-    //                     ),
-    //                     SizedBox(
-    //                       width: 8.w,
-    //                     ),
-    //                     Text(
-    //                       "5 Years",
-    //                       style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //               SizedBox(
-    //                 height: 31.h,
-    //               ),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(left: 15),
-    //                 child: Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/transfer.png",
-    //                       width: 25.w,
-    //                       height: 25.h,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 15.w,
-    //                     ),
-    //                     Text(
-    //                       "Capital Commitment :",
-    //                       style: TextStyle(
-    //                         fontSize: 18.sp,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                       ),
-    //                     ),
-    //                     SizedBox(
-    //                       width: 8.w,
-    //                     ),
-    //                     Text(
-    //                       "12.7%",
-    //                       style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //               SizedBox(
-    //                 height: 20.h,
-    //               )
-    //             ],
-    //           ),
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }
 
@@ -499,7 +152,7 @@ class SecondTab extends StatelessWidget {
           child: Padding(
             padding: EdgeInsets.all(5.w),
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(15)),
                 color: Color(0xffffffff),
                 boxShadow: [
@@ -531,7 +184,7 @@ class SecondTab extends StatelessWidget {
                           child: Text(
                             hedgeSlider[index]['Company Name'],
                             // "HDFC AMC Select AIF FOF - 1",
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 22,
                                 fontFamily: 'Poppins',
                                 color: Color(0XFF000000),
@@ -540,7 +193,7 @@ class SecondTab extends StatelessWidget {
                         )
                       ],
                     ),
-                    Divider(
+                    const Divider(
                       thickness: 1,
                       color: Color(0XFF6D6D6D29),
                     ),
@@ -560,7 +213,7 @@ class SecondTab extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 17.sp,
                             fontFamily: 'Poppins',
-                            color: Color(0XFF000000),
+                            color: const Color(0XFF000000),
                           ),
                         ),
                         SizedBox(
@@ -571,7 +224,7 @@ class SecondTab extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 20.sp,
                               fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
+                              color: const Color(0XFF000000),
                               fontWeight: FontWeight.w500),
                         ),
                       ],
@@ -596,7 +249,7 @@ class SecondTab extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 17.sp,
                               fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
+                              color: const Color(0XFF000000),
                             ),
                           ),
                         ),
@@ -608,7 +261,7 @@ class SecondTab extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 18.sp,
                               fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
+                              color: const Color(0XFF000000),
                               fontWeight: FontWeight.w500),
                         ),
                       ],
@@ -631,7 +284,7 @@ class SecondTab extends StatelessWidget {
                           style: TextStyle(
                             fontSize: 17.sp,
                             fontFamily: 'Poppins',
-                            color: Color(0XFF000000),
+                            color: const Color(0XFF000000),
                           ),
                         ),
                         SizedBox(
@@ -642,20 +295,12 @@ class SecondTab extends StatelessWidget {
                           style: TextStyle(
                               fontSize: 18.sp,
                               fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
+                              color: const Color(0XFF000000),
                               fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
                     sizedBoxHeight(15.h),
-                    // /
-                    // CustomNextButton(
-                    //   text: 'View details',
-                    //   ontap: () {
-                    //      hedgeSlider[index]['View investment Route'];
-                    //   },
-                    // ),
-
                     Padding(
                       padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
                       child: Container(
@@ -667,7 +312,7 @@ class SecondTab extends StatelessWidget {
                               )
                             ],
                             borderRadius: BorderRadius.circular(10.r),
-                            color: Color(0xFF143C6D)),
+                            color: const Color(0xFF143C6D)),
                         child: OpenContainerWrappers(
                           openBuild: hedgeSlider[index]
                               ['View investment Route'],
@@ -686,7 +331,6 @@ class SecondTab extends StatelessWidget {
                         ),
                       ),
                     ),
-
                     SizedBox(
                       height: 20.h,
                     )
@@ -713,7 +357,7 @@ class SecondTab extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.w),
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(15)),
                     color: Color(0xffffffff),
                     boxShadow: [
@@ -746,7 +390,7 @@ class SecondTab extends StatelessWidget {
                               child: Text(
                                 company,
                                 // "HDFC AMC Select AIF FOF - 1",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 22,
                                     fontFamily: 'Poppins',
                                     color: Color(0XFF000000),
@@ -755,7 +399,7 @@ class SecondTab extends StatelessWidget {
                             )
                           ],
                         ),
-                        Divider(
+                        const Divider(
                           thickness: 1,
                           color: Color(0XFF6D6D6D29),
                         ),
@@ -775,7 +419,7 @@ class SecondTab extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 17.sp,
                                 fontFamily: 'Poppins',
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                               ),
                             ),
                             SizedBox(
@@ -786,7 +430,7 @@ class SecondTab extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 20.sp,
                                   fontFamily: 'Poppins',
-                                  color: Color(0XFF000000),
+                                  color: const Color(0XFF000000),
                                   fontWeight: FontWeight.w500),
                             ),
                           ],
@@ -811,7 +455,7 @@ class SecondTab extends StatelessWidget {
                                 style: TextStyle(
                                   fontSize: 17.sp,
                                   fontFamily: 'Poppins',
-                                  color: Color(0XFF000000),
+                                  color: const Color(0XFF000000),
                                 ),
                               ),
                             ),
@@ -823,7 +467,7 @@ class SecondTab extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 18.sp,
                                   fontFamily: 'Poppins',
-                                  color: Color(0XFF000000),
+                                  color: const Color(0XFF000000),
                                   fontWeight: FontWeight.w500),
                             ),
                           ],
@@ -846,7 +490,7 @@ class SecondTab extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 17.sp,
                                 fontFamily: 'Poppins',
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                               ),
                             ),
                             SizedBox(
@@ -857,7 +501,7 @@ class SecondTab extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 18.sp,
                                   fontFamily: 'Poppins',
-                                  color: Color(0XFF000000),
+                                  color: const Color(0XFF000000),
                                   fontWeight: FontWeight.w500),
                             ),
                           ],
@@ -905,165 +549,6 @@ class SecondTab extends StatelessWidget {
           SizedBox(
             height: 30.h,
           ),
-          // Padding(
-          //   padding: EdgeInsets.all(5.w),
-          //   child: Container(
-          //     decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.all(Radius.circular(15)),
-          //       color: Color(0xffffffff),
-          //       boxShadow: [
-          //         BoxShadow(
-          //           color: Color(0x48B9B9BE),
-          //           blurRadius: 10.0,
-          //           spreadRadius: 3.0,
-          //           // offset: Offset(10, 10, 10, 10),
-          //         )
-          //       ],
-          //     ),
-          //     child: Padding(
-          //       padding: const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-          //       child: Column(
-          //         crossAxisAlignment: CrossAxisAlignment.center,
-          //         mainAxisAlignment: MainAxisAlignment.end,
-          //         children: [
-          //           Row(
-          //             children: [
-          //               Image.asset(
-          //                 "assets/images/Image 1.png",
-          //                 width: 68,
-          //                 height: 38,
-          //               ),
-          //               SizedBox(
-          //                 width: 20.h,
-          //               ),
-          //               Flexible(
-          //                 child: Text(
-          //                   "Edelweiss Discovery Fund - Series I",
-          //                   style: TextStyle(
-          //                       fontSize: 22,
-          //                       fontFamily: 'Poppins',
-          //                       color: Color(0XFF000000),
-          //                       fontWeight: FontWeight.w500),
-          //                 ),
-          //               )
-          //             ],
-          //           ),
-          //           Divider(
-          //             thickness: 1,
-          //             color: Color(0XFF6D6D6D29),
-          //           ),
-          //           SizedBox(height: 17.5.h),
-          //           Row(
-          //             children: [
-          //               Image.asset(
-          //                 "assets/images/investment (1).png",
-          //                 width: 25.w,
-          //                 height: 25.h,
-          //               ),
-          //               SizedBox(
-          //                 width: 15.w,
-          //               ),
-          //               Text(
-          //                 "Targeted IRR :",
-          //                 style: TextStyle(
-          //                   fontSize: 17.sp,
-          //                   fontFamily: 'Poppins',
-          //                   color: Color(0XFF000000),
-          //                 ),
-          //               ),
-          //               SizedBox(
-          //                 width: 10.w,
-          //               ),
-          //               Text(
-          //                 "12.7%",
-          //                 style: TextStyle(
-          //                     fontSize: 20.sp,
-          //                     fontFamily: 'Poppins',
-          //                     color: Color(0XFF000000),
-          //                     fontWeight: FontWeight.w500),
-          //               ),
-          //             ],
-          //           ),
-          //           SizedBox(
-          //             height: 31.h,
-          //           ),
-          //           Row(
-          //             crossAxisAlignment: CrossAxisAlignment.start,
-          //             children: [
-          //               Image.asset(
-          //                 "assets/images/back-in-time (1).png",
-          //                 width: 25.w,
-          //                 height: 25.h,
-          //               ),
-          //               SizedBox(
-          //                 width: 15.w,
-          //               ),
-          //               Flexible(
-          //                 child: Text(
-          //                   "Commitment period :",
-          //                   style: TextStyle(
-          //                     fontSize: 17.sp,
-          //                     fontFamily: 'Poppins',
-          //                     color: Color(0XFF000000),
-          //                   ),
-          //                 ),
-          //               ),
-          //               SizedBox(
-          //                 width: 6.w,
-          //               ),
-          //               Text(
-          //                 "5 Years",
-          //                 style: TextStyle(
-          //                     fontSize: 18.sp,
-          //                     fontFamily: 'Poppins',
-          //                     color: Color(0XFF000000),
-          //                     fontWeight: FontWeight.w500),
-          //               ),
-          //             ],
-          //           ),
-          //           SizedBox(
-          //             height: 31.h,
-          //           ),
-          //           Row(
-          //             children: [
-          //               Image.asset(
-          //                 "assets/images/transfer.png",
-          //                 width: 25.w,
-          //                 height: 25.h,
-          //               ),
-          //               SizedBox(
-          //                 width: 15.w,
-          //               ),
-          //               Text(
-          //                 "Capital Commitment :",
-          //                 style: TextStyle(
-          //                   fontSize: 17.sp,
-          //                   fontFamily: 'Poppins',
-          //                   color: Color(0XFF000000),
-          //                 ),
-          //               ),
-          //               SizedBox(
-          //                 width: 8.w,
-          //               ),
-          //               Text(
-          //                 "12.7%",
-          //                 style: TextStyle(
-          //                     fontSize: 18.sp,
-          //                     fontFamily: 'Poppins',
-          //                     color: Color(0XFF000000),
-          //                     fontWeight: FontWeight.w500),
-          //               ),
-          //             ],
-          //           ),
-          //           SizedBox(
-          //             height: 20.h,
-          //           )
-          //         ],
-          //       ),
-          //     ),
-          //   ),
-          // ),
-          // sizedBoxHeight(10.h),
         ],
       ),
     );
@@ -1078,339 +563,8 @@ class ThirdTab extends StatelessWidget {
     return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        // sizedBoxHeight(20.h),
         const Text("No Data Found")
       ],
     );
-    // Center(
-    //   child: Column(
-    //     children: [
-    //       Padding(
-    //         padding: const EdgeInsets.only(top: 20),
-    //         child: Container(
-    //           decoration: BoxDecoration(
-    //             borderRadius: BorderRadius.all(Radius.circular(15)),
-    //             color: Color(0xffffffff),
-    //             boxShadow: [
-    //               BoxShadow(
-    //                 color: Color(0x48B9B9BE),
-    //                 blurRadius: 10.0,
-    //                 spreadRadius: 3.0,
-    //                 // offset: Offset(10, 10, 10, 10),
-    //               )
-    //             ],
-    //           ),
-    //           child: Padding(
-    //             padding: const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-    //             child: Column(
-    //               crossAxisAlignment: CrossAxisAlignment.center,
-    //               mainAxisAlignment: MainAxisAlignment.end,
-    //               children: [
-    //                 Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/alternative (6).png",
-    //                       width: 68,
-    //                       height: 38,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 20.h,
-    //                     ),
-    //                     Text(
-    //                       "HDFC AMC Select AIF \nFOF - 1",
-    //                       style: TextStyle(
-    //                           fontSize: 22,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     )
-    //                   ],
-    //                 ),
-    //                 Divider(
-    //                   thickness: 1,
-    //                   color: Color(0XFF6D6D6D29),
-    //                 ),
-    //                 SizedBox(height: 17.5.h),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(left: 15),
-    //                   child: Row(
-    //                     children: [
-    //                       Image.asset(
-    //                         "assets/images/investment (1).png",
-    //                         width: 25.w,
-    //                         height: 25.h,
-    //                       ),
-    //                       SizedBox(
-    //                         width: 15.w,
-    //                       ),
-    //                       Text(
-    //                         "Targeted IRR :",
-    //                         style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: 10.w,
-    //                       ),
-    //                       Text(
-    //                         "12.7%",
-    //                         style: TextStyle(
-    //                             fontSize: 20.sp,
-    //                             fontFamily: 'Poppins',
-    //                             color: Color(0XFF000000),
-    //                             fontWeight: FontWeight.w500),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 31.h,
-    //                 ),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(left: 15),
-    //                   child: Row(
-    //                     children: [
-    //                       Image.asset(
-    //                         "assets/images/back-in-time (1).png",
-    //                         width: 25.w,
-    //                         height: 25.h,
-    //                       ),
-    //                       SizedBox(
-    //                         width: 15.w,
-    //                       ),
-    //                       Text(
-    //                         "Commitment period :",
-    //                         style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: 8.w,
-    //                       ),
-    //                       Text(
-    //                         "5 Years",
-    //                         style: TextStyle(
-    //                             fontSize: 18.sp,
-    //                             fontFamily: 'Poppins',
-    //                             color: Color(0XFF000000),
-    //                             fontWeight: FontWeight.w500),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 31.h,
-    //                 ),
-    //                 Padding(
-    //                   padding: const EdgeInsets.only(left: 15),
-    //                   child: Row(
-    //                     children: [
-    //                       Image.asset(
-    //                         "assets/images/transfer.png",
-    //                         width: 25.w,
-    //                         height: 25.h,
-    //                       ),
-    //                       SizedBox(
-    //                         width: 15.w,
-    //                       ),
-    //                       Text(
-    //                         "Capital Commitment :",
-    //                         style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                         ),
-    //                       ),
-    //                       SizedBox(
-    //                         width: 8.w,
-    //                       ),
-    //                       Text(
-    //                         "12.7%",
-    //                         style: TextStyle(
-    //                             fontSize: 18.sp,
-    //                             fontFamily: 'Poppins',
-    //                             color: Color(0XFF000000),
-    //                             fontWeight: FontWeight.w500),
-    //                       ),
-    //                     ],
-    //                   ),
-    //                 ),
-    //                 SizedBox(
-    //                   height: 20.h,
-    //                 )
-    //               ],
-    //             ),
-    //           ),
-    //         ),
-    //       ),
-    //       SizedBox(
-    //         height: 30.h,
-    //       ),
-    //       Container(
-    //         decoration: BoxDecoration(
-    //           borderRadius: BorderRadius.all(Radius.circular(15)),
-    //           color: Color(0xffffffff),
-    //           boxShadow: [
-    //             BoxShadow(
-    //               color: Color(0x48B9B9BE),
-    //               blurRadius: 10.0,
-    //               spreadRadius: 3.0,
-    //               // offset: Offset(10, 10, 10, 10),
-    //             )
-    //           ],
-    //         ),
-    //         child: Padding(
-    //           padding: const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-    //           child: Column(
-    //             crossAxisAlignment: CrossAxisAlignment.center,
-    //             mainAxisAlignment: MainAxisAlignment.end,
-    //             children: [
-    //               Row(
-    //                 children: [
-    //                   Image.asset(
-    //                     "assets/images/Image 1.png",
-    //                     width: 68,
-    //                     height: 38,
-    //                   ),
-    //                   SizedBox(
-    //                     width: 20.h,
-    //                   ),
-    //                   Text(
-    //                     "Edelweiss Discovery \nFund – Series I",
-    //                     style: TextStyle(
-    //                         fontSize: 22,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                         fontWeight: FontWeight.w500),
-    //                   )
-    //                 ],
-    //               ),
-    //               Divider(
-    //                 thickness: 1,
-    //                 color: Color(0XFF6D6D6D29),
-    //               ),
-    //               SizedBox(height: 17.5.h),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(left: 15),
-    //                 child: Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/investment (1).png",
-    //                       width: 25.w,
-    //                       height: 25.h,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 15.w,
-    //                     ),
-    //                     Text(
-    //                       "Targeted IRR :",
-    //                       style: TextStyle(
-    //                         fontSize: 18.sp,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                       ),
-    //                     ),
-    //                     SizedBox(
-    //                       width: 10.w,
-    //                     ),
-    //                     Text(
-    //                       "12.7%",
-    //                       style: TextStyle(
-    //                           fontSize: 20.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //               SizedBox(
-    //                 height: 31.h,
-    //               ),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(left: 15),
-    //                 child: Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/back-in-time (1).png",
-    //                       width: 25.w,
-    //                       height: 25.h,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 15.w,
-    //                     ),
-    //                     Text(
-    //                       "Commitment period :",
-    //                       style: TextStyle(
-    //                         fontSize: 18.sp,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                       ),
-    //                     ),
-    //                     SizedBox(
-    //                       width: 8.w,
-    //                     ),
-    //                     Text(
-    //                       "5 Years",
-    //                       style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //               SizedBox(
-    //                 height: 31.h,
-    //               ),
-    //               Padding(
-    //                 padding: const EdgeInsets.only(left: 15),
-    //                 child: Row(
-    //                   children: [
-    //                     Image.asset(
-    //                       "assets/images/transfer.png",
-    //                       width: 25.w,
-    //                       height: 25.h,
-    //                     ),
-    //                     SizedBox(
-    //                       width: 15.w,
-    //                     ),
-    //                     Text(
-    //                       "Capital Commitment :",
-    //                       style: TextStyle(
-    //                         fontSize: 18.sp,
-    //                         fontFamily: 'Poppins',
-    //                         color: Color(0XFF000000),
-    //                       ),
-    //                     ),
-    //                     SizedBox(
-    //                       width: 8.w,
-    //                     ),
-    //                     Text(
-    //                       "12.7%",
-    //                       style: TextStyle(
-    //                           fontSize: 18.sp,
-    //                           fontFamily: 'Poppins',
-    //                           color: Color(0XFF000000),
-    //                           fontWeight: FontWeight.w500),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //               SizedBox(
-    //                 height: 20.h,
-    //               )
-    //             ],
-    //           ),
-    //         ),
-    //       ),
-    //     ],
-    //   ),
-    // );
   }
 }

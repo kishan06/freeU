@@ -1,8 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -25,7 +23,7 @@ class _ContactUsState extends State<ContactUs> {
     // ignore: prefer_const_constructors
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomSignupAppBar(
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -52,7 +50,7 @@ class _ContactUsState extends State<ContactUs> {
               ),
               Expanded(
                   child: SingleChildScrollView(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -122,7 +120,7 @@ class _ContactUsState extends State<ContactUs> {
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 20.sp,
-                              color: Color(0xff303030)),
+                              color: const Color(0xff303030)),
                         ),
                       ],
                     ),
@@ -181,18 +179,18 @@ class _ContactUsState extends State<ContactUs> {
                         fillColor: Colors.white,
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide:
-                              BorderSide(color: Color(0xffCCCCCC), width: 1),
+                          borderSide: const BorderSide(
+                              color: Color(0xffCCCCCC), width: 1),
                         ),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide:
-                              BorderSide(color: Color(0xffCCCCCC), width: 1),
+                          borderSide: const BorderSide(
+                              color: Color(0xffCCCCCC), width: 1),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide:
-                              BorderSide(color: Color(0xffCCCCCC), width: 1),
+                          borderSide: const BorderSide(
+                              color: Color(0xffCCCCCC), width: 1),
                         ),
                         errorBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(30),
@@ -245,7 +243,7 @@ class _ContactUsState extends State<ContactUs> {
                                       "Thankyou for contacting.\nWill reach back to you",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
-                                          color: Color(0xFF444444),
+                                          color: const Color(0xFF444444),
                                           fontSize: 20.sm,
                                           fontFamily: "Poppins"),
                                     ),

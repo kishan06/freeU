@@ -1,10 +1,8 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
@@ -23,26 +21,9 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
+      backgroundColor: const Color(0xFFFFFFFF),
       appBar:
-          //  AppBar(
-          //   backgroundColor: AppColors.white,
-          //   // backgroundColor: Color(0xFFF5F8FA),
-          //   elevation: 0,
-          //   leading: IconButton(
-          //     onPressed: () {
-          //       Get.back();
-          //     },
-          //     icon: Icon(
-          //       Icons.arrow_back,
-          //     ),
-          //     iconSize: 24,
-          //     color: Color(0xFF0F0C0C),
-          //   ),
-
-          // ),
-
-          CustomSignupAppBar(
+          const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -90,7 +71,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                             style: TextStyle(
                                 fontFamily: 'Poppins',
                                 fontSize: 18.sp,
-                                color: Color(0xFF000000)),
+                                color: const Color(0xFF000000)),
                           ),
                         ],
                       ),
@@ -107,15 +88,15 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                             child: TextFormField(
                               readOnly: true,
                               decoration: InputDecoration(
-                                  border: UnderlineInputBorder(
+                                  border: const UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: Color(0xFF143C6D)),
                                   ),
-                                  enabledBorder: UnderlineInputBorder(
+                                  enabledBorder: const UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: Color(0xFF143C6D)),
                                   ),
-                                  focusedBorder: UnderlineInputBorder(
+                                  focusedBorder: const UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: Color(0xFF143C6D)),
                                   ),
@@ -130,8 +111,6 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                             width: 30.w,
                           ),
                           Expanded(
-                            // width: 190.w,
-                            //  height: 55.h,
                             child: TextFormField(
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
@@ -145,16 +124,16 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                               ],
                               decoration: InputDecoration(
                                 errorStyle: TextStyle(fontSize: 12.sp),
-                                contentPadding: EdgeInsets.only(left: 10),
-                                border: UnderlineInputBorder(
+                                contentPadding: const EdgeInsets.only(left: 10),
+                                border: const UnderlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Color(0xFF143C6D)),
                                 ),
-                                enabledBorder: UnderlineInputBorder(
+                                enabledBorder: const UnderlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Color(0xFF143C6D)),
                                 ),
-                                focusedBorder: UnderlineInputBorder(
+                                focusedBorder: const UnderlineInputBorder(
                                   borderSide:
                                       BorderSide(color: Color(0xFF143C6D)),
                                 ),
@@ -188,7 +167,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                           } else {
                             Get.snackbar(
                                 "Error", "Please Enter Valid Phone Number",
-                                margin: EdgeInsets.all(8),
+                                margin: const EdgeInsets.all(8),
                                 snackStyle: SnackStyle.FLOATING,
                                 snackPosition: SnackPosition.BOTTOM);
                           }

@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, depend_on_referenced_packages, unnecessary_this, avoid_print
-
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -65,7 +63,7 @@ class _UploadState extends State<Upload> {
                     GestureDetector(
                       onTap: () => getImage(ImageSource.camera),
                       child: Column(
-                        children: [
+                        children: const [
                           Icon(
                             Icons.camera,
                             size: 30,
@@ -83,7 +81,7 @@ class _UploadState extends State<Upload> {
                     GestureDetector(
                       onTap: () => getImage(ImageSource.camera),
                       child: Column(
-                        children: [
+                        children: const [
                           Icon(
                             Icons.image,
                             size: 30,
@@ -123,7 +121,7 @@ class _UploadState extends State<Upload> {
                   children: [
                     ClipOval(
                       child: SizedBox.fromSize(
-                          size: Size.fromRadius(70),
+                          size: const Size.fromRadius(70),
                           child: _image != null
                               ? Image.file(
                                   _image!,
@@ -140,7 +138,7 @@ class _UploadState extends State<Upload> {
                         onTap: () {
                           builduploadprofile();
                         },
-                        child: CircleAvatar(
+                        child: const CircleAvatar(
                           child: Icon(
                             Icons.edit,
                           ),
@@ -149,7 +147,7 @@ class _UploadState extends State<Upload> {
                     ),
                   ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
           ],

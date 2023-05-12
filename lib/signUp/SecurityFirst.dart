@@ -1,5 +1,3 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, duplicate_ignore, avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -54,7 +52,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                   SizedBox(
                     height: 10.h,
                   ),
-                  Divider(
+                  const Divider(
                     thickness: 2,
                   ),
                   SizedBox(
@@ -90,7 +88,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           controller: pincontroller,
                           textAlign: TextAlign.left,
                           cursorHeight: 10,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             helperText: "",
                             hintText: "Choose a PIN of Your choice",
                             floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -136,7 +134,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                       },
                       keyboardType: TextInputType.number,
                       controller: confirmpincontroller,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         helperText: "",
                         hintText: "Please Re-Enter the PIN",
                         floatingLabelBehavior: FloatingLabelBehavior.always,
@@ -172,7 +170,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           Get.toNamed("/completeprofile");
                         } else {
                           Get.snackbar("Error", "Please Enter Required Fields",
-                              margin: EdgeInsets.all(8),
+                              margin: const EdgeInsets.all(8),
                               snackStyle: SnackStyle.FLOATING,
                               snackPosition: SnackPosition.BOTTOM);
                         }
@@ -200,7 +198,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomSignupAppBar(
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -241,7 +239,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     color: Colors.black,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
                 Container(
@@ -251,7 +249,8 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     color:
                         onclickofpin ? const Color(0xff143C6D) : Colors.white,
                     borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: Color(0xFFCCCCCC), width: 1),
+                    border:
+                        Border.all(color: const Color(0xFFCCCCCC), width: 1),
                   ),
                   alignment: const Alignment(50, 0),
                   padding: const EdgeInsets.all(5),
@@ -288,7 +287,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Container(
@@ -300,7 +299,8 @@ class _SecurityFirstState extends State<SecurityFirst> {
                           ? const Color(0xff143C6D)
                           : Colors.white,
                       borderRadius: BorderRadius.circular(10),
-                      border: Border.all(color: Color(0xFFCCCCCC), width: 1)),
+                      border:
+                          Border.all(color: const Color(0xFFCCCCCC), width: 1)),
                   alignment: const Alignment(50, 0),
                   padding: const EdgeInsets.all(5),
                   child: ListTile(
@@ -319,8 +319,6 @@ class _SecurityFirstState extends State<SecurityFirst> {
                     leading: Transform.scale(
                       scale: 1.5,
                       child: Radio(
-                          // fillColor:
-                          //     MaterialStateProperty.all<Color>(Color(0xff143C6D)),
                           focusColor: const Color(0xff143C6D),
                           activeColor: (Colors.white),
                           value: "Touch Id",

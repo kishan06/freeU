@@ -1,13 +1,9 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/signupAppbar.dart';
-import 'package:get/get.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({Key? key}) : super(key: key);
@@ -80,35 +76,11 @@ class _NotificationPageState extends State<NotificationPage> {
 
   @override
   Widget build(BuildContext context) {
-    //var result = data.removeLast();
-
-    //data.remove(1);
-
     return Scaffold(
-      // backgroundColor: Color(0xFFF5F8FA),
-      appBar: CustomSignupAppBar(
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: AppColors.white,
-      //   // backgroundColor: Color(0xFFF5F8FA),
-      //   elevation: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 22,
-      //     color: Color(0xFF6B6B6B),
-      //   ),
-      //   // title: Text(
-      //   //   "Notification",
-      //   //   style: TextStyle(color: Color(0xFF242323)),
-      //   // ),
-      // ),
       body: SafeArea(
         child: CustomScrollView(
           slivers: [
@@ -118,8 +90,8 @@ class _NotificationPageState extends State<NotificationPage> {
                   Row(
                     children: [
                       Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 16.w),
-                        child: Text(
+                        padding: EdgeInsets.symmetric(horizontal: 16.w),
+                        child: const Text(
                           "Notifications",
                           textAlign: TextAlign.left,
                           style: TextStyle(fontSize: 25, color: Colors.black),
@@ -127,13 +99,12 @@ class _NotificationPageState extends State<NotificationPage> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   SizedBox(
-                    // height: MediaQuery.of(context).size.height * 0.57,
                     child: Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: ListView.separated(
                         shrinkWrap: true,
                         itemCount: _data.length,
@@ -148,7 +119,6 @@ class _NotificationPageState extends State<NotificationPage> {
                                   message: "Notification deleted",
                                   duration: const Duration(seconds: 1),
                                 ).show(context);
-                                //_data[index].remove(index);
                               });
                             },
                             child: Column(
@@ -156,8 +126,7 @@ class _NotificationPageState extends State<NotificationPage> {
                                 SizedBox(
                                   width: double.infinity,
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
@@ -177,8 +146,8 @@ class _NotificationPageState extends State<NotificationPage> {
                                       Expanded(
                                         flex: 5,
                                         child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 8.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 8.0),
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -191,13 +160,14 @@ class _NotificationPageState extends State<NotificationPage> {
                                                   color: Colors.black,
                                                 ),
                                               ),
-                                              SizedBox(
+                                              const SizedBox(
                                                 height: 8,
                                               ),
                                               Text(
                                                 _data[index]['subtitle']!,
                                                 style: TextStyle(
-                                                  color: Color(0xFF444444),
+                                                  color:
+                                                      const Color(0xFF444444),
                                                   fontSize: 14.sm,
                                                 ),
                                               ),
@@ -208,16 +178,12 @@ class _NotificationPageState extends State<NotificationPage> {
                                       Expanded(
                                         flex: 0,
                                         child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              right: 7.0),
+                                          padding:
+                                              const EdgeInsets.only(right: 7.0),
                                           child: InkWell(
                                             onTap: () {
                                               print("ontap pressed");
                                               setState(() {
-                                                // String? value1 =
-                                                //     _data[index]['title'];
-                                                // _data.removeWhere(value);
-
                                                 _data.removeAt(index);
                                                 Flushbar(
                                                   message:
@@ -225,18 +191,12 @@ class _NotificationPageState extends State<NotificationPage> {
                                                   duration: const Duration(
                                                       seconds: 1),
                                                 ).show(context);
-
-                                                // data[index]['title']!,
                                               });
                                             },
-
-                                            //(() => ontap()),
                                             child: SvgPicture.asset(
                                               "assets/images/delete-svgrepo-com.svg",
-
                                               width: 15,
                                               height: 19,
-                                              //fit: BoxFit.cover,
                                             ),
                                           ),
                                         ),
@@ -255,159 +215,6 @@ class _NotificationPageState extends State<NotificationPage> {
                             thickness: 1.5,
                           );
                         },
-
-                        //children: [
-                        // Slidable(
-                        //   key: const ValueKey(0),
-                        //   startActionPane: ActionPane(
-                        //     motion: const ScrollMotion(),
-                        //     dismissible: DismissiblePane(onDismissed: () {}),
-                        //     children: [
-                        //       SlidableAction(
-                        //         onPressed: doNothing,
-                        //         backgroundColor: Color(0xFFFE4A49),
-                        //         foregroundColor: Colors.white,
-                        //         icon: Icons.delete,
-                        //         label: 'Delete',
-                        //       ),
-                        //     ],
-                        //   ),
-                        //   endActionPane: ActionPane(
-                        //     motion: ScrollMotion(),
-                        //     children: [
-                        //       SlidableAction(
-                        //         onPressed: doNothing,
-                        //         backgroundColor: Color(0xFFFE4A49),
-                        //         foregroundColor: Colors.white,
-                        //         icon: Icons.delete,
-                        //         label: 'Delete',
-                        //       ),
-                        //     ],
-                        //   ),
-                        //   child: ListTile(
-                        //     title: Container(
-                        //       decoration: BoxDecoration(
-                        //         color: Color.fromARGB(225, 192, 222, 255),
-                        //         borderRadius: BorderRadius.circular(10),
-                        //       ),
-                        //       child: Padding(
-                        //         padding: const EdgeInsets.symmetric(
-                        //             horizontal: 10, vertical: 10),
-                        //         child: Column(
-                        //           mainAxisAlignment: MainAxisAlignment.center,
-                        //           crossAxisAlignment:
-                        //               CrossAxisAlignment.start,
-                        //           children: [
-                        //             Text(
-                        //               'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                        //               style: TextStyle(
-                        //                 color: Color(0xFF000000),
-                        //                 fontSize: 15.sm,
-                        //                 fontFamily: 'Poppins',
-                        //               ),
-                        //             ),
-                        //             SizedBox(
-                        //               height: 10.h,
-                        //             ),
-                        //             Text(
-                        //               '5 mins ago',
-                        //               textAlign: TextAlign.start,
-                        //               style: TextStyle(
-                        //                 color: Color(0xFF000000),
-                        //                 fontSize: 12.sm,
-                        //                 fontFamily: 'Poppins',
-                        //               ),
-                        //             ),
-                        //           ],
-                        //         ),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        //SizedBox(height: 10.h),
-                        // Slidebar(
-                        //   image: '',
-                        //   title:
-                        //       'Lorem Ipsum is simply dummy text of the printing .',
-                        //   subtitle: '2 days ago',
-                        // ),
-                        // SizedBox(height: 10.h),
-                        // Divider(
-                        //   thickness: 1,
-                        //   color: Colors.grey,
-                        // ),
-                        // Slidebar(
-                        //   image: '',
-                        //   title:
-                        //       'Lorem Ipsum is simply dummy text of the printing .',
-                        //   subtitle: '2 days ago',
-                        // ),
-                        // SizedBox(height: 10.h),
-                        // Divider(
-                        //   thickness: 1,
-                        //   color: Colors.grey,
-                        // ),
-                        // Slidebar(
-                        //   image: '',
-                        //   title:
-                        //       'Lorem Ipsum is simply dummy text of the printing .',
-                        //   subtitle: '2 days ago',
-                        // ),
-                        // SizedBox(height: 10.h),
-                        // Divider(
-                        //   thickness: 1,
-                        //   color: Colors.grey,
-                        // ),
-                        // Slidebar(
-                        //   image: '',
-                        //   title:
-                        //       'Lorem Ipsum is simply dummy text of the printing .',
-                        //   subtitle: '2 days ago',
-                        // ),
-                        // SizedBox(height: 10.h),
-                        // Divider(
-                        //   thickness: 1,
-                        //   color: Colors.grey,
-                        // ),
-                        // Slidebar(
-                        //   image: '',
-                        //   title:
-                        //       'Lorem Ipsum is simply dummy text of the printing .',
-                        //   subtitle: '2 days ago',
-                        // ),
-                        // SizedBox(height: 10.h),
-                        // Divider(
-                        //   thickness: 1,
-                        //   color: Colors.grey,
-                        // ),
-                        // Slidebar(
-                        //   image: '',
-                        //   title:
-                        //       'Lorem Ipsum is simply dummy text of the printing .',
-                        //   subtitle: '2 days ago',
-                        // ),
-                        // SizedBox(height: 10.h),
-                        // Divider(
-                        //   thickness: 1,
-                        //   color: Colors.grey,
-                        // ),
-                        // Slidebar(
-                        //   image: '',
-                        //   title:
-                        //       'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                        //   subtitle: '2 days ago',
-                        // ),
-                        // SizedBox(height: 10.h),
-                        // Slidebar(
-                        //   image: '',
-                        //   title:
-                        //       'Lorem Ipsum is simply dummy text of typesetting industry. Lorem Ipsum has been',
-                        //   subtitle: '2 days ago',
-                        // ),
-                        // SizedBox(
-                        //   height: 70.h,
-                        // )
-                        // ],
                       ),
                     ),
                   ),
@@ -425,9 +232,10 @@ Widget slideRightBackground() {
   return Container(
     color: Colors.red,
     child: Align(
+      alignment: Alignment.centerLeft,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.end,
-        children: <Widget>[
+        children: const <Widget>[
           Icon(
             Icons.close_outlined,
             color: Colors.white,
@@ -445,7 +253,6 @@ Widget slideRightBackground() {
           ),
         ],
       ),
-      alignment: Alignment.centerLeft,
     ),
   );
 }
@@ -471,7 +278,7 @@ class Slidebar extends StatelessWidget {
       startActionPane: ActionPane(
         motion: const ScrollMotion(),
         dismissible: DismissiblePane(onDismissed: () {}),
-        children: [
+        children: const [
           SlidableAction(
             onPressed: doNothing,
             backgroundColor: Color(0xFFFE4A49),
@@ -482,7 +289,7 @@ class Slidebar extends StatelessWidget {
           ),
         ],
       ),
-      endActionPane: ActionPane(
+      endActionPane: const ActionPane(
         motion: ScrollMotion(),
         children: [
           SlidableAction(
@@ -529,13 +336,13 @@ class Slidebar extends StatelessWidget {
                             color: Colors.black,
                           ),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         Text(
                           subtitle,
                           style: TextStyle(
-                            color: Color(0xFF444444),
+                            color: const Color(0xFF444444),
                             fontSize: 14.sm,
                           ),
                         ),
@@ -569,5 +376,3 @@ class Slidebar extends StatelessWidget {
 }
 
 void doNothing(BuildContext context) {}
-
-//onPressed: () { setState(() {value -= 1; _selectedList.removeAt(index - 1);  }); },

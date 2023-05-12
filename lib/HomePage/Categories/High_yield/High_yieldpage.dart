@@ -1,22 +1,12 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
-import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/HomePage/Categories/High_yield/High_yield_Learn.dart';
 import 'package:freeu/HomePage/Categories/High_yield/high_yield_more_products.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
-
-//import 'Fractionalproperties.dart';
 
 class HighYieldFinance extends StatefulWidget {
   const HighYieldFinance({super.key});
@@ -31,17 +21,9 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return
-        // SafeArea(
-        //child:
-        Scaffold(
+    return Scaffold(
       backgroundColor: AppColors.purpleL_474E88,
-      appBar:
-          // CustomSignupAppBar(
-          //   titleTxt: "",
-          //   bottomtext: false,
-          // ),
-          AppBar(
+      appBar: AppBar(
         backgroundColor: AppColors.purpleL_474E88,
         elevation: 0,
         titleSpacing: 0,
@@ -49,11 +31,11 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
           onPressed: () {
             Get.back();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
           ),
           iconSize: 26,
-          color: Color(0XFFFFFFFF),
+          color: const Color(0XFFFFFFFF),
         ),
       ),
       body: Center(
@@ -69,7 +51,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
-                        color: Color(0XFFFFFFFF),
+                        color: const Color(0XFFFFFFFF),
                         fontWeight: FontWeight.w500),
                   ),
                 ],
@@ -90,7 +72,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                       Text(
                         "High-yield bonds or junk bonds are bonds that pay higher rates of interest, because of their low credit rates, compared to investment-grade bonds. Due to their higher chances to default, they pay a higher yield to compensate investors - hence called High yield Bonds.",
                         style: TextStyle(
-                          color: Color(0XFFFFFFFF),
+                          color: const Color(0XFFFFFFFF),
                           fontSize: 18.sp,
                           //fontFamily: 'Poppins'
                         ),
@@ -99,7 +81,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                         height: 9.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: HighYieldLearn(),
+                        openBuild: const HighYieldLearn(),
                         // onTap: () {
                         //   Get.toNamed("/fractionalrealestate");
                         // },
@@ -109,7 +91,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                             Text(
                               "Learn more",
                               style: TextStyle(
-                                  color: Color(0XFFFFFFFF),
+                                  color: const Color(0XFFFFFFFF),
                                   fontSize: 16.sp,
                                   decoration: TextDecoration.underline),
                             ),
@@ -165,7 +147,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                               children: [
                                 Text("Investment Horizon:",
                                     style: TextStyle(
-                                      color: Color(0XFFFBFBFB),
+                                      color: const Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
@@ -195,7 +177,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                             children: [
                               Text("Minimum Investment:",
                                   style: TextStyle(
-                                    color: Color(0XFFFBFBFB),
+                                    color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
@@ -219,7 +201,7 @@ class _HighYieldFinanceState extends State<HighYieldFinance> {
                             child: Text(
                               "View more product",
                               style: TextStyle(
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontSize: 18.sp,
                               ),
                             ),

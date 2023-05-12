@@ -1,5 +1,3 @@
-// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,7 +21,6 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   bool design = false;
   bool _passwordVisible = false;
-  bool _confirmpasswordVisible = false;
   bool _isPasswordEightCar = false;
   bool _isHasOneNumber = false;
   bool _isHasSymboleOrCaptital = false;
@@ -42,7 +39,6 @@ class _SignUpState extends State<SignUp> {
     setState(() {
       final numricRegex = RegExp(r'[0-9]');
       final alphaRegex = RegExp('(?=.*[A-Z])(?=.*[!@#\$%^&*])');
-
 
       _isPasswordEightCar = false;
       if (password.length >= 8) _isPasswordEightCar = true;
@@ -107,19 +103,19 @@ class _SignUpState extends State<SignUp> {
                           Text("Terms And Conditions", style: blackStyle16()),
                     ),
                     Padding(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 12, horizontal: 6),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 12, horizontal: 6),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: Color(0xFF143C6D),
                             borderRadius: BorderRadius.all(Radius.circular(5))),
                         // color: Color(0xFF143C6D),
                         height: 400.h,
-                        child: Scrollbar(
+                        child: const Scrollbar(
                           thumbVisibility: true,
                           child: SingleChildScrollView(
                             child: Padding(
-                              padding: const EdgeInsets.all(4.0),
+                              padding: EdgeInsets.all(4.0),
                               child: Text(
                                 " Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremLorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremLorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremLorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum LoremLorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum",
                                 style: TextStyle(
@@ -177,18 +173,6 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
               ),
-              // Positioned(
-              //   left: 165,
-              //   top: -10,
-              //   child: Column(
-              //     children: [
-              //       SvgPicture.asset("assets/images/cancel.svg"),
-              //       SizedBox(
-              //         height: 20,
-              //       ),
-              //     ],
-              //   ),
-              // ),
             ],
           );
         },
@@ -209,7 +193,7 @@ class _SignUpState extends State<SignUp> {
         return Future.value(false);
       },
       child: Scaffold(
-        appBar: CustomSignupAppBar(
+        appBar: const CustomSignupAppBar(
           titleTxt: "",
           bottomtext: false,
         ),
@@ -256,7 +240,7 @@ class _SignUpState extends State<SignUp> {
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
-                                  color: Color(0xff303030)),
+                                  color: const Color(0xff303030)),
                             ),
                             SizedBox(
                               height: 15.h,
@@ -273,12 +257,6 @@ class _SignUpState extends State<SignUp> {
                                 validatorText: "Full Name"),
                           ],
                         ),
-                        // FullnameTextFormField(
-                        //   controller: fullNameController,
-                        //   keyboardType: TextInputType.text,
-                        //   hint: "Full Name*",
-                        //   errortext: "Please Enter Full Name",
-                        // ),
                         SizedBox(
                           height: 25.h,
                         ),
@@ -290,7 +268,7 @@ class _SignUpState extends State<SignUp> {
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
-                                  color: Color(0xff303030)),
+                                  color: const Color(0xff303030)),
                             ),
                             SizedBox(
                               height: 15.h,
@@ -319,72 +297,6 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           height: 20.h,
                         ),
-                        // TextFormField(
-                        //   keyboardType: TextInputType.text,
-                        //   cursorColor: Colors.grey,
-                        //   style: TextStyle(
-                        //       fontFamily: 'Poppins',
-                        //       fontSize: 16,
-                        //       fontWeight: FontWeight.w500,
-                        //       color:
-                        //           Get.isDarkMode ? Colors.white : Colors.black),
-                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                        //   controller: phonecontroller,
-                        //   decoration: InputDecoration(
-                        //     focusedBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     enabledBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     errorMaxLines: 3,
-                        //     hintText: "Phone Number*",
-                        //     hintStyle: blackStyle(context).copyWith(
-                        //         fontSize: 16,
-                        //         fontWeight: FontWeight.w600,
-                        //         color: Get.isDarkMode
-                        //             ? Colors.white
-                        //             : const Color(0xFF303030).withOpacity(0.3)),
-                        //     fillColor: Get.isDarkMode
-                        //         ? const Color(0xFF303030).withOpacity(0.8)
-                        //         : Colors.white,
-                        //     filled: true,
-                        //     errorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     focusedErrorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     errorStyle: const TextStyle(
-                        //       fontSize: 16.0,
-                        //     ),
-                        //   ),
-                        //   validator: (value) {
-                        //     if (value == null || value.isEmpty) {
-                        //       return "Please Enter Phone Number";
-                        //     } else if (value.length != 10) {
-                        //       return "Please Enter Valid Phone Number";
-                        //     }
-                        //     return null;
-                        //   },
-                        //   inputFormatters: [
-                        //     new LengthLimitingTextInputFormatter(10),
-                        //     FilteringTextInputFormatter.allow(RegExp('[0-9]')),
-                        //   ],
-                        //   onSaved: (value) {},
-                        // ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -394,7 +306,7 @@ class _SignUpState extends State<SignUp> {
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
-                                  color: Color(0xff303030)),
+                                  color: const Color(0xff303030)),
                             ),
                             SizedBox(
                               height: 15.h,
@@ -413,7 +325,8 @@ class _SignUpState extends State<SignUp> {
                                 },
                                 inputFormatters: [
                                   LengthLimitingTextInputFormatter(10),
-                                  FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp('[0-9]')),
                                 ],
                                 texttype: TextInputType.phone,
                                 hintText: "Phone Number*",
@@ -432,7 +345,7 @@ class _SignUpState extends State<SignUp> {
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
-                                  color: Color(0xff303030)),
+                                  color: const Color(0xff303030)),
                             ),
                             SizedBox(
                               height: 15.h,
@@ -454,20 +367,20 @@ class _SignUpState extends State<SignUp> {
                               obscureText:
                                   !_passwordVisible, //This will obscure text dynamically
                               decoration: InputDecoration(
-                                contentPadding: EdgeInsets.all(12),
+                                contentPadding: const EdgeInsets.all(12),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFF707070), width: 1),
                                 ),
                                 enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFF707070), width: 1),
                                 ),
                                 focusedBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
+                                  borderSide: const BorderSide(
                                       color: Color(0xFF707070), width: 1),
                                 ),
                                 errorBorder: OutlineInputBorder(
@@ -482,7 +395,7 @@ class _SignUpState extends State<SignUp> {
                                 ),
                                 errorMaxLines: 3,
                                 hintStyle: TextStyle(
-                                    color: Color(0x80000000),
+                                    color: const Color(0x80000000),
                                     fontSize: 15.sm,
                                     fontFamily: "Poppins"),
                                 fillColor: Colors.white,
@@ -499,7 +412,7 @@ class _SignUpState extends State<SignUp> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.center,
                                               children: [
-                                                Padding(
+                                                const Padding(
                                                   padding: EdgeInsets.only(
                                                       right: 20.0),
                                                   child: Icon(
@@ -515,11 +428,13 @@ class _SignUpState extends State<SignUp> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 20.0),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          right: 20.0),
                                                   child: SvgPicture.asset(
                                                     "assets/images/eye-closed-svgrepo-com.svg",
-                                                    color: Color(0XFF959595),
+                                                    color:
+                                                        const Color(0XFF959595),
                                                   ),
                                                 ),
                                               ],
@@ -543,7 +458,6 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ],
                         ),
-
                         SizedBox(
                           height: 20.h,
                         ),
@@ -556,25 +470,25 @@ class _SignUpState extends State<SignUp> {
                               width: 20.w,
                               height: 20.h,
                               child: _isPasswordEightCar
-                                  ? Icon(
+                                  ? const Icon(
                                       Icons.check,
                                       color: Color(0xff143C6D),
                                       size: 15,
                                     )
-                                  : Text(
+                                  : const Text(
                                       '  X',
                                       style: TextStyle(color: Colors.red),
                                     ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               child: Text(
                                 'Has at least 8 characters',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.sp,
                                     color: _isPasswordEightCar
-                                        ? Color(0xff143C6D)
+                                        ? const Color(0xff143C6D)
                                         : Colors.black),
                               ),
                             )
@@ -603,14 +517,14 @@ class _SignUpState extends State<SignUp> {
                                     ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               child: Text(
                                 'Has at least 1 uppercase letter and symbol',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.sm,
                                     color: _isHasSymboleOrCaptital
-                                        ? Color(0xff143C6D)
+                                        ? const Color(0xff143C6D)
                                         : Colors.black),
                               ),
                             )
@@ -628,7 +542,7 @@ class _SignUpState extends State<SignUp> {
                               width: 20,
                               height: 20,
                               child: _isHasOneNumber
-                                  ? Icon(
+                                  ? const Icon(
                                       Icons.check,
                                       color: Color(0xff143C6D),
                                       size: 15,
@@ -639,14 +553,14 @@ class _SignUpState extends State<SignUp> {
                                     ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 10),
+                              padding: const EdgeInsets.only(left: 10),
                               child: Text(
                                 'Has a number',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
                                     fontSize: 14.sm,
                                     color: _isHasOneNumber
-                                        ? Color(0xff143C6D)
+                                        ? const Color(0xff143C6D)
                                         : Colors.black),
                               ),
                             )
@@ -664,7 +578,7 @@ class _SignUpState extends State<SignUp> {
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
-                                  color: Color(0xff303030)),
+                                  color: const Color(0xff303030)),
                             ),
                             SizedBox(
                               height: 15.h,
@@ -692,14 +606,15 @@ class _SignUpState extends State<SignUp> {
                         Padding(
                           padding: const EdgeInsets.only(left: 0, right: 10),
                           child: Container(
-                            padding: EdgeInsets.only(right: 20),
+                            padding: const EdgeInsets.only(right: 20),
                             child: Row(
                               children: [
                                 Transform.scale(
                                   scale: 1.0,
                                   child: Theme(
                                     data: ThemeData(
-                                      unselectedWidgetColor: Color(0xFF143C6D),
+                                      unselectedWidgetColor:
+                                          const Color(0xFF143C6D),
                                     ),
                                     child: Checkbox(
                                       activeColor: const Color(0xFF143C6D),
@@ -730,7 +645,7 @@ class _SignUpState extends State<SignUp> {
                                         "Terms & Conditions*",
                                         style: TextStyle(
                                           fontSize: 14.sm,
-                                          color: Color(0xff143C6D),
+                                          color: const Color(0xff143C6D),
                                           // decoration:TextDecoration.underline
                                         ),
                                       ),
@@ -760,14 +675,14 @@ class _SignUpState extends State<SignUp> {
                             if (isValid == false) {
                               Get.snackbar(
                                   "Error", "Please Enter All Required Fields",
-                                  margin: EdgeInsets.all(8),
+                                  margin: const EdgeInsets.all(8),
                                   snackStyle: SnackStyle.FLOATING,
                                   snackPosition: SnackPosition.BOTTOM);
                             }
                             if (design != true) {
                               Get.snackbar(
                                   "Error", "Please Accept Terms & Conditions",
-                                  margin: EdgeInsets.all(8),
+                                  margin: const EdgeInsets.all(8),
                                   snackStyle: SnackStyle.FLOATING,
                                   snackPosition: SnackPosition.BOTTOM);
                             }
@@ -836,10 +751,10 @@ class FullnameTextFormField extends StatelessWidget {
       autovalidateMode: AutovalidateMode.onUserInteraction,
       decoration: InputDecoration(
         //   contentPadding: EdgeInsets.all(15),
-        focusedBorder: OutlineInputBorder(
+        focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Color(0xFFFFB600), width: 2.0),
             borderRadius: BorderRadius.all(Radius.circular(30))),
-        border: OutlineInputBorder(
+        border: const OutlineInputBorder(
           borderSide: BorderSide(width: 2, color: Color(0xFF707070)),
           borderRadius: BorderRadius.all(Radius.circular(30)),
         ),
@@ -909,34 +824,11 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
               "Terms And Conditions",
               style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
             ),
-
-            Text(
+            const Text(
                 "Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum sumloren sumloren sumloren sumloren sumloren sumloren sum"),
             const SizedBox(
               height: 10,
             ),
-            // Row(
-            //   children: [
-            //     Checkbox(
-            //         activeColor: const Color(0xFFF78104),
-            //         shape: const RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.all(Radius.circular(5.0))),
-            //         value: agree,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             agree = value ?? false;
-            //           });
-            //         }),
-            //     Flexible(
-            //       child: Text(
-            //         maxLines: 1,
-            //         softWrap: false,
-            //         'I have read and accept Terms & Conditions',
-            //         style: TextStyle(fontSize: 14.sm),
-            //       ),
-            //     ),
-            //   ],
-            // ),
             const SizedBox(
               height: 10,
             ),

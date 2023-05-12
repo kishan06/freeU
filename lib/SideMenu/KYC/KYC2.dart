@@ -7,9 +7,7 @@ import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
-
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class KYC2 extends StatefulWidget {
   const KYC2({super.key});
@@ -26,7 +24,6 @@ class _KYC2State extends State<KYC2> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return Scaffold(
         backgroundColor: Color(0xFFFFFFFF),
         appBar: CustomSignupAppBar(
@@ -58,7 +55,6 @@ class _KYC2State extends State<KYC2> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // ignore: prefer_const_constructors
                         Text(
                           "Step 2 : Complete your KYC",
                           style: TextStyle(
@@ -96,7 +92,6 @@ class _KYC2State extends State<KYC2> {
                         ),
                         Text(
                           "Country",
-                          // ignore: prefer_const_constructors
                           style: TextStyle(
                               fontSize: 20.sp,
                               fontFamily: 'Poppins',
@@ -106,7 +101,7 @@ class _KYC2State extends State<KYC2> {
                           height: 6.h,
                         ),
                         CustomTextDropdown(
-                            item: ["India", "Australia", "Canada"],
+                            item: const ["India", "Australia", "Canada"],
                             controller: countrytexteditingcontroller,
                             showDropDown: true),
                         SizedBox(
@@ -194,7 +189,7 @@ class _KYC2State extends State<KYC2> {
                           height: 6.h,
                         ),
                         CustomTextDropdown(
-                            item: ["Mumbai", "Thane", "Palghar"],
+                            item: const ["Mumbai", "Thane", "Palghar"],
                             controller: countrytexteditingcontroller,
                             showDropDown: true),
                         SizedBox(height: 13.h),
@@ -210,7 +205,7 @@ class _KYC2State extends State<KYC2> {
                           height: 6.h,
                         ),
                         CustomTextDropdown(
-                            item: ["Maharashtra", "kerala", "Punjab"],
+                            item: const ["Maharashtra", "kerala", "Punjab"],
                             controller: countrytexteditingcontroller,
                             showDropDown: true),
                         SizedBox(height: 20.h),
@@ -226,7 +221,7 @@ class _KYC2State extends State<KYC2> {
                           height: 6.h,
                         ),
                         CustomTextDropdown(
-                            item: ["PDF", "JPEG", "PNG"],
+                            item: const ["PDF", "JPEG", "PNG"],
                             controller: countrytexteditingcontroller,
                             showDropDown: true),
                         SizedBox(height: 10.h),

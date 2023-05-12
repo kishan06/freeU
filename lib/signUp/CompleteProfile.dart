@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -35,7 +33,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
       builder: (context) {
         return StatefulBuilder(builder: (context, setState) {
           return Container(
-            margin: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+            margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -52,7 +50,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     style: TextStyle(
                       fontSize: 25.sp,
                       fontFamily: 'Poppins',
-                      color: Color(0xff0F0C0C),
+                      color: const Color(0xff0F0C0C),
                     ),
                   ),
                 ),
@@ -64,7 +62,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                   children: [
                     Theme(
                       data: ThemeData(
-                        unselectedWidgetColor: Color(0xFF143C6D),
+                        unselectedWidgetColor: const Color(0xFF143C6D),
                       ),
                       child: Checkbox(
                         activeColor: const Color(0xFF143C6D),
@@ -88,38 +86,6 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     ),
                   ],
                 ),
-
-                // Column(
-                //   // mainAxisAlignment: MainAxisAlignment.start,
-                //   // crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: [
-                //     // SizedBox(width: 5),
-                //     CheckboxListTile(
-                //       shape: RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.circular(20.0),
-                //         // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
-                //       ),
-                //       activeColor: Color(0xFF143C6D),
-                //       checkColor: Colors.white,
-                //       value: check3,
-                //       controlAffinity: ListTileControlAffinity.leading,
-                //       onChanged: (bool? value) {
-                //         setState(
-                //           () {
-                //             check3 = value;
-                //           },
-                //         );
-                //       },
-                //       title: Text(
-                //         "Don't show this message again",
-                //         style: TextStyle(
-                //           fontSize: 14.sm,
-                //           fontFamily: 'Poppins',
-                //         ),
-                //       ),
-                //     ),
-                //   ],
-                // ),
                 SizedBox(
                   height: 20.h,
                 ),
@@ -135,7 +101,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(
+                              side: const BorderSide(
                                 width: 3,
                               ),
                             ),
@@ -162,12 +128,12 @@ class _CompleteProfileState extends State<CompleteProfile> {
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor: MaterialStateProperty.all<Color>(
-                            Color(0xFF143C6D),
+                            const Color(0xFF143C6D),
                           ),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0),
-                              side: BorderSide(
+                              side: const BorderSide(
                                 //   width: 1,
                                 color: Color(0xFF143C6D),
                               ),
@@ -184,71 +150,6 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         ),
                       ),
                     ),
-                    //   Padding(
-                    //     padding: const EdgeInsets.all(10),
-                    //     child: Expanded(
-                    //       flex: 1,
-                    //       child: TextButton(
-                    //           onPressed: () {
-                    //             Navigator.pop(context);
-                    //             // buildLoginPin();
-                    //           },
-                    //           style: ButtonStyle(
-                    //             backgroundColor: MaterialStateProperty.all<Color>(
-                    //                 Color(0xFFFFB600)),
-                    //             shape: MaterialStateProperty.all(
-                    //               RoundedRectangleBorder(
-                    //                 borderRadius: BorderRadius.circular(30.0),
-                    //                 // side: BorderSide(width: 3, color: Color(0xFFFFB600)),
-                    //               ),
-                    //             ),
-                    //           ),
-                    //           child: SizedBox(
-                    //             width: 100.h,
-                    //             child: Text(
-                    //               'Yes',
-                    //               textAlign: TextAlign.center,
-                    //               style: TextStyle(
-                    //                 fontSize: 20.sm,
-                    //                 fontFamily: 'Poppins',
-                    //                 color: Color(0xFF000000),
-                    //               ),
-                    //             ),
-                    //           )),
-                    //     ),
-                    //   ),
-                    //   Padding(
-                    //     padding: const EdgeInsets.all(10),
-                    //     child: Expanded(
-                    //       flex: 1,
-                    //       child: TextButton(
-                    //           onPressed: () {
-                    //             Get.toNamed("/homepage");
-                    //             // buildLoginPin();
-                    //           },
-                    //           style: ButtonStyle(
-                    //             shape: MaterialStateProperty.all(
-                    //               RoundedRectangleBorder(
-                    //                 borderRadius: BorderRadius.circular(30.0),
-                    //                 side: BorderSide(
-                    //                     width: 1, color: Color(0xFF6B6B6B)),
-                    //               ),
-                    //             ),
-                    //           ),
-                    //           child: SizedBox(
-                    //             width: 80.w,
-                    //             child: Text(
-                    //               'No',
-                    //               textAlign: TextAlign.center,
-                    //               style: TextStyle(
-                    //                 fontSize: 20.sm,
-                    //                 fontFamily: 'Poppins',
-                    //                 color: Color(0xFF6B6B6B),
-                    //               ),
-                    //             ),
-                    //           )),
-                    //     ),
-                    //   )
                   ],
                 ),
                 SizedBox(
@@ -276,7 +177,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
           child: Text(
             "Skip",
             style: TextStyle(
-              color: Color(0xff6B6B6B),
+              color: const Color(0xff6B6B6B),
               fontSize: 14.sm,
               fontFamily: 'Poppins',
             ),
@@ -285,7 +186,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
         titleTxt: "",
         bottomtext: false,
       ),
-      backgroundColor: Color(0xFFFFFFFFF),
+      backgroundColor: const Color(0xFFFFFFFF),
       body: Center(
         child: Form(
           key: _form,
@@ -310,8 +211,8 @@ class _CompleteProfileState extends State<CompleteProfile> {
               ),
               Expanded(
                   child: SingleChildScrollView(
-                padding:
-                    EdgeInsets.only(left: 16, right: 16, bottom: 20, top: 10),
+                padding: const EdgeInsets.only(
+                    left: 16, right: 16, bottom: 20, top: 10),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -325,7 +226,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         Text("Enter your full name",
                             style: TextStyle(
                                 fontSize: 20.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
@@ -342,7 +243,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         Text("Enter your email address",
                             style: TextStyle(
                                 fontSize: 20.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
@@ -364,7 +265,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         Text("Enter your phone number",
                             style: TextStyle(
                                 fontSize: 20.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
@@ -386,7 +287,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         Text("Enter your date of birth",
                             style: TextStyle(
                                 fontSize: 20.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         GestureDetector(
@@ -398,7 +299,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             width: double.infinity,
                             decoration: BoxDecoration(
                               border: Border.all(
-                                color: Color(0xffCCCCCC),
+                                color: const Color(0xffCCCCCC),
                               ),
                               borderRadius: BorderRadius.circular(10.r),
                             ),
@@ -415,7 +316,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                                 ),
                                 Row(
                                   children: [
-                                    Icon(Icons.calendar_month_outlined),
+                                    const Icon(Icons.calendar_month_outlined),
                                     sizedBoxWidth(10.w)
                                   ],
                                 ),
@@ -423,22 +324,11 @@ class _CompleteProfileState extends State<CompleteProfile> {
                             ),
                           ),
                         ),
-                        // CustomTextFormField(
-                        //   texttype: TextInputType.number,
-                        //   hintText: "Date Of Birth*",
-                        //   validatorText: "Date Of Birth",
-                        //   validator: (value) {
-                        //     if (value == null || value.isEmpty) {
-                        //       return "Please Enter Date Of Birth";
-                        //     }
-                        //     return null;
-                        //   },
-                        // ),
                         SizedBox(height: 25.h),
                         Text("Enter your occupation",
                             style: TextStyle(
                                 fontSize: 20.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
@@ -455,30 +345,30 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         Text("Enter your address",
                             style: TextStyle(
                                 fontSize: 20.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         TextFormField(
                           cursorColor: const Color(0xFF707070),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.only(
+                            contentPadding: const EdgeInsets.only(
                                 left: 20, right: 20, top: 10, bottom: 10),
                             filled: true,
                             fillColor: Colors.white,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color(0xFFCCCCCC), width: 1),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color(0xFFCCCCCC), width: 1),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color(0xFFCCCCCC), width: 1),
                             ),
                             errorBorder: OutlineInputBorder(
@@ -505,7 +395,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         Text("Enter Aadhar Number",
                             style: TextStyle(
                                 fontSize: 20.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
@@ -513,7 +403,6 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           inputFormatters: [
                             FilteringTextInputFormatter.allow(RegExp('[0-9]')),
                             LengthLimitingTextInputFormatter(12)
-                            
                           ],
                           hintText: "Enter Aadhar Number",
                           validatorText: "Enter Aadhar Number",
@@ -528,14 +417,15 @@ class _CompleteProfileState extends State<CompleteProfile> {
                         Text("Enter PAN Number",
                             style: TextStyle(
                                 fontSize: 20.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins')),
                         sizedBoxHeight(15.h),
                         CustomTextFormField(
                           textCapital: true,
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(10),
-                            FilteringTextInputFormatter.allow(RegExp('[A-Z,0-9]')),
+                            FilteringTextInputFormatter.allow(
+                                RegExp('[A-Z,0-9]')),
                           ],
                           hintText: "Enter PAN Number",
                           validatorText: "Enter PAN Number",
@@ -558,7 +448,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           buildGuideTour();
                         } else {
                           Get.snackbar("Error", "Please Enter Required Fields",
-                              margin: EdgeInsets.all(8),
+                              margin: const EdgeInsets.all(8),
                               snackStyle: SnackStyle.FLOATING,
                               snackPosition: SnackPosition.BOTTOM);
                         }

@@ -1,14 +1,8 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_literals_to_create_immutables, duplicate_ignore
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
-import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:get/get.dart';
 
 class Insights extends StatefulWidget {
   const Insights({super.key});
@@ -22,11 +16,7 @@ class _InsightsState extends State<Insights> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: 
-
-
-      PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size.fromHeight(200.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -44,7 +34,7 @@ class _InsightsState extends State<Insights> {
                   Text(
                     'Insights',
                     style: TextStyle(
-                        color: Color(0xff000000),
+                        color: const Color(0xff000000),
                         fontSize: 25.sp,
                         fontWeight: FontWeight.w500,
                         fontFamily: 'Poppins'),
@@ -59,23 +49,23 @@ class _InsightsState extends State<Insights> {
                     decoration: InputDecoration(
                       contentPadding: EdgeInsets.all(10.h),
                       filled: true,
-                      fillColor: Color.fromARGB(255, 233, 233, 233),
+                      fillColor: const Color.fromARGB(255, 233, 233, 233),
                       // Color.fromARGB(255, 202, 202, 202),
                       // Color(0xffFBFBFB),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(47.r),
-                        borderSide:
-                            BorderSide(color: Color(0xffFBFBFB), width: 1),
+                        borderSide: const BorderSide(
+                            color: Color(0xffFBFBFB), width: 1),
                       ),
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(47.r),
-                        borderSide:
-                            BorderSide(color: Color(0xffFBFBFB), width: 1),
+                        borderSide: const BorderSide(
+                            color: Color(0xffFBFBFB), width: 1),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(47.r),
-                        borderSide:
-                            BorderSide(color: Color(0xffFBFBFB), width: 1),
+                        borderSide: const BorderSide(
+                            color: Color(0xffFBFBFB), width: 1),
                       ),
                       errorBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(47.r),
@@ -88,11 +78,11 @@ class _InsightsState extends State<Insights> {
                             const BorderSide(color: Colors.red, width: 1),
                       ),
                       hintStyle: TextStyle(
-                          color: Color(0x80000000),
+                          color: const Color(0x80000000),
                           fontSize: 16.sp,
                           fontFamily: "Poppins"),
                       hintText: 'Search',
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.search_outlined,
                         color: Colors.black,
                       ),
@@ -101,22 +91,22 @@ class _InsightsState extends State<Insights> {
                             borderRadius: BorderRadius.circular(20.r)),
                         // constraints: BoxConstraints.expand(height: 150,
                         // ),
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.keyboard_arrow_down_rounded,
                           color: Colors.black,
                         ),
                         itemBuilder: (context) => [
-                          PopupMenuItem(
+                          const PopupMenuItem(
                             child: Text(
                               'All',
                             ),
                           ),
-                          PopupMenuItem(
+                          const PopupMenuItem(
                             child: Text(
                               'Fractional Real Estate',
                             ),
                           ),
-                          PopupMenuItem(
+                          const PopupMenuItem(
                             child: Text(
                               'Peer to Peer',
                             ),
@@ -125,21 +115,19 @@ class _InsightsState extends State<Insights> {
                       ),
                     ),
                   ),
-            
                 ],
               ),
             ),
           ],
         ),
       ),
-    
       body: Column(
         children: [
           Expanded(
             flex: 1,
             child: ListView.separated(
                 shrinkWrap: true,
-                physics: BouncingScrollPhysics(),
+                physics: const BouncingScrollPhysics(),
                 itemBuilder: (context, number) {
                   return Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -156,7 +144,7 @@ class _InsightsState extends State<Insights> {
                               style: TextStyle(
                                 fontSize: 18.sp,
                                 fontFamily: "Poppins",
-                                color: Color(0xff000000),
+                                color: const Color(0xff000000),
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
@@ -172,7 +160,7 @@ class _InsightsState extends State<Insights> {
                                 Icon(
                                   Icons.calendar_today_outlined,
                                   size: 15.sp,
-                                  color: Color(0xff707070),
+                                  color: const Color(0xff707070),
                                 ),
                                 SizedBox(
                                   width: 3.w,
@@ -182,7 +170,7 @@ class _InsightsState extends State<Insights> {
                                   style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 15.sp,
-                                      color: Color(0xff707070)),
+                                      color: const Color(0xff707070)),
                                 ),
                               ],
                             ),
@@ -194,7 +182,7 @@ class _InsightsState extends State<Insights> {
                               style: TextStyle(
                                 fontFamily: "Poppins",
                                 fontSize: 16.sp,
-                                color: Color(0xFF707070),
+                                color: const Color(0xFF707070),
                               ),
                             ),
                             SizedBox(
@@ -206,7 +194,7 @@ class _InsightsState extends State<Insights> {
                                     width: double.infinity,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
-                                      color: Color(0xFF143C6D),
+                                      color: const Color(0xFF143C6D),
                                     ),
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -217,12 +205,12 @@ class _InsightsState extends State<Insights> {
                                           style: TextStyle(
                                             fontFamily: "Poppins",
                                             fontSize: 18.sp,
-                                            color: Color(0xffffffff),
+                                            color: const Color(0xffffffff),
                                           ),
                                         ),
                                       ),
                                     )),
-                                openBuild: InsightsInner())
+                                openBuild: const InsightsInner())
                           ],
                         ),
                       ),

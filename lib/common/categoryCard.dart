@@ -13,7 +13,6 @@ Widget categoryCard({
     return Stack(
       children: [
         Container(
-          // color: ,
           width: 169.w,
           decoration: BoxDecoration(
               gradient: LinearGradient(

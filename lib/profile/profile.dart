@@ -1,28 +1,16 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, avoid_print, duplicate_ignore, prefer_const_literals_to_create_immutables, unused_import
-
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:freeu/SideMenu/user_logged.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/profile/kyctabs2.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-
 import '../common/CustomTextDropDown.dart';
 
 bool smsUpdate = true;
@@ -62,10 +50,8 @@ class ProfileImageController extends GetxController {
             AndroidUiSettings(
               toolbarTitle: "Crop Image",
               toolbarColor: Get.theme.appBarTheme.backgroundColor,
-              // toolbarWidgetColor: ColorConstants.kWhite,
               backgroundColor: Colors.black,
               activeControlsWidgetColor: Colors.red,
-              // initAspectRatio: CropAspectRatioPreset.original,
               cropFrameColor: Colors.white,
               lockAspectRatio: false,
             ),
@@ -74,9 +60,7 @@ class ProfileImageController extends GetxController {
             ),
           ]);
       if (croppedImg != null) {
-        // profilPic = croppedImg.path;
         profilePicPath.value = croppedImg.path;
-        // Get.back();
       }
     }
   }
@@ -98,7 +82,7 @@ class _ProfileState extends State<Profile> {
       length: 2,
       child: Scaffold(
         key: _key,
-        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        backgroundColor: const Color.fromARGB(255, 255, 255, 255),
         appBar: AppBar(
           backgroundColor: AppColors.white,
           title: Row(
@@ -127,33 +111,29 @@ class _ProfileState extends State<Profile> {
               PreferredSize(
                 preferredSize: Size.fromHeight(50.h),
                 child: TabBar(
-                  indicatorColor: Color(0xff002A5B),
+                  indicatorColor: const Color(0xff002A5B),
                   indicatorWeight: 5.h,
                   tabs: [
                     Tab(
                         child: Text(
                       'Profile',
-                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                      style: TextStyle(
+                          color: const Color(0xff000000), fontSize: 16.sp),
                     )),
                     Tab(
                         child: Text(
                       'KYC',
-                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                      style: TextStyle(
+                          color: const Color(0xff000000), fontSize: 16.sp),
                     )),
-                    // Tab(
-                    //     child: Text(
-                    //   'Risk Profile',
-                    //   style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                    // )),
                   ],
                 ),
               ),
-              Expanded(
-                child: const TabBarView(
+              const Expanded(
+                child: TabBarView(
                   children: [
-                    profiletab(),
+                    Profiletab(),
                     KYCtabs(),
-                   // riskprofile(), I have commented this because of client requiremnet.
                   ],
                 ),
               ),
@@ -165,16 +145,16 @@ class _ProfileState extends State<Profile> {
   }
 }
 
-class profiletab extends StatefulWidget {
-  const profiletab({
+class Profiletab extends StatefulWidget {
+  const Profiletab({
     Key? key,
   }) : super(key: key);
 
   @override
-  State<profiletab> createState() => _profiletabState();
+  State<Profiletab> createState() => _ProfiletabState();
 }
 
-class _profiletabState extends State<profiletab> {
+class _ProfiletabState extends State<Profiletab> {
   bool editBool = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
@@ -228,7 +208,7 @@ class _profiletabState extends State<profiletab> {
                 Text(
                   'Profile Photo',
                   style: TextStyle(
-                      color: Color(0xff444444),
+                      color: const Color(0xff444444),
                       fontSize: 22.sp,
                       fontFamily: 'Poppins'),
                 ),
@@ -246,7 +226,7 @@ class _profiletabState extends State<profiletab> {
                         children: [
                           CircleAvatar(
                             radius: 27.r,
-                            backgroundColor: Color(0xff143C6D),
+                            backgroundColor: const Color(0xff143C6D),
                             child: Icon(
                               Icons.camera_alt_outlined,
                               size: 30.sp,
@@ -260,7 +240,7 @@ class _profiletabState extends State<profiletab> {
                             'Camera',
                             style: TextStyle(
                                 fontSize: 13.sp,
-                                color: Color(0xff444444),
+                                color: const Color(0xff444444),
                                 fontFamily: 'Poppins'),
                           )
                         ],
@@ -276,7 +256,7 @@ class _profiletabState extends State<profiletab> {
                         children: [
                           CircleAvatar(
                             radius: 27.r,
-                            backgroundColor: Color(0xff143C6D),
+                            backgroundColor: const Color(0xff143C6D),
                             child: Icon(
                               Icons.image_outlined,
                               size: 30.sp,
@@ -290,7 +270,7 @@ class _profiletabState extends State<profiletab> {
                             'Gallery',
                             style: TextStyle(
                                 fontSize: 13.sp,
-                                color: Color(0xff444444),
+                                color: const Color(0xff444444),
                                 fontFamily: 'Poppins'),
                           )
                         ],
@@ -378,9 +358,9 @@ class _profiletabState extends State<profiletab> {
                       Row(
                         children: [
                           CircleAvatar(
-                            backgroundColor: Color(0xff002A5B),
+                            backgroundColor: const Color(0xff002A5B),
                             radius: 25.r,
-                            child: Icon(Icons.phone_in_talk_sharp),
+                            child: const Icon(Icons.phone_in_talk_sharp),
                           ),
                           SizedBox(
                             width: 20.w,
@@ -404,9 +384,9 @@ class _profiletabState extends State<profiletab> {
                       Row(
                         children: [
                           CircleAvatar(
-                            backgroundColor: Color(0xff002A5B),
+                            backgroundColor: const Color(0xff002A5B),
                             radius: 25.r,
-                            child: Icon(Icons.mail_outline),
+                            child: const Icon(Icons.mail_outline),
                           ),
                           SizedBox(
                             width: 20.w,
@@ -433,9 +413,9 @@ class _profiletabState extends State<profiletab> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           CircleAvatar(
-                            backgroundColor: Color(0xff002A5B),
+                            backgroundColor: const Color(0xff002A5B),
                             radius: 25.r,
-                            child: Icon(Icons.location_on_outlined),
+                            child: const Icon(Icons.location_on_outlined),
                           ),
                           SizedBox(
                             width: 22.w,
@@ -540,11 +520,11 @@ class _profiletabState extends State<profiletab> {
                       },
                       child: Material(
                         elevation: 1,
-                        shape: CircleBorder(),
+                        shape: const CircleBorder(),
                         child: CircleAvatar(
                           radius: 16.5.r,
                           backgroundColor: Colors.white,
-                          child: Icon(
+                          child: const Icon(
                             Icons.edit_outlined,
                             color: Color(0xffCCCCCC),
                           ),
@@ -665,7 +645,7 @@ class _profiletabState extends State<profiletab> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Text(
+                      const Text(
                         'SMS updates',
                         textAlign: TextAlign.left,
                         style: TextStyle(
@@ -744,15 +724,18 @@ class _profiletabState extends State<profiletab> {
               fillColor: Colors.white,
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                borderSide:
+                    const BorderSide(color: Color(0xffCCCCCC), width: 1),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                borderSide:
+                    const BorderSide(color: Color(0xffCCCCCC), width: 1),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                borderSide:
+                    const BorderSide(color: Color(0xffCCCCCC), width: 1),
               ),
               errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(30),
@@ -882,7 +865,7 @@ class _KYCtabsState extends State<KYCtabs> {
         child: PageView.builder(
           controller: _controller,
           itemCount: 4,
-          physics: NeverScrollableScrollPhysics(),
+          physics: const NeverScrollableScrollPhysics(),
           onPageChanged: (int index) {
             setState(() {
               currentIndex = index;
@@ -905,8 +888,7 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc1() {
     return SingleChildScrollView(
-      child:
-       Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -915,7 +897,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 "Step 1 : Complete your KYC",
                 style: TextStyle(
                     fontSize: 22.sp,
-                    color: Color(0xFF143C6D),
+                    color: const Color(0xFF143C6D),
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w500),
               ),
@@ -928,7 +910,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   fontFamily: 'Poppins',
                   fontSize: 18.sp,
                   fontWeight: FontWeight.w500,
-                  color: Color(0xFF000000),
+                  color: const Color(0xFF000000),
                 ),
               ),
               SizedBox(
@@ -939,7 +921,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 14.sp,
-                  color: Color(0xFF000000),
+                  color: const Color(0xFF000000),
                 ),
               ),
               SizedBox(
@@ -951,7 +933,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -968,7 +950,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -983,7 +965,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -998,7 +980,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1012,7 +994,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: Color(0xffCCCCCC),
+                      color: const Color(0xffCCCCCC),
                     ),
                     borderRadius: BorderRadius.circular(10.r),
                   ),
@@ -1027,7 +1009,7 @@ class _KYCtabsState extends State<KYCtabs> {
                       ),
                       Row(
                         children: [
-                          Icon(Icons.calendar_month_outlined),
+                          const Icon(Icons.calendar_month_outlined),
                           sizedBoxWidth(10.w)
                         ],
                       ),
@@ -1043,7 +1025,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1067,7 +1049,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1095,8 +1077,7 @@ class _KYCtabsState extends State<KYCtabs> {
   }
 
   Widget kyc2() {
-    return 
-    SingleChildScrollView(
+    return SingleChildScrollView(
       child: Center(
         child: Form(
           child: Column(
@@ -1109,7 +1090,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   fontSize: 22.sp,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Poppins',
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                 ),
               ),
               SizedBox(
@@ -1121,7 +1102,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   fontSize: 18.sp,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
-                  color: Color(0xFF000000),
+                  color: const Color(0xFF000000),
                 ),
               ),
               SizedBox(
@@ -1132,7 +1113,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontFamily: 'Poppins',
-                  color: Color(0xFF000000),
+                  color: const Color(0xFF000000),
                 ),
               ),
               SizedBox(
@@ -1144,7 +1125,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1162,7 +1143,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1177,7 +1158,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1187,20 +1168,23 @@ class _KYCtabsState extends State<KYCtabs> {
                 autovalidateMode: AutovalidateMode.onUserInteraction,
                 controller: addresstextEditingController,
                 decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10).h,
+                  contentPadding: const EdgeInsets.all(10).h,
                   filled: true,
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
@@ -1211,7 +1195,7 @@ class _KYCtabsState extends State<KYCtabs> {
                     borderSide: const BorderSide(color: Colors.red, width: 1),
                   ),
                   hintStyle: TextStyle(
-                    color: Color(0x80000000),
+                    color: const Color(0x80000000),
                     fontSize: 16.sp,
                     fontFamily: 'Poppins',
                   ),
@@ -1227,7 +1211,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1243,7 +1227,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1259,7 +1243,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1275,7 +1259,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1290,7 +1274,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 13.h,
@@ -1305,15 +1289,18 @@ class _KYCtabsState extends State<KYCtabs> {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
@@ -1324,14 +1311,14 @@ class _KYCtabsState extends State<KYCtabs> {
                     borderSide: const BorderSide(color: Colors.red, width: 1),
                   ),
                   hintStyle: TextStyle(
-                    color: Color(0x80000000),
+                    color: const Color(0x80000000),
                     fontSize: 14.sp,
                     fontFamily: 'Poppins',
                   ),
                   hintText: "",
                   suffixIcon: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.file_upload_outlined,
                         color: Colors.black,
                       )),
@@ -1344,7 +1331,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 13.h,
@@ -1359,15 +1346,18 @@ class _KYCtabsState extends State<KYCtabs> {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
@@ -1378,14 +1368,14 @@ class _KYCtabsState extends State<KYCtabs> {
                     borderSide: const BorderSide(color: Colors.red, width: 1),
                   ),
                   hintStyle: TextStyle(
-                    color: Color(0x80000000),
+                    color: const Color(0x80000000),
                     fontSize: 14.sp,
                     fontFamily: 'Poppins',
                   ),
                   hintText: "",
                   suffixIcon: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.file_upload_outlined,
                         color: Colors.black,
                       )),
@@ -1412,8 +1402,7 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc3() {
     return SingleChildScrollView(
-      child: 
-      Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1424,7 +1413,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   fontSize: 22.sp,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                 ),
               ),
               SizedBox(
@@ -1436,7 +1425,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   fontSize: 18.sp,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
-                  color: Color(0xFF000000),
+                  color: const Color(0xFF000000),
                 ),
               ),
               SizedBox(
@@ -1447,7 +1436,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 14.sp,
-                  color: Color(0xFF000000),
+                  color: const Color(0xFF000000),
                 ),
               ),
               SizedBox(
@@ -1458,7 +1447,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1475,7 +1464,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1490,15 +1479,18 @@ class _KYCtabsState extends State<KYCtabs> {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
@@ -1508,12 +1500,12 @@ class _KYCtabsState extends State<KYCtabs> {
                     borderRadius: BorderRadius.circular(10.r),
                     borderSide: const BorderSide(color: Colors.red, width: 1),
                   ),
-                  hintStyle:
-                      TextStyle(color: Color(0x80000000), fontSize: 14.sp),
+                  hintStyle: TextStyle(
+                      color: const Color(0x80000000), fontSize: 14.sp),
                   hintText: "",
                   suffixIcon: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.file_upload_outlined,
                         color: Colors.black,
                       )),
@@ -1526,7 +1518,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1541,7 +1533,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontFamily: 'Poppins',
                     fontSize: 20.sp,
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 13.h,
@@ -1556,15 +1548,18 @@ class _KYCtabsState extends State<KYCtabs> {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xffCCCCCC), width: 1),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
@@ -1574,12 +1569,12 @@ class _KYCtabsState extends State<KYCtabs> {
                     borderRadius: BorderRadius.circular(10.r),
                     borderSide: const BorderSide(color: Colors.red, width: 1),
                   ),
-                  hintStyle:
-                      TextStyle(color: Color(0x80000000), fontSize: 14.sp),
+                  hintStyle: TextStyle(
+                      color: const Color(0x80000000), fontSize: 14.sp),
                   hintText: "",
                   suffixIcon: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.file_upload_outlined,
                         color: Colors.black,
                       )),
@@ -1605,8 +1600,7 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc4() {
     return SingleChildScrollView(
-      child:
-       Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1616,7 +1610,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontSize: 22.sp,
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                 ),
               ),
               SizedBox(
@@ -1628,7 +1622,7 @@ class _KYCtabsState extends State<KYCtabs> {
                   fontSize: 18.sp,
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w500,
-                  color: Color(0xFF000000),
+                  color: const Color(0xFF000000),
                 ),
               ),
               SizedBox(
@@ -1639,7 +1633,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                   fontSize: 14.sp,
                   fontFamily: 'Poppins',
-                  color: Color(0xFF000000),
+                  color: const Color(0xFF000000),
                 ),
               ),
               SizedBox(
@@ -1651,7 +1645,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1659,7 +1653,7 @@ class _KYCtabsState extends State<KYCtabs> {
               CustomTextFormField(
                   hintText: "Please Enter IFSC code",
                   validatorText: "Please Enter IFSC code"),
-              SizedBox(
+              const SizedBox(
                 height: 13,
               ),
               Text(
@@ -1668,7 +1662,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1685,7 +1679,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1700,15 +1694,18 @@ class _KYCtabsState extends State<KYCtabs> {
                   fillColor: Colors.white,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xFFCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xFFCCCCCC), width: 1),
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xFFCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xFFCCCCCC), width: 1),
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xFFCCCCCC), width: 1),
+                    borderSide:
+                        const BorderSide(color: Color(0xFFCCCCCC), width: 1),
                   ),
                   errorBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(10.r),
@@ -1718,12 +1715,12 @@ class _KYCtabsState extends State<KYCtabs> {
                     borderRadius: BorderRadius.circular(10.r),
                     borderSide: const BorderSide(color: Colors.red, width: 1),
                   ),
-                  hintStyle:
-                      TextStyle(color: Color(0x80000000), fontSize: 16.sp),
+                  hintStyle: TextStyle(
+                      color: const Color(0x80000000), fontSize: 16.sp),
                   hintText: "",
                   suffixIcon: IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.file_upload_outlined,
                         color: Colors.black,
                       )),
@@ -1736,7 +1733,7 @@ class _KYCtabsState extends State<KYCtabs> {
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
-                    color: Color(0xff000000)),
+                    color: const Color(0xff000000)),
               ),
               SizedBox(
                 height: 6.h,
@@ -1864,7 +1861,7 @@ class _riskprofileState extends State<riskprofile> {
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 20.sp,
-                              color: Color(0xff000000)),
+                              color: const Color(0xff000000)),
                         ),
                       ),
                       SizedBox(
@@ -1881,7 +1878,7 @@ class _riskprofileState extends State<riskprofile> {
                           style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 20.sp,
-                              color: Color(0xff000000)),
+                              color: const Color(0xff000000)),
                         ),
                       ),
                       SizedBox(
@@ -1897,7 +1894,7 @@ class _riskprofileState extends State<riskprofile> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
@@ -1916,7 +1913,7 @@ class _riskprofileState extends State<riskprofile> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
@@ -1937,7 +1934,7 @@ class _riskprofileState extends State<riskprofile> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
@@ -1956,7 +1953,7 @@ class _riskprofileState extends State<riskprofile> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,
@@ -1974,7 +1971,7 @@ class _riskprofileState extends State<riskprofile> {
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
-                            color: Color(0xff000000)),
+                            color: const Color(0xff000000)),
                       ),
                       SizedBox(
                         height: 6.h,

@@ -1,9 +1,6 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore, file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -32,23 +29,7 @@ class _otpVerificationState extends State<otpVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            // AppBar(
-            //   backgroundColor: AppColors.white,
-            //   // backgroundColor: Color(0xFFF5F8FA),
-            //   elevation: 0,
-            //   leading: IconButton(
-            //     onPressed: () {
-            //       Get.back();
-            //     },
-            //     icon: Icon(
-            //       Icons.arrow_back,
-            //     ),
-            //     iconSize: 24,
-            //     color: Color(0xFF0F0C0C),
-            //   ),
-            // ),
-            CustomSignupAppBar(
+        appBar: const CustomSignupAppBar(
           titleTxt: "",
           bottomtext: false,
         ),
@@ -70,7 +51,7 @@ class _otpVerificationState extends State<otpVerification> {
                         style: TextStyle(
                             fontFamily: "Poppins",
                             fontSize: 25.sp,
-                            color: Color(0XFF0F0C0C),
+                            color: const Color(0XFF0F0C0C),
                             fontWeight: FontWeight.w500),
                       ),
                     ],
@@ -87,7 +68,7 @@ class _otpVerificationState extends State<otpVerification> {
                           "We will send a verification email to the email address on your account in order to reset your password",
                           style: TextStyle(
                             fontSize: 18.sp,
-                            color: Color(0XFF272424),
+                            color: const Color(0XFF272424),
                             fontFamily: 'Poppins',
                           ),
                         ),
@@ -106,18 +87,18 @@ class _otpVerificationState extends State<otpVerification> {
                                 LengthLimitingTextInputFormatter(10),
                               ],
                               decoration: InputDecoration(
-                                focusedBorder: UnderlineInputBorder(
+                                focusedBorder: const UnderlineInputBorder(
                                   borderSide: BorderSide(
                                     width: 1, //<-- SEE HERE
                                     color: Color(0xFF6B6B6B),
                                   ),
                                 ),
-                                enabledBorder: UnderlineInputBorder(
+                                enabledBorder: const UnderlineInputBorder(
                                   borderSide: BorderSide(
                                       width: 1, //<-- SEE HERE
                                       color: Color(0xFF6B6B6B)),
                                 ),
-                                border: UnderlineInputBorder(
+                                border: const UnderlineInputBorder(
                                   borderSide: BorderSide(
                                       width: 1, //<-- SEE HERE
                                       color: Color(0xFF6B6B6B)),
@@ -125,7 +106,7 @@ class _otpVerificationState extends State<otpVerification> {
                                 hintText: "Enter number",
                                 hintStyle: TextStyle(
                                     fontFamily: "Poppins", fontSize: 15.sm),
-                                prefixIcon: Align(
+                                prefixIcon: const Align(
                                   widthFactor: 1.0,
                                   heightFactor: 1.0,
                                   child: Icon(
@@ -154,18 +135,19 @@ class _otpVerificationState extends State<otpVerification> {
                             Text(
                               "Enter OTP",
                               style: blackStyle16().copyWith(
-                                color: Color(0xff303030),
+                                color: const Color(0xff303030),
                               ),
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 10,
                             ),
                             Container(
                                 child: PinCodeTextField(
                               showCursor: true,
-                              cursorColor: Color(0xFF143C6D),
+                              cursorColor: const Color(0xFF143C6D),
                               textStyle: TextStyle(
-                                  fontSize: 18.sm, color: Color(0xFF143C6D)),
+                                  fontSize: 18.sm,
+                                  color: const Color(0xFF143C6D)),
                               errorTextSpace: 22,
                               validator: (value) {
                                 if (value != null && value.isEmpty) {
@@ -183,16 +165,17 @@ class _otpVerificationState extends State<otpVerification> {
                               pinTheme: PinTheme(
                                 selectedFillColor: Colors.white,
                                 inactiveFillColor: Colors.white,
-                                inactiveColor: Color(0xFFCCCCCC),
-                                activeColor: Color(0xFFCCCCCC),
-                                selectedColor: Color(0xFFCCCCCC),
+                                inactiveColor: const Color(0xFFCCCCCC),
+                                activeColor: const Color(0xFFCCCCCC),
+                                selectedColor: const Color(0xFFCCCCCC),
                                 shape: PinCodeFieldShape.box,
                                 borderRadius: BorderRadius.circular(15),
                                 fieldHeight: 60.h,
                                 fieldWidth: 60.w,
                                 activeFillColor: Colors.white,
                               ),
-                              animationDuration: Duration(milliseconds: 300),
+                              animationDuration:
+                                  const Duration(milliseconds: 300),
                               enableActiveFill: true,
                               controller: pincode,
                               onCompleted: (v) {
@@ -208,9 +191,7 @@ class _otpVerificationState extends State<otpVerification> {
                                 return true;
                               },
                               appContext: context,
-                            )
-                            ),
-
+                            )),
                             SizedBox(
                               height: 80.h,
                             ),
@@ -222,59 +203,12 @@ class _otpVerificationState extends State<otpVerification> {
                                   Get.toNamed('/resetpassword');
                                 } else {
                                   Get.snackbar("Error", "Please Enter OTP",
-                                      margin: EdgeInsets.all(8),
+                                      margin: const EdgeInsets.all(8),
                                       snackStyle: SnackStyle.FLOATING,
                                       snackPosition: SnackPosition.BOTTOM);
                                 }
                               },
                             )
-                            // InkWell(
-                            //   onTap: () {
-                            //     Get.toNamed('/resetpassword');
-                            //   },
-                            //   child: Stack(
-                            //     children: [
-                            //       SizedBox(
-                            //         width: double.infinity,
-                            //         height: 50.h,
-                            //         child: ElevatedButton(
-                            //           style: ElevatedButton.styleFrom(
-                            //               elevation: 3,
-                            //               shadowColor: const Color.fromARGB(
-                            //                   255, 172, 172, 173),
-                            //               backgroundColor:
-                            //                   const Color(0xFFFFB600),
-                            //               shape: (RoundedRectangleBorder(
-                            //                 borderRadius:
-                            //                     BorderRadius.circular(30.0),
-                            //               ))),
-                            //           onPressed: () {
-                            //             Get.toNamed('/resetpassword');
-                            //           },
-                            //           child: const Text(
-                            //             'Proceed',
-                            //             style: TextStyle(
-                            //               color: Colors.black,
-                            //               fontSize: 16,
-                            //               fontFamily: 'Poppins',
-                            //             ),
-                            //           ),
-                            //         ),
-                            //       ),
-                            //       const Positioned(
-                            //         right: 0,
-                            //         top: 0,
-                            //         child: CircleAvatar(
-                            //           backgroundColor: Colors.white,
-                            //           radius: 25,
-                            //           child: Icon(
-                            //               color: Color(0xFF6B6B6B),
-                            //               Icons.arrow_forward),
-                            //         ),
-                            //       )
-                            //     ],
-                            //   ),
-                            // ),
                           ],
                         ),
                         SizedBox(

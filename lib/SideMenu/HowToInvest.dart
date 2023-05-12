@@ -1,12 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
-import 'package:get/get.dart';
 
 class HowToInvest extends StatefulWidget {
   const HowToInvest({super.key});
@@ -20,31 +14,12 @@ class _HowToInvestState extends State<HowToInvest> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return
-        // SafeArea(
-        //child:
-        Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
+    return Scaffold(
+      backgroundColor: const Color(0xFFFFFFFF),
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Center(
         child: Column(
           children: [
@@ -72,11 +47,11 @@ class _HowToInvestState extends State<HowToInvest> {
                       height: 30.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color(0xffffffff),
                           boxShadow: [
@@ -131,11 +106,11 @@ class _HowToInvestState extends State<HowToInvest> {
                       height: 20.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color(0xffffffff),
                           boxShadow: [
@@ -190,11 +165,11 @@ class _HowToInvestState extends State<HowToInvest> {
                       height: 20.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color(0xffffffff),
                           boxShadow: [
@@ -249,11 +224,11 @@ class _HowToInvestState extends State<HowToInvest> {
                       height: 20.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
                       child: Container(
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                           color: Color(0xffffffff),
                           boxShadow: [

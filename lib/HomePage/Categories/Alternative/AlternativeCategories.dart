@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
-
 import 'AIF Cateogary I/AlternativeCateogries1.dart';
 import 'AIF Cateogary III/AlternaticeCateogries3.dart';
 
@@ -25,21 +21,6 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Center(
         child: Column(
           children: [

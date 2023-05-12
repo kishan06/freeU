@@ -78,89 +78,6 @@ class _AboutState extends State<About> {
                     fontSize: 20.sp,
                     fontFamily: 'Poppins'),
               ),
-              // sizedBoxHeight(25.h),
-              // Row(
-              //   children: [
-              //     CircleAvatar(
-              //       radius: 45.r,
-              //       backgroundColor: Color(0xffA0EF87),
-              //       child: Image.asset(
-              //         'assets/images/13536.png',
-              //         width: 42.w,
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       width: 15.w,
-              //     ),
-              //     Expanded(
-              //       child: Column(
-              //         mainAxisAlignment: MainAxisAlignment.start,
-              //         crossAxisAlignment: CrossAxisAlignment.start,
-              //         children: [
-              //           Text(
-              //             'Experience',
-              //             style: TextStyle(
-              //                 color: Color(0xff0F0C0C),
-              //                 fontSize: 22.sp,
-              //                 fontWeight: FontWeight.w500,
-              //                 fontFamily: 'Poppins'),
-              //           ),
-              //           Text(
-              //             'Our great team of more than 1400 software experts.',
-              //             style: TextStyle(
-              //                 color: Color(0xff272424),
-              //                 fontSize: 18.sp,
-              //                 fontFamily: 'Poppins'),
-              //           ),
-              //         ],
-              //       ),
-              //     )
-              //   ],
-              // ),
-              // Divider(
-              //   height: 58.h,
-              //   thickness: 1.2.h,
-              //   color: Color(0xff616161).withOpacity(0.1),
-              // ),
-              // Row(
-              //   children: [
-              //     CircleAvatar(
-              //       radius: 45.r,
-              //       backgroundColor: Color(0xff4981C9),
-              //       child: Image.asset(
-              //         'assets/images/13540.png',
-              //         width: 45.w,
-              //       ),
-              //     ),
-              //     SizedBox(
-              //       width: 15.w,
-              //     ),
-              //     Expanded(
-              //       child: Column(
-              //         mainAxisAlignment: MainAxisAlignment.start,
-              //         crossAxisAlignment: CrossAxisAlignment.start,
-              //         children: [
-              //           Text(
-              //             'Quick Support',
-              //             style: TextStyle(
-              //                 color: Color(0xff0F0C0C),
-              //                 fontSize: 22.sp,
-              //                 fontWeight: FontWeight.w500,
-              //                 fontFamily: 'Poppins'),
-              //           ),
-              //           Text(
-              //             'We’ll help you test bold new ideas while sharing your.',
-              //             style: TextStyle(
-              //                 color: Color(0xff272424),
-              //                 fontSize: 18.sp,
-              //                 fontFamily: 'Poppins'),
-              //           ),
-              //         ],
-              //       ),
-              //     )
-              //   ],
-              // ),
-
               sizedBoxHeight(48.h),
               SizedBox(
                 width: double.infinity,
@@ -205,12 +122,6 @@ class _AboutState extends State<About> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  // Expanded(
-                  //   flex: 3,
-                  //   child: Image.asset(
-                  //     'assets/images/team01.png',
-                  //   ),
-                  // ),
                   Flexible(
                       flex: 4,
                       child: Column(

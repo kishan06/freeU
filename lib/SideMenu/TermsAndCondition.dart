@@ -1,10 +1,7 @@
-// ignore_for_file: file_names, camel_case_types, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:get/get.dart';
 
 class TermsAndCondition extends StatefulWidget {
   const TermsAndCondition({super.key});
@@ -18,7 +15,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomSignupAppBar(
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -74,7 +71,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           style: TextStyle(
                             fontSize: 14.sp,
                             fontFamily: 'Poppins',
-                            color: Color(0xff131313),
+                            color: const Color(0xff131313),
                           ),
                         ),
                         SizedBox(
@@ -87,7 +84,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontFamily: 'Poppins',
-                              color: Color(0xff131313),
+                              color: const Color(0xff131313),
                             ),
                           ),
                         ),
@@ -112,7 +109,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           'Whilst we try to ensure that the standard of the Website remains high and to maintain the continuity of it, the internet is not an inherently stable medium, and errors, omissions, interruptions of service and delays may occur at any time. ',
                           style: TextStyle(
                             fontSize: 14.sp,
-                            color: Color(0xff131313),
+                            color: const Color(0xff131313),
                           ),
                         ),
                         SizedBox(
@@ -122,7 +119,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           'We do not accept any liability arising from any such errors, omissions, interruptions or delays or any ongoing obligation or responsibility to operate the Website (or any particular part of it) or to provide the service offered on the Website. We may vary the specification of this site from time to time without notice.',
                           style: TextStyle(
                             fontSize: 14.sp,
-                            color: Color(0xff131313),
+                            color: const Color(0xff131313),
                           ),
                         ),
                         SizedBox(height: 20.h),
@@ -146,7 +143,7 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                           'You may only use the Website for lawful purposes when seeking employment or help with your career, when purchasing training courses or when recruiting staff. You must not under any circumstances seek to undermine the security of the Website or any information submitted to or available through it. In particular, but without limitation, you must not seek to access, alter or delete any information to which you do not have authorised access, seek to overload the system via spamming or flooding, take any action or use any device, routine or software to crash, delay, damage or otherwise interfere with the operation of the Website or attempt to decipher, disassemble or modify any of the software, coding or information comprised in the Website.',
                           style: TextStyle(
                             fontSize: 14.sp,
-                            color: Color(0xff131313),
+                            color: const Color(0xff131313),
                           ),
                         ),
                         SizedBox(height: 20.h),
@@ -157,30 +154,6 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                 ],
               ),
             )),
-            // Column(
-            //   crossAxisAlignment: CrossAxisAlignment.start,
-            //   children: [
-            //     GestureDetector(
-            //         onTap: () {
-            //           Get.back();
-            //         },
-            //         child: Icon(
-            //           Icons.arrow_back,
-            //           size: 24.sp,
-            //           color: Color(0xff000000),
-            //         )),
-            //     SizedBox(
-            //       height: 10.h,
-            //     ),
-            //     Text(
-            //       "Terms & condition",
-            //       style: TextStyle(
-            //           fontFamily: "Poppins",
-            //           fontSize: 25.sp,
-            //           fontWeight: FontWeight.w500),
-            //     ),
-            //   ],
-            // ),
           ],
         ),
       ),

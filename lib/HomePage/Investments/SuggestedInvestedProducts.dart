@@ -1,11 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -19,7 +14,6 @@ class SuggestedInvestedProducts extends StatefulWidget {
 
 class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
   int selectIndex = 0;
-  int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   PageController indicatorcontroller = PageController(
     viewportFraction: 0.95,
@@ -34,87 +28,15 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
     viewportFraction: 0.75,
   );
 
-  void _selectedTab(int index) {
-    setState(() {
-      // _lastSelected = 'TAB: $index';
-      // print(_lastSelected);
-
-      switch (index) {
-        case 0:
-          {
-            Get.toNamed("/homepage");
-          }
-          break;
-
-        case 1:
-          {
-            Get.toNamed('/categoriesmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityFirst())));
-          }
-          break;
-
-        case 2:
-          {
-            Get.toNamed('/investmentmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
-          }
-          break;
-        case 3:
-          {
-            Get.toNamed('/chatpage');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => Login())));
-          }
-          break;
-        case 4:
-          {
-            Get.toNamed('/myprofile');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => SignUp())));
-          }
-          break;
-        default:
-          {
-            throw Error();
-          }
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: NavDrawer(),
-      backgroundColor: Color(0xffffffff),
-      appBar: CustomSignupAppBar(
+      backgroundColor: const Color(0xffffffff),
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      //  AppBar(
-      //   backgroundColor: Color(0xffffffff),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
-      // CustomSignupAppBar(
-      //   titleTxt: "Suggested Invested Products",
-      //   showLeading: true,
-      //   bottomtext: false,
-      // ),
-      // bottomNavigationBar:
-      //     CreateBottomBar(stateBottomNav, "bottombar", context),
       body: Column(
         children: [
           Padding(
@@ -135,7 +57,7 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: EdgeInsets.only(left: 16.0, right: 16),
+                padding: const EdgeInsets.only(left: 16.0, right: 16),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -181,30 +103,22 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
                     SizedBox(
                       height: 10.h,
                     ),
-                    common_crd_green(),
-                    SizedBox(
+                    const common_crd_green(),
+                    const SizedBox(
                       height: 10,
                     ),
-                    common_crd_red(),
-                    SizedBox(
+                    const common_crd_red(),
+                    const SizedBox(
                       height: 10,
                     ),
-                    common_crd_green(),
-                    SizedBox(
+                    const common_crd_green(),
+                    const SizedBox(
                       height: 10,
                     ),
-                    common_crd_red(),
-                    SizedBox(
+                    const common_crd_red(),
+                    const SizedBox(
                       height: 10,
                     ),
-                    // common_crd_green(),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
-                    // common_crd_red(),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
                   ],
                 ),
               ),
@@ -224,10 +138,11 @@ class common_crd_green extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        border: Border.all(color: Color(0xffECECEC).withOpacity(1), width: 1),
-        color: Color(0xFFFFFFFF),
-        boxShadow: [
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
+        border:
+            Border.all(color: const Color(0xffECECEC).withOpacity(1), width: 1),
+        color: const Color(0xFFFFFFFF),
+        boxShadow: const [
           BoxShadow(
             color: Color(0x48B9B9BE),
             blurRadius: 20.0,
@@ -273,12 +188,9 @@ class common_crd_green extends StatelessWidget {
                       "8 %",
                       style: TextStyle(
                         fontSize: 18.sp,
-                        color: Color(0XFF0F0C0C),
+                        color: const Color(0XFF0F0C0C),
                       ),
-                    )
-                    // SvgPicture.asset(
-                    //     "assets/images/Investmentnumber.svg"),
-                    ),
+                    )),
                 Padding(
                     padding: const EdgeInsets.only(right: 10, bottom: 18),
                     child: Column(
@@ -288,7 +200,7 @@ class common_crd_green extends StatelessWidget {
                         SizedBox(
                           height: 5.h,
                         ),
-                        Text(
+                        const Text(
                           "Yes",
                           style: TextStyle(
                             fontSize: 14,
@@ -297,7 +209,7 @@ class common_crd_green extends StatelessWidget {
                         )
                       ],
                     )),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Padding(
@@ -309,7 +221,7 @@ class common_crd_green extends StatelessWidget {
                         SizedBox(
                           height: 5.h,
                         ),
-                        Text(
+                        const Text(
                           "No",
                           style: TextStyle(
                             fontSize: 14,
@@ -338,10 +250,11 @@ class common_crd_red extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        border: Border.all(color: Color(0xffECECEC).withOpacity(1), width: 1),
-        color: Color(0xFFFFFFFF),
-        boxShadow: [
+        borderRadius: const BorderRadius.all(Radius.circular(15)),
+        border:
+            Border.all(color: const Color(0xffECECEC).withOpacity(1), width: 1),
+        color: const Color(0xFFFFFFFF),
+        boxShadow: const [
           BoxShadow(
             color: Color(0x48B9B9BE),
             blurRadius: 20.0,
@@ -385,12 +298,9 @@ class common_crd_red extends StatelessWidget {
                       "8 %",
                       style: TextStyle(
                         fontSize: 18.sp,
-                        color: Color(0XFF0F0C0C),
+                        color: const Color(0XFF0F0C0C),
                       ),
-                    )
-                    // SvgPicture.asset(
-                    //     "assets/images/Investmentnumber.svg"),
-                    ),
+                    )),
                 Padding(
                     padding: const EdgeInsets.only(left: 75, bottom: 18),
                     child: Column(
@@ -400,7 +310,7 @@ class common_crd_red extends StatelessWidget {
                         SizedBox(
                           height: 5.h,
                         ),
-                        Text(
+                        const Text(
                           "Yes",
                           style: TextStyle(
                             fontSize: 14,
@@ -409,7 +319,7 @@ class common_crd_red extends StatelessWidget {
                         )
                       ],
                     )),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
                 Padding(
@@ -421,7 +331,7 @@ class common_crd_red extends StatelessWidget {
                         SizedBox(
                           height: 5.h,
                         ),
-                        Text(
+                        const Text(
                           "No",
                           style: TextStyle(
                             fontSize: 14,

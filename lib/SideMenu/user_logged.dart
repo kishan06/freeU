@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
@@ -24,20 +22,6 @@ class _UserState extends State<User> {
   final ProfileImageController editProfileImage =
       Get.put(ProfileImageController());
   bool editBool = false;
-  // Future getImage(ImageSource source) async {
-  //   try {
-  //     final image = await ImagePicker().pickImage(source: source);
-  //     if (image == null) return;
-  //     final imageTemporary = File(image.path);
-  //     // final imagePermanent = await saveFilePermanently(image.path);
-
-  //     setState(() {
-  //       profilPic = imageTemporary;
-  //     });
-  //   } on PlatformException catch (e) {
-  //     print('Failed to pick image: $e');
-  //   }
-  // }
 
   Future<File> saveFilePermanently(String imagePath) async {
     final directory = await getApplicationDocumentsDirectory();
@@ -659,9 +643,6 @@ class _UserState extends State<User> {
   }
 
   void _submit() {
-    // final FormState? form = _formKey.currentState;
-    // if (form != null && form.validate()) {
-    //   form.save();
     setState(() {
       setState(() {
         editBool = false;

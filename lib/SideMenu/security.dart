@@ -1,11 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
-import 'package:get/get.dart';
 
 class Security extends StatefulWidget {
   const Security({super.key});
@@ -19,11 +16,11 @@ class _SecurityState extends State<Security> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomSignupAppBar(
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      backgroundColor: Color(0xFFFFFFFF),
+      backgroundColor: const Color(0xFFFFFFFF),
       body: Center(
           child: Form(
               key: _form,
@@ -67,7 +64,7 @@ class _SecurityState extends State<Security> {
                         SizedBox(
                           height: 14.h,
                         ),
-                        CustomTextFormField(
+                        const CustomTextFormField(
                             hintText: "Enter 4 digit login pin",
                             validatorText: "Enter 4 digit login pin"),
                         SizedBox(
@@ -86,7 +83,7 @@ class _SecurityState extends State<Security> {
                         SizedBox(
                           height: 14.h,
                         ),
-                        CustomTextFormField(
+                        const CustomTextFormField(
                             hintText: "Enter 4 digit login pin",
                             validatorText: "Enter 4 digit login pin"),
                         SizedBox(
@@ -105,7 +102,7 @@ class _SecurityState extends State<Security> {
                         SizedBox(
                           height: 14.h,
                         ),
-                        CustomTextFormField(
+                        const CustomTextFormField(
                             hintText: "Enter 4 digit login pin",
                             validatorText: "Enter 4 digit login pin"),
                         SizedBox(

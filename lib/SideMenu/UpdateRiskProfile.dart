@@ -1,14 +1,10 @@
-// ignore_for_file: unused_import, camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:get/get.dart';
 
 class UpdateRishProfile extends StatefulWidget {
   const UpdateRishProfile({super.key});
@@ -28,11 +24,11 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: CustomSignupAppBar(
+        appBar: const CustomSignupAppBar(
           titleTxt: "",
           bottomtext: false,
         ),
-        backgroundColor: Color(0xFFFFFFFF),
+        backgroundColor: const Color(0xFFFFFFFF),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -74,7 +70,8 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextFormField(hintText: "", validatorText: ""),
+                        const CustomTextFormField(
+                            hintText: "", validatorText: ""),
                         SizedBox(
                           height: 25.h,
                         ),
@@ -91,7 +88,8 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextFormField(hintText: "", validatorText: ""),
+                        const CustomTextFormField(
+                            hintText: "", validatorText: ""),
                         SizedBox(
                           height: 25.h,
                         ),
@@ -109,7 +107,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
+                        CustomTextDropdown(item: const [
                           "Beginner",
                           "Competent",
                           "Proficient",
@@ -129,7 +127,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
+                        CustomTextDropdown(item: const [
                           "Building Wealth",
                           "Petirement",
                           "Major Purchase",
@@ -153,7 +151,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
+                        CustomTextDropdown(item: const [
                           "Below 25 Lacs",
                           "26 to 35 Lacs",
                           "36 to 50 Lacs",
@@ -176,7 +174,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
+                        CustomTextDropdown(item: const [
                           "Less than 3 years",
                           "3 - 5 years",
                           "6 - 10 years"
@@ -194,7 +192,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
+                        CustomTextDropdown(item: const [
                           "5 Lakhs to 10 Lakhs",
                           "10 Lakhs to 25 Lakhs",
                         ], controller: basis, showDropDown: true),
@@ -219,14 +217,14 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                                     child: Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 10,
                                         ),
                                         Image.asset('assets/images/kyc.png'),
                                         SizedBox(
                                           height: 30.h,
                                         ),
-                                        Center(
+                                        const Center(
                                           child: Text(
                                             'Thankyou for updating your\n Risk Profile',
                                             textAlign: TextAlign.center,
@@ -236,7 +234,7 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                                                 color: Colors.black),
                                           ),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 10,
                                         ),
                                       ],

@@ -1,9 +1,6 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, duplicate_ignore
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -32,23 +29,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          // AppBar(
-          //   backgroundColor: AppColors.white,
-          //   // backgroundColor: Color(0xFFF5F8FA),
-          //   elevation: 0,
-          //   leading: IconButton(
-          //     onPressed: () {
-          //       Get.back();
-          //     },
-          //     icon: Icon(
-          //       Icons.arrow_back,
-          //     ),
-          //     iconSize: 24,
-          //     color: Color(0xFF0F0C0C),
-          //   ),
-          // ),
-          CustomSignupAppBar(
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -81,14 +62,9 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                         SizedBox(height: 40.h),
                         Text(
                           "OTP sent to",
-                          // ignore: prefer_const_constructors
                           style: blackStyle20().copyWith(
-                            color: Color(0xff000000),
+                            color: const Color(0xff000000),
                           ),
-                          // TextStyle(
-                          //     fontFamily: 'Poppins',
-                          //     fontSize: 16.sm,
-                          //     color: Color(0xff303030)),
                         ),
                         SizedBox(
                           height: 15.h,
@@ -102,38 +78,36 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                             FilteringTextInputFormatter.digitsOnly
                           ],
                           decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(15),
+                            contentPadding: const EdgeInsets.all(15),
                             filled: true,
                             fillColor: Colors.white,
-                            focusColor: Color(0xFFF2F2F2),
-                            // enabled: false,
+                            focusColor: const Color(0xFFF2F2F2),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color(0xFF707070), width: 1),
                             ),
                             enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color(0xFF707070), width: 1),
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(
+                              borderSide: const BorderSide(
                                   color: Color(0xFF707070), width: 1),
                             ),
                             hintText: "8467399899",
                             hintStyle: blackStyle15()
-                                .copyWith(color: Color(0xFF707070)),
+                                .copyWith(color: const Color(0xFF707070)),
                             suffixIcon: Align(
                               widthFactor: 1.0,
                               heightFactor: 1.0,
                               child: GestureDetector(
                                 onTap: () {
                                   Get.back();
-                                  // Get.toNamed('/loginUsingOTP');
                                 },
-                                child: Icon(
+                                child: const Icon(
                                   Icons.create_outlined,
                                   color: Color(0xff143C6D),
                                 ),
@@ -158,22 +132,18 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                         Text(
                           "Enter OTP",
                           style: blackStyle20().copyWith(
-                            color: Color(0xff000000),
+                            color: const Color(0xff000000),
                           ),
                         ),
                         SizedBox(
                           height: 15.h,
                         ),
                         Container(
-                            child:
-                                //  pinfiledshow
-                                //  ?
-                                PinCodeTextField(
-                          // text
+                            child: PinCodeTextField(
                           showCursor: true,
-                          cursorColor: Color(0xFFCCCCCC),
+                          cursorColor: const Color(0xFFCCCCCC),
                           textStyle: TextStyle(
-                              fontSize: 18.sp, color: Color(0xFF143C6D)),
+                              fontSize: 18.sp, color: const Color(0xFF143C6D)),
                           errorTextSpace: 22,
                           validator: (value) {
                             if (value != null && value.isEmpty) {
@@ -191,9 +161,9 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           pinTheme: PinTheme(
                             selectedFillColor: Colors.white,
                             inactiveFillColor: Colors.white,
-                            inactiveColor: Color(0xFFCCCCCC),
-                            activeColor: Color(0xFFCCCCCC),
-                            selectedColor: Color(0xFFCCCCCC),
+                            inactiveColor: const Color(0xFFCCCCCC),
+                            activeColor: const Color(0xFFCCCCCC),
+                            selectedColor: const Color(0xFFCCCCCC),
                             borderWidth: 1,
                             shape: PinCodeFieldShape.box,
                             borderRadius: BorderRadius.circular(10),
@@ -201,7 +171,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                             fieldWidth: 60.w,
                             activeFillColor: Colors.white,
                           ),
-                          animationDuration: Duration(milliseconds: 300),
+                          animationDuration: const Duration(milliseconds: 300),
                           enableActiveFill: true,
                           controller: pincode,
                           onCompleted: (v) {
@@ -225,20 +195,18 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           children: <Widget>[
                             Text("Didn't you receive any code ?",
                                 style: TextStyle(
-                                  color: Color.fromARGB(159, 51, 51, 50),
+                                  color: const Color.fromARGB(159, 51, 51, 50),
                                   fontSize: 14.sm,
                                 )),
                             TextButton(
                               child: Text(
                                 'Resend',
                                 style: TextStyle(
-                                  color: Color(0xFF143C6D),
+                                  color: const Color(0xFF143C6D),
                                   fontSize: 14.sm,
                                 ),
                               ),
-                              onPressed: () {
-                                //  Get.toNamed('/signup');
-                              },
+                              onPressed: () {},
                             )
                           ],
                         ),
@@ -251,7 +219,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                               Get.toNamed("/completeprofile");
                             } else {
                               Get.snackbar("Error", "Please Enter OTP",
-                                  margin: EdgeInsets.all(8),
+                                  margin: const EdgeInsets.all(8),
                                   snackStyle: SnackStyle.FLOATING,
                                   snackPosition: SnackPosition.BOTTOM);
                             }

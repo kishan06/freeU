@@ -9,7 +9,6 @@ import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/screens/main_screen.dart';
 
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -23,7 +22,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
-  bool _isObscure = true;
   DateTime timebackPressed = DateTime.now();
   TextEditingController pincontroller = TextEditingController();
 
@@ -38,10 +36,8 @@ class _LoginState extends State<Login> {
         ),
       ),
       builder: (context) {
-        return Container(
-          height: 400.h,
-          //margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.w),
-          child: Padding(
+        return SizedBox(
+          height: 400.h,child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 31.w),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +54,6 @@ class _LoginState extends State<Login> {
                 ),
                 sizedBoxHeight(15.h),
                 Column(
-                  //mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -159,9 +154,7 @@ class _LoginState extends State<Login> {
                   ],
                 ),
                 sizedBoxHeight(15.h),
-                Column(
-                  // mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                Column( mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -234,7 +227,6 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                           fontSize: 18.sp,
                           color: Color(0xFF143C6D),
-                          //fontWeight: FontWeight.w600
                         ),
                       ),
                     )
@@ -259,7 +251,7 @@ class _LoginState extends State<Login> {
         timebackPressed = DateTime.now();
 
         if (isExitWarning) {
-          final message = "Press back again to exit";
+          const message = "Press back again to exit";
           Fluttertoast.showToast(
             msg: message,
             fontSize: 18.sm,
@@ -342,7 +334,6 @@ class _LoginState extends State<Login> {
                           children: [
                             Text(
                               "Email / Phone",
-                              // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -428,13 +419,6 @@ class _LoginState extends State<Login> {
                           ontap: () async {
                             final isValid = _form.currentState?.validate();
                             if (isValid!) {
-                              // Get.toNamed("/homepage");
-                              // Get.to(MainScreen());
-
-                              //bottomsheetpin(context);
-
-                              //bottomsheetfingerprint(context);
-
                               final SharedPreferences prefs =
                                   await SharedPreferences.getInstance();
 

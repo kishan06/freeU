@@ -106,13 +106,13 @@ class _PrivateEquityFundState extends State<PrivateEquityFund> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -169,13 +169,13 @@ PE funds mostly invests in equity/equity-linked instruments or partnership inter
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
@@ -229,13 +229,13 @@ PE funds mostly invests in equity/equity-linked instruments or partnership inter
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Color(0xFF143C6D),
+                  color: const Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
+                      color: const Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,

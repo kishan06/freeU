@@ -1,17 +1,10 @@
-// ignore_for_file: file_names, camel_case_types, prefer_const_constructors, duplicate_ignore, unused_import
-
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/HomePage.dart';
-import 'package:freeu/common/CustomTextDropDown.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/login/login.dart';
-import 'package:freeu/login/splashslider.dart';
 
 import 'package:get/get.dart';
 
@@ -32,8 +25,8 @@ class _KYC4State extends State<KYC4> {
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
+      backgroundColor: const Color(0xFFFFFFFF),
+      appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -70,7 +63,7 @@ class _KYC4State extends State<KYC4> {
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 22.sp,
-                              color: Color(0xFF143C6D),
+                              color: const Color(0xFF143C6D),
                             ),
                           ),
                           SizedBox(
@@ -82,7 +75,7 @@ class _KYC4State extends State<KYC4> {
                               fontSize: 18.sp,
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
-                              color: Color(0xFF000000),
+                              color: const Color(0xFF000000),
                             ),
                           ),
                           SizedBox(
@@ -93,7 +86,7 @@ class _KYC4State extends State<KYC4> {
                             style: TextStyle(
                               fontSize: 14.sp,
                               fontFamily: 'Poppins',
-                              color: Color(0xFF000000),
+                              color: const Color(0xFF000000),
                             ),
                           ),
                           SizedBox(
@@ -105,15 +98,15 @@ class _KYC4State extends State<KYC4> {
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 fontFamily: 'Poppins',
-                                color: Color(0xff000000)),
+                                color: const Color(0xff000000)),
                           ),
                           SizedBox(
                             height: 6.h,
                           ),
-                          CustomTextFormField(
+                          const CustomTextFormField(
                               hintText: "Please Enter IFSC code",
                               validatorText: "Please Enter IFSC code"),
-                          SizedBox(
+                          const SizedBox(
                             height: 13,
                           ),
                           Text(
@@ -122,12 +115,12 @@ class _KYC4State extends State<KYC4> {
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 fontFamily: 'Poppins',
-                                color: Color(0xff000000)),
+                                color: const Color(0xff000000)),
                           ),
                           SizedBox(
                             height: 6.h,
                           ),
-                          CustomTextFormField(
+                          const CustomTextFormField(
                               hintText: "Please Enter Account Number",
                               validatorText: "Please Enter Account Number"),
                           SizedBox(
@@ -139,7 +132,7 @@ class _KYC4State extends State<KYC4> {
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 fontFamily: 'Poppins',
-                                color: Color(0xff000000)),
+                                color: const Color(0xff000000)),
                           ),
                           SizedBox(
                             height: 6.h,
@@ -155,17 +148,17 @@ class _KYC4State extends State<KYC4> {
                               fillColor: Colors.white,
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.r),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xFFCCCCCC), width: 1),
                               ),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.r),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xFFCCCCCC), width: 1),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10.r),
-                                borderSide: BorderSide(
+                                borderSide: const BorderSide(
                                     color: Color(0xFFCCCCCC), width: 1),
                               ),
                               errorBorder: OutlineInputBorder(
@@ -179,11 +172,12 @@ class _KYC4State extends State<KYC4> {
                                     color: Colors.red, width: 1),
                               ),
                               hintStyle: TextStyle(
-                                  color: Color(0x80000000), fontSize: 16.sp),
+                                  color: const Color(0x80000000),
+                                  fontSize: 16.sp),
                               hintText: "",
                               suffixIcon: IconButton(
                                   onPressed: () {},
-                                  icon: Icon(
+                                  icon: const Icon(
                                     Icons.file_upload_outlined,
                                     color: Colors.black,
                                   )),
@@ -196,12 +190,12 @@ class _KYC4State extends State<KYC4> {
                             style: TextStyle(
                                 fontSize: 20.sp,
                                 fontFamily: 'Poppins',
-                                color: Color(0xff000000)),
+                                color: const Color(0xff000000)),
                           ),
                           SizedBox(
                             height: 6.h,
                           ),
-                          CustomTextFormField(
+                          const CustomTextFormField(
                               hintText: "Please Enter Bank Name",
                               validatorText: "Please Enter Bank Name"),
                           SizedBox(height: 40.h),
@@ -209,7 +203,7 @@ class _KYC4State extends State<KYC4> {
                             text: "Submit",
                             ontap: () {
                               Timer(
-                                  Duration(seconds: 2),
+                                  const Duration(seconds: 2),
                                   () =>
                                       Get.toNamed('/EntryPoint', arguments: 0));
                               showModalBottomSheet(

@@ -1,16 +1,12 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 import 'package:freeu/HomePage/Categories/High_yield/highyield_view_investment.dart';
 import 'package:freeu/HomePage/Categories/High_yield/model/highyield_prods_model.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:lottie/lottie.dart';
 
 class HighYieldMoreProduct extends StatefulWidget {
@@ -24,22 +20,16 @@ class _HighYieldMoreProductState extends State<HighYieldMoreProduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF1FAFF),
-      appBar:
-          //  CustomSignupAppBar(
-          //   titleTxt: "",
-          //   bottomtext: false,
-          // ),
-          AppBar(
-        backgroundColor: Color(0xFFF1FAFF),
+      backgroundColor: const Color(0xFFF1FAFF),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFF1FAFF),
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
           onPressed: () {
-            // Get.toNamed("/privateequity");
             Get.back();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back,
           ),
           iconSize: 26,
@@ -69,36 +59,26 @@ class _HighYieldMoreProductState extends State<HighYieldMoreProduct> {
               length: 3,
               child: Column(
                 children: <Widget>[
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   ButtonsTabBar(
                     buttonMargin: EdgeInsets.zero,
-                    contentPadding: EdgeInsets.only(left: 27, right: 27),
+                    contentPadding: const EdgeInsets.only(left: 27, right: 27),
                     radius: 4,
-                    backgroundColor: Color(0xFF143C6D),
-                    unselectedBorderColor: Color(0xFFFFFFFF),
+                    backgroundColor: const Color(0xFF143C6D),
+                    unselectedBorderColor: const Color(0xFFFFFFFF),
                     //borderWidth: 1,
-                    borderColor: Color(0xFFFFFFFF),
-                    unselectedBackgroundColor: Color(0xFFFFFFFF),
-                    unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
+                    borderColor: const Color(0xFFFFFFFF),
+                    unselectedBackgroundColor: const Color(0xFFFFFFFF),
+                    unselectedLabelStyle:
+                        const TextStyle(color: Color(0xFF0F0C0C)),
                     labelStyle: const TextStyle(
                       color: Color(0xFFFFFFFF),
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
-                    // decoration: const BoxDecoration(
-                    //     color: Color(0xFF143C6D),
-                    //     //borderRadius: BorderRadius.circular(4),
-                    //     boxShadow: [
-                    //       BoxShadow(
-                    //         color: Colors.red,
-                    //         blurRadius: 3.0,
-                    //         spreadRadius: 4,
-                    //         offset: Offset(5.0, 5.0),
-                    //       )
-                    //     ]),
-                    tabs: [
+                    tabs: const [
                       Tab(
                         text: "Open",
                       ),
@@ -111,7 +91,7 @@ class _HighYieldMoreProductState extends State<HighYieldMoreProduct> {
                     ],
                   ),
                   sizedBoxHeight(15.h),
-                  Expanded(
+                  const Expanded(
                     child: TabBarView(
                       children: [
                         FirstTab(),
@@ -275,12 +255,6 @@ class _SecondTabState extends State<SecondTab> {
             padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
             child: Column(
               children: [
-                // Image.asset(
-                //   // image,
-                //   "assets/images/fractional.png",
-                //   width: 358,
-                //   height: 162,
-                // ),
                 SizedBox(
                   height: 10.h,
                 ),
@@ -291,8 +265,7 @@ class _SecondTabState extends State<SecondTab> {
                       Flexible(
                         child: Text(
                           title,
-                          //"Navi Mumbai Office \nOpportunity II",
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 25,
                               fontFamily: 'Poppins',
                               color: Color(0XFF000000),
@@ -305,54 +278,6 @@ class _SecondTabState extends State<SecondTab> {
                 SizedBox(
                   height: 30.h,
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.only(left: 16),
-                //   child: Row(
-                //     children: [
-                //       Image.asset(
-                //         // image1,
-                //         "assets/images/place.png",
-                //         width: 50.w,
-                //         height: 50.h,
-                //       ),
-                //       SizedBox(
-                //         width: 25.w,
-                //       ),
-                //       Column(
-                //         mainAxisAlignment: MainAxisAlignment.start,
-                //         children: [
-                //           Padding(
-                //             padding: const EdgeInsets.only(right: 165),
-                //             child: Text(
-                //               //text1,
-                //               "Location:",
-                //               textAlign: TextAlign.left,
-                //               style: TextStyle(
-                //                 fontSize: 18.sp,
-                //                 color: Color(0XFF000000),
-                //                 fontFamily: 'Poppins',
-                //                 //fontWeight: FontWeight.w300,
-                //               ),
-                //             ),
-                //           ),
-                //           Text(
-                //             //subtext1,
-                //             "Seawoods, Navi Mumbai",
-                //             style: TextStyle(
-                //               fontSize: 20.sp,
-                //               color: Color(0XFF000000),
-                //               fontFamily: 'Poppins',
-                //               fontWeight: FontWeight.w500,
-                //             ),
-                //           ),
-                //         ],
-                //       )
-                //     ],
-                //   ),
-                // ),
-                // SizedBox(
-                //   height: 30.h,
-                // ),
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
                   child: Row(
@@ -377,7 +302,7 @@ class _SecondTabState extends State<SecondTab> {
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 18.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins',
                                 //fontWeight: FontWeight.w300,
                               ),
@@ -390,7 +315,7 @@ class _SecondTabState extends State<SecondTab> {
                               "12.7%",
                               style: TextStyle(
                                 fontSize: 20.sp,
-                                color: Color(0XFF000000),
+                                color: const Color(0XFF000000),
                                 fontFamily: 'Poppins',
                                 fontWeight: FontWeight.w500,
                               ),
@@ -427,7 +352,7 @@ class _SecondTabState extends State<SecondTab> {
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontSize: 18.sp,
-                              color: Color(0XFF000000),
+                              color: const Color(0XFF000000),
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w300,
                             ),
@@ -440,7 +365,7 @@ class _SecondTabState extends State<SecondTab> {
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontSize: 20.sp,
-                              color: Color(0XFF000000),
+                              color: const Color(0XFF000000),
                               fontFamily: 'Poppins',
                               fontWeight: FontWeight.w500,
                             ),
@@ -458,7 +383,7 @@ class _SecondTabState extends State<SecondTab> {
                   child: Container(
                     height: 50.h,
                     decoration: BoxDecoration(
-                      boxShadow: [
+                      boxShadow: const [
                         BoxShadow(
                           color: Color.fromARGB(255, 220, 220, 226),
                         )
@@ -481,14 +406,6 @@ class _SecondTabState extends State<SecondTab> {
                           ),
                         )),
                       ),
-
-                      // CustomNextButton(
-                      //   text: 'View Investment',
-                      //   // ontap: () {
-                      //   //   Get.to(PropertiesInvestment());
-                      //   //   // Get.toNamed("/propertiesinvestment");
-                      //   // },
-                      // ),
                     ),
                   ),
                 ),
