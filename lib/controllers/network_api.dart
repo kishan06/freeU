@@ -51,6 +51,9 @@ class NetworkApi {
       return ResponseData<dynamic>(
           'Oops something Went Wrong', ResponseStatus.FAILED);
     }
+    if (kDebugMode) {
+      print(response);
+    }
 
     if (response.statusCode == 200) {
       return ResponseData<dynamic>(

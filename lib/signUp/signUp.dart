@@ -6,6 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
+import 'package:freeu/common/api_urls.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/controllers/network_api.dart';
@@ -401,6 +402,7 @@ class _SignUpState extends State<SignUp> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                                textEditingController: phonecontroller,
                                 //maxLength: 10,
                                 validator: (value) {
                                   if (value == value.isEmpty) {
@@ -662,7 +664,6 @@ class _SignUpState extends State<SignUp> {
                           children: [
                             Text(
                               "Enter your password",
-                              // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -776,13 +777,14 @@ class _SignUpState extends State<SignUp> {
                             if (isValid == true && design == true) {
                               Map myData = {
                                 "name": nameController.text,
-                                "email": emailidcontroller.text,
+                                "email": emailController.text,
                                 "contact_number": phonecontroller.text,
                                 "password": passwordcontroller.text,
-                                "password_confirmation": confirmpasscontroller.text
+                                "password_confirmation":
+                                    confirmpasscontroller.text
                               };
-                              networkApi.postApi(myData,
-                                  "https://pi.betadelivery.com/freeU_investment/api/sign-up");
+
+                              networkApi.postApi(myData, ApiUrls.signUp);
 
                               // Get.toNamed("/securityquestion");
                             }
