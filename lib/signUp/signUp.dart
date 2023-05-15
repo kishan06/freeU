@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/Utils/global_function.dart';
 import 'package:freeu/Utils/textStyle.dart';
+import 'package:freeu/View%20Model/signup_post.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/api_urls.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/controllers/network_api.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/profile/profile.dart';
@@ -758,7 +761,7 @@ class _SignUpState extends State<SignUp> {
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: CustomNextButton(
                           text: "Sign up",
-                          ontap: () {
+                          ontap: () async {
                             final isValid = _form.currentState?.validate();
                             if (isValid == false) {
                               Get.snackbar(
@@ -783,10 +786,16 @@ class _SignUpState extends State<SignUp> {
                                 "password_confirmation":
                                     confirmpasscontroller.text
                               };
+                              final data = await SignupPost().signupApi(myData);
 
-                              networkApi.postApi(myData, ApiUrls.signUp);
-
-                              // Get.toNamed("/securityquestion");
+                              // final data = await networkApi.postApi(
+                              // myData, ApiUrls.signUp);
+                              print("data OnTap = $data");
+                              if (data.status == ResponseStatus.SUCCESS) {
+                                Get.toNamed("/securityquestion");
+                              } else {
+                                Utils.showToast(data.message);
+                              }
                             }
                           },
                         ),
