@@ -22,6 +22,7 @@ import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
+import 'Categories/Alternative/AIF_main.dart';
 import 'Categories/Alternative/Fractionalpage.dart';
 import '../controllers/entry_point_controller.dart';
 
@@ -427,7 +428,7 @@ class _HomePageState extends State<HomePage> {
     switch (index) {
       case 0:
         {
-          return AlternativeInsvestment();
+          return AIFMain();
         }
 
         break;

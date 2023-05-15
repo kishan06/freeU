@@ -35,7 +35,7 @@ class NetworkApi {
     }
   }
 
-  Future postApi(data, String url) async {
+  Future<ResponseData> postApi(data, String url) async {
     if (kDebugMode) {
       print("data >>> $data");
       print("api url is >>> $url");
@@ -43,20 +43,23 @@ class NetworkApi {
     Response response;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('token').toString();
-    try {
-      response = await dio.post(url,
-          data: data,
-          options: Options(headers: {"authorization": "Bearer $token"}));
-    } on Exception catch (_) {
-      return ResponseData<dynamic>(
-          'Oops something Went Wrong', ResponseStatus.FAILED);
+
+    response = await dio.post(
+      url,
+      data: data,
+    );
+    // print("succ");
+    print(response);
+
+    if (kDebugMode) {
+      print(response);
     }
 
+    print("resp in post $response");
+
     if (response.statusCode == 200) {
-      return ResponseData<dynamic>(
-        "success",
-        ResponseStatus.SUCCESS,
-      );
+      return ResponseData<dynamic>("success", ResponseStatus.SUCCESS,
+          data: response.data);
     } else {
       try {
         return ResponseData<dynamic>(

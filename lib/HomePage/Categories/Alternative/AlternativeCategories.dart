@@ -3,10 +3,14 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/AIF2_main.dart';
+import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
+import 'AIF Cateogary I/AIF1_main.dart';
 import 'AIF Cateogary I/AlternativeCateogries1.dart';
+import 'AIF Cateogary III/AIF3_main.dart';
 import 'AIF Cateogary III/AlternaticeCateogries3.dart';
 
 class AlternativeCategories extends StatefulWidget {
@@ -70,13 +74,8 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(const AlternaticeCateogries1());
-                        },
-                        child: Container(
-                          // width: 358.w,
-                          // height: 325.h,
+                      child: OpenContainerWrappers(
+                        closeBuild: Container(
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xff002555),
@@ -85,8 +84,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                 color: Color(0x48B9B9BE),
                                 blurRadius: 5.0,
                                 spreadRadius: 0,
-                                // offset: Offset(10, 10, 10, 10),
-                              )
+                              ),
                             ],
                           ),
                           child: Padding(
@@ -118,6 +116,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                             ),
                           ),
                         ),
+                        openBuild: const AIF1Main(),
                       ),
                     ),
                     SizedBox(
@@ -127,11 +126,8 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.toNamed('/altenativecategories2');
-                        },
-                        child: Container(
+                      child: OpenContainerWrappers(
+                        closeBuild: Container(
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xffB23C7E),
@@ -140,7 +136,6 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                                 color: Color(0x48B9B9BE),
                                 blurRadius: 5.0,
                                 spreadRadius: 0,
-                                // offset: Offset(10, 10, 10, 10),
                               )
                             ],
                           ),
@@ -173,6 +168,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                             ),
                           ),
                         ),
+                        openBuild: const AIF2Main(),
                       ),
                     ),
                     SizedBox(
@@ -182,11 +178,8 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                       padding: const EdgeInsets.symmetric(
                         horizontal: 16,
                       ),
-                      child: GestureDetector(
-                        onTap: () {
-                          Get.to(const AlternaticeCateogries3());
-                        },
-                        child: Container(
+                      child: OpenContainerWrappers(
+                        closeBuild: Container(
                           decoration: const BoxDecoration(
                             borderRadius: BorderRadius.all(Radius.circular(15)),
                             color: Color(0xff008A5B),
@@ -228,6 +221,7 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
                             ),
                           ),
                         ),
+                        openBuild: const AIF3Main(),
                       ),
                     ),
                     SizedBox(
