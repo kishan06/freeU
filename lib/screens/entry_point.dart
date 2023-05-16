@@ -6,7 +6,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
-import 'package:freeu/HomePage/Investments/InvestmentMain.dart';
 import 'package:freeu/HomePage/Market/market_tab.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/sized_box.dart';

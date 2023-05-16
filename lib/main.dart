@@ -26,7 +26,6 @@ import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/HomePage/Homepage2.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
-import 'package:freeu/HomePage/Investments/InvestmentMain.dart';
 import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
 import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
 import 'package:freeu/HomePage/SuccessStories.dart';
