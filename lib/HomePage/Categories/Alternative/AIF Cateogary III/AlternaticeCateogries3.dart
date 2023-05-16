@@ -30,7 +30,7 @@ class _AlternaticeCateogries3State extends State<AlternaticeCateogries3> {
         child: CustomNextButton(
           text: 'View Categories deals',
           ontap: () {
-            Get.to(Cat3VerticalSlider());
+            Get.to(const Cat3VerticalSlider());
           },
         ),
       ),

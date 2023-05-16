@@ -4,10 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/Utils/global_function.dart';
 import 'package:freeu/Utils/textStyle.dart';
+import 'package:freeu/View%20Model/signup_post.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
+import 'package:freeu/common/api_urls.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/controllers/network_api.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/profile/profile.dart';
 
@@ -21,6 +26,8 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  NetworkApi networkApi = NetworkApi();
+
   bool design = false;
   bool _passwordVisible = false;
   bool _confirmpasswordVisible = false;
@@ -42,7 +49,6 @@ class _SignUpState extends State<SignUp> {
     setState(() {
       final numricRegex = RegExp(r'[0-9]');
       final alphaRegex = RegExp('(?=.*[A-Z])(?=.*[!@#\$%^&*])');
-
 
       _isPasswordEightCar = false;
       if (password.length >= 8) _isPasswordEightCar = true;
@@ -252,7 +258,6 @@ class _SignUpState extends State<SignUp> {
                           children: [
                             Text(
                               "Enter your full name",
-                              // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -400,6 +405,7 @@ class _SignUpState extends State<SignUp> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                                textEditingController: phonecontroller,
                                 //maxLength: 10,
                                 validator: (value) {
                                   if (value == value.isEmpty) {
@@ -413,7 +419,8 @@ class _SignUpState extends State<SignUp> {
                                 },
                                 inputFormatters: [
                                   LengthLimitingTextInputFormatter(10),
-                                  FilteringTextInputFormatter.allow(RegExp('[0-9]')),
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp('[0-9]')),
                                 ],
                                 texttype: TextInputType.phone,
                                 hintText: "Phone Number*",
@@ -660,7 +667,6 @@ class _SignUpState extends State<SignUp> {
                           children: [
                             Text(
                               "Enter your password",
-                              // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -755,7 +761,7 @@ class _SignUpState extends State<SignUp> {
                         padding: const EdgeInsets.only(left: 20, right: 20),
                         child: CustomNextButton(
                           text: "Sign up",
-                          ontap: () {
+                          ontap: () async {
                             final isValid = _form.currentState?.validate();
                             if (isValid == false) {
                               Get.snackbar(
@@ -772,7 +778,24 @@ class _SignUpState extends State<SignUp> {
                                   snackPosition: SnackPosition.BOTTOM);
                             }
                             if (isValid == true && design == true) {
-                              Get.toNamed("/securityquestion");
+                              Map myData = {
+                                "name": nameController.text,
+                                "email": emailController.text,
+                                "contact_number": phonecontroller.text,
+                                "password": passwordcontroller.text,
+                                "password_confirmation":
+                                    confirmpasscontroller.text
+                              };
+                              final data = await SignupPost().signupApi(myData);
+
+                              // final data = await networkApi.postApi(
+                              // myData, ApiUrls.signUp);
+                              print("data OnTap = $data");
+                              if (data.status == ResponseStatus.SUCCESS) {
+                                Get.toNamed("/securityquestion");
+                              } else {
+                                Utils.showToast(data.message);
+                              }
                             }
                           },
                         ),

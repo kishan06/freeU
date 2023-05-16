@@ -28,6 +28,7 @@ import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import 'Alternative/AIF_main.dart';
 import 'CleanGreen/CleanGreenMain.dart';
 import 'FractionalRealEstateProperty/PropertiesInvestment.dart';
 
@@ -358,7 +359,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
     switch (index) {
       case 0:
         {
-          return AlternativeInsvestment();
+          return AIFMain();
         }
 
         break;

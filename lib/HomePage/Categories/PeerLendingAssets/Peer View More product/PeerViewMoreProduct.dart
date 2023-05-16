@@ -1,11 +1,9 @@
-import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 import 'PeerViewInvestment.dart';
 
@@ -53,56 +51,9 @@ class _PeerViewMoreProductState extends State<PeerViewMoreProduct> {
               ],
             ),
           ),
-          Expanded(
-            child: DefaultTabController(
-              initialIndex: 1,
-              length: 3,
-              child: Column(
-                children: <Widget>[
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  ButtonsTabBar(
-                    buttonMargin: EdgeInsets.zero,
-                    contentPadding: EdgeInsets.only(left: 27.w, right: 27.w),
-                    radius: 4,
-                    backgroundColor: const Color(0xFF143C6D),
-                    unselectedBorderColor: const Color(0xFFFFFFFF),
-                    //borderWidth: 1,
-                    borderColor: const Color(0xFFFFFFFF),
-                    unselectedBackgroundColor: const Color(0xFFFFFFFF),
-                    unselectedLabelStyle:
-                        const TextStyle(color: Color(0xFF0F0C0C)),
-                    labelStyle: const TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                    tabs: const [
-                      Tab(
-                        text: "Open",
-                      ),
-                      Tab(
-                        text: "Fully funded",
-                      ),
-                      Tab(
-                        text: "Resale",
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(15.h),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        FirstTab(),
-                        SecondTab(),
-                        ThirdTab(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          sizedBoxHeight(15.h),
+          const Expanded(
+            child: SecondTab(),
           ),
         ],
       ),
@@ -110,23 +61,14 @@ class _PeerViewMoreProductState extends State<PeerViewMoreProduct> {
   }
 }
 
-class FirstTab extends StatelessWidget {
-  const FirstTab({super.key});
+class SecondTab extends StatefulWidget {
+  const SecondTab({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        const Text("No Data Found")
-      ],
-    );
-  }
+  State<SecondTab> createState() => _SecondTabState();
 }
 
-class SecondTab extends StatelessWidget {
-  SecondTab({super.key});
-
+class _SecondTabState extends State<SecondTab> {
   List viewSlider = [
     {
       "Company Name": "Freedom Plan",
@@ -209,11 +151,6 @@ class SecondTab extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    // Image.asset(
-                    //   "assets/images/fractional.png",
-                    //   width: 358.w,
-                    //   height: 162.h,
-                    // ),
                     SizedBox(
                       height: 10.h,
                     ),
@@ -235,50 +172,6 @@ class SecondTab extends StatelessWidget {
                     SizedBox(
                       height: 30.h,
                     ),
-                    // Padding(
-                    //   padding: EdgeInsets.only(left: 16.w),
-                    //   child: Row(
-                    //     children: [
-                    //       Image.asset(
-                    //         "assets/images/place.png",
-                    //         width: 50.w,
-                    //         height: 50.h,
-                    //       ),
-                    //       SizedBox(
-                    //         width: 25.w,
-                    //       ),
-                    //       Column(
-                    //         mainAxisAlignment: MainAxisAlignment.start,
-                    //         children: [
-                    //           Padding(
-                    //             padding: EdgeInsets.only(right: 165.w),
-                    //             child: Text(
-                    //               "Location:",
-                    //               textAlign: TextAlign.left,
-                    //               style: TextStyle(
-                    //                 fontSize: 18.sp,
-                    //                 color: const Color(0XFF000000),
-                    //                 fontFamily: 'Poppins',
-                    //               ),
-                    //             ),
-                    //           ),
-                    //           Text(
-                    //             "Seawoods, Navi Mumbai",
-                    //             style: TextStyle(
-                    //               fontSize: 20.sp,
-                    //               color: const Color(0XFF000000),
-                    //               fontFamily: 'Poppins',
-                    //               fontWeight: FontWeight.w500,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
-                    // SizedBox(
-                    //   height: 30.h,
-                    // ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Row(
@@ -401,20 +294,6 @@ class SecondTab extends StatelessWidget {
           ),
         );
       },
-    );
-  }
-}
-
-class ThirdTab extends StatelessWidget {
-  const ThirdTab({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        const Text("No Data Found")
-      ],
     );
   }
 }
