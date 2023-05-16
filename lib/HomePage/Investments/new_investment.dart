@@ -1,38 +1,21 @@
-// ignore_for_file: prefer_const_constructors
-// part 'NewInvestment.dart';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease%20view%20more%20product/LeaseViewInvestment.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
 import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
 import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
 import 'package:freeu/Notification.dart';
-// import 'package:freeu/NewInvestment/Categories/AlternativeInvestment.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/Utils/textStyle.dart';
-import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
-import 'package:freeu/common/categoryCard.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/screens/entry_point.dart';
 import 'package:get/get.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
 
-// import 'Categories/Alternative/Fractionalpage.dart';
-
-// import '../controllers/entry_point_controller.dart';
-
-// part 'NewInvestment.dart';
+import 'investment_transfer.dart';
+import 'investment_watchlist.dart';
+import 'pending_request.dart';
 
 class NewInvestment extends StatefulWidget {
-  // EntryPoint enttyPoint = EntryPoint();
   const NewInvestment({super.key});
 
   @override
@@ -42,1071 +25,513 @@ class NewInvestment extends StatefulWidget {
 class _NewInvestmentState extends State<NewInvestment> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        title: Row(
-          children: [
-            sizedBoxWidth(45.w),
-            sizedBoxWidth(5.w),
-            Text(
-              'Your investments',
-              softWrap: true,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
-            ),
-            Spacer(),
-            OpenContainerWrappers(
-              openBuild: NotificationPage(),
-              // onPressed: () {
-              //   Get.toNamed('/notificationpage');
-              // },
-              closeBuild: SizedBox(
-                width: 18.w,
-                height: 25.h,
-                child: SvgPicture.asset(
-                  'assets/images/notification-bell-svgrepo-com.svg',
-                  fit: BoxFit.fill,
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          title: Row(
+            children: [
+              sizedBoxWidth(50.w),
+              Text(
+                'Your investments',
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22.sp,
+                    color: Colors.black),
+              ),
+              Spacer(),
+              OpenContainerWrappers(
+                openBuild: NotificationPage(),
+                closeBuild: SizedBox(
+                  width: 18.w,
+                  height: 25.h,
+                  child: SvgPicture.asset(
+                    'assets/images/notification-bell-svgrepo-com.svg',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-              // iconSize: 22,
-              // color: const Color(0xFF303030),
-            ),
-            sizedBoxWidth(16.w)
-          ],
-        ),
-        elevation: 0,
-        shadowColor: Colors.black,
-        automaticallyImplyLeading: false,
-        titleSpacing: 0,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                // SizedBox(
-                //   height: 15.h,
-                // ),
-                Stack(children: [
-                  // PieChartSample1(),
-                  SvgPicture.asset(
-                    "assets/images/Investmentgraph.svg",
-                    // height: 195.h,
-                    // width: 400.w,
-                  ),
-                  Positioned(
-                    top: 20,
-                    left: 25,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xFFFFFBF0),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(10),
-                        ),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                            left: 8.0, right: 8.0, top: 4.0, bottom: 4.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "₹3,43,50,000",
-                              style: TextStyle(
-                                  fontFamily: "Poppins", fontSize: 16.sp),
-                            ),
-                            Text(
-                              '+12.8%',
-                              style: TextStyle(
-                                  color: Colors.green,
-                                  fontFamily: "Poppins",
-                                  fontSize: 16.sp),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ]),
-                SizedBox(
-                  height: 15.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Current Investment",
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    OpenContainerWrappers(
-                      openBuild: CurrentInvestment(),
-                      // onTap: () {
-                      //   Get.toNamed('/currentinvestment');
-                      // },
-                      closeBuild: Text(
-                        "View All",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          color: Color(0XFF000000),
-                          fontSize: 14.sp,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 25.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      fit: FlexFit.tight,
-                      flex: 4,
-                      child: Text(
-                        "Product",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 80),
-                      child: Text(
-                        "P & L",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Text(
-                        "Action",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x48B9B9BE),
-                        blurRadius: 20.0,
-                        spreadRadius: 0,
-                        // offset: Offset(-20, -20,),
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15, top: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SvgPicture.asset(
-                                "assets/images/investmentmyre (2).svg"),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              fit: FlexFit.tight,
-                              flex: 4,
-                              child: Text(
-                                "Vaishnavi\nTech Park",
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 18.sp,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 86, bottom: 18),
-                              child: SvgPicture.asset(
-                                  "assets/images/Investmentnumber.svg"),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 20, bottom: 18),
-                              child: GestureDetector(
-                                onTap: () {
-                                  bottomSheetThankU(context);
-                                  // showModalBottomSheet(
-                                  //   isScrollControlled: true,
-                                  //   context: context,
-                                  //   shape: const RoundedRectangleBorder(
-                                  //     borderRadius: BorderRadius.only(
-                                  //       topLeft: Radius.circular(30),
-                                  //       topRight: Radius.circular(30),
-                                  //     ),
-                                  //   ),
-                                  //   builder: (context) {
-                                  //     return Container(
-                                  //       margin: const EdgeInsets.symmetric(
-                                  //           horizontal: 16, vertical: 30),
-                                  //       child: Column(
-                                  //         mainAxisSize: MainAxisSize.min,
-                                  //         children: [
-                                  //           SizedBox(
-                                  //             height: 20.h,
-                                  //           ),
-                                  //           SvgPicture.asset(
-                                  //               "assets/images/thankyouinvestment.svg"),
-                                  //           SizedBox(
-                                  //             height: 20,
-                                  //           ),
-                                  //           Padding(
-                                  //             padding: const EdgeInsets.only(
-                                  //                 left: 15, right: 11),
-                                  //             child: Text(
-                                  //               'Thank You For Selling\n           Product',
-                                  //               style: TextStyle(
-                                  //                   fontFamily: 'Poppins',
-                                  //                   fontSize: 30,
-                                  //                   color: Color(0xff0F0C0C),
-                                  //                   fontWeight:
-                                  //                       FontWeight.w500),
-                                  //             ),
-                                  //           ),
-                                  //           SizedBox(
-                                  //             height: 20.h,
-                                  //           ),
-                                  //           Padding(
-                                  //             padding: const EdgeInsets.only(
-                                  //                 left: 40, right: 40),
-                                  //             child: Text(
-                                  //               'A FreeU Advisory Team will \n    get back to you soon.',
-                                  //               style: TextStyle(
-                                  //                   fontFamily: 'Poppins',
-                                  //                   fontSize: 20,
-                                  //                   color: Color(0xff272424),
-                                  //                   fontWeight:
-                                  //                       FontWeight.w300),
-                                  //             ),
-                                  //           ),
-                                  //           SizedBox(
-                                  //             height: 30,
-                                  //           ),
-                                  //         ],
-                                  //       ),
-                                  //     );
-                                  //   },
-                                  // );
-                                },
-                                child: Text(
-                                  "Sell",
-                                  style: TextStyle(
-                                      decoration: TextDecoration.underline,
-                                      fontFamily: "Poppins",
-                                      color: Color(0xff143C6D),
-                                      fontSize: 18.sp),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      )
-                    ],
+              sizedBoxWidth(16.w)
+            ],
+          ),
+          elevation: 0,
+          shadowColor: Colors.black,
+          automaticallyImplyLeading: false,
+          titleSpacing: 0,
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(50.h),
+            child: TabBar(
+              indicatorColor: Color(0xff002A5B),
+              indicatorWeight: 5.h,
+              tabs: [
+                Tab(
+                  child: Text(
+                    'User dashboard',
+                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                   ),
                 ),
-                SizedBox(
-                  height: 12.h,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x48B9B9BE),
-                        blurRadius: 20.0,
-                        spreadRadius: 0,
-                        // offset: Offset(-20, -20,),
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 15,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset("assets/images/hdfcinvestment (6).png"),
-                          ],
-                        ),
-                      ),
-                      // SizedBox(
-                      //   height: 8.h,
-                      // ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "HDFC AMC\nSelect AIF FOF-1",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w300,
-                                fontSize: 18.sp,
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 78, bottom: 18),
-                              child: SvgPicture.asset(
-                                  "assets/images/Investmentdecrement.svg"),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 21, bottom: 18),
-                              child: GestureDetector(
-                                onTap: () {
-                                  bottomSheetThankU(context);
-
-                                  // showModalBottomSheet(
-                                  //   isScrollControlled: true,
-                                  //   context: context,
-                                  //   shape: const RoundedRectangleBorder(
-                                  //     borderRadius: BorderRadius.only(
-                                  //       topLeft: Radius.circular(30),
-                                  //       topRight: Radius.circular(30),
-                                  //     ),
-                                  //   ),
-                                  //   builder: (context) {
-                                  //     return Container(
-                                  //       margin: const EdgeInsets.symmetric(
-                                  //           horizontal: 16, vertical: 30),
-                                  //       child: Column(
-                                  //         mainAxisSize: MainAxisSize.min,
-                                  //         children: [
-                                  //           SizedBox(
-                                  //             height: 20.h,
-                                  //           ),
-                                  //           SvgPicture.asset(
-                                  //               "assets/images/thankyouinvestment.svg"),
-                                  //           SizedBox(
-                                  //             height: 20,
-                                  //           ),
-                                  //           Padding(
-                                  //             padding: const EdgeInsets.only(
-                                  //                 left: 15, right: 11),
-                                  //             child: Text(
-                                  //               'Thank You For Selling\n           Product',
-                                  //               style: TextStyle(
-                                  //                   fontFamily: 'Poppins',
-                                  //                   fontSize: 30,
-                                  //                   color: Color(0xff0F0C0C),
-                                  //                   fontWeight:
-                                  //                       FontWeight.w500),
-                                  //             ),
-                                  //           ),
-                                  //           SizedBox(
-                                  //             height: 20.h,
-                                  //           ),
-                                  //           Padding(
-                                  //             padding: const EdgeInsets.only(
-                                  //                 left: 40, right: 40),
-                                  //             child: Text(
-                                  //               'A FreeU Advisory Team will \n    get back to you soon.',
-                                  //               style: TextStyle(
-                                  //                   fontFamily: 'Poppins',
-                                  //                   fontSize: 20,
-                                  //                   color: Color(0xff272424),
-                                  //                   fontWeight:
-                                  //                       FontWeight.w300),
-                                  //             ),
-                                  //           ),
-                                  //           SizedBox(
-                                  //             height: 30,
-                                  //           ),
-                                  //         ],
-                                  //       ),
-                                  //     );
-                                  //   },
-                                  // );
-                                },
-                                child: Text(
-                                  "Sell",
-                                  style: TextStyle(
-                                      decoration: TextDecoration.underline,
-                                      fontFamily: "Poppins",
-                                      color: Color(0xff143C6D),
-                                      fontSize: 18.sp),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      )
-                    ],
+                Tab(
+                  child: Text(
+                    'Market Dashboard',
+                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                   ),
                 ),
-                SizedBox(
-                  height: 30.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Previously Invested\nProducts",
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    OpenContainerWrappers(
-                      openBuild: PreviouslyInvestedProducts(),
-                      // onTap: () {
-                      //   Get.toNamed('/previouslyinvestedproducts');
-                      // },
-                      closeBuild: Padding(
-                        padding: const EdgeInsets.only(bottom: 30),
-                        child: Text(
-                          "View All",
-                          style: TextStyle(
-                            color: Color(0XFF000000),
-                            fontFamily: 'Poppins',
-                            fontSize: 14.sp,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 25.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      fit: FlexFit.tight,
-                      flex: 4,
-                      child: Text(
-                        "Product",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 80),
-                      child: Text(
-                        "P & L",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Text(
-                        "Action",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x48B9B9BE),
-                        blurRadius: 20.0,
-                        spreadRadius: 0,
-                        // offset: Offset(-20, -20,),
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15, top: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SvgPicture.asset(
-                                "assets/images/investmentmyre (2).svg"),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              fit: FlexFit.tight,
-                              flex: 4,
-                              child: Text(
-                                "Vaishnavi\nTech Park",
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 18.sp,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 95, bottom: 18),
-                              child: SvgPicture.asset(
-                                  "assets/images/Investmentnumber.svg"),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 20, bottom: 18),
-                              child: SvgPicture.asset(
-                                  "assets/images/downloadinvestment.svg"),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 12.h,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x48B9B9BE),
-                        blurRadius: 20.0,
-                        spreadRadius: 0,
-                        // offset: Offset(-20, -20,),
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 15,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset("assets/images/hdfcinvestment (6).png"),
-                          ],
-                        ),
-                      ),
-                      // SizedBox(
-                      //   height: 8.h,
-                      // ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "HDFC AMC\nSelect AIF FOF-1",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w300,
-                                fontSize: 18.sp,
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 86, bottom: 18),
-                              child: SvgPicture.asset(
-                                  "assets/images/Investmentdecrement.svg"),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(right: 17, bottom: 18),
-                              child: SvgPicture.asset(
-                                  "assets/images/downloadinvestment.svg"),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Suggested Invested\nProducts",
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 20.sp,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    OpenContainerWrappers(
-                      openBuild: SuggestedInvestedProducts(),
-                      // onTap: () {
-                      //   Get.toNamed('/suggestedinvestedproducts');
-                      // },
-                      closeBuild: Padding(
-                        padding: const EdgeInsets.only(bottom: 30),
-                        child: Text(
-                          "View All",
-                          style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Color(0XFF000000),
-                            fontSize: 14.sp,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 25.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Flexible(
-                      fit: FlexFit.tight,
-                      flex: 4,
-                      child: Text(
-                        "Product",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 68),
-                      child: Text(
-                        "Return",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 10),
-                      child: Text(
-                        "Action",
-                        style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 18.sp,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x48B9B9BE),
-                        blurRadius: 20.0,
-                        spreadRadius: 0,
-                        // offset: Offset(-20, -20,),
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15, top: 10),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            SvgPicture.asset(
-                                "assets/images/investmentmyre (2).svg"),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 8.h,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Flexible(
-                              fit: FlexFit.tight,
-                              flex: 4,
-                              child: Text(
-                                "Vaishnavi\nTech Park",
-                                style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 18.sp,
-                                ),
-                              ),
-                            ),
-                            Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 76, bottom: 18),
-                                child: Text(
-                                  "8 %",
-                                  style: TextStyle(
-                                    fontSize: 18.sp,
-                                    color: Color(0XFF0F0C0C),
-                                  ),
-                                )
-                                // SvgPicture.asset(
-                                //     "assets/images/Investmentnumber.svg"),
-                                ),
-                            Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 10, bottom: 18),
-                                child: Column(
-                                  children: [
-                                    SvgPicture.asset(
-                                        "assets/images/investmentthumbs-up-hand.svg"),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    Text(
-                                      "Yes",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Color(0XFF000000),
-                                      ),
-                                    )
-                                  ],
-                                )),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 10, bottom: 18),
-                                child: Column(
-                                  children: [
-                                    SvgPicture.asset(
-                                        "assets/images/investmentthumbs-down-hand.svg"),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    Text(
-                                      "No",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Color(0XFF000000),
-                                      ),
-                                    )
-                                  ],
-                                )),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      )
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 12.h,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x48B9B9BE),
-                        blurRadius: 20.0,
-                        spreadRadius: 0,
-                        // offset: Offset(-20, -20,),
-                      )
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          left: 15,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image.asset("assets/images/hdfcinvestment (6).png"),
-                          ],
-                        ),
-                      ),
-                      // SizedBox(
-                      //   height: 8.h,
-                      // ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "HDFC AMC\nSelect AIF FOF-1",
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontWeight: FontWeight.w300,
-                                fontSize: 18.sp,
-                              ),
-                            ),
-                            Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 10, bottom: 18),
-                                child: Text(
-                                  "8 %",
-                                  style: TextStyle(
-                                    fontSize: 18.sp,
-                                    color: Color(0XFF0F0C0C),
-                                  ),
-                                )
-                                //  SvgPicture.asset(
-                                //     "assets/images/Investmentdecrement.svg"),
-                                ),
-                            Padding(
-                                padding:
-                                    const EdgeInsets.only(left: 50, bottom: 18),
-                                child: Column(
-                                  children: [
-                                    SvgPicture.asset(
-                                        "assets/images/investmentthumbs-up-hand.svg"),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    Text(
-                                      "Yes",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Color(0XFF000000),
-                                      ),
-                                    )
-                                  ],
-                                )),
-                            Padding(
-                                padding: const EdgeInsets.only(
-                                    right: 10, bottom: 18),
-                                child: Column(
-                                  children: [
-                                    SvgPicture.asset(
-                                        "assets/images/investmentthumbs-down-hand.svg"),
-                                    SizedBox(
-                                      height: 5.h,
-                                    ),
-                                    Text(
-                                      "No",
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Color(0XFF000000),
-                                      ),
-                                    )
-                                  ],
-                                )),
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      )
-                    ],
-                  ),
-                ),
-                // SizedBox(
-                //   height: 20.h,
-                // ),
               ],
             ),
           ),
         ),
+        body: TabBarView(
+          children: [
+            Tab1(),
+            Tab2(),
+          ],
+        ),
       ),
     );
   }
 
-  Future<T?> bottomSheetThankU<T>(BuildContext context) {
-    return showModalBottomSheet(
-      isScrollControlled: true,
-      context: context,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
+  Widget Tab1() {
+    return SingleChildScrollView(
+      physics: const BouncingScrollPhysics(),
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                SvgPicture.asset(
+                  "assets/images/Investmentgraph.svg",
+                  fit: BoxFit.fill,
+                ),
+                Positioned(
+                  top: 20,
+                  left: 25,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xFFFFFBF0),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      ),
+                    ),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "₹3,43,50,000",
+                            style: TextStyle(fontSize: 16.sp),
+                          ),
+                          Text(
+                            '+12.8%',
+                            style:
+                                TextStyle(color: Colors.green, fontSize: 16.sp),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Text(
+              'Personal Details',
+              style: TextStyle(fontSize: 20.sp),
+            ),
+            sizedBoxHeight(20.h),
+            Container(
+              padding: EdgeInsets.all(10.w),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color(0xffffffff),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0x48B9B9BE),
+                    blurRadius: 20.0,
+                    spreadRadius: 0,
+                  )
+                ],
+              ),
+              child: Column(
+                children: [
+                  iconText(Icons.person_outline_outlined, 'Kartikey Gautam'),
+                  sizedBoxHeight(10.h),
+                  iconText(Icons.phone_in_talk_sharp, '+91 9876543210'),
+                  sizedBoxHeight(10.h),
+                  iconText(Icons.mail_outline, 'kartikey@gmail.com'),
+                  sizedBoxHeight(10.h),
+                  iconText(Icons.credit_card_outlined, 'IURPS9876R'),
+                  sizedBoxHeight(10.h),
+                  iconText(Icons.location_on_outlined,
+                      'Asmi Celestia, MG Road, Goregaon West, Mumbai - 400062'),
+                ],
+              ),
+            ),
+            sizedBoxHeight(20.h),
+            Container(
+              padding: EdgeInsets.all(15.w),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(colors: [
+                  const Color(0xFF006796),
+                  const Color(0xFF00344B),
+                ]),
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color(0xffffffff),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0x48B9B9BE),
+                    blurRadius: 20.0,
+                    spreadRadius: 0,
+                  )
+                ],
+              ),
+              child: Column(
+                children: [
+                  twoNHalfTxt('Total Investment \nTill Date', '₹26,700,000'),
+                  sizedBoxHeight(15.h),
+                  twoNHalfTxt('Active \nInvestment', '₹16,200,000'),
+                  sizedBoxHeight(15.h),
+                  twoNHalfTxt('Investments \nreedemed', '₹10,500,000'),
+                  sizedBoxHeight(15.h),
+                ],
+              ),
+            ),
+            sizedBoxHeight(20.h),
+            twoTxt(
+              "Current Investment",
+              "View All",
+              CurrentInvestment(),
+            ),
+            sizedBoxHeight(25.h),
+            threeTxt("Product", "Amount", "Action"),
+            sizedBoxHeight(20.h),
+            productContainer('Navy Technology\nNCD', '₹7,00,000'),
+            sizedBoxHeight(12.h),
+            productContainer('Prestige Tech\nPlatina - Banglore', '₹2,50,000'),
+            sizedBoxHeight(20.h),
+            twoTxt(
+              'Investment Redeemed',
+              'View All', CurrentInvestment(),
+              // PreviouslyInvestedProducts(),
+            ),
+            sizedBoxHeight(12.h),
+            threeTxt("Product", "Amount", "Action"),
+            sizedBoxHeight(12.h),
+            productContainer('Fixed Term Plan\n(3 Months)', '₹5,00,000'),
+            sizedBoxHeight(12.h),
+            productContainer('Indiabulls Dual\nAdvantage', '₹10,00,000'),
+            // twoTxt(
+            //   'suggested',
+            //   'View all',
+            //   SuggestedInvestedProducts(),
+            // ),
+            sizedBoxHeight(80.h),
+          ],
         ),
       ),
-      builder: (context) {
-        return Container(
-          margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.w),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // SizedBox(
-              //   height: 20.h,
-              // ),
+    );
+  }
 
-              Align(
-                alignment: Alignment.centerRight,
-                child: IconButton(
-                    onPressed: () {
-                      Get.back();
-                    },
-                    icon: Icon(
-                      Icons.cancel,
-                      size: 30.h,
-                    )),
+  Widget Tab2() {
+    return Padding(
+      padding: EdgeInsets.all(6.w),
+      child: GridView(
+        gridDelegate:
+            SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        children: [
+          GestureDetector(
+            onTap: () {
+              Get.to(InvestmentTransfer());
+            },
+            child: Container(
+              margin: EdgeInsets.all(10.h),
+              padding: EdgeInsets.all(10.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color(0xff002555),
               ),
-              SvgPicture.asset("assets/images/thankyouinvestment.svg"),
-              SizedBox(
-                height: 20,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    height: 80.h,
+                    width: 80.w,
+                    child: Placeholder(),
+                  ),
+                  Text(
+                    'Investment \nTransfer Status',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                ],
               ),
-              Padding(
-                padding: const EdgeInsets.only(left: 15, right: 11),
-                child: Text(
-                  'Thank You For Selling\n           Product',
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 30,
-                      color: Color(0xff0F0C0C),
-                      fontWeight: FontWeight.w500),
-                ),
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 40, right: 40),
-                child: Text(
-                  'A FreeU Advisory Team will \n    get back to you soon.',
-                  style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontSize: 20,
-                      color: Color(0xff272424),
-                      fontWeight: FontWeight.w300),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-            ],
+            ),
           ),
-        );
-      },
+          GestureDetector(
+            onTap: () {
+              Get.to(PendingRequest());
+            },
+            child: Container(
+              margin: EdgeInsets.all(10.h),
+              padding: EdgeInsets.all(10.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color(0xffB23C7E),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    height: 80.h,
+                    width: 80.w,
+                    child: Placeholder(),
+                  ),
+                  Text(
+                    'Pending\nRequests',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Get.to(PreviouslyInvestedProducts());
+            },
+            child: Container(
+              margin: EdgeInsets.all(10.h),
+              padding: EdgeInsets.all(10.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color(0xff008A5B),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    height: 80.h,
+                    width: 80.w,
+                    child: Placeholder(),
+                  ),
+                  Text(
+                    'Investment\nBought',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          GestureDetector(
+            onTap: () {
+              Get.to(InvestmentWatchList());
+            },
+            child: Container(
+              margin: EdgeInsets.all(10.h),
+              padding: EdgeInsets.all(10.h),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(15)),
+                color: Color(0xff004E84),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SizedBox(
+                    height: 80.h,
+                    width: 80.w,
+                    child: Placeholder(),
+                  ),
+                  Text(
+                    'Investment\nWatchlist',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.sp,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget twoTxt(String txt1, String txt2, route) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          txt1,
+          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
+        ),
+        OpenContainerWrappers(
+          openBuild: route,
+          closeBuild: Text(
+            txt2,
+            style: TextStyle(
+              fontSize: 14.sp,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget threeTxt(txt1, txt2, txt3) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          txt1,
+          style: TextStyle(
+            fontSize: 18.sp,
+          ),
+        ),
+        SizedBox(),
+        SizedBox(),
+        Text(
+          txt2,
+          style: TextStyle(
+            fontSize: 18.sp,
+          ),
+        ),
+        Text(
+          txt3,
+          style: TextStyle(
+            fontSize: 18.sp,
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget productContainer(txt1, txt2) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(15)),
+        color: Color(0xffffffff),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x48B9B9BE),
+            blurRadius: 20.0,
+            spreadRadius: 0,
+          )
+        ],
+      ),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15, top: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SvgPicture.asset("assets/images/investmentmyre (2).svg"),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 8.h,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  txt1,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 18.sp,
+                  ),
+                ),
+                Text(
+                  txt2,
+                  style: TextStyle(fontSize: 18.sp),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: GestureDetector(
+                      onTap: () {
+                        Get.to(LeaseViewInvestment(
+                          pageIndex: 0,
+                        ));
+                      },
+                      child: Icon(
+                        Icons.remove_red_eye_outlined,
+                        size: 30.h,
+                        color: Colors.black.withOpacity(0.8),
+                      )),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 16.h,
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget iconText(icon, txt) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(
+          icon,
+          size: 24.h,
+          color: Colors.black.withOpacity(0.7),
+        ),
+        sizedBoxWidth(15.w),
+        Flexible(
+          child: Text(
+            txt,
+            style: TextStyle(fontSize: 18.sp),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget twoNHalfTxt(txt1, txt2) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(
+          txt1,
+          style: TextStyle(color: Colors.white, fontSize: 14.sp),
+        ),
+        Text(
+          txt2,
+          style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.w600,
+              fontSize: 20.sp),
+        ),
+      ],
     );
   }
 }
-
-// class DougnutChart extends StatelessWidget {
-//   const DougnutChart({Key? key}) : super(key: key);
-
-//   @override
-//   Widget build(BuildContext context) {
-//     final List<ChartData> chartData = [
-//       ChartData('David', 20),
-//       ChartData('Steve', 20),
-//     ];
-//     return SfCircularChart(centerY: '55', centerX: '50', palette: <Color>[
-//       Color.fromARGB(255, 113, 201, 248),
-//       Color(0xFF1B8DC9),
-//     ], annotations: <CircularChartAnnotation>[
-//       CircularChartAnnotation(
-//         widget: Container(
-//           child: PhysicalModel(
-//             child: Container(),
-//             shape: BoxShape.circle,
-//             elevation: 10,
-//             shadowColor: Colors.black,
-//             color: const Color.fromRGBO(230, 230, 230, 1),
-//           ),
-//         ),
-//       ),
-//       CircularChartAnnotation(
-//         widget: Container(
-//           child: const Text(
-//             '50%',
-//             style: TextStyle(color: Colors.black, fontSize: 16),
-//           ),
-//         ),
-//       ),
-//     ], series: <CircularSeries>[
-//       DoughnutSeries<ChartData, String>(
-//           dataSource: chartData,
-//           xValueMapper: (ChartData data, _) => data.x,
-//           yValueMapper: (ChartData data, _) => data.y,
-//           // Radius of doughnut
-//           radius: '100%')
-//     ]);
-//   }
-// }
-
-// class ChartData {
-//   ChartData(this.x, this.y, [this.color]);
-//   final String x;
-//   final double y;
-//   final Color? color;
-// }
-
-// void dataLabel(DataLabelRenderArgs args) {
-//   args.text = '50';
-// }

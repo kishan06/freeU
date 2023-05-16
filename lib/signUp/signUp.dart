@@ -6,10 +6,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/global_function.dart';
 import 'package:freeu/Utils/textStyle.dart';
+
 // import 'package:freeu/View%20Model/auth_post.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 // lib\View Model\auth_post.dart
 // import 'package:freeu/viewModel/auth_post.dart';
+
+import 'package:freeu/View%20Model/signup_post.dart';
+import 'package:freeu/common/CustomTextFormField.dart';
+import 'package:freeu/common/api_urls.dart';
+
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/controllers/base_manager.dart';
@@ -782,11 +788,14 @@ class _SignUpState extends State<SignUp> {
                                   snackPosition: SnackPosition.BOTTOM);
                             }
                             if (isValid == true && design == true) {
+
                               Map<String,String> myData = {
+
                                 "name": nameController.text,
                                 "email": emailController.text,
                                 "contact_number": phonecontroller.text,
                                 "password": passwordcontroller.text,
+
                                 "password_confirmation": confirmpasscontroller.text
                               };
                               // SignupPost signupPost = Signup
@@ -808,6 +817,7 @@ class _SignUpState extends State<SignUp> {
                               } else {
                                 Utils.showToast(resp.message);
                               }
+
 
                             }
                           },

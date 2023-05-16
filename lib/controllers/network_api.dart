@@ -1,10 +1,14 @@
+
 import 'dart:convert';
+
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'base_manager.dart';
+
 import 'package:http/http.dart' as http;
+
 
 class NetworkApi {
   Dio dio = Dio();
@@ -63,6 +67,7 @@ class NetworkApi {
     if (response.statusCode == 200) {
       // print(response.data);
 
+
       return ResponseData<dynamic>("success", ResponseStatus.SUCCESS,
           data: response.data);
     } else {
@@ -75,6 +80,7 @@ class NetworkApi {
       }
     }
   }
+
 
   Future<ResponseData<dynamic>> postApiHttp(String token,String url,Map<String,String> body) async {
     var headers = {
@@ -115,5 +121,6 @@ class NetworkApi {
       // return response.reasonPhrase!;
     }
   }
+
 
 }

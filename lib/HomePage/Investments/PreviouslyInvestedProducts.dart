@@ -124,7 +124,7 @@ class _PreviouslyInvestedProductsState
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  "Previously Invested Products",
+                  "Investment Bought",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
