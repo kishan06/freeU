@@ -466,6 +466,7 @@ class _LoginState extends State<Login> {
                             GestureDetector(
                               onTap: () {
                                 Get.toNamed('/signup');
+                                
                               },
                               child: Text(
                                 'Create account',

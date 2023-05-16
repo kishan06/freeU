@@ -6,15 +6,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/global_function.dart';
 import 'package:freeu/Utils/textStyle.dart';
-import 'package:freeu/View%20Model/signup_post.dart';
+// import 'package:freeu/View%20Model/auth_post.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/api_urls.dart';
+// lib\View Model\auth_post.dart
+// import 'package:freeu/viewModel/auth_post.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/controllers/network_api.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/profile/profile.dart';
+import 'package:freeu/viewModel/auth_post.dart';
 
 import 'package:get/get.dart';
 
@@ -44,6 +46,8 @@ class _SignUpState extends State<SignUp> {
   TextEditingController phonecontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasscontroller = TextEditingController();
+  // SignupPost signUpPost = SignupPost();
+
 
   onPasswordChnage(String password) {
     setState(() {
@@ -778,24 +782,33 @@ class _SignUpState extends State<SignUp> {
                                   snackPosition: SnackPosition.BOTTOM);
                             }
                             if (isValid == true && design == true) {
-                              Map myData = {
+                              Map<String,String> myData = {
                                 "name": nameController.text,
                                 "email": emailController.text,
                                 "contact_number": phonecontroller.text,
                                 "password": passwordcontroller.text,
-                                "password_confirmation":
-                                    confirmpasscontroller.text
+                                "password_confirmation": confirmpasscontroller.text
                               };
-                              final data = await SignupPost().signupApi(myData);
-
-                              // final data = await networkApi.postApi(
-                              // myData, ApiUrls.signUp);
-                              print("data OnTap = $data");
-                              if (data.status == ResponseStatus.SUCCESS) {
-                                Get.toNamed("/securityquestion");
+                              // SignupPost signupPost = Signup
+                             
+                              SignupPost signUpPost = SignupPost();
+                              // SignupPost signupPost = SignupPost();
+                              var resp = await signUpPost.signUpApi(myData);
+                              // resp.status;
+                              print(resp.status);
+                              if (resp.status == ResponseStatus.SUCCESS) {
+                                Utils.showToast("Account created successfully");
+                                Future.delayed(
+                                  Duration(seconds: 2),
+                                  (){
+                                    Get.toNamed("/login");
+                                  }
+                                );
+                                // Get.toNamed("/login");
                               } else {
-                                Utils.showToast(data.message);
+                                Utils.showToast(resp.message);
                               }
+
                             }
                           },
                         ),
