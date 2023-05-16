@@ -1,8 +1,4 @@
-// part 'HomePage.dart';
-// part 'HomePage.dart';
-
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +7,7 @@ import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/HomePage/Investments/InvestmentMain.dart';
+import 'package:freeu/HomePage/Market/market_tab.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
@@ -48,9 +45,8 @@ class _EntryPointState extends State<EntryPoint>
     const CategoriesMain(),
     const NewInvestment(),
     const ChatPage(),
-    const Profile()
+    const MarketTab(),
   ];
-
 
   // changePage(){
   //   setState(() {
@@ -66,7 +62,7 @@ class _EntryPointState extends State<EntryPoint>
     // logedIn = prefs.getBool('LogedIn') ?? false;
     // checkLogin();
     // print("checked");
-    selectedIndex = Get.arguments??0;
+    selectedIndex = Get.arguments ?? 0;
     // controllerEntryPoint.selectedIndex = Get.arguments;
     // controllerEntryPoint.selectedPage(Get.arguments);
     // print(selectedIndex);
@@ -77,7 +73,8 @@ class _EntryPointState extends State<EntryPoint>
         //     // setState(() {});
         //   });
         // })
-        AnimationController(vsync: this, duration: const Duration(milliseconds: 200))
+        AnimationController(
+            vsync: this, duration: const Duration(milliseconds: 200))
           ..addListener(() {
             setState(() {});
           });
@@ -107,233 +104,146 @@ class _EntryPointState extends State<EntryPoint>
       onWillPop: () => _backbuttonpressed(context),
       child: Container(
         color: AppColors.white,
-        child: SafeArea(
-          child: GetBuilder<EntryPointController>(builder: (_){
-            return controllerEntryPoint.isLoading!
+        child: SafeArea(child: GetBuilder<EntryPointController>(builder: (_) {
+          return controllerEntryPoint.isLoading!
               ? const SizedBox()
               : Scaffold(
-              backgroundColor: AppColors.blue143C6D,
-              resizeToAvoidBottomInset: false,
-              extendBody: true,
-              body: Stack(
-                        children: [
-                          AnimatedPositioned(
-                              duration: const Duration(milliseconds: 200),
-                              curve: Curves.fastOutSlowIn,
-                              left: isSideMenuClosed ? -300.w : 0,
-                              width: 300.w,
-                              height: MediaQuery.of(context).size.height,
-                              child: const SideBar()),
-                          Transform(
-                            alignment: Alignment.center,
-                            transform: Matrix4.identity()
-                              ..setEntry(3, 2, 0.001)
-                              ..rotateY(animation.value -
-                                  30 * animation.value * pi / 180),
-                            child: Transform.translate(
-                                offset: Offset(animation.value * 300.w, 0),
-                                child: Transform.scale(
-                                    scale: scaleAnimation.value,
-                                    child: ClipRRect(
-                                        // bord
-                                        borderRadius: BorderRadius.all(
-                                            Radius.circular(
-                                                isSideMenuClosed ? 0 : 24)),
-                                        child: screens[selectedIndex]
-                                        // Obx(() => screens[selectedIndex])
-                                        // screens[selectedIndex.value]
-                                        // HomePage()
-                                        ))),
-                          ),
-                          AnimatedPositioned(
-                            duration: const Duration(milliseconds: 200),
-                            curve: Curves.fastOutSlowIn,
-                            // left: isSideMenuClosed ? 0 ? 220,
-                            top: 5.h,
-                            child: IconButton(
-                              onPressed: () {
-                                if (isSideMenuClosed) {
-                                  _animationController.forward();
-                                } else {
-                                  _animationController.reverse();
-                                }
-                                setState(() {
-                                  isSideMenuClosed = !isSideMenuClosed;
-                                });
-                              },
-                              icon: isSideMenuClosed
-                                  ? SizedBox(
-                                      height: 20.h,
-                                      width: 25.w,
-                                      child: SvgPicture.asset(
-                                        "assets/images/menu.svg",
-                                        // height: 20.h,
-                                        // width: 10.w,
-                                        fit: BoxFit.fill,
-                                      ),
-                                    )
-                                  : Icon(
-                                      Icons.cancel_outlined,
-                                      size: 25.w,
-                                      color: AppColors.white,
-                                    ),
-                              // color: Colors.red,
-                              // iconSize: 100.h,
-                            ),
-                          ),
-                        ],
+                  backgroundColor: AppColors.blue143C6D,
+                  resizeToAvoidBottomInset: false,
+                  extendBody: true,
+                  body: Stack(
+                    children: [
+                      AnimatedPositioned(
+                          duration: const Duration(milliseconds: 200),
+                          curve: Curves.fastOutSlowIn,
+                          left: isSideMenuClosed ? -300.w : 0,
+                          width: 300.w,
+                          height: MediaQuery.of(context).size.height,
+                          child: const SideBar()),
+                      Transform(
+                        alignment: Alignment.center,
+                        transform: Matrix4.identity()
+                          ..setEntry(3, 2, 0.001)
+                          ..rotateY(animation.value -
+                              30 * animation.value * pi / 180),
+                        child: Transform.translate(
+                            offset: Offset(animation.value * 300.w, 0),
+                            child: Transform.scale(
+                                scale: scaleAnimation.value,
+                                child: ClipRRect(
+                                    // bord
+                                    borderRadius: BorderRadius.all(
+                                        Radius.circular(
+                                            isSideMenuClosed ? 0 : 24)),
+                                    child: screens[selectedIndex]
+                                    // Obx(() => screens[selectedIndex])
+                                    // screens[selectedIndex.value]
+                                    // HomePage()
+                                    ))),
                       ),
-                      
-              bottomNavigationBar: isSideMenuClosed
-                  ? BottomNavigationBar(
-                      // height
-                      // fixedColor: AppColors.transparent,
-                      // fixedColor: Colors.transparent,
-
-                      selectedLabelStyle: TextStyle(fontSize: 12.sp),
-                      unselectedLabelStyle: TextStyle(fontSize: 12.sp),
-                      iconSize: 20.h,
-                      selectedItemColor: AppColors.blue143C6D,
-                      unselectedItemColor: AppColors.black,
-                      elevation: 0,
-                      // labe
-                      backgroundColor: AppColors.white,
-                      type: BottomNavigationBarType.fixed,
-                      items: <BottomNavigationBarItem>[
-                        BottomNavigationBarItem(
-                          activeIcon: activeIcon(
-                              "assets/images/home-svgrepo-com (1).svg"),
-                          icon: inactiveIcon(
-                              "assets/images/home-svgrepo-com.svg"),
-                          // icon: Icon(Icons.home),
-                          label: "Home",
+                      AnimatedPositioned(
+                        duration: const Duration(milliseconds: 200),
+                        curve: Curves.fastOutSlowIn,
+                        // left: isSideMenuClosed ? 0 ? 220,
+                        top: 5.h,
+                        child: IconButton(
+                          onPressed: () {
+                            if (isSideMenuClosed) {
+                              _animationController.forward();
+                            } else {
+                              _animationController.reverse();
+                            }
+                            setState(() {
+                              isSideMenuClosed = !isSideMenuClosed;
+                            });
+                          },
+                          icon: isSideMenuClosed
+                              ? SizedBox(
+                                  height: 20.h,
+                                  width: 25.w,
+                                  child: SvgPicture.asset(
+                                    "assets/images/menu.svg",
+                                    // height: 20.h,
+                                    // width: 10.w,
+                                    fit: BoxFit.fill,
+                                  ),
+                                )
+                              : Icon(
+                                  Icons.cancel_outlined,
+                                  size: 25.w,
+                                  color: AppColors.white,
+                                ),
+                          // color: Colors.red,
+                          // iconSize: 100.h,
                         ),
-                        BottomNavigationBarItem(
-                          // icon: Icon(Icons.explore),
-                          activeIcon: activeIcon(
-                              "assets/images/category-alt-svgrepo-com (1).svg"),
-                          icon: inactiveIcon(
-                              "assets/images/category-alt-svgrepo-com.svg"),
-                          label: "Categories",
-                        ),
-                        BottomNavigationBarItem(
-                          activeIcon:
-                              activeIcon("assets/images/Group 51109.svg"),
-                          icon: inactiveIcon(
-                              "assets/images/money-dollar-coin-svgrepo-com.svg"),
+                      ),
+                    ],
+                  ),
+                  bottomNavigationBar: isSideMenuClosed
+                      ? BottomNavigationBar(
+                          // height
+                          // fixedColor: AppColors.transparent,
+                          // fixedColor: Colors.transparent,
 
-                          // icon: Icon(Icons.circle, size: 0),
-                          label: "Investment",
-                        ),
-                        BottomNavigationBarItem(
-                          activeIcon: activeIcon(
-                              "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
-                          icon: inactiveIcon(
-                              "assets/images/chat-left-3-svgrepo-com (2).svg"),
-                          label: "Chat",
-                        ),
-                        BottomNavigationBarItem(
-                          activeIcon:
-                              activeIcon("assets/images/Path 30132.svg"),
-                          icon: inactiveIcon("assets/images/profile.svg"),
-                          label: "Profile",
-                        ),
-                      ],
-                      currentIndex: selectedIndex,
+                          selectedLabelStyle: TextStyle(fontSize: 12.sp),
+                          unselectedLabelStyle: TextStyle(fontSize: 12.sp),
+                          iconSize: 20.h,
+                          selectedItemColor: AppColors.blue143C6D,
+                          unselectedItemColor: AppColors.black,
+                          elevation: 0,
+                          // labe
+                          backgroundColor: AppColors.white,
+                          type: BottomNavigationBarType.fixed,
+                          items: <BottomNavigationBarItem>[
+                            BottomNavigationBarItem(
+                              activeIcon: activeIcon(
+                                  "assets/images/home-svgrepo-com (1).svg"),
+                              icon: inactiveIcon(
+                                  "assets/images/home-svgrepo-com.svg"),
+                              // icon: Icon(Icons.home),
+                              label: "Home",
+                            ),
+                            BottomNavigationBarItem(
+                              // icon: Icon(Icons.explore),
+                              activeIcon: activeIcon(
+                                  "assets/images/category-alt-svgrepo-com (1).svg"),
+                              icon: inactiveIcon(
+                                  "assets/images/category-alt-svgrepo-com.svg"),
+                              label: "Categories",
+                            ),
+                            BottomNavigationBarItem(
+                              activeIcon:
+                                  activeIcon("assets/images/Group 51109.svg"),
+                              icon: inactiveIcon(
+                                  "assets/images/money-dollar-coin-svgrepo-com.svg"),
+                              label: "Investment",
+                            ),
+                            BottomNavigationBarItem(
+                              activeIcon: activeIcon(
+                                  "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
+                              icon: inactiveIcon(
+                                  "assets/images/chat-left-3-svgrepo-com (2).svg"),
+                              label: "Chat",
+                            ),
+                            BottomNavigationBarItem(
+                              activeIcon: activeIcon("assets/logos/market.svg"),
+                              icon:
+                                  inactiveIcon("assets/logos/marketBlank.svg"),
+                              label: "Market",
+                            ),
+                          ],
+                          currentIndex: selectedIndex,
 
-                      onTap: (int index) {
-                        selectedIndex = index;
-                        setState(() {});
-                        // controllerEntryPoint.selectedPage(index);
-                        // if (index != 2) {
-                        // controllerEntryPoint.selectedIndex = index;
-                        // setState(() {});
-                        // }
-                      },
-                    )
-
-                  // Obx(
-                  //     () => BottomNavigationBar(
-                  //       // height
-                  //       // fixedColor: AppColors.transparent,
-                  //       // fixedColor: Colors.transparent,
-
-                  //       selectedLabelStyle: TextStyle(fontSize: 12.sp),
-                  //       unselectedLabelStyle: TextStyle(fontSize: 12.sp),
-                  //       iconSize: 20.h,
-                  //       selectedItemColor: AppColors.blue143C6D,
-                  //       unselectedItemColor: AppColors.black,
-                  //       elevation: 0,
-                  //       // labe
-                  //       backgroundColor: AppColors.white,
-                  //       type: BottomNavigationBarType.fixed,
-                  //       items: <BottomNavigationBarItem>[
-                  //         BottomNavigationBarItem(
-                  //           activeIcon: activeIcon(
-                  //               "assets/images/home-svgrepo-com (1).svg"),
-                  //           icon: inactiveIcon(
-                  //               "assets/images/home-svgrepo-com.svg"),
-                  //           // icon: Icon(Icons.home),
-                  //           label: "Home",
-                  //         ),
-                  //         BottomNavigationBarItem(
-                  //           // icon: Icon(Icons.explore),
-                  //           activeIcon: activeIcon(
-                  //               "assets/images/category-alt-svgrepo-com (1).svg"),
-                  //           icon: inactiveIcon(
-                  //               "assets/images/category-alt-svgrepo-com.svg"),
-                  //           label: "Categories",
-                  //         ),
-                  //         BottomNavigationBarItem(
-                  //           activeIcon:
-                  //               activeIcon("assets/images/Group 51109.svg"),
-                  //           icon: inactiveIcon(
-                  //               "assets/images/money-dollar-coin-svgrepo-com.svg"),
-
-                  //           // icon: Icon(Icons.circle, size: 0),
-                  //           label: "Investment",
-                  //         ),
-                  //         BottomNavigationBarItem(
-                  //           activeIcon: activeIcon(
-                  //               "assets/images/chat-left-3-svgrepo-com (2) (1).svg"),
-                  //           icon: inactiveIcon(
-                  //               "assets/images/chat-left-3-svgrepo-com (2).svg"),
-                  //           label: "Chat",
-                  //         ),
-                  //         BottomNavigationBarItem(
-                  //           activeIcon:
-                  //               activeIcon("assets/images/Path 30132.svg"),
-                  //           icon: inactiveIcon("assets/images/profile.svg"),
-                  //           label: "Profile",
-                  //         ),
-                  //       ],
-                  //       currentIndex: selectedIndex,
-
-                  //       onTap: (int index) {
-                  //         // if (index != 2) {
-                  //         selectedIndex = index;
-                  //         setState(() {});
-                  //         // }
-                  //       },
-                  //     ),
-
-                  //   )
-                  : const SizedBox());
-      
-          })
-          
-        ),
+                          onTap: (int index) {
+                            selectedIndex = index;
+                            setState(() {});
+                          },
+                        )
+                      : const SizedBox());
+        })),
       ),
     );
-
-    // return const Placeholder();
   }
-
-  // checkLogin() async {
-  //   final SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   logedIn = prefs.getBool('LogedIn') ?? false;
-  //   print(logedIn);
-  // }
 
   Future<bool> _backbuttonpressed(BuildContext context) async {
     bool? exitapp = await showDialog(
