@@ -65,8 +65,12 @@ dependencies:
   local_auth: ^2.1.6
   another_flushbar: ^1.12.29
   dio: ^5.1.2
+
+  http: ^0.13.6
+
   flutter_launcher_icons: ^0.13.1
   dotted_border: ^2.0.0+3
+
 
   
 
