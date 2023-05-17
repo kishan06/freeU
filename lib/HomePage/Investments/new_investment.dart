@@ -263,10 +263,11 @@ class _NewInvestmentState extends State<NewInvestment> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  SizedBox(),
                   SizedBox(
                     height: 80.h,
                     width: 80.w,
-                    child: Placeholder(),
+                    child: Image.asset('assets/investmentTransferStatus.png'),
                   ),
                   Text(
                     'Investment \nTransfer Status',
@@ -294,10 +295,11 @@ class _NewInvestmentState extends State<NewInvestment> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  SizedBox(),
                   SizedBox(
                     height: 80.h,
                     width: 80.w,
-                    child: Placeholder(),
+                    child: Image.asset('assets/pendingRequest.png'),
                   ),
                   Text(
                     'Pending\nRequests',
@@ -325,10 +327,11 @@ class _NewInvestmentState extends State<NewInvestment> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  SizedBox(),
                   SizedBox(
                     height: 80.h,
                     width: 80.w,
-                    child: Placeholder(),
+                    child: Image.asset('assets/investmentBought.png'),
                   ),
                   Text(
                     'Investment\nBought',
@@ -356,10 +359,11 @@ class _NewInvestmentState extends State<NewInvestment> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  SizedBox(),
                   SizedBox(
                     height: 80.h,
                     width: 80.w,
-                    child: Placeholder(),
+                    child: Image.asset('assets/investmentWatchlist.png'),
                   ),
                   Text(
                     'Investment\nWatchlist',
