@@ -800,7 +800,7 @@ class _SignUpState extends State<SignUp> {
                               };
                               // SignupPost signupPost = Signup
                              
-                              SignupPost signUpPost = SignupPost();
+                              SignUpPost signUpPost = SignUpPost();
                               // SignupPost signupPost = SignupPost();
                               var resp = await signUpPost.signUpApi(myData);
                               // resp.status;
