@@ -86,73 +86,71 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
   }
 
   Widget Tab1() {
-    return Expanded(
-      child: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                height: 15.h,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Flexible(
-                    fit: FlexFit.tight,
-                    flex: 4,
-                    child: Text(
-                      "Product",
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 18.sp,
-                      ),
+    return SingleChildScrollView(
+      child: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            SizedBox(
+              height: 15.h,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Flexible(
+                  fit: FlexFit.tight,
+                  flex: 4,
+                  child: Text(
+                    "Product",
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18.sp,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 70),
-                    child: Text(
-                      "P & L",
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 18.sp,
-                      ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 70),
+                  child: Text(
+                    "P & L",
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18.sp,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 10),
-                    child: Text(
-                      "Action",
-                      style: TextStyle(
-                        fontFamily: 'Poppins',
-                        fontSize: 18.sp,
-                      ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 10),
+                  child: Text(
+                    "Action",
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 18.sp,
                     ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              common_crd_green(),
-              SizedBox(
-                height: 10,
-              ),
-              common_crd_red(),
-              SizedBox(
-                height: 10,
-              ),
-              common_crd_green(),
-              SizedBox(
-                height: 10,
-              ),
-              common_crd_red(),
-              SizedBox(
-                height: 10,
-              ),
-            ],
-          ),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            common_crd_green(),
+            SizedBox(
+              height: 10,
+            ),
+            common_crd_red(),
+            SizedBox(
+              height: 10,
+            ),
+            common_crd_green(),
+            SizedBox(
+              height: 10,
+            ),
+            common_crd_red(),
+            SizedBox(
+              height: 10,
+            ),
+          ],
         ),
       ),
     );

@@ -5,11 +5,16 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:freeu/Utils/global_function.dart';
 import 'package:freeu/Utils/textStyle.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/screens/main_screen.dart';
+import 'package:freeu/viewModel/auth_post.dart';
 
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,6 +27,10 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final controllerEntryPoint = Get.put(EntryPointController());
+  TextEditingController emailPhoneController = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   bool _isObscure = true;
   DateTime timebackPressed = DateTime.now();
@@ -248,7 +257,6 @@ class _LoginState extends State<Login> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -352,6 +360,7 @@ class _LoginState extends State<Login> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                              textEditingController: emailPhoneController,
                               hintText: "Enter Email or Phone Number",
                               validatorText: "Enter Email or Phone Number",
                               validator: (value) {
@@ -393,6 +402,7 @@ class _LoginState extends State<Login> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                                textEditingController: passwordcontroller,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return "Please Enter Password";
@@ -424,32 +434,64 @@ class _LoginState extends State<Login> {
                         SizedBox(
                           height: 50.h,
                         ),
-                        CustomNextButton(
-                          ontap: () async {
-                            final isValid = _form.currentState?.validate();
-                            if (isValid!) {
-                              // Get.toNamed("/homepage");
-                              // Get.to(MainScreen());
+                        GetBuilder<EntryPointController>(
+                          builder: (
+                            controller,
+                          ) {
+                            return controllerEntryPoint.signinApi == true
+                                ? CircularProgressIndicator()
+                                : CustomNextButton(
+                                    ontap: () async {
+                                      final isValid =
+                                          _form.currentState?.validate();
+                                      if (isValid!) {
+                                        controllerEntryPoint
+                                            .changeSigninApiBool();
+                                        Map<String, String> myLoginData = {
+                                          "user": emailPhoneController.text,
+                                          "password": passwordcontroller.text,
+                                        };
+                                        LogInPost logInPost = LogInPost();
+                                        var resp = await logInPost.LogIpApi(
+                                            myLoginData);
+                                        print(resp.status);
+                                        print('Api msg : ${resp.message}');
 
-                              //bottomsheetpin(context);
+                                        if (resp.status ==
+                                            ResponseStatus.SUCCESS) {
+                                          Utils.showToast("Signin successful");
+                                          Future.delayed(Duration(seconds: 2),
+                                              () async {
+                                            final SharedPreferences prefs =
+                                                await SharedPreferences
+                                                    .getInstance();
 
-                              //bottomsheetfingerprint(context);
+                                            await prefs.setBool(
+                                                'LogedIn', true);
 
-                              final SharedPreferences prefs =
-                                  await SharedPreferences.getInstance();
-
-                              await prefs.setBool('LogedIn', true);
-
-                              Get.toNamed("/EntryPoint", arguments: 0);
-                            } else {
-                              Get.snackbar(
-                                  "Error", "Please Enter Login Credentials",
-                                  margin: EdgeInsets.all(8),
-                                  snackStyle: SnackStyle.FLOATING,
-                                  snackPosition: SnackPosition.BOTTOM);
-                            }
+                                            Get.toNamed("/EntryPoint",
+                                                arguments: 0);
+                                          });
+                                          controllerEntryPoint
+                                              .changeSigninApiBool();
+                                        } else {
+                                          Utils.showToast(resp.message);
+                                          print('Api msg : ${resp.message}');
+                                          controllerEntryPoint
+                                              .changeSigninApiBool();
+                                        }
+                                      } else {
+                                        Get.snackbar("Error",
+                                            "Please Enter Login Credentials",
+                                            margin: EdgeInsets.all(8),
+                                            snackStyle: SnackStyle.FLOATING,
+                                            snackPosition:
+                                                SnackPosition.BOTTOM);
+                                      }
+                                    },
+                                    text: 'Sign In',
+                                  );
                           },
-                          text: 'Sign In',
                         ),
                         SizedBox(
                           height: 20.h,
@@ -466,7 +508,6 @@ class _LoginState extends State<Login> {
                             GestureDetector(
                               onTap: () {
                                 Get.toNamed('/signup');
-                                
                               },
                               child: Text(
                                 'Create account',
