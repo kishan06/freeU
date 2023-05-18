@@ -5,11 +5,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:freeu/Utils/global_function.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/screens/main_screen.dart';
+import 'package:freeu/viewModel/auth_post.dart';
 
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,6 +25,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController emailPhoneController = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
+
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   bool _isObscure = true;
   DateTime timebackPressed = DateTime.now();
@@ -248,7 +254,6 @@ class _LoginState extends State<Login> {
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -352,6 +357,7 @@ class _LoginState extends State<Login> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                              textEditingController: emailPhoneController,
                               hintText: "Enter Email or Phone Number",
                               validatorText: "Enter Email or Phone Number",
                               validator: (value) {
@@ -393,6 +399,7 @@ class _LoginState extends State<Login> {
                               height: 15.h,
                             ),
                             CustomTextFormField(
+                                textEditingController: passwordcontroller,
                                 validator: (value) {
                                   if (value == null || value.isEmpty) {
                                     return "Please Enter Password";
@@ -434,13 +441,29 @@ class _LoginState extends State<Login> {
                               //bottomsheetpin(context);
 
                               //bottomsheetfingerprint(context);
+                              Map<String, String> myLoginData = {
+                                "user": emailPhoneController.text,
+                                "password": passwordcontroller.text,
+                              };
+                              LogInPost logInPost = LogInPost();
+                              var resp = await logInPost.LogIpApi(myLoginData);
+                              print(resp.status);
+                              print('Api msg : ${resp.message}');
 
-                              final SharedPreferences prefs =
-                                  await SharedPreferences.getInstance();
+                              if (resp.status == ResponseStatus.SUCCESS) {
+                                Utils.showToast("Signin successful");
+                                Future.delayed(Duration(seconds: 2), () async {
+                                  final SharedPreferences prefs =
+                                      await SharedPreferences.getInstance();
 
-                              await prefs.setBool('LogedIn', true);
+                                  await prefs.setBool('LogedIn', true);
 
-                              Get.toNamed("/EntryPoint", arguments: 0);
+                                  Get.toNamed("/EntryPoint", arguments: 0);
+                                });
+                              } else {
+                                Utils.showToast(resp.message);
+                                print('Api msg : ${resp.message}');
+                              }
                             } else {
                               Get.snackbar(
                                   "Error", "Please Enter Login Credentials",
@@ -466,7 +489,6 @@ class _LoginState extends State<Login> {
                             GestureDetector(
                               onTap: () {
                                 Get.toNamed('/signup');
-                                
                               },
                               child: Text(
                                 'Create account',
