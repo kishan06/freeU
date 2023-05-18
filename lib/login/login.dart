@@ -442,11 +442,11 @@ class _LoginState extends State<Login> {
                                 ? CircularProgressIndicator()
                                 : CustomNextButton(
                                     ontap: () async {
-                                      controllerEntryPoint
-                                          .changeSigninApiBool();
                                       final isValid =
                                           _form.currentState?.validate();
                                       if (isValid!) {
+                                        controllerEntryPoint
+                                            .changeSigninApiBool();
                                         Map<String, String> myLoginData = {
                                           "user": emailPhoneController.text,
                                           "password": passwordcontroller.text,
@@ -472,6 +472,8 @@ class _LoginState extends State<Login> {
                                             Get.toNamed("/EntryPoint",
                                                 arguments: 0);
                                           });
+                                          controllerEntryPoint
+                                              .changeSigninApiBool();
                                         } else {
                                           Utils.showToast(resp.message);
                                           print('Api msg : ${resp.message}');
@@ -485,8 +487,6 @@ class _LoginState extends State<Login> {
                                             snackStyle: SnackStyle.FLOATING,
                                             snackPosition:
                                                 SnackPosition.BOTTOM);
-                                        controllerEntryPoint
-                                            .changeSigninApiBool();
                                       }
                                     },
                                     text: 'Sign In',
