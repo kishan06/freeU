@@ -16,6 +16,7 @@ import 'Alternative/AIF_main.dart';
 import 'CleanGreen/CleanGreenMain.dart';
 import 'SecuredDebt/SecuredDebtMain.dart';
 import 'Venture debt/VentureDebtMain.dart';
+import 'coming_soon.dart';
 import 'revenue_based_financing/revenue_based_main.dart';
 
 class CategoriesMain extends StatefulWidget {
@@ -32,7 +33,6 @@ class _CategoriesMainState extends State<CategoriesMain> {
   HomePage home = const HomePage();
 
   List categoryData = [
-    // /
     {
       "colorL": AppColors.redL_BE0F02,
       "colorD": AppColors.redD_5F0801,
@@ -102,6 +102,34 @@ class _CategoriesMainState extends State<CategoriesMain> {
       "bgImage": "assets/newImages/bgPurple (2).svg",
       "imageUrl": "assets/newImages/cat10.png",
       "title": "High Yield Finance",
+    },
+    {
+      "colorL": AppColors.brownL_973926,
+      "colorD": AppColors.brownD_4C1D13,
+      "bgImage": "assets/newImages/bgBrown.svg",
+      "imageUrl": "assets/newImages/cat11.png",
+      "title": "International Financial Investment",
+    },
+    {
+      "colorL": AppColors.pinkL_E6088B,
+      "colorD": AppColors.pinkD_730446,
+      "bgImage": "assets/newImages/bgPink.svg",
+      "imageUrl": "assets/newImages/cat12.png",
+      "title": "International Real Estate",
+    },
+    {
+      "colorL": AppColors.redL_BE0F02,
+      "colorD": AppColors.redD_5F0801,
+      "bgImage": "assets/newImages/bgRed.svg",
+      "imageUrl": "assets/newImages/cat13.png",
+      "title": "Startup’s",
+    },
+    {
+      "colorL": AppColors.blueL_006796,
+      "colorD": AppColors.blueD_00344B,
+      "bgImage": "assets/newImages/bgBlue.svg",
+      "imageUrl": "assets/newImages/cat8.png",
+      "title": "Unlisted stocks",
     },
   ];
 
@@ -227,7 +255,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
         }
       default:
         {
-          return FractionalRealestate();
+          return ComingSoon();
         }
     }
   }

@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/HomePage/Categories/AlternativeInvestment.dart';
 import 'package:freeu/HomePage/Categories/CleanGreen/CleanGreenMain.dart';
 import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
 import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceDiscountingMain.dart';
@@ -10,6 +9,7 @@ import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based.dar
 import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
 import 'package:freeu/HomePage/Categories/SecuredDebt/SecuredDebtMain.dart';
 import 'package:freeu/HomePage/Categories/Venture%20debt/VentureDebtMain.dart';
+import 'package:freeu/HomePage/Categories/coming_soon.dart';
 import 'package:freeu/HomePage/Categories/revenue_based_financing/revenue_based_main.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
@@ -27,7 +27,6 @@ import 'Categories/Alternative/Fractionalpage.dart';
 import '../controllers/entry_point_controller.dart';
 
 class HomePage extends StatefulWidget {
-  // EntryPoint enttyPoint = EntryPoint();
   const HomePage({super.key});
 
   @override
@@ -148,6 +147,34 @@ class _HomePageState extends State<HomePage> {
       "bgImage": "assets/newImages/bgPurple (2).svg",
       "imageUrl": "assets/newImages/cat10.png",
       "title": "High Yield Finance",
+    },
+    {
+      "colorL": AppColors.brownL_973926,
+      "colorD": AppColors.brownD_4C1D13,
+      "bgImage": "assets/newImages/bgBrown.svg",
+      "imageUrl": "assets/newImages/cat11.png",
+      "title": "International Financial Investment",
+    },
+    {
+      "colorL": AppColors.pinkL_E6088B,
+      "colorD": AppColors.pinkD_730446,
+      "bgImage": "assets/newImages/bgPink.svg",
+      "imageUrl": "assets/newImages/cat12.png",
+      "title": "International Real Estate",
+    },
+    {
+      "colorL": AppColors.redL_BE0F02,
+      "colorD": AppColors.redD_5F0801,
+      "bgImage": "assets/newImages/bgRed.svg",
+      "imageUrl": "assets/newImages/cat13.png",
+      "title": "Startup’s",
+    },
+    {
+      "colorL": AppColors.blueL_006796,
+      "colorD": AppColors.blueD_00344B,
+      "bgImage": "assets/newImages/bgBlue.svg",
+      "imageUrl": "assets/newImages/cat8.png",
+      "title": "Unlisted stocks",
     },
   ];
 
@@ -430,77 +457,47 @@ class _HomePageState extends State<HomePage> {
         {
           return AIFMain();
         }
-
-        break;
       case 1:
         {
           return FractionalRealestate();
         }
-
-        break;
-
       case 2:
         {
           return PeerMain();
         }
-
-        break;
-
       case 3:
         {
           return InvoiceDiscountingMain();
         }
-
-        break;
-
       case 4:
         {
           return RevenueBasedMain();
         }
-
-        break;
-
       case 5:
         {
           return LeaseBased();
         }
-
-        break;
-
       case 6:
         {
           return CleanGreenMain();
         }
-
-        break;
       case 7:
         {
           return VentureDebtMain();
         }
-
-        break;
-
       case 8:
         {
           return SecureDebtMain();
         }
-
-        break;
-
       case 9:
         {
           return HighYieldFinance();
         }
-
-        break;
-
       default:
         {
-          // Null;
-          return FractionalRealestate();
+          return ComingSoon();
         }
     }
-    // return Page;
   }
 
   Widget tileCard(String path) {
@@ -521,7 +518,6 @@ class _HomePageState extends State<HomePage> {
                 top: 14.h, left: 10.w, right: 15.w, bottom: 10.h),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
-              // mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
@@ -530,8 +526,6 @@ class _HomePageState extends State<HomePage> {
                     width: 90.w,
                     child: Image.asset(
                       path,
-                      // height: 70.h,
-                      // width: 90.w,
                       fit: BoxFit.fill,
                     ),
                   ),
@@ -674,71 +668,6 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
-  // Future<bool> _backbuttonpressed(BuildContext context) async {
-  //   bool exitapp = await showDialog(
-  //     context: context,
-  //     builder: (BuildContext context) {
-  //       return Padding(
-  //         padding:  EdgeInsets.all(15.w),
-  //         child: AlertDialog(
-  //            shape:
-  //             RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.r)),
-  //         insetPadding: const EdgeInsets.symmetric(vertical: 10),
-  //           title:Text(
-  //           "Exit App",
-  //           style: TextStyle(
-  //               fontFamily: 'Studio Pro',
-  //               fontWeight: FontWeight.bold,
-  //               fontSize: 18.sp,
-  //               color: const Color(0xff3B3F43)),
-  //         ),
-  //           content: SizedBox(
-  //           width: MediaQuery.of(context).size.width,
-  //           child: Text(
-  //             "Are you sure you want to Exit App?",
-  //             style: TextStyle(
-  //                 fontFamily: 'Roboto',
-  //                 fontSize: 16.sp,
-  //                 color: const Color(0xff54595F)),
-  //           ),
-  //         ),
-  //           actions: [
-  //            InkWell(
-  //             onTap: () {
-  //               Get.back();
-  //             },
-  //             child: Text(
-  //               "No",
-  //               style: TextStyle(
-  //                   fontFamily: "Roboto",
-  //                   fontWeight: FontWeight.w500,
-  //                   fontSize: 16.sp,
-  //                   color: const Color(0xff000000)),
-  //             ),
-  //           ),
-  //           sizedBoxWidth(15.sp),
-  //           InkWell(
-  //             onTap: () {
-  //               SystemNavigator.pop();
-  //             },
-  //             child: Text(
-  //               "Yes",
-  //               style: TextStyle(
-  //                   fontFamily: "Roboto",
-  //                   fontWeight: FontWeight.w500,
-  //                   fontSize: 16.sp,
-  //                   color: const Color(0xffB90101)),
-  //             ),
-  //           ),
-  //           sizedBoxWidth(15.sp),
-  //           ],
-  //         ),
-  //       );
-  //     },
-  //   );
-  //   return exitapp ?? false;
-  // }
 }
 
 class DougnutChart extends StatelessWidget {
