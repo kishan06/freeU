@@ -1,24 +1,14 @@
-// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Utils/global_function.dart';
 import 'package:freeu/Utils/textStyle.dart';
-
-// import 'package:freeu/View%20Model/auth_post.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
-// lib\View Model\auth_post.dart
-// import 'package:freeu/viewModel/auth_post.dart';
-
-import 'package:freeu/View%20Model/signup_post.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/api_urls.dart';
-
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/controllers/network_api.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/profile/profile.dart';
@@ -34,11 +24,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  EntryPointController entryPointController = Get.put(EntryPointController());
+
   NetworkApi networkApi = NetworkApi();
 
   bool design = false;
   bool _passwordVisible = false;
-  bool _confirmpasswordVisible = false;
   bool _isPasswordEightCar = false;
   bool _isHasOneNumber = false;
   bool _isHasSymboleOrCaptital = false;
@@ -52,8 +43,6 @@ class _SignUpState extends State<SignUp> {
   TextEditingController phonecontroller = TextEditingController();
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasscontroller = TextEditingController();
-  // SignupPost signUpPost = SignupPost();
-
 
   onPasswordChnage(String password) {
     setState(() {
@@ -129,7 +118,6 @@ class _SignUpState extends State<SignUp> {
                         decoration: BoxDecoration(
                             color: Color(0xFF143C6D),
                             borderRadius: BorderRadius.all(Radius.circular(5))),
-                        // color: Color(0xFF143C6D),
                         height: 400.h,
                         child: Scrollbar(
                           thumbVisibility: true,
@@ -193,18 +181,6 @@ class _SignUpState extends State<SignUp> {
                   ],
                 ),
               ),
-              // Positioned(
-              //   left: 165,
-              //   top: -10,
-              //   child: Column(
-              //     children: [
-              //       SvgPicture.asset("assets/images/cancel.svg"),
-              //       SizedBox(
-              //         height: 20,
-              //       ),
-              //     ],
-              //   ),
-              // ),
             ],
           );
         },
@@ -288,12 +264,6 @@ class _SignUpState extends State<SignUp> {
                                 validatorText: "Full Name"),
                           ],
                         ),
-                        // FullnameTextFormField(
-                        //   controller: fullNameController,
-                        //   keyboardType: TextInputType.text,
-                        //   hint: "Full Name*",
-                        //   errortext: "Please Enter Full Name",
-                        // ),
                         SizedBox(
                           height: 25.h,
                         ),
@@ -334,78 +304,11 @@ class _SignUpState extends State<SignUp> {
                         SizedBox(
                           height: 20.h,
                         ),
-                        // TextFormField(
-                        //   keyboardType: TextInputType.text,
-                        //   cursorColor: Colors.grey,
-                        //   style: TextStyle(
-                        //       fontFamily: 'Poppins',
-                        //       fontSize: 16,
-                        //       fontWeight: FontWeight.w500,
-                        //       color:
-                        //           Get.isDarkMode ? Colors.white : Colors.black),
-                        //   autovalidateMode: AutovalidateMode.onUserInteraction,
-                        //   controller: phonecontroller,
-                        //   decoration: InputDecoration(
-                        //     focusedBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     enabledBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.grey, width: 2.0),
-                        //     ),
-                        //     errorMaxLines: 3,
-                        //     hintText: "Phone Number*",
-                        //     hintStyle: blackStyle(context).copyWith(
-                        //         fontSize: 16,
-                        //         fontWeight: FontWeight.w600,
-                        //         color: Get.isDarkMode
-                        //             ? Colors.white
-                        //             : const Color(0xFF303030).withOpacity(0.3)),
-                        //     fillColor: Get.isDarkMode
-                        //         ? const Color(0xFF303030).withOpacity(0.8)
-                        //         : Colors.white,
-                        //     filled: true,
-                        //     errorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     focusedErrorBorder: const OutlineInputBorder(
-                        //       borderRadius:
-                        //           BorderRadius.all(Radius.circular(30)),
-                        //       borderSide:
-                        //           BorderSide(color: Colors.red, width: 2.0),
-                        //     ),
-                        //     errorStyle: const TextStyle(
-                        //       fontSize: 16.0,
-                        //     ),
-                        //   ),
-                        //   validator: (value) {
-                        //     if (value == null || value.isEmpty) {
-                        //       return "Please Enter Phone Number";
-                        //     } else if (value.length != 10) {
-                        //       return "Please Enter Valid Phone Number";
-                        //     }
-                        //     return null;
-                        //   },
-                        //   inputFormatters: [
-                        //     new LengthLimitingTextInputFormatter(10),
-                        //     FilteringTextInputFormatter.allow(RegExp('[0-9]')),
-                        //   ],
-                        //   onSaved: (value) {},
-                        // ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
                               "Enter your phone number",
-                              // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
@@ -458,18 +361,15 @@ class _SignUpState extends State<SignUp> {
                               autovalidateMode:
                                   AutovalidateMode.onUserInteraction,
                               onChanged: (value) => onPasswordChnage(value),
-
                               cursorColor: Colors.grey,
                               style: TextStyle(
-                                //color: Colors.grey,
                                 fontFamily: 'Poppins',
-                                fontSize: 16.sm,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.w400,
                               ),
                               keyboardType: TextInputType.text,
                               controller: passwordcontroller,
-                              obscureText:
-                                  !_passwordVisible, //This will obscure text dynamically
+                              obscureText: !_passwordVisible,
                               decoration: InputDecoration(
                                 contentPadding: EdgeInsets.all(12),
                                 border: OutlineInputBorder(
@@ -560,7 +460,6 @@ class _SignUpState extends State<SignUp> {
                             ),
                           ],
                         ),
-
                         SizedBox(
                           height: 20.h,
                         ),
@@ -768,61 +667,65 @@ class _SignUpState extends State<SignUp> {
                     child: SizedBox(
                       width: double.infinity,
                       child: Padding(
-                        padding: const EdgeInsets.only(left: 20, right: 20),
-                        child: CustomNextButton(
-                          text: "Sign up",
-                          ontap: () async {
-                            final isValid = _form.currentState?.validate();
-                            if (isValid == false) {
-                              Get.snackbar(
-                                  "Error", "Please Enter All Required Fields",
-                                  margin: EdgeInsets.all(8),
-                                  snackStyle: SnackStyle.FLOATING,
-                                  snackPosition: SnackPosition.BOTTOM);
-                            }
-                            if (design != true) {
-                              Get.snackbar(
-                                  "Error", "Please Accept Terms & Conditions",
-                                  margin: EdgeInsets.all(8),
-                                  snackStyle: SnackStyle.FLOATING,
-                                  snackPosition: SnackPosition.BOTTOM);
-                            }
-                            if (isValid == true && design == true) {
+                          padding: const EdgeInsets.only(left: 20, right: 20),
+                          child: GetBuilder<EntryPointController>(
+                            builder: (controller) {
+                              return entryPointController.createAccApi == true
+                                  ? Center(child: CircularProgressIndicator())
+                                  : CustomNextButton(
+                                      text: "Sign up",
+                                      ontap: () async {
+                                        final isValid =
+                                            _form.currentState?.validate();
+                                        if (isValid == false) {
+                                          Get.snackbar("Error",
+                                              "Please Enter All Required Fields",
+                                              margin: EdgeInsets.all(8),
+                                              snackStyle: SnackStyle.FLOATING,
+                                              snackPosition:
+                                                  SnackPosition.BOTTOM);
+                                        } else if (design != true) {
+                                          Get.snackbar("Error",
+                                              "Please Accept Terms & Conditions",
+                                              margin: EdgeInsets.all(8),
+                                              snackStyle: SnackStyle.FLOATING,
+                                              snackPosition:
+                                                  SnackPosition.BOTTOM);
+                                        } else if (isValid == true &&
+                                            design == true) {
+                                          entryPointController
+                                              .changecreateAccApiBool();
+                                          Map<String, String> myData = {
+                                            "name": nameController.text,
+                                            "email": emailController.text,
+                                            "contact_number":
+                                                phonecontroller.text,
+                                            "password": passwordcontroller.text,
+                                            "password_confirmation":
+                                                confirmpasscontroller.text
+                                          };
+                                          SignUpPost signUpPost = SignUpPost();
+                                          var resp = await signUpPost
+                                              .signUpApi(myData);
 
-                              Map<String,String> myData = {
-
-                                "name": nameController.text,
-                                "email": emailController.text,
-                                "contact_number": phonecontroller.text,
-                                "password": passwordcontroller.text,
-
-                                "password_confirmation": confirmpasscontroller.text
-                              };
-                              // SignupPost signupPost = Signup
-                             
-                              SignUpPost signUpPost = SignUpPost();
-                              // SignupPost signupPost = SignupPost();
-                              var resp = await signUpPost.signUpApi(myData);
-                              // resp.status;
-                              print(resp.status);
-                              if (resp.status == ResponseStatus.SUCCESS) {
-                                Utils.showToast("Account created successfully");
-                                Future.delayed(
-                                  Duration(seconds: 2),
-                                  (){
-                                    Get.toNamed("/login");
-                                  }
-                                );
-                                // Get.toNamed("/login");
-                              } else {
-                                Utils.showToast(resp.message);
-                              }
-
-
-                            }
-                          },
-                        ),
-                      ),
+                                          entryPointController
+                                              .changecreateAccApiBool();
+                                          if (resp.status ==
+                                              ResponseStatus.SUCCESS) {
+                                            Utils.showToast(
+                                                "Account created successfully");
+                                            Future.delayed(Duration(seconds: 2),
+                                                () {
+                                              Get.toNamed("/login");
+                                            });
+                                          } else {
+                                            Utils.showToast(resp.message);
+                                          }
+                                        }
+                                      },
+                                    );
+                            },
+                          )),
                     ),
                   ),
                   Visibility(
@@ -955,34 +858,11 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
               "Terms And Conditions",
               style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
             ),
-
             Text(
                 "Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum sumloren sumloren sumloren sumloren sumloren sumloren sum"),
             const SizedBox(
               height: 10,
             ),
-            // Row(
-            //   children: [
-            //     Checkbox(
-            //         activeColor: const Color(0xFFF78104),
-            //         shape: const RoundedRectangleBorder(
-            //             borderRadius: BorderRadius.all(Radius.circular(5.0))),
-            //         value: agree,
-            //         onChanged: (value) {
-            //           setState(() {
-            //             agree = value ?? false;
-            //           });
-            //         }),
-            //     Flexible(
-            //       child: Text(
-            //         maxLines: 1,
-            //         softWrap: false,
-            //         'I have read and accept Terms & Conditions',
-            //         style: TextStyle(fontSize: 14.sm),
-            //       ),
-            //     ),
-            //   ],
-            // ),
             const SizedBox(
               height: 10,
             ),
