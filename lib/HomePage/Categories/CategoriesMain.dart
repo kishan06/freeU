@@ -167,7 +167,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
               closeBuild: IconButton(
                 onPressed: null,
                 icon: SizedBox(
-                  width: 18.w,
+                  width: 20.w,
                   height: 25.h,
                   child: SvgPicture.asset(
                     'assets/images/notification-bell-svgrepo-com.svg',
@@ -185,7 +185,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
         titleSpacing: 0,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 20.h),
         child: GridView.builder(
           itemCount: categoryData.length,
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -295,7 +295,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
                   height: 45.h,
                   width: 45.h,
                 ),
-                text14White(text)
+                text16White(text)
               ],
             ),
           ),

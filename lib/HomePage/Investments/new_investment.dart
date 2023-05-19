@@ -47,7 +47,7 @@ class _NewInvestmentState extends State<NewInvestment> {
               OpenContainerWrappers(
                 openBuild: NotificationPage(),
                 closeBuild: SizedBox(
-                  width: 18.w,
+                  width: 20.w,
                   height: 25.h,
                   child: SvgPicture.asset(
                     'assets/images/notification-bell-svgrepo-com.svg',
@@ -70,13 +70,15 @@ class _NewInvestmentState extends State<NewInvestment> {
               tabs: [
                 Tab(
                   child: Text(
-                    'User dashboard',
+                    'User \ndashboard',
+                    textAlign: TextAlign.center,
                     style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                   ),
                 ),
                 Tab(
                   child: Text(
-                    'Market Dashboard',
+                    'Market Place Dashboard',
+                    textAlign: TextAlign.center,
                     style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                   ),
                 ),
@@ -164,13 +166,13 @@ class _NewInvestmentState extends State<NewInvestment> {
               child: Column(
                 children: [
                   iconText(Icons.person_outline_outlined, 'Kartikey Gautam'),
-                  sizedBoxHeight(10.h),
+                  sizedBoxHeight(20.h),
                   iconText(Icons.phone_in_talk_sharp, '+91 9876543210'),
-                  sizedBoxHeight(10.h),
+                  sizedBoxHeight(20.h),
                   iconText(Icons.mail_outline, 'kartikey@gmail.com'),
-                  sizedBoxHeight(10.h),
+                  sizedBoxHeight(20.h),
                   iconText(Icons.credit_card_outlined, 'IURPS9876R'),
-                  sizedBoxHeight(10.h),
+                  sizedBoxHeight(20.h),
                   iconText(Icons.location_on_outlined,
                       'Asmi Celestia, MG Road, Goregaon West, Mumbai - 400062'),
                 ],
@@ -202,7 +204,6 @@ class _NewInvestmentState extends State<NewInvestment> {
                   twoNHalfTxt('Active \nInvestment', '₹16,200,000'),
                   sizedBoxHeight(15.h),
                   twoNHalfTxt('Investments \nreedemed', '₹10,500,000'),
-                  sizedBoxHeight(15.h),
                 ],
               ),
             ),

@@ -51,27 +51,27 @@ class _NotificationPageState extends State<NotificationPage> {
     _data = [
       {
         "image": "assets/images/Group 51531.svg",
-        "title": "Lorem Ipsum is simply dummy text of the printing .",
+        "title": "Lorem Ipsum is simply dummy text of the printing ",
         "subtitle": "2 days ago",
       },
       {
         "image": "assets/images/Group 51532.svg",
-        "title": "Lorem Ipsum is simply dummy text of the printing .",
+        "title": "Lorem Ipsum is simply dummy text of the printing ",
         "subtitle": "2 days ago",
       },
       {
         "image": "assets/images/Group 51531.svg",
-        "title": "Lorem Ipsum is simply dummy text of the printing .",
+        "title": "Lorem Ipsum is simply dummy text of the printing ",
         "subtitle": "2 days ago",
       },
       {
         "image": "assets/images/Group 51535.svg",
-        "title": "Lorem Ipsum is simply dummy text of the printing .",
+        "title": "Lorem Ipsum is simply dummy text of the printing ",
         "subtitle": "2 days ago",
       },
       {
         "image": "assets/images/Group 51534.svg",
-        "title": "Lorem Ipsum is simply dummy text of the printing .",
+        "title": "Lorem Ipsum is simply dummy text of the printing ",
         "subtitle": "2 days ago",
       },
     ];
@@ -118,7 +118,7 @@ class _NotificationPageState extends State<NotificationPage> {
                   Row(
                     children: [
                       Padding(
-                        padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                        padding: EdgeInsets.symmetric(horizontal: 16.w),
                         child: Text(
                           "Notifications",
                           textAlign: TextAlign.left,
@@ -133,7 +133,7 @@ class _NotificationPageState extends State<NotificationPage> {
                   SizedBox(
                     // height: MediaQuery.of(context).size.height * 0.57,
                     child: Padding(
-                      padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: ListView.separated(
                         shrinkWrap: true,
                         itemCount: _data.length,
@@ -152,14 +152,14 @@ class _NotificationPageState extends State<NotificationPage> {
                               });
                             },
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 SizedBox(
                                   width: double.infinity,
                                   child: Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                        CrossAxisAlignment.center,
                                     children: [
                                       Expanded(
                                         flex: 2,
@@ -168,8 +168,8 @@ class _NotificationPageState extends State<NotificationPage> {
                                               BorderRadius.circular(8.24),
                                           child: SvgPicture.asset(
                                             _data[index]['image']!,
-                                            width: 80,
-                                            height: 80,
+                                            width: 80.w,
+                                            height: 100.h,
                                             fit: BoxFit.cover,
                                           ),
                                         ),
@@ -177,8 +177,8 @@ class _NotificationPageState extends State<NotificationPage> {
                                       Expanded(
                                         flex: 5,
                                         child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 8.0),
+                                          padding:
+                                              const EdgeInsets.only(left: 8.0),
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -208,8 +208,8 @@ class _NotificationPageState extends State<NotificationPage> {
                                       Expanded(
                                         flex: 0,
                                         child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              right: 7.0),
+                                          padding:
+                                              const EdgeInsets.only(right: 7.0),
                                           child: InkWell(
                                             onTap: () {
                                               print("ontap pressed");

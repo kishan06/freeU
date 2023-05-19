@@ -2,7 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:freeu/HomePage/Chats/Model/ChatMessageModel.dart';
+import 'package:freeu/Notification.dart';
+import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
@@ -127,9 +130,19 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                       ],
                     ),
                   ),
-                  const Icon(
-                    Icons.more_vert_rounded,
-                    color: Colors.blueAccent,
+                  OpenContainerWrappers(
+                    closeBuild: IconButton(
+                      onPressed: null,
+                      icon: SizedBox(
+                        width: 20.w,
+                        height: 25.h,
+                        child: SvgPicture.asset(
+                          'assets/images/notification-bell-svgrepo-com.svg',
+                          fit: BoxFit.fill,
+                        ),
+                      ),
+                    ),
+                    openBuild: const NotificationPage(),
                   ),
                 ],
               ),

@@ -158,13 +158,13 @@ class _EntryPointState extends State<EntryPoint>
                           },
                           icon: isSideMenuClosed
                               ? SizedBox(
-                                  height: 20.h,
-                                  width: 25.w,
+                                  height: 25.h,
+                                  // width: 25.w,
                                   child: SvgPicture.asset(
                                     "assets/images/menu.svg",
                                     // height: 20.h,
                                     // width: 10.w,
-                                    fit: BoxFit.fill,
+                                    fit: BoxFit.contain,
                                   ),
                                 )
                               : Icon(
