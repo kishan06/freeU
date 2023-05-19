@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/login/contentModel.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -213,6 +211,7 @@ class _SplashsliderState extends State<Splashslider> {
             child: SingleChildScrollView(
               physics: const BouncingScrollPhysics(),
               child: Container(
+                padding: EdgeInsets.all(5),
                 // color: AppColors.blue143C6D,
                 child: Column(
                   children: [

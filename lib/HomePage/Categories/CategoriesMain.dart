@@ -281,6 +281,8 @@ class _CategoriesMainState extends State<CategoriesMain> {
           right: 0,
           child: SvgPicture.asset(
             bgImage,
+            width: 65.w,
+            height: 133.h,
           ),
         ),
         SizedBox(

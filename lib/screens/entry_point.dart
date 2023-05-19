@@ -310,28 +310,32 @@ class _EntryPointState extends State<EntryPoint>
   }
 
   Widget activeIcon(String imagePath) {
-    return Column(children: [
-      SvgPicture.asset(
-        imagePath,
-        height: 20.h,
-        width: 20.h,
-        // color: AppColors.blue143C6D,
-        // colorFilter: AppColors.greyD3B3F43,
-      ),
-      // sizedBoxHeight(5.h),
-      // CircleAvatar(
-      //   radius: 5.h,
-      //   backgroundColor: AppColors.blue143C6D.withOpacity(0.5),
-      // )
-    ]);
+    return CircleAvatar(
+      radius: 16.r,
+      backgroundColor: Color(0xff143C6D29),
+      child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+        SvgPicture.asset(
+          imagePath,
+          height: 20.h,
+          // width: 15.h,
+          color: AppColors.blue143C6D,
+          // colorFilter: AppColors.greyD3B3F43,
+        ),
+        // sizedBoxHeight(5.h),
+        // CircleAvatar(
+        //   radius: 5.h,
+        //   backgroundColor: AppColors.blue143C6D.withOpacity(0.5),
+        // )
+      ]),
+    );
   }
 
   Widget inactiveIcon(String imagePath) {
-    return Column(children: [
+    return Column(mainAxisAlignment: MainAxisAlignment.center, children: [
       SvgPicture.asset(
         imagePath,
         height: 20.h,
-        width: 20.h,
+        // width: 15.h,
         // color: AppColors.black,
       ),
       // sizedBoxHeight(2.h),
