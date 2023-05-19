@@ -6,10 +6,12 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Chats/Model/ChatUserModel.dart';
 import 'package:freeu/HomePage/Chats/Widgets/ConversationList.dart';
 import 'package:freeu/HomePage/HomePage.dart';
+import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/GlobalFuntionsVariables.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/bottombar.dart';
+import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
@@ -154,10 +156,19 @@ class _ChatPageState extends State<ChatPage> {
           ],
         ),
         actions: [
-          Icon(
-            Icons.more_vert_rounded,
-            color: Colors.blueAccent,
-            size: 25.sp,
+          OpenContainerWrappers(
+            closeBuild: IconButton(
+              onPressed: null,
+              icon: SizedBox(
+                width: 20.w,
+                height: 25.h,
+                child: SvgPicture.asset(
+                  'assets/images/notification-bell-svgrepo-com.svg',
+                  fit: BoxFit.fill,
+                ),
+              ),
+            ),
+            openBuild: const NotificationPage(),
           ),
           sizedBoxWidth(5.w)
         ],

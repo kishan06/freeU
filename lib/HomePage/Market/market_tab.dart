@@ -126,7 +126,11 @@ class _MarketTabState extends State<MarketTab> {
                 height: 180.h,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                    color: AppColors.blueL_006796,
+                    gradient: LinearGradient(colors: [
+                      const Color(0xFF006796),
+                      const Color(0xFF00344B),
+                    ]),
+                    // color: AppColors.blueL_006796,
                     borderRadius: BorderRadius.circular(15.h),
                     image: const DecorationImage(
                       alignment: Alignment.centerRight,
@@ -145,7 +149,7 @@ class _MarketTabState extends State<MarketTab> {
                       const Spacer(),
                       text16White(
                           'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-                          textAlign: TextAlign.center),
+                          textAlign: TextAlign.left),
                       const Spacer(),
                       OpenContainerWrappers(
                           closeBuild: Container(
@@ -166,7 +170,7 @@ class _MarketTabState extends State<MarketTab> {
                   ),
                 ),
               ),
-              sizedBoxHeight(12.h),
+              sizedBoxHeight(20.h),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -226,15 +230,20 @@ class _MarketTabState extends State<MarketTab> {
       child: Container(
         width: 241.w,
         decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(15.h),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.04),
-                blurRadius: 10,
-                spreadRadius: 2,
-              )
-            ]),
+          border: Border.all(
+            width: 0.5.w,
+            color: Color(0xffcfcfcf),
+          ),
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(15.h),
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.black.withOpacity(0.04),
+          //     blurRadius: 10,
+          //     spreadRadius: 2,
+          //   )
+          // ],
+        ),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
           child: Column(

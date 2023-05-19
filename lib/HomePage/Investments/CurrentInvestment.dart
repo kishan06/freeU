@@ -71,25 +71,21 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Flexible(
-                          fit: FlexFit.tight,
-                          flex: 4,
-                          child: Text(
-                            "Product",
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 18.sp,
-                            ),
+                        Text(
+                          "Product",
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 18.sp,
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 80),
-                          child: Text(
-                            "P & L",
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 18.sp,
-                            ),
+                        SizedBox(),
+                        SizedBox(),
+                        SizedBox(),
+                        Text(
+                          "Amount",
+                          style: TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 18.sp,
                           ),
                         ),
                         Padding(

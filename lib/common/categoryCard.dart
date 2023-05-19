@@ -47,7 +47,7 @@ Widget categoryCard(
               sizedBoxHeight(10.h),
               // Spacer(),
 
-              text14White(text)
+              text16White(text)
             ],
           ),
         ),

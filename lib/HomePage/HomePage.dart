@@ -225,8 +225,7 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppColors.white,
         title: Row(
           children: [
-            sizedBoxWidth(45.w),
-            sizedBoxWidth(5.w),
+            sizedBoxWidth(55.w),
             Text(
               'Welcome',
               softWrap: true,
@@ -239,7 +238,7 @@ class _HomePageState extends State<HomePage> {
               closeBuild: IconButton(
                 onPressed: null,
                 icon: SizedBox(
-                  width: 18.w,
+                  width: 20.w,
                   height: 25.h,
                   child: SvgPicture.asset(
                     'assets/images/notification-bell-svgrepo-com.svg',
@@ -530,10 +529,10 @@ class _HomePageState extends State<HomePage> {
                     ),
                   ),
                 ),
-                const Expanded(
+                Expanded(
                   flex: 0,
                   child: SizedBox(
-                    width: 20,
+                    width: 10.w,
                   ),
                 ),
                 SizedBox(
@@ -592,17 +591,21 @@ class _HomePageState extends State<HomePage> {
           width: 241.w,
           // color: AppColors.white,
           decoration: BoxDecoration(
-              color: AppColors.white,
-              borderRadius: BorderRadius.circular(15.h),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(0.04),
-                  blurRadius: 10,
-                  spreadRadius: 2,
-                )
-              ]
-              // border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)
-              ),
+            border: Border.all(
+              width: 0.5.w,
+              color: Color(0xffcfcfcf),
+            ),
+            color: AppColors.white,
+            borderRadius: BorderRadius.circular(15.h),
+            // boxShadow: [
+            //   BoxShadow(
+            //     color: Colors.black.withOpacity(0.04),
+            //     blurRadius: 10,
+            //     spreadRadius: 2,
+            //   )
+            // ]
+            // border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)
+          ),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
             child: Column(
