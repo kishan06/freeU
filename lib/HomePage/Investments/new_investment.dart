@@ -14,6 +14,7 @@ import 'package:get/get.dart';
 import 'investment_transfer.dart';
 import 'investment_watchlist.dart';
 import 'pending_request.dart';
+import 'product_action.dart';
 
 class NewInvestment extends StatefulWidget {
   const NewInvestment({super.key});
@@ -63,14 +64,15 @@ class _NewInvestmentState extends State<NewInvestment> {
           automaticallyImplyLeading: false,
           titleSpacing: 0,
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(50.h),
+            preferredSize: Size.fromHeight(55.h),
             child: TabBar(
+              labelPadding: EdgeInsets.only(bottom: 5.h),
               indicatorColor: Color(0xff002A5B),
               indicatorWeight: 5.h,
               tabs: [
                 Tab(
                   child: Text(
-                    'User \ndashboard',
+                    'User \nDashboard',
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                   ),
@@ -480,9 +482,11 @@ class _NewInvestmentState extends State<NewInvestment> {
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: GestureDetector(
                       onTap: () {
-                        Get.to(LeaseViewInvestment(
-                          pageIndex: 0,
-                        ));
+                        Get.to(
+                          ProductAction(
+                            pageIndex: 0,
+                          ),
+                        );
                       },
                       child: Icon(
                         Icons.remove_red_eye_outlined,

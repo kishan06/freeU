@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/HomePage/Investments/product_action.dart';
 import 'package:freeu/common/NavDrawer.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
@@ -35,7 +36,6 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: NavDrawer(),
       backgroundColor: Color(0xffffffff),
       appBar: CustomSignupAppBar(
         titleTxt: "",
@@ -212,9 +212,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                   padding: EdgeInsets.symmetric(horizontal: 20.w),
                   child: GestureDetector(
                       onTap: () {
-                        Get.to(LeaseViewInvestment(
-                          pageIndex: 0,
-                        ));
+                        Get.to(ProductAction(pageIndex: 0));
                       },
                       child: Icon(
                         Icons.remove_red_eye_outlined,

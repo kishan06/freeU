@@ -52,8 +52,9 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
           ),
           backgroundColor: AppColors.white,
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(60.h),
+            preferredSize: Size.fromHeight(65.h),
             child: TabBar(
+              labelPadding: EdgeInsets.only(bottom: 10.h),
               indicatorColor: Color(0xff002A5B),
               indicatorWeight: 5.h,
               tabs: [

@@ -87,7 +87,6 @@ class _SuggestedInvestedProductsState extends State<SuggestedInvestedProducts> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: NavDrawer(),
       backgroundColor: Color(0xffffffff),
       appBar: CustomSignupAppBar(
         titleTxt: "",

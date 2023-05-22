@@ -381,9 +381,7 @@ class _HomePageState extends State<HomePage> {
                     child: ListView.separated(
                         controller: scrollController,
                         separatorBuilder: (_, index) {
-                          return index == 9
-                              ? const SizedBox()
-                              : sizedBoxWidth(20.w);
+                          return sizedBoxWidth(20.w);
                         },
                         scrollDirection: Axis.horizontal,
                         itemCount: categoryData.length,

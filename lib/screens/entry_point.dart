@@ -211,8 +211,19 @@ class _EntryPointState extends State<EntryPoint>
                               label: "Categories",
                             ),
                             BottomNavigationBarItem(
-                              activeIcon:
-                                  activeIcon("assets/images/Group 51109.svg"),
+                              activeIcon: CircleAvatar(
+                                radius: 16.r,
+                                backgroundColor: Color(0xff143C6D29),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SvgPicture.asset(
+                                        "assets/images/Group 51330.svg",
+                                        height: 20.h),
+                                  ],
+                                ),
+                              ),
+                              // activeIcon("assets/images/Group 51330.s vg"),
                               icon: inactiveIcon(
                                   "assets/images/money-dollar-coin-svgrepo-com.svg"),
                               label: "Investment",
