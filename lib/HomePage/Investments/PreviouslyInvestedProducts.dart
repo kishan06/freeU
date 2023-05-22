@@ -88,7 +88,6 @@ class _PreviouslyInvestedProductsState
   Widget build(BuildContext context) {
     return Scaffold(
       key: _key,
-      drawer: NavDrawer(),
       backgroundColor: Color(0xffffffff),
       appBar: CustomSignupAppBar(
         titleTxt: "",

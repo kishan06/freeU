@@ -87,3 +87,9 @@ Widget text14White(String text,{TextAlign? textAlign}){
     ),
   );
 }
+ Widget contentText(String content) {
+    return Text(
+      content,
+      style: TextStyle(fontSize: 18.sp, color: const Color(0xff272424)),
+    );
+  }
