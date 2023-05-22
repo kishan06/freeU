@@ -8,6 +8,7 @@ import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/page_animation.dart';
+import 'package:freeu/common/simple_accotion.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
 
@@ -106,81 +107,47 @@ class _NewInvestmentState extends State<NewInvestment> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Stack(
-              children: [
-                SvgPicture.asset(
-                  "assets/images/Investmentgraph.svg",
-                  fit: BoxFit.fill,
-                ),
-                Positioned(
-                  top: 20,
-                  left: 25,
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFFBF0),
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                    ),
-                    child: Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "₹3,43,50,000",
-                            style: TextStyle(fontSize: 16.sp),
-                          ),
-                          Text(
-                            '+12.8%',
-                            style:
-                                TextStyle(color: Colors.green, fontSize: 16.sp),
-                          )
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            sizedBoxHeight(15.h),
-            Text(
-              'Personal Details',
-              style: TextStyle(fontSize: 20.sp),
-            ),
-            sizedBoxHeight(20.h),
-            Container(
-              padding: EdgeInsets.all(10.w),
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Color(0xffffffff),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0x48B9B9BE),
-                    blurRadius: 20.0,
-                    spreadRadius: 0,
-                  )
-                ],
-              ),
-              child: Column(
-                children: [
-                  iconText(Icons.person_outline_outlined, 'Kartikey Gautam'),
-                  sizedBoxHeight(20.h),
-                  iconText(Icons.phone_in_talk_sharp, '+91 9876543210'),
-                  sizedBoxHeight(20.h),
-                  iconText(Icons.mail_outline, 'kartikey@gmail.com'),
-                  sizedBoxHeight(20.h),
-                  iconText(Icons.credit_card_outlined, 'IURPS9876R'),
-                  sizedBoxHeight(20.h),
-                  iconText(Icons.location_on_outlined,
-                      'Asmi Celestia, MG Road, Goregaon West, Mumbai - 400062'),
-                ],
-              ),
-            ),
-            sizedBoxHeight(20.h),
+            // Stack(
+            //   children: [
+            //     SvgPicture.asset(
+            //       "assets/images/Investmentgraph.svg",
+            //       fit: BoxFit.fill,
+            //     ),
+            //     Positioned(
+            //       top: 20,
+            //       left: 25,
+            //       child: Container(
+            //         decoration: BoxDecoration(
+            //           color: Color(0xFFFFFBF0),
+            //           borderRadius: BorderRadius.all(
+            //             Radius.circular(10),
+            //           ),
+            //         ),
+            //         child: Padding(
+            //           padding:
+            //               EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+            //           child: Column(
+            //             mainAxisAlignment: MainAxisAlignment.center,
+            //             crossAxisAlignment: CrossAxisAlignment.start,
+            //             children: [
+            //               Text(
+            //                 "₹3,43,50,000",
+            //                 style: TextStyle(fontSize: 16.sp),
+            //               ),
+            //               Text(
+            //                 '+12.8%',
+            //                 style:
+            //                     TextStyle(color: Colors.green, fontSize: 16.sp),
+            //               )
+            //             ],
+            //           ),
+            //         ),
+            //       ),
+            //     ),
+            //   ],
+            // ),
+            // sizedBoxHeight(15.h),
+
             Container(
               padding: EdgeInsets.all(15.w),
               width: double.infinity,
@@ -209,6 +176,42 @@ class _NewInvestmentState extends State<NewInvestment> {
                 ],
               ),
             ),
+            sizedBoxHeight(20.h),
+            // Text(
+            //   'Personal Details',
+            //   style: TextStyle(fontSize: 20.sp),
+            // ),
+            // sizedBoxHeight(20.h),
+            // Container(
+            //   padding: EdgeInsets.all(10.w),
+            //   width: double.infinity,
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.all(Radius.circular(15)),
+            //     color: Color(0xffffffff),
+            //     boxShadow: [
+            //       BoxShadow(
+            //         color: Color(0x48B9B9BE),
+            //         blurRadius: 20.0,
+            //         spreadRadius: 0,
+            //       )
+            //     ],
+            //   ),
+            //   child: Column(
+            //     children: [
+            //       iconText(Icons.person_outline_outlined, 'Kartikey Gautam'),
+            //       sizedBoxHeight(20.h),
+            //       iconText(Icons.phone_in_talk_sharp, '+91 9876543210'),
+            //       sizedBoxHeight(20.h),
+            //       iconText(Icons.mail_outline, 'kartikey@gmail.com'),
+            //       sizedBoxHeight(20.h),
+            //       iconText(Icons.credit_card_outlined, 'IURPS9876R'),
+            //       sizedBoxHeight(20.h),
+            //       iconText(Icons.location_on_outlined,
+            //           'Asmi Celestia, MG Road, Goregaon West, Mumbai - 400062'),
+            //     ],
+            //   ),
+            // ),
+            personalDetailsAccotion('Personal Details'),
             sizedBoxHeight(20.h),
             twoTxt(
               "Current Investment",
@@ -502,26 +505,6 @@ class _NewInvestmentState extends State<NewInvestment> {
           )
         ],
       ),
-    );
-  }
-
-  Widget iconText(icon, txt) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Icon(
-          icon,
-          size: 24.h,
-          color: Colors.black.withOpacity(0.7),
-        ),
-        sizedBoxWidth(15.w),
-        Flexible(
-          child: Text(
-            txt,
-            style: TextStyle(fontSize: 18.sp),
-          ),
-        ),
-      ],
     );
   }
 
