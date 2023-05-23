@@ -1,11 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
-import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -21,31 +15,13 @@ class _DebtfundState extends State<Debtfund> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return
-        // SafeArea(
-        //child:
         Scaffold(
       backgroundColor: Color(0xFF873762),
       appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      //  AppBar(
-      //   backgroundColor: Color(0xFF873762),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Color(0XFFFFFFFF),
-      //   ),
-      // ),
       body: Center(
         child: Column(
           children: [
@@ -82,7 +58,6 @@ class _DebtfundState extends State<Debtfund> {
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
                           fontSize: 18.sp,
-                          //fontFamily: 'Poppins'
                         ),
                       ),
                       SizedBox(
@@ -90,7 +65,6 @@ class _DebtfundState extends State<Debtfund> {
                       ),
                       GestureDetector(
                         onTap: () {
-                         // Get.toNamed("/privateequityfund");
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,

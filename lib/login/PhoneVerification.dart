@@ -1,9 +1,6 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, duplicate_ignore
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
@@ -32,23 +29,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          // AppBar(
-          //   backgroundColor: AppColors.white,
-          //   // backgroundColor: Color(0xFFF5F8FA),
-          //   elevation: 0,
-          //   leading: IconButton(
-          //     onPressed: () {
-          //       Get.back();
-          //     },
-          //     icon: Icon(
-          //       Icons.arrow_back,
-          //     ),
-          //     iconSize: 24,
-          //     color: Color(0xFF0F0C0C),
-          //   ),
-          // ),
-          CustomSignupAppBar(
+      appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
@@ -81,14 +62,9 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                         SizedBox(height: 40.h),
                         Text(
                           "OTP sent to",
-                          // ignore: prefer_const_constructors
                           style: blackStyle20().copyWith(
                             color: Color(0xff000000),
                           ),
-                          // TextStyle(
-                          //     fontFamily: 'Poppins',
-                          //     fontSize: 16.sm,
-                          //     color: Color(0xff303030)),
                         ),
                         SizedBox(
                           height: 15.h,
@@ -106,7 +82,6 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                             filled: true,
                             fillColor: Colors.white,
                             focusColor: Color(0xFFF2F2F2),
-                            // enabled: false,
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(10),
                               borderSide: BorderSide(
@@ -131,7 +106,6 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                               child: GestureDetector(
                                 onTap: () {
                                   Get.back();
-                                  // Get.toNamed('/loginUsingOTP');
                                 },
                                 child: Icon(
                                   Icons.create_outlined,
@@ -165,11 +139,7 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           height: 15.h,
                         ),
                         Container(
-                            child:
-                                //  pinfiledshow
-                                //  ?
-                                PinCodeTextField(
-                          // text
+                            child: PinCodeTextField(
                           showCursor: true,
                           cursorColor: Color(0xFFCCCCCC),
                           textStyle: TextStyle(
@@ -226,19 +196,17 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                             Text("Didn't you receive any code ?",
                                 style: TextStyle(
                                   color: Color.fromARGB(159, 51, 51, 50),
-                                  fontSize: 14.sm,
+                                  fontSize: 14.sp,
                                 )),
                             TextButton(
                               child: Text(
                                 'Resend',
                                 style: TextStyle(
                                   color: Color(0xFF143C6D),
-                                  fontSize: 14.sm,
+                                  fontSize: 14.sp,
                                 ),
                               ),
-                              onPressed: () {
-                                //  Get.toNamed('/signup');
-                              },
+                              onPressed: () {},
                             )
                           ],
                         ),

@@ -1,9 +1,6 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore, file_names
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
@@ -32,23 +29,7 @@ class _otpVerificationState extends State<otpVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar:
-            // AppBar(
-            //   backgroundColor: AppColors.white,
-            //   // backgroundColor: Color(0xFFF5F8FA),
-            //   elevation: 0,
-            //   leading: IconButton(
-            //     onPressed: () {
-            //       Get.back();
-            //     },
-            //     icon: Icon(
-            //       Icons.arrow_back,
-            //     ),
-            //     iconSize: 24,
-            //     color: Color(0xFF0F0C0C),
-            //   ),
-            // ),
-            CustomSignupAppBar(
+        appBar: CustomSignupAppBar(
           titleTxt: "",
           bottomtext: false,
         ),
@@ -208,9 +189,7 @@ class _otpVerificationState extends State<otpVerification> {
                                 return true;
                               },
                               appContext: context,
-                            )
-                            ),
-
+                            )),
                             SizedBox(
                               height: 80.h,
                             ),
@@ -228,53 +207,6 @@ class _otpVerificationState extends State<otpVerification> {
                                 }
                               },
                             )
-                            // InkWell(
-                            //   onTap: () {
-                            //     Get.toNamed('/resetpassword');
-                            //   },
-                            //   child: Stack(
-                            //     children: [
-                            //       SizedBox(
-                            //         width: double.infinity,
-                            //         height: 50.h,
-                            //         child: ElevatedButton(
-                            //           style: ElevatedButton.styleFrom(
-                            //               elevation: 3,
-                            //               shadowColor: const Color.fromARGB(
-                            //                   255, 172, 172, 173),
-                            //               backgroundColor:
-                            //                   const Color(0xFFFFB600),
-                            //               shape: (RoundedRectangleBorder(
-                            //                 borderRadius:
-                            //                     BorderRadius.circular(30.0),
-                            //               ))),
-                            //           onPressed: () {
-                            //             Get.toNamed('/resetpassword');
-                            //           },
-                            //           child: const Text(
-                            //             'Proceed',
-                            //             style: TextStyle(
-                            //               color: Colors.black,
-                            //               fontSize: 16,
-                            //               fontFamily: 'Poppins',
-                            //             ),
-                            //           ),
-                            //         ),
-                            //       ),
-                            //       const Positioned(
-                            //         right: 0,
-                            //         top: 0,
-                            //         child: CircleAvatar(
-                            //           backgroundColor: Colors.white,
-                            //           radius: 25,
-                            //           child: Icon(
-                            //               color: Color(0xFF6B6B6B),
-                            //               Icons.arrow_forward),
-                            //         ),
-                            //       )
-                            //     ],
-                            //   ),
-                            // ),
                           ],
                         ),
                         SizedBox(

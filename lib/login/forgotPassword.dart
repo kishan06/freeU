@@ -27,22 +27,6 @@ class _forgotPasswordState extends State<forgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar:
-          // AppBar(
-          //   backgroundColor: AppColors.white,
-          //   // backgroundColor: Color(0xFFF5F8FA),
-          //   elevation: 0,
-          //   leading: IconButton(
-          //     onPressed: () {
-          //       Get.back();
-          //     },
-          //     icon: Icon(
-          //       Icons.arrow_back,
-          //     ),
-          //     iconSize: 24,
-          //     color: Color(0xFF0F0C0C),
-          //   ),
-          // ),
-
           CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
@@ -73,7 +57,6 @@ class _forgotPasswordState extends State<forgotPassword> {
                 ),
                 Expanded(
                     child: SingleChildScrollView(
-                  //padding: EdgeInsets.symmetric(horizontal: 16),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
@@ -83,13 +66,9 @@ class _forgotPasswordState extends State<forgotPassword> {
                       Text(
                         "We will send a verification email to the email address on your account in order to reset your password",
                         style: TextStyle(
-                          fontFamily: "Poppins",
                           fontSize: 18.sp,
                           color: Color(0xFF272424),
-                          //fontWeight: FontWeight.w500
                         ),
-
-                        // blackStyle18().copyWith(color: Color(0xFF272424)),
                       ),
                       SizedBox(
                         height: 30.h,
@@ -99,16 +78,10 @@ class _forgotPasswordState extends State<forgotPassword> {
                         children: [
                           Text(
                             "Phone number",
-                            // ignore: prefer_const_constructors
                             style: TextStyle(
-                              fontFamily: "Poppins",
                               fontSize: 20.sp,
                               color: Color(0xFF303030),
-                              //fontWeight: FontWeight.w500
                             ),
-                            //  blackStyle20().copyWith(
-                            //   color: Color(0xff303030),
-                            // ),
                           ),
                           SizedBox(
                             height: 15.h,

@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
@@ -15,14 +14,11 @@ import 'package:shared_preferences/shared_preferences.dart';
 class SideBar extends StatefulWidget {
   const SideBar({
     super.key,
-    // required this.press, required this.currentIndex
   });
 
   @override
   State<SideBar> createState() => _SideBarState();
 
-  // final VoidCallback press;
-  // final int currentIndex;
 }
 
 class _SideBarState extends State<SideBar> {
@@ -35,7 +31,6 @@ class _SideBarState extends State<SideBar> {
     {"imagePath": "assets/logos/side1.png", "text": "KYC"},
     {"imagePath": "assets/logos/side2.png", "text": "Security"},
     {"imagePath": "assets/logos/side3.png", "text": "How to Invest"},
-   // {"imagePath": "assets/logos/side4.png", "text": "Update Risk Profile"},
     {"imagePath": "assets/logos/side5.png", "text": "About FreeU"},
     {"imagePath": "assets/logos/side6.png", "text": "Our Insights"},
     {"imagePath": "assets/logos/side7.png", "text": "FAQ's"},
@@ -44,7 +39,6 @@ class _SideBarState extends State<SideBar> {
     {"imagePath": "assets/logos/side10.png", "text": "Contact Us"},
     {"imagePath": "assets/logos/side11.png", "text": "Logout"},
   ];
-  // Menu selectedSideMenu = sidebarMenus.first;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,22 +47,15 @@ class _SideBarState extends State<SideBar> {
           width: 300.w,
           height: double.infinity,
           decoration: const BoxDecoration(color: AppColors.blue143C6D
-              // borderRadius: BorderRadius.all(
-              //   Radius.circular(30),
-              // ),
               ),
           child: DefaultTextStyle(
             style: const TextStyle(color: Colors.white),
             child: Padding(
               padding: EdgeInsets.fromLTRB(16.w, 10.h, 45.w, 10.h),
               child: Column(
-                // crossAxisAlignment: CrossAxisAlignment.center,
-                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   sizedBoxHeight(60.h),
-
                   InkWell(onTap: () {
-                    // Get.toNamed("/userlogged");
                   }, child: GetBuilder<EntryPointController>(builder: (_) {
                     return controllerEntryPoint.logedIn!
                         ? InkWell(
@@ -94,11 +81,7 @@ class _SideBarState extends State<SideBar> {
                                     : Container(
                                         height: 50.w,
                                         width: 50.w,
-                                        child:
-                                              // ClipRRect(
-                                              //   // borderRadius: BorderRadius.circular(100),
-                                              //   // child: Image.network("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",fit: BoxFit.fill,)),
-                                            ClipRRect(
+                                        child: ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(100),
                                           child: Image.asset(
@@ -130,15 +113,6 @@ class _SideBarState extends State<SideBar> {
                                   color: AppColors.white,
                                 )
 
-                                // SizedBox(
-                                //   width: 5,
-                                // ),
-                                // Text(
-                                //   "Kartikey Adani",
-                                //   style: TextStyle(
-                                //     fontSize: 15.sm,
-                                //   ),
-                                // ),
                               ],
                             ),
                           )
@@ -165,11 +139,7 @@ class _SideBarState extends State<SideBar> {
                                     : Container(
                                         height: 50.w,
                                         width: 50.w,
-                                        child: 
-                                        // ClipRRect(
-                                        //   borderRadius: BorderRadius.circular(100),
-                                        //   child: Image.network("https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png",fit: BoxFit.fill,)),
-                                        ClipRRect(
+                                        child:   ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(100),
                                           child: Image.asset(
@@ -178,9 +148,7 @@ class _SideBarState extends State<SideBar> {
                                           ),
                                         ),
                                       ),
-
                                 sizedBoxWidth(15.w),
-
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -192,102 +160,29 @@ class _SideBarState extends State<SideBar> {
                                     text14White("Sign In/Sign up")
                                   ],
                                 ),
-
                                 Spacer(),
-
                                 Icon(
                                   Icons.arrow_forward_ios_outlined,
                                   size: 20.w,
                                   color: AppColors.white,
                                 )
-
-                                // SizedBox(
-                                //   width: 5,
-                                // ),
-                                // Text(
-                                //   "Kartikey Adani",
-                                //   style: TextStyle(
-                                //     fontSize: 15.sm,
-                                //   ),
-                                // ),
                               ],
                             ),
                           );
-                  })
-                      // Row(
-                      //   children: [
-                      //     editProfileImage.profilePicPath.value != ''
-                      //         ? ClipOval(
-                      //             child: SizedBox.fromSize(
-                      //               size: Size.fromRadius(25.r),
-                      //               child: Image(
-                      //                 image: FileImage(File(
-                      //                     editProfileImage.profilePicPath.value)),
-                      //                 fit: BoxFit.cover,
-                      //                 width: 50.w,
-                      //                 height: 50.h,
-                      //               ),
-                      //             ),
-                      //           )
-                      //         : SizedBox(
-                      //             height: 50.w,
-                      //             width: 50.w,
-                      //             child: Image.asset(
-                      //               'assets/images/avatar.png',
-                      //               fit: BoxFit.fill,
-                      //             ),
-                      //           ),
-
-                      //     sizedBoxWidth(15.w),
-
-                      //     Column(
-                      //       crossAxisAlignment: CrossAxisAlignment.start,
-                      //       children: [
-                      //         text16White(
-                      //           nameValue == null || nameValue!.isEmpty
-                      //               ? 'Kartikey Adani'
-                      //               : '$nameValue $lastNameValue',
-                      //         ),
-                      //         text14White("Investor")
-                      //       ],
-                      //     ),
-
-                      //     Spacer(),
-
-                      //     Icon(
-                      //       Icons.arrow_forward_ios_outlined,
-                      //       size: 20.w,
-                      //       color: AppColors.white,
-                      //     )
-
-                      //     // SizedBox(
-                      //     //   width: 5,
-                      //     // ),
-                      //     // Text(
-                      //     //   "Kartikey Adani",
-                      //     //   style: TextStyle(
-                      //     //     fontSize: 15.sm,
-                      //     //   ),
-                      //     // ),
-                      //   ],
-                      // ),
-
-                      ),
-
+                  })),
                   ListView.builder(
-                      shrinkWrap: true,
-                      itemCount: sideBarData.length,
-                      itemBuilder: (_, index) {
-                        return sideBarTile(
-                          image: sideBarData[index]["imagePath"],
-                          text: sideBarData[index]["text"],
-                          onTap: () {
-                            navigateTo(index, context);
-                          },
-                        );
-                      })
-
-                  // sideBarTile()
+                    shrinkWrap: true,
+                    itemCount: sideBarData.length,
+                    itemBuilder: (_, index) {
+                      return sideBarTile(
+                        image: sideBarData[index]["imagePath"],
+                        text: sideBarData[index]["text"],
+                        onTap: () {
+                          navigateTo(index, context);
+                        },
+                      );
+                    },
+                  ),
                 ],
               ),
             ),
@@ -317,12 +212,6 @@ void navigateTo(int index, BuildContext context) {
         Get.toNamed("/howtoinvest");
       }
       break;
-
-    // case 3:
-    //   {
-    //     Get.toNamed("/updaterisk");
-    //   }
-    //   break;
 
     case 3:
       {
@@ -362,10 +251,7 @@ void navigateTo(int index, BuildContext context) {
 
     case 9:
       {
-        // logoutDailog();
         logoutDailog(context);
-
-        // Get.toNamed("/security");
       }
       break;
 
@@ -396,19 +282,6 @@ Future<dynamic> logoutDailog(BuildContext context) {
             SizedBox(
               height: 30.h,
             ),
-            // Center(
-            //   child: Text(
-            //     'Log Out?',
-            //     textAlign: TextAlign.center,
-            //     style: TextStyle(
-            //         fontFamily: 'Poppins',
-            //         fontSize: 20.sm,
-            //         color: Colors.black),
-            //   ),
-            // ),
-            // SizedBox(
-            //   height: 10.h,
-            // ),
             Center(
               child: Text(
                 'Are you sure want to log out?',
@@ -450,15 +323,12 @@ Future<dynamic> logoutDailog(BuildContext context) {
               child: GestureDetector(
                 onTap: () {
                   print("going to homepage");
-                  //Get.off(HomePage());
                   Navigator.pop(context);
-                  // Get.toNamed("/homepage");
                 },
                 child: Container(
                   width: double.infinity,
                   height: 50.h,
                   decoration: const BoxDecoration(
-                    // borderSide: BorderSide(color: Color(0xFF707070), width: 1),
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
@@ -481,7 +351,7 @@ Future<dynamic> logoutDailog(BuildContext context) {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'Poppins',
-                        fontSize: 18.sm,
+                        fontSize: 18.sp,
                         color: Colors.black,
                       ),
                     ),
@@ -497,9 +367,9 @@ Future<dynamic> logoutDailog(BuildContext context) {
 }
 
 class sideBarTile extends StatelessWidget {
-  String image;
-  String text;
-  void Function()? onTap;
+ final String image;
+ final String text;
+ final void Function()? onTap;
 
   sideBarTile({
     required this.image,

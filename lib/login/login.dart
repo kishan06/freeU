@@ -45,7 +45,6 @@ class _LoginState extends State<Login> {
       builder: (context) {
         return Container(
           height: 400.h,
-          //margin: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.w),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 31.w),
             child: Column(
@@ -63,7 +62,6 @@ class _LoginState extends State<Login> {
                 ),
                 sizedBoxHeight(15.h),
                 Column(
-                  //mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -132,7 +130,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-  Future<T?> bottomsheetpin<T>(BuildContext context) {
+   bottomsheetpin(BuildContext context) {
     return showModalBottomSheet(
       isScrollControlled: true,
       context: context,
@@ -165,7 +163,6 @@ class _LoginState extends State<Login> {
                 ),
                 sizedBoxHeight(15.h),
                 Column(
-                  // mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -239,7 +236,6 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                           fontSize: 18.sp,
                           color: Color(0xFF143C6D),
-                          //fontWeight: FontWeight.w600
                         ),
                       ),
                     )
@@ -266,13 +262,11 @@ class _LoginState extends State<Login> {
           final message = "Press back again to exit";
           Fluttertoast.showToast(
             msg: message,
-            fontSize: 18.sm,
+            fontSize: 18.sp,
           );
-
           return false;
         } else {
           Fluttertoast.cancel();
-
           SystemNavigator.pop();
           return true;
         }
@@ -346,7 +340,6 @@ class _LoginState extends State<Login> {
                           children: [
                             Text(
                               "Email / Phone",
-                              // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 20.sp,
