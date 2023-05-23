@@ -1,23 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
-import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceDiscountingMain.dart';
-import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
-import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based.dart';
-import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
+import 'package:freeu/common/Categories%20Common%20Files/cat_common_main.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'Alternative/AIF_main.dart';
-import 'CleanGreen/CleanGreenMain.dart';
-import 'SecuredDebt/SecuredDebtMain.dart';
-import 'Venture debt/VentureDebtMain.dart';
-import 'coming_soon.dart';
-import 'revenue_based_financing/revenue_based_main.dart';
+import '../../common/Categories Common Files/learnMore_common_accordion.dart';
+import 'Alternative/AlternativeCategories.dart';
+import 'Alternative/Fractionalproperties.dart';
+import 'Alternative/Fractionalrealestate.dart';
+import 'AlternativeInvestment.dart';
+import 'CleanGreen/CleanGreenViewMore.dart';
+import 'CleanGreen/clean green view more product/CleanGreenViewMoreProduct.dart';
+import 'High_yield/High_yield_Learn.dart';
+import 'High_yield/high_yield_more_products.dart';
+import 'InvoiceDiscounting/DiscountinglearnMore.dart';
+import 'InvoiceDiscounting/Invoiceproperties.dart';
+import 'Lease_based_Categories/Lease view more product/LeaseViewMoreProduct.dart';
+import 'Lease_based_Categories/Lease_based_learn.dart';
+import 'PeerLendingAssets/Peer View More product/PeerViewMoreProduct.dart';
+import 'PeerLendingAssets/PeerLearnMore.dart';
+import '../../common/Categories Common Files/coming_soon.dart';
+import 'SecuredDebt/SecuritizedViewMore.dart';
+import 'SecuredDebt/Securitizedproperties.dart';
+import 'Venture debt/VentureDebtViewMore.dart';
+import 'Venture debt/VentureProduct/ViewMoreProdcutVenture.dart';
+import 'revenue_based_financing/revenue_based_learn_more.dart';
+import 'revenue_based_financing/revenueproperties.dart';
 
 class CategoriesMain extends StatefulWidget {
   const CategoriesMain({super.key});
@@ -215,43 +227,144 @@ class _CategoriesMainState extends State<CategoriesMain> {
     switch (index) {
       case 0:
         {
-          return AIFMain();
+          return CatCommonMain(
+            title: "Alternative Investment Funds",
+            description:
+                """Alternate Investment Funds or AIFs are privately pooled investment vehicles that collect funds from investors, under specific guidelines of the SEBI (Securities and Exchange Board of India). It includes venture debt, hedge funds, real estate funds, PIPE investments, private equity, etc.""",
+            expectedReturn: "~ 12-24% p.a.",
+            suggestedHorizon: 'More than 5 Years',
+            minInvestment: '1 Crore',
+            bottomButtonTitle: 'bottomButtonTitle',
+            backgroundColor: AppColors.redL_BE0F02,
+            learnMoreRoute: const AlternativeInsvestment(),
+            bottomButtonRoute: const AlternativeCategories(),
+          );
         }
       case 1:
         {
-          return FractionalRealestate();
+          return CatCommonMain(
+              title: "Fractional Real Estate",
+              description:
+                  "Fractional Real Estate investing allows investors to buy fractions of a real estate property, and get returns on it like rent, capital appreciation, etc. The investors split the cost, and share any profit that comes from that asset without the hassle of paperwork, property maintenance, etc.",
+              expectedReturn: "~ 11-13% p.a.",
+              suggestedHorizon: "More than 4 Years",
+              minInvestment: "25,00,000",
+              bottomButtonTitle: "View more product",
+              backgroundColor: AppColors.blueL_006796,
+              learnMoreRoute: FractionalRealEstate2(),
+              bottomButtonRoute: const Fractionalproperties());
         }
       case 2:
         {
-          return PeerMain();
+          return CatCommonMain(
+              title: "Peer to Peer Lending",
+              description:
+                  "Peer to Peer lending connects the borrowers (investors) to the lenders directly, under a loan agreement, without having to go through any financial institutions like banks.",
+              expectedReturn: "~ 9-12% p.a.",
+              suggestedHorizon: "~ 3-36 months",
+              minInvestment: "1,00,000",
+              bottomButtonTitle: "View more product",
+              backgroundColor: AppColors.greenL_089435,
+              learnMoreRoute: const PeerLearnMore(),
+              bottomButtonRoute: const PeerViewMoreProduct());
         }
       case 3:
         {
-          return InvoiceDiscountingMain();
+          return CatCommonMain(
+              title: "Invoice Discounting",
+              description:
+                  "Invoice Discounting is the financial practice of using a company's unpaid invoices to get a working cash flow and fulfill its immediate financial needs.",
+              expectedReturn: "~ 12-18% p.a.",
+              suggestedHorizon: "~ 3-18 months",
+              minInvestment: "1,00,000",
+              bottomButtonTitle: "View more product",
+              backgroundColor: AppColors.purpleL_474E88,
+              learnMoreRoute: const DiscountingLearnMore(),
+              bottomButtonRoute: const InvoiceProperties());
         }
       case 4:
         {
-          return RevenueBasedMain();
+          return CatCommonMain(
+              title: "Revenue-based Financing",
+              description:
+                  "Revenue-based financing is an investment done to help small and rising startups grow their business with the invested capital, in return for a fixed percentage of their ongoing gross revenues, measured mainly as monthly revenues.",
+              expectedReturn: "~ 12-16% p.a.",
+              suggestedHorizon: "~ 1-4 years",
+              minInvestment: "5,00,000",
+              bottomButtonTitle: "View more product",
+              backgroundColor: AppColors.brownL_973926,
+              learnMoreRoute: RevenueBasedLearnMore(),
+              bottomButtonRoute: const RevenueProperties());
         }
       case 5:
         {
-          return LeaseBased();
+          return CatCommonMain(
+              title: "Lease based Financing",
+              description:
+                  "This is a kind of financing where the lender (lessor) gives another person, the lessee, the right to use an asset against periodical payments.",
+              expectedReturn: "~ 12-16% p.a.",
+              suggestedHorizon: "~ 12-36 months",
+              minInvestment: "1,00,000",
+              bottomButtonTitle: "View more product",
+              backgroundColor: AppColors.pinkL_E6088B,
+              learnMoreRoute: LeaseBasedLearn(),
+              bottomButtonRoute: const LeaseViewMoreProduct());
         }
       case 6:
         {
-          return CleanGreenMain();
+          return CatCommonMain(
+              title: "Clean and Green Assets",
+              description:
+                  "Clean and Green Asset investing is the method of investing in environmentally conscious, sustainable, and socially conscious companies.",
+              expectedReturn: "~ 9-12% p.a.",
+              suggestedHorizon: "~ 6-36 months",
+              minInvestment: "50,000",
+              bottomButtonTitle: "View more product",
+              backgroundColor: AppColors.redL_BE0F02,
+              learnMoreRoute: CleanGreenViewMore(),
+              bottomButtonRoute: const CleanGreenViewMoreProduct());
         }
       case 7:
         {
-          return VentureDebtMain();
+          return CatCommonMain(
+              title: "Venture Debt",
+              description:
+                  "Venture Debt is a debt provided to venture capital-backed companies to raise working capital, to fulfill their financial shortfalls.",
+              expectedReturn: "~ 12-18% p.a.",
+              suggestedHorizon: "~ 12-36 months",
+              minInvestment: "5,00,000",
+              bottomButtonTitle: "View more product",
+              backgroundColor: AppColors.blueL_006796,
+              learnMoreRoute: const VentureDebtViewMore(),
+              bottomButtonRoute: const VeiwMoreProductVenture());
         }
       case 8:
         {
-          return SecureDebtMain();
+          return CatCommonMain(
+              title: "Securitized Debt Instruments",
+              description:
+                  "Securitization involves the creation of a pool of assets from illiquid financial assets which are repackaged or bundled into marketable securities. Securitized Debt Instruments are financial securities such as bonds/certificates that are created by securitizing individual loans (debt).",
+              expectedReturn: "~ 12-16% p.a.",
+              suggestedHorizon: "More than 3 Years",
+              minInvestment: "5,00,000",
+              bottomButtonTitle: "View more product",
+              backgroundColor: AppColors.greenL_089435,
+              learnMoreRoute: SecuritizedViewMore(),
+              bottomButtonRoute: const SecuritizedProperties());
         }
       case 9:
         {
-          return HighYieldFinance();
+          return CatCommonMain(
+              title: "High Yield Fixed Income",
+              description:
+                  "High-yield bonds or junk bonds are bonds that pay higher rates of interest, because of their low credit rates, compared to investment-grade bonds. Due to their higher chances to default, they pay a higher yield to compensate investors - hence called High yield Bonds.",
+              expectedReturn: "~ 12-18% p.a.",
+              suggestedHorizon: "~ 1-5 years",
+              minInvestment: "1,00,000",
+              bottomButtonTitle: "View more product",
+              backgroundColor: AppColors.purpleL_474E88,
+              learnMoreRoute: HighYieldLearn(),
+              bottomButtonRoute: const HighYieldMoreProduct());
         }
       default:
         {

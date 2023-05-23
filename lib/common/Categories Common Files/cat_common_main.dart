@@ -1,29 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
-import 'VentureDebtViewMore.dart';
-import 'VentureProduct/ViewMoreProdcutVenture.dart';
+class CatCommonMain extends StatelessWidget {
+  final String title;
+  final String description;
+  final String expectedReturn;
+  final String suggestedHorizon;
+  final String minInvestment;
+  final String bottomButtonTitle;
+  final Color backgroundColor;
+  final dynamic learnMoreRoute;
+  final dynamic bottomButtonRoute;
+  CatCommonMain({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.expectedReturn,
+    required this.suggestedHorizon,
+    required this.minInvestment,
+    required this.bottomButtonTitle,
+    required this.backgroundColor,
+    required this.learnMoreRoute,
+    required this.bottomButtonRoute,
+  });
 
-class VentureDebtMain extends StatefulWidget {
-  const VentureDebtMain({super.key});
-
-  @override
-  State<VentureDebtMain> createState() => _VentureDebtMainState();
-}
-
-class _VentureDebtMainState extends State<VentureDebtMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.blueL_006796,
+      backgroundColor: backgroundColor,
       appBar: AppBar(
-        backgroundColor: AppColors.blueL_006796,
+        backgroundColor: backgroundColor,
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
@@ -37,6 +47,28 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
           color: const Color(0XFFFFFFFF),
         ),
       ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.all(16.w),
+        child: OpenContainerWrappers(
+          openBuild: bottomButtonRoute,
+          closeBuild: Container(
+            decoration: BoxDecoration(
+                color: const Color(0XFFFBFBFB),
+                borderRadius: BorderRadius.circular(10.r)),
+            width: double.infinity,
+            height: 50.h,
+            child: Center(
+              child: Text(
+                bottomButtonTitle,
+                style: TextStyle(
+                  color: const Color(0XFF000000),
+                  fontSize: 18.sp,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
       body: Center(
         child: Column(
           children: [
@@ -45,19 +77,21 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    "Venture Debt",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        color: const Color(0XFFFFFFFF),
-                        fontWeight: FontWeight.w500),
+                  Flexible(
+                    child: Text(
+                      title,
+                      style: TextStyle(
+                          fontSize: 25.sp,
+                          color: const Color(0XFFFFFFFF),
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ],
               ),
             ),
             Expanded(
               child: SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                     horizontal: 16.h,
@@ -69,21 +103,17 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                         height: 20.h,
                       ),
                       Text(
-                        "Venture Debt is a debt provided to venture capital-backed companies to raise working capital, to fulfill their financial shortfalls.",
+                        description,
                         style: TextStyle(
                           color: const Color(0XFFFFFFFF),
                           fontSize: 18.sp,
-                          //fontFamily: 'Poppins'
                         ),
                       ),
                       SizedBox(
                         height: 9.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const VentureDebtViewMore(),
-                        // onTap: () {
-                        //   Get.toNamed("/fractionalrealestate");
-                        // },
+                        openBuild: learnMoreRoute,
                         closeBuild: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -98,7 +128,7 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                         ),
                       ),
                       SizedBox(
-                        height: 29.h,
+                        height: 20.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -114,20 +144,19 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Expected Return:",
+                              Text("Expected Return (IRR)",
                                   style: TextStyle(
                                     color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
-                              // text20White(widget.irr)
-                              text20White("~12%-18% p.a.")
+                              text20White(expectedReturn)
                             ],
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 40.h,
+                        height: 30.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -144,21 +173,20 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Investment Horizon:",
+                                Text("Suggested Investment Horizon",
                                     style: TextStyle(
-                                      color: Color(0XFFFBFBFB),
+                                      color: const Color(0XFFFBFBFB),
                                       fontSize: 16.sp,
                                       fontFamily: "Poppins",
                                     )),
-                                // text20White(widget.sih)
-                                text20White("~ 12-36 months")
+                                text20White(suggestedHorizon)
                               ],
                             ),
                           ),
                         ],
                       ),
                       SizedBox(
-                        height: 40.h,
+                        height: 30.h,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -174,13 +202,13 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text("Minimum Investment:",
+                              Text("Minimum Investment",
                                   style: TextStyle(
                                     color: const Color(0XFFFBFBFB),
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
-                              text20White("5,00,000")
+                              text20White(minInvestment)
                             ],
                           ),
                         ],
@@ -188,26 +216,6 @@ class _VentureDebtMainState extends State<VentureDebtMain> {
                       SizedBox(
                         height: 40.h,
                       ),
-                      OpenContainerWrappers(
-                        openBuild: const VeiwMoreProductVenture(),
-                        closeBuild: Container(
-                          decoration: BoxDecoration(
-                              color: const Color(0XFFFBFBFB),
-                              borderRadius: BorderRadius.circular(10.r)),
-                          width: double.infinity,
-                          height: 50.h,
-                          child: Center(
-                            child: Text(
-                              "View more product",
-                              style: TextStyle(
-                                color: const Color(0XFF000000),
-                                fontSize: 18.sp,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      sizedBoxHeight(38.h),
                     ],
                   ),
                 ),

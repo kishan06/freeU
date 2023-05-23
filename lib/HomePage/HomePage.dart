@@ -2,15 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/HomePage/Categories/CleanGreen/CleanGreenMain.dart';
-import 'package:freeu/HomePage/Categories/High_yield/High_yieldpage.dart';
-import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceDiscountingMain.dart';
-import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based.dart';
-import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerMain.dart';
-import 'package:freeu/HomePage/Categories/SecuredDebt/SecuredDebtMain.dart';
-import 'package:freeu/HomePage/Categories/Venture%20debt/VentureDebtMain.dart';
-import 'package:freeu/HomePage/Categories/coming_soon.dart';
-import 'package:freeu/HomePage/Categories/revenue_based_financing/revenue_based_main.dart';
+import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
 import 'package:freeu/SideMenu/insights.dart';
@@ -22,8 +14,6 @@ import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'Categories/Alternative/AIF_main.dart';
-import 'Categories/Alternative/Fractionalpage.dart';
 import '../controllers/entry_point_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -450,46 +440,6 @@ class _HomePageState extends State<HomePage> {
 
   Widget navigate(int index) {
     switch (index) {
-      case 0:
-        {
-          return AIFMain();
-        }
-      case 1:
-        {
-          return FractionalRealestate();
-        }
-      case 2:
-        {
-          return PeerMain();
-        }
-      case 3:
-        {
-          return InvoiceDiscountingMain();
-        }
-      case 4:
-        {
-          return RevenueBasedMain();
-        }
-      case 5:
-        {
-          return LeaseBased();
-        }
-      case 6:
-        {
-          return CleanGreenMain();
-        }
-      case 7:
-        {
-          return VentureDebtMain();
-        }
-      case 8:
-        {
-          return SecureDebtMain();
-        }
-      case 9:
-        {
-          return HighYieldFinance();
-        }
       default:
         {
           return ComingSoon();
