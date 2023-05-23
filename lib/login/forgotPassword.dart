@@ -1,10 +1,6 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables, duplicate_ignore
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/signupAppbar.dart';
@@ -138,7 +134,6 @@ class _forgotPasswordState extends State<forgotPassword> {
                                   },
                                   hintText: "Enter your Phone Number",
                                   validatorText: "Enter your Phone Number"),
-                          
                             ],
                           ),
                           SizedBox(
