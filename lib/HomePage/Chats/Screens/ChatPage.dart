@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/HomePage/Chats/Model/ChatUserModel.dart';
 import 'package:freeu/HomePage/Chats/Widgets/ConversationList.dart';
-import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';

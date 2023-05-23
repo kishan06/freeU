@@ -1,4 +1,3 @@
-// ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -7,15 +6,12 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/Utils/global_function.dart';
 import 'package:freeu/Utils/textStyle.dart';
-import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
 import 'package:freeu/common/customNextButton.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/screens/main_screen.dart';
 import 'package:freeu/viewModel/auth_post.dart';
-
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

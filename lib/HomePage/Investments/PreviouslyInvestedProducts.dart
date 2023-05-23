@@ -1,11 +1,7 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +16,6 @@ class PreviouslyInvestedProducts extends StatefulWidget {
 class _PreviouslyInvestedProductsState
     extends State<PreviouslyInvestedProducts> {
   int selectIndex = 0;
-  int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   PageController indicatorcontroller = PageController(
     viewportFraction: 0.95,

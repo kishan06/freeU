@@ -1,11 +1,6 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/signupAppbar.dart';
 import 'package:get/get.dart';
 

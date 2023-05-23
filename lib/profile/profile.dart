@@ -1,28 +1,16 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, avoid_print, duplicate_ignore, prefer_const_literals_to_create_immutables, unused_import
-
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:freeu/SideMenu/user_logged.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
 import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
 import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/profile/kyctabs2.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-
 import '../common/CustomTextDropDown.dart';
 
 bool smsUpdate = true;
@@ -133,12 +121,14 @@ class _ProfileState extends State<Profile> {
                     Tab(
                         child: Text(
                       'Profile',
-                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                      style:
+                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                     )),
                     Tab(
                         child: Text(
                       'KYC',
-                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                      style:
+                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                     )),
                     // Tab(
                     //     child: Text(
@@ -153,7 +143,7 @@ class _ProfileState extends State<Profile> {
                   children: [
                     profiletab(),
                     KYCtabs(),
-                   // riskprofile(), I have commented this because of client requiremnet.
+                    // riskprofile(), I have commented this because of client requiremnet.
                   ],
                 ),
               ),
@@ -905,8 +895,7 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc1() {
     return SingleChildScrollView(
-      child:
-       Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1095,8 +1084,7 @@ class _KYCtabsState extends State<KYCtabs> {
   }
 
   Widget kyc2() {
-    return 
-    SingleChildScrollView(
+    return SingleChildScrollView(
       child: Center(
         child: Form(
           child: Column(
@@ -1412,8 +1400,7 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc3() {
     return SingleChildScrollView(
-      child: 
-      Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1605,8 +1592,7 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc4() {
     return SingleChildScrollView(
-      child:
-       Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
