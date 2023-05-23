@@ -17,7 +17,7 @@ import 'package:freeu/SideMenu/insights.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/categoryCard.dart';
+import 'package:freeu/common/Categories%20Common%20Files/categoryCard.dart';
 import 'package:freeu/common/page_animation.dart';
 import 'package:freeu/common/sized_box.dart';
 import 'package:get/get.dart';
