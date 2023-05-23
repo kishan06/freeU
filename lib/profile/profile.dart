@@ -4,14 +4,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
-import '../common/CustomTextDropDown.dart';
+import '../common/Other Commons/CustomTextDropDown.dart';
 
 bool smsUpdate = true;
 TextEditingController nameController = TextEditingController();

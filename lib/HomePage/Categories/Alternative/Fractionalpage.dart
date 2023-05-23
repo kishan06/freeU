@@ -5,8 +5,8 @@ import 'package:freeu/HomePage/Categories/PeerLendingAssets/PeerLearnMore.dart';
 import 'package:freeu/HomePage/Categories/revenue_based_financing/revenue_based_learn_more.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import '../Alternative/Fractionalproperties.dart';
 

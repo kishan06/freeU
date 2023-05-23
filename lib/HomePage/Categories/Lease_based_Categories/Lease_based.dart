@@ -11,11 +11,11 @@ import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_lea
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_properties.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 import 'Lease view more product/LeaseViewMoreProduct.dart';

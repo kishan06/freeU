@@ -4,8 +4,8 @@ import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart'
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 import 'CleanGreenViewMore.dart';

@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
-import 'package:freeu/common/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
 
 class ConversationList extends StatefulWidget {
   String name;

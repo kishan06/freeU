@@ -4,8 +4,8 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/AIF2_main.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:get/get.dart';
 
 import 'AIF Cateogary I/AIF1_main.dart';

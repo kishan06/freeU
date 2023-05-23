@@ -5,10 +5,10 @@ import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/Propertie
 import 'package:freeu/HomePage/Categories/High_yield/highyield_view_investment.dart';
 import 'package:freeu/HomePage/Categories/High_yield/model/highyield_prods_model.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:lottie/lottie.dart';

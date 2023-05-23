@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20III/PrivateViewDetails.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:lottie/lottie.dart';
 
 class PrivateInvestmentProducts extends StatefulWidget {

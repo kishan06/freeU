@@ -8,7 +8,7 @@ import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/HomePage/Market/market_tab.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/profile/profile.dart';
 import 'package:freeu/screens/side_menu.dart';

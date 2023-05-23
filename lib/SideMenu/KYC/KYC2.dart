@@ -2,11 +2,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/common/CustomTextDropDown.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextDropDown.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';

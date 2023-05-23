@@ -7,7 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
-import '../common/customNextButton.dart';
+import '../common/Other Commons/customNextButton.dart';
 
 class TouchId extends StatefulWidget {
   const TouchId({super.key});

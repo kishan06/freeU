@@ -7,9 +7,9 @@ import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
 import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/simple_accotion.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/simple_accotion.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 import 'investment_transfer.dart';

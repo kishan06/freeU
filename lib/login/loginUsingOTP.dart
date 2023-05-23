@@ -5,8 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:get/get.dart';
 
 class LoginUsingOTP extends StatefulWidget {

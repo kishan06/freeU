@@ -3,8 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/SideMenu/FAQ/1Fractional.dart';
 import 'package:freeu/SideMenu/FAQ/2peerFAQ.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 import '10VentureDebtFAQ.dart';

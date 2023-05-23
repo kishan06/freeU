@@ -9,11 +9,11 @@ import 'package:freeu/HomePage/Categories/High_yield/High_yield_Learn.dart';
 import 'package:freeu/HomePage/Categories/High_yield/high_yield_more_products.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 //import 'Fractionalproperties.dart';
