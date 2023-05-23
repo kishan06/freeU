@@ -46,7 +46,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                       "Let's set your 4 Digit Pin",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 20.sm,
+                        fontSize: 20.sp,
                         fontFamily: 'Poppins',
                       ),
                     ),

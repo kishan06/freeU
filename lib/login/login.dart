@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +27,6 @@ class _LoginState extends State<Login> {
   TextEditingController passwordcontroller = TextEditingController();
 
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
-  bool _isObscure = true;
   DateTime timebackPressed = DateTime.now();
   TextEditingController pincontroller = TextEditingController();
 
@@ -130,7 +128,7 @@ class _LoginState extends State<Login> {
     );
   }
 
-   bottomsheetpin(BuildContext context) {
+  bottomsheetpin(BuildContext context) {
     return showModalBottomSheet(
       isScrollControlled: true,
       context: context,

@@ -16,7 +16,6 @@ class KYC1 extends StatefulWidget {
 
 class _KYC1State extends State<KYC1> {
   int currentIndex = 0;
-  late PageController _controller;
 
   String? datecontroller;
 
@@ -25,7 +24,6 @@ class _KYC1State extends State<KYC1> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return Scaffold(
       backgroundColor: Color(0xFFFFFFFF),
       appBar: CustomSignupAppBar(
@@ -95,7 +93,6 @@ class _KYC1State extends State<KYC1> {
                       ),
                       Text(
                         "Contact Number",
-                        // ignore: prefer_const_constructors
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -250,7 +247,6 @@ class _KYC1State extends State<KYC1> {
         return setState(() {
           datecontroller = '';
         });
-        ;
       }
       setState(() {
         _selectedDate = pickedDate;

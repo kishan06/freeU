@@ -8,7 +8,7 @@ import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
 class PrivateViewDetails extends StatefulWidget {
-  int pageIndex;
+  final int pageIndex;
 
   PrivateViewDetails({super.key, required this.pageIndex});
 

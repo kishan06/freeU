@@ -79,7 +79,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                     Text(
                       "Don't show this message again",
                       style: TextStyle(
-                        fontSize: 14.sm,
+                        fontSize: 14.sp,
                         fontFamily: 'Poppins',
                       ),
                     ),
@@ -116,7 +116,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           "No",
                           style: TextStyle(
                               fontFamily: "Poppins",
-                              fontSize: 16.sm,
+                              fontSize: 16.sp,
                               color: Colors.black),
                         ),
                       ),
@@ -144,7 +144,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
                           "Yes",
                           style: TextStyle(
                               fontFamily: "Poppins",
-                              fontSize: 16.sm,
+                              fontSize: 16.sp,
                               color: Colors.white),
                         ),
                       ),
@@ -177,7 +177,7 @@ class _CompleteProfileState extends State<CompleteProfile> {
             "Skip",
             style: TextStyle(
               color: Color(0xff6B6B6B),
-              fontSize: 14.sm,
+              fontSize: 14.sp,
               fontFamily: 'Poppins',
             ),
           ),
@@ -468,19 +468,16 @@ class _CompleteProfileState extends State<CompleteProfile> {
   }
 
   void _presentDatePicker() {
-    // showDatePicker is a pre-made funtion of Flutter
     showDatePicker(
             context: context,
             initialDate: DateTime.now(),
             firstDate: DateTime(1922),
             lastDate: DateTime.now())
         .then((pickedDate) {
-      // Check if no date is selected
       if (pickedDate == null) {
         return setState(() {
           datecontroller = '';
         });
-        ;
       }
       setState(() {
         _selectedDate = pickedDate;

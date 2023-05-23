@@ -146,8 +146,8 @@ class _Fractional1State extends State<Fractional1> {
 }
 
 class FaqBox extends StatefulWidget {
-  String titleString;
-  String contentString;
+  final String titleString;
+  final String contentString;
   FaqBox({super.key, required this.titleString, required this.contentString});
 
   @override

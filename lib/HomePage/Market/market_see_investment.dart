@@ -17,10 +17,7 @@ class MarketSeeMyInvestment extends StatefulWidget {
 
 class _MarketSeeMyInvestmentState extends State<MarketSeeMyInvestment> {
   int currentIndex = 0;
-
   String? datecontroller;
-
-  DateTime? _selectedDate;
   final residentialstatustexteditingcontroller = TextEditingController();
 
   @override

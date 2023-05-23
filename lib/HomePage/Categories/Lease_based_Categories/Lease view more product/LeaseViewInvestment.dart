@@ -8,7 +8,7 @@ import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
 class LeaseViewInvestment extends StatefulWidget {
-  int pageIndex;
+  final int pageIndex;
   LeaseViewInvestment({super.key, required this.pageIndex});
 
   @override

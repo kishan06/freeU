@@ -199,7 +199,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                     'Has at least 8 characters',
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
-                                        fontSize: 14.sm,
+                                        fontSize: 14.sp,
                                         color: _isPasswordEightCar
                                             ? Color(0xff143C6D)
                                             : Colors.black),
@@ -240,7 +240,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                       'Has at least 1 uppercase letter and symbol',
                                       style: TextStyle(
                                           fontFamily: 'Poppins',
-                                          fontSize: 14.sm,
+                                          fontSize: 14.sp,
                                           color: _isHasSymboleOrCaptital
                                               ? Color(0xff143C6D)
                                               : Colors.black),
@@ -280,7 +280,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                                     'Has a number',
                                     style: TextStyle(
                                         fontFamily: 'Poppins',
-                                        fontSize: 14.sm,
+                                        fontSize: 14.sp,
                                         color: _isHasOneNumber
                                             ? Color(0xff143C6D)
                                             : Colors.black),
@@ -296,7 +296,7 @@ class _ResetPasswordState extends State<ResetPassword> {
                               // ignore: prefer_const_constructors
                               style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 16.sm,
+                                  fontSize: 16.sp,
                                   color: Color(0xff303030)),
                             ),
                             SizedBox(

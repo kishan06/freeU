@@ -286,7 +286,7 @@ Future<dynamic> logoutDailog(BuildContext context) {
               child: Text(
                 'Are you sure want to log out?',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 17.sm, color: Color(0xFF444444)),
+                style: TextStyle(fontSize: 17.sp, color: Color(0xFF444444)),
               ),
             ),
             SizedBox(

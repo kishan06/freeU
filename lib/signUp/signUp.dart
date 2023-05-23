@@ -159,7 +159,7 @@ class _SignUpState extends State<SignUp> {
                             softWrap: false,
                             'I accept Terms & Conditions',
                             style: TextStyle(
-                              fontSize: 14.sm,
+                              fontSize: 14.sp,
                               fontFamily: 'Poppins',
                             ),
                           ),
@@ -400,7 +400,7 @@ class _SignUpState extends State<SignUp> {
                                 errorMaxLines: 3,
                                 hintStyle: TextStyle(
                                     color: Color(0x80000000),
-                                    fontSize: 15.sm,
+                                    fontSize: 15.sp,
                                     fontFamily: "Poppins"),
                                 fillColor: Colors.white,
                                 filled: true,
@@ -524,7 +524,7 @@ class _SignUpState extends State<SignUp> {
                                 'Has at least 1 uppercase letter and symbol',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 14.sm,
+                                    fontSize: 14.sp,
                                     color: _isHasSymboleOrCaptital
                                         ? Color(0xff143C6D)
                                         : Colors.black),
@@ -560,7 +560,7 @@ class _SignUpState extends State<SignUp> {
                                 'Has a number',
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 14.sm,
+                                    fontSize: 14.sp,
                                     color: _isHasOneNumber
                                         ? Color(0xff143C6D)
                                         : Colors.black),
@@ -638,15 +638,14 @@ class _SignUpState extends State<SignUp> {
                                         "I accept the ",
                                         style: TextStyle(
                                           color: Colors.black,
-                                          fontSize: 14.sm,
+                                          fontSize: 14.sp,
                                         ),
                                       ),
                                       Text(
                                         "Terms & Conditions*",
                                         style: TextStyle(
-                                          fontSize: 14.sm,
+                                          fontSize: 14.sp,
                                           color: Color(0xff143C6D),
-                                          // decoration:TextDecoration.underline
                                         ),
                                       ),
                                     ],
@@ -856,7 +855,7 @@ class _TermsAndConditionsState extends State<TermsAndConditions> {
           children: [
             Text(
               "Terms And Conditions",
-              style: TextStyle(fontFamily: "Poppins", fontSize: 20.sm),
+              style: TextStyle(fontFamily: "Poppins", fontSize: 20.sp),
             ),
             Text(
                 "Lorem Ipsum  Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsummlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenen sumloren sumloren sumloren sumlorenmloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sumloren sum sumloren sumloren sumloren sumloren sumloren sumloren sum"),

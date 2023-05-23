@@ -116,7 +116,7 @@ class FirstTab extends StatelessWidget {
 class SecondTab extends StatelessWidget {
   SecondTab({super.key});
 
-  List realSlider = [
+  final List realSlider = [
     {
       "Company Name": "Sundaram High Yield Secured Real Estate Fund III",
       "View investment Route": RealEstateDetails(

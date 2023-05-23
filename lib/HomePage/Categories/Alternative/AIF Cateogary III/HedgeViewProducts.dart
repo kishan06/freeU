@@ -114,7 +114,7 @@ class FirstTab extends StatelessWidget {
 class SecondTab extends StatelessWidget {
   SecondTab({super.key});
 
-  List hedgeSlider = [
+  final List hedgeSlider = [
     {
       "Company Name": "Bay Capital India Leaders Fund",
       "View investment Route": HedgeFundDetails(

@@ -146,8 +146,8 @@ class _InvoiceFAQState extends State<InvoiceFAQ> {
 }
 
 class FaqBox extends StatefulWidget {
-  String titleString;
-  String contentString;
+  final String titleString;
+  final String contentString;
   FaqBox({super.key, required this.titleString, required this.contentString});
 
   @override

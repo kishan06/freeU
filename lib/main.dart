@@ -80,11 +80,6 @@ import 'HomePage/Categories/revenue_based_financing/revenueproperties.dart';
 
 int bottomIndex = 0;
 
-void main() {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
-}
-
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);
 
@@ -98,8 +93,6 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     checkOnboard();
-    // final SharedPreferences prefs = await SharedPreferences.getInstance();
-    // onBoardDone = prefs.getBool('OnBoardDone') ?? false;
   }
 
   checkOnboard() async {
@@ -108,10 +101,6 @@ class _MyAppState extends State<MyApp> {
     print(onBoardDone);
     setState(() {});
   }
-
-  // String entryRoute(){
-  //   return
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -123,9 +112,7 @@ class _MyAppState extends State<MyApp> {
             builder: (BuildContext context, Widget? child) => GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'FreeU',
-              // initialRoute: '/SideBar',
               initialRoute: onBoardDone ?? false ? '/EntryPoint' : '/',
-
               theme: ThemeData(
                 scaffoldBackgroundColor: AppColors.white,
                 fontFamily: "Poppins",
@@ -175,10 +162,6 @@ class _MyAppState extends State<MyApp> {
                 GetPage(
                     name: '/categoriesmain',
                     page: () => const CategoriesMain()),
-
-                //      GetPage(name: '/peerlendingasset1', page: () => PeerLendingAsset1()),
-                //    GetPage(name: '/peerlendingasset2', page: () => PeerLendingAsset2()),
-                // GetPage(name: '/investmentmain', page: () => InvestmentMain()),
                 GetPage(
                     name: '/currentinvestment',
                     page: () => const CurrentInvestment()),
@@ -211,9 +194,6 @@ class _MyAppState extends State<MyApp> {
                 GetPage(
                     name: '/altenativecategories',
                     page: () => const AlternativeCategories()),
-
-                // GetPage(name: '/privateequity', page: () => PrvateEquity()),
-
                 GetPage(
                     name: '/altenativecategories2',
                     page: () => const AlternativeCategories2()),

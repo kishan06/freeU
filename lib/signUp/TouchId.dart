@@ -1,10 +1,7 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:freeu/Utils/texts.dart';
 import 'package:get/get.dart';
 import 'package:local_auth/local_auth.dart';
 import '../common/Other Commons/customNextButton.dart';
@@ -48,10 +45,6 @@ class _TouchIdState extends State<TouchId> {
               margin: EdgeInsets.all(8),
               snackStyle: SnackStyle.FLOATING,
               snackPosition: SnackPosition.BOTTOM);
-
-      // if (isAuth ?) {
-      //   Get.toNamed('/completeprofile');
-      // }
       print(isAuth);
     } on PlatformException catch (e) {
       print(e);
@@ -61,7 +54,6 @@ class _TouchIdState extends State<TouchId> {
   @override
   void initState() {
     super.initState();
-    // _checkBio();
   }
 
   @override

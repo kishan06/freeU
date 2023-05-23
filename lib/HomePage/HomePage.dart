@@ -13,7 +13,6 @@ import 'package:freeu/common/Categories%20Common%20Files/categoryCard.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
 import '../controllers/entry_point_controller.dart';
 
 class HomePage extends StatefulWidget {

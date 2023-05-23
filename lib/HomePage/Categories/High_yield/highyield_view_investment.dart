@@ -9,7 +9,7 @@ import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
 class HighYieldViewInvestment extends StatefulWidget {
-  HighYieldProds highYieldProds;
+  final HighYieldProds highYieldProds;
   HighYieldViewInvestment({super.key, required this.highYieldProds});
 
   @override

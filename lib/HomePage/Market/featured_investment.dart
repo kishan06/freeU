@@ -11,7 +11,7 @@ import 'package:get/get.dart';
 import 'offer_pricing.dart';
 
 class FeaturedInvestment extends StatefulWidget {
-  int pageIndex;
+  final int pageIndex;
   FeaturedInvestment({super.key, required this.pageIndex});
 
   @override

@@ -243,7 +243,7 @@ class _ContactUsState extends State<ContactUs> {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Color(0xFF444444),
-                                          fontSize: 20.sm,
+                                          fontSize: 20.sp,
                                           fontFamily: "Poppins"),
                                     ),
                                   ],

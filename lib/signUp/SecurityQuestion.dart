@@ -1,14 +1,9 @@
-// ignore_for_file: file_names, camel_case_types, prefer_const_constructors, duplicate_ignore, unused_import
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
-import 'package:freeu/signUp/SecurityFirst.dart';
-
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class SecurityQuestion extends StatefulWidget {
   const SecurityQuestion({super.key});
@@ -21,8 +16,6 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-
     return Scaffold(
       appBar: CustomSignupAppBar(
         titleTxt: "",
@@ -62,11 +55,7 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                     ),
                     Text(
                       "In what city were you born?",
-                      // ignore: prefer_const_constructors
-                      style: TextStyle(
-                          fontSize: 20.sp,
-                          fontFamily: 'Poppins',
-                          color: Colors.black),
+                      style: TextStyle(fontSize: 20.sp, color: Colors.black),
                     ),
                     SizedBox(
                       height: 15.h,
@@ -86,7 +75,6 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                     ),
                     Text(
                       "What is the name of your favorite pet?",
-                      // ignore: prefer_const_constructors
                       style: TextStyle(
                           fontSize: 20.sp,
                           fontFamily: 'Poppins',
@@ -105,22 +93,11 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         return null;
                       },
                     ),
-                    // TextFormField(
-                    //   decoration: InputDecoration(
-                    //     border: OutlineInputBorder(
-                    //       borderSide:
-                    //           BorderSide(width: 2, color: Color(0xFF707070)),
-                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                    //     ),
-                    //     hintText: "Answer",
-                    //   ),
-                    // ),
                     SizedBox(
                       height: 25.h,
                     ),
                     Text(
                       "What is your mother's maiden name?",
-                      // ignore: prefer_const_constructors
                       style: TextStyle(
                           fontSize: 20.sp,
                           fontFamily: 'Poppins',
@@ -139,26 +116,12 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         return null;
                       },
                     ),
-                    // TextFormField(
-                    //   decoration: InputDecoration(
-                    //     border: OutlineInputBorder(
-                    //       borderSide:
-                    //           BorderSide(width: 2, color: Color(0xFF707070)),
-                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                    //     ),
-                    //     hintText: "Answer",
-                    //   ),
-                    // ),
                     SizedBox(
                       height: 25.h,
                     ),
                     Text(
                       "What high school did you attend?",
-                      // ignore: prefer_const_constructors
-                      style: TextStyle(
-                          fontSize: 20.sp,
-                          fontFamily: 'Poppins',
-                          color: Colors.black),
+                      style: TextStyle(fontSize: 20.sp, color: Colors.black),
                     ),
                     SizedBox(
                       height: 15.h,
@@ -173,16 +136,6 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         return null;
                       },
                     ),
-                    // TextFormField(
-                    //   decoration: InputDecoration(
-                    //     border: OutlineInputBorder(
-                    //       borderSide:
-                    //           BorderSide(width: 2, color: Color(0xFF707070)),
-                    //       borderRadius: BorderRadius.all(Radius.circular(30)),
-                    //     ),
-                    //     hintText: "Answer",
-                    //   ),
-                    // ),
                     SizedBox(height: 45.h),
                     CustomNextButton(
                       text: "Next",
@@ -198,7 +151,6 @@ class _SecurityQuestionState extends State<SecurityQuestion> {
                         }
                       },
                     ),
-
                     SizedBox(
                       height: 20.h,
                     ),

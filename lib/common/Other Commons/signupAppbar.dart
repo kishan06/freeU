@@ -41,7 +41,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         decorationColor: Colors.black,
-                        fontSize: 12.sm),
+                        fontSize: 12.sp),
                 // selectionColor: Colors.black
               ))
           : null,

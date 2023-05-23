@@ -127,7 +127,7 @@ class FirstTab extends StatelessWidget {
 class SecondTab extends StatelessWidget {
   SecondTab({super.key});
 
-  List viewSlider = [
+  final List viewSlider = [
     {
       "Company Name":
           "Groundmount Solar supplying power to Bennett Coleman - Times of India",

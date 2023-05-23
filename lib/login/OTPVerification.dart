@@ -105,7 +105,7 @@ class _otpVerificationState extends State<otpVerification> {
                                 ),
                                 hintText: "Enter number",
                                 hintStyle: TextStyle(
-                                    fontFamily: "Poppins", fontSize: 15.sm),
+                                    fontFamily: "Poppins", fontSize: 15.sp),
                                 prefixIcon: Align(
                                   widthFactor: 1.0,
                                   heightFactor: 1.0,
@@ -146,7 +146,7 @@ class _otpVerificationState extends State<otpVerification> {
                               showCursor: true,
                               cursorColor: Color(0xFF143C6D),
                               textStyle: TextStyle(
-                                  fontSize: 18.sm, color: Color(0xFF143C6D)),
+                                  fontSize: 18.sp, color: Color(0xFF143C6D)),
                               errorTextSpace: 22,
                               validator: (value) {
                                 if (value != null && value.isEmpty) {

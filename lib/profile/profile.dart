@@ -10,7 +10,6 @@ import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 import '../common/Other Commons/CustomTextDropDown.dart';
 
 bool smsUpdate = true;
@@ -166,9 +165,6 @@ class _profiletabState extends State<profiletab> {
       Get.put(ProfileImageController());
 
   void _submit() {
-    // final FormState? form = _formKey.currentState;
-    // if (form != null && form.validate()) {
-    //   form.save();
     setState(() {
       setState(() {
         editBool = false;
@@ -180,11 +176,6 @@ class _profiletabState extends State<profiletab> {
       });
     });
     // }
-  }
-
-  Future<File> saveFilePermanently(String imagePath) async {
-    final directory = await getApplicationDocumentsDirectory();
-    return File(imagePath).copy(imagePath);
   }
 
   builduploadprofile() {
@@ -1780,19 +1771,16 @@ class _KYCtabsState extends State<KYCtabs> {
   }
 
   void _presentDatePicker() {
-    // showDatePicker is a pre-made funtion of Flutter
     showDatePicker(
             context: context,
             initialDate: DateTime.now(),
             firstDate: DateTime(1922),
             lastDate: DateTime.now())
         .then((pickedDate) {
-      // Check if no date is selected
       if (pickedDate == null) {
         return setState(() {
           datecontroller = '';
         });
-        ;
       }
       setState(() {
         _selectedDate = pickedDate;

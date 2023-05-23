@@ -4,11 +4,11 @@ import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 
 class ConversationList extends StatefulWidget {
-  String name;
-  String messageText;
-  String imageUrl;
-  String time;
-  bool isMessageRead;
+  final String name;
+  final String messageText;
+  final String imageUrl;
+  final String time;
+  final bool isMessageRead;
   ConversationList(
       {Key? key,
       required this.name,

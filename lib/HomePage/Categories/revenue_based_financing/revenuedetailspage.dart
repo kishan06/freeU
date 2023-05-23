@@ -8,7 +8,7 @@ import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
 class RevenueDetails extends StatefulWidget {
-  int pageIndex;
+  final int pageIndex;
 
   RevenueDetails({super.key, required this.pageIndex});
 
