@@ -1,12 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
-import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
-import 'package:get/get.dart';
 
 class HowToInvest extends StatefulWidget {
   const HowToInvest({super.key});
@@ -20,31 +14,12 @@ class _HowToInvestState extends State<HowToInvest> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return
-        // SafeArea(
-        //child:
-        Scaffold(
+    return Scaffold(
       backgroundColor: const Color(0xFFFFFFFF),
       appBar: const CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Center(
         child: Column(
           children: [

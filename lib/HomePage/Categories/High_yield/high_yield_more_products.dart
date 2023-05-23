@@ -1,16 +1,12 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 import 'package:freeu/HomePage/Categories/High_yield/highyield_view_investment.dart';
 import 'package:freeu/HomePage/Categories/High_yield/model/highyield_prods_model.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
-import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:lottie/lottie.dart';
 
 class HighYieldMoreProduct extends StatefulWidget {
@@ -25,18 +21,12 @@ class _HighYieldMoreProductState extends State<HighYieldMoreProduct> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF1FAFF),
-      appBar:
-          //  CustomSignupAppBar(
-          //   titleTxt: "",
-          //   bottomtext: false,
-          // ),
-          AppBar(
+      appBar: AppBar(
         backgroundColor: Color(0xFFF1FAFF),
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
           onPressed: () {
-            // Get.toNamed("/privateequity");
             Get.back();
           },
           icon: Icon(
@@ -87,17 +77,6 @@ class _HighYieldMoreProductState extends State<HighYieldMoreProduct> {
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
-                    // decoration: const BoxDecoration(
-                    //     color: Color(0xFF143C6D),
-                    //     //borderRadius: BorderRadius.circular(4),
-                    //     boxShadow: [
-                    //       BoxShadow(
-                    //         color: Colors.red,
-                    //         blurRadius: 3.0,
-                    //         spreadRadius: 4,
-                    //         offset: Offset(5.0, 5.0),
-                    //       )
-                    //     ]),
                     tabs: [
                       Tab(
                         text: "Open",
@@ -138,7 +117,6 @@ class FirstTab extends StatelessWidget {
     return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        // sizedBoxHeight(20.h),
         const Text("No Data Found")
       ],
     );
@@ -275,12 +253,6 @@ class _SecondTabState extends State<SecondTab> {
             padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
             child: Column(
               children: [
-                // Image.asset(
-                //   // image,
-                //   "assets/images/fractional.png",
-                //   width: 358,
-                //   height: 162,
-                // ),
                 SizedBox(
                   height: 10.h,
                 ),
@@ -291,7 +263,6 @@ class _SecondTabState extends State<SecondTab> {
                       Flexible(
                         child: Text(
                           title,
-                          //"Navi Mumbai Office \nOpportunity II",
                           style: TextStyle(
                               fontSize: 25,
                               fontFamily: 'Poppins',
@@ -305,60 +276,11 @@ class _SecondTabState extends State<SecondTab> {
                 SizedBox(
                   height: 30.h,
                 ),
-                // Padding(
-                //   padding: const EdgeInsets.only(left: 16),
-                //   child: Row(
-                //     children: [
-                //       Image.asset(
-                //         // image1,
-                //         "assets/images/place.png",
-                //         width: 50.w,
-                //         height: 50.h,
-                //       ),
-                //       SizedBox(
-                //         width: 25.w,
-                //       ),
-                //       Column(
-                //         mainAxisAlignment: MainAxisAlignment.start,
-                //         children: [
-                //           Padding(
-                //             padding: const EdgeInsets.only(right: 165),
-                //             child: Text(
-                //               //text1,
-                //               "Location:",
-                //               textAlign: TextAlign.left,
-                //               style: TextStyle(
-                //                 fontSize: 18.sp,
-                //                 color: Color(0XFF000000),
-                //                 fontFamily: 'Poppins',
-                //                 //fontWeight: FontWeight.w300,
-                //               ),
-                //             ),
-                //           ),
-                //           Text(
-                //             //subtext1,
-                //             "Seawoods, Navi Mumbai",
-                //             style: TextStyle(
-                //               fontSize: 20.sp,
-                //               color: Color(0XFF000000),
-                //               fontFamily: 'Poppins',
-                //               fontWeight: FontWeight.w500,
-                //             ),
-                //           ),
-                //         ],
-                //       )
-                //     ],
-                //   ),
-                // ),
-                // SizedBox(
-                //   height: 30.h,
-                // ),
                 Padding(
                   padding: const EdgeInsets.only(left: 16),
                   child: Row(
                     children: [
                       Image.asset(
-                        //image2,
                         "assets/images/investmentproperties (1).png",
                         width: 50.w,
                         height: 50.w,
@@ -372,21 +294,18 @@ class _SecondTabState extends State<SecondTab> {
                           Padding(
                             padding: const EdgeInsets.only(right: 145),
                             child: Text(
-                              // text2,
                               "Targeted IRR:",
                               textAlign: TextAlign.left,
                               style: TextStyle(
                                 fontSize: 18.sp,
                                 color: Color(0XFF000000),
                                 fontFamily: 'Poppins',
-                                //fontWeight: FontWeight.w300,
                               ),
                             ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(right: 212),
                             child: Text(
-                              // subtext2,
                               "12.7%",
                               style: TextStyle(
                                 fontSize: 20.sp,
@@ -409,7 +328,6 @@ class _SecondTabState extends State<SecondTab> {
                   child: Row(
                     children: [
                       Image.asset(
-                        // image3,
                         "assets/images/propertiestransfer.png",
                         width: 50,
                         height: 50,
@@ -509,7 +427,6 @@ class ThirdTab extends StatelessWidget {
     return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        // sizedBoxHeight(20.h),
         const Text("No Data Found")
       ],
     );

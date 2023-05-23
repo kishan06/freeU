@@ -204,25 +204,6 @@ class _FeaturedInvestmentState extends State<FeaturedInvestment> {
                 ),
               ),
               text14Black('dawesfrghfdasddsgdhf'),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     Text(
-              //       'view ',
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 15.sp,
-              //           color: const Color(0xff1B8DC9)),
-              //     ),
-              //     Text(
-              //       productDetails[0]['Company Name'][widget.pageIndex],
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 15.sp,
-              //           color: const Color(0xff1B8DC9)),
-              //     )
-              //   ],
-              // ),
               sizedBoxHeight(60.h),
             ],
           ),

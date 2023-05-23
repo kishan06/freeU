@@ -1,14 +1,8 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, prefer_const_literals_to_create_immutables, duplicate_ignore
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
-import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/Other%20Commons/CustomTextDropDown.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
-import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:get/get.dart';
 
 class Insights extends StatefulWidget {
   const Insights({super.key});
@@ -22,11 +16,7 @@ class _InsightsState extends State<Insights> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: 
-
-
-      PreferredSize(
+      appBar: PreferredSize(
         preferredSize: Size.fromHeight(200.h),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -125,14 +115,12 @@ class _InsightsState extends State<Insights> {
                       ),
                     ),
                   ),
-            
                 ],
               ),
             ),
           ],
         ),
       ),
-    
       body: Column(
         children: [
           Expanded(

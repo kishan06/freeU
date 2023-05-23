@@ -5,6 +5,7 @@ import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+// ignore: must_be_immutable
 class PrvateEquity extends StatefulWidget {
   String title;
   String des;
@@ -220,7 +221,6 @@ class _PrvateEquityState extends State<PrvateEquity> {
                       onPressed: () {
                         // Get.toNamed("/privateequityfunddeals");
                         Get.toNamed(widget.viewMoreProdcut);
-
                       },
                       child: Text(
                         "View more product",
@@ -235,7 +235,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                   widget.swipeup == false
                       ? Lottie.asset(
                           'assets/logos/swipeup.json',
-                          // height: 
+                          // height:
                         )
                       : const SizedBox(),
                   // sizedBoxHeight(38.h),

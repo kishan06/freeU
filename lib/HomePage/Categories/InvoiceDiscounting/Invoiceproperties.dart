@@ -7,7 +7,6 @@ import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-//import 'VentureViewInvestment.dart';
 
 class InvoiceProperties extends StatefulWidget {
   const InvoiceProperties({super.key});
@@ -185,11 +184,6 @@ class SecondTab extends StatelessWidget {
                 ),
                 child: Column(
                   children: [
-                    // Image.asset(
-                    //   "assets/images/fractional.png",
-                    //   width: 358.w,
-                    //   height: 162.h,
-                    // ),
                     SizedBox(
                       height: 10.h,
                     ),
@@ -211,50 +205,6 @@ class SecondTab extends StatelessWidget {
                     SizedBox(
                       height: 30.h,
                     ),
-                    // Padding(
-                    //   padding: EdgeInsets.only(left: 16.w),
-                    //   child: Row(
-                    //     children: [
-                    //       Image.asset(
-                    //         "assets/images/place.png",
-                    //         width: 50.w,
-                    //         height: 50.h,
-                    //       ),
-                    //       SizedBox(
-                    //         width: 25.w,
-                    //       ),
-                    //       Column(
-                    //         mainAxisAlignment: MainAxisAlignment.start,
-                    //         children: [
-                    //           Padding(
-                    //             padding: EdgeInsets.only(right: 165.w),
-                    //             child: Text(
-                    //               "Location:",
-                    //               textAlign: TextAlign.left,
-                    //               style: TextStyle(
-                    //                 fontSize: 18.sp,
-                    //                 color: const Color(0XFF000000),
-                    //                 fontFamily: 'Poppins',
-                    //               ),
-                    //             ),
-                    //           ),
-                    //           Text(
-                    //             "Seawoods, Navi Mumbai",
-                    //             style: TextStyle(
-                    //               fontSize: 20.sp,
-                    //               color: const Color(0XFF000000),
-                    //               fontFamily: 'Poppins',
-                    //               fontWeight: FontWeight.w500,
-                    //             ),
-                    //           ),
-                    //         ],
-                    //       )
-                    //     ],
-                    //   ),
-                    // ),
-                    // SizedBox(
-                    //   height: 30.h,
-                    // ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Row(

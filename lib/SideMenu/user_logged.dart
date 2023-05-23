@@ -24,23 +24,8 @@ class _UserState extends State<User> {
   final ProfileImageController editProfileImage =
       Get.put(ProfileImageController());
   bool editBool = false;
-  // Future getImage(ImageSource source) async {
-  //   try {
-  //     final image = await ImagePicker().pickImage(source: source);
-  //     if (image == null) return;
-  //     final imageTemporary = File(image.path);
-  //     // final imagePermanent = await saveFilePermanently(image.path);
-
-  //     setState(() {
-  //       profilPic = imageTemporary;
-  //     });
-  //   } on PlatformException catch (e) {
-  //     print('Failed to pick image: $e');
-  //   }
-  // }
 
   Future<File> saveFilePermanently(String imagePath) async {
-    final directory = await getApplicationDocumentsDirectory();
     return File(imagePath).copy(imagePath);
   }
 
@@ -56,7 +41,6 @@ class _UserState extends State<User> {
       ),
       builder: (context) {
         return Container(
-          // height: 180.h,
           margin: EdgeInsets.symmetric(horizontal: 36.w, vertical: 26.h),
           child: Padding(
             padding: EdgeInsets.only(
@@ -659,9 +643,6 @@ class _UserState extends State<User> {
   }
 
   void _submit() {
-    // final FormState? form = _formKey.currentState;
-    // if (form != null && form.validate()) {
-    //   form.save();
     setState(() {
       setState(() {
         editBool = false;
@@ -672,6 +653,5 @@ class _UserState extends State<User> {
         addressValue = addressController.text;
       });
     });
-    // }
   }
 }

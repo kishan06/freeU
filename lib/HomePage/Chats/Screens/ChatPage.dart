@@ -75,55 +75,6 @@ class _ChatPageState extends State<ChatPage> {
     ),
   ];
 
-  void _selectedTab(int index) {
-    setState(() {
-      // _lastSelected = 'TAB: $index';
-      // print(_lastSelected);
-
-      switch (index) {
-        case 0:
-          {
-            Get.toNamed("/homepage");
-          }
-          break;
-
-        case 1:
-          {
-            Get.toNamed('/categoriesmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityFirst())));
-          }
-          break;
-
-        case 2:
-          {
-            Get.toNamed('/investmentmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
-          }
-          break;
-        case 3:
-          {
-            Get.toNamed('/chatpage');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => Login())));
-          }
-          break;
-        case 4:
-          {
-            Get.toNamed('/myprofile');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => SignUp())));
-          }
-          break;
-        default:
-          {
-            throw Error();
-          }
-      }
-    });
-  }
-
   DateTime timebackPressed = DateTime.now();
 
   @override
@@ -142,10 +93,7 @@ class _ChatPageState extends State<ChatPage> {
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(
-                  fontFamily: 'Poppins',
-                  fontSize: 22.sp,
-                  // fontWeight: FontWeight.w400,
-                  color: Colors.black),
+                  fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
             ),
           ],
         ),

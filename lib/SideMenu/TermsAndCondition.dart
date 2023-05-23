@@ -1,10 +1,7 @@
-// ignore_for_file: file_names, camel_case_types, prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:get/get.dart';
 
 class TermsAndCondition extends StatefulWidget {
   const TermsAndCondition({super.key});
@@ -157,30 +154,6 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
                 ],
               ),
             )),
-            // Column(
-            //   crossAxisAlignment: CrossAxisAlignment.start,
-            //   children: [
-            //     GestureDetector(
-            //         onTap: () {
-            //           Get.back();
-            //         },
-            //         child: Icon(
-            //           Icons.arrow_back,
-            //           size: 24.sp,
-            //           color: Color(0xff000000),
-            //         )),
-            //     SizedBox(
-            //       height: 10.h,
-            //     ),
-            //     Text(
-            //       "Terms & condition",
-            //       style: TextStyle(
-            //           fontFamily: "Poppins",
-            //           fontSize: 25.sp,
-            //           fontWeight: FontWeight.w500),
-            //     ),
-            //   ],
-            // ),
           ],
         ),
       ),

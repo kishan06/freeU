@@ -545,14 +545,6 @@ class _HomePageState extends State<HomePage> {
             ),
             color: AppColors.white,
             borderRadius: BorderRadius.circular(15.h),
-            // boxShadow: [
-            //   BoxShadow(
-            //     color: Colors.black.withOpacity(0.04),
-            //     blurRadius: 10,
-            //     spreadRadius: 2,
-            //   )
-            // ]
-            // border: Border.all(width: 1.h, color: AppColors.greyCFCFCF)
           ),
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
@@ -599,8 +591,6 @@ class _HomePageState extends State<HomePage> {
                     Expanded(child: text13Grey707070(add))
                   ],
                 )
-
-                // text14Grey272424(text)
               ],
             ),
           )),
@@ -619,58 +609,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}
-
-class DougnutChart extends StatelessWidget {
-  const DougnutChart({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final List<ChartData> chartData = [
-      ChartData('David', 20),
-      ChartData('Steve', 20),
-    ];
-    return SfCircularChart(centerY: '55', centerX: '50', palette: <Color>[
-      Color.fromARGB(255, 113, 201, 248),
-      Color(0xFF1B8DC9),
-    ], annotations: <CircularChartAnnotation>[
-      CircularChartAnnotation(
-        widget: Container(
-          child: PhysicalModel(
-            child: Container(),
-            shape: BoxShape.circle,
-            elevation: 10,
-            shadowColor: Colors.black,
-            color: const Color.fromRGBO(230, 230, 230, 1),
-          ),
-        ),
-      ),
-      CircularChartAnnotation(
-        widget: Container(
-          child: const Text(
-            '50%',
-            style: TextStyle(color: Colors.black, fontSize: 16),
-          ),
-        ),
-      ),
-    ], series: <CircularSeries>[
-      DoughnutSeries<ChartData, String>(
-          dataSource: chartData,
-          xValueMapper: (ChartData data, _) => data.x,
-          yValueMapper: (ChartData data, _) => data.y,
-          // Radius of doughnut
-          radius: '100%')
-    ]);
-  }
-}
-
-class ChartData {
-  ChartData(this.x, this.y, [this.color]);
-  final String x;
-  final double y;
-  final Color? color;
-}
-
-void dataLabel(DataLabelRenderArgs args) {
-  args.text = '50';
 }

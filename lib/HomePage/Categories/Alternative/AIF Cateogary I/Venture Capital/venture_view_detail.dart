@@ -8,7 +8,7 @@ import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
 class VentureViewDetails extends StatefulWidget {
-  int pageIndex;
+  final int pageIndex;
   VentureViewDetails({super.key, required this.pageIndex});
 
   @override
@@ -191,21 +191,6 @@ class _VentureViewDetailsState extends State<VentureViewDetails> {
                     },
                     itemCount: productDetails[0]['header'].length),
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     Flexible(
-              //       child: Text(
-              //         "view " +
-              //             productDetails[0]['Company Name'][widget.pageIndex],
-              //         style: TextStyle(
-              //             fontWeight: FontWeight.w500,
-              //             fontSize: 15.sp,
-              //             color: const Color(0xff1B8DC9)),
-              //       ),
-              //     )
-              //   ],
-              // )
             ],
           ),
         ),

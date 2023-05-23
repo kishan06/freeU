@@ -32,21 +32,6 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
@@ -236,7 +221,6 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
-        //showAccordion: true,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),
@@ -284,175 +268,6 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
                   return bulletText(
                       bulletPoints[index]["sent"], bulletPoints[index]["bold"]);
                 })
-            // Text.rich(
-            //   TextSpan(children: [
-            //     TextSpan(
-            //         text: "> Reduced upfront costs:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " With \n   lease-based financing, businesses \n   can acquire the use of assets \n   without having to make a \n   significant upfront investment. \n   This can be particularly beneficial \n   for small businesses with limited \n   cash flow.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Cash flow management:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " Lease \n   payments are typically fixed and \n   predictable, making it easier for \n   businesses to plan their finances \n   and manage their cash flows.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Tax benefits:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " In many cases, lease \n   payments can be tax-deductible, \n   which can help businesses reduce \n   their tax liability.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Flexibility:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " Lease-based financing \n   arrangements are usually flexible, \n   allowing businesses to choose \n   from a range of lease terms and \n   payment options that suit their \n   specific needs. At the end of the \n   lease term, the lessee typically \n   has the option to purchase the \n   asset, renew the lease, or return \n   the asset to the lessor.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Asset management:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " In some \n   cases, the lessor may be \n   responsible for maintaining the \n   asset and obtaining insurance for \n   it, which can reduce the \n   administrative burden on the \n   lessee.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> No ownership transfer:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " Lease-\n   based financing does not involve \n   ownership transfer, which means \n   that businesses can use assets \n   without having to worry about \n   disposing of them at the end of \n   the lease term.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Improved liquidity:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " Lease-based \n   financing can help businesses to \n   conserve their cash reserves, \n   freeing up liquidity for other \n   purposes, such as expanding their \n   operations or investing in new \n   projects.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Up-to-date technology:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " Lease-\n   based financing can help \n   businesses access the latest \n   equipment or technology, without \n   having to worry about the cost of \n   upgrades or obsolescence.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Risk management:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " Lease-based \n   financing can help businesses to \n   manage risk, as they are not \n   required to purchase an asset \n   outright and can return it at the \n   end of the lease term if it is no \n   longer needed.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Stable, regular passive income:\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             "   The lessor (asset owner) gets the \n   rentals for the entire duration of \n   the lease, as per the contract, \n   consistently assuring a stable, \n   regular income.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> High Growth Possibilities:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " Most of \n   the time, the lease rental is higher \n   than the interest paid on the \n   asset’s financing. Leasing is stable, \n   cost-effective, and in high \n   demand. It is not dependent on \n   the market, or on the economy.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //   ]),
-            // ),
           ],
         ),
       ),
@@ -759,86 +574,6 @@ Finance leases and operating leases are two types of leases used in the business
                     bulletPoints[index]["bold"],
                   );
                 }),
-
-            // Text.rich(
-            //   TextSpan(children: [
-            //     TextSpan(
-            //         text: "> Diversification:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " The inclusion of \n   high-yield fixed-income securities \n   in a portfolio may increase \n   diversification due to their low \n   correlation with investment \n   grades fixed-income sectors, such \n   as Treasuries and highly rated \n   corporate debt.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Enhanced Current Income:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " High-\n   yield bonds typically offer higher \n   yields than investment-grade \n   bonds or other fixed-income \n   securities. This means that \n   investors can earn more income \n   from these securities than they \n   would from lower-yielding bonds.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Capital appreciation:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " High-yield \n   bonds have the potential for \n   capital appreciation if the credit \n   quality of the issuer improves. This \n   can result in higher prices for the\n   bonds, leading to capital gains for \n   investors. The events that can \n   potentially increase demand for \n   the bond, leading to a rise in its \n   price include upgrades in credit \n   ratings, positive earnings reports, \n   changes in management, merger \n   or acquisition announcements, \n   favorable developments in the \n   issuer's product line, or other \n   market-related events.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Inflation protection:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             " High-yield \n   fixed-income securities can \n   provide a hedge against inflation, \n   as their yields are often tied to \n   inflation expectations.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //     TextSpan(
-            //         text: "> Relatively low duration:",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w600)),
-            //     TextSpan(
-            //         text:
-            //             "High-yield \n   bonds usually have a relatively \n   low duration because of their \n   shorter maturities. These bonds \n   are commonly issued for terms of \n   10 years or less and may be \n   callable after four or five years. \n   Their prices are typically more \n   sensitive to changes in the \n   economic environment and \n   corporate earnings than \n   to day-to-day fluctuations in \n   interest rates.\n",
-            //         style: TextStyle(
-            //             fontSize: 18.sp,
-            //             color: Colors.black,
-            //             fontFamily: "Poppins",
-            //             fontWeight: FontWeight.w500)),
-            //   ]),
-            // ),
           ],
         ),
       ),
@@ -939,11 +674,6 @@ As per the Supreme Court pronouncement, only the lessor is the legal owner and i
                     )),
               ],
             ),
-            // sent,
-            // style: TextStyle(
-            //   color: Colors.black,
-            //   fontFamily: "Poppins",
-            //   fontSize: 18.sp,
           ),
         ),
       ],
@@ -966,13 +696,6 @@ As per the Supreme Court pronouncement, only the lessor is the legal owner and i
                 color: Colors.black,
               ),
               children: <TextSpan>[
-                // TextSpan(
-                //     text: number,
-                //     style: TextStyle(
-                //       color: Colors.black,
-                //       fontFamily: "Poppins",
-                //       fontSize: 18.sp,
-                //     )),
                 TextSpan(
                     text: bold,
                     style: TextStyle(
@@ -989,11 +712,6 @@ As per the Supreme Court pronouncement, only the lessor is the legal owner and i
                     )),
               ],
             ),
-            // sent,
-            // style: TextStyle(
-            //   color: Colors.black,
-            //   fontFamily: "Poppins",
-            //   fontSize: 18.sp,
           ),
         ),
       ],

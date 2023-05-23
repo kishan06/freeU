@@ -4,7 +4,6 @@ import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
-
 import 'AlternaticeCateogries3.dart';
 import 'Cat3VerticalSlider.dart';
 

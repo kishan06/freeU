@@ -32,21 +32,6 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Column(
@@ -88,17 +73,6 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
                 ],
               ),
             )),
-
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
-            // faqAccod(),
-            // sizedBoxHeight(15.h),
           ],
         ),
       ),
@@ -112,7 +86,6 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
-        //showAccordion: true,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),

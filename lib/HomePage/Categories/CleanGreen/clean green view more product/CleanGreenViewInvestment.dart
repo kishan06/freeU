@@ -174,21 +174,6 @@ class _CleanGreenViewInvestmentState extends State<CleanGreenViewInvestment> {
                     },
                     itemCount: productDetails[0]['header'].length),
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     Flexible(
-              //       child: Text(
-              //         "view " +
-              //             productDetails[0]['Company Name'][widget.pageIndex],
-              //         style: TextStyle(
-              //             fontWeight: FontWeight.w500,
-              //             fontSize: 15.sp,
-              //             color: const Color(0xff1B8DC9)),
-              //       ),
-              //     )
-              //   ],
-              // )
             ],
           ),
         ),

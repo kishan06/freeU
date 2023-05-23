@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
@@ -16,31 +15,12 @@ class _RealEstatepageState extends State<RealEstatepage> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return
-        // SafeArea(
-        //child:
-        Scaffold(
+    return Scaffold(
       backgroundColor: Color(0xFF002A5B),
       appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFF002A5B),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Color(0XFFFFFFFF),
-      //   ),
-      // ),
       body: Center(
         child: Column(
           children: [
@@ -77,16 +57,13 @@ class _RealEstatepageState extends State<RealEstatepage> {
                         style: TextStyle(
                           color: Color(0XFFFFFFFF),
                           fontSize: 18.sp,
-                          //fontFamily: 'Poppins'
                         ),
                       ),
                       SizedBox(
                         height: 9.h,
                       ),
                       GestureDetector(
-                        onTap: () {
-                         // Get.toNamed("/privateequityfund");
-                        },
+                        onTap: () {},
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -180,11 +157,7 @@ class _RealEstatepageState extends State<RealEstatepage> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             elevation: 5,
-                            //shadowColor: Color.fromARGB(255, 220, 220, 226),
-
                             backgroundColor: Color(0XFFFBFBFB),
-
-                            //  color: Color(0xFFFFB600),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.h),
                             ),

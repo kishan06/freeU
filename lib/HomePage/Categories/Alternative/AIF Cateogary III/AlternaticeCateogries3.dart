@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20I/Cat1VetricalSlider.dart';
 import 'package:freeu/common/Other%20Commons/bullet_text_bold.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';

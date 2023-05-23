@@ -65,7 +65,6 @@ class _DistressedAssetState extends State<DistressedAsset> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          // Get.toNamed("/privateequityfund");
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,

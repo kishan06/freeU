@@ -5,8 +5,6 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:freeu/login/login.dart';
-import 'package:get/get.dart';
 
 class SubmitDocument extends StatefulWidget {
   const SubmitDocument({super.key});

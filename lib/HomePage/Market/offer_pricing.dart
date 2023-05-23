@@ -20,7 +20,6 @@ class _OfferPricingState extends State<OfferPricing> {
 
   String? datecontroller;
 
-  DateTime? _selectedDate;
   final residentialstatustexteditingcontroller = TextEditingController();
 
   @override

@@ -8,11 +8,12 @@ import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
 class ProductsDetailsDebtFund extends StatefulWidget {
-  int pageIndex;
+  final int pageIndex;
   ProductsDetailsDebtFund({super.key, required this.pageIndex});
 
   @override
-  State<ProductsDetailsDebtFund> createState() => _ProductsDetailsDebtFundState();
+  State<ProductsDetailsDebtFund> createState() =>
+      _ProductsDetailsDebtFundState();
 }
 
 class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
@@ -121,8 +122,6 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
           "N/A",
           "Economic, Social and Governance",
         ],
-        
-
       ]
     },
   ];
@@ -224,34 +223,10 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                       );
                     },
                     separatorBuilder: (context, index) {
-                      return sizedBoxHeight(0);                      // Divider(
-                      //   height: 25.h,
-                      //   thickness: 1.h,
-                      //   color: Colors.grey.shade400,
-                      // );
+                      return sizedBoxHeight(0);
                     },
                     itemCount: productDetails[0]['header'].length),
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     Text(
-              //       'view ',
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 15.sp,
-              //           color: const Color(0xff1B8DC9)),
-              //     ),
-              //     Text(
-              //       productDetails[0]['Company Name'][widget.pageIndex],
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 15.sp,
-              //           color: const Color(0xff1B8DC9)),
-              //     )
-              //   ],
-              // )
-            
             ],
           ),
         ),

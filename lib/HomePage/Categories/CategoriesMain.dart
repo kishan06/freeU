@@ -8,7 +8,6 @@ import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Categories%20Common%20Files/cat_common_main.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import '../../common/Categories Common Files/learnMore_common_accordion.dart';
 import 'Alternative/AlternativeCategories.dart';
 import 'Alternative/Fractionalproperties.dart';
 import 'Alternative/Fractionalrealestate.dart';
@@ -234,7 +233,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
             expectedReturn: "~ 12-24% p.a.",
             suggestedHorizon: 'More than 5 Years',
             minInvestment: '1 Crore',
-            bottomButtonTitle: 'bottomButtonTitle',
+            bottomButtonTitle: 'View AIF Categories',
             backgroundColor: AppColors.redL_BE0F02,
             learnMoreRoute: const AlternativeInsvestment(),
             bottomButtonRoute: const AlternativeCategories(),

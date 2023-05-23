@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
@@ -128,8 +126,6 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
               } else {
                 Get.toNamed("/login");
               }
-              // controllerEntryPoint.logedIn!?
-              // investNow():SizedBox();
             },
             text: 'Invest now'),
       ),
@@ -214,11 +210,6 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                       return SizedBox(
                         height: 0.h,
                       );
-                      // Divider(
-                      //   height: 25.h,
-                      //   thickness: 1.h,
-                      //   color: Colors.grey.shade400,
-                      // );
                     },
                     itemCount: realdetails[0]['header'].length),
               ),
