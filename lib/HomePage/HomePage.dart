@@ -66,104 +66,33 @@ class _HomePageState extends State<HomePage> {
   ];
 
   List categoryData = [
-    // /
     {
       "colorL": AppColors.redL_BE0F02,
       "colorD": AppColors.redD_5F0801,
       "bgImage": "assets/newImages/bgRed.svg",
       "imageUrl": "assets/newImages/cat1.png",
-      "title": "Alternative Investment Funds",
+      "title": "Indian Finiancial Assets",
     },
     {
       "colorL": AppColors.blueL_006796,
       "colorD": AppColors.blueD_00344B,
       "bgImage": "assets/newImages/bgBlue.svg",
       "imageUrl": "assets/newImages/cat2.png",
-      "title": "Fractional Real Estate",
+      "title": "Indian Real \nAssets",
     },
     {
       "colorL": AppColors.greenL_089435,
       "colorD": AppColors.greenD_044A1B,
       "bgImage": "assets/newImages/bgGreen.svg",
-      "imageUrl": "assets/newImages/cat3.png",
-      "title": "Peer- Peer lending",
+      "imageUrl": "assets/newImages/ww.png",
+      "title": "Global Finiancial Assets",
     },
     {
       "colorL": AppColors.purpleL_474E88,
       "colorD": AppColors.purpleD_242744,
       "bgImage": "assets/newImages/bgPurple (2).svg",
-      "imageUrl": "assets/newImages/cat4.png",
-      "title": "Invoice Discounting",
-    },
-    {
-      "colorL": AppColors.brownL_973926,
-      "colorD": AppColors.brownD_4C1D13,
-      "bgImage": "assets/newImages/bgBrown.svg",
-      "imageUrl": "assets/newImages/cat5.png",
-      "title": "Revenue based Financing",
-    },
-    {
-      "colorL": AppColors.pinkL_E6088B,
-      "colorD": AppColors.pinkD_730446,
-      "bgImage": "assets/newImages/bgPink.svg",
-      "imageUrl": "assets/newImages/cat6.png",
-      "title": "Lease based Financing",
-    },
-    {
-      "colorL": AppColors.redL_BE0F02,
-      "colorD": AppColors.redD_5F0801,
-      "bgImage": "assets/newImages/bgRed.svg",
-      "imageUrl": "assets/newImages/cat7.png",
-      "title": "Clean and Green Assets",
-    },
-    {
-      "colorL": AppColors.blueL_006796,
-      "colorD": AppColors.blueD_00344B,
-      "bgImage": "assets/newImages/bgBlue.svg",
-      "imageUrl": "assets/newImages/cat8.png",
-      "title": "Venture Debt",
-    },
-    {
-      "colorL": AppColors.greenL_089435,
-      "colorD": AppColors.greenD_044A1B,
-      "bgImage": "assets/newImages/bgGreen.svg",
-      "imageUrl": "assets/newImages/cat9.png",
-      "title": "Secured Debt",
-    },
-    {
-      "colorL": AppColors.purpleL_474E88,
-      "colorD": AppColors.purpleD_242744,
-      "bgImage": "assets/newImages/bgPurple (2).svg",
-      "imageUrl": "assets/newImages/cat10.png",
-      "title": "High Yield Finance",
-    },
-    {
-      "colorL": AppColors.brownL_973926,
-      "colorD": AppColors.brownD_4C1D13,
-      "bgImage": "assets/newImages/bgBrown.svg",
-      "imageUrl": "assets/newImages/cat11.png",
-      "title": "International Financial Investment",
-    },
-    {
-      "colorL": AppColors.pinkL_E6088B,
-      "colorD": AppColors.pinkD_730446,
-      "bgImage": "assets/newImages/bgPink.svg",
-      "imageUrl": "assets/newImages/cat12.png",
-      "title": "International Real Estate",
-    },
-    {
-      "colorL": AppColors.redL_BE0F02,
-      "colorD": AppColors.redD_5F0801,
-      "bgImage": "assets/newImages/bgRed.svg",
-      "imageUrl": "assets/newImages/cat13.png",
-      "title": "Startup’s",
-    },
-    {
-      "colorL": AppColors.blueL_006796,
-      "colorD": AppColors.blueD_00344B,
-      "bgImage": "assets/newImages/bgBlue.svg",
-      "imageUrl": "assets/newImages/cat8.png",
-      "title": "Unlisted stocks",
+      "imageUrl": "assets/newImages/gra.png",
+      "title": "Globsl Real \nAssets",
     },
   ];
 
@@ -363,51 +292,6 @@ class _HomePageState extends State<HomePage> {
                     arguments: 1, preventDuplicates: false);
               }),
               sizedBoxHeight(10.h),
-              // Column(
-              //   children: [
-              //     SizedBox(
-              //       height: 133.h,
-              //       child: ListView.separated(
-              //           controller: scrollController,
-              //           separatorBuilder: (_, index) {
-              //             return sizedBoxWidth(20.w);
-              //           },
-              //           scrollDirection: Axis.horizontal,
-              //           itemCount: categoryData.length,
-              //           itemBuilder: (context, index) {
-              //             return OpenContainerWrappers(
-              //               closeBuild: categoryCard(
-              //                 color1: categoryData[index]["colorL"],
-              //                 color2: categoryData[index]["colorD"],
-              //                 bgImage: categoryData[index]["bgImage"],
-              //                 image: categoryData[index]["imageUrl"],
-              //                 text: categoryData[index]["title"],
-              //               ),
-              //               openBuild: navigate(index),
-              //             );
-              //           }),
-              //     ),
-              //     sizedBoxHeight(12.h),
-              //     Obx(
-              //       () => Row(
-              //         mainAxisAlignment: MainAxisAlignment.center,
-              //         children: List.generate(
-              //           categoryData.length,
-              //           (index) => Container(
-              //             decoration: BoxDecoration(
-              //                 color: AppColors.blue143C6D,
-              //                 borderRadius: BorderRadius.circular(100.r)),
-              //             width: categoryIndex.value == index ? 8.h : 4.h,
-              //             height: categoryIndex.value == index ? 8.h : 4.h,
-              //             margin: const EdgeInsets.symmetric(
-              //               horizontal: 3.0,
-              //             ),
-              //           ),
-              //         ),
-              //       ),
-              //     ),
-              //   ],
-              // ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
@@ -450,15 +334,6 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
-  }
-
-  Widget navigate(int index) {
-    switch (index) {
-      default:
-        {
-          return ComingSoon();
-        }
-    }
   }
 
   Widget tileCard(String path) {
@@ -536,15 +411,20 @@ class _HomePageState extends State<HomePage> {
     return SizedBox(
       height: 133.h,
       width: MediaQuery.of(context).size.width / 2 - 32,
-      child: OpenContainerWrappers(
-        closeBuild: categoryCard(
+      child: InkWell(
+        child: categoryCard(
           color1: categoryData[index]["colorL"],
           color2: categoryData[index]["colorD"],
           bgImage: categoryData[index]["bgImage"],
           image: categoryData[index]["imageUrl"],
           text: categoryData[index]["title"],
         ),
-        openBuild: navigate(index),
+        onTap: () {
+          index == 0
+              ? Get.toNamed("/EntryPoint",
+                  arguments: 1, preventDuplicates: false)
+              : Get.to(() => ComingSoon());
+        },
       ),
     );
   }

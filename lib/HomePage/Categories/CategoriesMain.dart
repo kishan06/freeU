@@ -174,6 +174,10 @@ class _CategoriesMainState extends State<CategoriesMain> {
                   fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
             ),
             const Spacer(),
+            Icon(
+              Icons.filter_alt_outlined,
+              color: Colors.black,
+            ),
             OpenContainerWrappers(
               closeBuild: IconButton(
                 onPressed: null,

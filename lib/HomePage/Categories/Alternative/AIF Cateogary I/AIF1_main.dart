@@ -45,7 +45,7 @@ class _AIF1MainState extends State<AIF1Main> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Category I",
+                    "AIF Category I",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,
