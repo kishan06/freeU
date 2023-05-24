@@ -79,6 +79,10 @@ import 'HomePage/Categories/Venture debt/VentureProduct/ViewMoreProdcutVenture.d
 import 'HomePage/Categories/revenue_based_financing/revenueproperties.dart';
 
 int bottomIndex = 0;
+void main() {
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   MyApp({Key? key}) : super(key: key);

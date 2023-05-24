@@ -363,49 +363,64 @@ class _HomePageState extends State<HomePage> {
                     arguments: 1, preventDuplicates: false);
               }),
               sizedBoxHeight(10.h),
-              Column(
+              // Column(
+              //   children: [
+              //     SizedBox(
+              //       height: 133.h,
+              //       child: ListView.separated(
+              //           controller: scrollController,
+              //           separatorBuilder: (_, index) {
+              //             return sizedBoxWidth(20.w);
+              //           },
+              //           scrollDirection: Axis.horizontal,
+              //           itemCount: categoryData.length,
+              //           itemBuilder: (context, index) {
+              //             return OpenContainerWrappers(
+              //               closeBuild: categoryCard(
+              //                 color1: categoryData[index]["colorL"],
+              //                 color2: categoryData[index]["colorD"],
+              //                 bgImage: categoryData[index]["bgImage"],
+              //                 image: categoryData[index]["imageUrl"],
+              //                 text: categoryData[index]["title"],
+              //               ),
+              //               openBuild: navigate(index),
+              //             );
+              //           }),
+              //     ),
+              //     sizedBoxHeight(12.h),
+              //     Obx(
+              //       () => Row(
+              //         mainAxisAlignment: MainAxisAlignment.center,
+              //         children: List.generate(
+              //           categoryData.length,
+              //           (index) => Container(
+              //             decoration: BoxDecoration(
+              //                 color: AppColors.blue143C6D,
+              //                 borderRadius: BorderRadius.circular(100.r)),
+              //             width: categoryIndex.value == index ? 8.h : 4.h,
+              //             height: categoryIndex.value == index ? 8.h : 4.h,
+              //             margin: const EdgeInsets.symmetric(
+              //               horizontal: 3.0,
+              //             ),
+              //           ),
+              //         ),
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  SizedBox(
-                    height: 133.h,
-                    child: ListView.separated(
-                        controller: scrollController,
-                        separatorBuilder: (_, index) {
-                          return sizedBoxWidth(20.w);
-                        },
-                        scrollDirection: Axis.horizontal,
-                        itemCount: categoryData.length,
-                        itemBuilder: (context, index) {
-                          return OpenContainerWrappers(
-                            closeBuild: categoryCard(
-                              color1: categoryData[index]["colorL"],
-                              color2: categoryData[index]["colorD"],
-                              bgImage: categoryData[index]["bgImage"],
-                              image: categoryData[index]["imageUrl"],
-                              text: categoryData[index]["title"],
-                            ),
-                            openBuild: navigate(index),
-                          );
-                        }),
-                  ),
-                  sizedBoxHeight(12.h),
-                  Obx(
-                    () => Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: List.generate(
-                        categoryData.length,
-                        (index) => Container(
-                          decoration: BoxDecoration(
-                              color: AppColors.blue143C6D,
-                              borderRadius: BorderRadius.circular(100.r)),
-                          width: categoryIndex.value == index ? 8.h : 4.h,
-                          height: categoryIndex.value == index ? 8.h : 4.h,
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: 3.0,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  catContainer(0),
+                  catContainer(1),
+                ],
+              ),
+              sizedBoxHeight(15.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  catContainer(2),
+                  catContainer(3),
                 ],
               ),
               sizedBoxHeight(15.h),
@@ -514,6 +529,23 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           openBuild: InsightsInner()),
+    );
+  }
+
+  Widget catContainer(index) {
+    return SizedBox(
+      height: 133.h,
+      width: MediaQuery.of(context).size.width / 2 - 32,
+      child: OpenContainerWrappers(
+        closeBuild: categoryCard(
+          color1: categoryData[index]["colorL"],
+          color2: categoryData[index]["colorD"],
+          bgImage: categoryData[index]["bgImage"],
+          image: categoryData[index]["imageUrl"],
+          text: categoryData[index]["title"],
+        ),
+        openBuild: navigate(index),
+      ),
     );
   }
 
