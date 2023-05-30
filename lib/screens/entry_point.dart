@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
+import 'package:freeu/HomePage/Categories/cat_main_screen.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/HomePage/Market/market_tab.dart';
@@ -33,7 +34,8 @@ class _EntryPointState extends State<EntryPoint>
   final controllerEntryPoint = Get.put(EntryPointController());
   var screens = [
     const HomePage(),
-    const CategoriesMain(),
+    // const CategoriesMain(),
+    const CatMainScreen(),
     const NewInvestment(),
     const ChatPage(),
     const MarketTab(),

@@ -92,7 +92,7 @@ class _HomePageState extends State<HomePage> {
       "colorD": AppColors.purpleD_242744,
       "bgImage": "assets/newImages/bgPurple (2).svg",
       "imageUrl": "assets/newImages/gra.png",
-      "title": "Globsl Real \nAssets",
+      "title": "Global Real \nAssets",
     },
   ];
 
@@ -260,8 +260,8 @@ class _HomePageState extends State<HomePage> {
                       text20Black("Top Picks"),
                       InkWell(
                           onTap: () {
-                            Get.toNamed("/EntryPoint",
-                                arguments: 1, preventDuplicates: false);
+                            // Get.toNamed("/EntryPoint",
+                            //     arguments: 1, preventDuplicates: false);
                           },
                           child: text14Grey272424("View more"))
                     ],
@@ -287,11 +287,11 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 20.h,
               ),
-              twoText("Categories", "View more", onTap: () {
-                Get.toNamed("/EntryPoint",
-                    arguments: 1, preventDuplicates: false);
-              }),
-              sizedBoxHeight(10.h),
+              // twoText("Categories", "View more", onTap: () {
+              //   Get.toNamed("/EntryPoint",
+              //       arguments: 1, preventDuplicates: false);
+              // }),
+              // sizedBoxHeight(10.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

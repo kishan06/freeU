@@ -8,6 +8,7 @@ import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Categories%20Common%20Files/cat_common_main.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:get/get.dart';
 import 'Alternative/AlternativeCategories.dart';
 import 'Alternative/Fractionalproperties.dart';
 import 'Alternative/Fractionalrealestate.dart';
@@ -165,7 +166,17 @@ class _CategoriesMainState extends State<CategoriesMain> {
         backgroundColor: AppColors.white,
         title: Row(
           children: [
-            sizedBoxWidth(50.w),
+            sizedBoxWidth(10.w),
+            InkWell(
+              onTap: () {
+                Get.back();
+              },
+              child: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ),
+            ),
+            sizedBoxWidth(10.w),
             Text(
               'Categories',
               softWrap: true,
@@ -174,10 +185,10 @@ class _CategoriesMainState extends State<CategoriesMain> {
                   fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
             ),
             const Spacer(),
-            Icon(
-              Icons.filter_alt_outlined,
-              color: Colors.black,
-            ),
+            // Icon(
+            //   Icons.filter_alt_outlined,
+            //   color: Colors.black,
+            // ),
             OpenContainerWrappers(
               closeBuild: IconButton(
                 onPressed: null,
