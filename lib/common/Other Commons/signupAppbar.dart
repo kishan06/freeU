@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
@@ -42,7 +41,7 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
                         fontFamily: 'Poppins',
                         fontWeight: FontWeight.w600,
                         decorationColor: Colors.black,
-                        fontSize: 12.sm),
+                        fontSize: 12.sp),
                 // selectionColor: Colors.black
               ))
           : null,

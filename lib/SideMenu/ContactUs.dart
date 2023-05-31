@@ -1,12 +1,10 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 class ContactUs extends StatefulWidget {
@@ -22,7 +20,6 @@ class _ContactUsState extends State<ContactUs> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: CustomSignupAppBar(
@@ -246,7 +243,7 @@ class _ContactUsState extends State<ContactUs> {
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Color(0xFF444444),
-                                          fontSize: 20.sm,
+                                          fontSize: 20.sp,
                                           fontFamily: "Poppins"),
                                     ),
                                   ],

@@ -1,12 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:get/get.dart';
 
 class DistressedAsset extends StatefulWidget {
@@ -21,31 +15,12 @@ class _DistressedAssetState extends State<DistressedAsset> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
-    return
-        // SafeArea(
-        //child:
-        Scaffold(
+    return Scaffold(
       backgroundColor: Color(0xFF008A5B),
       appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),
-      //  AppBar(
-      //   backgroundColor: Color(0xFF008A5B),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Color(0XFFFFFFFF),
-      //   ),
-      // ),
       body: Center(
         child: Column(
           children: [
@@ -90,7 +65,6 @@ class _DistressedAssetState extends State<DistressedAsset> {
                       ),
                       GestureDetector(
                         onTap: () {
-                         // Get.toNamed("/privateequityfund");
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -185,11 +159,7 @@ class _DistressedAssetState extends State<DistressedAsset> {
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             elevation: 5,
-                            //shadowColor: Color.fromARGB(255, 220, 220, 226),
-
                             backgroundColor: Color(0XFFFBFBFB),
-
-                            //  color: Color(0xFFFFB600),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.h),
                             ),

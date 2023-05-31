@@ -1,12 +1,9 @@
-// ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:get/get.dart';
 
 class LoginUsingOTP extends StatefulWidget {
@@ -24,25 +21,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFFFFFFF),
-      appBar:
-          //  AppBar(
-          //   backgroundColor: AppColors.white,
-          //   // backgroundColor: Color(0xFFF5F8FA),
-          //   elevation: 0,
-          //   leading: IconButton(
-          //     onPressed: () {
-          //       Get.back();
-          //     },
-          //     icon: Icon(
-          //       Icons.arrow_back,
-          //     ),
-          //     iconSize: 24,
-          //     color: Color(0xFF0F0C0C),
-          //   ),
-
-          // ),
-
-          CustomSignupAppBar(
+      appBar: CustomSignupAppBar(
         titleTxt: "",
         bottomtext: false,
       ),

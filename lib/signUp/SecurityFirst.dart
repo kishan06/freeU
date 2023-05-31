@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 
 import 'package:get/get.dart';
-import '../common/customNextButton.dart';
+import '../common/Other Commons/customNextButton.dart';
 
 class SecurityFirst extends StatefulWidget {
   const SecurityFirst({super.key});
@@ -46,7 +46,7 @@ class _SecurityFirstState extends State<SecurityFirst> {
                       "Let's set your 4 Digit Pin",
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 20.sm,
+                        fontSize: 20.sp,
                         fontFamily: 'Poppins',
                       ),
                     ),

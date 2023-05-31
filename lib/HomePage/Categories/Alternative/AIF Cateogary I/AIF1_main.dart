@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'AlternativeCateogries1.dart';
 import 'Cat1VetricalSlider.dart';
@@ -45,7 +45,7 @@ class _AIF1MainState extends State<AIF1Main> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Category I",
+                    "AIF Category I",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,

@@ -1,13 +1,7 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:get/get.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 
 class PreviouslyInvestedProducts extends StatefulWidget {
   const PreviouslyInvestedProducts({super.key});
@@ -20,7 +14,6 @@ class PreviouslyInvestedProducts extends StatefulWidget {
 class _PreviouslyInvestedProductsState
     extends State<PreviouslyInvestedProducts> {
   int selectIndex = 0;
-  int _selectedIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
   PageController indicatorcontroller = PageController(
     viewportFraction: 0.95,
@@ -35,55 +28,6 @@ class _PreviouslyInvestedProductsState
     viewportFraction: 0.75,
   );
 
-  void _selectedTab(int index) {
-    setState(() {
-      // _lastSelected = 'TAB: $index';
-      // print(_lastSelected);
-
-      switch (index) {
-        case 0:
-          {
-            Get.toNamed("/homepage");
-          }
-          break;
-
-        case 1:
-          {
-            Get.toNamed('/categoriesmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityFirst())));
-          }
-          break;
-
-        case 2:
-          {
-            Get.toNamed('/investmentmain');
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: ((context) => SecurityQuestion())));
-          }
-          break;
-        case 3:
-          {
-            Get.toNamed('/chatpage');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => Login())));
-          }
-          break;
-        case 4:
-          {
-            Get.toNamed('/myprofile');
-            // Navigator.push(
-            //     context, MaterialPageRoute(builder: ((context) => SignUp())));
-          }
-          break;
-        default:
-          {
-            throw Error();
-          }
-      }
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -93,28 +37,6 @@ class _PreviouslyInvestedProductsState
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xffffffff),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
-      // CustomSignupAppBar(
-      //   titleTxt: "Previously Invested Products",
-      //   showLeading: true,
-      //   bottomtext: false,
-      // ),
-      // bottomNavigationBar:
-      //     CreateBottomBar(stateBottomNav, "bottombar", context),
       body: Column(
         children: [
           Padding(
@@ -197,22 +119,6 @@ class _PreviouslyInvestedProductsState
                     SizedBox(
                       height: 10,
                     ),
-                    // common_crd_green(),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
-                    // common_crd_red(),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
-                    // common_crd_green(),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
-                    // common_crd_red(),
-                    // SizedBox(
-                    //   height: 10,
-                    // ),
                   ],
                 ),
               ),
@@ -329,9 +235,6 @@ class common_crd_red extends StatelessWidget {
               ],
             ),
           ),
-          // SizedBox(
-          //   height: 8.h,
-          // ),
           Padding(
             padding: const EdgeInsets.only(left: 15),
             child: Row(

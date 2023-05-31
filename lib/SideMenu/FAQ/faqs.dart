@@ -3,10 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/SideMenu/FAQ/1Fractional.dart';
 import 'package:freeu/SideMenu/FAQ/2peerFAQ.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
-
 import '10VentureDebtFAQ.dart';
 import '3InvoiceFAQ.dart';
 import '4AlternativeFAQ.dart';
@@ -78,11 +77,10 @@ class _FAQsState extends State<FAQs> {
                   // sizedBoxHeight(15.h),
                   OpenContainerWrappers(
                       openBuild: const PeerFAQ(),
-                      closeBuild: catTitle('Peer to Peer Lending',
-                          'assets/newImages/cat3.png', AppColors.greenL_089435)
-
-                      // Text('Peer to Peer Lending FAQ')
-                      ),
+                      closeBuild: catTitle(
+                          'Peer to Peer Lending',
+                          'assets/newImages/cat3.png',
+                          AppColors.greenL_089435)),
                   Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
 
                   OpenContainerWrappers(

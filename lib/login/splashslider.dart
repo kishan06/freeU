@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -79,49 +79,9 @@ class _SplashsliderState extends State<Splashslider> {
                     } else {
                       return page4();
                     }
-                    // return Column(
-                    //   mainAxisAlignment: MainAxisAlignment.center,
-                    //   children: [
-                    //     Expanded(
-                    //       flex: 8,
-                    //       child: SvgPicture.asset(
-                    //         contents[i].image,
-                    //         height: 250.h,
-                    //       ),
-                    //     ),
-                    //     SizedBox(
-                    //       height: 20.h,
-                    //     ),
-                    //     Expanded(
-                    //       flex: 1,
-                    //       child: Text(
-                    //         contents[i].title,
-                    //         textAlign: TextAlign.center,
-                    //         style: TextStyle(
-                    //           fontSize: 24.sm,
-                    //           fontWeight: FontWeight.w600,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //     Expanded(
-                    //       flex: 2,
-                    //       child: Text(
-                    //         contents[i].content,
-                    //         textAlign: TextAlign.center,
-                    //         style: TextStyle(
-                    //           fontSize: 15.sm,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // );
                   },
                 ),
               ),
-              // const Spacer(),
-              // SizedBox(
-              //   height: 15.h,
-              // ),
               SizedBox(
                 width: 330.w,
                 child: CustomNextButton(
@@ -145,7 +105,6 @@ class _SplashsliderState extends State<Splashslider> {
                   },
                 ),
               ),
-
               SizedBox(
                 height: 20.h,
               ),
@@ -403,14 +362,10 @@ class _SplashsliderState extends State<Splashslider> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           text30BlackM("What is FreeU ?"),
-
           sizedBoxHeight(15.h),
-
           text18Grey(
               "FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering the best risk adjusted returns to our investors."),
-
           sizedBoxHeight(37.h),
-
           Container(
             width: 180.h,
             height: 180.h,
@@ -421,7 +376,6 @@ class _SplashsliderState extends State<Splashslider> {
               fit: BoxFit.fill,
             ),
           ),
-
           Align(
             alignment: Alignment.centerRight,
             child: Container(
@@ -429,21 +383,10 @@ class _SplashsliderState extends State<Splashslider> {
               height: 153.h,
               child: Image.asset(
                 "assets/logos/economic-growth.png",
-                // width: 153.h,
-                // height: 153.h,
                 fit: BoxFit.fill,
               ),
             ),
-          )
-
-          // Text("dsf")
-          // Text("FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering thebest risk adjusted returns to our investors.",
-          //   style: TextStyle(
-          //     fontSize: 20.sp,
-          //     color: AppColors.grey616161,
-          //     // fontWeight: FontWeight.w500
-          //   ),
-          // )
+          ),
         ],
       ),
     );
@@ -456,14 +399,10 @@ class _SplashsliderState extends State<Splashslider> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           text30BlackM("What are \nAlternative Assets?"),
-
           sizedBoxHeight(15.h),
-
           text18Grey(
               "As the name suggests, Alternative investments are financial investments that cannot be categorized as a traditional, or conventional investment."),
-
           sizedBoxHeight(53.h),
-
           Center(
             child: Container(
               width: 250.h,
@@ -476,15 +415,6 @@ class _SplashsliderState extends State<Splashslider> {
               ),
             ),
           ),
-
-          // Text("dsf")
-          // Text("FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering thebest risk adjusted returns to our investors.",
-          //   style: TextStyle(
-          //     fontSize: 20.sp,
-          //     color: AppColors.grey616161,
-          //     // fontWeight: FontWeight.w500
-          //   ),
-          // )
         ],
       ),
     );
@@ -498,15 +428,10 @@ class _SplashsliderState extends State<Splashslider> {
         children: [
           text30BlackM(
               "Difference between Alternative & \nTraditional Investments"),
-
           sizedBoxHeight(15.h),
-
           text18Grey(
               "Traditional investments are investments that can be bought, sold, and traded on a public market"),
-
-          // sizedBoxHeight(30.h),
           const Spacer(),
-
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -521,23 +446,13 @@ class _SplashsliderState extends State<Splashslider> {
                   fit: BoxFit.cover,
                 ),
               ),
-
               text30BlackM("vs"),
-
               SizedBox(
                 height: 120.h,
                 width: 120.h,
               )
-
-              // Image.asset("assets/logos/economic-growth.png",
-              //   width: 120.h,
-              //   height: 120.h,
-              // ),
             ],
           ),
-
-          // Center(child: text30BlackM("vs")),
-
           Align(
             alignment: Alignment.centerRight,
             child: Container(
@@ -551,13 +466,9 @@ class _SplashsliderState extends State<Splashslider> {
               ),
             ),
           ),
-
-          // sizedBoxHeight(15.h),
           const Spacer(),
-
           text18Grey(
               "Alternative investments, on the other hand, are not publicly traded."),
-
           const Spacer(),
         ],
       ),
@@ -571,14 +482,10 @@ class _SplashsliderState extends State<Splashslider> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           text30BlackM("Why FreeU ?"),
-
           sizedBoxHeight(15.h),
-
           text18Grey(
               "Freeu is one-stop shop for Alternate Investments. We want you to learn, compare, and choose before you invest. Luckily, we have curated the best of the best’s options for you"),
-
           sizedBoxHeight(50.h),
-
           Center(
             child: Container(
               width: 250.h,
@@ -591,15 +498,6 @@ class _SplashsliderState extends State<Splashslider> {
               ),
             ),
           ),
-
-          // Text("dsf")
-          // Text("FreeU is an online platform that handpicks the best financial instruments available in Alternate Investments space, offering thebest risk adjusted returns to our investors.",
-          //   style: TextStyle(
-          //     fontSize: 20.sp,
-          //     color: AppColors.grey616161,
-          //     // fontWeight: FontWeight.w500
-          //   ),
-          // )
         ],
       ),
     );

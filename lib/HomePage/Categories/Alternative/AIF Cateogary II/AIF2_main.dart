@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 import 'AlternativeCategories2.dart';
@@ -46,7 +46,7 @@ class _AIF2MainState extends State<AIF2Main> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    "Category II",
+                    "AIF Category II",
                     style: TextStyle(
                         fontFamily: "Poppins",
                         fontSize: 25.sp,

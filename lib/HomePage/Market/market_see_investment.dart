@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:freeu/common/CustomTextDropDown.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/HomePage/Categories/cat_main_screen.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextDropDown.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
+
+import 'AIF_sell_form.dart';
+import 'fractional_sell_form.dart';
+import 'other_sell_form.dart';
 
 class MarketSeeMyInvestment extends StatefulWidget {
   const MarketSeeMyInvestment({super.key});
@@ -17,10 +22,7 @@ class MarketSeeMyInvestment extends StatefulWidget {
 
 class _MarketSeeMyInvestmentState extends State<MarketSeeMyInvestment> {
   int currentIndex = 0;
-
   String? datecontroller;
-
-  DateTime? _selectedDate;
   final residentialstatustexteditingcontroller = TextEditingController();
 
   @override
@@ -168,13 +170,24 @@ class _MarketSeeMyInvestmentState extends State<MarketSeeMyInvestment> {
                             fontSize: 20.sp,
                             color: const Color(0xff000000)),
                       ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      CustomTextDropdown(
-                          item: const ['1', '2'],
-                          controller: residentialstatustexteditingcontroller,
-                          showDropDown: true),
+                      sizedBoxHeight(6.h),
+                      DropdownMenu(
+                          onSelected: (value) {
+                            value == '1'
+                                ? Get.to(AIFSellForm())
+                                : value == '2'
+                                    ? Get.to(FracionalSellForm())
+                                    : Get.to(OtherSellForm());
+                          },
+                          dropdownMenuEntries: [
+                            DropdownMenuEntry(
+                                value: '1',
+                                label: 'Alternative investment fund         '),
+                            DropdownMenuEntry(
+                                value: '2', label: 'Fractional Real Estate'),
+                            DropdownMenuEntry(
+                                value: '3', label: 'Other Products'),
+                          ]),
                       SizedBox(height: 20.h),
                       Text(
                         'Need help ?',
@@ -212,7 +225,7 @@ class _MarketSeeMyInvestmentState extends State<MarketSeeMyInvestment> {
                               TextSpan(children: [
                                 TextSpan(
                                   text:
-                                      'I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief and I undertake to inform you of any changes therein, immediately. In case any of the above information is found to be false or untrue or misleading or misrepresenting, I am aware that I may be held liable for it.',
+                                      'I, the undersigned, declare that I am the rightful owner of the Alternative asset product mentioned above and have the legal right to sell them to the buyer. I confirm that the information provided in this form is true and accurate to the best of my knowledge. I also agree to transfer the ownership  to the buyer upon receipt of the agreed-upon payment.',
                                   style: TextStyle(
                                     fontSize: 14.sp,
                                   ),
@@ -255,7 +268,7 @@ class _MarketSeeMyInvestmentState extends State<MarketSeeMyInvestment> {
                                     ),
                                     sizedBoxHeight(30.h),
                                     Text(
-                                      'FreeU advisory team will review the same and get in touch with you shortly',
+                                      'FreeU team will review the same and get in touch with you shortly',
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: const Color(0xff272424),

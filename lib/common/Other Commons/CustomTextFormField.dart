@@ -15,7 +15,6 @@ class CustomTextFormField extends StatefulWidget {
     this.textCapital = false,
     this.isInputPassword = false,
     this.outlineColor = const Color(0xFFFFB600),
-    // this.keyboardType,
     this.texttype,
   }) : super(key: key);
 
@@ -29,7 +28,6 @@ class CustomTextFormField extends StatefulWidget {
   final bool textCapital;
   final dynamic inputFormatters;
   final Color outlineColor;
-  // final TextInputType? keyboardType;
   final TextInputType? texttype;
 
   @override

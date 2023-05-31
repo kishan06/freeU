@@ -6,30 +6,22 @@ import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart
 import 'package:freeu/HomePage/Categories/Alternative/Debtfundpage.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Distressedpage.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalpage.dart';
-//import 'package:freeu/HomePage/Categories/FractionalNewdesign/Fractionalpage.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalproperties.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Fractionalrealestate.dart';
-import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/PrivateEquity.dart';
 import 'package:freeu/HomePage/Categories/Alternative/PrivateEquitydeals.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/PrivateEquityfund.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Realestatepage.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
-import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
-
 import 'package:freeu/HomePage/Categories/High_yield/high_yield_more_products.dart';
 import 'package:freeu/HomePage/Categories/InvoiceDiscounting/Invoiceproperties.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease%20view%20more%20product/LeaseViewMoreProduct.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_properties.dart';
-
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
-import 'package:freeu/HomePage/Homepage2.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
 import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
 import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
-import 'package:freeu/HomePage/SuccessStories.dart';
-import 'package:freeu/HomePage/SuccessStoriesDetails.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/About.dart';
 import 'package:freeu/SideMenu/ContactUs.dart';
@@ -53,13 +45,8 @@ import 'package:freeu/login/forgotPassword.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/login/loginUsingOTP.dart';
 import 'package:freeu/login/resetPassword.dart';
-import 'package:freeu/profile/kyctabs1.dart';
-import 'package:freeu/profile/kyctabs2.dart';
-import 'package:freeu/profile/kyctabs3.dart';
-import 'package:freeu/profile/kyctabs4.dart';
 import 'package:freeu/profile/profile.dart';
 import 'package:freeu/screens/entry_point.dart';
-import 'package:freeu/screens/main_screen.dart';
 import 'package:freeu/screens/side_menu.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/vertical_slider.dart';
 import 'package:freeu/signUp/CompleteProfile.dart';
@@ -67,11 +54,9 @@ import 'package:freeu/signUp/SecurityFirst.dart';
 import 'package:freeu/signUp/SecurityQuestion.dart';
 import 'package:freeu/signUp/TouchId.dart';
 import 'package:freeu/signUp/signUp.dart';
-import 'package:freeu/login/splash.dart';
 import 'package:freeu/login/splashslider.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import 'HomePage/Categories/Alternative/AIF Cateogary I/Angel Fund/AngelFundMoreProducts.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary I/Angel Fund/AngelFundViewMore.dart';
 import 'HomePage/Categories/Alternative/AIF Cateogary I/Infrastructure Fund/infrastructure_viewmore_product.dart';
@@ -94,7 +79,6 @@ import 'HomePage/Categories/Venture debt/VentureProduct/ViewMoreProdcutVenture.d
 import 'HomePage/Categories/revenue_based_financing/revenueproperties.dart';
 
 int bottomIndex = 0;
-
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
@@ -113,8 +97,6 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     checkOnboard();
-    // final SharedPreferences prefs = await SharedPreferences.getInstance();
-    // onBoardDone = prefs.getBool('OnBoardDone') ?? false;
   }
 
   checkOnboard() async {
@@ -123,10 +105,6 @@ class _MyAppState extends State<MyApp> {
     print(onBoardDone);
     setState(() {});
   }
-
-  // String entryRoute(){
-  //   return
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -138,9 +116,7 @@ class _MyAppState extends State<MyApp> {
             builder: (BuildContext context, Widget? child) => GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'FreeU',
-              // initialRoute: '/SideBar',
               initialRoute: onBoardDone ?? false ? '/EntryPoint' : '/',
-
               theme: ThemeData(
                 scaffoldBackgroundColor: AppColors.white,
                 fontFamily: "Poppins",
@@ -190,10 +166,6 @@ class _MyAppState extends State<MyApp> {
                 GetPage(
                     name: '/categoriesmain',
                     page: () => const CategoriesMain()),
-
-                //      GetPage(name: '/peerlendingasset1', page: () => PeerLendingAsset1()),
-                //    GetPage(name: '/peerlendingasset2', page: () => PeerLendingAsset2()),
-                // GetPage(name: '/investmentmain', page: () => InvestmentMain()),
                 GetPage(
                     name: '/currentinvestment',
                     page: () => const CurrentInvestment()),
@@ -208,10 +180,6 @@ class _MyAppState extends State<MyApp> {
                     name: '/chatdetailpage',
                     page: () => const ChatDetailPage()),
                 GetPage(name: '/homepage2', page: () => EntryPoint()),
-                GetPage(name: '/success', page: () => const Success()),
-                GetPage(
-                    name: '/successstoriesdetails',
-                    page: () => const SuccessStoriesDetails()),
                 GetPage(name: '/myprofile', page: () => const Profile()),
                 GetPage(name: '/about', page: () => const About()),
                 GetPage(name: '/faqs', page: () => const FAQs()),
@@ -226,17 +194,10 @@ class _MyAppState extends State<MyApp> {
                 GetPage(
                     name: '/termsandconditions',
                     page: () => const TermsAndCondition()),
-                GetPage(name: '/kyctab1', page: () => const KYCtabs1()),
-                GetPage(name: '/kyctab2', page: () => const KYCTabs2()),
-                GetPage(name: '/kyctab3', page: () => const KYCTabs3()),
-                GetPage(name: '/kyctab4', page: () => const KYCTabs4()),
                 GetPage(name: '/userlogged', page: () => const User()),
                 GetPage(
                     name: '/altenativecategories',
                     page: () => const AlternativeCategories()),
-
-                // GetPage(name: '/privateequity', page: () => PrvateEquity()),
-
                 GetPage(
                     name: '/altenativecategories2',
                     page: () => const AlternativeCategories2()),

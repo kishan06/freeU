@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 import 'featured_investment.dart';
@@ -236,13 +235,6 @@ class _MarketTabState extends State<MarketTab> {
           ),
           color: AppColors.white,
           borderRadius: BorderRadius.circular(15.h),
-          // boxShadow: [
-          //   BoxShadow(
-          //     color: Colors.black.withOpacity(0.04),
-          //     blurRadius: 10,
-          //     spreadRadius: 2,
-          //   )
-          // ],
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),

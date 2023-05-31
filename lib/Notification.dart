@@ -2,7 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/common/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({Key? key}) : super(key: key);
@@ -117,7 +117,7 @@ class _NotificationPageState extends State<NotificationPage> {
                                         Text(
                                           _data[index]['title'] ?? "",
                                           style: TextStyle(
-                                            fontSize: 16.sm,
+                                            fontSize: 16.sp,
                                             fontWeight: FontWeight.w500,
                                             color: Colors.black,
                                           ),
@@ -129,7 +129,7 @@ class _NotificationPageState extends State<NotificationPage> {
                                           _data[index]['subtitle']!,
                                           style: TextStyle(
                                             color: Color(0xFF444444),
-                                            fontSize: 14.sm,
+                                            fontSize: 14.sp,
                                           ),
                                         ),
                                       ],
@@ -171,6 +171,7 @@ class _NotificationPageState extends State<NotificationPage> {
                       ),
                     ),
                   ),
+              
                 ],
               ),
             ),

@@ -4,24 +4,20 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
+import 'package:freeu/HomePage/Categories/cat_main_screen.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/HomePage/Market/market_tab.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/profile/profile.dart';
 import 'package:freeu/screens/side_menu.dart';
 import 'package:get/get.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import '../HomePage/Investments/new_investment.dart';
 
-// part 'HomePage.dart';
 var selectedIndex = 0;
 
 class EntryPoint extends StatefulWidget {
-  // int index;
   EntryPoint({super.key});
 
   @override
@@ -30,67 +26,41 @@ class EntryPoint extends StatefulWidget {
 
 class _EntryPointState extends State<EntryPoint>
     with SingleTickerProviderStateMixin {
-  // bool isSideBarClosed
   bool isSideMenuClosed = true;
   late AnimationController _animationController;
   late Animation<double> animation;
   late Animation<double> scaleAnimation;
   late bool logedIn;
   final controllerEntryPoint = Get.put(EntryPointController());
-  // late bool Loge;
-  // var selectedIndex = 0.obs;
   var screens = [
     const HomePage(),
-    const CategoriesMain(),
+    // const CategoriesMain(),
+    const CatMainScreen(),
     const NewInvestment(),
     const ChatPage(),
     const MarketTab(),
   ];
 
-  // changePage(){
-  //   setState(() {
-
-  //   });
-  // }
-
   @override
   void initState() {
     super.initState();
     controllerEntryPoint.checkLogin();
-    // final SharedPreferences prefs = await SharedPreferences.getInstance();
-    // logedIn = prefs.getBool('LogedIn') ?? false;
-    // checkLogin();
-    // print("checked");
     selectedIndex = Get.arguments ?? 0;
-    // controllerEntryPoint.selectedIndex = Get.arguments;
-    // controllerEntryPoint.selectedPage(Get.arguments);
-    // print(selectedIndex);
-    _animationController =
-        // GetBuilder(builder: (_){
-        //   return AnimationController(vsync: this, duration: Duration(milliseconds: 200))
-        //   ..addListener(() {
-        //     // setState(() {});
-        //   });
-        // })
-        AnimationController(
-            vsync: this, duration: const Duration(milliseconds: 200))
-          ..addListener(() {
-            setState(() {});
-          });
+    _animationController = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 200))
+      ..addListener(() {
+        setState(() {});
+      });
 
     animation = Tween<double>(begin: 0, end: 1).animate(CurvedAnimation(
         parent: _animationController, curve: Curves.fastOutSlowIn));
 
     scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(CurvedAnimation(
         parent: _animationController, curve: Curves.fastOutSlowIn));
-    //
-    // TODO: implement initState
-    // super.initState();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _animationController.dispose();
     super.dispose();
   }
@@ -126,24 +96,20 @@ class _EntryPointState extends State<EntryPoint>
                           ..rotateY(animation.value -
                               30 * animation.value * pi / 180),
                         child: Transform.translate(
-                            offset: Offset(animation.value * 300.w, 0),
-                            child: Transform.scale(
-                                scale: scaleAnimation.value,
-                                child: ClipRRect(
-                                    // bord
-                                    borderRadius: BorderRadius.all(
-                                        Radius.circular(
-                                            isSideMenuClosed ? 0 : 24)),
-                                    child: screens[selectedIndex]
-                                    // Obx(() => screens[selectedIndex])
-                                    // screens[selectedIndex.value]
-                                    // HomePage()
-                                    ))),
+                          offset: Offset(animation.value * 300.w, 0),
+                          child: Transform.scale(
+                            scale: scaleAnimation.value,
+                            child: ClipRRect(
+                                // bord
+                                borderRadius: BorderRadius.all(
+                                    Radius.circular(isSideMenuClosed ? 0 : 24)),
+                                child: screens[selectedIndex]),
+                          ),
+                        ),
                       ),
                       AnimatedPositioned(
                         duration: const Duration(milliseconds: 200),
                         curve: Curves.fastOutSlowIn,
-                        // left: isSideMenuClosed ? 0 ? 220,
                         top: 5.h,
                         child: IconButton(
                           onPressed: () {
@@ -172,18 +138,12 @@ class _EntryPointState extends State<EntryPoint>
                                   size: 25.w,
                                   color: AppColors.white,
                                 ),
-                          // color: Colors.red,
-                          // iconSize: 100.h,
                         ),
                       ),
                     ],
                   ),
                   bottomNavigationBar: isSideMenuClosed
                       ? BottomNavigationBar(
-                          // height
-                          // fixedColor: AppColors.transparent,
-                          // fixedColor: Colors.transparent,
-
                           selectedLabelStyle: TextStyle(fontSize: 12.sp),
                           unselectedLabelStyle: TextStyle(fontSize: 12.sp),
                           iconSize: 20.h,
@@ -199,11 +159,9 @@ class _EntryPointState extends State<EntryPoint>
                                   "assets/images/home-svgrepo-com (1).svg"),
                               icon: inactiveIcon(
                                   "assets/images/home-svgrepo-com.svg"),
-                              // icon: Icon(Icons.home),
                               label: "Home",
                             ),
                             BottomNavigationBarItem(
-                              // icon: Icon(Icons.explore),
                               activeIcon: activeIcon(
                                   "assets/images/category-alt-svgrepo-com (1).svg"),
                               icon: inactiveIcon(
@@ -223,7 +181,6 @@ class _EntryPointState extends State<EntryPoint>
                                   ],
                                 ),
                               ),
-                              // activeIcon("assets/images/Group 51330.s vg"),
                               icon: inactiveIcon(
                                   "assets/images/money-dollar-coin-svgrepo-com.svg"),
                               label: "Investment",
@@ -328,15 +285,8 @@ class _EntryPointState extends State<EntryPoint>
         SvgPicture.asset(
           imagePath,
           height: 20.h,
-          // width: 15.h,
           color: AppColors.blue143C6D,
-          // colorFilter: AppColors.greyD3B3F43,
         ),
-        // sizedBoxHeight(5.h),
-        // CircleAvatar(
-        //   radius: 5.h,
-        //   backgroundColor: AppColors.blue143C6D.withOpacity(0.5),
-        // )
       ]),
     );
   }
@@ -346,14 +296,7 @@ class _EntryPointState extends State<EntryPoint>
       SvgPicture.asset(
         imagePath,
         height: 20.h,
-        // width: 15.h,
-        // color: AppColors.black,
       ),
-      // sizedBoxHeight(2.h),
-      // CircleAvatar(
-      //   radius: 5.h,
-      //   backgroundColor: Colors.transparent,
-      // )
     ]);
   }
 }

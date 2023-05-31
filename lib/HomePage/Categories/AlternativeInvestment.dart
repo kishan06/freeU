@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_switch/flutter_switch.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
@@ -64,22 +63,6 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
         titleTxt: "",
         bottomtext: false,
       ),
-
-      // AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
@@ -99,9 +82,6 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // SizedBox(
-                //   height: 10.h,
-                // ),
                 Flexible(
                   child: Text(
                     "Alternative Investment Funds(AIF)",
@@ -129,29 +109,6 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
                       return sizedBoxHeight(20.h);
                     },
                     itemCount: AlternativeData.length)
-                //     SingleChildScrollView(
-                //   child: Column(
-                //     children: [
-                //       sizedBoxHeight(20.h),
-                //       faqAccod(expandAccod: true),
-                //       sizedBoxHeight(15.h),
-                //       faqAccod1(),
-                //       sizedBoxHeight(15.h),
-                //       faqAccod2(),
-                //       sizedBoxHeight(15.h),
-                //       faqAccod3(),
-                //       sizedBoxHeight(15.h),
-                //       faqAccod4(),
-                //       sizedBoxHeight(15.h),
-                //       faqAccod5(),
-                //       sizedBoxHeight(15.h),
-                //       faqAccod6(),
-                //       sizedBoxHeight(15.h),
-                //       faqAccod7(),
-                //       sizedBoxHeight(15.h),
-                //     ],
-                //   ),
-                // )
                 ),
           ],
         ),
@@ -495,32 +452,6 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
                 itemBuilder: (context, index) {
                   return bulletText(bulletPoints[index]);
                 }),
-            //sizedBoxHeight(5.h),
-            // Text.rich(TextSpan(children: [
-            //   TextSpan(
-            //     text: "Structure of AIF",
-            //     style: TextStyle(
-            //       fontSize: 18.sp,
-            //       color: Colors.black,
-            //       fontFamily: "Poppins",
-            //       fontWeight: FontWeight.w600,
-            //     ),
-            //   ),
-            //   TextSpan(
-            //     text: "(Recreate below diagram for website)",
-            //     style: TextStyle(
-            //       fontSize: 18.sp,
-            //       color: Colors.red,
-            //       fontFamily: "Poppins",
-            //       fontWeight: FontWeight.w600,
-            //     ),
-            //   ),
-            // ])),
-            // Image.asset(
-            //   "assets/newImages/alternative.png",
-            //   height: 300.h,
-            // ),
-            // sizedBoxHeight(5.h),
           ],
         ),
       ),

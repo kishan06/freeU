@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 
 class Upload extends StatefulWidget {
   const Upload({super.key});
@@ -32,7 +31,6 @@ class _UploadState extends State<Upload> {
   }
 
   Future<File> saveFilePermanently(String imagePath) async {
-    final directory = await getApplicationDocumentsDirectory();
     return File(imagePath).copy(imagePath);
   }
 

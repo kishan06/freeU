@@ -1,12 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/HomePage/Chats/Model/ChatMessageModel.dart';
 import 'package:freeu/Notification.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 class ChatDetailPage extends StatefulWidget {
@@ -66,7 +65,6 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
 
   @override
   void initState() {
-    // _scrollDown();
     super.initState();
   }
 
@@ -101,13 +99,6 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   SizedBox(
                     width: 2.w,
                   ),
-                  // CircleAvatar(
-                  //   backgroundImage: const AssetImage('assets/images/1.jpg'),
-                  //   maxRadius: 20.r,
-                  // ),
-                  // SizedBox(
-                  //   width: 12.w,
-                  // ),
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,11 +113,6 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         SizedBox(
                           height: 6.h,
                         ),
-                        // Text(
-                        //   "Online",
-                        //   style: TextStyle(
-                        //       color: Colors.grey.shade600, fontSize: 13.sp),
-                        // ),
                       ],
                     ),
                   ),
@@ -241,16 +227,12 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
               alignment: Alignment.bottomLeft,
               child: Container(
                 height: 60.h,
-                //
-                // width: double.infinity,
-                // color: Colors.white,
                 child: Row(
                   children: <Widget>[
                     sizedBoxWidth(16.w),
                     Expanded(
                       child: TextFormField(
                         style: TextStyle(fontSize: 16.sp),
-                        // cursorColor: const Color(0xFFFFB600),
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         decoration: InputDecoration(
                           contentPadding: EdgeInsets.all(10.h),
@@ -289,17 +271,6 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         maxLines: 1,
                       ),
                     ),
-                    // Container(
-                    //   margin: EdgeInsets.all(10.h),
-                    //   height: 60.h,
-                    //   decoration: BoxDecoration(
-                    //     color: const Color(0xffF6F8FA),
-                    //     borderRadius: BorderRadius.circular(10.r),
-                    //   ),
-                    //   child: Row(
-                    //     children: [Text('Send')],
-                    //   ),
-                    // ),
                     sizedBoxWidth(12.w),
                     Container(
                         width: 90.w,

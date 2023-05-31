@@ -1,17 +1,14 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/profile/profile.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
 
 class User extends StatefulWidget {
   const User({super.key});
@@ -24,23 +21,8 @@ class _UserState extends State<User> {
   final ProfileImageController editProfileImage =
       Get.put(ProfileImageController());
   bool editBool = false;
-  // Future getImage(ImageSource source) async {
-  //   try {
-  //     final image = await ImagePicker().pickImage(source: source);
-  //     if (image == null) return;
-  //     final imageTemporary = File(image.path);
-  //     // final imagePermanent = await saveFilePermanently(image.path);
-
-  //     setState(() {
-  //       profilPic = imageTemporary;
-  //     });
-  //   } on PlatformException catch (e) {
-  //     print('Failed to pick image: $e');
-  //   }
-  // }
 
   Future<File> saveFilePermanently(String imagePath) async {
-    final directory = await getApplicationDocumentsDirectory();
     return File(imagePath).copy(imagePath);
   }
 
@@ -56,7 +38,6 @@ class _UserState extends State<User> {
       ),
       builder: (context) {
         return Container(
-          // height: 180.h,
           margin: EdgeInsets.symmetric(horizontal: 36.w, vertical: 26.h),
           child: Padding(
             padding: EdgeInsets.only(
@@ -659,9 +640,6 @@ class _UserState extends State<User> {
   }
 
   void _submit() {
-    // final FormState? form = _formKey.currentState;
-    // if (form != null && form.validate()) {
-    //   form.save();
     setState(() {
       setState(() {
         editBool = false;
@@ -672,6 +650,5 @@ class _UserState extends State<User> {
         addressValue = addressController.text;
       });
     });
-    // }
   }
 }

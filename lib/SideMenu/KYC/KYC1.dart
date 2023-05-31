@@ -1,15 +1,11 @@
-// ignore_for_file: file_names, camel_case_types, prefer_const_constructors, duplicate_ignore, unused_import
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/common/CustomTextDropDown.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
-
+import 'package:freeu/common/Other%20Commons/CustomTextDropDown.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 class KYC1 extends StatefulWidget {
   const KYC1({super.key});
@@ -20,7 +16,6 @@ class KYC1 extends StatefulWidget {
 
 class _KYC1State extends State<KYC1> {
   int currentIndex = 0;
-  late PageController _controller;
 
   String? datecontroller;
 
@@ -29,7 +24,6 @@ class _KYC1State extends State<KYC1> {
 
   @override
   Widget build(BuildContext context) {
-    // ignore: prefer_const_constructors
     return Scaffold(
       backgroundColor: Color(0xFFFFFFFF),
       appBar: CustomSignupAppBar(
@@ -99,7 +93,6 @@ class _KYC1State extends State<KYC1> {
                       ),
                       Text(
                         "Contact Number",
-                        // ignore: prefer_const_constructors
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -189,8 +182,6 @@ class _KYC1State extends State<KYC1> {
                           ),
                         ),
                       ),
-                      // CustomTextFormField(
-                      //     hintText: "", validatorText: "Please Enter Email Id"),
                       SizedBox(height: 20.h),
                       Text(
                         "Occupation",
@@ -210,14 +201,9 @@ class _KYC1State extends State<KYC1> {
                           ],
                           controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
-
-                      // CustomTextFormField(
-                      //     hintText: "Please Enter Occupation",
-                      //     validatorText: "Please Enter Occupation"),
                       SizedBox(height: 20.h),
                       Text(
                         "Father's Name",
-                        // ignore: prefer_const_constructors
                         style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 20.sp,
@@ -251,19 +237,16 @@ class _KYC1State extends State<KYC1> {
   }
 
   void _presentDatePicker() {
-    // showDatePicker is a pre-made funtion of Flutter
     showDatePicker(
             context: context,
             initialDate: DateTime.now(),
             firstDate: DateTime(1922),
             lastDate: DateTime.now())
         .then((pickedDate) {
-      // Check if no date is selected
       if (pickedDate == null) {
         return setState(() {
           datecontroller = '';
         });
-        ;
       }
       setState(() {
         _selectedDate = pickedDate;

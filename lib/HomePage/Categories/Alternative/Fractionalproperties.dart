@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
-import 'package:getwidget/getwidget.dart';
 import 'package:lottie/lottie.dart';
 
 class Fractionalproperties extends StatefulWidget {
@@ -23,18 +20,12 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF1FAFF),
-      appBar:
-          //  CustomSignupAppBar(
-          //   titleTxt: "",
-          //   bottomtext: false,
-          // ),
-          AppBar(
+      appBar: AppBar(
         backgroundColor: Color(0xFFF1FAFF),
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
           onPressed: () {
-            // Get.toNamed("/privateequity");
             Get.back();
           },
           icon: Icon(
@@ -85,17 +76,6 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
                     ),
-                    // decoration: const BoxDecoration(
-                    //     color: Color(0xFF143C6D),
-                    //     //borderRadius: BorderRadius.circular(4),
-                    //     boxShadow: [
-                    //       BoxShadow(
-                    //         color: Colors.red,
-                    //         blurRadius: 3.0,
-                    //         spreadRadius: 4,
-                    //         offset: Offset(5.0, 5.0),
-                    //       )
-                    //     ]),
                     tabs: [
                       Tab(
                         text: "Open",
@@ -136,7 +116,6 @@ class FirstTab extends StatelessWidget {
     return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        // sizedBoxHeight(20.h),
         const Text("No Data Found")
       ],
     );
@@ -153,58 +132,28 @@ class SecondTab extends StatefulWidget {
 class _SecondTabState extends State<SecondTab> {
   List contents = [
     {
-      // "image": "assets/images/fractional.png",
       "title": "Navi Mumbai Office \nOpportunity II",
       "taxirr": "12.50%",
       "minimum": "95,000",
       "View investment Route": PropertiesInvestment(
         pageIndex: 0,
       )
-      // "image1": "assets/images/place.png",
-      // "text1": "Location:",
-      // "subtext1": "Seawoods, Navi Mumbai",
-      // "image2": "assets/images/investmentproperties (1).png",
-      // "text2": "Targeted IRR:",
-      // "subtext2": "12.7%",
-      // "image3": "assets/images/propertiestransfer.png",
-      // "text3": "Minimum investment amount",
-      // "subtext3": " 1 Crore",
     },
     {
-      //"image": "assets/images/fractional.png",
       "title": "Prestige Tech Platina, \nBangalore",
       "taxirr": "12.25%",
       "minimum": "95,000",
       "View investment Route": PropertiesInvestment(
         pageIndex: 1,
       )
-      // "image1": "assets/images/place.png",
-      // "text1": "Location:",
-      // "subtext1": "Seawoods, Navi Mumbai",
-      // "image2": "assets/images/investmentproperties (1).png",
-      // "text2": "Targeted IRR:",
-      // "subtext2": "12.7%",
-      // "image3": "assets/images/propertiestransfer.png",
-      // "text3": "Minimum investment amount",
-      // "subtext3": " 1 Crore",
     },
     {
-      //"image": "assets/images/fractional.png",
       "title": "Bangalore Warehousing Opportunity I",
       "taxirr": "",
       "minimum": "95,000",
       "View investment Route": PropertiesInvestment(
         pageIndex: 2,
       )
-      // "image1": "assets/images/place.png",
-      // "text1": "Location:",
-      // "subtext1": "Seawoods, Navi Mumbai",
-      // "image2": "assets/images/investmentproperties (1).png",
-      // "text2": "Targeted IRR:",
-      // "subtext2": "12.7%",
-      // "image3": "assets/images/propertiestransfer.png",
-      // "text3": "Minimum investment amount",
-      // "subtext3": " 1 Crore",
     }
   ];
 
@@ -229,7 +178,6 @@ class _SecondTabState extends State<SecondTab> {
                       color: Color(0x48B9B9BE),
                       blurRadius: 20.0,
                       spreadRadius: 0,
-                      // offset: Offset(-20, -20,),
                     )
                   ],
                 ),
@@ -253,7 +201,6 @@ class _SecondTabState extends State<SecondTab> {
                             Flexible(
                               child: Text(
                                 contents[index]["title"],
-                                //"Navi Mumbai Office \nOpportunity II",
                                 style: TextStyle(
                                     fontSize: 25,
                                     fontFamily: 'Poppins',
@@ -437,14 +384,6 @@ class _SecondTabState extends State<SecondTab> {
                                 ),
                               )),
                             ),
-
-                            // CustomNextButton(
-                            //   text: 'View Investment',
-                            //   // ontap: () {
-                            //   //   Get.to(PropertiesInvestment());
-                            //   //   // Get.toNamed("/propertiesinvestment");
-                            //   // },
-                            // ),
                           ),
                         ),
                       ),
@@ -454,40 +393,8 @@ class _SecondTabState extends State<SecondTab> {
               ),
             ),
           );
-
-          // properties(
-          //Contents[index]["image"],
-          // contents[index]["title"],
-
-          // Contents[index]["image1"],
-          // Contents[index]["text1"],
-          // Contents[index]["subtext1"],
-          // Contents[index]["image2"],
-          // Contents[index]["text2"],
-          // Contents[index]["subtext2"],
-          // Contents[index]["image3"],
-          // Contents[index]["text3"],
-          // Contents[index]["subtext3"],
-          // );
         });
   }
-
-  // Widget properties(
-  //   // String image,
-  //   String title,
-  //   // String image1,
-  //   // String text1,
-  //   // String subtext1,
-  //   // String image2,
-  //   // String text2,
-  //   // String subtext2,
-  //   // String image3,
-  //   // String text3,
-  //   // String subtext3
-  // ) {
-  //   return
-
-  // }
 }
 
 class ThirdTab extends StatelessWidget {
@@ -498,7 +405,6 @@ class ThirdTab extends StatelessWidget {
     return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
-        // sizedBoxHeight(20.h),
         const Text("No Data Found")
       ],
     );

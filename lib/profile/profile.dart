@@ -1,29 +1,16 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types, avoid_print, duplicate_ignore, prefer_const_literals_to_create_immutables, unused_import
-
 import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-import 'package:freeu/SideMenu/user_logged.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/common/CustomTextFormField.dart';
-import 'package:freeu/common/GlobalFuntionsVariables.dart';
-import 'package:freeu/common/NavDrawer.dart';
-import 'package:freeu/common/bottombar.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
-import 'package:freeu/profile/kyctabs2.dart';
+import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path_provider/path_provider.dart';
-
-import '../common/CustomTextDropDown.dart';
+import '../common/Other Commons/CustomTextDropDown.dart';
 
 bool smsUpdate = true;
 TextEditingController nameController = TextEditingController();
@@ -133,18 +120,15 @@ class _ProfileState extends State<Profile> {
                     Tab(
                         child: Text(
                       'Profile',
-                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                      style:
+                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                     )),
                     Tab(
                         child: Text(
                       'KYC',
-                      style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                      style:
+                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
                     )),
-                    // Tab(
-                    //     child: Text(
-                    //   'Risk Profile',
-                    //   style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                    // )),
                   ],
                 ),
               ),
@@ -153,7 +137,6 @@ class _ProfileState extends State<Profile> {
                   children: [
                     profiletab(),
                     KYCtabs(),
-                   // riskprofile(), I have commented this because of client requiremnet.
                   ],
                 ),
               ),
@@ -182,9 +165,6 @@ class _profiletabState extends State<profiletab> {
       Get.put(ProfileImageController());
 
   void _submit() {
-    // final FormState? form = _formKey.currentState;
-    // if (form != null && form.validate()) {
-    //   form.save();
     setState(() {
       setState(() {
         editBool = false;
@@ -196,11 +176,6 @@ class _profiletabState extends State<profiletab> {
       });
     });
     // }
-  }
-
-  Future<File> saveFilePermanently(String imagePath) async {
-    final directory = await getApplicationDocumentsDirectory();
-    return File(imagePath).copy(imagePath);
   }
 
   builduploadprofile() {
@@ -905,8 +880,7 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc1() {
     return SingleChildScrollView(
-      child:
-       Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1095,8 +1069,7 @@ class _KYCtabsState extends State<KYCtabs> {
   }
 
   Widget kyc2() {
-    return 
-    SingleChildScrollView(
+    return SingleChildScrollView(
       child: Center(
         child: Form(
           child: Column(
@@ -1412,8 +1385,7 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc3() {
     return SingleChildScrollView(
-      child: 
-      Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1605,8 +1577,7 @@ class _KYCtabsState extends State<KYCtabs> {
 
   Widget kyc4() {
     return SingleChildScrollView(
-      child:
-       Center(
+      child: Center(
         child: Form(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -1800,19 +1771,16 @@ class _KYCtabsState extends State<KYCtabs> {
   }
 
   void _presentDatePicker() {
-    // showDatePicker is a pre-made funtion of Flutter
     showDatePicker(
             context: context,
             initialDate: DateTime.now(),
             firstDate: DateTime(1922),
             lastDate: DateTime.now())
         .then((pickedDate) {
-      // Check if no date is selected
       if (pickedDate == null) {
         return setState(() {
           datecontroller = '';
         });
-        ;
       }
       setState(() {
         _selectedDate = pickedDate;
@@ -1820,220 +1788,5 @@ class _KYCtabsState extends State<KYCtabs> {
             "${_selectedDate!.day.toString()}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.year.toString().padLeft(2, '0')}";
       });
     });
-  }
-}
-
-class riskprofile extends StatefulWidget {
-  const riskprofile({super.key});
-
-  @override
-  State<riskprofile> createState() => _riskprofileState();
-}
-
-class _riskprofileState extends State<riskprofile> {
-  final famailiarity = TextEditingController();
-  final investing = TextEditingController();
-  final income = TextEditingController();
-  final invest = TextEditingController();
-  final basis = TextEditingController();
-  final GlobalKey<FormState> _form = GlobalKey<FormState>();
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
-        child: Center(
-            child: Form(
-                key: _form,
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      // SvgPicture.asset(
-                      //   'assets/images/risk.svg',
-                      //   // width: 120.w,
-                      // ),
-                      // SizedBox(
-                      //   height: 20.h,
-                      // ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          "Enter your First name ?",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 20.sp,
-                              color: Color(0xff000000)),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      CustomTextFormField(hintText: "", validatorText: ""),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Text(
-                          "Enter your age?",
-                          style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 20.sp,
-                              color: Color(0xff000000)),
-                        ),
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      CustomTextFormField(hintText: "", validatorText: ""),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Text(
-                        "How would you describe your level of familiarity ?",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 20.sp,
-                            color: Color(0xff000000)),
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      CustomTextDropdown(
-                        item: ["Beginner", "Competent", "Proficient", "Expert"],
-                        controller: famailiarity,
-                        showDropDown: true,
-                        // selectedValue: "select it",
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Text(
-                        "What is the primary reason you're interested in investing?",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 20.sp,
-                            color: Color(0xff000000)),
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      CustomTextDropdown(item: [
-                        "Building Wealth",
-                        "Petirement",
-                        "Major Purchase",
-                        "Business Investment",
-                        "Holiday"
-                      ], controller: investing, showDropDown: true),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Text(
-                        "What is your annual income ?",
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 20.sp,
-                            color: Color(0xff000000)),
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      CustomTextDropdown(item: [
-                        "Below 25 Lacs",
-                        "26 to 35 Lacs",
-                        "36 to 50 Lacs",
-                        "Above 50 Lacs"
-                      ], controller: income, showDropDown: true),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Text(
-                        "How long do you plan to invest?",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 20.sp,
-                            color: Color(0xff000000)),
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      CustomTextDropdown(item: [
-                        "Less than 3 years",
-                        "3 - 5 years",
-                        "6 - 10 years"
-                      ], controller: invest, showDropDown: true),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      Text(
-                        "How much do you hope to invest on a monthly/yearly basis?",
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 20.sp,
-                            color: Color(0xff000000)),
-                      ),
-                      SizedBox(
-                        height: 6.h,
-                      ),
-                      CustomTextDropdown(item: [
-                        "5 Lakhs to 10 Lakhs",
-                        "10 Lakhs to 25 Lakhs",
-                      ], controller: basis, showDropDown: true),
-                      SizedBox(
-                        height: 50.h,
-                      ),
-                      CustomNextButton(
-                          ontap: (() {
-                            showModalBottomSheet(
-                              isScrollControlled: true,
-                              context: context,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(30.r),
-                                  topRight: Radius.circular(30.r),
-                                ),
-                              ),
-                              builder: (context) {
-                                return Container(
-                                  margin: EdgeInsets.symmetric(
-                                      horizontal: 50.w, vertical: 24.h),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      SizedBox(
-                                        height: 10.h,
-                                      ),
-                                      Image.asset('assets/images/kyc.png'),
-                                      SizedBox(
-                                        height: 30.h,
-                                      ),
-                                      Center(
-                                        child: Text(
-                                          'Thankyou for updating your Risk Profile',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 20.sp,
-                                              color: Colors.black),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 10.h,
-                                      ),
-                                    ],
-                                  ),
-                                );
-                              },
-                            );
-                          }),
-                          text: "Submit"),
-                      // sizedBoxHeight(50.h)
-                    ]))),
-      ),
-    );
   }
 }

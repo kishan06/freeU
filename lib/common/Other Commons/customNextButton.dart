@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
-import 'package:freeu/Utils/textStyle.dart';
 
 class CustomNextButton extends StatelessWidget {
   const CustomNextButton({

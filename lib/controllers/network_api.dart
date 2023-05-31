@@ -46,6 +46,7 @@ class NetworkApi {
     }
     Response response;
     SharedPreferences prefs = await SharedPreferences.getInstance();
+    // ignore: unused_local_variable
     String? token = prefs.getString('token').toString();
 
     response = await dio.post(

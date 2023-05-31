@@ -1,17 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/AIF2_main.dart';
-import 'package:freeu/common/page_animation.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:get/get.dart';
-
+import 'package:freeu/common/Other%20Commons/page_animation.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'AIF Cateogary I/AIF1_main.dart';
-import 'AIF Cateogary I/AlternativeCateogries1.dart';
 import 'AIF Cateogary III/AIF3_main.dart';
-import 'AIF Cateogary III/AlternaticeCateogries3.dart';
 
 class AlternativeCategories extends StatefulWidget {
   const AlternativeCategories({super.key});
@@ -29,21 +22,6 @@ class _AlternativeCategoriesState extends State<AlternativeCategories> {
         titleTxt: "",
         bottomtext: false,
       ),
-      // AppBar(
-      //   backgroundColor: Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26,
-      //     color: Colors.black,
-      //   ),
-      // ),
       body: Center(
         child: Column(
           children: [

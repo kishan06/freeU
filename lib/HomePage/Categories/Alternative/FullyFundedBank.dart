@@ -1,11 +1,9 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
@@ -26,22 +24,6 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
         titleTxt: "",
         bottomtext: false,
       ),
-
-      // AppBar(
-      //   backgroundColor: const Color(0xFFFFFFFF),
-      //   elevation: 0,
-      //   titleSpacing: 0,
-      //   leading: IconButton(
-      //     onPressed: () {
-      //       Get.back();
-      //     },
-      //     icon: const Icon(
-      //       Icons.arrow_back,
-      //     ),
-      //     iconSize: 26.h,
-      //     color: Colors.black,
-      //   ),
-      // ),
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
@@ -51,8 +33,6 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
               } else {
                 Get.toNamed("/login");
               }
-              // controllerEntryPoint.logedIn!?
-              // investNow():SizedBox();
             },
             text: 'Invest now'),
       ),
@@ -683,7 +663,6 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
                   ontap: () {
                     Get.back();
                     Get.back();
-                    // Get.toNamed("/fractionalpropertiespage");
                   },
                   text: 'View more products')
             ],

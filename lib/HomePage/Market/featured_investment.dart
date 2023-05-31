@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/customNextButton.dart';
-import 'package:freeu/common/signupAppbar.dart';
-import 'package:freeu/common/sized_box.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
+import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 
 import 'offer_pricing.dart';
 
 class FeaturedInvestment extends StatefulWidget {
-  int pageIndex;
+  final int pageIndex;
   FeaturedInvestment({super.key, required this.pageIndex});
 
   @override
@@ -204,25 +204,6 @@ class _FeaturedInvestmentState extends State<FeaturedInvestment> {
                 ),
               ),
               text14Black('dawesfrghfdasddsgdhf'),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.start,
-              //   children: [
-              //     Text(
-              //       'view ',
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 15.sp,
-              //           color: const Color(0xff1B8DC9)),
-              //     ),
-              //     Text(
-              //       productDetails[0]['Company Name'][widget.pageIndex],
-              //       style: TextStyle(
-              //           fontWeight: FontWeight.w500,
-              //           fontSize: 15.sp,
-              //           color: const Color(0xff1B8DC9)),
-              //     )
-              //   ],
-              // ),
               sizedBoxHeight(60.h),
             ],
           ),
