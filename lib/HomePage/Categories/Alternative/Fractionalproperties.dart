@@ -134,7 +134,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       "title": "Navi Mumbai Office \nOpportunity II",
       "taxirr": "12.50%",
-      "minimum": "95,000",
+      "minimum": "₹ 95,000",
       "View investment Route": PropertiesInvestment(
         pageIndex: 0,
       )
@@ -142,7 +142,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       "title": "Prestige Tech Platina, \nBangalore",
       "taxirr": "12.25%",
-      "minimum": "95,000",
+      "minimum": "₹ 95,000",
       "View investment Route": PropertiesInvestment(
         pageIndex: 1,
       )
@@ -150,7 +150,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       "title": "Bangalore Warehousing Opportunity I",
       "taxirr": "",
-      "minimum": "95,000",
+      "minimum": "₹ 95,000",
       "View investment Route": PropertiesInvestment(
         pageIndex: 2,
       )

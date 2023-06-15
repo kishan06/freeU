@@ -130,7 +130,7 @@ class SecondTab extends StatelessWidget {
     {
       "Company Name": "Cocoblu",
       "Expected Return": "12.50%",
-      "Minimum Investment": '95,000',
+      "Minimum Investment": '₹ 95,000',
       "View investment Route": InvoiceInvestment(
         pageIndex: 0,
       )
@@ -138,7 +138,7 @@ class SecondTab extends StatelessWidget {
     {
       "Company Name": "Zetwerk",
       "Expected Return": "12.25%",
-      "Minimum Investment": '95,000',
+      "Minimum Investment": '₹ 95,000',
       "View investment Route": InvoiceInvestment(
         pageIndex: 1,
       )
@@ -146,7 +146,7 @@ class SecondTab extends StatelessWidget {
     {
       "Company Name": "Aris Infra",
       "Expected Return": "N/A",
-      "Minimum Investment": '95,000',
+      "Minimum Investment": '₹ 95,000',
       "View investment Route": InvoiceInvestment(
         pageIndex: 2,
       )

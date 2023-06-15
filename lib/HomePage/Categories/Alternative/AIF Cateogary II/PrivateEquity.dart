@@ -14,7 +14,7 @@ class PrvateEquity extends StatefulWidget {
   Color color;
   String ontapNamed;
   String viewMoreProdcut;
-  String? minInvestment = '1 Crore';
+  String? minInvestment = '₹ 1 Crore';
   bool? swipeup;
   PrvateEquity(
       {super.key,
@@ -193,7 +193,7 @@ class _PrvateEquityState extends State<PrvateEquity> {
                                 fontFamily: "Poppins",
                               )),
                           text20White(widget.minInvestment == null
-                              ? '1 Crore'
+                              ? '₹ 1 Crore'
                               : widget.minInvestment!)
                         ],
                       ),

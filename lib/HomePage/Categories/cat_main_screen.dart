@@ -6,9 +6,7 @@ import 'package:freeu/HomePage/Categories/cat_filter.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
-import 'package:freeu/common/Categories%20Common%20Files/categoryCard.dart';
 import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
-import 'package:freeu/common/Other%20Commons/CustomTextDropDown.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
@@ -27,28 +25,28 @@ class _CatMainScreenState extends State<CatMainScreen> {
       "colorD": AppColors.redD_5F0801,
       "bgImage": "assets/newImages/bgRed.svg",
       "imageUrl": "assets/newImages/cat1.png",
-      "title": "Indian Finiancial Assets",
+      "title": "Indian Financial Assets",
     },
     {
       "colorL": AppColors.blueL_006796,
       "colorD": AppColors.blueD_00344B,
       "bgImage": "assets/newImages/bgBlue.svg",
       "imageUrl": "assets/newImages/cat2.png",
-      "title": "Indian Real \nAssets",
+      "title": "Indian Real Assets",
     },
     {
       "colorL": AppColors.greenL_089435,
       "colorD": AppColors.greenD_044A1B,
       "bgImage": "assets/newImages/bgGreen.svg",
       "imageUrl": "assets/newImages/ww.png",
-      "title": "Global Finiancial Assets",
+      "title": "Global Financial Assets",
     },
     {
       "colorL": AppColors.purpleL_474E88,
       "colorD": AppColors.purpleD_242744,
       "bgImage": "assets/newImages/bgPurple (2).svg",
       "imageUrl": "assets/newImages/gra.png",
-      "title": "Global Real \nAssets",
+      "title": "Global Real Assets",
     },
   ];
 
@@ -90,32 +88,27 @@ class _CatMainScreenState extends State<CatMainScreen> {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
       ),
-      body: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              catContainer(0),
-              catContainer(1),
-            ],
-          ),
-          sizedBoxHeight(15.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              catContainer(2),
-              catContainer(3),
-            ],
-          ),
-        ],
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: Column(
+          children: [
+            catContainer(0),
+            sizedBoxHeight(15.h),
+            catContainer(1),
+            sizedBoxHeight(15.h),
+            catContainer(2),
+            sizedBoxHeight(15.h),
+            catContainer(3),
+          ],
+        ),
       ),
     );
   }
 
   Widget catContainer(index) {
     return SizedBox(
-      height: 133.h,
-      width: MediaQuery.of(context).size.width / 2 - 32,
+      height: 150.h,
+      width: double.infinity,
       child: InkWell(
         child: categoryCard(
           color1: categoryData[index]["colorL"],
@@ -126,7 +119,7 @@ class _CatMainScreenState extends State<CatMainScreen> {
         ),
         onTap: () {
           index == 0
-              ? Get.to(CategoriesMain())
+              ? Get.to(() => CategoriesMain())
               //  Get.toNamed("/EntryPoint",
               //     arguments: 1, preventDuplicates: false)
               : Get.to(() => ComingSoon());
@@ -156,6 +149,52 @@ class _CatMainScreenState extends State<CatMainScreen> {
           )
         ],
       ),
+    );
+  }
+
+  Widget categoryCard(
+      {required Color color1,
+      required Color color2,
+      required String bgImage,
+      required String image,
+      required String text}) {
+    return Stack(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [color1, color2]),
+            borderRadius: BorderRadius.circular(10.h),
+          ),
+        ),
+        Positioned(
+          right: 0,
+          child: SvgPicture.asset(
+            bgImage,
+            width: 65.w,
+            height: 150.h,
+          ),
+        ),
+        SizedBox(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 10.h),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Image.asset(
+                  image,
+                  height: 45.h,
+                  width: 45.h,
+                ),
+                text20White(text)
+              ],
+            ),
+          ),
+        )
+      ],
     );
   }
 }

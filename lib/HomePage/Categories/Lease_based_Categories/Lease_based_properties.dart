@@ -276,7 +276,7 @@ class SecondTab extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 200),
                         child: Text(
-                          " 1 Crore",
+                          " ₹ 1 Crore",
                           textDirection: TextDirection.ltr,
                           textAlign: TextAlign.left,
                           style: TextStyle(

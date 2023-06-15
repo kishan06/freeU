@@ -73,7 +73,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       "Company Name": "Freedom Plan",
       "Expected Return": "Up to 8.25% p.a.",
-      "Minimum Investment": '1,50,000',
+      "Minimum Investment": '₹ 1,50,000',
       "View investment Route": PeerViewInvestment(
         pageIndex: 0,
       )
@@ -81,7 +81,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       "Company Name": "Fixed Term Plan",
       "Expected Return": "Up to 10% p.a.",
-      "Minimum Investment": '1,00,000',
+      "Minimum Investment": '₹ 1,00,000',
       "View investment Route": PeerViewInvestment(
         pageIndex: 1,
       )
@@ -89,7 +89,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       "Company Name": "Fixed Term Plan",
       "Expected Return": "Up to 11% p.a.",
-      "Minimum Investment": '50,000',
+      "Minimum Investment": '₹ 50,000',
       "View investment Route": PeerViewInvestment(
         pageIndex: 2,
       )
@@ -97,7 +97,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       "Company Name": "Fixed Term Plan",
       "Expected Return": "Up to 12% p.a.",
-      "Minimum Investment": '25,000',
+      "Minimum Investment": '₹ 25,000',
       "View investment Route": PeerViewInvestment(
         pageIndex: 3,
       )
@@ -105,7 +105,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       "Company Name": "Monthly Income Plans",
       "Expected Return": "Up to 10% p.a.",
-      "Minimum Investment": '25,000',
+      "Minimum Investment": '₹ 25,000',
       "View investment Route": PeerViewInvestment(
         pageIndex: 4,
       )
@@ -113,7 +113,7 @@ class _SecondTabState extends State<SecondTab> {
     {
       "Company Name": "Monthly Income Plans",
       "Expected Return": "Up to 10.5% p.a.",
-      "Minimum Investment": '25,000',
+      "Minimum Investment": '₹ 25,000',
       "View investment Route": PeerViewInvestment(
         pageIndex: 5,
       )

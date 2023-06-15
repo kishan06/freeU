@@ -207,7 +207,7 @@ class CatCommonMain extends StatelessWidget {
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
-                              text20White(minInvestment)
+                              text20White('₹ $minInvestment')
                             ],
                           ),
                         ],

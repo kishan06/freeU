@@ -294,7 +294,7 @@ class _SecondTabState extends State<SecondTab> {
                                   padding: const EdgeInsets.only(right: 200),
                                   child: Text(
                                     //subtext3,
-                                    " 1 Crore",
+                                    " ₹ 1 Crore",
                                     textDirection: TextDirection.ltr,
                                     textAlign: TextAlign.left,
                                     style: TextStyle(

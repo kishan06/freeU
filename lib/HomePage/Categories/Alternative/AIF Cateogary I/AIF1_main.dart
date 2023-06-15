@@ -173,7 +173,7 @@ class _AIF1MainState extends State<AIF1Main> {
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
-                              text20White("1 Crore")
+                              text20White("₹ 1 Crore")
                             ],
                           ),
                         ],

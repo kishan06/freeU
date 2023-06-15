@@ -174,7 +174,7 @@ class _FractionalRealestateState extends State<FractionalRealestate> {
                                     fontSize: 16.sp,
                                     fontFamily: "Poppins",
                                   )),
-                              text20White("25,00,000")
+                              text20White("₹ 25,00,000")
                             ],
                           ),
                         ],
