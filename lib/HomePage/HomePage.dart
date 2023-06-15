@@ -14,6 +14,7 @@ import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import '../controllers/entry_point_controller.dart';
+import 'Categories/CategoriesMain.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
       "colorD": AppColors.redD_5F0801,
       "bgImage": "assets/newImages/bgRed.svg",
       "imageUrl": "assets/newImages/cat1.png",
-      "title": "Indian Finiancial Assets",
+      "title": "Indian Financial Assets",
     },
     {
       "colorL": AppColors.blueL_006796,
@@ -85,7 +86,7 @@ class _HomePageState extends State<HomePage> {
       "colorD": AppColors.greenD_044A1B,
       "bgImage": "assets/newImages/bgGreen.svg",
       "imageUrl": "assets/newImages/ww.png",
-      "title": "Global Finiancial Assets",
+      "title": "Global Financial Assets",
     },
     {
       "colorL": AppColors.purpleL_474E88,
@@ -421,8 +422,7 @@ class _HomePageState extends State<HomePage> {
         ),
         onTap: () {
           index == 0
-              ? Get.toNamed("/EntryPoint",
-                  arguments: 1, preventDuplicates: false)
+              ? Get.to(() => CategoriesMain())
               : Get.to(() => ComingSoon());
         },
       ),

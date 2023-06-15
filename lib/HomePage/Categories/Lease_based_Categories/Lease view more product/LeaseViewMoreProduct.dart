@@ -130,7 +130,7 @@ class SecondTab extends StatelessWidget {
     {
       "Company Name": "Evert Fleet",
       "Expected Return": "17.50%",
-      "Minimum Investment": '1,00,000',
+      "Minimum Investment": '₹ 1,00,000',
       "View investment Route": LeaseViewInvestment(
         pageIndex: 0,
       )
@@ -138,7 +138,7 @@ class SecondTab extends StatelessWidget {
     {
       "Company Name": "Omega Seiki",
       "Expected Return": "21.50%",
-      "Minimum Investment": '70,000',
+      "Minimum Investment": '₹ 70,000',
       "View investment Route": LeaseViewInvestment(
         pageIndex: 1,
       )

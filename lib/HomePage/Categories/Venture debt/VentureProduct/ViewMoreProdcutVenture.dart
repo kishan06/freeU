@@ -130,7 +130,7 @@ class SecondTab extends StatelessWidget {
     {
       "Company Name": "eChargeUp",
       "Expected Return": "~19% IRR",
-      "Minimum Investment": '3,00,000',
+      "Minimum Investment": '₹ 3,00,000',
       "View investment Route": ViewInvestment(
         pageIndex: 0,
       )
@@ -138,7 +138,7 @@ class SecondTab extends StatelessWidget {
     {
       "Company Name": "Vilcart Services Pvt. Ltd.",
       "Expected Return": "~17% XIRR",
-      "Minimum Investment": '5,00,000',
+      "Minimum Investment": '₹ 5,00,000',
       "View investment Route": ViewInvestment(
         pageIndex: 1,
       )

@@ -233,7 +233,7 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            "1,00,000",
+                            "₹ 1,00,000",
                             textDirection: TextDirection.ltr,
                             textAlign: TextAlign.left,
                             style: TextStyle(

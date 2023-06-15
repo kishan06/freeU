@@ -362,7 +362,7 @@ class _LeaseBasedProperties2State extends State<LeaseBasedProperties2> {
                     color: Colors.grey.shade400,
                   ),
                   Text(
-                    '25,00,000',
+                    '₹ 25,00,000',
                     style: TextStyle(
                         fontSize: 18.sp, color: const Color(0xff272424)),
                   ),

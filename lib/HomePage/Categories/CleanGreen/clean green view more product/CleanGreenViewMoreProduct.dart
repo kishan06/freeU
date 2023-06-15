@@ -132,7 +132,7 @@ class SecondTab extends StatelessWidget {
       "Company Name":
           "Groundmount Solar supplying power to Bennett Coleman - Times of India",
       "Expected Return": "9.70% ",
-      "Minimum Investment": '5,00,000',
+      "Minimum Investment": '₹ 5,00,000',
       "View investment Route": CleanGreenViewInvestment(
         pageIndex: 0,
       )
@@ -140,7 +140,7 @@ class SecondTab extends StatelessWidget {
     {
       "Company Name": "Bounce EV Deal",
       "Expected Return": "11%",
-      "Minimum Investment": '50,000',
+      "Minimum Investment": '₹ 50,000',
       "View investment Route": CleanGreenViewInvestment(
         pageIndex: 1,
       )
@@ -148,7 +148,7 @@ class SecondTab extends StatelessWidget {
     {
       "Company Name": "Bennett, Coleman & Company Ltd",
       "Expected Return": "9.70%",
-      "Minimum Investment": '5,00,000',
+      "Minimum Investment": '₹ 5,00,000',
       "View investment Route": CleanGreenViewInvestment(
         pageIndex: 2,
       )

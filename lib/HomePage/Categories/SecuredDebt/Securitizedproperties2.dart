@@ -130,7 +130,7 @@ class _SecuritizedProperties2State extends State<SecuritizedProperties2> {
                 color: Colors.grey.shade400,
               ),
               Text(
-                '1,00,000',
+                '₹ 1,00,000',
                 style:
                     TextStyle(fontSize: 18.sp, color: const Color(0xff272424)),
               ),

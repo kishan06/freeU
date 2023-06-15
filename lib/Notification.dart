@@ -22,6 +22,7 @@ class _NotificationPageState extends State<NotificationPage> {
         "title": "Lorem Ipsum is simply dummy text of the printing ",
         "subtitle": "2 days ago",
       },
+      
       {
         "image": "assets/images/Group 51532.svg",
         "title": "Lorem Ipsum is simply dummy text of the printing ",
