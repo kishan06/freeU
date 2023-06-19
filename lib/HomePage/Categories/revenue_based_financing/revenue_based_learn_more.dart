@@ -39,6 +39,32 @@ class _RevenueBasedLearnMoreState extends State<RevenueBasedLearnMore> {
       "ans":
           "Revenue received by the investor will be taxable under the head Income from Other Sources as per the investor's tax slab. "
     },
+    {
+      "question": "How does revenue-based financing work? ",
+      "ans":
+          "In a revenue-based financing arrangement, the investor provides funding to the company in exchange for a percentage of its revenue. The percentage is usually in the range of 1% to 10%, depending on the size of the investment and the risk level of the company. The company then makes regular payments to the investor based on its revenue until the predetermined amount has been paid back, plus a return on the investment."
+    },
+    {
+      "question":
+          "How does revenue-based financing differ from traditional financing?",
+      "ans":
+          "Revenue-based financing differs from traditional financing in that it is based on a percentage of future revenue rather than taking on debt or giving up equity. It also offers more flexible repayment terms and can be a better fit for companies with limited assets or a non-traditional business model. "
+    },
+    {
+      "question": "What are the risks of RBF for investors?",
+      "ans":
+          "As with any investment, there are risks associated with RBF. These include the possibility of the company not generating enough revenue to repay the investment and the potential for changes in the market or industry that could negatively impact the company's revenue. Additionally, there may be challenges in accurately tracking and verifying the company's revenue."
+    },
+    {
+      "question": "What happens if a company fails to repay an RBF investment?",
+      "ans":
+          """If a company fails to repay an RBF investment, the investor may have the right to take legal action to recover the outstanding amount. However, the investor's ability to recover the investment may depend on the terms of the agreement and the assets that the company has available to repay the investment."""
+    },
+    {
+      "question": "Who can invest in revenue-based financing?",
+      "ans":
+          "Revenue-based financing can be provided by angel investors, venture capital firms, and other financial institutions. Any Indian citizen, HUF, Company, and NRI (through NRE or NRO account) can invest in an RBF opportunity."
+    },
   ];
 
   @override

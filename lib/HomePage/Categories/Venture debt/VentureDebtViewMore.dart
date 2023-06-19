@@ -96,6 +96,13 @@ class _VentureDebtViewMoreState extends State<VentureDebtViewMore> {
                           "\n\n7.	Exit strategy: Lenders will also consider the company's exit strategy, or how it plans to provide a return on investment for its investors. This may include a plan to go public, be acquired, or generate cash flow through operations."
                           '\n\n\nOverall, lenders will evaluate a combination of quantitative and qualitative factors to determine whether a company is a good fit for venture debt financing. By considering these factors, lenders can assess the level of risk associated with the investment and determine the appropriate terms and conditions for the loan.'),
                   sizedBoxHeight(15.h),
+                  faqAccod('How does venture debt work? ',
+                      '''Venture debt is typically available to startups and high-growth companies that have already raised equity financing from venture capitalists or angel investors. The lender may evaluate the company's financials, business plan, and growth prospects before approving the loan. In exchange for the loan, the lender receives interest payments and other fees. '''),
+                  sizedBoxHeight(15.h),
+                  faqAccod(
+                      'What are the general investment risks involved? (Add above existing content) ',
+                      '''Startups and high-growth companies are more prone to failure, which makes venture debt riskier than other forms of debt financing. The lender may charge higher interest rates and fees to compensate for the higher risk. In case of loan default, the lender may seize the company's assets, which can have a negative impact on its operations.'''),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             )),

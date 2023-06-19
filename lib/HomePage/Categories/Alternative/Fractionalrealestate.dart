@@ -33,6 +33,44 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
     {"question": "", "ans": ""},
     {"question": "", "ans": ""},
     {"question": "", "ans": ""},
+    {
+      "question":
+          "When I invest in a fractional ownership asset, what do I actually own?",
+      "ans":
+          "You’ll own equity or debentures or both depending on the structure of SPV. "
+    },
+    {
+      "question": "Is FRE investment compliant?",
+      "ans":
+          "Yes. Since the investment is routed through an SPV and investors are given a shareholding in the very same SPV, all investment records are filed under the ROC (Registrar of Companies) and need to be compliant with the Companies Act. The investment portal dealing with FRE needs to have a license from RERA (Real Estate Regulatory Authority) in order to carry out its operations."
+    },
+    {
+      "question": "Can NRIs invest in Commercial Real Estate?",
+      "ans":
+          "Yes. Any Indian citizen or an NRI (Non-Resident Indian) can own commercial real estate provided that a valid KYC (Know Your Customer), and documents are there, and regulatory guidelines are met. But NRIs can only make investments through their NRO (non-resident ordinary) accounts."
+    },
+    {
+      "question":
+          "What are the documents needed to invest in fractional ownership of real estate?",
+      "ans":
+          "PAN card, address proof (Aadhar/Passport), bank account details for transfer of money, and depending on the property, and the platform, sometimes demat account number."
+    },
+    {
+      "question": "Is fractional ownership risky? ",
+      "ans":
+          "All investments carry risks. Therefore, in the case of fractional ownership, risks inherent to properties are also applicable in fractional ownership. Typical risks include liquidity, re-lease ability if the tenant leaves, and potential loss of capital."
+    },
+    {
+      "question": "Modes of Exit from Fractional CRE?",
+      "ans":
+          "Exits happen in three ways—in the resale market is done through the investor's dashboard, private sales where investors are free to sell their fractional ownership to anyone on their own. The third way to exit fractional ownership is through complete asset sale, which requires agreement from the majority investors in the SPV."
+    },
+    {
+      "question":
+          "How is Fractional Ownership different from investing in REIT?",
+      "ans":
+          "REIT (Real Estate Investment Trust)  are similar to mutual funds in that they pool funds from investors and invest in profitable real estate assets such as government bonds, direct equity, and stocks, among others. However, investors cannot choose the property to invest in with REITs, whereas fractional ownership allows investors to select their desired property."
+    },
   ];
 
   @override
@@ -82,8 +120,8 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
                       return fracReal5();
                     } else if (index == 5) {
                       return fracReal6();
-                    } else if (index == 6) {
-                      return fracReal7();
+                      // } else if (index == 6) {
+                      //   return fracReal7();
                     } else {
                       return fracReal1(FracRealEstData[index]["question"],
                           FracRealEstData[index]["ans"]);

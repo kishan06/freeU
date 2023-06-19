@@ -15,8 +15,6 @@ class PeerLearnMore extends StatefulWidget {
 
 class _PeerLearnMorexState extends State<PeerLearnMore> {
   List PeerLearnMoreData = [
-    // /
-
     {
       "index": 0,
       "question": "What is Peer-to-peer lending?",
@@ -26,7 +24,6 @@ P2P lending is also termed "social lending" or "crowd lending", and has been inc
 """
     },
     {
-      // "index": 0,
       "question": "How does P2P Lending work?",
       "ans":
           """The concept is straightforward. The P2P platforms or online platforms connect the potential borrowers directly with the investors or the lenders. Therefore, there are three parties involved. The Investing platform, the borrower, and the lender. 
@@ -67,6 +64,28 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
       "ans":
           """"The default rate, and platform fees. This is mainly because your return amount in actuality will get reduced because of these. 
 Example: If you earn a 20% return from your investment and the non-performing assets account for 5%, your net returns will come to 15%. If there is a 2% platform fee, your net return will be 13%."""
+    },
+    {
+      "question": "Who can invest in Peer-to-peer?",
+      "ans":
+          "Any individual, body of individuals, HUF, firm, society or any artificial body, whether incorporated or not, with a valid bank account in India and PAN card can be a lender on a P2P Platform. Also, any NBFC listed by the RBI or companies under the Indian Companies Act can apply as lenders or investors as well. "
+    },
+    {
+      "question":
+          "What happens in the case of delayed non-payment by a borrower?",
+      "ans":
+          "Usually, the borrower is charged with an additional penal interest charge for the duration of the delay, and the borrower will be required to pay directly to his lender. "
+    },
+    {
+      "question":
+          "Are there any restrictions on the maximum amount a lender can invest on peer-to-peer?",
+      "ans":
+          "Across all peer-to-peer lending platforms regulated by the RBI you can invest a maximum of ₹50 lakhs. However, if a lender lends above Rs 10,00,000, a certificate from a practising Chartered Accountant certifying minimum net-worth of Rs 50,00,000. "
+    },
+    {
+      "question": "Is P2P lending regulated?",
+      "ans":
+          "Yes, only NBFCs with P2P license can enable P2P Lending. Every P2P lender should obtain a certificate of registration from the RBI."
     },
   ];
 
