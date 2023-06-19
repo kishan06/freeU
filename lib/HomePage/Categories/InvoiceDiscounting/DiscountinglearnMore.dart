@@ -52,6 +52,25 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
       "ans":
           "For investors, earning depends on the appetite for risks. It mainly depends on two things. The creditworthiness of the borrowers, and the tenure for which you lend. Therefore, the longer your lending period, the higher will be your returns."
     },
+    {
+      "question": "How does invoice discounting work? ",
+      "ans":
+          "Invoice discounting involves three parties: the business selling its invoices (the seller), the financing company (the funder), and the customer who owes money to the business (the debtor). The seller submits unpaid invoices to the funder who pays a percentage upfront (around 80-90%). The funder collects the full amount from the debtor and deducts their fee before paying the remaining amount to the seller."
+    },
+    {
+      "question": "Is Invoice Discounting a Secured Product?",
+      "ans": "No, Invoice Discounting is an Unsecured Product."
+    },
+    {
+      "question": "What is the repayment period for invoice discounting?",
+      "ans":
+          "The loan tenure is the credit period that the seller agreed with the buyer as per the terms of sale. The period gets over on the last date of the credit period of the invoice or on the date of payment of invoice value, whichever is earlier."
+    },
+    {
+      "question": "What happens if the debtor does not pay the invoice?",
+      "ans":
+          "The main risk associated with invoice discounting is the risk of non-payment. If the debtor does not pay the invoice, the financing company may pursue legal action to recover the funds owed. However, the risk of non-payment is usually borne by the seller, who may be required to repurchase the invoice from the funder or provide additional collateral to secure the financing. "
+    },
   ];
 
   @override

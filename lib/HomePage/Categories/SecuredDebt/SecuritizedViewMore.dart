@@ -108,7 +108,27 @@ class _SecuritizedViewMoreState extends State<SecuritizedViewMore> {
                       'Taxation',
                       'As per section 115TCA of the Income Tax Act, income arising from investment in securitization trust shall be taxable in the hands of the investor. Such income shall be taxable on either accrual or receipt whichever is earlier. The nature of taxable income in the hands of investor is assumed to be the same as that in the hands of SPV.'
                           '\n\nIn this case of Securitized debt instrument, investors will have to pay tax on the interest earned based on their applicable marginal tax rates. TDS would be deducted by the issuer before distributing the interest.   As per Section 194LBC, TDS will be deducted on the interest income at 25% (in case of Resident Individuals) and 30% (in case of Non-Individual/ Entities domiciled in India)'),
-                  sizedBoxHeight(15.h)
+                  sizedBoxHeight(15.h),
+                  faqAccod('How does securitization work? ',
+                      'Securitization works by creating a special purpose vehicle (SPV) that purchases a pool of similar debt instruments from a lender or originator. The SPV then issues securities that are backed by the payments on those debts. '),
+                  sizedBoxHeight(15.h),
+                  faqAccod(
+                      'What are the risks of securitized debt instruments? ',
+                      'Securitized debt instruments can be risky, especially if the underlying debt instruments are of low quality or if the credit ratings are not accurate. In addition, securitization can be complex and difficult to understand, which may lead to mispricing or overvaluation of the securities.'),
+                  sizedBoxHeight(15.h),
+                  faqAccod(
+                      'What types of debt instruments can be securitized? ',
+                      'Almost any type of debt instrument can be securitized, including mortgages, auto loans, credit card debt, student loans, and corporate loans. The most common types of securitized debt instruments are mortgage-backed securities (MBS) and asset-backed securities (ABS).'),
+                  sizedBoxHeight(15.h),
+                  faqAccod(
+                      'What are the regulations governing the securitized debt market? ',
+                      'SEBI (Issue and Listing of Securitized Debt Instruments and Security Receipts) Regulations, introduced in 2008, established SDI.'),
+                  sizedBoxHeight(15.h),
+                  faqAccod('Can NRI invest in SDI?',
+                      'Yes, Non-Resident Indians are permitted to invest in SDIs issued by Indian entities, subject to the rules and regulations set by the Reserve Bank of India (RBI) and the Securities and Exchange Board of India (SEBI).'),
+                  sizedBoxHeight(15.h),
+                  faqAccod('Are SDIs liquid investments?',
+                      '''SDIs' liquidity may vary based on the transaction structure and market conditions. SDIs can be traded on secondary markets, providing liquidity to investors, but careful consideration of liquidity needs is advised before investing.'''),
                 ],
               ),
             )),

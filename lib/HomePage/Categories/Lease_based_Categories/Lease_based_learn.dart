@@ -59,17 +59,46 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
                 children: [
                   sizedBoxHeight(30.h),
                   leasebase0(),
-                  sizedBoxHeight(20.h),
+                  sizedBoxHeight(15.h),
                   leasebase1(),
-                  sizedBoxHeight(20.h),
+                  sizedBoxHeight(15.h),
                   leasebase2(),
-                  sizedBoxHeight(20.h),
+                  sizedBoxHeight(15.h),
                   leasebase3(),
-                  sizedBoxHeight(20.h),
+                  sizedBoxHeight(15.h),
                   leasebase4(),
-                  sizedBoxHeight(20.h),
+                  sizedBoxHeight(15.h),
                   leasebase5(),
-                  sizedBoxHeight(30.h),
+                  sizedBoxHeight(15.h),
+                  faqAccod('How does lease-based financing work? ',
+                      'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.'),
+                  sizedBoxHeight(15.h),
+                  faqAccod(
+                      'How does lease-based financing differ from traditional financing? ',
+                      'Lease-based financing is distinct from traditional financing as the company leases the asset instead of owning it. It requires less upfront capital and provides greater equipment flexibility. However, it can be more expensive overall due to finance charges and interest payments.'),
+                  sizedBoxHeight(15.h),
+                  faqAccod('Who provides lease-based financing? ',
+                      'Lease-based financing can be provided by banks, leasing companies, and other financial institutions.'),
+                  sizedBoxHeight(15.h),
+                  faqAccod(
+                      'What types of assets can be leased through lease-based financing? ',
+                      'Almost any type of asset can be leased through lease-based financing, including equipment, machinery, vehicles, and real estate.'),
+                  sizedBoxHeight(15.h),
+                  faqAccod('Is lease-based financing a secured investment?',
+                      'Lease-based financing is considered secure as it is backed by assets as collateral.'),
+                  sizedBoxHeight(15.h),
+                  faqAccod(
+                      'Is ownership of the asset preserved in lease-based financing?',
+                      'Yes. the lessor (person leasing) will transfer all risk and rewards associated with ownership of the asset to the lessee (borrower) but without transferring the asset’s ownership.'),
+                  sizedBoxHeight(15.h),
+                  faqAccod(
+                      'Is there a default risk with lease-backed financing?',
+                      'In the event that a company fails to repay a lease rental investment, the investor may have the right to take legal action to recover the outstanding amount. While there is no 100% guarantee, most platforms have safeguards in place for reclaiming the asset and for releasing the same.'),
+                  sizedBoxHeight(15.h),
+                  faqAccod(
+                      'Taxation (Add this above existing info given within) ',
+                      '''The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources". The applicable tax rate depends on the investor's income tax slab. '''),
+                  sizedBoxHeight(15.h),
                 ],
               ),
             )),
@@ -715,6 +744,67 @@ As per the Supreme Court pronouncement, only the lessor is the legal owner and i
           ),
         ),
       ],
+    );
+  }
+
+  Widget faqAccod(String heading, String content) {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          heading,
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            sizedBoxHeight(20.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  color: const Color(0xFF143C6D),
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: const Color(0xFF143C6D),
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Text(
+              content,
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Poppins",
+                fontSize: 18.sp,
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

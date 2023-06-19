@@ -54,6 +54,37 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
       "ans":
           "In Portfolio Management System (PMS), each investor portfolio is different, and it’s a customized offering. PMS cannot pool money from different investors to create an investment fund. PMS investors can also choose to exit their investments anytime they want. On the other hand, AIFs pool money from investors and have a lock-in period ranging from 3 to 5 years."
     },
+    {
+      "question": "How to invest in an AIF?",
+      "ans":
+          "Proof of income, PAN card, and ID proof are required to invest in an AIF. The minimum investment amount for AIFs is INR 1 crore, while for angel funds, it is INR 25 lakhs."
+    },
+    {
+      "question": "Who regulates the AIF?",
+      "ans":
+          "The regulation of Alternative Investment Funds (AIF) in India is done by the Securities and Exchange Board of India (SEBI).  Investors can address their complaints against AIFs at the SEBI-regulated web-based centralized grievance redress system called SCORES or SEBI Complaint Redress System."
+    },
+    {
+      "question": "How is an AIF tenure calculated?",
+      "ans":
+          "The tenure of any scheme of the AIF is calculated from the date of the final closing of the scheme."
+    },
+    {
+      "question": "What is the general fee structure under the AIF scheme?",
+      "ans":
+          "The fee structure under the AIF scheme includes a one-time setup fee (if applicable) and two types of compensation: a flat management fee charged proportionately every month based on the funds managed, and a performance-based fee computed based on a pre-agreed proportion of the profit earned over and above a predetermined threshold return."
+    },
+    {
+      "question": "Can an AIF accept investments from more than one investor?",
+      "ans":
+          "An AIF accepts two individuals as joint partners for a minimum investment of one crore rupees. Joint investors may include an investor and their spouse, parent, or child. Only two persons can act as joint investors for an AIF, and for any other investors acting as joint investors, the minimum investment amount of INR 1 crore shall apply."
+    },
+    {
+      "question":
+          "What is the taxation on the secondary sale of AIF units by investors?",
+      "ans":
+          "When an investor exits an AIF by a transfer of units or partnership interests to another investor (this transaction is called a ‘secondary transfer’), gains on the sale of units may be taxable directly in the hands of the investors. The taxability of gains on the sale of AIF units during a secondary transfer will depend on the holding period of the units. If the holding period is more than 36 months, the sale would be categorized as a long-term capital gain and taxed at 20% with indexation. If the holding period is less than 36 months, it would be considered a short-term capital gain and taxed at the applicable slab rates."
+    },
   ];
 
   @override
@@ -108,8 +139,7 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
                     separatorBuilder: (context, index) {
                       return sizedBoxHeight(20.h);
                     },
-                    itemCount: AlternativeData.length)
-                ),
+                    itemCount: AlternativeData.length)),
           ],
         ),
       ),
