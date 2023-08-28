@@ -43,7 +43,8 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
             color: Colors.black,
           ),
         ),
-        body: FutureBuilder(
+        body:
+         FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
@@ -67,7 +68,8 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
               context,
             );
           },
-        ));
+        )
+        );
   }
 
   Widget _buildBody(context) {
@@ -170,25 +172,25 @@ class _SecondTabState extends State<SecondTab> {
       "title": "Navi Mumbai Office \nOpportunity II",
       "taxirr": "12.50%",
       "minimum": "₹ 95,000",
-      "View investment Route": PropertiesInvestment(
-        pageIndex: 0,
-      )
+      // "View investment Route": PropertiesInvestment(
+      //   pageIndex: 0,
+      // )
     },
     {
       "title": "Prestige Tech Platina, \nBangalore",
       "taxirr": "12.25%",
       "minimum": "₹ 95,000",
-      "View investment Route": PropertiesInvestment(
-        pageIndex: 1,
-      )
+      // "View investment Route": PropertiesInvestment(
+      //   pageIndex: 1,
+      // )
     },
     {
       "title": "Bangalore Warehousing Opportunity I",
       "taxirr": "",
       "minimum": "₹ 95,000",
-      "View investment Route": PropertiesInvestment(
-        pageIndex: 2,
-      )
+      // "View investment Route": PropertiesInvestment(
+      //   pageIndex: 2,
+      // )
     }
   ];
 
@@ -198,7 +200,7 @@ class _SecondTabState extends State<SecondTab> {
         separatorBuilder: (context, index) {
           return sizedBoxHeight(15.h);
         },
-        itemCount: contents.length,
+        itemCount: fractionalRealEstateObj!.data!.length,
         scrollDirection: Axis.vertical,
         itemBuilder: (context, index) {
           return SingleChildScrollView(
@@ -413,8 +415,25 @@ class _SecondTabState extends State<SecondTab> {
                             color: AppColors.blue143C6D,
                           ),
                           child: OpenContainerWrappers(
-                            openBuild: contents[index]['View investment Route'],
-                            //PropertiesInvestment(),
+                            openBuild: 
+                            PropertiesInvestment(slug: 
+                            fractionalRealEstateObj!
+                                          .data?[index]
+                                          .fractionalRealEstate!
+                                          .slug ?? "",
+                            ),
+              //                Navigator.push(
+              // context,
+              // MaterialPageRoute(
+              //     builder: (context) => PropertiesInvestment(
+              //           slug: fractionalRealEstateObj!
+              //                             .data?[index]
+              //                             .fractionalRealEstate!
+              //                             .slug ?? "",
+              //         ))),
+
+                            // contents[index]['View investment Route'],
+                            //  PropertiesInvestment(),
                             closeBuild: Container(
                               width: double.infinity,
                               height: 50.h,

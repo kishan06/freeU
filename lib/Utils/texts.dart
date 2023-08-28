@@ -51,6 +51,27 @@ Widget text13Grey707070(String text) {
   );
 }
 
+Widget textA4856_20500(String text) {
+  return Text(
+    text,
+   style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20.sp,
+                    color: Color(0XFF3A4856),
+                  ),
+  );
+}
+
+Widget text272424_18(String text) {
+  return Text(
+    text,
+  style: TextStyle(
+                    fontSize: 18.sp,
+                    color: Color(0XFF272424),
+                  ),
+  );
+}
+
 Widget text14Black(String text) {
   return Text(
     text,
