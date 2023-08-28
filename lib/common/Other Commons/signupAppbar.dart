@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
+class CustomSignupAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
   @override
   Size get preferredSize => const Size.fromHeight(50);
   const CustomSignupAppBar(
@@ -27,7 +28,6 @@ class CustomSignupAppBar extends StatelessWidget with PreferredSizeWidget {
       actions: [if (actionWidget != null) actionWidget!],
       flexibleSpace: Container(
         height: 50.h,
-        decoration: const BoxDecoration(),
       ),
       bottom: bottomtext!
           ? PreferredSize(

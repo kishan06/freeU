@@ -5,6 +5,7 @@ import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/Propertie
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/FractionalProperties.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -16,94 +17,128 @@ class Fractionalproperties extends StatefulWidget {
 }
 
 class _FractionalpropertiesState extends State<Fractionalproperties> {
+  late Future myfuture;
+  @override
+  void initState() {
+    myfuture = FractionalRealEstate().FractionalRealEstateAPI();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF1FAFF),
-      appBar: AppBar(
         backgroundColor: Color(0xFFF1FAFF),
-        elevation: 0,
-        titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: Icon(
-            Icons.arrow_back,
+        appBar: AppBar(
+          backgroundColor: Color(0xFFF1FAFF),
+          elevation: 0,
+          titleSpacing: 0,
+          leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: Icon(
+              Icons.arrow_back,
+            ),
+            iconSize: 26,
+            color: Colors.black,
           ),
-          iconSize: 26,
-          color: Colors.black,
         ),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Fractional Real Estate",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 25.sp,
-                      fontWeight: FontWeight.w500),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [CircularProgressIndicator()],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
+  }
+
+  Widget _buildBody(context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Fractional Real Estate",
+                style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: DefaultTabController(
+            initialIndex: 1,
+            length: 3,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 20,
+                ),
+                ButtonsTabBar(
+                  buttonMargin: EdgeInsets.zero,
+                  contentPadding: EdgeInsets.only(left: 27, right: 27),
+                  radius: 4,
+                  backgroundColor: Color(0xFF143C6D),
+                  unselectedBorderColor: Color(0xFFFFFFFF),
+                  //borderWidth: 1,
+                  borderColor: Color(0xFFFFFFFF),
+                  unselectedBackgroundColor: Color(0xFFFFFFFF),
+                  unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
+                  labelStyle: const TextStyle(
+                    color: Color(0xFFFFFFFF),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                  tabs: [
+                    Tab(
+                      text: "Open",
+                    ),
+                    Tab(
+                      text: "Fully funded",
+                    ),
+                    Tab(
+                      text: "Resale",
+                    ),
+                  ],
+                ),
+                sizedBoxHeight(15.h),
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      FirstTab(),
+                      SecondTab(),
+                      ThirdTab(),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: DefaultTabController(
-              initialIndex: 1,
-              length: 3,
-              child: Column(
-                children: <Widget>[
-                  SizedBox(
-                    height: 20,
-                  ),
-                  ButtonsTabBar(
-                    buttonMargin: EdgeInsets.zero,
-                    contentPadding: EdgeInsets.only(left: 27, right: 27),
-                    radius: 4,
-                    backgroundColor: Color(0xFF143C6D),
-                    unselectedBorderColor: Color(0xFFFFFFFF),
-                    //borderWidth: 1,
-                    borderColor: Color(0xFFFFFFFF),
-                    unselectedBackgroundColor: Color(0xFFFFFFFF),
-                    unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
-                    labelStyle: const TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                    tabs: [
-                      Tab(
-                        text: "Open",
-                      ),
-                      Tab(
-                        text: "Fully funded",
-                      ),
-                      Tab(
-                        text: "Resale",
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(15.h),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        FirstTab(),
-                        SecondTab(),
-                        ThirdTab(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -200,7 +235,11 @@ class _SecondTabState extends State<SecondTab> {
                           children: [
                             Flexible(
                               child: Text(
-                                contents[index]["title"],
+                                fractionalRealEstateObj!
+                                        .data?[index]
+                                        .fractionalRealEstate!
+                                        .propertyNameAndLocation! ??
+                                    "", // contents[index]["title"],
                                 style: TextStyle(
                                     fontSize: 25,
                                     fontFamily: 'Poppins',
@@ -337,7 +376,11 @@ class _SecondTabState extends State<SecondTab> {
                                 ),
                                 Text(
                                   //subtext3,
-                                  contents[index]["minimum"],
+                                  fractionalRealEstateObj!
+                                          .data?[index]
+                                          .fractionalRealEstate!
+                                          .minimumInvestment ??
+                                      contents[index]["minimum"],
                                   //" 1 Crore",
                                   textDirection: TextDirection.ltr,
                                   textAlign: TextAlign.left,

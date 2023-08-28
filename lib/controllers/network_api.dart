@@ -9,13 +9,13 @@ import 'package:http/http.dart' as http;
 
 class NetworkApi {
   Dio dio = Dio();
-  Future getApi(String url) async {
+  Future<ResponseData> getApi(String url) async {
     if (kDebugMode) {
       print("api url is >>> $url");
     }
     Response response;
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? token = prefs.getString('token').toString();
+    String? token = prefs.getString('token');
     try {
       response = await dio.get(url,
           options: Options(headers: {"authorization": "Bearer $token"}));
@@ -24,10 +24,8 @@ class NetworkApi {
           'Oops something Went Wrong', ResponseStatus.FAILED);
     }
     if (response.statusCode == 200) {
-      return ResponseData<dynamic>(
-        "success",
-        ResponseStatus.SUCCESS,
-      );
+      return ResponseData<dynamic>("success", ResponseStatus.SUCCESS,
+          data: response.data);
     } else {
       try {
         return ResponseData<dynamic>(

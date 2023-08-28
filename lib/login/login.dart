@@ -274,239 +274,235 @@ class _LoginState extends State<Login> {
         body: SafeArea(
           child: GestureDetector(
             onTap: () => Get.focusScope!.unfocus(),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
-                child: Center(
-                  child: Form(
-                    key: _form,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Get.toNamed(
-                                  '/EntryPoint',
-                                  arguments: 0,
-                                );
-                              },
-                              child: Text(
-                                "Skip",
-                                style: TextStyle(
-                                  color: Color(0xFF143C6D),
-                                  fontSize: 14.sp,
-                                  fontFamily: 'Poppins',
-                                ),
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
+              child: Center(
+                child: Form(
+                  key: _form,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Get.toNamed(
+                                '/EntryPoint',
+                                arguments: 0,
+                              );
+                            },
+                            child: Text(
+                              "Skip",
+                              style: TextStyle(
+                                color: Color(0xFF143C6D),
+                                fontSize: 14.sp,
+                                fontFamily: 'Poppins',
                               ),
                             ),
-                          ],
-                        ),
-                        Image.asset(
-                          'assets/images/freeulogin.png',
-                          alignment: Alignment.center,
-                          width: 200.w,
-                        ),
-                        SizedBox(
-                          height: 30.h,
-                        ),
-                        Text(
-                          "Welcome to FreeU",
-                          style: TextStyle(
-                              fontFamily: "Nunito",
-                              fontSize: 28.sp,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        SizedBox(
-                          height: 5.h,
-                        ),
-                        Text(
-                          "Sign in to continue.",
-                          style: TextStyle(
-                            fontFamily: "Nunito",
-                            fontSize: 20.sp,
                           ),
+                        ],
+                      ),
+                      Image.asset(
+                        'assets/images/freeulogin.png',
+                        alignment: Alignment.center,
+                        width: 200.w,
+                      ),
+                      SizedBox(
+                        height: 30.h,
+                      ),
+                      Text(
+                        "Welcome to FreeU",
+                        style: TextStyle(
+                            fontFamily: "Nunito",
+                            fontSize: 28.sp,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
+                      Text(
+                        "Sign in to continue.",
+                        style: TextStyle(
+                          fontFamily: "Nunito",
+                          fontSize: 20.sp,
                         ),
-                        SizedBox(
-                          height: 50.h,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Email / Phone",
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20.sp,
-                                  color: Color(0xff303030)),
+                      ),
+                      SizedBox(
+                        height: 50.h,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Email / Phone",
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 20.sp,
+                                color: Color(0xff303030)),
+                          ),
+                          SizedBox(
+                            height: 15.h,
+                          ),
+                          CustomTextFormField(
+                            textEditingController: emailPhoneController,
+                            hintText: "Enter Email or Phone Number",
+                            validatorText: "Enter Email or Phone Number",
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return "Please Enter Email or Phone Number";
+                              }
+                              return null;
+                            },
+                          )
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Get.toNamed('/loginUsingOTP');
+                            },
+                            child: Text(
+                              'Login Using OTP',
+                              style: blackStyle12().copyWith(
+                                color: Color(0xFF143C6D),
+                              ),
                             ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            CustomTextFormField(
-                              textEditingController: emailPhoneController,
-                              hintText: "Enter Email or Phone Number",
-                              validatorText: "Enter Email or Phone Number",
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Password",
+                            style: TextStyle(
+                                fontFamily: 'Poppins',
+                                fontSize: 20.sp,
+                                color: Color(0xff303030)),
+                          ),
+                          SizedBox(
+                            height: 15.h,
+                          ),
+                          CustomTextFormField(
+                              textEditingController: passwordcontroller,
                               validator: (value) {
                                 if (value == null || value.isEmpty) {
-                                  return "Please Enter Email or Phone Number";
+                                  return "Please Enter Password";
                                 }
                                 return null;
                               },
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Get.toNamed('/loginUsingOTP');
-                              },
-                              child: Text(
-                                'Login Using OTP',
-                                style: blackStyle12().copyWith(
-                                  color: Color(0xFF143C6D),
-                                ),
+                              isInputPassword: true,
+                              hintText: "Enter Password",
+                              validatorText: "Please Enter Password")
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          TextButton(
+                            onPressed: () {
+                              Get.toNamed('/forgotPassword');
+                            },
+                            child: Text(
+                              'Forgot Password?',
+                              textAlign: TextAlign.end,
+                              style: blackStyle12().copyWith(
+                                color: Color(0xFF143C6D),
                               ),
                             ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Password",
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20.sp,
-                                  color: Color(0xff303030)),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            CustomTextFormField(
-                                textEditingController: passwordcontroller,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return "Please Enter Password";
-                                  }
-                                  return null;
-                                },
-                                isInputPassword: true,
-                                hintText: "Enter Password",
-                                validatorText: "Please Enter Password")
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Get.toNamed('/forgotPassword');
-                              },
-                              child: Text(
-                                'Forgot Password?',
-                                textAlign: TextAlign.end,
-                                style: blackStyle12().copyWith(
-                                  color: Color(0xFF143C6D),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 50.h,
-                        ),
-                        GetBuilder<EntryPointController>(
-                          builder: (
-                            controller,
-                          ) {
-                            return controllerEntryPoint.signinApi == true
-                                ? CircularProgressIndicator()
-                                : CustomNextButton(
-                                    ontap: () async {
-                                      final isValid =
-                                          _form.currentState?.validate();
-                                      if (isValid!) {
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 50.h,
+                      ),
+                      GetBuilder<EntryPointController>(
+                        builder: (
+                          controller,
+                        ) {
+                          return controllerEntryPoint.signinApi == true
+                              ? CircularProgressIndicator()
+                              : CustomNextButton(
+                                  ontap: () async {
+                                    final isValid =
+                                        _form.currentState?.validate();
+                                    if (isValid!) {
+                                      controllerEntryPoint
+                                          .changeSigninApiBool();
+                                      Map<String, String> myLoginData = {
+                                        "user": emailPhoneController.text,
+                                        "password": passwordcontroller.text,
+                                      };
+                                      LogInPost logInPost = LogInPost();
+                                      var resp =
+                                          await logInPost.LogIpApi(myLoginData);
+                                      print(resp.status);
+                                      print('Api msg : ${resp.message}');
+
+                                      if (resp.status ==
+                                          ResponseStatus.SUCCESS) {
+                                        Utils.showToast("Signin successful");
+                                        Future.delayed(Duration(seconds: 2),
+                                            () async {
+                                          final SharedPreferences prefs =
+                                              await SharedPreferences
+                                                  .getInstance();
+
+                                          await prefs.setBool('LogedIn', true);
+
+                                          Get.toNamed("/EntryPoint",
+                                              arguments: 0);
+                                        });
                                         controllerEntryPoint
                                             .changeSigninApiBool();
-                                        Map<String, String> myLoginData = {
-                                          "user": emailPhoneController.text,
-                                          "password": passwordcontroller.text,
-                                        };
-                                        LogInPost logInPost = LogInPost();
-                                        var resp = await logInPost.LogIpApi(
-                                            myLoginData);
-                                        print(resp.status);
-                                        print('Api msg : ${resp.message}');
-
-                                        if (resp.status ==
-                                            ResponseStatus.SUCCESS) {
-                                          Utils.showToast("Signin successful");
-                                          Future.delayed(Duration(seconds: 2),
-                                              () async {
-                                            final SharedPreferences prefs =
-                                                await SharedPreferences
-                                                    .getInstance();
-
-                                            await prefs.setBool(
-                                                'LogedIn', true);
-
-                                            Get.toNamed("/EntryPoint",
-                                                arguments: 0);
-                                          });
-                                          controllerEntryPoint
-                                              .changeSigninApiBool();
-                                        } else {
-                                          Utils.showToast(resp.message);
-                                          print('Api msg : ${resp.message}');
-                                          controllerEntryPoint
-                                              .changeSigninApiBool();
-                                        }
                                       } else {
-                                        Get.snackbar("Error",
-                                            "Please Enter Login Credentials",
-                                            margin: EdgeInsets.all(8),
-                                            snackStyle: SnackStyle.FLOATING,
-                                            snackPosition:
-                                                SnackPosition.BOTTOM);
+                                        Utils.showToast(resp.message);
+                                        print('Api msg : ${resp.message}');
+                                        controllerEntryPoint
+                                            .changeSigninApiBool();
                                       }
-                                    },
-                                    text: 'Sign In',
-                                  );
-                          },
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "Don't have an account?",
+                                    } else {
+                                      Get.snackbar("Error",
+                                          "Please Enter Login Credentials",
+                                          margin: EdgeInsets.all(8),
+                                          snackStyle: SnackStyle.FLOATING,
+                                          snackPosition: SnackPosition.BOTTOM);
+                                    }
+                                  },
+                                  text: 'Sign In',
+                                );
+                        },
+                      ),
+                      SizedBox(
+                        height: 20.h,
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            "Don't have an account?",
+                            style: blackStyle14().copyWith(
+                              color: Color(0x9F333332),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () {
+                              Get.toNamed('/signup');
+                            },
+                            child: Text(
+                              'Create account',
                               style: blackStyle14().copyWith(
-                                color: Color(0x9F333332),
+                                color: Color(0xFF143C6D),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed('/signup');
-                              },
-                              child: Text(
-                                'Create account',
-                                style: blackStyle14().copyWith(
-                                  color: Color(0xFF143C6D),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ),
               ),
