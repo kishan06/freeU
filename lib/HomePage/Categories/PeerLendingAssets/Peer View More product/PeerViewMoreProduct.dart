@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/PeerProductService.dart';
 import 'package:get/get.dart';
 
 import 'PeerViewInvestment.dart';
@@ -15,6 +16,13 @@ class PeerViewMoreProduct extends StatefulWidget {
 }
 
 class _PeerViewMoreProductState extends State<PeerViewMoreProduct> {
+  late Future myfuture;
+  @override
+  void initState() {
+    myfuture = PeerProduct().PeerProductsModelAPI();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,29 +42,57 @@ class _PeerViewMoreProductState extends State<PeerViewMoreProduct> {
           color: Colors.black,
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Peer - Peer Lending",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 25.sp,
-                      fontWeight: FontWeight.w500),
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [CircularProgressIndicator()],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
                 ),
-              ],
-            ),
-          ),
-          sizedBoxHeight(15.h),
-          const Expanded(
-            child: SecondTab(),
-          ),
-        ],
+              );
+            }
+          }
+          return _buildBody(
+            context,
+          );
+        },
       ),
+    );
+  }
+
+  Widget _buildBody(context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Peer - Peer Lending",
+                style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        sizedBoxHeight(15.h),
+        const Expanded(
+          child: SecondTab(),
+        ),
+      ],
     );
   }
 }
@@ -74,49 +110,31 @@ class _SecondTabState extends State<SecondTab> {
       "Company Name": "Freedom Plan",
       "Expected Return": "Up to 8.25% p.a.",
       "Minimum Investment": '₹ 1,50,000',
-      "View investment Route": PeerViewInvestment(
-        pageIndex: 0,
-      )
     },
     {
       "Company Name": "Fixed Term Plan",
       "Expected Return": "Up to 10% p.a.",
       "Minimum Investment": '₹ 1,00,000',
-      "View investment Route": PeerViewInvestment(
-        pageIndex: 1,
-      )
     },
     {
       "Company Name": "Fixed Term Plan",
       "Expected Return": "Up to 11% p.a.",
       "Minimum Investment": '₹ 50,000',
-      "View investment Route": PeerViewInvestment(
-        pageIndex: 2,
-      )
     },
     {
       "Company Name": "Fixed Term Plan",
       "Expected Return": "Up to 12% p.a.",
       "Minimum Investment": '₹ 25,000',
-      "View investment Route": PeerViewInvestment(
-        pageIndex: 3,
-      )
     },
     {
       "Company Name": "Monthly Income Plans",
       "Expected Return": "Up to 10% p.a.",
       "Minimum Investment": '₹ 25,000',
-      "View investment Route": PeerViewInvestment(
-        pageIndex: 4,
-      )
     },
     {
       "Company Name": "Monthly Income Plans",
       "Expected Return": "Up to 10.5% p.a.",
       "Minimum Investment": '₹ 25,000',
-      "View investment Route": PeerViewInvestment(
-        pageIndex: 5,
-      )
     },
   ];
 
@@ -127,7 +145,7 @@ class _SecondTabState extends State<SecondTab> {
         return sizedBoxHeight(15.h);
       },
       scrollDirection: Axis.vertical,
-      itemCount: viewSlider.length,
+      itemCount: peerProductsModelObj!.data!.length,
       itemBuilder: (context, index) {
         return SingleChildScrollView(
           child: Padding(
@@ -159,7 +177,8 @@ class _SecondTabState extends State<SecondTab> {
                       child: Row(
                         children: [
                           Text(
-                            viewSlider[index]['Company Name'],
+                            peerProductsModelObj!
+                                .data![index].peerToPeers!.scheme!,
                             style: TextStyle(
                                 fontSize: 25.sp,
                                 fontFamily: 'Poppins',
@@ -271,7 +290,9 @@ class _SecondTabState extends State<SecondTab> {
                           color: AppColors.blue143C6D,
                         ),
                         child: OpenContainerWrappers(
-                          openBuild: viewSlider[index]['View investment Route'],
+                          openBuild: PeerViewInvestment(
+                              slug: peerProductsModelObj!
+                                  .data![index].peerToPeers!.slug!),
                           closeBuild: SizedBox(
                             width: double.infinity,
                             height: 50.h,
