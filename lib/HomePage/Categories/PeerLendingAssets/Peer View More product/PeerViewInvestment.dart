@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
+import 'package:freeu/viewModel/PeerDetailsService.dart';
 import 'package:get/get.dart';
 
 class PeerViewInvestment extends StatefulWidget {
-  final int pageIndex;
-  PeerViewInvestment({super.key, required this.pageIndex});
+  final String slug;
+  PeerViewInvestment({super.key, required this.slug});
 
   @override
   State<PeerViewInvestment> createState() => _PeerViewInvestmentState();
@@ -17,6 +19,14 @@ class PeerViewInvestment extends StatefulWidget {
 
 class _PeerViewInvestmentState extends State<PeerViewInvestment> {
   final controllerEntryPoint = Get.put(EntryPointController());
+
+  late Future myfuture;
+
+  @override
+  void initState() {
+    myfuture = PeerDetails().PeerDetailsModelAPI(widget.slug);
+    super.initState();
+  }
 
   List productDetails = [
     {
@@ -94,90 +104,121 @@ class _PeerViewInvestmentState extends State<PeerViewInvestment> {
             },
             text: 'Invest now'),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // sizedBoxHeight(10.h),
-              Row(
+      body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [CircularProgressIndicator()],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          }),
+    );
+  }
+
+  Widget _buildBody(context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // sizedBoxHeight(10.h),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                sizedBoxWidth(5.w),
+                SvgPicture.asset(
+                  "assets/images/property.svg",
+                  width: 80.w,
+                  height: 54.h,
+                ),
+                SizedBox(
+                  width: 20.h,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 132.w,
+                  height: 75.h,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        peerDetailsObj!.data!.scheme!,
+                        style: TextStyle(
+                            fontSize: 22.sp, fontWeight: FontWeight.w500),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            sizedBoxHeight(24.h),
+            SizedBox(
+              height: MediaQuery.of(context).size.height - 265.h,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  sizedBoxWidth(5.w),
-                  SvgPicture.asset(
-                    "assets/images/property.svg",
-                    width: 80.w,
-                    height: 54.h,
+                  textA4856_20500("Tenure (in Months) "),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
                   ),
-                  SizedBox(
-                    width: 20.h,
+                  text272424_18(
+                    peerDetailsObj!.data!.tenure ?? "",
                   ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width - 132.w,
-                    height: 75.h,
-                    child: ListView.builder(
-                      itemCount: 1,
-                      itemBuilder: (context, index) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              productDetails[0]['Company Name']
-                                  [widget.pageIndex],
-                              style: TextStyle(
-                                  fontSize: 22.sp, fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                  )
+                  sizedBoxHeight(20.h),
+                  textA4856_20500("Minimum Investment"),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  text272424_18(
+                    peerDetailsObj!.data!.minimumInvestment ?? "",
+                  ),
+                  sizedBoxHeight(20.h),
+                  textA4856_20500("Maximum Investment"),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  text272424_18(
+                    peerDetailsObj!.data!.maximumInvestment ?? "",
+                  ),
+                  sizedBoxHeight(20.h),
+                  textA4856_20500("Returns"),
+                  Divider(
+                    height: 25.h,
+                    thickness: 1.h,
+                    color: Colors.grey.shade400,
+                  ),
+                  text272424_18(
+                    peerDetailsObj!.data!.returns ?? "",
+                  ),
+                  sizedBoxHeight(20.h),
                 ],
               ),
-              sizedBoxHeight(24.h),
-              SizedBox(
-                height: MediaQuery.of(context).size.height - 265.h,
-                child: ListView.separated(
-                    itemBuilder: (context, index) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            productDetails[0]['header'][index],
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 20.sp,
-                              color: const Color(0xff3A4856),
-                            ),
-                          ),
-                          Divider(
-                            height: 25.h,
-                            thickness: 1.h,
-                            color: Colors.grey.shade400,
-                          ),
-                          Text(
-                            productDetails[0]['content'][widget.pageIndex]
-                                [index],
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                color: const Color(0xff272424)),
-                          ),
-                          sizedBoxHeight(28.h)
-                        ],
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return SizedBox(
-                        height: 0.h,
-                      );
-                    },
-                    itemCount: productDetails[0]['header'].length),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

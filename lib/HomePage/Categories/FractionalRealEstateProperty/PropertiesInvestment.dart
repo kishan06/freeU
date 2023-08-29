@@ -7,7 +7,6 @@ import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/viewModel/FractionalDetails.dart';
-import 'package:freeu/viewModel/FractionalProperties.dart';
 import 'package:get/get.dart';
 
 class PropertiesInvestment extends StatefulWidget {
