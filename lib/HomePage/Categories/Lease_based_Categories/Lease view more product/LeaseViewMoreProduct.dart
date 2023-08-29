@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/Leasefinancing.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'LeaseViewInvestment.dart';
@@ -16,6 +17,14 @@ class LeaseViewMoreProduct extends StatefulWidget {
 }
 
 class _VLeaseViewMoreProduct extends State<LeaseViewMoreProduct> {
+  late Future myfuture;
+
+  @override
+  void initState() {
+    myfuture = LeaseFinancing().LeaseFinancingAPI();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +44,40 @@ class _VLeaseViewMoreProduct extends State<LeaseViewMoreProduct> {
           color: Colors.black,
         ),
       ),
-      body: Column(
+      body: 
+       FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        )
+
+    );
+  }
+
+  Widget _buildBody(context) {
+    return 
+
+      Column(
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 16, right: 16),
@@ -104,8 +146,8 @@ class _VLeaseViewMoreProduct extends State<LeaseViewMoreProduct> {
             ),
           ),
         ],
-      ),
-    );
+      );
+
   }
 }
 
@@ -131,17 +173,17 @@ class SecondTab extends StatelessWidget {
       "Company Name": "Evert Fleet",
       "Expected Return": "17.50%",
       "Minimum Investment": '₹ 1,00,000',
-      "View investment Route": LeaseViewInvestment(
-        pageIndex: 0,
-      )
+      // "View investment Route": LeaseViewInvestment(
+      //   pageIndex: 0,
+      // )
     },
     {
       "Company Name": "Omega Seiki",
       "Expected Return": "21.50%",
       "Minimum Investment": '₹ 70,000',
-      "View investment Route": LeaseViewInvestment(
-        pageIndex: 1,
-      )
+      // "View investment Route": LeaseViewInvestment(
+      //   pageIndex: 1,
+      // )
     },
   ];
 
@@ -152,7 +194,7 @@ class SecondTab extends StatelessWidget {
         return sizedBoxHeight(15.h);
       },
       scrollDirection: Axis.vertical,
-      itemCount: viewSlider.length,
+      itemCount: leasefinancingObj!.data!.length,
       itemBuilder: (context, index) {
         return SingleChildScrollView(
           child: Padding(
@@ -184,7 +226,8 @@ class SecondTab extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            viewSlider[index]['Company Name'],
+                            leasefinancingObj!.data?[index].leaseBasedFinancing!.company! ?? "",
+                            // viewSlider[index]['Company Name'],
                             style: TextStyle(
                                 fontSize: 25.sp,
                                 fontFamily: 'Poppins',
@@ -223,7 +266,8 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                viewSlider[index]['Expected Return'],
+                            leasefinancingObj!.data?[index].leaseBasedFinancing!.preTaxReturn! ?? "",
+                                // viewSlider[index]['Expected Return'],
                                 style: TextStyle(
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.w500,
@@ -264,7 +308,9 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                viewSlider[index]['Minimum Investment'],
+                            leasefinancingObj!.data?[index].leaseBasedFinancing!.minimumInvestment! ?? "",
+
+                                // viewSlider[index]['Minimum Investment'],
                                 textDirection: TextDirection.ltr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
@@ -296,7 +342,12 @@ class SecondTab extends StatelessWidget {
                           color: AppColors.blue143C6D,
                         ),
                         child: OpenContainerWrappers(
-                          openBuild: viewSlider[index]['View investment Route'],
+                          openBuild:
+                          LeaseViewInvestment(
+                            slug: leasefinancingObj!.data?[index].leaseBasedFinancing!.slug ?? ""
+                            ),
+                          
+                          //  viewSlider[index]['View investment Route'],
                           closeBuild: SizedBox(
                             width: double.infinity,
                             height: 50.h,

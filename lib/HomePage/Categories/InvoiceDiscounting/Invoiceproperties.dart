@@ -5,6 +5,7 @@ import 'package:freeu/HomePage/Categories/InvoiceDiscounting/InvoiceInvestment.d
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/Invoicediscounting.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -16,6 +17,13 @@ class InvoiceProperties extends StatefulWidget {
 }
 
 class _InvoicePropertiesState extends State<InvoiceProperties> {
+  late Future myfuture;
+  @override
+  void initState() {
+    myfuture = InvoiceDiscounting().InvoiceDiscountingAPI();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +43,39 @@ class _InvoicePropertiesState extends State<InvoiceProperties> {
           color: Colors.black,
         ),
       ),
-      body: Column(
+      body:
+      FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        )
+
+    );
+  }
+
+  Widget _buildBody(context){
+    return 
+       Column(
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 16, right: 16),
@@ -104,9 +144,8 @@ class _InvoicePropertiesState extends State<InvoiceProperties> {
             ),
           ),
         ],
-      ),
-    );
-  }
+      ); 
+  }  
 }
 
 class FirstTab extends StatelessWidget {
@@ -131,25 +170,25 @@ class SecondTab extends StatelessWidget {
       "Company Name": "Cocoblu",
       "Expected Return": "12.50%",
       "Minimum Investment": '₹ 95,000',
-      "View investment Route": InvoiceInvestment(
-        pageIndex: 0,
-      )
+      // "View investment Route": InvoiceInvestment(
+      //   pageIndex: 0,
+      // )
     },
     {
       "Company Name": "Zetwerk",
       "Expected Return": "12.25%",
       "Minimum Investment": '₹ 95,000',
-      "View investment Route": InvoiceInvestment(
-        pageIndex: 1,
-      )
+      // "View investment Route": InvoiceInvestment(
+      //   pageIndex: 1,
+      // )
     },
     {
       "Company Name": "Aris Infra",
       "Expected Return": "N/A",
       "Minimum Investment": '₹ 95,000',
-      "View investment Route": InvoiceInvestment(
-        pageIndex: 2,
-      )
+      // "View investment Route": InvoiceInvestment(
+      //   pageIndex: 2,
+      // )
     },
   ];
 
@@ -160,7 +199,7 @@ class SecondTab extends StatelessWidget {
         return sizedBoxHeight(15.h);
       },
       scrollDirection: Axis.vertical,
-      itemCount: viewSlider.length,
+      itemCount: invoicediscountingObj!.data!.length,
       itemBuilder: (context, index) {
         return SingleChildScrollView(
           child: Padding(
@@ -191,13 +230,16 @@ class SecondTab extends StatelessWidget {
                       padding: EdgeInsets.only(left: 16.w),
                       child: Row(
                         children: [
-                          Text(
-                            viewSlider[index]['Company Name'],
-                            style: TextStyle(
-                                fontSize: 25.sp,
-                                fontFamily: 'Poppins',
-                                color: const Color(0XFF000000),
-                                fontWeight: FontWeight.w500),
+                          Flexible(
+                            child: Text(
+                              invoicediscountingObj!.data?[index].invoiceDiscounting!.companyName ?? "",
+                              // viewSlider[index]['Company Name'],
+                              style: TextStyle(
+                                  fontSize: 25.sp,
+                                  fontFamily: 'Poppins',
+                                  color: const Color(0XFF000000),
+                                  fontWeight: FontWeight.w500),
+                            ),
                           ),
                         ],
                       ),
@@ -231,7 +273,8 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                viewSlider[index]['Expected Return'],
+                              invoicediscountingObj!.data?[index].invoiceDiscounting!.preTaxIrr ?? "",
+                                // viewSlider[index]['Expected Return'],
                                 style: TextStyle(
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.w500,
@@ -272,7 +315,8 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                viewSlider[index]['Minimum Investment'],
+                              invoicediscountingObj!.data?[index].invoiceDiscounting!.minimumInvestment ?? "",
+                                // viewSlider[index]['Minimum Investment'],
                                 textDirection: TextDirection.ltr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
@@ -304,7 +348,10 @@ class SecondTab extends StatelessWidget {
                           color: AppColors.blue143C6D,
                         ),
                         child: OpenContainerWrappers(
-                          openBuild: viewSlider[index]['View investment Route'],
+                          openBuild: InvoiceInvestment(
+                            slug: invoicediscountingObj!.data?[index].invoiceDiscounting!.slug ?? ""
+                            ),
+                          //  viewSlider[index]['View investment Route'],
                           closeBuild: SizedBox(
                             width: double.infinity,
                             height: 50.h,
