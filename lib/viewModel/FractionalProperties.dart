@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:freeu/Models/FractionalRealEstateModel.dart';
 import 'package:freeu/common/api_urls.dart';
 import 'package:freeu/controllers/base_manager.dart';
