@@ -3,8 +3,20 @@ class ApiUrls {
   static const signUp = "${baseUrl}sign-up";
   static const login = "${baseUrl}user-login";
   static const FractionalRealestate = "${baseUrl}fractional-real-estate-data";
+
+  static const Fractionaldetails = "${baseUrl}fractional-real-estate-single-data";
+
+  static const InvoiceDiscounting = "${baseUrl}invoice-discounting-data";
+  static const InvoiceDetails = "${baseUrl}invoice-discounting-single-data";
+
+  static const Leasefinancing = "${baseUrl}lease-based-financing-data";
+  static const Leasefinancingdetails = "${baseUrl}lease-based-financing-single-data";
+
+
+
   static const Fractionaldetails =
       "${baseUrl}fractional-real-estate-single-data";
   static const PeerProductsModel = "${baseUrl}peer-to-peer-lending-data";
   static const PeerDetailsModel = "${baseUrl}peer-to-peer-lending-single-data";
+
 }

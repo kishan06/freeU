@@ -140,7 +140,8 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
               },
               text: 'Invest now'),
         ),
-        body: FutureBuilder(
+        body: 
+        FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
@@ -164,7 +165,8 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
               context,
             );
           },
-        ));
+        )
+        );
   }
 
   Widget _buildBody(context) {
@@ -194,7 +196,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   width: MediaQuery.of(context).size.width - 132.w,
                   height: 85.h,
                   child: Text(
-                    fractionalDetailsObj!.data!.slug ?? "",
+                    fractionalDetailsObj!.data!.propertyNameAndLocation ?? "",
                     style:
                         TextStyle(fontSize: 20.sp, fontWeight: FontWeight.w500),
                   ),
