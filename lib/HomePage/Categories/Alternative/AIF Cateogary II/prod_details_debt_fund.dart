@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
+import 'package:freeu/viewModel/DebtfundDetails.dart';
 import 'package:get/get.dart';
 
 class ProductsDetailsDebtFund extends StatefulWidget {
-  final int pageIndex;
-  ProductsDetailsDebtFund({super.key, required this.pageIndex});
+  // final int pageIndex;
+  final String slug;
+
+  ProductsDetailsDebtFund({super.key, required this.slug
+      //  required this.pageIndex
+      });
 
   @override
   State<ProductsDetailsDebtFund> createState() =>
@@ -18,6 +24,14 @@ class ProductsDetailsDebtFund extends StatefulWidget {
 
 class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
   final controllerEntryPoint = Get.put(EntryPointController());
+  late Future myfuture;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    myfuture = DebtfundDetails().DebtfundDetailsAPI(widget.slug);
+    super.initState();
+  }
 
   List productDetails = [
     {
@@ -131,104 +145,377 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomSignupAppBar(
-        titleTxt: "",
-        bottomtext: false,
-      ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-        child: CustomNextButton(
-            ontap: () {
-              if (controllerEntryPoint.logedIn!) {
-                investNow();
-              } else {
-                Get.toNamed("/login");
+        appBar: const CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+          child: CustomNextButton(
+              ontap: () {
+                if (controllerEntryPoint.logedIn!) {
+                  investNow();
+                } else {
+                  Get.toNamed("/login");
+                }
+              },
+              text: 'Invest now'),
+        ),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
               }
-            },
-            text: 'Invest now'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // sizedBoxHeight(10.h),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  sizedBoxWidth(5.w),
-                  SvgPicture.asset(
-                    "assets/images/property.svg",
-                    width: 80.w,
-                    height: 54.h,
-                  ),
-                  SizedBox(
-                    width: 20.h,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width - 132.w,
-                    height: 75.h,
-                    child: ListView.builder(
-                      itemCount: 1,
-                      itemBuilder: (context, index) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              productDetails[0]['Company Name']
-                                  [widget.pageIndex],
-                              style: TextStyle(
-                                  fontSize: 22.sp, fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                  )
-                ],
-              ),
-              sizedBoxHeight(24.h),
-              SizedBox(
-                height: MediaQuery.of(context).size.height - 265.h,
-                child: ListView.separated(
+            }
+            return
+                //  privateequitydetailsobj!.data.
+                // ?
+                // _buildNoDataBody() :
+                _buildBody(
+              context,
+            );
+          },
+        ));
+  }
+
+  Widget _buildBody(context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // sizedBoxHeight(10.h),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                sizedBoxWidth(5.w),
+                SvgPicture.asset(
+                  "assets/images/property.svg",
+                  width: 80.w,
+                  height: 54.h,
+                ),
+                SizedBox(
+                  width: 20.h,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 132.w,
+                  height: 75.h,
+                  child: ListView.builder(
+                    itemCount: 1,
                     itemBuilder: (context, index) {
                       return Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          sizedBoxHeight(8.h),
                           Text(
-                            productDetails[0]['header'][index],
+                            debtfunddetailsobj!.data!.fundName ?? "",
+                            // productDetails[0]['Company Name']
+                            //     [widget.pageIndex],
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 20.sp,
-                              color: const Color(0xff3A4856),
-                            ),
+                                fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
-                          Divider(
-                            height: 25.h,
-                            thickness: 1.h,
-                            color: Colors.grey.shade400,
-                          ),
-                          Text(
-                            productDetails[0]['content'][widget.pageIndex]
-                                [index],
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                color: const Color(0xff272424)),
-                          ),
-                          sizedBoxHeight(28.h)
                         ],
                       );
                     },
-                    separatorBuilder: (context, index) {
-                      return sizedBoxHeight(0);
-                    },
-                    itemCount: productDetails[0]['header'].length),
-              ),
-            ],
-          ),
+                  ),
+                )
+              ],
+            ),
+            sizedBoxHeight(24.h),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                textA4856_20500("Registration No."),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.registrationNumber ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Category (I/II/III)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.fundCategory ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Structure (Open/Closed)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.fundStructure ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Strategy"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.fundStrategy ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Domicile"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.fundDomicile ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Manager Name"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.fundManagerName ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Website of the fund"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.websiteOfTheFund ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Manager Experience"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(debtfunddetailsobj!.data!.fundManagerExperience ??
+                    "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Sponsor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(debtfunddetailsobj!.data!.sponsor ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Manager"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(debtfunddetailsobj!.data!.manager ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Trustee"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(debtfunddetailsobj!.data!.trustee ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Auditor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(debtfunddetailsobj!.data!.auditor ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Valuer / Tax Advisor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.valuerTaxAdvisor ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Credit Rating (if any)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.creditRating ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Open Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(debtfunddetailsobj!.data!.openDate ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("1st Close Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.firstCloseDate ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Final Close Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.finalCloseDate ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Tenure from Final Close"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.tenureFromFinalDate ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Commitment Period"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.commitmentPeriod ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Native Currency"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.nativeCurrency ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Target Corpus"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.targetCorpus ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Investment Manager Contribution"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.investmentManagerContribution ??
+                        "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Minimum Capital Commitment"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.minimumCapitalCommitment ??
+                        "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Initial Drawdown"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.intialDrawdown ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Accepting Overseas investment?"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.acceptingOverseasInvestment ??
+                        "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Target IRR (%)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(debtfunddetailsobj!.data!.targetIrr ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500(
+                    "Management Fees and Carry \n- Set Up Fee \n- Management Fee \n- Performance Fee"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.managementFeesAndCarry ??
+                        "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Hurdle Rate"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.hurdleRate ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Other Expenses"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.otherExpenses ?? "No data"),
+                sizedBoxHeight(20.h),
+                textA4856_20500(
+                    "Focused Sectors (Industries in which they are investing)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                    debtfunddetailsobj!.data!.focusedSectorsIndustries ??
+                        "No data"),
+                sizedBoxHeight(20.h),
+              ],
+            )
+          ],
         ),
       ),
     );

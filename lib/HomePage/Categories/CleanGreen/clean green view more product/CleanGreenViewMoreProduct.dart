@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/Cleangreen.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'CleanGreenViewInvestment.dart';
@@ -17,95 +18,130 @@ class CleanGreenViewMoreProduct extends StatefulWidget {
 }
 
 class _CleanGreenViewMoreProductState extends State<CleanGreenViewMoreProduct> {
+  late Future myfuture;
+
+  @override
+  void initState() {
+    myfuture = Cleangreen().CleangreenAPI();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF1FAFF),
-      appBar: AppBar(
         backgroundColor: const Color(0xFFF1FAFF),
-        elevation: 0,
-        titleSpacing: 0,
-        leading: IconButton(
-          onPressed: () {
-            Get.back();
-          },
-          icon: const Icon(
-            Icons.arrow_back,
+        appBar: AppBar(
+          backgroundColor: const Color(0xFFF1FAFF),
+          elevation: 0,
+          titleSpacing: 0,
+          leading: IconButton(
+            onPressed: () {
+              Get.back();
+            },
+            icon: const Icon(
+              Icons.arrow_back,
+            ),
+            iconSize: 26,
+            color: Colors.black,
           ),
-          iconSize: 26,
-          color: Colors.black,
         ),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Clean and Green Assets",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 25.sp,
-                      fontWeight: FontWeight.w500),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
+  }
+
+  Widget _buildBody(context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Clean and Green Assets",
+                style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: DefaultTabController(
+            initialIndex: 1,
+            length: 3,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 20.h,
+                ),
+                ButtonsTabBar(
+                  buttonMargin: EdgeInsets.zero,
+                  contentPadding: EdgeInsets.only(left: 27.w, right: 27.w),
+                  radius: 4,
+                  backgroundColor: const Color(0xFF143C6D),
+                  unselectedBorderColor: const Color(0xFFFFFFFF),
+                  //borderWidth: 1,
+                  borderColor: const Color(0xFFFFFFFF),
+                  unselectedBackgroundColor: const Color(0xFFFFFFFF),
+                  unselectedLabelStyle:
+                      const TextStyle(color: Color(0xFF0F0C0C)),
+                  labelStyle: const TextStyle(
+                    color: Color(0xFFFFFFFF),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                  tabs: const [
+                    Tab(
+                      text: "Open",
+                    ),
+                    Tab(
+                      text: "Fully funded",
+                    ),
+                    Tab(
+                      text: "Resale",
+                    ),
+                  ],
+                ),
+                sizedBoxHeight(15.h),
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      FirstTab(),
+                      SecondTab(),
+                      ThirdTab(),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: DefaultTabController(
-              initialIndex: 1,
-              length: 3,
-              child: Column(
-                children: <Widget>[
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  ButtonsTabBar(
-                    buttonMargin: EdgeInsets.zero,
-                    contentPadding: EdgeInsets.only(left: 27.w, right: 27.w),
-                    radius: 4,
-                    backgroundColor: const Color(0xFF143C6D),
-                    unselectedBorderColor: const Color(0xFFFFFFFF),
-                    //borderWidth: 1,
-                    borderColor: const Color(0xFFFFFFFF),
-                    unselectedBackgroundColor: const Color(0xFFFFFFFF),
-                    unselectedLabelStyle:
-                        const TextStyle(color: Color(0xFF0F0C0C)),
-                    labelStyle: const TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                    tabs: const [
-                      Tab(
-                        text: "Open",
-                      ),
-                      Tab(
-                        text: "Fully funded",
-                      ),
-                      Tab(
-                        text: "Resale",
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(15.h),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        FirstTab(),
-                        SecondTab(),
-                        ThirdTab(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -133,25 +169,25 @@ class SecondTab extends StatelessWidget {
           "Groundmount Solar supplying power to Bennett Coleman - Times of India",
       "Expected Return": "9.70% ",
       "Minimum Investment": '₹ 5,00,000',
-      "View investment Route": CleanGreenViewInvestment(
-        pageIndex: 0,
-      )
+      // "View investment Route": CleanGreenViewInvestment(
+      //   pageIndex: 0,
+      // )
     },
     {
       "Company Name": "Bounce EV Deal",
       "Expected Return": "11%",
       "Minimum Investment": '₹ 50,000',
-      "View investment Route": CleanGreenViewInvestment(
-        pageIndex: 1,
-      )
+      // "View investment Route": CleanGreenViewInvestment(
+      //   pageIndex: 1,
+      // )
     },
     {
       "Company Name": "Bennett, Coleman & Company Ltd",
       "Expected Return": "9.70%",
       "Minimum Investment": '₹ 5,00,000',
-      "View investment Route": CleanGreenViewInvestment(
-        pageIndex: 2,
-      )
+      // "View investment Route": CleanGreenViewInvestment(
+      //   pageIndex: 2,
+      // )
     },
   ];
 
@@ -162,7 +198,7 @@ class SecondTab extends StatelessWidget {
         return sizedBoxHeight(15.h);
       },
       scrollDirection: Axis.vertical,
-      itemCount: viewSlider.length,
+      itemCount: cleangreenObj!.data!.length,
       itemBuilder: (context, index) {
         return SingleChildScrollView(
           child: Padding(
@@ -194,7 +230,10 @@ class SecondTab extends StatelessWidget {
                         children: [
                           Flexible(
                             child: Text(
-                              viewSlider[index]['Company Name'],
+                              cleangreenObj!.data?[index].cleanAndGreenAssets!
+                                      .projectName! ??
+                                  "",
+                              // viewSlider[index]['Company Name'],
                               style: TextStyle(
                                   fontSize: 25.sp,
                                   fontFamily: 'Poppins',
@@ -234,7 +273,10 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                viewSlider[index]['Expected Return'],
+                                cleangreenObj!.data?[index].cleanAndGreenAssets!
+                                        .expectedReturnsIrr! ??
+                                    "",
+                                // viewSlider[index]['Expected Return'],
                                 style: TextStyle(
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.w500,
@@ -275,7 +317,10 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                viewSlider[index]['Minimum Investment'],
+                                cleangreenObj!.data?[index].cleanAndGreenAssets!
+                                        .minimumInvestment! ??
+                                    "",
+                                // viewSlider[index]['Minimum Investment'],
                                 textDirection: TextDirection.ltr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
@@ -307,7 +352,12 @@ class SecondTab extends StatelessWidget {
                           color: AppColors.blue143C6D,
                         ),
                         child: OpenContainerWrappers(
-                          openBuild: viewSlider[index]['View investment Route'],
+                          openBuild: CleanGreenViewInvestment(
+                            slug: cleangreenObj!
+                                    .data?[index].cleanAndGreenAssets!.slug ??
+                                "",
+                          ),
+                          // viewSlider[index]['View investment Route'],
                           closeBuild: SizedBox(
                             width: double.infinity,
                             height: 50.h,
