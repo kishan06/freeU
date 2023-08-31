@@ -50,7 +50,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [CircularProgressIndicator()],
+                children: [Center(child: CircularProgressIndicator())],
               );
             }
             if (snapshot.connectionState == ConnectionState.done) {
@@ -124,7 +124,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
                     ),
                   ],
                 ),
-                sizedBoxHeight(15.h),
+                //sizedBoxHeight(15.h),
                 Expanded(
                   child: TabBarView(
                     children: [
@@ -203,7 +203,7 @@ class _SecondTabState extends State<SecondTab> {
         itemBuilder: (context, index) {
           return SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16),
               child: Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -267,6 +267,7 @@ class _SecondTabState extends State<SecondTab> {
                               width: 25.w,
                             ),
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
@@ -418,6 +419,7 @@ class _SecondTabState extends State<SecondTab> {
                                       .fractionalRealEstate!.slug ??
                                   "",
                             ),
+
                             closeBuild: Container(
                               width: double.infinity,
                               height: 50.h,

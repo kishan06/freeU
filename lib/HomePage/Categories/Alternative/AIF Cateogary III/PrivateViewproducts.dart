@@ -6,6 +6,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/PrivateInvestmentPublic.dart';
 import 'package:lottie/lottie.dart';
 
 class PrivateInvestmentProducts extends StatefulWidget {
@@ -17,83 +18,119 @@ class PrivateInvestmentProducts extends StatefulWidget {
 }
 
 class _PrivateInvestmentProductsState extends State<PrivateInvestmentProducts> {
+  late Future myfuture;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    myfuture = PrivateInvestmentPublic().PrivateInvestmentPublicAPI();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
-        titleTxt: "",
-        bottomtext: false,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Flexible(
+        backgroundColor: Color(0xFFFFFFFF),
+        appBar: CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
                   child: Text(
-                    "Private Investment in Public Equity Fund",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
                   ),
-                ),
-              ],
-            ),
-            Expanded(
-              child: DefaultTabController(
-                initialIndex: 1,
-                length: 3,
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 20,
-                    ),
-                    ButtonsTabBar(
-                      buttonMargin: EdgeInsets.zero,
-                      contentPadding: EdgeInsets.only(left: 27, right: 27),
-                      radius: 4,
-                      backgroundColor: Color(0xFF143C6D),
-                      unselectedBorderColor: Color(0xFFFFFFFF),
-                      borderWidth: 2,
-                      borderColor: Color(0xFFFFFFFF),
-                      unselectedBackgroundColor: Color(0xFFFFFFFF),
-                      unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
-                      labelStyle: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                      tabs: [
-                        Tab(
-                          text: "Open",
-                        ),
-                        Tab(
-                          text: "Fully funded",
-                        ),
-                        Tab(
-                          text: "Resale",
-                        ),
-                      ],
-                    ),
-                    Expanded(
-                      child: TabBarView(
-                        children: [
-                          FirstTab(),
-                          SecondTab(),
-                          ThirdTab(),
-                        ],
-                      ),
-                    ),
-                  ],
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
+  }
+
+  Widget _buildBody(context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
+                  "Private Investment in Public Equity Fund",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
                 ),
               ),
+            ],
+          ),
+          Expanded(
+            child: DefaultTabController(
+              initialIndex: 1,
+              length: 3,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ButtonsTabBar(
+                    buttonMargin: EdgeInsets.zero,
+                    contentPadding: EdgeInsets.only(left: 27, right: 27),
+                    radius: 4,
+                    backgroundColor: Color(0xFF143C6D),
+                    unselectedBorderColor: Color(0xFFFFFFFF),
+                    borderWidth: 2,
+                    borderColor: Color(0xFFFFFFFF),
+                    unselectedBackgroundColor: Color(0xFFFFFFFF),
+                    unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
+                    labelStyle: TextStyle(
+                      color: Color(0xFFFFFFFF),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
+                    ),
+                    tabs: [
+                      Tab(
+                        text: "Open",
+                      ),
+                      Tab(
+                        text: "Fully funded",
+                      ),
+                      Tab(
+                        text: "Resale",
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        FirstTab(),
+                        SecondTab(),
+                        ThirdTab(),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -120,9 +157,9 @@ class SecondTab extends StatelessWidget {
   final List hedgeSlider = [
     {
       "Company Name": "Alchemy Capital Management Pvt Ltd",
-      "View investment Route": PrivateViewDetails(
-        pageIndex: 0,
-      ),
+      // "View investment Route": PrivateViewDetails(
+      //   pageIndex: 0,
+      // ),
     },
   ];
 
@@ -133,7 +170,8 @@ class SecondTab extends StatelessWidget {
         return sizedBoxHeight(15.h);
       },
       scrollDirection: Axis.vertical,
-      itemCount: hedgeSlider.length,
+      itemCount: privateinvestpublicObj!.data!.length,
+      // hedgeSlider.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(top: 20),
@@ -169,7 +207,10 @@ class SecondTab extends StatelessWidget {
                         ),
                         Flexible(
                           child: Text(
-                            hedgeSlider[index]['Company Name'],
+                            privateinvestpublicObj!.data?[index]
+                                    .alternativeInvestmentFund!.fundName ??
+                                "NA",
+                            // hedgeSlider[index]['Company Name'],
                             style: TextStyle(
                                 fontSize: 22,
                                 fontFamily: 'Poppins',
@@ -206,7 +247,10 @@ class SecondTab extends StatelessWidget {
                           width: 10.w,
                         ),
                         Text(
-                          "12.7%",
+                          privateinvestpublicObj!.data?[index]
+                                  .alternativeInvestmentFund!.targetIrr ??
+                              "",
+                          // "12.7%",
                           style: TextStyle(
                               fontSize: 20.sp,
                               fontFamily: 'Poppins',
@@ -229,9 +273,10 @@ class SecondTab extends StatelessWidget {
                         SizedBox(
                           width: 15.w,
                         ),
-                        Flexible(
+                        SizedBox(
+                          width: 118.w,
                           child: Text(
-                            "Commitment period :",
+                            "Commitment period",
                             style: TextStyle(
                               fontSize: 17.sp,
                               fontFamily: 'Poppins',
@@ -239,16 +284,31 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: 8.w,
-                        ),
                         Text(
-                          "5 Years",
+                          ":",
                           style: TextStyle(
-                              fontSize: 18.sp,
-                              fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
-                              fontWeight: FontWeight.w500),
+                            fontSize: 17.sp,
+                            fontFamily: 'Poppins',
+                            color: Color(0XFF000000),
+                          ),
+                        ),
+                        SizedBox(
+                          width: 6.w,
+                        ),
+                        Flexible(
+                          child: Text(
+                            // "5 Years",
+                            privateinvestpublicObj!
+                                    .data?[index]
+                                    .alternativeInvestmentFund!
+                                    .commitmentPeriod ??
+                                "NA",
+                            style: TextStyle(
+                                fontSize: 18.sp,
+                                fontFamily: 'Poppins',
+                                color: Color(0XFF000000),
+                                fontWeight: FontWeight.w500),
+                          ),
                         ),
                       ],
                     ),
@@ -300,8 +360,13 @@ class SecondTab extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.r),
                             color: Color(0xFF143C6D)),
                         child: OpenContainerWrappers(
-                          openBuild: hedgeSlider[index]
-                              ['View investment Route'],
+                          openBuild: PrivateViewDetails(
+                            slug: privateinvestpublicObj!.data?[index]
+                                    .alternativeInvestmentFund!.slug ??
+                                "",
+                          ),
+                          // hedgeSlider[index]
+                          //     ['View investment Route'],
                           closeBuild: SizedBox(
                             width: double.infinity,
                             height: 50.h,

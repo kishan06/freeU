@@ -213,7 +213,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.propertyNameAndLocation ?? "",
+                  fractionalDetailsObj!.data!.propertyNameAndLocation ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Property Description"),
@@ -223,7 +223,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.propertyDescription ?? "",
+                  fractionalDetailsObj!.data!.propertyDescription ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Property Grade"),
@@ -233,7 +233,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.propertyGrade ?? "",
+                  fractionalDetailsObj!.data!.propertyGrade ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Asset Type"),
@@ -243,7 +243,10 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.assetType ?? "",
+
+                  fractionalDetailsObj!.data!.assetType ?? "NA",
+
+
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenant"),
@@ -253,7 +256,10 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.tenant ?? "",
+
+                  fractionalDetailsObj!.data!.tenant ?? "NA",
+              
+
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Deal Size (in Crore)"),
@@ -263,7 +269,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.dealSizeInCrore ?? "",
+                  fractionalDetailsObj!.data!.dealSizeInCrore ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Minimum Investment"),
@@ -273,7 +279,10 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.minimumInvestment ?? "No data",
+
+                  fractionalDetailsObj!.data!.minimumInvestment ?? "NA",
+
+
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Coupon Rate on CCD"),
@@ -283,7 +292,10 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.couponRateOnCcd ?? "",
+
+                  fractionalDetailsObj!.data!.couponRateOnCcd ?? "NA",
+
+
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Rental Escalation"),
@@ -293,7 +305,9 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.rentalEscalation ?? "",
+
+                  fractionalDetailsObj!.data!.rentalEscalation ?? "NA",
+
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Capital Appreciation"),
@@ -303,7 +317,10 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.capitalAppreciation ?? "",
+
+                  fractionalDetailsObj!.data!.capitalAppreciation ?? "NA",
+
+
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Expected IRR"),
@@ -313,7 +330,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.expectedIrr ?? "",
+                  fractionalDetailsObj!.data!.expectedIrr ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("CAGR"),
@@ -323,7 +340,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.cagr ?? "",
+                  fractionalDetailsObj!.data!.cagr ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Minimum Investor LockIn"),
@@ -333,7 +350,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.minimumInvestmentLockin ?? "",
+                  fractionalDetailsObj!.data!.minimumInvestmentLockin ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenant Lease Term"),
@@ -343,7 +360,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.tenantLeaseTerm ?? "",
+                  fractionalDetailsObj!.data!.tenantLeaseTerm ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenant Lock In"),
@@ -353,7 +370,10 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.tenantLockIn ?? "",
+
+                  fractionalDetailsObj!.data!.tenantLockIn ?? "NA",
+                  
+
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenant Security Deposit"),
@@ -363,7 +383,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.tenantSecurityDeposit ?? "",
+                  fractionalDetailsObj!.data!.tenantSecurityDeposit ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Annual Management Fee"),
@@ -373,7 +393,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.annualManagementFee ?? "",
+                  fractionalDetailsObj!.data!.annualManagementFee ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Performance Fee"),
@@ -383,8 +403,9 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.performanceFees ?? "",
-                ),
+
+                  fractionalDetailsObj!.data!.performanceFees ?? "NA",),
+
                 sizedBoxHeight(20.h),
                 textA4856_20500("Hurdle rate"),
                 Divider(
@@ -393,8 +414,9 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.hurdleRate ?? "",
-                ),
+
+                  fractionalDetailsObj!.data!.hurdleRate ?? "NA",),
+
                 sizedBoxHeight(20.h),
               ],
             ),
