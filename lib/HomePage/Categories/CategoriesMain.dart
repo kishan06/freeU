@@ -8,6 +8,7 @@ import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Categories%20Common%20Files/cat_common_main.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/Categoriesmainlist.dart';
 import 'package:get/get.dart';
 import 'Alternative/AlternativeCategories.dart';
 import 'Alternative/Fractionalproperties.dart';
@@ -41,6 +42,13 @@ class CategoriesMain extends StatefulWidget {
 class _CategoriesMainState extends State<CategoriesMain> {
   int selectIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
+  late Future myfuture;
+  @override
+  void initState() {
+    // TODO: implement initState
+    myfuture = Categorieslist().CategorieslistAPI();
+    super.initState();
+  }
 
   HomePage home = const HomePage();
 
@@ -50,7 +58,9 @@ class _CategoriesMainState extends State<CategoriesMain> {
       "colorD": AppColors.redD_5F0801,
       "bgImage": "assets/newImages/bgRed.svg",
       "imageUrl": "assets/newImages/cat1.png",
-      "title": "Alternative Investment Funds",
+      "title":
+          // categorieslistObj!.data!.categoryName ?? ""
+          "Alternative Investment Funds",
     },
     {
       "colorL": AppColors.blueL_006796,
@@ -161,78 +171,107 @@ class _CategoriesMainState extends State<CategoriesMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _key,
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        title: Row(
-          children: [
-            sizedBoxWidth(10.w),
-            InkWell(
-              onTap: () {
-                Get.back();
-              },
-              child: Icon(
-                Icons.arrow_back,
-                color: Colors.black,
-              ),
-            ),
-            sizedBoxWidth(10.w),
-            Text(
-              'Categories',
-              softWrap: true,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
-            ),
-            const Spacer(),
-            // Icon(
-            //   Icons.filter_alt_outlined,
-            //   color: Colors.black,
-            // ),
-            OpenContainerWrappers(
-              closeBuild: IconButton(
-                onPressed: null,
-                icon: SizedBox(
-                  width: 20.w,
-                  height: 25.h,
-                  child: SvgPicture.asset(
-                    'assets/images/notification-bell-svgrepo-com.svg',
-                    fit: BoxFit.fill,
-                  ),
+        key: _key,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          title: Row(
+            children: [
+              sizedBoxWidth(10.w),
+              InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Icon(
+                  Icons.arrow_back,
+                  color: Colors.black,
                 ),
               ),
-              openBuild: const NotificationPage(),
-            ),
-          ],
-        ),
-        elevation: 0,
-        shadowColor: Colors.black,
-        automaticallyImplyLeading: false,
-        titleSpacing: 0,
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 20.h),
-        child: GridView.builder(
-          itemCount: categoryData.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            childAspectRatio: 169 / 133,
-            crossAxisCount: 2,
-            crossAxisSpacing: 15.w,
-            mainAxisSpacing: 15.w,
-          ),
-          itemBuilder: (BuildContext context, int index) {
-            return OpenContainerWrappers(
-              closeBuild: categoryCard(
-                color1: categoryData[index]["colorL"],
-                color2: categoryData[index]["colorD"],
-                bgImage: categoryData[index]["bgImage"],
-                image: categoryData[index]["imageUrl"],
-                text: categoryData[index]["title"],
+              sizedBoxWidth(10.w),
+              Text(
+                'Categories',
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22.sp,
+                    color: Colors.black),
               ),
-              openBuild: navigate(index),
+              const Spacer(),
+              // Icon(
+              //   Icons.filter_alt_outlined,
+              //   color: Colors.black,
+              // ),
+              OpenContainerWrappers(
+                closeBuild: IconButton(
+                  onPressed: null,
+                  icon: SizedBox(
+                    width: 20.w,
+                    height: 25.h,
+                    child: SvgPicture.asset(
+                      'assets/images/notification-bell-svgrepo-com.svg',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+                openBuild: const NotificationPage(),
+              ),
+            ],
+          ),
+          elevation: 0,
+          shadowColor: Colors.black,
+          automaticallyImplyLeading: false,
+          titleSpacing: 0,
+        ),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
             );
           },
+        ));
+  }
+
+  Widget _buildBody(context) {
+    return Padding(
+      padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 20.h),
+      child: GridView.builder(
+        itemCount: categoryData.length,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          childAspectRatio: 169 / 133,
+          crossAxisCount: 2,
+          crossAxisSpacing: 15.w,
+          mainAxisSpacing: 15.w,
         ),
+        itemBuilder: (BuildContext context, int index) {
+          return OpenContainerWrappers(
+            closeBuild: categoryCard(
+              color1: categoryData[index]["colorL"],
+              color2: categoryData[index]["colorD"],
+              bgImage: categoryData[index]["bgImage"],
+              image: categoryData[index]["imageUrl"],
+              text: categoryData[index]["title"],
+            ),
+            openBuild: navigate(index),
+          );
+        },
       ),
     );
   }

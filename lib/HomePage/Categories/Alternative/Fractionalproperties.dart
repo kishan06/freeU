@@ -43,15 +43,14 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
             color: Colors.black,
           ),
         ),
-        body:
-         FutureBuilder(
+        body: FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [CircularProgressIndicator()],
+                children: [Center(child: CircularProgressIndicator())],
               );
             }
             if (snapshot.connectionState == ConnectionState.done) {
@@ -68,8 +67,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
               context,
             );
           },
-        )
-        );
+        ));
   }
 
   Widget _buildBody(context) {
@@ -126,7 +124,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
                     ),
                   ],
                 ),
-                sizedBoxHeight(15.h),
+                //sizedBoxHeight(15.h),
                 Expanded(
                   child: TabBarView(
                     children: [
@@ -205,7 +203,7 @@ class _SecondTabState extends State<SecondTab> {
         itemBuilder: (context, index) {
           return SingleChildScrollView(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
+              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16),
               child: Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -269,6 +267,7 @@ class _SecondTabState extends State<SecondTab> {
                               width: 25.w,
                             ),
                             Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Padding(
@@ -415,22 +414,20 @@ class _SecondTabState extends State<SecondTab> {
                             color: AppColors.blue143C6D,
                           ),
                           child: OpenContainerWrappers(
-                            openBuild: 
-                            PropertiesInvestment(slug: 
-                            fractionalRealEstateObj!
-                                          .data?[index]
-                                          .fractionalRealEstate!
-                                          .slug ?? "",
+                            openBuild: PropertiesInvestment(
+                              slug: fractionalRealEstateObj!.data?[index]
+                                      .fractionalRealEstate!.slug ??
+                                  "",
                             ),
-              //                Navigator.push(
-              // context,
-              // MaterialPageRoute(
-              //     builder: (context) => PropertiesInvestment(
-              //           slug: fractionalRealEstateObj!
-              //                             .data?[index]
-              //                             .fractionalRealEstate!
-              //                             .slug ?? "",
-              //         ))),
+                            //                Navigator.push(
+                            // context,
+                            // MaterialPageRoute(
+                            //     builder: (context) => PropertiesInvestment(
+                            //           slug: fractionalRealEstateObj!
+                            //                             .data?[index]
+                            //                             .fractionalRealEstate!
+                            //                             .slug ?? "",
+                            //         ))),
 
                             // contents[index]['View investment Route'],
                             //  PropertiesInvestment(),

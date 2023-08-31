@@ -266,7 +266,7 @@ class SecondTab extends StatelessWidget {
                           Text(
                             privateequityObj!.data?[index]
                                     .alternativeInvestmentFund!.targetIrr ??
-                                "No data",
+                                "NA",
                             // "12.7%",
                             style: TextStyle(
                                 fontSize: 20.sp,
@@ -318,7 +318,7 @@ class SecondTab extends StatelessWidget {
                                       .data?[index]
                                       .alternativeInvestmentFund!
                                       .commitmentPeriod ??
-                                  "",
+                                  "NA",
 
                               // "5 Years",
                               style: TextStyle(

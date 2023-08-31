@@ -260,7 +260,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.registrationNumber ?? "No data"),
+                    privateequitydetailsobj!.data!.registrationNumber ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Category (I/II/III)"),
                 Divider(
@@ -269,7 +269,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.fundCategory ?? "No data"),
+                    privateequitydetailsobj!.data!.fundCategory ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Structure (Open/Closed)"),
                 Divider(
@@ -278,7 +278,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.fundStructure ?? "No data"),
+                    privateequitydetailsobj!.data!.fundStructure ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Strategy"),
                 Divider(
@@ -287,7 +287,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.fundStrategy ?? "No data"),
+                    privateequitydetailsobj!.data!.fundStrategy ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Domicile"),
                 Divider(
@@ -296,7 +296,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.fundDomicile ?? "No data"),
+                    privateequitydetailsobj!.data!.fundDomicile ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Manager Name"),
                 Divider(
@@ -305,7 +305,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.fundManagerName ?? "No data"),
+                    privateequitydetailsobj!.data!.fundManagerName ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Website of the fund"),
                 Divider(
@@ -314,7 +314,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.websiteOfTheFund ?? "No data"),
+                    privateequitydetailsobj!.data!.websiteOfTheFund ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Manager Experience"),
                 Divider(
@@ -323,7 +323,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.fundManagerExperience ?? "No data"),
+                    privateequitydetailsobj!.data!.fundManagerExperience ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Sponsor"),
                 Divider(
@@ -331,7 +331,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateequitydetailsobj!.data!.sponsor ?? "No data"),
+                text272424_18(privateequitydetailsobj!.data!.sponsor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Manager"),
                 Divider(
@@ -339,7 +339,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateequitydetailsobj!.data!.manager ?? "No data"),
+                text272424_18(privateequitydetailsobj!.data!.manager ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Trustee"),
                 Divider(
@@ -347,7 +347,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateequitydetailsobj!.data!.trustee ?? "No data"),
+                text272424_18(privateequitydetailsobj!.data!.trustee ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Auditor"),
                 Divider(
@@ -355,7 +355,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateequitydetailsobj!.data!.auditor ?? "No data"),
+                text272424_18(privateequitydetailsobj!.data!.auditor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Valuer / Tax Advisor"),
                 Divider(
@@ -364,7 +364,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.valuerTaxAdvisor ?? "No data"),
+                    privateequitydetailsobj!.data!.valuerTaxAdvisor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Credit Rating (if any)"),
                 Divider(
@@ -373,7 +373,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.creditRating ?? "No data"),
+                    privateequitydetailsobj!.data!.creditRating ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Open Date"),
                 Divider(
@@ -381,7 +381,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateequitydetailsobj!.data!.openDate ?? "No data"),
+                text272424_18(privateequitydetailsobj!.data!.openDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("1st Close Date"),
                 Divider(
@@ -390,7 +390,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.firstCloseDate ?? "No data"),
+                    privateequitydetailsobj!.data!.firstCloseDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Final Close Date"),
                 Divider(
@@ -399,7 +399,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.finalCloseDate ?? "No data"),
+                    privateequitydetailsobj!.data!.finalCloseDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenure from Final Close"),
                 Divider(
@@ -408,7 +408,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.tenureFromFinalDate ?? "No data"),
+                    privateequitydetailsobj!.data!.tenureFromFinalDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Commitment Period"),
                 Divider(
@@ -417,7 +417,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.commitmentPeriod ?? "No data"),
+                    privateequitydetailsobj!.data!.commitmentPeriod ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Native Currency"),
                 Divider(
@@ -426,7 +426,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.nativeCurrency ?? "No data"),
+                    privateequitydetailsobj!.data!.nativeCurrency ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Target Corpus"),
                 Divider(
@@ -435,7 +435,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.targetCorpus ?? "No data"),
+                    privateequitydetailsobj!.data!.targetCorpus ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Investment Manager Contribution"),
                 Divider(
@@ -445,7 +445,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                 ),
                 text272424_18(privateequitydetailsobj!
                         .data!.investmentManagerContribution ??
-                    "No data"),
+                    "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Minimum Capital Commitment"),
                 Divider(
@@ -455,7 +455,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                 ),
                 text272424_18(
                     privateequitydetailsobj!.data!.minimumCapitalCommitment ??
-                        "No data"),
+                        "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Initial Drawdown"),
                 Divider(
@@ -464,7 +464,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.intialDrawdown ?? "No data"),
+                    privateequitydetailsobj!.data!.intialDrawdown ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Accepting Overseas investment?"),
                 Divider(
@@ -474,7 +474,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                 ),
                 text272424_18(privateequitydetailsobj!
                         .data!.acceptingOverseasInvestment ??
-                    "No data"),
+                    "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Target IRR (%)"),
                 Divider(
@@ -482,7 +482,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateequitydetailsobj!.data!.targetIrr ?? "No data"),
+                text272424_18(privateequitydetailsobj!.data!.targetIrr ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500(
                     "Management Fees and Carry \n- Set Up Fee \n- Management Fee \n- Performance Fee"),
@@ -493,7 +493,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                 ),
                 text272424_18(
                     privateequitydetailsobj!.data!.managementFeesAndCarry ??
-                        "No data"),
+                        "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Hurdle Rate"),
                 Divider(
@@ -501,7 +501,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateequitydetailsobj!.data!.hurdleRate ?? "No data"),
+                text272424_18(privateequitydetailsobj!.data!.hurdleRate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Other Expenses"),
                 Divider(
@@ -510,7 +510,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.otherExpenses ?? "No data"),
+                    privateequitydetailsobj!.data!.otherExpenses ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500(
                     "Focused Sectors (Industries in which they are investing)"),
@@ -521,7 +521,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                 ),
                 text272424_18(
                     privateequitydetailsobj!.data!.focusedSectorsIndustries ??
-                        "No data"),
+                        "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500(
                     "Regions Covered (Geographical Locations covered by the fund)"),
@@ -531,7 +531,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.regionsCovered ?? "No data"),
+                    privateequitydetailsobj!.data!.regionsCovered ?? "NA"),
                 sizedBoxHeight(20.h),
               ],
             )
