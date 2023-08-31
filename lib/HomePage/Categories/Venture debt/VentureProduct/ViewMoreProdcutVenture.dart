@@ -1,9 +1,11 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20I/Venture%20Capital/venture_view_detail.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/VentureDebtService.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'VentureViewInvestment.dart';
@@ -16,6 +18,13 @@ class VeiwMoreProductVenture extends StatefulWidget {
 }
 
 class _VeiwMoreProductVentureState extends State<VeiwMoreProductVenture> {
+  late Future myfuture;
+  @override
+  void initState() {
+    myfuture = VentureDebt().venturedebtAPI();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,76 +44,104 @@ class _VeiwMoreProductVentureState extends State<VeiwMoreProductVenture> {
           color: Colors.black,
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Venture Debt",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 25.sp,
-                      fontWeight: FontWeight.w500),
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [CircularProgressIndicator()],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
+              );
+            }
+          }
+          return _buildBody(
+            context,
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody(context) {
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 16, right: 16),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Venture Debt",
+                style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        Expanded(
+          child: DefaultTabController(
+            initialIndex: 1,
+            length: 3,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 20.h,
+                ),
+                ButtonsTabBar(
+                  buttonMargin: EdgeInsets.zero,
+                  contentPadding: EdgeInsets.only(left: 27.w, right: 27.w),
+                  radius: 4,
+                  backgroundColor: const Color(0xFF143C6D),
+                  unselectedBorderColor: const Color(0xFFFFFFFF),
+                  //borderWidth: 1,
+                  borderColor: const Color(0xFFFFFFFF),
+                  unselectedBackgroundColor: const Color(0xFFFFFFFF),
+                  unselectedLabelStyle:
+                      const TextStyle(color: Color(0xFF0F0C0C)),
+                  labelStyle: const TextStyle(
+                    color: Color(0xFFFFFFFF),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                  ),
+                  tabs: const [
+                    Tab(
+                      text: "Open",
+                    ),
+                    Tab(
+                      text: "Fully funded",
+                    ),
+                    Tab(
+                      text: "Resale",
+                    ),
+                  ],
+                ),
+                sizedBoxHeight(15.h),
+                Expanded(
+                  child: TabBarView(
+                    children: [
+                      FirstTab(),
+                      SecondTab(),
+                      ThirdTab(),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: DefaultTabController(
-              initialIndex: 1,
-              length: 3,
-              child: Column(
-                children: <Widget>[
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  ButtonsTabBar(
-                    buttonMargin: EdgeInsets.zero,
-                    contentPadding: EdgeInsets.only(left: 27.w, right: 27.w),
-                    radius: 4,
-                    backgroundColor: const Color(0xFF143C6D),
-                    unselectedBorderColor: const Color(0xFFFFFFFF),
-                    //borderWidth: 1,
-                    borderColor: const Color(0xFFFFFFFF),
-                    unselectedBackgroundColor: const Color(0xFFFFFFFF),
-                    unselectedLabelStyle:
-                        const TextStyle(color: Color(0xFF0F0C0C)),
-                    labelStyle: const TextStyle(
-                      color: Color(0xFFFFFFFF),
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                    ),
-                    tabs: const [
-                      Tab(
-                        text: "Open",
-                      ),
-                      Tab(
-                        text: "Fully funded",
-                      ),
-                      Tab(
-                        text: "Resale",
-                      ),
-                    ],
-                  ),
-                  sizedBoxHeight(15.h),
-                  Expanded(
-                    child: TabBarView(
-                      children: [
-                        FirstTab(),
-                        SecondTab(),
-                        ThirdTab(),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -131,17 +168,11 @@ class SecondTab extends StatelessWidget {
       "Company Name": "eChargeUp",
       "Expected Return": "~19% IRR",
       "Minimum Investment": '₹ 3,00,000',
-      "View investment Route": ViewInvestment(
-        pageIndex: 0,
-      )
     },
     {
       "Company Name": "Vilcart Services Pvt. Ltd.",
       "Expected Return": "~17% XIRR",
       "Minimum Investment": '₹ 5,00,000',
-      "View investment Route": ViewInvestment(
-        pageIndex: 1,
-      )
     },
   ];
 
@@ -152,7 +183,7 @@ class SecondTab extends StatelessWidget {
         return sizedBoxHeight(15.h);
       },
       scrollDirection: Axis.vertical,
-      itemCount: viewSlider.length,
+      itemCount: VentureDebtObj!.data!.length,
       itemBuilder: (context, index) {
         return SingleChildScrollView(
           child: Padding(
@@ -184,7 +215,9 @@ class SecondTab extends StatelessWidget {
                       child: Row(
                         children: [
                           Text(
-                            viewSlider[index]['Company Name'],
+                            VentureDebtObj!
+                                    .data![index].ventureDebt!.companyName ??
+                                "",
                             style: TextStyle(
                                 fontSize: 25.sp,
                                 fontFamily: 'Poppins',
@@ -223,7 +256,9 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                viewSlider[index]['Expected Return'],
+                                VentureDebtObj!.data![index].ventureDebt!
+                                        .expectedReturn ??
+                                    "",
                                 style: TextStyle(
                                   fontSize: 20.sp,
                                   fontWeight: FontWeight.w500,
@@ -264,7 +299,7 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                               Text(
-                                viewSlider[index]['Minimum Investment'],
+                                "₹ ${VentureDebtObj!.data![index].ventureDebt!.minimumInvestment ?? ""}",
                                 textDirection: TextDirection.ltr,
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
@@ -296,7 +331,11 @@ class SecondTab extends StatelessWidget {
                           color: AppColors.blue143C6D,
                         ),
                         child: OpenContainerWrappers(
-                          openBuild: viewSlider[index]['View investment Route'],
+                          openBuild: ViewInvestment(
+                            slug:
+                                VentureDebtObj!.data![index].ventureDebt!.slug!,
+                          ),
+                          // viewSlider[index]['View investment Route'],
                           closeBuild: SizedBox(
                             width: double.infinity,
                             height: 50.h,

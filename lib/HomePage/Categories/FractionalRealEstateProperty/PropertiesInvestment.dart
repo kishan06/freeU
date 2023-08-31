@@ -140,8 +140,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
               },
               text: 'Invest now'),
         ),
-        body: 
-        FutureBuilder(
+        body: FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
@@ -165,8 +164,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
               context,
             );
           },
-        )
-        );
+        ));
   }
 
   Widget _buildBody(context) {
@@ -227,7 +225,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 text272424_18(
                   fractionalDetailsObj!.data!.propertyDescription ?? "",
                 ),
-                
                 sizedBoxHeight(20.h),
                 textA4856_20500("Property Grade"),
                 Divider(
@@ -238,7 +235,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 text272424_18(
                   fractionalDetailsObj!.data!.propertyGrade ?? "",
                 ),
-                
                 sizedBoxHeight(20.h),
                 textA4856_20500("Asset Type"),
                 Divider(
@@ -248,12 +244,9 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 ),
                 text272424_18(
                   fractionalDetailsObj!.data!.assetType ?? "",
-
                 ),
-                
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenant"),
-                
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
@@ -261,7 +254,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 ),
                 text272424_18(
                   fractionalDetailsObj!.data!.tenant ?? "",
-              
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Deal Size (in Crore)"),
@@ -282,11 +274,9 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 ),
                 text272424_18(
                   fractionalDetailsObj!.data!.minimumInvestment ?? "No data",
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Coupon Rate on CCD"),
-                
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
@@ -294,7 +284,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 ),
                 text272424_18(
                   fractionalDetailsObj!.data!.couponRateOnCcd ?? "",
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Rental Escalation"),
@@ -305,7 +294,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 ),
                 text272424_18(
                   fractionalDetailsObj!.data!.rentalEscalation ?? "",
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Capital Appreciation"),
@@ -316,7 +304,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 ),
                 text272424_18(
                   fractionalDetailsObj!.data!.capitalAppreciation ?? "",
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Expected IRR"),
@@ -330,7 +317,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("CAGR"),
-                
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
@@ -368,7 +354,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                 ),
                 text272424_18(
                   fractionalDetailsObj!.data!.tenantLockIn ?? "",
-                  
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenant Security Deposit"),
@@ -398,7 +383,8 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.performanceFees ?? "",),
+                  fractionalDetailsObj!.data!.performanceFees ?? "",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Hurdle rate"),
                 Divider(
@@ -407,7 +393,8 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  fractionalDetailsObj!.data!.hurdleRate ?? "",),
+                  fractionalDetailsObj!.data!.hurdleRate ?? "",
+                ),
                 sizedBoxHeight(20.h),
               ],
             ),
@@ -460,7 +447,6 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
             //       // productDetails[0]['header'].length
             //       ),
             // )
-          
           ],
         ),
       ),

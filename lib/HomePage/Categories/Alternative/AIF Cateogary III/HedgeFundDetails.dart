@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
+import 'package:freeu/viewModel/HedgeDetailsService.dart';
 import 'package:get/get.dart';
 
 class HedgeFundDetails extends StatefulWidget {
-  final int pageIndex;
+  final String slug;
 
-  HedgeFundDetails({super.key, required this.pageIndex});
+  HedgeFundDetails({super.key, required this.slug});
 
   @override
   State<HedgeFundDetails> createState() => _HedgeFundDetailsState();
@@ -18,6 +20,14 @@ class HedgeFundDetails extends StatefulWidget {
 
 class _HedgeFundDetailsState extends State<HedgeFundDetails> {
   final controllerEntryPoint = Get.put(EntryPointController());
+
+  late Future myfuture;
+
+  @override
+  void initState() {
+    myfuture = HedgeDetails().HedgeDetailsAPI(widget.slug);
+    super.initState();
+  }
 
   List hedgedetails = [
     {
@@ -187,111 +197,451 @@ Carry - 50% for Class B3 and B4''',
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomSignupAppBar(
-        titleTxt: "",
-        bottomtext: false,
-      ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-        child: CustomNextButton(
-            ontap: () {
-              if (controllerEntryPoint.logedIn!) {
-                investNow();
-              } else {
-                Get.toNamed("/login");
+        appBar: CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+          child: CustomNextButton(
+              ontap: () {
+                if (controllerEntryPoint.logedIn!) {
+                  investNow();
+                } else {
+                  Get.toNamed("/login");
+                }
+              },
+              text: 'Invest now'),
+        ),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [CircularProgressIndicator()],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
               }
-            },
-            text: 'Invest now'),
-      ),
-      body: SafeArea(
-          child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              sizedBoxHeight(10.h),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  sizedBoxWidth(5.w),
-                  Container(
-                    decoration: BoxDecoration(
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.1),
-                          spreadRadius: 2.w,
-                          blurRadius: 2.h,
-                        ),
-                      ],
-                    ),
-                    child: Image.asset(
-                      "assets/images/alternative (6).png",
-                      width: 80.w,
-                      height: 54.h,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 20.h,
-                  ),
-                  Flexible(
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width - 132.w,
-                      height: 75.h,
-                      child: Text(
-                        hedgedetails[0]['Company Name'][widget.pageIndex],
-                        // "HDFC AMC Select AIF FOF - 1",
-                        style: TextStyle(
-                            fontSize: 20.sp, fontWeight: FontWeight.w500),
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
+  }
+
+  Widget _buildBody(context) {
+    return SafeArea(
+        child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            sizedBoxHeight(10.h),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                sizedBoxWidth(5.w),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.1),
+                        spreadRadius: 2.w,
+                        blurRadius: 2.h,
                       ),
-                    ),
-                  )
-                ],
-              ),
-              sizedBoxHeight(24.h),
-              SizedBox(
-                height: MediaQuery.of(context).size.height - 265.h,
-                child: ListView.separated(
+                    ],
+                  ),
+                  child: Image.asset(
+                    "assets/images/alternative (6).png",
+                    width: 80.w,
+                    height: 54.h,
+                  ),
+                ),
+                SizedBox(
+                  width: 20.h,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 132.w,
+                  height: 75.h,
+                  child: ListView.builder(
+                    itemCount: 1,
                     itemBuilder: (context, index) {
                       return Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            hedgedetails[0]['header'][index],
+                            hedgeDetailsObj!.data!.fundName ?? "",
                             style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 20.sp,
-                              color: const Color(0xff3A4856),
-                            ),
+                                fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
-                          Divider(
-                            height: 25.h,
-                            thickness: 1.h,
-                            color: Colors.grey.shade400,
-                          ),
-                          Text(
-                            hedgedetails[0]['content'][widget.pageIndex][index],
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                color: const Color(0xff272424)),
-                          ),
-                          sizedBoxHeight(28.h)
                         ],
                       );
                     },
-                    separatorBuilder: (context, index) {
-                      return SizedBox(
-                        height: 0.h,
-                      );
-                    },
-                    itemCount: hedgedetails[0]['header'].length),
-              ),
-            ],
-          ),
+                  ),
+                )
+              ],
+            ),
+            sizedBoxHeight(24.h),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                textA4856_20500("Registration No."),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.registrationNumber ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Category (I/II/III)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.fundCategory ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Structure (Open/Closed)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.fundStructure ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Fund Strategy"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.fundStrategy ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Fund Domicile"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.fundDomicile ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Fund Manager Name"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.fundManagerName ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Website of the fund"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.websiteOfTheFund ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Manager Experience"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.fundManagerExperience ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Sponsor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.sponsor ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Manager"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.manager ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Trustee"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.trustee ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Auditor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.auditor ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Valuer / Tax Advisor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.valuerTaxAdvisor ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Credit Rating"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.creditRating ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Open Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.openDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("1st Close Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.firstCloseDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Final Close Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.finalCloseDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Tenure from Final Close"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.tenureFromFinalDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Commitment Period"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.commitmentPeriod ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Native Currency"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.nativeCurrency ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Target Corpus"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.targetCorpus ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Investment Manager Contribution"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.investmentManagerContribution ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Minimum Capital Commitment"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.minimumCapitalCommitment ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Initial Drawdown"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.intialDrawdown ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Accepting Overseas investment?"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.acceptingOverseasInvestment ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500('''Return on investment (%)
+ - IRR
+ - DPI
+ - RVPI
+ - TVPI'''),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.returnOnInvestment ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Valuation per security (NAV)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.valuationPerSector ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500('''Management Fees and Carry
+  - Set Up Fee
+  - Management Fee
+  - Performance Fee'''),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.managementFeesAndCarry ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Hurdle Rate"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.hurdleRate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Other Expenses"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.otherExpenses ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500(
+                    "Focused Funds (Type of Funds in which they are investing)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.focusedFunds ?? "N/A",
+                ),
+                sizedBoxHeight(20.h), textA4856_20500("Trading Strategy Used"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.tradingStrategy ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Involved in Short Selling (Yes/No)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  hedgeDetailsObj!.data!.involvedInShortSelling ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                // Text(
+                //   hedgedetails[0]['header'][index],
+                //   style: TextStyle(
+                //     fontWeight: FontWeight.w500,
+                //     fontSize: 20.sp,
+                //     color: const Color(0xff3A4856),
+                //   ),
+                // ),
+                // Divider(
+                //   height: 25.h,
+                //   thickness: 1.h,
+                //   color: Colors.grey.shade400,
+                // ),
+                // Text(
+                //   hedgedetails[0]['content'][widget.pageIndex][index],
+                //   style: TextStyle(
+                //       fontSize: 18.sp, color: const Color(0xff272424)),
+                // ),
+                sizedBoxHeight(28.h)
+              ],
+            ),
+          ],
         ),
-      )),
-    );
+      ),
+    ));
   }
 
   void investNow() {

@@ -43,8 +43,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
             color: Colors.black,
           ),
         ),
-        body:
-         FutureBuilder(
+        body: FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
@@ -68,8 +67,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
               context,
             );
           },
-        )
-        );
+        ));
   }
 
   Widget _buildBody(context) {
@@ -415,25 +413,11 @@ class _SecondTabState extends State<SecondTab> {
                             color: AppColors.blue143C6D,
                           ),
                           child: OpenContainerWrappers(
-                            openBuild: 
-                            PropertiesInvestment(slug: 
-                            fractionalRealEstateObj!
-                                          .data?[index]
-                                          .fractionalRealEstate!
-                                          .slug ?? "",
+                            openBuild: PropertiesInvestment(
+                              slug: fractionalRealEstateObj!.data?[index]
+                                      .fractionalRealEstate!.slug ??
+                                  "",
                             ),
-              //                Navigator.push(
-              // context,
-              // MaterialPageRoute(
-              //     builder: (context) => PropertiesInvestment(
-              //           slug: fractionalRealEstateObj!
-              //                             .data?[index]
-              //                             .fractionalRealEstate!
-              //                             .slug ?? "",
-              //         ))),
-
-                            // contents[index]['View investment Route'],
-                            //  PropertiesInvestment(),
                             closeBuild: Container(
                               width: double.infinity,
                               height: 50.h,
