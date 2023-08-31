@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
+import 'package:freeu/viewModel/VentureDebtDetailsService.dart';
 import 'package:get/get.dart';
 
 class ViewInvestment extends StatefulWidget {
-  final int pageIndex;
+  final String slug;
 
-  ViewInvestment({super.key, required this.pageIndex});
+  ViewInvestment({super.key, required this.slug});
 
   @override
   State<ViewInvestment> createState() => _ViewInvestmentState();
@@ -18,6 +20,13 @@ class ViewInvestment extends StatefulWidget {
 
 class _ViewInvestmentState extends State<ViewInvestment> {
   final controllerEntryPoint = Get.put(EntryPointController());
+  late Future myfuture;
+
+  @override
+  void initState() {
+    myfuture = VentureDebtDetails().VentureDebtDetailsAPI(widget.slug);
+    super.initState();
+  }
 
   List productDetails = [
     {
@@ -75,94 +84,242 @@ class _ViewInvestmentState extends State<ViewInvestment> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomSignupAppBar(
-        titleTxt: "",
-        bottomtext: false,
-      ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-        child: CustomNextButton(
-            ontap: () {
-              if (controllerEntryPoint.logedIn!) {
-                investNow();
-              } else {
-                Get.toNamed("/login");
+        appBar: const CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+          child: CustomNextButton(
+              ontap: () {
+                if (controllerEntryPoint.logedIn!) {
+                  investNow();
+                } else {
+                  Get.toNamed("/login");
+                }
+              },
+              text: 'Invest now'),
+        ),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [CircularProgressIndicator()],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
               }
-            },
-            text: 'Invest now'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // sizedBoxHeight(10.h),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  sizedBoxWidth(5.w),
-                  SvgPicture.asset(
-                    "assets/images/property.svg",
-                    width: 80.w,
-                    height: 54.h,
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
+  }
+
+  Widget _buildBody(context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // sizedBoxHeight(10.h),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                sizedBoxWidth(5.w),
+                SvgPicture.asset(
+                  "assets/images/property.svg",
+                  width: 80.w,
+                  height: 54.h,
+                ),
+                SizedBox(
+                  width: 20.h,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 132.w,
+                  height: 75.h,
+                  child: Text(
+                    ventureDebtDetailsObj!.data!.companyName ?? "",
+                    style:
+                        TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w500),
                   ),
-                  SizedBox(
-                    width: 20.h,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width - 132.w,
-                    height: 75.h,
-                    child: Text(
-                      productDetails[0]['Company Name'][widget.pageIndex],
-                      style: TextStyle(
-                          fontSize: 22.sp, fontWeight: FontWeight.w500),
-                    ),
-                  )
-                ],
-              ),
-              sizedBoxHeight(24.h),
-              SizedBox(
-                height: MediaQuery.of(context).size.height - 265.h,
-                child: ListView.separated(
-                    itemBuilder: (context, index) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            productDetails[0]['header'][index],
-                            style: TextStyle(
-                              fontWeight: FontWeight.w500,
-                              fontSize: 20.sp,
-                              color: const Color(0xff3A4856),
-                            ),
-                          ),
-                          Divider(
-                            height: 25.h,
-                            thickness: 1.h,
-                            color: Colors.grey.shade400,
-                          ),
-                          Text(
-                            productDetails[0]['content'][widget.pageIndex]
-                                [index],
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                color: const Color(0xff272424)),
-                          ),
-                          sizedBoxHeight(28.h)
-                        ],
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return SizedBox(
-                        height: 0.h,
-                      );
-                    },
-                    itemCount: productDetails[0]['header'].length),
-              ),
-            ],
-          ),
+                )
+              ],
+            ),
+            sizedBoxHeight(24.h),
+            // SizedBox(
+            //   height: MediaQuery.of(context).size.height - 265.h,
+            //  child:\
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                textA4856_20500("Sector"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.sector ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Minimum Investment"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.minimumInvestment ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Tenure"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.tenure ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Total Issue Size"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.totalIssueSize ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Interest Payout"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.interestPayout ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Principal Payout"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.principalPayout ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Expected Return"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.expectedReturn ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Collateral & Cover Multiple"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.collateralCoverMultiple ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("About the Company"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.aboutCompany ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Instrument Type"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.instrumentType ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Face Value per unit"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.facePerValueUnit ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Prepayment Covenants"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.prepaymentCovenants ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Source of funds for repayment of Debt"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  ventureDebtDetailsObj!.data!.sourceOfFundsRepaymentDebt ?? "",
+                ),
+                sizedBoxHeight(20.h),
+                // Text(
+                //   productDetails[0]['header'][index],
+                //   style: TextStyle(
+                //     fontWeight: FontWeight.w500,
+                //     fontSize: 20.sp,
+                //     color: const Color(0xff3A4856),
+                //   ),
+                // ),
+                // Divider(
+                //   height: 25.h,
+                //   thickness: 1.h,
+                //   color: Colors.grey.shade400,
+                // ),
+                // Text(
+                //   productDetails[0]['content'][widget.pageIndex][index],
+                //   style: TextStyle(
+                //       fontSize: 18.sp, color: const Color(0xff272424)),
+                // ),
+
+                sizedBoxHeight(28.h)
+              ],
+            ),
+            // ),
+          ],
         ),
       ),
     );

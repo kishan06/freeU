@@ -125,20 +125,20 @@ class _CategoriesMainState extends State<CategoriesMain> {
       "imageUrl": "assets/newImages/cat10.png",
       "title": "High Yield Finance",
     },
-    {
-      "colorL": AppColors.brownL_973926,
-      "colorD": AppColors.brownD_4C1D13,
-      "bgImage": "assets/newImages/bgBrown.svg",
-      "imageUrl": "assets/newImages/cat11.png",
-      "title": "International Financial Investment",
-    },
-    {
-      "colorL": AppColors.pinkL_E6088B,
-      "colorD": AppColors.pinkD_730446,
-      "bgImage": "assets/newImages/bgPink.svg",
-      "imageUrl": "assets/newImages/cat12.png",
-      "title": "International Real Estate",
-    },
+    // {
+    //   "colorL": AppColors.brownL_973926,
+    //   "colorD": AppColors.brownD_4C1D13,
+    //   "bgImage": "assets/newImages/bgBrown.svg",
+    //   "imageUrl": "assets/newImages/cat11.png",
+    //   "title": "International Financial Investment",
+    // },
+    // {
+    //   "colorL": AppColors.pinkL_E6088B,
+    //   "colorD": AppColors.pinkD_730446,
+    //   "bgImage": "assets/newImages/bgPink.svg",
+    //   "imageUrl": "assets/newImages/cat12.png",
+    //   "title": "International Real Estate",
+    // },
     {
       "colorL": AppColors.redL_BE0F02,
       "colorD": AppColors.redD_5F0801,
@@ -347,7 +347,7 @@ class _CategoriesMainState extends State<CategoriesMain> {
               bottomButtonTitle: "View more product",
               backgroundColor: AppColors.brownL_973926,
               learnMoreRoute: RevenueBasedLearnMore(),
-              bottomButtonRoute: const RevenueProperties());
+              bottomButtonRoute: const ComingSoon());
         }
       case 5:
         {

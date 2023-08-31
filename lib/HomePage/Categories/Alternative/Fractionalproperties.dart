@@ -419,18 +419,7 @@ class _SecondTabState extends State<SecondTab> {
                                       .fractionalRealEstate!.slug ??
                                   "",
                             ),
-                            //                Navigator.push(
-                            // context,
-                            // MaterialPageRoute(
-                            //     builder: (context) => PropertiesInvestment(
-                            //           slug: fractionalRealEstateObj!
-                            //                             .data?[index]
-                            //                             .fractionalRealEstate!
-                            //                             .slug ?? "",
-                            //         ))),
 
-                            // contents[index]['View investment Route'],
-                            //  PropertiesInvestment(),
                             closeBuild: Container(
                               width: double.infinity,
                               height: 50.h,

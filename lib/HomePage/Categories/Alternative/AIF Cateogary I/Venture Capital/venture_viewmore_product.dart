@@ -5,6 +5,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/VentureCapitalService.dart';
 import 'package:lottie/lottie.dart';
 
 import 'venture_view_detail.dart';
@@ -17,82 +18,116 @@ class VentureViewMoreProduct extends StatefulWidget {
 }
 
 class _VentureViewMoreProductState extends State<VentureViewMoreProduct> {
+  late Future myfuture;
+  @override
+  void initState() {
+    myfuture = VentureCapital().VentureCapitalAPI();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFFFF),
-      appBar: const CustomSignupAppBar(
-        titleTxt: "",
-        bottomtext: false,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Venture Capital Fund",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 25.sp,
-                      fontWeight: FontWeight.w500),
-                ),
-              ],
-            ),
-            Expanded(
-              child: DefaultTabController(
-                initialIndex: 1,
-                length: 3,
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 20.h,
+        backgroundColor: const Color(0xFFFFFFFF),
+        appBar: const CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [CircularProgressIndicator()],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
+  }
+
+  Widget _buildBody(context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Venture Capital Fund",
+                style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          Expanded(
+            child: DefaultTabController(
+              initialIndex: 1,
+              length: 3,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 20.h,
+                  ),
+                  ButtonsTabBar(
+                    buttonMargin: EdgeInsets.zero,
+                    contentPadding: EdgeInsets.only(left: 27.w, right: 27.w),
+                    radius: 4,
+                    backgroundColor: const Color(0xFF143C6D),
+                    unselectedBorderColor: const Color(0xFFFFFFFF),
+                    borderWidth: 2,
+                    borderColor: const Color(0xFFFFFFFF),
+                    unselectedBackgroundColor: const Color(0xFFFFFFFF),
+                    unselectedLabelStyle:
+                        const TextStyle(color: Color(0xFF0F0C0C)),
+                    labelStyle: const TextStyle(
+                      color: Color(0xFFFFFFFF),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
-                    ButtonsTabBar(
-                      buttonMargin: EdgeInsets.zero,
-                      contentPadding: EdgeInsets.only(left: 27.w, right: 27.w),
-                      radius: 4,
-                      backgroundColor: const Color(0xFF143C6D),
-                      unselectedBorderColor: const Color(0xFFFFFFFF),
-                      borderWidth: 2,
-                      borderColor: const Color(0xFFFFFFFF),
-                      unselectedBackgroundColor: const Color(0xFFFFFFFF),
-                      unselectedLabelStyle:
-                          const TextStyle(color: Color(0xFF0F0C0C)),
-                      labelStyle: const TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                    tabs: const [
+                      Tab(
+                        text: "Open",
                       ),
-                      tabs: const [
-                        Tab(
-                          text: "Open",
-                        ),
-                        Tab(
-                          text: "Fully funded",
-                        ),
-                        Tab(
-                          text: "Resale",
-                        ),
+                      Tab(
+                        text: "Fully funded",
+                      ),
+                      Tab(
+                        text: "Resale",
+                      ),
+                    ],
+                  ),
+                  const Expanded(
+                    child: TabBarView(
+                      children: [
+                        FirstTab(),
+                        SecondTab(),
+                        ThirdTab(),
                       ],
                     ),
-                    const Expanded(
-                      child: TabBarView(
-                        children: [
-                          FirstTab(),
-                          SecondTab(),
-                          ThirdTab(),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -117,13 +152,12 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: GestureDetector(
-              onTap: () {},
+    return ListView.separated(
+      itemBuilder: (BuildContext context, int index) {
+        return Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 20),
               child: Padding(
                 padding: EdgeInsets.all(5.w),
                 child: Container(
@@ -156,9 +190,11 @@ class SecondTab extends StatelessWidget {
                             SizedBox(
                               width: 20.h,
                             ),
-                            const Flexible(
+                            Flexible(
                               child: Text(
-                                'HDFC AMC Select AIF FOF – I',
+                                ventureCapitalObj!.data![index]
+                                        .alternativeInvestmentFund!.fundName ??
+                                    "",
                                 style: TextStyle(
                                     fontSize: 22,
                                     fontFamily: 'Poppins',
@@ -281,7 +317,9 @@ class SecondTab extends StatelessWidget {
                           height: 20.h,
                         ),
                         OpenContainerWrappers(
-                          openBuild: VentureViewDetails(pageIndex: 0),
+                          openBuild: VentureViewDetails(
+                              slug: ventureCapitalObj!.data![index]
+                                  .alternativeInvestmentFund!.slug!),
                           closeBuild: Container(
                             decoration: BoxDecoration(
                                 color: AppColors.blue002A5B,
@@ -305,13 +343,15 @@ class SecondTab extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 30.h,
-          ),
-          sizedBoxHeight(10.h),
-        ],
-      ),
+            SizedBox(
+              height: 30.h,
+            ),
+            sizedBoxHeight(10.h),
+          ],
+        );
+      },
+      separatorBuilder: (BuildContext context, int index) => Divider(),
+      itemCount: ventureCapitalObj!.data!.length,
     );
   }
 }

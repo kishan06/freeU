@@ -5,6 +5,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/HedgeService.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'HedgeFundDetails.dart';
@@ -17,81 +18,116 @@ class HedgeViewmoreProducts extends StatefulWidget {
 }
 
 class _HedgeViewmoreProductsState extends State<HedgeViewmoreProducts> {
+  late Future myfuture;
+  @override
+  void initState() {
+    myfuture = Hedge().HedgeAPI();
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFFFFFFF),
-      appBar: CustomSignupAppBar(
-        titleTxt: "",
-        bottomtext: false,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  "Hedge Funds",
-                  style: TextStyle(
-                      fontFamily: "Poppins",
-                      fontSize: 25.sp,
-                      fontWeight: FontWeight.w500),
-                ),
-              ],
-            ),
-            Expanded(
-              child: DefaultTabController(
-                initialIndex: 1,
-                length: 3,
-                child: Column(
-                  children: <Widget>[
-                    SizedBox(
-                      height: 20,
+        backgroundColor: Color(0xFFFFFFFF),
+        appBar: CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [CircularProgressIndicator()],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
+  }
+
+  Widget _buildBody(context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 16, right: 16),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Text(
+                "Hedge Funds",
+                style: TextStyle(
+                    fontFamily: "Poppins",
+                    fontSize: 25.sp,
+                    fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+          Expanded(
+            child: DefaultTabController(
+              initialIndex: 1,
+              length: 3,
+              child: Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 20,
+                  ),
+                  ButtonsTabBar(
+                    buttonMargin: EdgeInsets.zero,
+                    contentPadding: EdgeInsets.only(left: 27, right: 27),
+                    radius: 4,
+                    backgroundColor: Color(0xFF143C6D),
+                    unselectedBorderColor: Color(0xFFFFFFFF),
+                    borderWidth: 2,
+                    borderColor: Color(0xFFFFFFFF),
+                    unselectedBackgroundColor: Color(0xFFFFFFFF),
+                    unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
+                    labelStyle: TextStyle(
+                      color: Color(0xFFFFFFFF),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
-                    ButtonsTabBar(
-                      buttonMargin: EdgeInsets.zero,
-                      contentPadding: EdgeInsets.only(left: 27, right: 27),
-                      radius: 4,
-                      backgroundColor: Color(0xFF143C6D),
-                      unselectedBorderColor: Color(0xFFFFFFFF),
-                      borderWidth: 2,
-                      borderColor: Color(0xFFFFFFFF),
-                      unselectedBackgroundColor: Color(0xFFFFFFFF),
-                      unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
-                      labelStyle: TextStyle(
-                        color: Color(0xFFFFFFFF),
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                    tabs: [
+                      Tab(
+                        text: "Open",
                       ),
-                      tabs: [
-                        Tab(
-                          text: "Open",
-                        ),
-                        Tab(
-                          text: "Fully funded",
-                        ),
-                        Tab(
-                          text: "Resale",
-                        ),
+                      Tab(
+                        text: "Fully funded",
+                      ),
+                      Tab(
+                        text: "Resale",
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        FirstTab(),
+                        SecondTab(),
+                        ThirdTab(),
                       ],
                     ),
-                    Expanded(
-                      child: TabBarView(
-                        children: [
-                          FirstTab(),
-                          SecondTab(),
-                          ThirdTab(),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -114,35 +150,9 @@ class FirstTab extends StatelessWidget {
 class SecondTab extends StatelessWidget {
   SecondTab({super.key});
 
-  final List hedgeSlider = [
-    {
-      "Company Name": "Bay Capital India Leaders Fund",
-      "View investment Route": HedgeFundDetails(
-        pageIndex: 0,
-      ),
-    },
-    {
-      "Company Name": "ICICI PRUDENTIAL STRATEGIC ALPHA FUND",
-      "View investment Route": HedgeFundDetails(
-        pageIndex: 1,
-      ),
-    },
-    {
-      "Company Name": "ALPHA ALTERNATIVES MSAR LLP",
-      "View investment Route": HedgeFundDetails(
-        pageIndex: 2,
-      ),
-    }
-  ];
-
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      separatorBuilder: (context, index) {
-        return sizedBoxHeight(15.h);
-      },
-      scrollDirection: Axis.vertical,
-      itemCount: hedgeSlider.length,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(top: 20),
@@ -179,7 +189,10 @@ class SecondTab extends StatelessWidget {
                         ),
                         Flexible(
                           child: Text(
-                            hedgeSlider[index]['Company Name'],
+                            hedgeObj!.data![index].alternativeInvestmentFund!
+                                    .fundName ??
+                                "",
+                            //  hedgeSlider[index]['Company Name'],
                             // "HDFC AMC Select AIF FOF - 1",
                             style: TextStyle(
                                 fontSize: 22,
@@ -311,8 +324,9 @@ class SecondTab extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10.r),
                             color: Color(0xFF143C6D)),
                         child: OpenContainerWrappers(
-                          openBuild: hedgeSlider[index]
-                              ['View investment Route'],
+                          openBuild: HedgeFundDetails(
+                              slug: hedgeObj!.data![index]
+                                  .alternativeInvestmentFund!.slug!),
                           closeBuild: SizedBox(
                             width: double.infinity,
                             height: 50.h,
@@ -338,6 +352,11 @@ class SecondTab extends StatelessWidget {
           ),
         );
       },
+      separatorBuilder: (context, index) {
+        return sizedBoxHeight(15.h);
+      },
+      scrollDirection: Axis.vertical,
+      itemCount: hedgeObj!.data!.length,
     );
   }
 
