@@ -249,7 +249,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.registrationNumber ?? "No data"),
+                    debtfunddetailsobj!.data!.registrationNumber ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Category (I/II/III)"),
                 Divider(
@@ -258,7 +258,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.fundCategory ?? "No data"),
+                    debtfunddetailsobj!.data!.fundCategory ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Structure (Open/Closed)"),
                 Divider(
@@ -267,7 +267,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.fundStructure ?? "No data"),
+                    debtfunddetailsobj!.data!.fundStructure ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Strategy"),
                 Divider(
@@ -276,7 +276,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.fundStrategy ?? "No data"),
+                    debtfunddetailsobj!.data!.fundStrategy ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Domicile"),
                 Divider(
@@ -285,7 +285,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.fundDomicile ?? "No data"),
+                    debtfunddetailsobj!.data!.fundDomicile ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Manager Name"),
                 Divider(
@@ -294,7 +294,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.fundManagerName ?? "No data"),
+                    debtfunddetailsobj!.data!.fundManagerName ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Website of the fund"),
                 Divider(
@@ -303,7 +303,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.websiteOfTheFund ?? "No data"),
+                    debtfunddetailsobj!.data!.websiteOfTheFund ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Manager Experience"),
                 Divider(
@@ -312,7 +312,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(debtfunddetailsobj!.data!.fundManagerExperience ??
-                    "No data"),
+                    "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Sponsor"),
                 Divider(
@@ -320,7 +320,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(debtfunddetailsobj!.data!.sponsor ?? "No data"),
+                text272424_18(debtfunddetailsobj!.data!.sponsor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Manager"),
                 Divider(
@@ -328,7 +328,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(debtfunddetailsobj!.data!.manager ?? "No data"),
+                text272424_18(debtfunddetailsobj!.data!.manager ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Trustee"),
                 Divider(
@@ -336,7 +336,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(debtfunddetailsobj!.data!.trustee ?? "No data"),
+                text272424_18(debtfunddetailsobj!.data!.trustee ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Auditor"),
                 Divider(
@@ -344,7 +344,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(debtfunddetailsobj!.data!.auditor ?? "No data"),
+                text272424_18(debtfunddetailsobj!.data!.auditor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Valuer / Tax Advisor"),
                 Divider(
@@ -353,7 +353,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.valuerTaxAdvisor ?? "No data"),
+                    debtfunddetailsobj!.data!.valuerTaxAdvisor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Credit Rating (if any)"),
                 Divider(
@@ -362,7 +362,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.creditRating ?? "No data"),
+                    debtfunddetailsobj!.data!.creditRating ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Open Date"),
                 Divider(
@@ -370,7 +370,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(debtfunddetailsobj!.data!.openDate ?? "No data"),
+                text272424_18(debtfunddetailsobj!.data!.openDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("1st Close Date"),
                 Divider(
@@ -379,7 +379,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.firstCloseDate ?? "No data"),
+                    debtfunddetailsobj!.data!.firstCloseDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Final Close Date"),
                 Divider(
@@ -388,7 +388,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.finalCloseDate ?? "No data"),
+                    debtfunddetailsobj!.data!.finalCloseDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenure from Final Close"),
                 Divider(
@@ -397,7 +397,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.tenureFromFinalDate ?? "No data"),
+                    debtfunddetailsobj!.data!.tenureFromFinalDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Commitment Period"),
                 Divider(
@@ -406,7 +406,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.commitmentPeriod ?? "No data"),
+                    debtfunddetailsobj!.data!.commitmentPeriod ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Native Currency"),
                 Divider(
@@ -415,7 +415,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.nativeCurrency ?? "No data"),
+                    debtfunddetailsobj!.data!.nativeCurrency ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Target Corpus"),
                 Divider(
@@ -424,7 +424,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.targetCorpus ?? "No data"),
+                    debtfunddetailsobj!.data!.targetCorpus ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Investment Manager Contribution"),
                 Divider(
@@ -434,7 +434,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                 ),
                 text272424_18(
                     debtfunddetailsobj!.data!.investmentManagerContribution ??
-                        "No data"),
+                        "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Minimum Capital Commitment"),
                 Divider(
@@ -444,7 +444,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                 ),
                 text272424_18(
                     debtfunddetailsobj!.data!.minimumCapitalCommitment ??
-                        "No data"),
+                        "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Initial Drawdown"),
                 Divider(
@@ -453,7 +453,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.intialDrawdown ?? "No data"),
+                    debtfunddetailsobj!.data!.intialDrawdown ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Accepting Overseas investment?"),
                 Divider(
@@ -463,7 +463,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                 ),
                 text272424_18(
                     debtfunddetailsobj!.data!.acceptingOverseasInvestment ??
-                        "No data"),
+                        "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Target IRR (%)"),
                 Divider(
@@ -471,7 +471,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(debtfunddetailsobj!.data!.targetIrr ?? "No data"),
+                text272424_18(debtfunddetailsobj!.data!.targetIrr ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500(
                     "Management Fees and Carry \n- Set Up Fee \n- Management Fee \n- Performance Fee"),
@@ -482,7 +482,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                 ),
                 text272424_18(
                     debtfunddetailsobj!.data!.managementFeesAndCarry ??
-                        "No data"),
+                        "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Hurdle Rate"),
                 Divider(
@@ -491,7 +491,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.hurdleRate ?? "No data"),
+                    debtfunddetailsobj!.data!.hurdleRate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Other Expenses"),
                 Divider(
@@ -500,7 +500,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    debtfunddetailsobj!.data!.otherExpenses ?? "No data"),
+                    debtfunddetailsobj!.data!.otherExpenses ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500(
                     "Focused Sectors (Industries in which they are investing)"),
@@ -511,7 +511,7 @@ class _ProductsDetailsDebtFundState extends State<ProductsDetailsDebtFund> {
                 ),
                 text272424_18(
                     debtfunddetailsobj!.data!.focusedSectorsIndustries ??
-                        "No data"),
+                        "NA"),
                 sizedBoxHeight(20.h),
               ],
             )

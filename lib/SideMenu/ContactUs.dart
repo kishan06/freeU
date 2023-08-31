@@ -1,11 +1,17 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/Dialogs.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/viewModel/PostContactus.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ContactUs extends StatefulWidget {
   const ContactUs({super.key});
@@ -16,7 +22,69 @@ class ContactUs extends StatefulWidget {
 
 class _ContactUsState extends State<ContactUs> {
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
-  final residentialstatustexteditingcontroller = TextEditingController();
+  // final residentialstatustexteditingcontroller = TextEditingController();
+  TextEditingController fullname = TextEditingController();
+  TextEditingController emailid = TextEditingController();
+  TextEditingController mobilecontroller = TextEditingController();
+  TextEditingController subject = TextEditingController();
+  TextEditingController message = TextEditingController();
+
+  void UploadData() async {
+    final isValid = _form.currentState?.validate();
+    if (isValid!) {
+      // SharedPreferences preferences = await SharedPreferences.getInstance();
+      // int?
+      Map<String, dynamic> updata = {
+        "name": fullname.text,
+        "email": emailid.text,
+        "subject": subject.text,
+        "message": message.text,
+        "mobile_number": mobilecontroller.text
+      };
+      final data =
+          await Storecontactusdetails().postStorecontactusdetails(updata);
+      if (data.status == ResponseStatus.SUCCESS) {
+        Timer(const Duration(seconds: 2),
+            () => Get.offAllNamed('/EntryPoint', arguments: 0));
+        showModalBottomSheet(
+          isScrollControlled: true,
+          context: context,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30),
+              topRight: Radius.circular(30),
+            ),
+          ),
+          builder: (context) {
+            return Container(
+              margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset("assets/images/letter.png"),
+                  SizedBox(
+                    height: 28.h,
+                  ),
+                  Text(
+                    "Thankyou for contacting.\nWill reach back to you",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        color: Color(0xFF444444),
+                        fontSize: 20.sp,
+                        fontFamily: "Poppins"),
+                  ),
+                ],
+              ),
+            );
+          },
+        );
+        return utils.showToast(data.message);
+        
+      } else {
+        return utils.showToast(data.message);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -77,6 +145,12 @@ class _ContactUsState extends State<ContactUs> {
                           return null;
                         },
                         hintText: "  Enter Full Name",
+                        textEditingController: fullname,
+                        inputFormatters: [
+                          LengthLimitingTextInputFormatter(50),
+                          FilteringTextInputFormatter.allow(
+                              RegExp('[a-zA-Z ]')),
+                        ],
                         validatorText: "Please Enter Full Name"),
                     SizedBox(
                       height: 25.h,
@@ -109,6 +183,7 @@ class _ContactUsState extends State<ContactUs> {
                           return null;
                         },
                         hintText: "  Enter Email Address",
+                        textEditingController: emailid,
                         validatorText: "Please Enter Email Address"),
                     SizedBox(height: 25.h),
                     Row(
@@ -139,6 +214,7 @@ class _ContactUsState extends State<ContactUs> {
                           return null;
                         },
                         hintText: "  Enter Mobile Number",
+                        textEditingController: mobilecontroller,
                         validatorText: "Please Enter Mobile Number"),
                     SizedBox(height: 25.h),
                     Row(
@@ -164,6 +240,7 @@ class _ContactUsState extends State<ContactUs> {
                           return null;
                         },
                         hintText: "  Enter Subject",
+                        textEditingController: subject,
                         validatorText: "Please Enter Subject"),
                     SizedBox(
                       height: 25.h,
@@ -205,6 +282,7 @@ class _ContactUsState extends State<ContactUs> {
                             color: const Color(0x80000000), fontSize: 16.sp),
                         hintText: "  Message",
                       ),
+                      controller: message,
                       minLines: 5,
                       maxLines: null,
                     ),
@@ -212,46 +290,47 @@ class _ContactUsState extends State<ContactUs> {
                     CustomNextButton(
                       text: "Send Now",
                       ontap: () {
-                        final isValid = _form.currentState?.validate();
-                        if (isValid!) {
-                          Timer(
-                              const Duration(seconds: 2),
-                              () =>
-                                  Get.offAllNamed('/EntryPoint', arguments: 0));
-                          showModalBottomSheet(
-                            isScrollControlled: true,
-                            context: context,
-                            shape: const RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(30),
-                                topRight: Radius.circular(30),
-                              ),
-                            ),
-                            builder: (context) {
-                              return Container(
-                                margin: const EdgeInsets.symmetric(
-                                    horizontal: 16, vertical: 24),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Image.asset("assets/images/letter.png"),
-                                    SizedBox(
-                                      height: 28.h,
-                                    ),
-                                    Text(
-                                      "Thankyou for contacting.\nWill reach back to you",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Color(0xFF444444),
-                                          fontSize: 20.sp,
-                                          fontFamily: "Poppins"),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            },
-                          );
-                        }
+                        // final isValid = _form.currentState?.validate();
+                        // if (isValid!) {
+                        UploadData();
+                        // Timer(
+                        //     const Duration(seconds: 2),
+                        //     () =>
+                        //         Get.offAllNamed('/EntryPoint', arguments: 0));
+                        // showModalBottomSheet(
+                        //   isScrollControlled: true,
+                        //   context: context,
+                        //   shape: const RoundedRectangleBorder(
+                        //     borderRadius: BorderRadius.only(
+                        //       topLeft: Radius.circular(30),
+                        //       topRight: Radius.circular(30),
+                        //     ),
+                        //   ),
+                        //   builder: (context) {
+                        //     return Container(
+                        //       margin: const EdgeInsets.symmetric(
+                        //           horizontal: 16, vertical: 24),
+                        //       child: Column(
+                        //         mainAxisSize: MainAxisSize.min,
+                        //         children: [
+                        //           Image.asset("assets/images/letter.png"),
+                        //           SizedBox(
+                        //             height: 28.h,
+                        //           ),
+                        //           Text(
+                        //             "Thankyou for contacting.\nWill reach back to you",
+                        //             textAlign: TextAlign.center,
+                        //             style: TextStyle(
+                        //                 color: Color(0xFF444444),
+                        //                 fontSize: 20.sp,
+                        //                 fontFamily: "Poppins"),
+                        //           ),
+                        //         ],
+                        //       ),
+                        //     );
+                        //   },
+                        // );
+                        // }
                       },
                     ),
                     SizedBox(
@@ -264,7 +343,7 @@ class _ContactUsState extends State<ContactUs> {
                             fontSize: 12.sp, color: const Color(0xFF6B6B6B)),
                       ),
                     ),
-                    sizedBoxHeight(30.h)
+                    sizedBoxHeight(90.h)
                   ],
                 ),
               )),

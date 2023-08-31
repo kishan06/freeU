@@ -270,7 +270,7 @@ class SecondTab extends StatelessWidget {
                             child: Text(
                               debtfundObj!.data?[index]
                                       .alternativeInvestmentFund!.targetIrr ??
-                                  "",
+                                  "NA",
 
                               // "12.7%",
                               style: TextStyle(
@@ -324,7 +324,7 @@ class SecondTab extends StatelessWidget {
                                       .data?[index]
                                       .alternativeInvestmentFund!
                                       .commitmentPeriod ??
-                                  "",
+                                  "NA",
 
                               // "5 Years",
                               style: TextStyle(
@@ -375,12 +375,13 @@ class SecondTab extends StatelessWidget {
                       sizedBoxHeight(15.h),
                       // /
                       OpenContainerWrappers(
-                          openBuild:
-                               ProductsDetailsDebtFund(
-                                slug: debtfundObj!.data?[index].alternativeInvestmentFund!.slug ?? "",
-                                // pageIndex: pageIndex
-                                ),
-                              // _productsData[index]['View investment Route'],
+                          openBuild: ProductsDetailsDebtFund(
+                            slug: debtfundObj!.data?[index]
+                                    .alternativeInvestmentFund!.slug ??
+                                "",
+                            // pageIndex: pageIndex
+                          ),
+                          // _productsData[index]['View investment Route'],
                           closeBuild: Container(
                             decoration: BoxDecoration(
                                 color: AppColors.blue002A5B,

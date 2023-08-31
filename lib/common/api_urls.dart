@@ -29,6 +29,15 @@ class ApiUrls {
   static const Debtfund = "${baseUrl}debt-fund-data";
   static const DebtfundDetails = "${baseUrl}debt-fund-single-data";
 
+  static const PrivateRealEstate = "${baseUrl}private-real-estate-fund-data";
+  static const PrivateRealEstateDetails = "${baseUrl}private-real-estate-fund-single-data";
+
+  static const Categoriesmainlist = "${baseUrl}category/list";
+
+  static const Postcontactus = "${baseUrl}contact-us-form";
+
+  static const PrivateInvestmentPublic = "${baseUrl}private-investment-in-public-equity-fund-data";
+  static const PrivateInvestPublicDetails = "${baseUrl}private-investment-in-public-equity-fund-single-data";
 
 
 }
