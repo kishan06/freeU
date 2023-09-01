@@ -29,7 +29,7 @@ class _Cat1VerticalSliderState extends State<Cat1VerticalSlider> {
       "SIH": "More than 6 Years",
       "color": AppColors.pink873762,
       "ontap": '/infrastructureviewmore',
-      "ViewMoreProduct": '/InfractureViewMoreProduct',
+      "ViewMoreProduct": '/comingsoon',
     },
     {
       "title": "03. Angel Fund",

@@ -40,6 +40,7 @@ import 'package:freeu/SideMenu/security.dart';
 import 'package:freeu/SideMenu/UpdateRiskProfile.dart';
 import 'package:freeu/SideMenu/user_logged.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
 import 'package:freeu/login/OTPVerification.dart';
 import 'package:freeu/login/PhoneVerification.dart';
 import 'package:freeu/login/forgotPassword.dart';
@@ -335,6 +336,10 @@ class _MyAppState extends State<MyApp> {
                 GetPage(
                     name: '/InfractureViewMoreProduct',
                     page: () => const InfractureViewMoreProduct()),
+
+                GetPage(
+                    name: '/comingsoon',
+                    page: () => const ComingSoon()),    
               ],
             ),
             designSize: const Size(390, 844),

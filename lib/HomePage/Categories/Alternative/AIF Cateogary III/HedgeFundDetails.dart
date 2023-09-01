@@ -273,8 +273,8 @@ Carry - 50% for Class B3 and B4''',
                   width: 20.h,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 132.w,
-                  height: 75.h,
+                  width: MediaQuery.of(context).size.width - 139.w,
+                  height: 70.h,
                   child: ListView.builder(
                     itemCount: 1,
                     itemBuilder: (context, index) {

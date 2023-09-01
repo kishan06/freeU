@@ -51,7 +51,7 @@ class _VeiwMoreProductVentureState extends State<VeiwMoreProductVenture> {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [CircularProgressIndicator()],
+              children: [Center(child: CircularProgressIndicator())],
             );
           }
           if (snapshot.connectionState == ConnectionState.done) {
@@ -233,6 +233,7 @@ class SecondTab extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image.asset(
                             "assets/images/investmentproperties (1).png",
@@ -255,13 +256,16 @@ class SecondTab extends StatelessWidget {
                                   fontFamily: 'Poppins',
                                 ),
                               ),
-                              Text(
-                                VentureDebtObj!.data![index].ventureDebt!
-                                        .expectedReturn ??
-                                    "",
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w500,
+                              SizedBox(
+                                width: 250.w,
+                                child: Text(
+                                  VentureDebtObj!.data![index].ventureDebt!
+                                          .expectedReturn ??
+                                      "",
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ],

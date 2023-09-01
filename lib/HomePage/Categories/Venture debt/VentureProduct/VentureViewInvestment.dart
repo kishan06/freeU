@@ -107,7 +107,7 @@ class _ViewInvestmentState extends State<ViewInvestment> {
               return Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [CircularProgressIndicator()],
+                children: [Center(child: CircularProgressIndicator())],
               );
             }
             if (snapshot.connectionState == ConnectionState.done) {
@@ -150,10 +150,13 @@ class _ViewInvestmentState extends State<ViewInvestment> {
                 SizedBox(
                   width: MediaQuery.of(context).size.width - 132.w,
                   height: 75.h,
-                  child: Text(
-                    ventureDebtDetailsObj!.data!.companyName ?? "",
-                    style:
-                        TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w500),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: Text(
+                      ventureDebtDetailsObj!.data!.companyName ?? "",
+                      style: TextStyle(
+                          fontSize: 22.sp, fontWeight: FontWeight.w500),
+                    ),
                   ),
                 )
               ],

@@ -153,7 +153,7 @@ class _PeerViewInvestmentState extends State<PeerViewInvestment> {
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width - 132.w,
-                  height: 75.h,
+                  height: 50.h,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
