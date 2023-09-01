@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Global.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
@@ -26,6 +27,12 @@ class _SideBarState extends State<SideBar> {
       Get.put(ProfileImageController());
 
   final controllerEntryPoint = Get.put(EntryPointController());
+
+  Future<void> _logoutstate() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('token');
+    await prefs.remove('name');
+  }
 
   List sideBarData = [
     {"imagePath": "assets/logos/side1.png", "text": "KYC"},
@@ -98,7 +105,7 @@ class _SideBarState extends State<SideBar> {
                                   children: [
                                     text16White(
                                       nameValue == null || nameValue!.isEmpty
-                                          ? 'Kartikey Adani'
+                                          ? myusername!
                                           : '$nameValue $lastNameValue',
                                     ),
                                     text14White("Investor")
@@ -119,6 +126,7 @@ class _SideBarState extends State<SideBar> {
                         : InkWell(
                             onTap: () {
                               Get.toNamed("/login");
+
                             },
                             child: Row(
                               children: [
@@ -303,12 +311,19 @@ Future<dynamic> logoutDailog(BuildContext context) {
                   child: CustomNextButton(
                     text: "Log out",
                     ontap: () async {
-                      final SharedPreferences prefs =
-                          await SharedPreferences.getInstance();
+                          SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('token');
+    await prefs.remove('name');
+    
+          Get.offAll(() => Login());
 
-                      await prefs.setBool('LogedIn', false);
+                      // final SharedPreferences prefs =
+                      //     await SharedPreferences.getInstance();
 
-                      Get.offAll(Login());
+                      // await prefs.setBool('LogedIn', false);
+
+
+                      // Get.offAll(Login());
                     },
                   )),
             ),

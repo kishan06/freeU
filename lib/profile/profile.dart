@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:freeu/Global.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
@@ -324,7 +325,7 @@ class _profiletabState extends State<profiletab> {
                           Flexible(
                             child: Text(
                               nameValue == null || nameValue!.isEmpty
-                                  ? 'Kartikey Adani'
+                                  ? myusername!
                                   : '$nameValue $lastNameValue',
                               textAlign: TextAlign.left,
                               style: TextStyle(
