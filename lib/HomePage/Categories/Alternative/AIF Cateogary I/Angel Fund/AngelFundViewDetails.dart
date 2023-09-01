@@ -119,399 +119,394 @@ class _AngelFundViewDetailsState extends State<AngelFundViewDetails> {
             },
             text: 'Invest now'),
       ),
-      body: 
-FutureBuilder(
-          future: myfuture,
-          builder: (ctx, snapshot) {
-            if (snapshot.data == null) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Center(child: CircularProgressIndicator())],
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
               );
             }
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(
-                    '${snapshot.error} occured',
-                    style: TextStyle(fontSize: 18.spMin),
-                  ),
-                );
-              }
-            }
-            return _buildBody(
-              context,
-            );
-          },
-        ),
-
-     
+          }
+          return _buildBody(
+            context,
+          );
+        },
+      ),
     );
   }
 
-Widget _buildBody(context){
-  return 
-   Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: SingleChildScrollView(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // sizedBoxHeight(10.h),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  sizedBoxWidth(5.w),
-                  SvgPicture.asset(
-                    "assets/images/property.svg",
-                    width: 80.w,
-                    height: 54.h,
+  Widget _buildBody(context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // sizedBoxHeight(10.h),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                sizedBoxWidth(5.w),
+                SvgPicture.asset(
+                  "assets/images/property.svg",
+                  width: 80.w,
+                  height: 54.h,
+                ),
+                SizedBox(
+                  width: 20.h,
+                ),
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 138.w,
+                  height: 75.h,
+                  child: ListView.builder(
+                    itemCount: 1,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            angelFundDetailsObj!.data!.fundName ?? "",
+                            style: TextStyle(
+                                fontSize: 22.sp, fontWeight: FontWeight.w500),
+                          ),
+                        ],
+                      );
+                    },
                   ),
-                  SizedBox(
-                    width: 20.h,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width - 132.w,
-                    height: 75.h,
-                    child: ListView.builder(
-                      itemCount: 1,
-                      itemBuilder: (context, index) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              angelFundDetailsObj!.data!.fundName ?? "",
-                              style: TextStyle(
-                                  fontSize: 22.sp, fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        );
-                      },
-                    ),
-                  )
-                ],
-              ),
-              sizedBoxHeight(24.h),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  textA4856_20500("Registration No."),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.registrationNumber ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Fund Category (I/II/III)"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.fundCategory ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Fund Structure (Open/Closed)"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.fundStructure ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Fund Strategy"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.fundStrategy ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Fund Domicile"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.fundDomicile ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Fund Manager Name"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.fundManagerName ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Website of the fund"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.websiteOfTheFund ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Fund Manager Experience"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.fundManagerExperience ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Sponsor"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.sponsor ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Manager"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.manager ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Trustee"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.trustee ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Auditor"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.auditor ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Valuer / Tax Advisor"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.valuerTaxAdvisor ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Credit Rating (if any)"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.creditRating ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Open Date"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.openDate ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("1st Close Date"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.firstCloseDate ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Final Close Date"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.finalCloseDate ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Tenure from Final Close"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.tenureFromFinalDate ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Commitment Period"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.commitmentPeriod ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Native Currency"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.nativeCurrency ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Target Corpus"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.targetCorpus ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Investment Manager Contribution"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.investmentManagerContribution ??
-                        "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Minimum Capital Commitment"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.minimumCapitalCommitment ??
-                        "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Initial Drawdown"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.intialDrawdown ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Accepting Overseas investment?"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.acceptingOverseasInvestment ??
-                        "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Target IRR (%)"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    //this should contain target_irr
-                    angelFundDetailsObj!.data!.targetCorpus ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500(
-                      "Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.managementFeesAndCarry ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Hurdle Rate"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.hurdleRate ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500("Other Expenses"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.otherExpenses ?? "N/A",
-                  ),
-                  sizedBoxHeight(20.h),
-                  textA4856_20500(
-                      "Focused Sectors (Industries in which they are investing)"),
-                  Divider(
-                    height: 25.h,
-                    thickness: 1.h,
-                    color: Colors.grey.shade400,
-                  ),
-                  text272424_18(
-                    angelFundDetailsObj!.data!.focusedSectorsIndustries ??
-                        "N/A",
-                  ),
-                  sizedBoxHeight(28.h)
-                ],
-              ),
-            ],
-          ),
+                )
+              ],
+            ),
+            sizedBoxHeight(24.h),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                textA4856_20500("Registration No."),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.registrationNumber ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Category (I/II/III)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.fundCategory ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Structure (Open/Closed)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.fundStructure ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Strategy"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.fundStrategy ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Domicile"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.fundDomicile ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Manager Name"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.fundManagerName ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Website of the fund"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.websiteOfTheFund ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Manager Experience"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.fundManagerExperience ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Sponsor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.sponsor ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Manager"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.manager ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Trustee"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.trustee ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Auditor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.auditor ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Valuer / Tax Advisor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.valuerTaxAdvisor ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Credit Rating (if any)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.creditRating ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Open Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.openDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("1st Close Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.firstCloseDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Final Close Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.finalCloseDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Tenure from Final Close"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.tenureFromFinalDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Commitment Period"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.commitmentPeriod ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Native Currency"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.nativeCurrency ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Target Corpus"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.targetCorpus ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Investment Manager Contribution"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.investmentManagerContribution ??
+                      "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Minimum Capital Commitment"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.minimumCapitalCommitment ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Initial Drawdown"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.intialDrawdown ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Accepting Overseas investment?"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.acceptingOverseasInvestment ??
+                      "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Target IRR (%)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  //this should contain target_irr
+                  angelFundDetailsObj!.data!.targetCorpus ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500(
+                    "Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.managementFeesAndCarry ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Hurdle Rate"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.hurdleRate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Other Expenses"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.otherExpenses ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500(
+                    "Focused Sectors (Industries in which they are investing)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  angelFundDetailsObj!.data!.focusedSectorsIndustries ?? "N/A",
+                ),
+                sizedBoxHeight(28.h)
+              ],
+            ),
+          ],
         ),
-      );
-}
+      ),
+    );
+  }
+
   void investNow() {
     showModalBottomSheet(
       isScrollControlled: true,

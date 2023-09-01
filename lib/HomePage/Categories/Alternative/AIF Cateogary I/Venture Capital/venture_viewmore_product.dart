@@ -231,7 +231,10 @@ class SecondTab extends StatelessWidget {
                               width: 10.w,
                             ),
                             Text(
-                              "",
+                              ventureCapitalObj!.data![index]
+                                      .alternativeInvestmentFund!.targetIrr ??
+                                  "NA",
+                              // "",
                               style: TextStyle(
                                   fontSize: 20.sp,
                                   fontFamily: 'Poppins',
@@ -254,9 +257,10 @@ class SecondTab extends StatelessWidget {
                             SizedBox(
                               width: 15.w,
                             ),
-                            Flexible(
+                            SizedBox(
+                              width: 115.w,
                               child: Text(
-                                "Commitment period :",
+                                "Commitment period",
                                 style: TextStyle(
                                   fontSize: 17.sp,
                                   fontFamily: 'Poppins',
@@ -264,11 +268,24 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Text(
+                              " :",
+                              style: TextStyle(
+                                fontSize: 17.sp,
+                                fontFamily: 'Poppins',
+                                color: const Color(0XFF000000),
+                              ),
+                            ),
                             SizedBox(
                               width: 8.w,
                             ),
                             Text(
-                              "5 Years",
+                              // "5 Years",
+                              ventureCapitalObj!
+                                      .data![index]
+                                      .alternativeInvestmentFund!
+                                      .commitmentPeriod ??
+                                  "NA",
                               style: TextStyle(
                                   fontSize: 18.sp,
                                   fontFamily: 'Poppins',
@@ -281,6 +298,7 @@ class SecondTab extends StatelessWidget {
                           height: 31.h,
                         ),
                         Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Image.asset(
                               "assets/images/transfer.png",
@@ -290,9 +308,10 @@ class SecondTab extends StatelessWidget {
                             SizedBox(
                               width: 15.w,
                             ),
-                            Flexible(
+                            SizedBox(
+                              width: 115.w,
                               child: Text(
-                                "Capital Commitment :",
+                                "Capital Commitment ",
                                 style: TextStyle(
                                   fontSize: 17.sp,
                                   fontFamily: 'Poppins',
@@ -300,10 +319,23 @@ class SecondTab extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            Text(
+                              " :",
+                              style: TextStyle(
+                                fontSize: 17.sp,
+                                fontFamily: 'Poppins',
+                                color: const Color(0XFF000000),
+                              ),
+                            ),
                             SizedBox(
                               width: 8.w,
                             ),
                             Text(
+                              // ventureCapitalObj!
+                              //         .data![index]
+                              //         .alternativeInvestmentFund!
+                              //         .ca ??
+                              //     "NA",
                               "1 Crore",
                               style: TextStyle(
                                   fontSize: 18.sp,

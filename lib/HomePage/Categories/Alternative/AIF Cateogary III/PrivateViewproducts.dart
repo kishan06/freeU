@@ -249,7 +249,7 @@ class SecondTab extends StatelessWidget {
                         Text(
                           privateinvestpublicObj!.data?[index]
                                   .alternativeInvestmentFund!.targetIrr ??
-                              "",
+                              "NA",
                           // "12.7%",
                           style: TextStyle(
                               fontSize: 20.sp,
