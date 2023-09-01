@@ -305,7 +305,7 @@ class _SecondTabState extends State<SecondTab> {
                         height: 30.h,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 16),
+                        padding: EdgeInsets.only(left: 16.w),
                         child: Row(
                           children: [
                             Image.asset(
@@ -318,29 +318,26 @@ class _SecondTabState extends State<SecondTab> {
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 145),
-                                  child: Text(
-                                    "Targeted IRR:",
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 18.sp,
-                                      color: Color(0XFF000000),
-                                      fontFamily: 'Poppins',
-                                    ),
+                                Text(
+                                  "Targeted IRR:",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: Color(0XFF000000),
+                                    fontFamily: 'Poppins',
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(right: 212),
-                                  child: Text(
-                                    "12.7%",
-                                    style: TextStyle(
-                                      fontSize: 20.sp,
-                                      color: Color(0XFF000000),
-                                      fontFamily: 'Poppins',
-                                      fontWeight: FontWeight.w500,
-                                    ),
+                                Text(
+                                  "12.7%",
+                                  //  highyieldObj!.data?[index].highYieldFinances!
+                                  //           .minimumInvestment ?? "",
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    color: Color(0XFF000000),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
                                   ),
                                 ),
                               ],
@@ -354,6 +351,7 @@ class _SecondTabState extends State<SecondTab> {
                       Padding(
                         padding: const EdgeInsets.only(left: 16),
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Image.asset(
                               "assets/images/propertiestransfer.png",
@@ -367,15 +365,18 @@ class _SecondTabState extends State<SecondTab> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Text(
-                                  // text3,
-                                  "Minimum investment amount",
-                                  textAlign: TextAlign.left,
-                                  style: TextStyle(
-                                    fontSize: 18.sp,
-                                    color: Color(0XFF000000),
-                                    fontFamily: 'Poppins',
-                                    fontWeight: FontWeight.w300,
+                                SizedBox(
+                                  width: 200.w,
+                                  child: Text(
+                                    // text3,
+                                    "Minimum investment amount :",
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(
+                                      fontSize: 18.sp,
+                                      color: Color(0XFF000000),
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.w300,
+                                    ),
                                   ),
                                 ),
                                 Text(
@@ -417,9 +418,11 @@ class _SecondTabState extends State<SecondTab> {
                           ),
                           child: OpenContainerWrappers(
                             openBuild: HighYieldViewInvestment(
-                              slug: highyieldObj!.data?[index].highYieldFinances!.slug ?? "" ,
-                                // highYieldProds: highYieldProductData[index]
-                                ),
+                              slug: highyieldObj!
+                                      .data?[index].highYieldFinances!.slug ??
+                                  "",
+                              // highYieldProds: highYieldProductData[index]
+                            ),
                             closeBuild: Container(
                               width: double.infinity,
                               height: 50.h,
@@ -644,7 +647,6 @@ class _SecondTabState extends State<SecondTab> {
   //     ),
   //   );
   // }
-
 }
 
 class ThirdTab extends StatelessWidget {

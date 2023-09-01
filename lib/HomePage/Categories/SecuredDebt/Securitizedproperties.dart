@@ -194,7 +194,7 @@ class SecondTab extends StatelessWidget {
                       height: 15.h,
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 16.w),
+                      padding: EdgeInsets.only(left: 8.w),
                       child: Text(
                         securedDebtObj!.data?[index].securitizedDebtInstruments!
                                 .productName ??
@@ -211,7 +211,7 @@ class SecondTab extends StatelessWidget {
                       height: 30.h,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 16),
+                      padding: EdgeInsets.only(left: 6.w),
                       child: Row(
                         children: [
                           Image.asset(
@@ -262,7 +262,7 @@ class SecondTab extends StatelessWidget {
                       height: 30.h,
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(left: 16),
+                      padding: EdgeInsets.only(left: 6.w),
                       child: Row(
                         children: [
                           Image.asset(

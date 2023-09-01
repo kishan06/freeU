@@ -230,7 +230,10 @@ class SecondTab extends StatelessWidget {
                           width: 10.w,
                         ),
                         Text(
-                          "12.7%",
+                          hedgeObj!.data![index].alternativeInvestmentFund!
+                                  .targetIrr ??
+                              "NA",
+                          // "12.7%",
                           style: TextStyle(
                               fontSize: 20.sp,
                               fontFamily: 'Poppins',
@@ -253,9 +256,10 @@ class SecondTab extends StatelessWidget {
                         SizedBox(
                           width: 15.w,
                         ),
-                        Flexible(
+                        SizedBox(
+                          width: 115.w,
                           child: Text(
-                            "Commitment period :",
+                            "Commitment period",
                             style: TextStyle(
                               fontSize: 17.sp,
                               fontFamily: 'Poppins',
@@ -263,11 +267,22 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                         ),
+                        Text(
+                          " :",
+                          style: TextStyle(
+                            fontSize: 17.sp,
+                            fontFamily: 'Poppins',
+                            color: Color(0XFF000000),
+                          ),
+                        ),
                         SizedBox(
                           width: 8.w,
                         ),
                         Text(
-                          "5 Years",
+                          // "5 Years",
+                          hedgeObj!.data![index].alternativeInvestmentFund!
+                                  .commitmentPeriod ??
+                              "NA",
                           style: TextStyle(
                               fontSize: 18.sp,
                               fontFamily: 'Poppins',

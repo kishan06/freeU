@@ -16,14 +16,13 @@ class Categorieslist {
 
   Future<ResponseData<dynamic>> CategorieslistAPI() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    final response = await NetworkApi().getApi(ApiUrls.PrivateEquity);
+    final response = await NetworkApi().getApi(ApiUrls.Categoriesmainlist);
 
     if (response.status == ResponseStatus.SUCCESS) {
       Map<String, dynamic> responseData =
           Map<String, dynamic>.from(response.data);
       if (responseData.isNotEmpty) {
-        categorieslistObj =
-            CategorieslistModel.fromJson(responseData);
+        categorieslistObj = CategorieslistModel.fromJson(responseData);
       } else {
         return ResponseData<dynamic>(
             responseData['message'], ResponseStatus.FAILED);

@@ -254,8 +254,9 @@ class _SecondTabState extends State<SecondTab> {
                         height: 30.h,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 16),
+                        padding: const EdgeInsets.only(left: 6),
                         child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Image.asset(
                               // image1,
@@ -303,7 +304,7 @@ class _SecondTabState extends State<SecondTab> {
                         height: 30.h,
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 16),
+                        padding: const EdgeInsets.only(left: 6),
                         child: Row(
                           children: [
                             Image.asset(
@@ -350,7 +351,7 @@ class _SecondTabState extends State<SecondTab> {
                         height: 30.h,
                       ),
                       Padding(
-                        padding: EdgeInsets.only(left: 16.w),
+                        padding: EdgeInsets.only(left: 6.w),
                         child: Row(
                           children: [
                             Image.asset(
@@ -419,7 +420,6 @@ class _SecondTabState extends State<SecondTab> {
                                       .fractionalRealEstate!.slug ??
                                   "",
                             ),
-
                             closeBuild: Container(
                               width: double.infinity,
                               height: 50.h,

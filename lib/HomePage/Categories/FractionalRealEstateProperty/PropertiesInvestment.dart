@@ -191,7 +191,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   width: 20.h,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 132.w,
+                  width: MediaQuery.of(context).size.width - 138.w,
                   height: 85.h,
                   child: Text(
                     fractionalDetailsObj!.data!.propertyNameAndLocation ?? "",
@@ -243,10 +243,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-
                   fractionalDetailsObj!.data!.assetType ?? "NA",
-
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenant"),
@@ -256,10 +253,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-
                   fractionalDetailsObj!.data!.tenant ?? "NA",
-              
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Deal Size (in Crore)"),
@@ -279,10 +273,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-
                   fractionalDetailsObj!.data!.minimumInvestment ?? "NA",
-
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Coupon Rate on CCD"),
@@ -292,10 +283,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-
                   fractionalDetailsObj!.data!.couponRateOnCcd ?? "NA",
-
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Rental Escalation"),
@@ -305,9 +293,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-
                   fractionalDetailsObj!.data!.rentalEscalation ?? "NA",
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Capital Appreciation"),
@@ -317,10 +303,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-
                   fractionalDetailsObj!.data!.capitalAppreciation ?? "NA",
-
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Expected IRR"),
@@ -370,10 +353,7 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-
                   fractionalDetailsObj!.data!.tenantLockIn ?? "NA",
-                  
-
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenant Security Deposit"),
@@ -403,9 +383,8 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-
-                  fractionalDetailsObj!.data!.performanceFees ?? "NA",),
-
+                  fractionalDetailsObj!.data!.performanceFees ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Hurdle rate"),
                 Divider(
@@ -414,9 +393,8 @@ class _PropertiesInvestmentState extends State<PropertiesInvestment> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-
-                  fractionalDetailsObj!.data!.hurdleRate ?? "NA",),
-
+                  fractionalDetailsObj!.data!.hurdleRate ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
               ],
             ),
