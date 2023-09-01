@@ -90,10 +90,11 @@ class NetworkApi {
 
     http.StreamedResponse response = await request.send();
     if (response.statusCode == 200) {
-      return ResponseData<dynamic>(
-        "success",
-        ResponseStatus.SUCCESS,
-      );
+      var resp = await response.stream.bytesToString();
+      var jsonResp = jsonDecode(resp);
+      print(jsonResp);
+      return ResponseData<dynamic>("success", ResponseStatus.SUCCESS,
+          data: jsonResp);
       // return await response.stream.bytesToString();
     } else if (response.statusCode == 400) {
       var resp = await response.stream.bytesToString();

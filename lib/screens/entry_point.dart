@@ -258,6 +258,7 @@ class _EntryPointState extends State<EntryPoint>
               InkWell(
                 onTap: () {
                   SystemNavigator.pop();
+                  Navigator.pop(context);
                 },
                 child: Text(
                   "Yes",

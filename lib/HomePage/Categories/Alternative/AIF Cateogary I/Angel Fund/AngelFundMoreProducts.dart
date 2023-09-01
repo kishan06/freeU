@@ -39,7 +39,7 @@ class _AngelFundMoreProductState extends State<AngelFundMoreProduct> {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: [CircularProgressIndicator()],
+              children: [Center(child: CircularProgressIndicator())],
             );
           }
           if (snapshot.connectionState == ConnectionState.done) {

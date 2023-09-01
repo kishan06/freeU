@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Global.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20I/VentureViewMore.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20III/PrivateViewproducts.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart';
@@ -102,6 +103,8 @@ class _MyAppState extends State<MyApp> {
   checkOnboard() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     onBoardDone = prefs.getBool('OnBoardDone') ?? false;
+    token = prefs.getString('token');
+    myusername = prefs.getString('name');
     print(onBoardDone);
     setState(() {});
   }

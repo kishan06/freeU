@@ -121,7 +121,39 @@ class _VentureViewDetailsState extends State<VentureViewDetails> {
             },
             text: 'Invest now'),
       ),
-      body: Padding(
+      body: 
+      FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ),
+
+    );
+  }
+
+  Widget _buildBody(context){
+    return 
+      Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: SingleChildScrollView(
           child: Column(
@@ -499,8 +531,9 @@ class _VentureViewDetailsState extends State<VentureViewDetails> {
             ],
           ),
         ),
-      ),
-    );
+      );
+
+
   }
 
   void investNow() {
