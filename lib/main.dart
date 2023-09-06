@@ -13,7 +13,36 @@ import 'package:freeu/HomePage/Categories/Alternative/PrivateEquitydeals.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/PrivateEquityfund.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Realestatepage.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/HighyieldCorporatebonds/Highyieldsproducts/highyieldproductstab.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/HighyieldCorporatebonds/highyieldlearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/HighyieldCorporatebonds/highyieldmain.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/InvegradeCorpbond/Invegradeproducts/invegradeproductstab.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/InvegradeCorpbond/invegrademain.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/InvegradeCorpbond/invelearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/SovereignBonds/Sovereignbondsmain.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/SovereignBonds/Sovereignproducts/sovereigndetails.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/SovereignBonds/Sovereignproducts/sovereignproductTab.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/BondsAssets/SovereignBonds/sovereignlearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/bondsAssets/bondassetsmain.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Bonds/bondslearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/ETFs/etfslearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/ETFs/etfsproduct/etfsproduct.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Equities/equitieslearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Equities/equitiesproduct/equitiesproduct.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/HedgeFunds/HedgeFundsproducts/hedgefundsproducts.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/HedgeFunds/hedgelearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/MutualFunds/Mutualfundsproducts.dart/mutualproducts.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/MutualFunds/mutualfundslearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/PrivateEquityFunds/privateequityLearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/PrivateEquityFunds/privateproductstab/privateequityproducts.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/REITs/Reitsproduct/reitsproduct.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/REITs/reitsLearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureCapitalFund/venturelearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureCapitalFund/ventureproductstab/ventureproductstab.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureDebtFunds/venturedebtproducts/venturedebtproducts.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureDebtFunds/venturelearnmore.dart';
 import 'package:freeu/HomePage/Categories/High_yield/high_yield_more_products.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Globalcategoriesmain.dart';
 import 'package:freeu/HomePage/Categories/InvoiceDiscounting/Invoiceproperties.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease%20view%20more%20product/LeaseViewMoreProduct.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_properties.dart';
@@ -339,7 +368,96 @@ class _MyAppState extends State<MyApp> {
 
                 GetPage(
                     name: '/comingsoon',
-                    page: () => const ComingSoon()),    
+                    page: () => const ComingSoon()),  
+                GetPage(
+                    name: '/globalcatmain',
+                    page: () => const Globalcategoriesmain()),   
+                    GetPage(
+                    name: '/bondslearnmore',
+                    page: () => const BondsLearnmore()),      
+                    GetPage(
+                    name: '/bondsassetsmain',
+                    page: () => const BondsAssetsmain()),  
+                    GetPage(
+                    name: '/sovereignlearnmore',
+                    page: () => const SovereignLearnmore()),
+                     GetPage(
+                    name: '/sovereignproductstab',
+                    page: () => const Sovereignproductstab()),
+                    GetPage(
+                    name: '/invegrademain',
+                    page: () => const InvestmentGradeMain()),
+                    GetPage(
+                    name: '/sovereignbondsmain',
+                    page: () => const SovereignBondsmain()),
+                    GetPage(
+                    name: '/invegradelearnmore',
+                    page: () => const InvegradeLearnmore()),
+                     GetPage(
+                    name: '/invegradeproductstab',
+                    page: () => const Investmentgradeproductstab()),
+                    GetPage(
+                    name: '/highyieldbondmain',
+                    page: () => const Highyieldbondsmain()),
+                    GetPage(
+                    name: '/highyieldsbondslearnmore',
+                    page: () => const HighyieldBondsLearnmore()),
+                    GetPage(
+                    name: '/highyieldsproductstab',
+                    page: () => const Highyieldproductstab()),
+                    GetPage(
+                    name: '/mutualfundslearnmore',
+                    page: () => const MutualFundsLearnmore()),
+                    GetPage(
+                    name: '/mutualfunfsproduct',
+                    page: () => const MutualFundsproducts()),
+                    GetPage(
+                    name: '/equitieslearnmore',
+                    page: () => const EquitiesLearnmore()),
+                    GetPage(
+                    name: '/equitiesproduct',
+                    page: () => const Equitiesproducts()),
+                    GetPage(
+                    name: '/venturecapitallearnmore',
+                    page: () => const VenturecapitalLearnmore()),
+                    GetPage(
+                    name: '/venturecapitalproducts',
+                    page: () => const Venturecapitalproducts()),
+                    GetPage(
+                    name: '/privateequitylearnmore',
+                    page: () => const PrivateEquityLearnmore()),
+                    GetPage(
+                    name: '/privateequityproducts',
+                    page: () => const PrivateEquityproducts()),
+                     GetPage(
+                    name: '/venturedebtlearnmore',
+                    page: () => const VentureDebtLearnmore()),
+                     GetPage(
+                    name: '/venturedebtproducts',
+                    page: () => const VentureDebtproducts()),
+                     GetPage(
+                    name: '/hedgefundslearnmore',
+                    page: () => const HedgeFundsLearnmore()),
+                     GetPage(
+                    name: '/hedgefundsproducts',
+                    page: () => const HedgeFundsproducts()),
+                     GetPage(
+                    name: '/etfslearnmore',
+                    page: () => const ETFsLearnmore()),
+                     GetPage(
+                    name: '/etfsproducts',
+                    page: () => const ETFsproducts()),
+                     GetPage(
+                    name: '/reitslearnmore',
+                    page: () => const REITsLearnmore()),
+                    
+                    GetPage(
+                    name: '/reitsproducts',
+                    page: () => const REITsproducts()),
+                    
+                    
+                    
+                    
               ],
             ),
             designSize: const Size(390, 844),
