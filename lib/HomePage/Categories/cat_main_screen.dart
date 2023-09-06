@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/HomePage/Categories/CategoriesMain.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Globalcategoriesmain.dart';
 import 'package:freeu/HomePage/Categories/cat_filter.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
@@ -122,7 +123,12 @@ class _CatMainScreenState extends State<CatMainScreen> {
               ? Get.to(() => CategoriesMain())
               //  Get.toNamed("/EntryPoint",
               //     arguments: 1, preventDuplicates: false)
-              : Get.to(() => ComingSoon());
+              : index == 1
+                  ? Get.to(() => ComingSoon())
+                  : index == 2
+                      ? Get.to(() => Globalcategoriesmain())
+                      : ComingSoon()
+          ;
         },
       ),
     );
