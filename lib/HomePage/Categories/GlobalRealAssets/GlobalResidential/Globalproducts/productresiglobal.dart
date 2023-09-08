@@ -1,49 +1,54 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/Categories/FractionalRealEstateProperty/PropertiesInvestment.dart';
+import 'package:freeu/HomePage/Categories/GlobalRealAssets/GlobalResidential/Globalproducts/detailsresidential.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:freeu/viewModel/FractionalProperties.dart';
+import 'package:freeu/viewModel/GlobalResidentialreal.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
-class Fractionalproperties extends StatefulWidget {
-  const Fractionalproperties({super.key});
+class GlobalResidentialproductstab extends StatefulWidget {
+  const GlobalResidentialproductstab({super.key});
 
   @override
-  State<Fractionalproperties> createState() => _FractionalpropertiesState();
+  State<GlobalResidentialproductstab> createState() =>
+      _GlobalResidentialproductstab();
 }
 
-class _FractionalpropertiesState extends State<Fractionalproperties> {
+class _GlobalResidentialproductstab
+    extends State<GlobalResidentialproductstab> {
   late Future myfuture;
+
   @override
   void initState() {
-    myfuture = FractionalRealEstate().FractionalRealEstateAPI();
+    myfuture = GlobalResidentialreal().GlobalResidentialrealAPI();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFF1FAFF),
+        backgroundColor: const Color(0xFFF1FAFF),
         appBar: AppBar(
-          backgroundColor: Color(0xFFF1FAFF),
+          backgroundColor: const Color(0xFFF1FAFF),
           elevation: 0,
           titleSpacing: 0,
           leading: IconButton(
             onPressed: () {
               Get.back();
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back,
             ),
             iconSize: 26,
             color: Colors.black,
           ),
         ),
-        body: FutureBuilder(
+        body:
+            // _buildBody(context),
+            FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
@@ -79,7 +84,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "Fractional Real Estate",
+                "Residential Real Estate",
                 style: TextStyle(
                     fontFamily: "Poppins",
                     fontSize: 25.sp,
@@ -95,24 +100,25 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
             child: Column(
               children: <Widget>[
                 SizedBox(
-                  height: 20,
+                  height: 20.h,
                 ),
                 ButtonsTabBar(
                   buttonMargin: EdgeInsets.zero,
-                  contentPadding: EdgeInsets.only(left: 27, right: 27),
+                  contentPadding: EdgeInsets.only(left: 27.w, right: 27.w),
                   radius: 4,
-                  backgroundColor: Color(0xFF143C6D),
-                  unselectedBorderColor: Color(0xFFFFFFFF),
+                  backgroundColor: const Color(0xFF143C6D),
+                  unselectedBorderColor: const Color(0xFFFFFFFF),
                   //borderWidth: 1,
-                  borderColor: Color(0xFFFFFFFF),
-                  unselectedBackgroundColor: Color(0xFFFFFFFF),
-                  unselectedLabelStyle: TextStyle(color: Color(0xFF0F0C0C)),
+                  borderColor: const Color(0xFFFFFFFF),
+                  unselectedBackgroundColor: const Color(0xFFFFFFFF),
+                  unselectedLabelStyle:
+                      const TextStyle(color: Color(0xFF0F0C0C)),
                   labelStyle: const TextStyle(
                     color: Color(0xFFFFFFFF),
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),
-                  tabs: [
+                  tabs: const [
                     Tab(
                       text: "Open",
                     ),
@@ -124,7 +130,7 @@ class _FractionalpropertiesState extends State<Fractionalproperties> {
                     ),
                   ],
                 ),
-                //sizedBoxHeight(15.h),
+                sizedBoxHeight(15.h),
                 Expanded(
                   child: TabBarView(
                     children: [
@@ -157,57 +163,42 @@ class FirstTab extends StatelessWidget {
   }
 }
 
-class SecondTab extends StatefulWidget {
-  const SecondTab({super.key});
+class SecondTab extends StatelessWidget {
+  SecondTab({super.key});
 
-  @override
-  State<SecondTab> createState() => _SecondTabState();
-}
-
-class _SecondTabState extends State<SecondTab> {
-  List contents = [
+  final List viewSlider = [
     {
-      "title": "Navi Mumbai Office \nOpportunity II",
-      "taxirr": "12.50%",
-      "minimum": "₹ 95,000",
-      // "View investment Route": PropertiesInvestment(
+      "Company Name": "Evert Fleet",
+      "Expected Return": "17.50%",
+      "Minimum Investment": '₹ 1,00,000',
+      // "View investment Route": LeaseViewInvestment(
       //   pageIndex: 0,
       // )
     },
     {
-      "title": "Prestige Tech Platina, \nBangalore",
-      "taxirr": "12.25%",
-      "minimum": "₹ 95,000",
-      // "View investment Route": PropertiesInvestment(
+      "Company Name": "Omega Seiki",
+      "Expected Return": "21.50%",
+      "Minimum Investment": '₹ 70,000',
+      // "View investment Route": LeaseViewInvestment(
       //   pageIndex: 1,
       // )
     },
-    {
-      "title": "Bangalore Warehousing Opportunity I",
-      "taxirr": "",
-      "minimum": "₹ 95,000",
-      // "View investment Route": PropertiesInvestment(
-      //   pageIndex: 2,
-      // )
-    }
   ];
 
   @override
   Widget build(BuildContext context) {
-    return
-  fractionalRealEstateObj!.data!.isEmpty ?
-_buildNoDataBody()
-            :
-        ListView.separated(
+    return Globalresidentialproductsobj!.data!.isEmpty
+        ? _buildNoDataBody()
+        : ListView.separated(
             separatorBuilder: (context, index) {
               return sizedBoxHeight(15.h);
             },
-            itemCount: fractionalRealEstateObj!.data!.length,
             scrollDirection: Axis.vertical,
+            itemCount: Globalresidentialproductsobj!.data!.length,
             itemBuilder: (context, index) {
               return SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16),
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Container(
                     decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(15)),
@@ -217,37 +208,32 @@ _buildNoDataBody()
                           color: Color(0x48B9B9BE),
                           blurRadius: 20.0,
                           spreadRadius: 0,
+                          // offset: Offset(-20, -20,),
                         )
                       ],
                     ),
                     child: Padding(
-                      padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 15.h,
+                      ),
                       child: Column(
                         children: [
-                          Image.asset(
-                            // image,
-                            "assets/images/fractional.png",
-                            width: 358,
-                            height: 162,
-                          ),
                           SizedBox(
-                            height: 25.h,
+                            height: 10.h,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 16),
+                            padding: EdgeInsets.only(left: 16.w),
                             child: Row(
                               children: [
                                 Flexible(
                                   child: Text(
-                                    fractionalRealEstateObj!
-                                            .data?[index]
-                                            .fractionalRealEstate!
-                                            .propertyNameAndLocation! ??
-                                        "", // contents[index]["title"],
+                                    Globalresidentialproductsobj!.data?[index]
+                                            .realEstate!.propertyName ??
+                                        "",
                                     style: TextStyle(
-                                        fontSize: 25,
+                                        fontSize: 25.sp,
                                         fontFamily: 'Poppins',
-                                        color: Color(0XFF000000),
+                                        color: const Color(0XFF000000),
                                         fontWeight: FontWeight.w500),
                                   ),
                                 ),
@@ -258,62 +244,10 @@ _buildNoDataBody()
                             height: 30.h,
                           ),
                           Padding(
-                            padding: const EdgeInsets.only(left: 6),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Image.asset(
-                                  // image1,
-                                  "assets/images/place.png",
-                                  width: 50.w,
-                                  height: 50.h,
-                                ),
-                                SizedBox(
-                                  width: 25.w,
-                                ),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding:
-                                          const EdgeInsets.only(right: 179),
-                                      child: Text(
-                                        //text1,
-                                        "Location:",
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                          fontSize: 18.sp,
-                                          color: Color(0XFF000000),
-                                          fontFamily: 'Poppins',
-                                          //fontWeight: FontWeight.w300,
-                                        ),
-                                      ),
-                                    ),
-                                    Text(
-                                      //subtext1,
-                                      "Seawoods, Navi Mumbai",
-                                      style: TextStyle(
-                                        fontSize: 20.sp,
-                                        color: Color(0XFF000000),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                )
-                              ],
-                            ),
-                          ),
-                          SizedBox(
-                            height: 30.h,
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 6),
+                            padding: EdgeInsets.symmetric(horizontal: 16.w),
                             child: Row(
                               children: [
                                 Image.asset(
-                                  //image2,
                                   "assets/images/investmentproperties (1).png",
                                   width: 50.w,
                                   height: 50.w,
@@ -326,24 +260,20 @@ _buildNoDataBody()
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Text(
-                                      // text2,
-                                      "Pre-tax IRR:",
+                                      "Project Type:",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                         fontSize: 18.sp,
-                                        color: Color(0XFF000000),
+                                        color: const Color(0XFF000000),
                                         fontFamily: 'Poppins',
-                                        //fontWeight: FontWeight.w300,
                                       ),
                                     ),
                                     Text(
-                                      // subtext2,
-                                      contents[index]["taxirr"],
-                                      //"12.7%",
+                                      Globalresidentialproductsobj!.data?[index]
+                                              .realEstate!.projectType ??
+                                          "",
                                       style: TextStyle(
                                         fontSize: 20.sp,
-                                        color: Color(0XFF000000),
-                                        fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
                                       ),
                                     ),
@@ -356,13 +286,13 @@ _buildNoDataBody()
                             height: 30.h,
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 6.w),
+                            padding: EdgeInsets.only(left: 16.w),
                             child: Row(
                               children: [
                                 Image.asset(
                                   "assets/images/propertiestransfer.png",
-                                  width: 50,
-                                  height: 50,
+                                  width: 50.w,
+                                  height: 50.h,
                                 ),
                                 SizedBox(
                                   width: 25.w,
@@ -372,28 +302,24 @@ _buildNoDataBody()
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Minimum investment amount",
+                                      "Transaction Type",
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                         fontSize: 18.sp,
-                                        color: Color(0XFF000000),
+                                        color: const Color(0XFF000000),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w300,
                                       ),
                                     ),
                                     Text(
-                                      //subtext3,
-                                      fractionalRealEstateObj!
-                                              .data?[index]
-                                              .fractionalRealEstate!
-                                              .minimumInvestment ??
-                                          contents[index]["minimum"],
-                                      //" 1 Crore",
+                                      Globalresidentialproductsobj!.data?[index]
+                                              .realEstate!.transactionType ??
+                                          "",
                                       textDirection: TextDirection.ltr,
                                       textAlign: TextAlign.left,
                                       style: TextStyle(
                                         fontSize: 20.sp,
-                                        color: Color(0XFF000000),
+                                        color: const Color(0XFF000000),
                                         fontFamily: 'Poppins',
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -411,7 +337,7 @@ _buildNoDataBody()
                             child: Container(
                               height: 50.h,
                               decoration: BoxDecoration(
-                                boxShadow: [
+                                boxShadow: const [
                                   BoxShadow(
                                     color: Color.fromARGB(255, 220, 220, 226),
                                   )
@@ -420,12 +346,12 @@ _buildNoDataBody()
                                 color: AppColors.blue143C6D,
                               ),
                               child: OpenContainerWrappers(
-                                openBuild: PropertiesInvestment(
-                                  slug: fractionalRealEstateObj!.data?[index]
-                                          .fractionalRealEstate!.slug ??
+                                openBuild: GlobalResidentialDetails(
+                                  slug: Globalresidentialproductsobj!
+                                          .data?[index].realEstate!.slug ??
                                       "",
                                 ),
-                                closeBuild: Container(
+                                closeBuild: SizedBox(
                                   width: double.infinity,
                                   height: 50.h,
                                   child: Center(
@@ -439,19 +365,19 @@ _buildNoDataBody()
                                 ),
                               ),
                             ),
-                          ),
+                          )
                         ],
                       ),
                     ),
                   ),
                 ),
               );
-            });
+            },
+          );
   }
 
   Widget _buildNoDataBody() {
-    return 
-       Column(
+    return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
         const Text("No Data Found")

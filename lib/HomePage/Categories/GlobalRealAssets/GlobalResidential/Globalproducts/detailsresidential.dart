@@ -6,99 +6,74 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/Sovereigndetaisbonds.dart';
+import 'package:freeu/viewModel/DetailsGlobalResidential.dart';
 import 'package:get/get.dart';
 
-class SovereignDetails extends StatefulWidget {
+class GlobalResidentialDetails extends StatefulWidget {
+  // final int pageIndex;
   final String slug;
-  SovereignDetails({super.key, 
-  required this.slug
-  });
+
+  GlobalResidentialDetails(
+      {super.key,
+      // required this.pageIndex
+      required this.slug});
 
   @override
-  State<SovereignDetails> createState() => _SovereignDetailsState();
+  State<GlobalResidentialDetails> createState() =>
+      _GlobalResidentialDetailsState();
 }
 
-class _SovereignDetailsState extends State<SovereignDetails> {
+class _GlobalResidentialDetailsState extends State<GlobalResidentialDetails> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   late Future myfuture;
 
   @override
   void initState() {
-    myfuture = SovereignbondsDetails().SovereignbondsDetailsAPI(widget.slug);
+    myfuture = GlobalResidentialDetailsviewmodel()
+        .GlobalResidentialDetailsviewmodelAPI(widget.slug);
     super.initState();
   }
 
   List productDetails = [
     {
-      "Company Name": ['HDFC AMC Select AIF FOF – I'],
+      "Company Name": [
+        'Evert Fleet',
+        'Omega Seiki',
+      ],
       "header": [
-        'Registration No.',
-        'Fund Category (I/II/III)',
-        'Fund Structure (Open/Closed)',
-        'Fund Strategy',
-        'Fund Domicile',
-        'Fund Manager Name',
-        'Website of the fund',
-        'Fund Manager Experience',
-        'Sponsor',
-        'Manager',
-        'Trustee',
-        'Auditor',
-        'Valuer / Tax Advisor',
-        'Credit Rating (if any)',
-        'Open Date',
-        '1st Close Date',
-        'Final Close Date',
-        'Tenure from Final Close',
-        'Commitment Period',
-        'Native Currency',
-        'Target Corpus',
-        'Investment Manager Contribution',
-        'Minimum Capital Commitment',
-        'Initial Drawdown',
-        'Accepting Overseas investment?',
-        'Target IRR (%)',
-        'Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee',
-        'Hurdle Rate',
-        'Other Expenses',
-        'Focused Sectors (Industries in which they are investing)',
-        'Regions Covered (Geographical Locations covered by the fund)'
+        'Asset Class',
+        'Underlying Asset',
+        'Sector',
+        'Mobility Platform',
+        'Total Deal Size',
+        'Minimum Investment',
+        'Tenure',
+        'Payout Frequency',
+        'Pre-tax Return',
       ],
       "content": [
         [
-          'N/A',
-          'II',
-          'Closed',
-          'Invest in ~ 15 VC/PE funds.Up to 50% in venture capital funds and balance in private equity funds Maximum exposure to co-investment opportunities will be capped at 30% of the corpus',
-          'N/A',
-          'HDFC AMC	',
-          'N/A',
-          'N/A',
-          'N/A',
-          'N/A',
-          'N/A',
-          'N/A',
-          'N/A',
-          'N/A',
-          'N/A',
-          'N/A',
-          'N/A',
-          '11 + 1 + 1 years',
-          '5 Years',
-          'N/A',
-          '₹ 1,500 crore + green shoe of up to ₹ 1,500 crore',
-          '10% of Capital Commitment raised',
-          '1 Crore',
-          'N/A',
-          'N/A',
-          'N/A',
-          '2.5% p.a. Management Fee & 20% Carry with full catchup',
-          'XIRR of 10% (pre-tax) on Capital Contributions received			',
-          'N/A',
-          'N/A',
-          'N/A',
+          'Asset Backed Leasing',
+          'Cars',
+          'Urban Mobility',
+          'Uber',
+          '5,04,00,000',
+          '1,00,000',
+          '36 M',
+          'Monthly',
+          '17.50%',
+        ],
+        [
+          'Leasing',
+          'Three Wheelers',
+          'Urban Mobility',
+          'Yatra',
+          '2,10,00,000',
+          '70,000',
+          '36 M',
+          'Monthly',
+          '21.50%',
         ],
       ]
     },
@@ -107,50 +82,47 @@ class _SovereignDetailsState extends State<SovereignDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CustomSignupAppBar(
-        titleTxt: "",
-        bottomtext: false,
-      ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-        child: CustomNextButton(
-            ontap: () {
-              if (controllerEntryPoint.logedIn!) {
-                investNow();
-              } else {
-                Get.toNamed("/login");
-              }
-            },
-            text: 'Invest now'),
-      ),
-      body:
-      FutureBuilder(
-        future: myfuture,
-        builder: (ctx, snapshot) {
-          if (snapshot.data == null) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [Center(child: CircularProgressIndicator())],
-            );
-          }
-          if (snapshot.connectionState == ConnectionState.done) {
-            if (snapshot.hasError) {
-              return Center(
-                child: Text(
-                  '${snapshot.error} occured',
-                  style: TextStyle(fontSize: 18.spMin),
-                ),
+        appBar: const CustomSignupAppBar(
+          titleTxt: "",
+          bottomtext: false,
+        ),
+        bottomNavigationBar: Padding(
+          padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+          child: CustomNextButton(
+              ontap: () {
+                if (controllerEntryPoint.logedIn!) {
+                  investNow();
+                } else {
+                  Get.toNamed("/login");
+                }
+              },
+              text: 'Invest now'),
+        ),
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
               );
             }
-          }
-          return _buildBody(
-            context,
-          );
-        },
-      ),
-  
-    );
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
   }
 
   Widget _buildBody(context) {
@@ -183,10 +155,12 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          sizedBoxHeight(10.h),
                           Text(
-                            SovereignbondsdetailsObj!.data!.issuer ?? "",
-                            // "Sovereign Governmet Bonds",
-                            // ventureCapitalDetailsObj!.data!.fundName ?? "",
+                            Globalresidentialdetailsobj!.data!.propertyName ??
+                                "",
+                            // "Lorem Ipsum",
+                            // leasefinancingdetailsobj!.data!.company ?? "",
                             style: TextStyle(
                                 fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
@@ -199,243 +173,246 @@ class _SovereignDetailsState extends State<SovereignDetails> {
             ),
             sizedBoxHeight(24.h),
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                textA4856_20500("Issuer"),
+                textA4856_20500("Property Name and Details"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.issuer ?? "NA",
+                  Globalresidentialdetailsobj!.data!.propertyName ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Bond Type"),
+                textA4856_20500("Property Location"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.bondType ?? "NA",
-
+                  Globalresidentialdetailsobj!.data!.propertyLocation ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("About Issuer"),
+                textA4856_20500("Property Type"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.aboutIssuer ?? "NA",
-
+                  Globalresidentialdetailsobj!.data!.projectType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Industry"),
+                textA4856_20500("Transaction Type"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.industry ?? "NA",
+                  Globalresidentialdetailsobj!.data!.transactionType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Country of risk"),
+                textA4856_20500("Country"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.countryOfRisk ?? "NA",
+                  Globalresidentialdetailsobj!.data!.country ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                 textA4856_20500("Country of Incorporation"),
+                textA4856_20500("Area (in Sq ft)"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.countryOfIncorporation ?? "NA",
+                  Globalresidentialdetailsobj!.data!.areaInSqFt ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("ISIN"),
+                textA4856_20500("Total Price"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.isin ?? "NA",
+                  Globalresidentialdetailsobj!.data!.totalPrice ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Bond Type/Maturity Date"),
+                textA4856_20500("Price per Sq Ft"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.bondTypeOrMaturityDate ?? "NA",
-                ),
-                sizedBoxHeight(20.h), 
-                textA4856_20500("Call Date"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                SovereignbondsdetailsObj!.data!.callDate ?? "NA",
-                ),
-                sizedBoxHeight(20.h), 
-                textA4856_20500("Coupon"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                SovereignbondsdetailsObj!.data!.coupon ?? "NA",
-                ),
-                sizedBoxHeight(20.h), 
-                textA4856_20500("Indicative Yield (p.a.) (Mid)"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                SovereignbondsdetailsObj!.data!.indicativeYieldPaMid ?? "NA",
-                ),
-                sizedBoxHeight(20.h), 
-                textA4856_20500("Indicative Price (USD) (Mid) "),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                SovereignbondsdetailsObj!.data!.indicativePriceUsMid ?? "NA",
+                  Globalresidentialdetailsobj!.data!.pricePerSqFt ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Minimum Investment (USD)"),
+                textA4856_20500("No of bedroom"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.minimumInvestment ?? "NA",
+                  Globalresidentialdetailsobj!.data!.noOfBedrooms ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Yield to Worst p.a. (ask)"),
+                textA4856_20500("No of Restrooms"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.yieldToWorstPaAsk ?? "NA",
-                ),
-                sizedBoxHeight(20.h), 
-                textA4856_20500("Yield to Worst p.a. (bid)"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                SovereignbondsdetailsObj!.data!.yieldToWorstPaBid ?? "NA",
-                ),
-                sizedBoxHeight(20.h), 
-                textA4856_20500("Price (Ask)"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                SovereignbondsdetailsObj!.data!.priceAsk ?? "NA",
-                ),
-                sizedBoxHeight(20.h), 
-                textA4856_20500("Price (Bid)"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                SovereignbondsdetailsObj!.data!.priceBid ?? "NA",
+                  Globalresidentialdetailsobj!.data!.noOfRestrooms ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Accrued Interest"),
+                textA4856_20500("Key Features"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.accruedInterest ?? "NA",
+                  Globalresidentialdetailsobj!.data!.facilitiesFeatures ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                 textA4856_20500("Yield To Call"),
+                textA4856_20500("Amenities"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.yieldToCall ?? "NA",
-                ),
-                sizedBoxHeight(20.h), 
-                textA4856_20500("Duration (Years)"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                SovereignbondsdetailsObj!.data!.duration ?? "NA",
-                ),
-                sizedBoxHeight(20.h), 
-                textA4856_20500("Amount Outstanding (USD)"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                SovereignbondsdetailsObj!.data!.amountOutstanding ?? "NA",
+                  Globalresidentialdetailsobj!.data!.amenities ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Collateral Type"),
+                textA4856_20500("Furnished Status"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.collateralType ?? "NA",
+                  Globalresidentialdetailsobj!.data!.furnishedStatus ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Credit Rating"),
+                textA4856_20500("Elevators"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.creditRating ?? "NA",
+                  Globalresidentialdetailsobj!.data!.elevators ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
+                textA4856_20500("Fire Safety Measures"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  Globalresidentialdetailsobj!.data!.fireSafetyMeasures ?? "NA",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Water Facility"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  Globalresidentialdetailsobj!.data!.waterFacility ?? "NA",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Nearest Metro Station"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  Globalresidentialdetailsobj!
+                          .data!.nearestRailwayMetroStation ??
+                      "NA",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Remarks"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  Globalresidentialdetailsobj!.data!.remarks ?? "NA",
+                ),
+                sizedBoxHeight(20.h),
+                //  textA4856_20500("Documents"),
+                // Divider(
+                //   height: 25.h,
+                //   thickness: 1.h,
+                //   color: Colors.grey.shade400,
+                // ),
+                // text272424_18(
+                //   // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
+                // "NA"
+                // ),
+                // sizedBoxHeight(20.h),
               ],
-            ),
+            )
+
+            // SizedBox(
+            //   height: MediaQuery.of(context).size.height - 265.h,
+            //   child: ListView.separated(
+            //       itemBuilder: (context, index) {
+            //         return Column(
+            //           mainAxisAlignment: MainAxisAlignment.start,
+            //           crossAxisAlignment: CrossAxisAlignment.start,
+            //           children: [
+            //             Text(
+            //               productDetails[0]['header'][index],
+            //               style: TextStyle(
+            //                 fontWeight: FontWeight.w500,
+            //                 fontSize: 20.sp,
+            //                 color: const Color(0xff3A4856),
+            //               ),
+            //             ),
+            //             Divider(
+            //               height: 25.h,
+            //               thickness: 1.h,
+            //               color: Colors.grey.shade400,
+            //             ),
+            //             Text(
+            //               // productDetails[0]['content'][widget.pageIndex]
+            //                   // [index],
+            //                   ""
+            //                   ,
+            //               style: TextStyle(
+            //                   fontSize: 18.sp,
+            //                   color: const Color(0xff272424)),
+            //             ),
+            //             sizedBoxHeight(28.h)
+            //           ],
+            //         );
+            //       },
+            //       separatorBuilder: (context, index) {
+            //         return SizedBox(
+            //           height: 0.h,
+            //         );
+            //       },
+            //       itemCount: productDetails[0]['header'].length),
+            // ),
           ],
         ),
       ),

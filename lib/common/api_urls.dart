@@ -54,5 +54,28 @@ class ApiUrls {
   static const PrivateInvestmentPublic = "${baseUrl}private-investment-in-public-equity-fund-data";
   static const PrivateInvestPublicDetails = "${baseUrl}private-investment-in-public-equity-fund-single-data";
 
+  static const IndianIndustrialrealproducts = "${baseUrl}indian-industrial-all-data";
+  static const IndianIndustrialDetails = "${baseUrl}real-estate-single-data";
+
+  static const IndianResidentialrealproducts = "${baseUrl}indian-residential-all-data";
+  static const IndianResidentialDetails = "${baseUrl}real-estate-single-data";
+
+  static const IndianCommercialrealproducts = "${baseUrl}indian-commercial-all-data";
+  static const IndianCommercialDetails = "${baseUrl}real-estate-single-data";
+
+  static const Globalresidentialrealproducts = "${baseUrl}global-residential-all-data";
+  static const GlobalresidentialDetails = "${baseUrl}real-estate-single-data";
+
+  static const Globalcommercialrealproducts = "${baseUrl}global-commercial-all-data";
+  static const GlobalcommercialDetails = "${baseUrl}real-estate-single-data";
+
+  static const Globalindustrialrealproducts = "${baseUrl}global-industrial-all-data";
+  static const GlobalindustrialDetails = "${baseUrl}real-estate-single-data";
+
+  static const Sovereignbondsproducts = "${baseUrl}sovereign-government-bond-all-data";
+  static const SovereignbondsDetails = "${baseUrl}bonds-single-data";
+
+
+  
 
 }
