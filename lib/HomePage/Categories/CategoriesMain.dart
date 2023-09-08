@@ -42,11 +42,11 @@ class CategoriesMain extends StatefulWidget {
 class _CategoriesMainState extends State<CategoriesMain> {
   int selectIndex = 0;
   final GlobalKey<ScaffoldState> _key = GlobalKey();
-  late Future myfuture;
+  // late Future myfuture;
   @override
   void initState() {
     // TODO: implement initState
-    myfuture = Categorieslist().CategorieslistAPI();
+    // myfuture = Categorieslist().CategorieslistAPI();
     super.initState();
   }
 
@@ -222,31 +222,33 @@ class _CategoriesMainState extends State<CategoriesMain> {
           automaticallyImplyLeading: false,
           titleSpacing: 0,
         ),
-        body: FutureBuilder(
-          future: myfuture,
-          builder: (ctx, snapshot) {
-            if (snapshot.data == null) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Center(child: CircularProgressIndicator())],
-              );
-            }
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(
-                    '${snapshot.error} occured',
-                    style: TextStyle(fontSize: 18.spMin),
-                  ),
-                );
-              }
-            }
-            return _buildBody(
-              context,
-            );
-          },
-        ));
+        body: _buildBody(context),
+        // FutureBuilder(
+        //   future: myfuture,
+        //   builder: (ctx, snapshot) {
+        //     if (snapshot.data == null) {
+        //       return Column(
+        //         mainAxisAlignment: MainAxisAlignment.center,
+        //         crossAxisAlignment: CrossAxisAlignment.center,
+        //         children: [Center(child: CircularProgressIndicator())],
+        //       );
+        //     }
+        //     if (snapshot.connectionState == ConnectionState.done) {
+        //       if (snapshot.hasError) {
+        //         return Center(
+        //           child: Text(
+        //             '${snapshot.error} occured',
+        //             style: TextStyle(fontSize: 18.spMin),
+        //           ),
+        //         );
+        //       }
+        //     }
+        //     return _buildBody(
+        //       context,
+        //     );
+        //   },
+        // )
+        );
   }
 
   Widget _buildBody(context) {

@@ -41,8 +41,22 @@ import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureCapi
 import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureCapitalFund/ventureproductstab/ventureproductstab.dart';
 import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureDebtFunds/venturedebtproducts/venturedebtproducts.dart';
 import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureDebtFunds/venturelearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalRealAssets/GlobalCommercialAssets/Globalcommercialproducts/productscommercialglobal.dart';
+import 'package:freeu/HomePage/Categories/GlobalRealAssets/GlobalCommercialAssets/globalcommercialLearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalRealAssets/GlobalIndustrialasset.dart/Gloablindusproducts.dart/productsindustrialglobal.dart';
+import 'package:freeu/HomePage/Categories/GlobalRealAssets/GlobalIndustrialasset.dart/globalindustrialLearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalRealAssets/GlobalResidential/Globalproducts/productresiglobal.dart';
+import 'package:freeu/HomePage/Categories/GlobalRealAssets/GlobalResidential/globalresilearnmore.dart';
+import 'package:freeu/HomePage/Categories/GlobalRealAssets/mainglobalrealassts.dart';
 import 'package:freeu/HomePage/Categories/High_yield/high_yield_more_products.dart';
 import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Globalcategoriesmain.dart';
+import 'package:freeu/HomePage/Categories/IndianRealAssets/CommercialRealEstate/Commercialproducts/productcommercial.dart';
+import 'package:freeu/HomePage/Categories/IndianRealAssets/CommercialRealEstate/commerlearnmore.dart';
+import 'package:freeu/HomePage/Categories/IndianRealAssets/IndustrialRealEstate/Industrialproducts/productindustrial.dart';
+import 'package:freeu/HomePage/Categories/IndianRealAssets/IndustrialRealEstate/industlearnmore.dart';
+import 'package:freeu/HomePage/Categories/IndianRealAssets/Residentialrelestate/residentiallearnmore.dart';
+import 'package:freeu/HomePage/Categories/IndianRealAssets/Residentialrelestate/residentproducts.dart/productsresidential.dart';
+import 'package:freeu/HomePage/Categories/IndianRealAssets/mainindianrealassets.dart';
 import 'package:freeu/HomePage/Categories/InvoiceDiscounting/Invoiceproperties.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease%20view%20more%20product/LeaseViewMoreProduct.dart';
 import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_properties.dart';
@@ -454,6 +468,61 @@ class _MyAppState extends State<MyApp> {
                     GetPage(
                     name: '/reitsproducts',
                     page: () => const REITsproducts()),
+                    GetPage(
+                    name: '/indianrealassets',
+                    page: () => const Indianrealassetsmain()),
+                     GetPage(
+                    name: '/residentiallearnmore',
+                    page: () => const ResidentialLearnmore()),
+                    
+                    GetPage(
+                    name: '/residentialproducts',
+                    page: () => const Residentialproductstab()),
+                     GetPage(
+                    name: '/commerciallearnmore',
+                    page: () => const CommercialLearnmore()),
+                     GetPage(
+                    name: '/commercialproducts',
+                    page: () => const Commercialproductstab()),
+                     GetPage(
+                    name: '/industriallearnmore',
+                    page: () => const IndustrialLearnmore()),
+                   GetPage(
+                    name: '/industrialproducts',
+                    page: () => const Industrialproductstab()),
+                     GetPage(
+                    name: '/indianrealassetmain',
+                    page: () => const Indianrealassetsmain()),
+                     GetPage(
+                    name: '/globalrealassetmain',
+                    page: () => const Globalrealassetsmain()),
+                     GetPage(
+                    name: '/globalresidenlearnmore',
+                    page: () => const GlobalResidentLearnmore()),
+                     GetPage(
+                    name: '/globalresidenproducts',
+                    page: () => const GlobalResidentialproductstab()),
+                     GetPage(
+                    name: '/globalcommerciallearnmore',
+                    page: () => const GlobalCommercialLearnmore()),
+                     GetPage(
+                    name: '/globalcommercialproducts',
+                    page: () => const GlobalCommercialproductstab()),
+                     GetPage(
+                    name: '/globalindustriallearnmore',
+                    page: () => const GlobalIndustrialLearnmore()),
+                     GetPage(
+                    name: '/globalindustrialproducts',
+                    page: () => const GlobalIndustrialproductstab()),
+                    
+                    
+
+                    
+
+                    
+                    
+                    
+
                     
                     
                     
