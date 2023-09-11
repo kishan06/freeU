@@ -152,7 +152,10 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return 
+    angelFundObj!.data!.isEmpty ? 
+_buildNoDataBody(context):
+    ListView.separated(
       itemBuilder: (BuildContext context, int index) {
         return Column(
           children: [
@@ -391,6 +394,16 @@ class SecondTab extends StatelessWidget {
       itemCount: angelFundObj!.data!.length,
     );
   }
+
+  
+  Widget _buildNoDataBody(context){
+  return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        const Text("No Data Found")
+      ],
+    );
+}
 }
 
 class ThirdTab extends StatelessWidget {

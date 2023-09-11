@@ -1,18 +1,11 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/ETFs/etfsproduct/detailsetfs.dart';
-import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Equities/equitiesproduct/detailsequities.dart';
-import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/HedgeFunds/HedgeFundsproducts/detailshedgefunds.dart';
-import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/MutualFunds/Mutualfundsproducts.dart/detailsmutualfund.dart';
-import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/PrivateEquityFunds/privateproductstab/detailsprivateequity.dart';
 import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/REITs/Reitsproduct/detailsreits.dart';
-import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureCapitalFund/ventureproductstab/detailsventurecapital.dart';
-import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/VentureDebtFunds/venturedebtproducts/detailsventuredebt.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:freeu/viewModel/Leasefinancing.dart';
+import 'package:freeu/viewModel/GlobalfinancialFunds/Reitsproducts.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -24,11 +17,11 @@ class REITsproducts extends StatefulWidget {
 }
 
 class _REITsproducts extends State<REITsproducts> {
-  // late Future myfuture;
+  late Future myfuture;
 
   @override
   void initState() {
-    // myfuture = LeaseFinancing().LeaseFinancingAPI();
+    myfuture = Reitsproducts().ReitsproductsAPI();
     super.initState();
   }
 
@@ -51,32 +44,32 @@ class _REITsproducts extends State<REITsproducts> {
           color: Colors.black,
         ),
       ),
-      body: _buildBody(context),
-      //  FutureBuilder(
-      //     future: myfuture,
-      //     builder: (ctx, snapshot) {
-      //       if (snapshot.data == null) {
-      //         return Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           crossAxisAlignment: CrossAxisAlignment.center,
-      //           children: [Center(child: CircularProgressIndicator())],
-      //         );
-      //       }
-      //       if (snapshot.connectionState == ConnectionState.done) {
-      //         if (snapshot.hasError) {
-      //           return Center(
-      //             child: Text(
-      //               '${snapshot.error} occured',
-      //               style: TextStyle(fontSize: 18.spMin),
-      //             ),
-      //           );
-      //         }
-      //       }
-      //       return _buildBody(
-      //         context,
-      //       );
-      //     },
-      //   )
+      body: 
+       FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        )
     );
   }
 
@@ -193,14 +186,16 @@ class SecondTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-        // ListView.separated(
-        //   separatorBuilder: (context, index) {
-        //     return sizedBoxHeight(15.h);
-        //   },
-        //   scrollDirection: Axis.vertical,
-        //   itemCount: leasefinancingObj!.data!.length,
-        //   itemBuilder: (context, index) {
-        //     return
+    Reitsproductsobj!.data!.isEmpty ?
+_buildNoDataBody(context):
+        ListView.separated(
+          separatorBuilder: (context, index) {
+            return sizedBoxHeight(15.h);
+          },
+          scrollDirection: Axis.vertical,
+          itemCount: Reitsproductsobj!.data!.length,
+          itemBuilder: (context, index) {
+            return
         SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -232,9 +227,7 @@ class SecondTab extends StatelessWidget {
                     children: [
                       Flexible(
                         child: Text(
-                          "American Tower Corporation",
-                          // leasefinancingObj!.data?[index].leaseBasedFinancing!.company! ?? "",
-                          // viewSlider[index]['Company Name'],
+                          Reitsproductsobj!.data?[index].exchanges!.name ?? "",
                           style: TextStyle(
                               fontSize: 25.sp,
                               fontFamily: 'Poppins',
@@ -274,9 +267,8 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            // leasefinancingObj!.data?[index].leaseBasedFinancing!.preTaxReturn! ?? "",
-                            "AMT",
-                            // viewSlider[index]['Expected Return'],
+                          Reitsproductsobj!.data?[index].exchanges!.ticker ?? "",
+
                             style: TextStyle(
                               fontSize: 20.sp,
                               fontWeight: FontWeight.w500,
@@ -317,10 +309,7 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            // leasefinancingObj!.data?[index].leaseBasedFinancing!.minimumInvestment! ?? "",
-                            "1.29",
-
-                            // viewSlider[index]['Minimum Investment'],
+                          Reitsproductsobj!.data?[index].exchanges!.beta ?? "",
                             textDirection: TextDirection.ltr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
@@ -352,12 +341,9 @@ class SecondTab extends StatelessWidget {
                       color: AppColors.blue143C6D,
                     ),
                     child: OpenContainerWrappers(
-                      openBuild: REITsDetails(),
-                      // LeaseViewInvestment(
-                      //   slug: leasefinancingObj!.data?[index].leaseBasedFinancing!.slug ?? ""
-                      //   ),
-
-                      //  viewSlider[index]['View investment Route'],
+                      openBuild: REITsDetails(
+                        slug: Reitsproductsobj!.data?[index].exchanges!.slug ?? "",
+                      ),
                       closeBuild: SizedBox(
                         width: double.infinity,
                         height: 50.h,
@@ -379,9 +365,18 @@ class SecondTab extends StatelessWidget {
         ),
       ),
     );
-    //   },
-    // );
+      },
+    );
   }
+
+    Widget _buildNoDataBody(context){
+  return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        const Text("No Data Found")
+      ],
+    );
+}
 }
 
 class ThirdTab extends StatelessWidget {

@@ -6,14 +6,12 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/VentureCapitalDetailsService.dart';
+import 'package:freeu/viewModel/Highdetailsbonds.dart';
 import 'package:get/get.dart';
 
 class HighyieldDetails extends StatefulWidget {
-  // final String slug;
-  HighyieldDetails({super.key, 
-  // required this.slug
-  });
+  final String slug;
+  HighyieldDetails({super.key, required this.slug});
 
   @override
   State<HighyieldDetails> createState() => _HighyieldDetailsState();
@@ -26,7 +24,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
 
   @override
   void initState() {
-    // myfuture = VentureCapitalDetails().VentureCapitalDetailsAPI();
+    myfuture = HighyieldbondsDetails().HighyieldbondsDetailsAPI(widget.slug);
     super.initState();
   }
 
@@ -123,33 +121,31 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
             },
             text: 'Invest now'),
       ),
-      body: _buildBody(context),
-      // FutureBuilder(
-      //   future: myfuture,
-      //   builder: (ctx, snapshot) {
-      //     if (snapshot.data == null) {
-      //       return Column(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         crossAxisAlignment: CrossAxisAlignment.center,
-      //         children: [Center(child: CircularProgressIndicator())],
-      //       );
-      //     }
-      //     if (snapshot.connectionState == ConnectionState.done) {
-      //       if (snapshot.hasError) {
-      //         return Center(
-      //           child: Text(
-      //             '${snapshot.error} occured',
-      //             style: TextStyle(fontSize: 18.spMin),
-      //           ),
-      //         );
-      //       }
-      //     }
-      //     return _buildBody(
-      //       context,
-      //     );
-      //   },
-      // ),
-  
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
+              );
+            }
+          }
+          return _buildBody(
+            context,
+          );
+        },
+      ),
     );
   }
 
@@ -183,9 +179,9 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          sizedBoxHeight(10.h),
                           Text(
-                            "International Corporate Bonds - High Yield",
-                            // ventureCapitalDetailsObj!.data!.fundName ?? "",
+                            HighyieldbondsdetailsObj!.data!.issuer ?? "",
                             style: TextStyle(
                                 fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
@@ -208,8 +204,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.registrationNumber ?? "N/A",
-                  "BNP Paribas SA"
+                  HighyieldbondsdetailsObj!.data!.issuer ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Bond Type"),
@@ -219,8 +214,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.fundCategory ?? "N/A",
-                  "Government Bond - Developed Markets - Fixed Income"
+                  HighyieldbondsdetailsObj!.data!.bondType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("About Issuer"),
@@ -230,8 +224,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.fundStructure ?? "N/A",
-                "BNP Paribas SA attracts deposits and offers commercial, retail, investment, and private and corporate banking services. The Bank also provides asset management and investment advisory services to institutions and individuals in Europe, the United States, Asia, and the emerging markets."
+                  HighyieldbondsdetailsObj!.data!.aboutIssuer ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Industry"),
@@ -241,8 +234,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.fundStrategy ?? "N/A",
-               "Banks (AT1)"
+                  HighyieldbondsdetailsObj!.data!.industry ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Country of risk"),
@@ -252,19 +244,18 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.fundDomicile ?? "N/A",
-                "France"
+                  HighyieldbondsdetailsObj!.data!.countryOfRisk ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                 textA4856_20500("Country of Incorporation"),
+                textA4856_20500("Country of Incorporation"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.fundManagerName ?? "N/A",
-                "France"
+                  HighyieldbondsdetailsObj!.data!.countryOfIncorporation ??
+                      "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("ISIN"),
@@ -274,8 +265,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.websiteOfTheFund ?? "N/A",
-                "USF1067PAD80"
+                  HighyieldbondsdetailsObj!.data!.isin ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Bond Type/Maturity Date"),
@@ -285,11 +275,10 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.fundManagerExperience ??
-                  //     "N/A",
-                  "Perpetual"
+                  HighyieldbondsdetailsObj!.data!.bondTypeOrMaturityDate ??
+                      "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Call Date"),
                 Divider(
                   height: 25.h,
@@ -297,10 +286,9 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.sponsor ?? "N/A",
-               "Nov 17, 2027"
+                  HighyieldbondsdetailsObj!.data!.callDate ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Coupon"),
                 Divider(
                   height: 25.h,
@@ -308,10 +296,9 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.manager ?? "N/A",
-                "0.0925"
+                  HighyieldbondsdetailsObj!.data!.coupon ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Indicative Yield (p.a.) (Mid)"),
                 Divider(
                   height: 25.h,
@@ -319,10 +306,9 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.trustee ?? "N/A",
-                "0.0792"
+                  HighyieldbondsdetailsObj!.data!.indicativeYieldPaMid ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Indicative Price (USD) (Mid) "),
                 Divider(
                   height: 25.h,
@@ -330,8 +316,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.auditor ?? "N/A",
-                "104.89"
+                  HighyieldbondsdetailsObj!.data!.indicativePriceUsMid ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Minimum Investment (USD)"),
@@ -341,8 +326,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.valuerTaxAdvisor ?? "N/A",
-                "200000"
+                  HighyieldbondsdetailsObj!.data!.minimumInvestment ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Yield to Worst p.a. (ask)"),
@@ -352,10 +336,9 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.creditRating ?? "N/A",
-                "0.0783"
+                  HighyieldbondsdetailsObj!.data!.yieldToWorstPaAsk ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Yield to Worst p.a. (bid)"),
                 Divider(
                   height: 25.h,
@@ -363,10 +346,9 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.openDate ?? "N/A",
-               "0.08"
+                  HighyieldbondsdetailsObj!.data!.yieldToWorstPaBid ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Price (Ask)"),
                 Divider(
                   height: 25.h,
@@ -374,10 +356,9 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.firstCloseDate ?? "N/A",
-                "105.18"
+                  HighyieldbondsdetailsObj!.data!.priceAsk ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Price (Bid)"),
                 Divider(
                   height: 25.h,
@@ -385,8 +366,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.finalCloseDate ?? "N/A",
-                "104.59"
+                  HighyieldbondsdetailsObj!.data!.priceBid ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Accrued Interest"),
@@ -396,21 +376,19 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.tenureFromFinalDate ?? "N/A",
-                "0.64"
+                  HighyieldbondsdetailsObj!.data!.accruedInterest ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                 textA4856_20500("Yield To Call"),
+                textA4856_20500("Yield To Call"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.commitmentPeriod ?? "N/A",
-                "0.0792"
+                  HighyieldbondsdetailsObj!.data!.yieldToCall ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Duration (Years)"),
                 Divider(
                   height: 25.h,
@@ -418,10 +396,9 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.nativeCurrency ?? "N/A",
-                "3.59"
+                  HighyieldbondsdetailsObj!.data!.duration ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Amount Outstanding (USD)"),
                 Divider(
                   height: 25.h,
@@ -429,8 +406,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.targetCorpus ?? "N/A",
-                "1,00,00,00,000"
+                  HighyieldbondsdetailsObj!.data!.amountOutstanding ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Collateral Type"),
@@ -440,10 +416,7 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!
-                  //         .data!.investmentManagerContribution ??
-                  //     "N/A",
-                  "Junior Subordinated"
+                  HighyieldbondsdetailsObj!.data!.collateralType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Credit Rating"),
@@ -453,115 +426,9 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // ventureCapitalDetailsObj!.data!.minimumCapitalCommitment ??
-                  //     "N/A",
-                  "BBB-"
+                  HighyieldbondsdetailsObj!.data!.creditRating ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                 textA4856_20500("Data As on"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // ventureCapitalDetailsObj!.data!.intialDrawdown ?? "N/A",
-                "23-06-2023"
-                ),
-                sizedBoxHeight(20.h),
-                // textA4856_20500("Accepting Overseas investment?"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.acceptingOverseasInvestment ??
-                //       "N/A",
-                // ),
-                // sizedBoxHeight(20.h), textA4856_20500("Target IRR (%)"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.targetIrr ?? "N/A",
-                // ),
-                // sizedBoxHeight(20.h),
-                // textA4856_20500(
-                //     "Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.managementFeesAndCarry ??
-                //       "N/A",
-                // ),
-                // sizedBoxHeight(20.h), textA4856_20500("Hurdle Rate"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.hurdleRate ?? "N/A",
-                // ),
-                // sizedBoxHeight(20.h), textA4856_20500("Other Expenses"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.otherExpenses ?? "N/A",
-                // ),
-                // sizedBoxHeight(20.h),
-                // textA4856_20500(
-                //     "Focused Sectors (Industries in which they are investing)"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.focusedSectorsIndustries ??
-                //       "N/A",
-                // ),
-                // sizedBoxHeight(20.h),
-                // textA4856_20500(
-                //     "Regions Covered (Geographical Locations covered by the fund)"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.regionsCovered ?? "N/A",
-                // ),
-                // sizedBoxHeight(20.h),
-                // Text(
-                //   productDetails[0]['header'][index],
-                //   style: TextStyle(
-                //     fontWeight: FontWeight.w500,
-                //     fontSize: 20.sp,
-                //     color: const Color(0xff3A4856),
-                //   ),
-                // ),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // Text(
-                //   productDetails[0]['content'][widget.pageIndex][index],
-                //   style: TextStyle(
-                //       fontSize: 18.sp, color: const Color(0xff272424)),
-                // ),
-
-                sizedBoxHeight(28.h)
               ],
             ),
           ],

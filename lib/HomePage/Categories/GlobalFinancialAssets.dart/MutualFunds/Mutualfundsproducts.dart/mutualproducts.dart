@@ -5,7 +5,7 @@ import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/MutualFunds
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:freeu/viewModel/Leasefinancing.dart';
+import 'package:freeu/viewModel/GlobalfinancialFunds/Mutualfunds.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -21,7 +21,7 @@ class _VMutualFundsproducts extends State<MutualFundsproducts> {
 
   @override
   void initState() {
-    // myfuture = LeaseFinancing().LeaseFinancingAPI();
+    myfuture = MutualFundssproducts().MutualFundssproductsAPI();
     super.initState();
   }
 
@@ -44,32 +44,32 @@ class _VMutualFundsproducts extends State<MutualFundsproducts> {
           color: Colors.black,
         ),
       ),
-      body: _buildBody(context),
-      //  FutureBuilder(
-      //     future: myfuture,
-      //     builder: (ctx, snapshot) {
-      //       if (snapshot.data == null) {
-      //         return Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           crossAxisAlignment: CrossAxisAlignment.center,
-      //           children: [Center(child: CircularProgressIndicator())],
-      //         );
-      //       }
-      //       if (snapshot.connectionState == ConnectionState.done) {
-      //         if (snapshot.hasError) {
-      //           return Center(
-      //             child: Text(
-      //               '${snapshot.error} occured',
-      //               style: TextStyle(fontSize: 18.spMin),
-      //             ),
-      //           );
-      //         }
-      //       }
-      //       return _buildBody(
-      //         context,
-      //       );
-      //     },
-      //   )
+      body:
+       FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        )
     );
   }
 
@@ -186,14 +186,16 @@ class SecondTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-        // ListView.separated(
-        //   separatorBuilder: (context, index) {
-        //     return sizedBoxHeight(15.h);
-        //   },
-        //   scrollDirection: Axis.vertical,
-        //   itemCount: leasefinancingObj!.data!.length,
-        //   itemBuilder: (context, index) {
-        //     return
+    MutualFundsproductsobj!.data!.isEmpty ?
+_buildNoDataBody(context):
+        ListView.separated(
+          separatorBuilder: (context, index) {
+            return sizedBoxHeight(15.h);
+          },
+          scrollDirection: Axis.vertical,
+          itemCount: MutualFundsproductsobj!.data!.length,
+          itemBuilder: (context, index) {
+            return
         SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -225,9 +227,7 @@ class SecondTab extends StatelessWidget {
                     children: [
                       Flexible(
                         child: Text(
-                          "Allianz Global Investors Asia Pacific Limited",
-                          // leasefinancingObj!.data?[index].leaseBasedFinancing!.company! ?? "",
-                          // viewSlider[index]['Company Name'],
+                          MutualFundsproductsobj!.data?[index].funds!.issuer ?? "NA",
                           style: TextStyle(
                               fontSize: 25.sp,
                               fontFamily: 'Poppins',
@@ -267,9 +267,7 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            // leasefinancingObj!.data?[index].leaseBasedFinancing!.preTaxReturn! ?? "",
-                            "Equity",
-                            // viewSlider[index]['Expected Return'],
+                          MutualFundsproductsobj!.data?[index].funds!.fundType ?? "NA",
                             style: TextStyle(
                               fontSize: 20.sp,
                               fontWeight: FontWeight.w500,
@@ -310,10 +308,7 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            // leasefinancingObj!.data?[index].leaseBasedFinancing!.minimumInvestment! ?? "",
-                            "0.11",
-
-                            // viewSlider[index]['Minimum Investment'],
+                          MutualFundsproductsobj!.data?[index].funds!.sharpeRatio ?? "NA",
                             textDirection: TextDirection.ltr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
@@ -345,12 +340,9 @@ class SecondTab extends StatelessWidget {
                       color: AppColors.blue143C6D,
                     ),
                     child: OpenContainerWrappers(
-                      openBuild: MutualFundDetails(),
-                      // LeaseViewInvestment(
-                      //   slug: leasefinancingObj!.data?[index].leaseBasedFinancing!.slug ?? ""
-                      //   ),
-
-                      //  viewSlider[index]['View investment Route'],
+                      openBuild: MutualFundDetails(
+                        slug: MutualFundsproductsobj!.data?[index].funds!.slug ?? "",
+                      ),
                       closeBuild: SizedBox(
                         width: double.infinity,
                         height: 50.h,
@@ -372,9 +364,18 @@ class SecondTab extends StatelessWidget {
         ),
       ),
     );
-    //   },
-    // );
+      },
+    );
   }
+
+  Widget _buildNoDataBody(context){
+  return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        const Text("No Data Found")
+      ],
+    );
+}
 }
 
 class ThirdTab extends StatelessWidget {

@@ -6,18 +6,17 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/Leasefinancingdetails.dart';
+import 'package:freeu/viewModel/GlobalfinancialFunds/DetailsMutualfunds.dart';
 import 'package:get/get.dart';
 
 class MutualFundDetails extends StatefulWidget {
   // final int pageIndex;
-  // final String slug;
+  final String slug;
 
   MutualFundDetails(
       {super.key,
       // required this.pageIndex
-      // required this.slug
-      });
+      required this.slug});
 
   @override
   State<MutualFundDetails> createState() => _MutualFundDetailsState();
@@ -26,11 +25,11 @@ class MutualFundDetails extends StatefulWidget {
 class _MutualFundDetailsState extends State<MutualFundDetails> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
-  // late Future myfuture;
+  late Future myfuture;
 
   @override
   void initState() {
-    // myfuture = LeasefinancingDetails().LeasefinancingDetailsAPI(widget.slug);
+    myfuture = MutualFundsDetails().MutualFundsDetailsAPI(widget.slug);
     super.initState();
   }
 
@@ -97,33 +96,31 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
               },
               text: 'Invest now'),
         ),
-        body: _buildBody(context),
-        // FutureBuilder(
-        //   future: myfuture,
-        //   builder: (ctx, snapshot) {
-        //     if (snapshot.data == null) {
-        //       return Column(
-        //         mainAxisAlignment: MainAxisAlignment.center,
-        //         crossAxisAlignment: CrossAxisAlignment.center,
-        //         children: [Center(child: CircularProgressIndicator())],
-        //       );
-        //     }
-        //     if (snapshot.connectionState == ConnectionState.done) {
-        //       if (snapshot.hasError) {
-        //         return Center(
-        //           child: Text(
-        //             '${snapshot.error} occured',
-        //             style: TextStyle(fontSize: 18.spMin),
-        //           ),
-        //         );
-        //       }
-        //     }
-        //     return _buildBody(
-        //       context,
-        //     );
-        //   },
-        // )
-        );
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
   }
 
   Widget _buildBody(context) {
@@ -158,8 +155,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                         children: [
                           sizedBoxHeight(10.h),
                           Text(
-                            "Lorem ipsum",
-                            // leasefinancingdetailsobj!.data!.company ?? "",
+                            MutualFundsdetailsObj!.data!.issuer ?? "",
                             style: TextStyle(
                                 fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
@@ -182,8 +178,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.assetClass ?? "",
-                "Allianz Global Investors Asia Pacific Limited"
+                  MutualFundsdetailsObj!.data!.issuer ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Name"),
@@ -193,8 +188,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.underlyingAsset ?? "",
-                "Allianz China Class A Shares AT Fund"
+                  MutualFundsdetailsObj!.data!.fundName ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Type"),
@@ -204,8 +198,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.sector ?? "",
-                "Equity"
+                  MutualFundsdetailsObj!.data!.fundType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("About Issuer"),
@@ -215,8 +208,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.mobilityPlatform ?? "",
-                "Allianz Global Investors is a globally diversified active investment manager with EUR400 billion AUM. Owned by Allianz, a leading financial services company in 70 countries. With 500+ investment professionals in 23 locations across 17 countries, their funds focus on active management and domestic markets, including Asia and China."
+                  MutualFundsdetailsObj!.data!.aboutIssuer ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Description"),
@@ -226,8 +218,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.totalDealSize ?? "",
-                "The fund believes in fundamental analysis and active management and aims at long term capital growth to outperform its becnhmark - MSCI China A Onshore TR Index. The fund invests 70% of its portfolio in China-A shares and balance may be invested in other Emerging Markets"
+                  MutualFundsdetailsObj!.data!.fundDescription ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Sharpe Ratio"),
@@ -237,8 +228,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.minimumInvestment ?? "",
-                "0.11"
+                  MutualFundsdetailsObj!.data!.sharpeRatio ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Annualized Volatility"),
@@ -248,8 +238,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.tenure ?? "",
-                "0.2377"
+                  MutualFundsdetailsObj!.data!.annualizedVolatility ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Max Drawdown"),
@@ -259,8 +248,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.payoutFrequency ?? "",
-                "-0.473"
+                  MutualFundsdetailsObj!.data!.maxDropdown ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("ISIN"),
@@ -270,8 +258,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "LU1997245177"
+                  MutualFundsdetailsObj!.data!.isin ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Inception Date"),
@@ -281,8 +268,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "Aug 19, 2019"
+                  MutualFundsdetailsObj!.data!.inceptionDate ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund AUM"),
@@ -292,8 +278,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                '''8.76B (As of 31st March 2022)''',
+                  MutualFundsdetailsObj!.data!.fundAum ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Expense Ratio"),
@@ -303,11 +288,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                '''Total Expense Ratio: 2.3%
-Fund Management Fee: 1.75%
-Fund Performance Fee: NA
-Transaction Fee: Upto 2%'''
+                  MutualFundsdetailsObj!.data!.expenseRatio ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("NAV per unit (USD)"),
@@ -317,8 +298,7 @@ Transaction Fee: Upto 2%'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "10.6308"
+                  MutualFundsdetailsObj!.data!.navPerUnit ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Minimum Investment (USD)"),
@@ -328,8 +308,7 @@ Transaction Fee: Upto 2%'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "50002"
+                  MutualFundsdetailsObj!.data!.minimumInvestment ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Returns"),
@@ -341,8 +320,7 @@ Transaction Fee: Upto 2%'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "-12.72"
+                  MutualFundsdetailsObj!.data!.ytd ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("1 Year Return"),
@@ -352,8 +330,7 @@ Transaction Fee: Upto 2%'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "-25.24"
+                  MutualFundsdetailsObj!.data!.year1Return ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("3 Year Return"),
@@ -363,121 +340,38 @@ Transaction Fee: Upto 2%'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "-4.01"
+                  MutualFundsdetailsObj!.data!.year3Return ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("2018"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "-25.85"
-                ),
+                ListView.separated(
+                    shrinkWrap: true,
+                    separatorBuilder: (BuildContext context, int index) {
+                      return SizedBox(
+                        height: 20.h,
+                      );
+                    },
+                    itemCount: MutualFundsdetailsObj!.data!.returns!.length,
+                    itemBuilder: (context, index) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          textA4856_20500(MutualFundsdetailsObj!
+                                  .data!.returns?[index].label ??
+                              ""),
+                          Divider(
+                            height: 25.h,
+                            thickness: 1.h,
+                            color: Colors.grey.shade400,
+                          ),
+                          text272424_18(MutualFundsdetailsObj!
+                                  .data!.returns?[index].value ??
+                              ""),
+                        ],
+                      );
+                    }),
                 sizedBoxHeight(20.h),
-                textA4856_20500("2019"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "58.47"
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("2020"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "72.73"
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("2021"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "-0.73"
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("2022"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "-35.75"
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Data As on"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "23-06-2023"
-                ),
-                sizedBoxHeight(20.h),
-
               ],
             )
-
-            // SizedBox(
-            //   height: MediaQuery.of(context).size.height - 265.h,
-            //   child: ListView.separated(
-            //       itemBuilder: (context, index) {
-            //         return Column(
-            //           mainAxisAlignment: MainAxisAlignment.start,
-            //           crossAxisAlignment: CrossAxisAlignment.start,
-            //           children: [
-            //             Text(
-            //               productDetails[0]['header'][index],
-            //               style: TextStyle(
-            //                 fontWeight: FontWeight.w500,
-            //                 fontSize: 20.sp,
-            //                 color: const Color(0xff3A4856),
-            //               ),
-            //             ),
-            //             Divider(
-            //               height: 25.h,
-            //               thickness: 1.h,
-            //               color: Colors.grey.shade400,
-            //             ),
-            //             Text(
-            //               // productDetails[0]['content'][widget.pageIndex]
-            //                   // [index],
-            //                   ""
-            //                   ,
-            //               style: TextStyle(
-            //                   fontSize: 18.sp,
-            //                   color: const Color(0xff272424)),
-            //             ),
-            //             sizedBoxHeight(28.h)
-            //           ],
-            //         );
-            //       },
-            //       separatorBuilder: (context, index) {
-            //         return SizedBox(
-            //           height: 0.h,
-            //         );
-            //       },
-            //       itemCount: productDetails[0]['header'].length),
-            // ),
           ],
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/viewModel/PeerProductService.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import 'PeerViewInvestment.dart';
 
@@ -140,7 +141,10 @@ class _SecondTabState extends State<SecondTab> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return 
+    peerProductsModelObj!.data!.isEmpty ?
+_buildNoDataBody(context):
+    ListView.separated(
       separatorBuilder: (context, index) {
         return sizedBoxHeight(15.h);
       },
@@ -317,4 +321,14 @@ class _SecondTabState extends State<SecondTab> {
       },
     );
   }
+
+  
+  Widget _buildNoDataBody(context){
+  return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        const Text("No Data Found")
+      ],
+    );
+}
 }

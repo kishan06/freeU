@@ -22,9 +22,9 @@ class _InvestmentGradeMainState extends State<InvestmentGradeMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff002555),
+      backgroundColor: const Color(0xffB23C7E),
       appBar: AppBar(
-        backgroundColor: const Color(0xff002555),
+        backgroundColor: const Color(0xffB23C7E),
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(

@@ -6,17 +6,17 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/Leasefinancingdetails.dart';
+import 'package:freeu/viewModel/GlobalfinancialFunds/DetailsReits.dart';
 import 'package:get/get.dart';
 
 class REITsDetails extends StatefulWidget {
   // final int pageIndex;
-  // final String slug;
+  final String slug;
 
   REITsDetails(
       {super.key,
       // required this.pageIndex
-      // required this.slug
+      required this.slug
       });
 
   @override
@@ -26,11 +26,11 @@ class REITsDetails extends StatefulWidget {
 class _REITsDetailsState extends State<REITsDetails> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
-  // late Future myfuture;
+  late Future myfuture;
 
   @override
   void initState() {
-    // myfuture = LeasefinancingDetails().LeasefinancingDetailsAPI(widget.slug);
+    myfuture = ReitsDetails().ReitsDetailsAPI(widget.slug);
     super.initState();
   }
 
@@ -97,32 +97,32 @@ class _REITsDetailsState extends State<REITsDetails> {
               },
               text: 'Invest now'),
         ),
-        body: _buildBody(context),
-        // FutureBuilder(
-        //   future: myfuture,
-        //   builder: (ctx, snapshot) {
-        //     if (snapshot.data == null) {
-        //       return Column(
-        //         mainAxisAlignment: MainAxisAlignment.center,
-        //         crossAxisAlignment: CrossAxisAlignment.center,
-        //         children: [Center(child: CircularProgressIndicator())],
-        //       );
-        //     }
-        //     if (snapshot.connectionState == ConnectionState.done) {
-        //       if (snapshot.hasError) {
-        //         return Center(
-        //           child: Text(
-        //             '${snapshot.error} occured',
-        //             style: TextStyle(fontSize: 18.spMin),
-        //           ),
-        //         );
-        //       }
-        //     }
-        //     return _buildBody(
-        //       context,
-        //     );
-        //   },
-        // )
+        body: 
+        FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        )
         );
   }
 
@@ -147,7 +147,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   width: 20.h,
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 132.w,
+                  width: MediaQuery.of(context).size.width - 138.w,
                   height: 75.h,
                   child: ListView.builder(
                     itemCount: 1,
@@ -158,8 +158,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                         children: [
                           sizedBoxHeight(10.h),
                           Text(
-                            "Lorem Ipsum",
-                            // leasefinancingdetailsobj!.data!.company ?? "",
+                            ReitsdetailsObj!.data!.name ?? "",
                             style: TextStyle(
                                 fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
@@ -182,8 +181,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.assetClass ?? "",
-                "American Tower Corporation"
+                   ReitsdetailsObj!.data!.name ?? "NA",
+               
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Ticker"),
@@ -193,8 +192,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.underlyingAsset ?? "",
-                "AMT"
+                   ReitsdetailsObj!.data!.ticker ?? "NA",
+             
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Exchange"),
@@ -204,8 +203,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.sector ?? "",
-                "NASDAQ"
+                   ReitsdetailsObj!.data!.exchange ?? "NA",
+                
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("About REIT"),
@@ -215,8 +214,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.mobilityPlatform ?? "",
-                "To Invest in American Large Scale Corporate Offices with Grade A Tenants"
+                   ReitsdetailsObj!.data!.about ?? "NA",
+
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Provider"),
@@ -226,8 +225,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.totalDealSize ?? "",
-                "American Tower"
+                   ReitsdetailsObj!.data!.provider ?? "NA",
+                
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Category"),
@@ -237,8 +236,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.minimumInvestment ?? "",
-                "Commercial Real Estate"
+                   ReitsdetailsObj!.data!.category ?? "NA",
+                 
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Expense Ratio"),
@@ -248,8 +247,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.tenure ?? "",
-                "0.60%"
+                   ReitsdetailsObj!.data!.expenseRatio ?? "NA",
+                 
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Dividend Yield"),
@@ -259,8 +258,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.payoutFrequency ?? "",
-                "4.00%"
+                   ReitsdetailsObj!.data!.dividendYield ?? "NA",
+                
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Beta"),
@@ -270,8 +269,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "1.29"
+                   ReitsdetailsObj!.data!.beta ?? "NA",
+                
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Returns"),
@@ -283,8 +282,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "8.59%"
+                   ReitsdetailsObj!.data!.year1Return ?? "NA",
+                
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("6 Month Return"),
@@ -294,8 +293,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "37.66%"
+                   ReitsdetailsObj!.data!.month6Return ?? "NA",
+                
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("1 Year Return"),
@@ -305,8 +304,8 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "31.38%"
+                   ReitsdetailsObj!.data!.year1Return ?? "NA",
+                
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("3 Year Return"),
@@ -316,67 +315,13 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "51.13%"
+                   ReitsdetailsObj!.data!.year3Return ?? "NA",
+                
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("Data As on"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "23-06-2023"
-                ),
-                sizedBoxHeight(20.h),
-
-
               ],
             )
 
-            // SizedBox(
-            //   height: MediaQuery.of(context).size.height - 265.h,
-            //   child: ListView.separated(
-            //       itemBuilder: (context, index) {
-            //         return Column(
-            //           mainAxisAlignment: MainAxisAlignment.start,
-            //           crossAxisAlignment: CrossAxisAlignment.start,
-            //           children: [
-            //             Text(
-            //               productDetails[0]['header'][index],
-            //               style: TextStyle(
-            //                 fontWeight: FontWeight.w500,
-            //                 fontSize: 20.sp,
-            //                 color: const Color(0xff3A4856),
-            //               ),
-            //             ),
-            //             Divider(
-            //               height: 25.h,
-            //               thickness: 1.h,
-            //               color: Colors.grey.shade400,
-            //             ),
-            //             Text(
-            //               // productDetails[0]['content'][widget.pageIndex]
-            //                   // [index],
-            //                   ""
-            //                   ,
-            //               style: TextStyle(
-            //                   fontSize: 18.sp,
-            //                   color: const Color(0xff272424)),
-            //             ),
-            //             sizedBoxHeight(28.h)
-            //           ],
-            //         );
-            //       },
-            //       separatorBuilder: (context, index) {
-            //         return SizedBox(
-            //           height: 0.h,
-            //         );
-            //       },
-            //       itemCount: productDetails[0]['header'].length),
-            // ),
           ],
         ),
       ),
