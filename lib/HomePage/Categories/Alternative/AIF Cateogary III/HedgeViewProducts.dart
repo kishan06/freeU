@@ -152,7 +152,11 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return 
+    hedgeObj!.data!.isEmpty ?
+_buildNoDataBody(context)
+:
+    ListView.separated(
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(top: 20),
@@ -374,6 +378,16 @@ class SecondTab extends StatelessWidget {
       itemCount: hedgeObj!.data!.length,
     );
   }
+
+  
+  Widget _buildNoDataBody(context){
+  return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        const Text("No Data Found")
+      ],
+    );
+}
 
   Widget hedgecard(company, view) {
     return SingleChildScrollView(

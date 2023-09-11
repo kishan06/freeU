@@ -2,11 +2,10 @@ import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Equities/equitiesproduct/detailsequities.dart';
-import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/MutualFunds/Mutualfundsproducts.dart/detailsmutualfund.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:freeu/viewModel/Leasefinancing.dart';
+import 'package:freeu/viewModel/GlobalfinancialFunds/EquitiesStocksproducts.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
@@ -14,15 +13,15 @@ class Equitiesproducts extends StatefulWidget {
   const Equitiesproducts({super.key});
 
   @override
-  State<Equitiesproducts> createState() => _VEquitiesproducts();
+  State<Equitiesproducts> createState() => _Equitiesproducts();
 }
 
-class _VEquitiesproducts extends State<Equitiesproducts> {
-  // late Future myfuture;
+class _Equitiesproducts extends State<Equitiesproducts> {
+  late Future myfuture;
 
   @override
   void initState() {
-    // myfuture = LeaseFinancing().LeaseFinancingAPI();
+    myfuture = EquitiesStockaproducts().EquitiesStockaproductsAPI();
     super.initState();
   }
 
@@ -45,32 +44,32 @@ class _VEquitiesproducts extends State<Equitiesproducts> {
           color: Colors.black,
         ),
       ),
-      body: _buildBody(context),
-      //  FutureBuilder(
-      //     future: myfuture,
-      //     builder: (ctx, snapshot) {
-      //       if (snapshot.data == null) {
-      //         return Column(
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           crossAxisAlignment: CrossAxisAlignment.center,
-      //           children: [Center(child: CircularProgressIndicator())],
-      //         );
-      //       }
-      //       if (snapshot.connectionState == ConnectionState.done) {
-      //         if (snapshot.hasError) {
-      //           return Center(
-      //             child: Text(
-      //               '${snapshot.error} occured',
-      //               style: TextStyle(fontSize: 18.spMin),
-      //             ),
-      //           );
-      //         }
-      //       }
-      //       return _buildBody(
-      //         context,
-      //       );
-      //     },
-      //   )
+      body: 
+       FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        )
     );
   }
 
@@ -186,15 +185,18 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-        // ListView.separated(
-        //   separatorBuilder: (context, index) {
-        //     return sizedBoxHeight(15.h);
-        //   },
-        //   scrollDirection: Axis.vertical,
-        //   itemCount: leasefinancingObj!.data!.length,
-        //   itemBuilder: (context, index) {
-        //     return
+    return 
+    Equitiesproductsobj!.data!.isEmpty ?
+_buildNoDataBody(context):
+    
+        ListView.separated(
+          separatorBuilder: (context, index) {
+            return sizedBoxHeight(15.h);
+          },
+          scrollDirection: Axis.vertical,
+          itemCount: Equitiesproductsobj!.data!.length,
+          itemBuilder: (context, index) {
+            return
         SingleChildScrollView(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -225,9 +227,7 @@ class SecondTab extends StatelessWidget {
                   child: Row(
                     children: [
                       Text(
-                        "Stocks",
-                        // leasefinancingObj!.data?[index].leaseBasedFinancing!.company! ?? "",
-                        // viewSlider[index]['Company Name'],
+                       Equitiesproductsobj!.data?[index].exchanges!.name ?? "NA",
                         style: TextStyle(
                             fontSize: 25.sp,
                             fontFamily: 'Poppins',
@@ -257,7 +257,7 @@ class SecondTab extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Text(
-                            "Stock Name:",
+                            "Industry:",
                             textAlign: TextAlign.left,
                             style: TextStyle(
                               fontSize: 18.sp,
@@ -266,9 +266,8 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            // leasefinancingObj!.data?[index].leaseBasedFinancing!.preTaxReturn! ?? "",
-                            "Apple Inc",
-                            // viewSlider[index]['Expected Return'],
+                       Equitiesproductsobj!.data?[index].exchanges!.industry ?? "NA",
+
                             style: TextStyle(
                               fontSize: 20.sp,
                               fontWeight: FontWeight.w500,
@@ -309,10 +308,8 @@ class SecondTab extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            // leasefinancingObj!.data?[index].leaseBasedFinancing!.minimumInvestment! ?? "",
-                            "NASDAQ",
-
-                            // viewSlider[index]['Minimum Investment'],
+                       Equitiesproductsobj!.data?[index].exchanges!.exchange ?? "NA",
+                          
                             textDirection: TextDirection.ltr,
                             textAlign: TextAlign.left,
                             style: TextStyle(
@@ -344,12 +341,9 @@ class SecondTab extends StatelessWidget {
                       color: AppColors.blue143C6D,
                     ),
                     child: OpenContainerWrappers(
-                      openBuild: EquitiesDetails(),
-                      // LeaseViewInvestment(
-                      //   slug: leasefinancingObj!.data?[index].leaseBasedFinancing!.slug ?? ""
-                      //   ),
-
-                      //  viewSlider[index]['View investment Route'],
+                      openBuild: EquitiesDetails(
+                        slug: Equitiesproductsobj!.data?[index].exchanges!.slug ?? "",
+                      ),
                       closeBuild: SizedBox(
                         width: double.infinity,
                         height: 50.h,
@@ -371,9 +365,17 @@ class SecondTab extends StatelessWidget {
         ),
       ),
     );
-    //   },
-    // );
+      },
+    );
   }
+    Widget _buildNoDataBody(context){
+  return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        const Text("No Data Found")
+      ],
+    );
+}
 }
 
 class ThirdTab extends StatelessWidget {

@@ -6,15 +6,12 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/VentureCapitalDetailsService.dart';
+import 'package:freeu/viewModel/Investbondsdetails.dart';
 import 'package:get/get.dart';
 
 class InvegradeDetails extends StatefulWidget {
-  // final String slug;
-  InvegradeDetails({
-    super.key,
-    // required this.slug
-  });
+  final String slug;
+  InvegradeDetails({super.key, required this.slug});
 
   @override
   State<InvegradeDetails> createState() => _InvegradeDetailsState();
@@ -27,7 +24,7 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
 
   @override
   void initState() {
-    // myfuture = VentureCapitalDetails().VentureCapitalDetailsAPI();
+    myfuture = InvestmentbondsDetails().InvestmentbondsDetailsAPI(widget.slug);
     super.initState();
   }
 
@@ -124,32 +121,31 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
             },
             text: 'Invest now'),
       ),
-      body: _buildBody(context),
-      // FutureBuilder(
-      //   future: myfuture,
-      //   builder: (ctx, snapshot) {
-      //     if (snapshot.data == null) {
-      //       return Column(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         crossAxisAlignment: CrossAxisAlignment.center,
-      //         children: [Center(child: CircularProgressIndicator())],
-      //       );
-      //     }
-      //     if (snapshot.connectionState == ConnectionState.done) {
-      //       if (snapshot.hasError) {
-      //         return Center(
-      //           child: Text(
-      //             '${snapshot.error} occured',
-      //             style: TextStyle(fontSize: 18.spMin),
-      //           ),
-      //         );
-      //       }
-      //     }
-      //     return _buildBody(
-      //       context,
-      //     );
-      //   },
-      // ),
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
+              );
+            }
+          }
+          return _buildBody(
+            context,
+          );
+        },
+      ),
     );
   }
 
@@ -183,9 +179,9 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          sizedBoxHeight(8.h),
                           Text(
-                            "International Corporate Bonds - Investment Grade",
-                            // ventureCapitalDetailsObj!.data!.fundName ?? "",
+                            InvestmentbondsdetailsObj!.data!.issuer ?? "",
                             style: TextStyle(
                                 fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
@@ -208,8 +204,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.registrationNumber ?? "N/A",
-                    "Apple Inc"),
+                  InvestmentbondsdetailsObj!.data!.issuer ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Bond Type"),
                 Divider(
@@ -218,8 +214,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.fundCategory ?? "N/A",
-                    "Corporate Bond - Investment Grade - Fixed Income"),
+                  InvestmentbondsdetailsObj!.data!.bondType ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("About Issuer"),
                 Divider(
@@ -228,8 +224,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.fundStructure ?? "N/A",
-                    "Apple Inc. is a multinational technology company known for designing and manufacturing consumer electronics, software, and online services. They are recognized for their popular products such as the iPhone, iPad, Mac, Apple Watch, and various software applications."),
+                  InvestmentbondsdetailsObj!.data!.aboutIssuer ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Industry"),
                 Divider(
@@ -238,8 +234,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.fundStrategy ?? "N/A",
-                    "Technology"),
+                  InvestmentbondsdetailsObj!.data!.industry ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Country of risk"),
                 Divider(
@@ -248,8 +244,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.fundDomicile ?? "N/A",
-                    "United States of America"),
+                  InvestmentbondsdetailsObj!.data!.countryOfRisk ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Country of Incorporation"),
                 Divider(
@@ -258,8 +254,9 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.fundManagerName ?? "N/A",
-                    "United States of America"),
+                  InvestmentbondsdetailsObj!.data!.countryOfIncorporation ??
+                      "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("ISIN"),
                 Divider(
@@ -268,8 +265,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.websiteOfTheFund ?? "N/A",
-                    "US037833CH12"),
+                  InvestmentbondsdetailsObj!.data!.isin ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Bond Type/Maturity Date"),
                 Divider(
@@ -278,9 +275,9 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.fundManagerExperience ??
-                    //     "N/A",
-                    "Feb 9, 2047"),
+                  InvestmentbondsdetailsObj!.data!.bondTypeOrMaturityDate ??
+                      "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Call Date"),
                 Divider(
@@ -289,8 +286,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.sponsor ?? "N/A",
-                    "Aug 9, 2046"),
+                  InvestmentbondsdetailsObj!.data!.callDate ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Coupon"),
                 Divider(
@@ -299,8 +296,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.manager ?? "N/A",
-                    "0.0425"),
+                  InvestmentbondsdetailsObj!.data!.coupon ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Indicative Yield (p.a.) (Mid)"),
                 Divider(
@@ -309,8 +306,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.trustee ?? "N/A",
-                    "0.0471"),
+                  InvestmentbondsdetailsObj!.data!.indicativeYieldPaMid ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Indicative Price (Mid) "),
                 Divider(
@@ -319,8 +316,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.auditor ?? "N/A",
-                    "93.43 USD"),
+                  InvestmentbondsdetailsObj!.data!.indicativePriceUsMid ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Minimum Investment"),
                 Divider(
@@ -329,8 +326,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.valuerTaxAdvisor ?? "N/A",
-                    "10,000 USD"),
+                  InvestmentbondsdetailsObj!.data!.minimumInvestment ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Yield to Worst p.a. (ask)"),
                 Divider(
@@ -339,8 +336,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.creditRating ?? "N/A",
-                    "0.0468"),
+                  InvestmentbondsdetailsObj!.data!.yieldToWorstPaAsk ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Yield to Worst p.a. (bid)"),
                 Divider(
@@ -349,8 +346,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.openDate ?? "N/A",
-                    "0.0475"),
+                  InvestmentbondsdetailsObj!.data!.yieldToWorstPaBid ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Price (Ask)"),
                 Divider(
@@ -359,8 +356,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.firstCloseDate ?? "N/A",
-                    "93.79 USD"),
+                  InvestmentbondsdetailsObj!.data!.priceAsk ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Price (Bid)"),
                 Divider(
@@ -369,8 +366,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.finalCloseDate ?? "N/A",
-                    "93.06 USD"),
+                  InvestmentbondsdetailsObj!.data!.priceBid ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Accrued Interest"),
                 Divider(
@@ -379,8 +376,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.tenureFromFinalDate ?? "N/A",
-                    "1.45 USD"),
+                  InvestmentbondsdetailsObj!.data!.accruedInterest ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Yield To Call"),
                 Divider(
@@ -389,8 +386,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.commitmentPeriod ?? "N/A",
-                    "0.0472"),
+                  InvestmentbondsdetailsObj!.data!.yieldToCall ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Duration (Years)"),
                 Divider(
@@ -399,8 +396,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.nativeCurrency ?? "N/A",
-                    "14.26"),
+                  InvestmentbondsdetailsObj!.data!.duration ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Amount Outstanding (USD)"),
                 Divider(
@@ -409,8 +406,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.targetCorpus ?? "N/A",
-                    "1,000,000,000 USD"),
+                  InvestmentbondsdetailsObj!.data!.amountOutstanding ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Collateral Type"),
                 Divider(
@@ -419,10 +416,8 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!
-                    //         .data!.investmentManagerContribution ??
-                    //     "N/A",
-                    "Senior Unsecured"),
+                  InvestmentbondsdetailsObj!.data!.collateralType ?? "NA",
+                ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Credit Rating"),
                 Divider(
@@ -431,113 +426,9 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    // ventureCapitalDetailsObj!.data!.minimumCapitalCommitment ??
-                    //     "N/A",
-                    "AA+"),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Data As on"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
+                  InvestmentbondsdetailsObj!.data!.creditRating ?? "NA",
                 ),
-                text272424_18(
-                    // ventureCapitalDetailsObj!.data!.intialDrawdown ?? "N/A",
-                    "23-06-2023"),
                 sizedBoxHeight(20.h),
-                // textA4856_20500("Accepting Overseas investment?"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.acceptingOverseasInvestment ??
-                //       "N/A",
-                // ),
-                // sizedBoxHeight(20.h), textA4856_20500("Target IRR (%)"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.targetIrr ?? "N/A",
-                // ),
-                // sizedBoxHeight(20.h),
-                // textA4856_20500(
-                //     "Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.managementFeesAndCarry ??
-                //       "N/A",
-                // ),
-                // sizedBoxHeight(20.h), textA4856_20500("Hurdle Rate"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.hurdleRate ?? "N/A",
-                // ),
-                // sizedBoxHeight(20.h), textA4856_20500("Other Expenses"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.otherExpenses ?? "N/A",
-                // ),
-                // sizedBoxHeight(20.h),
-                // textA4856_20500(
-                //     "Focused Sectors (Industries in which they are investing)"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.focusedSectorsIndustries ??
-                //       "N/A",
-                // ),
-                // sizedBoxHeight(20.h),
-                // textA4856_20500(
-                //     "Regions Covered (Geographical Locations covered by the fund)"),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // text272424_18(
-                //   ventureCapitalDetailsObj!.data!.regionsCovered ?? "N/A",
-                // ),
-                // sizedBoxHeight(20.h),
-                // Text(
-                //   productDetails[0]['header'][index],
-                //   style: TextStyle(
-                //     fontWeight: FontWeight.w500,
-                //     fontSize: 20.sp,
-                //     color: const Color(0xff3A4856),
-                //   ),
-                // ),
-                // Divider(
-                //   height: 25.h,
-                //   thickness: 1.h,
-                //   color: Colors.grey.shade400,
-                // ),
-                // Text(
-                //   productDetails[0]['content'][widget.pageIndex][index],
-                //   style: TextStyle(
-                //       fontSize: 18.sp, color: const Color(0xff272424)),
-                // ),
-
-                sizedBoxHeight(28.h)
               ],
             ),
           ],

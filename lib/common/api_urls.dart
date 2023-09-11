@@ -75,7 +75,32 @@ class ApiUrls {
   static const Sovereignbondsproducts = "${baseUrl}sovereign-government-bond-all-data";
   static const SovereignbondsDetails = "${baseUrl}bonds-single-data";
 
+  static const Investmentbondsproducts = "${baseUrl}investment-grade-bond-all-data";
+  static const InvestmentbondsDetails = "${baseUrl}bonds-single-data";
 
+  static const Highyieldsbondsproducts = "${baseUrl}high-yield-bonds-all-data";
+  static const HighyieldbondsDetails = "${baseUrl}bonds-single-data";
+
+  static const MutualFundsproducts = "${baseUrl}mutual-fund-all-data";
+  static const FundsSingleDetails = "${baseUrl}funds-single-data";
+  static const Venturecapitalfundproducts = "${baseUrl}venture-capital-fund-all-data";
+  static const PrivateEquityFundsproducts = "${baseUrl}private-equity-fund-all-data";
+  static const HedgeFundsproducts = "${baseUrl}hedge-fund-all-data";
+  static const Equitiesproducts = "${baseUrl}equities-all-data";
+
+  static const Equitiestocksdetails = "${baseUrl}equities-stock-real-estate-single-data";
+
+  static const Etifsproducts = "${baseUrl}exchange-traded-fund-all-data";
+
+  static const Reitsproducts = "${baseUrl}reits-all-data";
+
+
+
+
+
+
+
+  
   
 
 }

@@ -6,31 +6,32 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/Leasefinancingdetails.dart';
+import 'package:freeu/viewModel/GlobalfinancialFunds/DetailsVencap.dart';
 import 'package:get/get.dart';
 
 class VentureCapitalfundsDetails extends StatefulWidget {
   // final int pageIndex;
-  // final String slug;
+  final String slug;
 
   VentureCapitalfundsDetails(
       {super.key,
       // required this.pageIndex
-      // required this.slug
-      });
+      required this.slug});
 
   @override
-  State<VentureCapitalfundsDetails> createState() => _VentureCapitalfundsDetailsState();
+  State<VentureCapitalfundsDetails> createState() =>
+      _VentureCapitalfundsDetailsState();
 }
 
-class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails> {
+class _VentureCapitalfundsDetailsState
+    extends State<VentureCapitalfundsDetails> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
-  // late Future myfuture;
+  late Future myfuture;
 
   @override
   void initState() {
-    // myfuture = LeasefinancingDetails().LeasefinancingDetailsAPI(widget.slug);
+    myfuture = VentureCapitalDetails().VentureCapitalDetailsAPI(widget.slug);
     super.initState();
   }
 
@@ -97,33 +98,31 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
               },
               text: 'Invest now'),
         ),
-        body: _buildBody(context),
-        // FutureBuilder(
-        //   future: myfuture,
-        //   builder: (ctx, snapshot) {
-        //     if (snapshot.data == null) {
-        //       return Column(
-        //         mainAxisAlignment: MainAxisAlignment.center,
-        //         crossAxisAlignment: CrossAxisAlignment.center,
-        //         children: [Center(child: CircularProgressIndicator())],
-        //       );
-        //     }
-        //     if (snapshot.connectionState == ConnectionState.done) {
-        //       if (snapshot.hasError) {
-        //         return Center(
-        //           child: Text(
-        //             '${snapshot.error} occured',
-        //             style: TextStyle(fontSize: 18.spMin),
-        //           ),
-        //         );
-        //       }
-        //     }
-        //     return _buildBody(
-        //       context,
-        //     );
-        //   },
-        // )
-        );
+        body: FutureBuilder(
+          future: myfuture,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return _buildBody(
+              context,
+            );
+          },
+        ));
   }
 
   Widget _buildBody(context) {
@@ -158,8 +157,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                         children: [
                           sizedBoxHeight(10.h),
                           Text(
-                            "Lorem Ipsum",
-                            // leasefinancingdetailsobj!.data!.company ?? "",
+                            VenturecapitaldetailsObj!.data!.issuer ?? "",
                             style: TextStyle(
                                 fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
@@ -182,8 +180,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.assetClass ?? "",
-                "Point72 Asset Management, L.P"
+                  VenturecapitaldetailsObj!.data!.issuer ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Name"),
@@ -193,8 +190,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.underlyingAsset ?? "",
-                "Point72 (AAAP Feeder)"
+                  VenturecapitaldetailsObj!.data!.fundName ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Type"),
@@ -204,8 +200,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.sector ?? "",
-                "Multi-Asset"
+                  VenturecapitaldetailsObj!.data!.fundType ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("About Issuer"),
@@ -215,8 +210,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.mobilityPlatform ?? "",
-                "Point72 is a renowned global asset management firm founded by Steven Cohen. With a focus on long-term value investing, it manages substantial assets. Employing a team of skilled investment professionals, Point72 combines advanced technology and rigorous research to make strategic investment decisions across various markets."
+                  VenturecapitaldetailsObj!.data!.aboutIssuer ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Description"),
@@ -226,8 +220,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.totalDealSize ?? "",
-                "The fund seeks to generate absolute returns, typically with a market neutral approach, from trading their respective strategies. The fund is anchored in fundamental long/short equity trading, representing approximately 75% of the capital allocation, with approximately 20% of the remaining capital allocated to systematic strategies and the remaining 5% to Global Macro and other strategies."
+                  VenturecapitaldetailsObj!.data!.fundDescription ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Sharpe Ratio"),
@@ -237,8 +230,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.minimumInvestment ?? "",
-                "2.14"
+                  VenturecapitaldetailsObj!.data!.sharpeRatio ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Annualized Volatility"),
@@ -248,8 +240,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.tenure ?? "",
-                "0.0816"
+                  VenturecapitaldetailsObj!.data!.annualizedVolatility ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Max Drawdown"),
@@ -259,8 +250,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.payoutFrequency ?? "",
-                "-0.2411"
+                  VenturecapitaldetailsObj!.data!.maxDropdown ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("ISIN"),
@@ -270,8 +260,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "VGG0395J5750"
+                  VenturecapitaldetailsObj!.data!.isin ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Inception Date"),
@@ -281,8 +270,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "May 30, 2022"
+                  VenturecapitaldetailsObj!.data!.inceptionDate ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund AUM"),
@@ -292,8 +280,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "27.77B (As of 1st March 2023)"
+                  VenturecapitaldetailsObj!.data!.fundAum ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Expense Ratio"),
@@ -303,11 +290,7 @@ class _VentureCapitalfundsDetailsState extends State<VentureCapitalfundsDetails>
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                '''Fund Management Fee: 2.85%
-Fund Performance Fee: NA
-Transaction Fee: Upto 2.00%
-Other Fee: 0.9% p.a.'''
+                  VenturecapitaldetailsObj!.data!.expenseRatio ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("NAV per Unit (USD)"),
@@ -317,8 +300,7 @@ Other Fee: 0.9% p.a.'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "153.92"
+                  VenturecapitaldetailsObj!.data!.navPerUnit ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Minimum Investment (USD)"),
@@ -328,8 +310,7 @@ Other Fee: 0.9% p.a.'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "50000"
+                  VenturecapitaldetailsObj!.data!.minimumInvestment ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Returns"),
@@ -341,8 +322,7 @@ Other Fee: 0.9% p.a.'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "4.27"
+                  VenturecapitaldetailsObj!.data!.ytd ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("1 Year Return"),
@@ -352,8 +332,7 @@ Other Fee: 0.9% p.a.'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "11.05"
+                  VenturecapitaldetailsObj!.data!.year1Return ?? "",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("3 Year Return"),
@@ -363,111 +342,39 @@ Other Fee: 0.9% p.a.'''
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "18.79"
+                  VenturecapitaldetailsObj!.data!.year3Return ?? "",
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("2019"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "15.41"
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("2020"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "15.18"
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("2021"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "29.74"
+                ListView.separated(
+                  shrinkWrap: true,
+                  separatorBuilder: (BuildContext context, int index) {
+                    return SizedBox(
+                      height: 20.h,
+                    );
+                  },
+                  itemCount: VenturecapitaldetailsObj!.data!.returns!.length,
+                  itemBuilder: (context, index) {
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        textA4856_20500(VenturecapitaldetailsObj!
+                                .data!.returns?[index].label ??
+                            ""),
+                        Divider(
+                          height: 25.h,
+                          thickness: 1.h,
+                          color: Colors.grey.shade400,
+                        ),
+                        text272424_18(VenturecapitaldetailsObj!
+                                .data!.returns?[index].value ??
+                            ""),
+                      ],
+                    );
+                  },
                 ),
                 sizedBoxHeight(20.h),
-                textA4856_20500("2022"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "8.8"
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Data As on"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                "23-06-2023"
-                ),
-                sizedBoxHeight(20.h),
-
-
               ],
             )
-
-            // SizedBox(
-            //   height: MediaQuery.of(context).size.height - 265.h,
-            //   child: ListView.separated(
-            //       itemBuilder: (context, index) {
-            //         return Column(
-            //           mainAxisAlignment: MainAxisAlignment.start,
-            //           crossAxisAlignment: CrossAxisAlignment.start,
-            //           children: [
-            //             Text(
-            //               productDetails[0]['header'][index],
-            //               style: TextStyle(
-            //                 fontWeight: FontWeight.w500,
-            //                 fontSize: 20.sp,
-            //                 color: const Color(0xff3A4856),
-            //               ),
-            //             ),
-            //             Divider(
-            //               height: 25.h,
-            //               thickness: 1.h,
-            //               color: Colors.grey.shade400,
-            //             ),
-            //             Text(
-            //               // productDetails[0]['content'][widget.pageIndex]
-            //                   // [index],
-            //                   ""
-            //                   ,
-            //               style: TextStyle(
-            //                   fontSize: 18.sp,
-            //                   color: const Color(0xff272424)),
-            //             ),
-            //             sizedBoxHeight(28.h)
-            //           ],
-            //         );
-            //       },
-            //       separatorBuilder: (context, index) {
-            //         return SizedBox(
-            //           height: 0.h,
-            //         );
-            //       },
-            //       itemCount: productDetails[0]['header'].length),
-            // ),
           ],
         ),
       ),

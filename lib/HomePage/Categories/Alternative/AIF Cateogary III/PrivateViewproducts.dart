@@ -165,7 +165,10 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return
+    privateinvestpublicObj!.data!.isEmpty ?
+_buildNoDataBody(context):
+     ListView.separated(
       separatorBuilder: (context, index) {
         return sizedBoxHeight(15.h);
       },
@@ -394,6 +397,16 @@ class SecondTab extends StatelessWidget {
       },
     );
   }
+
+  
+  Widget _buildNoDataBody(context){
+  return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        const Text("No Data Found")
+      ],
+    );
+}
 }
 
 class ThirdTab extends StatelessWidget {

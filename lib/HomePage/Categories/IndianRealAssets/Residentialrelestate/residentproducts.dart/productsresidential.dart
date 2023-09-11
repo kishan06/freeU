@@ -183,206 +183,207 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    Indianresidentialproducts!.data!.isEmpty ?
-    _buildNoDataBody()
-    :
-    ListView.separated(
-      separatorBuilder: (context, index) {
-        return sizedBoxHeight(15.h);
-      },
-      scrollDirection: Axis.vertical,
-      itemCount: Indianresidentialproducts!.data!.length,
-      itemBuilder: (context, index) {
-        return SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.w),
-            child: Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Color(0xffffffff),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0x48B9B9BE),
-                    blurRadius: 20.0,
-                    spreadRadius: 0,
-                    // offset: Offset(-20, -20,),
-                  )
-                ],
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: 15.h,
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.h,
+    return Indianresidentialproducts!.data!.isEmpty
+        ? _buildNoDataBody()
+        : ListView.separated(
+            separatorBuilder: (context, index) {
+              return sizedBoxHeight(15.h);
+            },
+            scrollDirection: Axis.vertical,
+            itemCount: Indianresidentialproducts!.data!.length,
+            itemBuilder: (context, index) {
+              return SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Color(0xffffffff),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0x48B9B9BE),
+                          blurRadius: 20.0,
+                          spreadRadius: 0,
+                          // offset: Offset(-20, -20,),
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16.w),
-                      child: Row(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 15.h,
+                      ),
+                      child: Column(
                         children: [
-                          Flexible(
-                            child: Text(
-                              Indianresidentialproducts!
-                                      .data?[index].realEstate!.propertyName ??
-                                  "",
-                              style: TextStyle(
-                                  fontSize: 25.sp,
-                                  fontFamily: 'Poppins',
-                                  color: const Color(0XFF000000),
-                                  fontWeight: FontWeight.w500),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.w),
+                            child: Row(
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    Indianresidentialproducts!.data?[index]
+                                            .realEstate!.propertyName ??
+                                        "",
+                                    style: TextStyle(
+                                        fontSize: 25.sp,
+                                        fontFamily: 'Poppins',
+                                        color: const Color(0XFF000000),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/investmentproperties (1).png",
-                            width: 50.w,
-                            height: 50.w,
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.w),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  "assets/images/investmentproperties (1).png",
+                                  width: 50.w,
+                                  height: 50.w,
+                                ),
+                                SizedBox(
+                                  width: 25.w,
+                                ),
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        "Project Type:",
+                                        textAlign: TextAlign.left,
+                                        style: TextStyle(
+                                          fontSize: 18.sp,
+                                          color: const Color(0XFF000000),
+                                          fontFamily: 'Poppins',
+                                        ),
+                                      ),
+                                      Text(
+                                        Indianresidentialproducts!.data?[index]
+                                                .realEstate!.projectType ??
+                                            "",
+
+                                        // viewSlider[index]['Expected Return'],
+                                        style: TextStyle(
+                                          fontSize: 20.sp,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
                           ),
                           SizedBox(
-                            width: 25.w,
+                            height: 30.h,
                           ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Project Type:",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: const Color(0XFF000000),
-                                  fontFamily: 'Poppins',
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.w),
+                            child: Row(
+                              children: [
+                                Image.asset(
+                                  "assets/images/propertiestransfer.png",
+                                  width: 50.w,
+                                  height: 50.h,
                                 ),
+                                SizedBox(
+                                  width: 25.w,
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Current Status",
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 18.sp,
+                                        color: const Color(0XFF000000),
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w300,
+                                      ),
+                                    ),
+                                    Text(
+                                      Indianresidentialproducts!.data?[index]
+                                              .realEstate!.currentStatus ??
+                                          "NA",
+                                      textDirection: TextDirection.ltr,
+                                      textAlign: TextAlign.left,
+                                      style: TextStyle(
+                                        fontSize: 20.sp,
+                                        color: const Color(0XFF000000),
+                                        fontFamily: 'Poppins',
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 40.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+                            child: Container(
+                              height: 50.h,
+                              decoration: BoxDecoration(
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Color.fromARGB(255, 220, 220, 226),
+                                  )
+                                ],
+                                borderRadius: BorderRadius.circular(10.r),
+                                color: AppColors.blue143C6D,
                               ),
-                              Text(
-                                Indianresidentialproducts!
-                                        .data?[index].realEstate!.projectType ??
-                                    "",
+                              child: OpenContainerWrappers(
+                                openBuild: ResidentialDetails(
+                                  slug: Indianresidentialproducts!
+                                          .data?[index].realEstate!.slug ??
+                                      "",
+                                ),
+                                // LeaseViewInvestment(
+                                //   slug: leasefinancingObj!.data?[index].leaseBasedFinancing!.slug ?? ""
+                                //   ),
 
-                                // viewSlider[index]['Expected Return'],
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  fontWeight: FontWeight.w500,
+                                //  viewSlider[index]['View investment Route'],
+                                closeBuild: SizedBox(
+                                  width: double.infinity,
+                                  height: 50.h,
+                                  child: Center(
+                                      child: Text(
+                                    'View Details',
+                                    style: TextStyle(
+                                      color: AppColors.white,
+                                      fontSize: 18.sp,
+                                    ),
+                                  )),
                                 ),
                               ),
-                            ],
+                            ),
                           )
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16.w),
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/propertiestransfer.png",
-                            width: 50.w,
-                            height: 50.h,
-                          ),
-                          SizedBox(
-                            width: 25.w,
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Current Status",
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 18.sp,
-                                  color: const Color(0XFF000000),
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                              Text(
-                                Indianresidentialproducts!.data?[index]
-                                        .realEstate!.currentStatus ??
-                                    "",
-                                textDirection: TextDirection.ltr,
-                                textAlign: TextAlign.left,
-                                style: TextStyle(
-                                  fontSize: 20.sp,
-                                  color: const Color(0XFF000000),
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 40.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-                      child: Container(
-                        height: 50.h,
-                        decoration: BoxDecoration(
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color.fromARGB(255, 220, 220, 226),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(10.r),
-                          color: AppColors.blue143C6D,
-                        ),
-                        child: OpenContainerWrappers(
-                          openBuild: ResidentialDetails(
-                            slug: Indianresidentialproducts!.data?[index].realEstate!.slug ?? "",
-                          ),
-                          // LeaseViewInvestment(
-                          //   slug: leasefinancingObj!.data?[index].leaseBasedFinancing!.slug ?? ""
-                          //   ),
-
-                          //  viewSlider[index]['View investment Route'],
-                          closeBuild: SizedBox(
-                            width: double.infinity,
-                            height: 50.h,
-                            child: Center(
-                                child: Text(
-                              'View Details',
-                              style: TextStyle(
-                                color: AppColors.white,
-                                fontSize: 18.sp,
-                              ),
-                            )),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
+                  ),
                 ),
-              ),
-            ),
-          ),
-        );
-      },
-    );
+              );
+            },
+          );
   }
 
-    
   Widget _buildNoDataBody() {
-    return 
-       Column(
+    return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
         const Text("No Data Found")

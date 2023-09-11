@@ -252,7 +252,11 @@ class _SecondTabState extends State<SecondTab> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return
+    highyieldObj!.data!.isEmpty ?
+_buildNoDataBody(context):
+
+     ListView.separated(
         separatorBuilder: (context, index) {
           return sizedBoxHeight(0.h);
         },
@@ -457,6 +461,16 @@ class _SecondTabState extends State<SecondTab> {
           //     highYieldProductData[index].minimum, index);
         });
   }
+
+  
+  Widget _buildNoDataBody(context){
+  return Column(
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        const Text("No Data Found")
+      ],
+    );
+}
 
   // Widget properties(
   //   String title,

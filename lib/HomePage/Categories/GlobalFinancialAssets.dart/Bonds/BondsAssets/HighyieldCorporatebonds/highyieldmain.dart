@@ -22,9 +22,9 @@ class _HighyieldbondsmainState extends State<Highyieldbondsmain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xff002555),
+      backgroundColor: const Color(0xff008A5B),
       appBar: AppBar(
-        backgroundColor: const Color(0xff002555),
+        backgroundColor: const Color(0xff008A5B),
         elevation: 0,
         titleSpacing: 0,
         leading: IconButton(
@@ -80,8 +80,7 @@ class _HighyieldbondsmainState extends State<Highyieldbondsmain> {
                         height: 9.h,
                       ),
                       OpenContainerWrappers(
-                        openBuild: const 
-                        HighyieldBondsLearnmore(),
+                        openBuild: const HighyieldBondsLearnmore(),
                         closeBuild: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [

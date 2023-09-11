@@ -1,5 +1,4 @@
 
-import 'package:freeu/Models/GlobalIndustrialproducts.dart';
 import 'package:freeu/Models/Sovereignbondsmodel.dart';
 import 'package:freeu/common/api_urls.dart';
 import 'package:freeu/controllers/base_manager.dart';
