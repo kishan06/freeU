@@ -78,6 +78,7 @@ import 'package:freeu/SideMenu/PrivacyPolicy.dart';
 import 'package:freeu/SideMenu/TermsAndCondition.dart';
 import 'package:freeu/SideMenu/FAQ/faqs.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
+import 'package:freeu/SideMenu/edituser_logged.dart';
 import 'package:freeu/SideMenu/insights.dart';
 import 'package:freeu/SideMenu/security.dart';
 import 'package:freeu/SideMenu/UpdateRiskProfile.dart';
@@ -514,6 +515,10 @@ class _MyAppState extends State<MyApp> {
                      GetPage(
                     name: '/globalindustrialproducts',
                     page: () => const GlobalIndustrialproductstab()),
+                     GetPage(
+                    name: '/edituser',
+                    page: () => const EditUser()),
+                    
                     
                     
 
