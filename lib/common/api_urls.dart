@@ -94,6 +94,9 @@ class ApiUrls {
 
   static const Reitsproducts = "${baseUrl}reits-all-data";
 
+  static const Getprofile = "${baseUrl}get-user";
+
+  static const Postprofiledetails = "${baseUrl}update-profile";
 
 
 

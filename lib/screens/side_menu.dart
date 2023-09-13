@@ -9,6 +9,7 @@ import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/profile/profile.dart';
+import 'package:freeu/viewModel/Profile/Getprofile.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -66,8 +67,14 @@ class _SideBarState extends State<SideBar> {
                   }, child: GetBuilder<EntryPointController>(builder: (_) {
                     return controllerEntryPoint.logedIn!
                         ? InkWell(
-                            onTap: () {
-                              Get.toNamed("/userlogged");
+                            onTap: () async {
+                            final result = await  Get.toNamed("/userlogged");
+                            print("result is $result");
+                            if (result) {
+                              setState(() {
+                                
+                              });
+                            }
                             },
                             child: Row(
                               children: [
@@ -106,7 +113,7 @@ class _SideBarState extends State<SideBar> {
                                     text16White(
                                       nameValue == null || nameValue!.isEmpty
                                           ? myusername!
-                                          : '$nameValue $lastNameValue',
+                                          : '$nameValue',
                                     ),
                                     text14White("Investor")
                                   ],
@@ -316,6 +323,7 @@ Future<dynamic> logoutDailog(BuildContext context) {
     await prefs.remove('name');
     
           Get.offAll(() => Login());
+          print(myusername!);
 
                       // final SharedPreferences prefs =
                       //     await SharedPreferences.getInstance();
