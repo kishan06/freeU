@@ -7,7 +7,6 @@ import 'package:freeu/Models/PrivateEquityModel.dart';
 import 'package:freeu/common/api_urls.dart';
 import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/controllers/network_api.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 CategorieslistModel? categorieslistObj;
 
@@ -15,7 +14,6 @@ class Categorieslist {
   Categorieslist();
 
   Future<ResponseData<dynamic>> CategorieslistAPI() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
     final response = await NetworkApi().getApi(ApiUrls.Categoriesmainlist);
 
     if (response.status == ResponseStatus.SUCCESS) {

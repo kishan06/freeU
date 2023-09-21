@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/ViewModel/FAQ/FAQ.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
@@ -67,6 +68,14 @@ class _RevenueBasedLearnMoreState extends State<RevenueBasedLearnMore> {
     },
   ];
 
+  Future? myfuture;
+
+  @override
+  void initState() {
+    myfuture = FAQ().revenueBasedFinancingApi();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,48 +93,68 @@ class _RevenueBasedLearnMoreState extends State<RevenueBasedLearnMore> {
         titleTxt: "",
         bottomtext: false,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Flexible(
-                  child: Text(
-                    "Revenue-based Financing",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
                 ),
-              ],
-            ),
-            Expanded(
-              child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    if (index == 3) {
-                      return fracReal4();
-                    } else if (index == 4) {
-                      return fracReal5();
-                    } else if (index == 5) {
-                      return fracReal6();
-                    } else {
-                      return fracReal1(FracRealEstData[index]["question"],
-                          FracRealEstData[index]["ans"]);
-                    }
-                  },
-                  separatorBuilder: (context, index) {
-                    return sizedBoxHeight(20.h);
-                  },
-                  itemCount: FracRealEstData.length),
-            ),
-          ],
-        ),
+              );
+            }
+          }
+          return _buildBody();
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
+                  "Revenue-based Financing",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return fracReal1(
+                    revenueBasedfaq!.data![index].faqQuestion ?? "",
+                    revenueBasedfaq!.data![index].faqAnswer ?? "",
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return sizedBoxHeight(20.h);
+                },
+                itemCount: revenueBasedfaq!.data!.length),
+          ),
+        ],
       ),
     );
   }

@@ -69,14 +69,14 @@ class AIFSellForm extends StatelessWidget {
                             'Category II',
                             'Category III'
                           ],
-                          controller: residentialstatustexteditingcontroller,
+                        //  controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       sizedBoxHeight(20.h),
                       txt20Black('Fund Structure '),
                       sizedBoxHeight(6.h),
                       CustomTextDropdown(
                           item: const ['Open', 'Closed'],
-                          controller: residentialstatustexteditingcontroller,
+                     //     controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       sizedBoxHeight(20.h),
                       txt20Black('Type of Fund'),
@@ -94,7 +94,7 @@ class AIFSellForm extends StatelessWidget {
                             'PIPE Fund',
                             'Others'
                           ],
-                          controller: residentialstatustexteditingcontroller,
+                        //  controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       SizedBox(height: 20.h),
                       txt20Black('Fund Strategy'),

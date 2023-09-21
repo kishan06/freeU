@@ -66,7 +66,7 @@ class OtherSellForm extends StatelessWidget {
                             'Structured Debt Instrument',
                             'Others'
                           ],
-                          controller: residentialstatustexteditingcontroller,
+                       //   controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       sizedBoxHeight(20.h),
                       txt20Black('Security Name'),
@@ -87,7 +87,7 @@ class OtherSellForm extends StatelessWidget {
                             'Unsecured Bonds',
                             'Others'
                           ],
-                          controller: residentialstatustexteditingcontroller,
+                       //   controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       sizedBoxHeight(20.h),
                       txt20Black('Instrument Issuer'),
@@ -111,7 +111,7 @@ class OtherSellForm extends StatelessWidget {
                       sizedBoxHeight(6.h),
                       CustomTextDropdown(
                           item: const ['Yes', 'No'],
-                          controller: residentialstatustexteditingcontroller,
+                       //   controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       SizedBox(height: 20.h),
                       txt20Black('Date of Original Investment'),

@@ -12,7 +12,7 @@ import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/controllers/network_api.dart';
 import 'package:freeu/login/login.dart';
 import 'package:freeu/profile/profile.dart';
-import 'package:freeu/viewModel/auth_post.dart';
+import 'package:freeu/ViewModel/auth_post.dart';
 
 import 'package:get/get.dart';
 

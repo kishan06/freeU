@@ -79,7 +79,7 @@ import 'package:freeu/SideMenu/TermsAndCondition.dart';
 import 'package:freeu/SideMenu/FAQ/faqs.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
 import 'package:freeu/SideMenu/edituser_logged.dart';
-import 'package:freeu/SideMenu/insights.dart';
+import 'package:freeu/SideMenu/Insights.dart';
 import 'package:freeu/SideMenu/security.dart';
 import 'package:freeu/SideMenu/UpdateRiskProfile.dart';
 import 'package:freeu/SideMenu/user_logged.dart';
@@ -235,8 +235,7 @@ class _MyAppState extends State<MyApp> {
                 GetPage(
                     name: '/updaterisk', page: () => const UpdateRishProfile()),
                 GetPage(name: '/insights', page: () => const Insights()),
-                GetPage(
-                    name: '/insightsinner', page: () => const InsightsInner()),
+                GetPage(name: '/insightsinner', page: () => InsightsInner()),
                 GetPage(
                     name: '/privacypolicy', page: () => const PrivacyPolicy()),
                 GetPage(
@@ -381,157 +380,136 @@ class _MyAppState extends State<MyApp> {
                     name: '/InfractureViewMoreProduct',
                     page: () => const InfractureViewMoreProduct()),
 
-                GetPage(
-                    name: '/comingsoon',
-                    page: () => const ComingSoon()),  
+                GetPage(name: '/comingsoon', page: () => const ComingSoon()),
                 GetPage(
                     name: '/globalcatmain',
-                    page: () => const Globalcategoriesmain()),   
-                    GetPage(
+                    page: () => const Globalcategoriesmain()),
+                GetPage(
                     name: '/bondslearnmore',
-                    page: () => const BondsLearnmore()),      
-                    GetPage(
+                    page: () => const BondsLearnmore()),
+                GetPage(
                     name: '/bondsassetsmain',
-                    page: () => const BondsAssetsmain()),  
-                    GetPage(
+                    page: () => const BondsAssetsmain()),
+                GetPage(
                     name: '/sovereignlearnmore',
                     page: () => const SovereignLearnmore()),
-                     GetPage(
+                GetPage(
                     name: '/sovereignproductstab',
                     page: () => const Sovereignproductstab()),
-                    GetPage(
+                GetPage(
                     name: '/invegrademain',
                     page: () => const InvestmentGradeMain()),
-                    GetPage(
+                GetPage(
                     name: '/sovereignbondsmain',
                     page: () => const SovereignBondsmain()),
-                    GetPage(
+                GetPage(
                     name: '/invegradelearnmore',
                     page: () => const InvegradeLearnmore()),
-                     GetPage(
+                GetPage(
                     name: '/invegradeproductstab',
                     page: () => const Investmentgradeproductstab()),
-                    GetPage(
+                GetPage(
                     name: '/highyieldbondmain',
                     page: () => const Highyieldbondsmain()),
-                    GetPage(
+                GetPage(
                     name: '/highyieldsbondslearnmore',
                     page: () => const HighyieldBondsLearnmore()),
-                    GetPage(
+                GetPage(
                     name: '/highyieldsproductstab',
                     page: () => const Highyieldproductstab()),
-                    GetPage(
+                GetPage(
                     name: '/mutualfundslearnmore',
                     page: () => const MutualFundsLearnmore()),
-                    GetPage(
+                GetPage(
                     name: '/mutualfunfsproduct',
                     page: () => const MutualFundsproducts()),
-                    GetPage(
+                GetPage(
                     name: '/equitieslearnmore',
                     page: () => const EquitiesLearnmore()),
-                    GetPage(
+                GetPage(
                     name: '/equitiesproduct',
                     page: () => const Equitiesproducts()),
-                    GetPage(
+                GetPage(
                     name: '/venturecapitallearnmore',
                     page: () => const VenturecapitalLearnmore()),
-                    GetPage(
+                GetPage(
                     name: '/venturecapitalproducts',
                     page: () => const Venturecapitalproducts()),
-                    GetPage(
+                GetPage(
                     name: '/privateequitylearnmore',
                     page: () => const PrivateEquityLearnmore()),
-                    GetPage(
+                GetPage(
                     name: '/privateequityproducts',
                     page: () => const PrivateEquityproducts()),
-                     GetPage(
+                GetPage(
                     name: '/venturedebtlearnmore',
                     page: () => const VentureDebtLearnmore()),
-                     GetPage(
+                GetPage(
                     name: '/venturedebtproducts',
                     page: () => const VentureDebtproducts()),
-                     GetPage(
+                GetPage(
                     name: '/hedgefundslearnmore',
                     page: () => const HedgeFundsLearnmore()),
-                     GetPage(
+                GetPage(
                     name: '/hedgefundsproducts',
                     page: () => const HedgeFundsproducts()),
-                     GetPage(
-                    name: '/etfslearnmore',
-                    page: () => const ETFsLearnmore()),
-                     GetPage(
-                    name: '/etfsproducts',
-                    page: () => const ETFsproducts()),
-                     GetPage(
+                GetPage(
+                    name: '/etfslearnmore', page: () => const ETFsLearnmore()),
+                GetPage(
+                    name: '/etfsproducts', page: () => const ETFsproducts()),
+                GetPage(
                     name: '/reitslearnmore',
                     page: () => const REITsLearnmore()),
-                    
-                    GetPage(
-                    name: '/reitsproducts',
-                    page: () => const REITsproducts()),
-                    GetPage(
+
+                GetPage(
+                    name: '/reitsproducts', page: () => const REITsproducts()),
+                GetPage(
                     name: '/indianrealassets',
                     page: () => const Indianrealassetsmain()),
-                     GetPage(
+                GetPage(
                     name: '/residentiallearnmore',
                     page: () => const ResidentialLearnmore()),
-                    
-                    GetPage(
+
+                GetPage(
                     name: '/residentialproducts',
                     page: () => const Residentialproductstab()),
-                     GetPage(
+                GetPage(
                     name: '/commerciallearnmore',
                     page: () => const CommercialLearnmore()),
-                     GetPage(
+                GetPage(
                     name: '/commercialproducts',
                     page: () => const Commercialproductstab()),
-                     GetPage(
+                GetPage(
                     name: '/industriallearnmore',
                     page: () => const IndustrialLearnmore()),
-                   GetPage(
+                GetPage(
                     name: '/industrialproducts',
                     page: () => const Industrialproductstab()),
-                     GetPage(
+                GetPage(
                     name: '/indianrealassetmain',
                     page: () => const Indianrealassetsmain()),
-                     GetPage(
+                GetPage(
                     name: '/globalrealassetmain',
                     page: () => const Globalrealassetsmain()),
-                     GetPage(
+                GetPage(
                     name: '/globalresidenlearnmore',
                     page: () => const GlobalResidentLearnmore()),
-                     GetPage(
+                GetPage(
                     name: '/globalresidenproducts',
                     page: () => const GlobalResidentialproductstab()),
-                     GetPage(
+                GetPage(
                     name: '/globalcommerciallearnmore',
                     page: () => const GlobalCommercialLearnmore()),
-                     GetPage(
+                GetPage(
                     name: '/globalcommercialproducts',
                     page: () => const GlobalCommercialproductstab()),
-                     GetPage(
+                GetPage(
                     name: '/globalindustriallearnmore',
                     page: () => const GlobalIndustrialLearnmore()),
-                     GetPage(
+                GetPage(
                     name: '/globalindustrialproducts',
                     page: () => const GlobalIndustrialproductstab()),
-                     GetPage(
-                    name: '/edituser',
-                    page: () => const EditUser()),
-                    
-                    
-                    
-
-                    
-
-                    
-                    
-                    
-
-                    
-                    
-                    
-                    
+                GetPage(name: '/edituser', page: () => const EditUser()),
               ],
             ),
             designSize: const Size(390, 844),

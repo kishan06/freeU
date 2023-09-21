@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:freeu/Global.dart';
+import 'package:freeu/Utils/ExtractPath.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
@@ -12,7 +13,7 @@ import 'package:get/get.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import '../common/Other Commons/CustomTextDropDown.dart';
-
+import 'package:file_picker/file_picker.dart';
 bool smsUpdate = true;
 TextEditingController nameController = TextEditingController();
 TextEditingController lastNameController = TextEditingController();
@@ -29,6 +30,7 @@ String? addressValue;
 // File? profilPic;
 class ProfileImageController extends GetxController {
   RxString profilePicPath = "".obs;
+  //RxString fileNameFromPath = "".obs;
 
   void getImage(ImageSource imgSource) async {
     final ImagePicker picker = ImagePicker();
@@ -65,9 +67,13 @@ class ProfileImageController extends GetxController {
         // profilPic = croppedImg.path;
         profilePicPath.value = croppedImg.path;
         // Get.back();
+       // fileNameFromPath.value = extractFileName(croppedImg.path);
       }
     }
   }
+
+ 
+
 }
 
 class Profile extends StatefulWidget {
@@ -965,7 +971,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               CustomTextDropdown(
                   item: ["1", "2", "3"],
-                  controller: residentialstatustexteditingcontroller,
+                 // controller: residentialstatustexteditingcontroller,
                   showDropDown: true),
               SizedBox(height: 20.h),
               Text(
@@ -1029,7 +1035,7 @@ class _KYCtabsState extends State<KYCtabs> {
                     "financial operations.",
                     "Software developer."
                   ],
-                  controller: residentialstatustexteditingcontroller,
+                 // controller: residentialstatustexteditingcontroller,
                   showDropDown: true),
 
               // CustomTextFormField(
@@ -1125,7 +1131,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               CustomTextDropdown(
                   item: ["India", "Australia", "Canada"],
-                  controller: countrytexteditingcontroller,
+                 // controller: countrytexteditingcontroller,
                   showDropDown: true),
               SizedBox(
                 height: 13.h,
@@ -1208,7 +1214,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               CustomTextDropdown(
                   item: ["Mumbai", "Thane", "Palghar"],
-                  controller: countrytexteditingcontroller,
+                //  controller: countrytexteditingcontroller,
                   showDropDown: true),
               SizedBox(height: 13.h),
               Text(
@@ -1224,7 +1230,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               CustomTextDropdown(
                   item: ["Maharashtra", "kerala", "Punjab"],
-                  controller: countrytexteditingcontroller,
+               //   controller: countrytexteditingcontroller,
                   showDropDown: true),
               SizedBox(height: 20.h),
               Text(
@@ -1240,7 +1246,7 @@ class _KYCtabsState extends State<KYCtabs> {
               ),
               CustomTextDropdown(
                   item: ["PDF", "JPEG", "PNG"],
-                  controller: countrytexteditingcontroller,
+                //  controller: countrytexteditingcontroller,
                   showDropDown: true),
               SizedBox(height: 10.h),
               Text(

@@ -105,12 +105,14 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
-                          "Beginner",
-                          "Competent",
-                          "Proficient",
-                          "Expert"
-                        ], controller: famailiarity, showDropDown: true),
+                        CustomTextDropdown(
+                            item: [
+                              "Beginner",
+                              "Competent",
+                              "Proficient",
+                              "Expert"
+                            ], //controller: famailiarity,
+                            showDropDown: true),
                         SizedBox(
                           height: 25.h,
                         ),
@@ -125,13 +127,15 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
-                          "Building Wealth",
-                          "Petirement",
-                          "Major Purchase",
-                          "Business Investment"
-                              "Holiday"
-                        ], controller: investing, showDropDown: true),
+                        CustomTextDropdown(
+                            item: [
+                              "Building Wealth",
+                              "Petirement",
+                              "Major Purchase",
+                              "Business Investment"
+                                  "Holiday"
+                            ], // controller: investing,
+                            showDropDown: true),
                         SizedBox(
                           height: 25.h,
                         ),
@@ -149,12 +153,14 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
-                          "Below 25 Lacs",
-                          "26 to 35 Lacs",
-                          "36 to 50 Lacs",
-                          "Above 50 Lacs"
-                        ], controller: income, showDropDown: true),
+                        CustomTextDropdown(
+                            item: [
+                              "Below 25 Lacs",
+                              "26 to 35 Lacs",
+                              "36 to 50 Lacs",
+                              "Above 50 Lacs"
+                            ], //controller: income,
+                            showDropDown: true),
                         SizedBox(
                           height: 25.h,
                         ),
@@ -172,11 +178,14 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
-                          "Less than 3 years",
-                          "3 - 5 years",
-                          "6 - 10 years"
-                        ], controller: invest, showDropDown: true),
+                        CustomTextDropdown(
+                            item: [
+                              "Less than 3 years",
+                              "3 - 5 years",
+                              "6 - 10 years"
+                            ],
+                            // controller: invest,
+                            showDropDown: true),
                         SizedBox(
                           height: 25.h,
                         ),
@@ -190,10 +199,12 @@ class _UpdateRishProfileState extends State<UpdateRishProfile> {
                         SizedBox(
                           height: 15.h,
                         ),
-                        CustomTextDropdown(item: [
-                          "5 Lakhs to 10 Lakhs",
-                          "10 Lakhs to 25 Lakhs",
-                        ], controller: basis, showDropDown: true),
+                        CustomTextDropdown(
+                            item: [
+                              "5 Lakhs to 10 Lakhs",
+                              "10 Lakhs to 25 Lakhs",
+                            ], //controller: basis,
+                            showDropDown: true),
                         SizedBox(
                           height: 50.h,
                         ),

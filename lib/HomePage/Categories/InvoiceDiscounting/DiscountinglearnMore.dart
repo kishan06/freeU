@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/ViewModel/FAQ/FAQ.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
@@ -73,6 +74,13 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
     },
   ];
 
+  Future? myfuture;
+  @override
+  void initState() {
+    myfuture = FAQ().invoiceDiscountingfaqApi();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,55 +98,68 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
         titleTxt: "",
         bottomtext: false,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Flexible(
-                  child: Text(
-                    "Invoice Discounting",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
                 ),
-              ],
-            ),
-            Expanded(
-              child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    if (index == 0) {
-                      return fracReal2();
-                    } else if (index == 1) {
-                      return fracReal9();
-                    } else if (index == 2) {
-                      return fracReal3();
-                    } else if (index == 3) {
-                      return fracReal6();
-                    } else if (index == 4) {
-                      return fracReal5();
-                    } else if (index == 5) {
-                      return fracReal8();
-                    } else {
-                      return fracReal1(
-                          discountingLearnMoreData[index]["question"],
-                          discountingLearnMoreData[index]["ans"]);
-                    }
-                  },
-                  separatorBuilder: (context, index) {
-                    return sizedBoxHeight(20.h);
-                  },
-                  itemCount: discountingLearnMoreData.length),
-            ),
-          ],
-        ),
+              );
+            }
+          }
+          return _buildBody();
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
+                  "Invoice Discounting",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return fracReal1(
+                    Fractionalfaq!.data![index].faqQuestion ?? "",
+                    Fractionalfaq!.data![index].faqAnswer ?? "",
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return sizedBoxHeight(20.h);
+                },
+                itemCount: Fractionalfaq!.data!.length),
+          ),
+        ],
       ),
     );
   }

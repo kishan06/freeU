@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/ViewModel/FAQ/FAQ.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
@@ -88,6 +89,13 @@ Example: If you earn a 20% return from your investment and the non-performing as
           "Yes, only NBFCs with P2P license can enable P2P Lending. Every P2P lender should obtain a certificate of registration from the RBI."
     },
   ];
+  Future? myfuture;
+  @override
+  void initState() {
+    myfuture = FAQ().PeerToPeerApi();
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -106,46 +114,68 @@ Example: If you earn a 20% return from your investment and the non-performing as
         titleTxt: "",
         bottomtext: false,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Flexible(
-                  child: Text(
-                    "Peer - Peer Lending",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
                 ),
-              ],
-            ),
-            Expanded(
-              child: ListView.separated(
-                  itemBuilder: (context, index) {
-                    if (index == 2) {
-                      return fracReal4();
-                    } else if (index == 3) {
-                      return fracReal5();
-                    } else {
-                      return fracReal1(PeerLearnMoreData[index]["question"],
-                          PeerLearnMoreData[index]["ans"]);
-                    }
-                  },
-                  separatorBuilder: (context, index) {
-                    return sizedBoxHeight(20.h);
-                  },
-                  itemCount: PeerLearnMoreData.length),
-            ),
-          ],
-        ),
+              );
+            }
+          }
+          return _buildBody();
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
+                  "Peer - Peer Lending",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return fracReal1(
+                    p2pfaq!.data![index].faqQuestion ?? "",
+                    p2pfaq!.data![index].faqAnswer ?? "",
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return sizedBoxHeight(20.h);
+                },
+                itemCount: p2pfaq!.data!.length),
+          ),
+        ],
       ),
     );
   }

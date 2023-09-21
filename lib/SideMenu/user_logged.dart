@@ -8,7 +8,7 @@ import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/profile/profile.dart';
-import 'package:freeu/viewModel/Profile/Getprofile.dart';
+import 'package:freeu/ViewModel/Profile/Getprofile.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 
