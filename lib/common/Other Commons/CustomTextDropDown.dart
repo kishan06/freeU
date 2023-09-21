@@ -11,27 +11,23 @@ class CustomTextDropdown extends StatefulWidget {
     this.errortext,
     this.item,
     this.outlineColor = const Color(0xFFFFB600),
-    required this.controller,
     required this.showDropDown,
     this.selectedValue,
     this.onInput,
   }) : super(key: key);
   final String? errortext;
-  final TextEditingController controller;
   final String? prefix;
   final String? hinttext;
   final bool showDropDown;
   final Color outlineColor;
   final List<String>? item;
-  final void Function(String)? onInput;
+  final Function(String)? onInput;
   String? selectedValue;
   @override
   State<CustomTextDropdown> createState() => _CustomTextDropdownState();
 }
 
 class _CustomTextDropdownState extends State<CustomTextDropdown> {
-  final TextEditingController controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -79,9 +75,10 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
                 ),
                 buttonPadding: const EdgeInsets.only(left: 0, right: 14),
                 value: widget.selectedValue,
-                onChanged: (value) {
+                onChanged: (value1) {
+                  widget.onInput?.call(value1 ?? "");
                   setState(() {
-                    widget.selectedValue = value;
+                    widget.selectedValue = value1;
                   });
                 },
                 isExpanded: true,
@@ -100,7 +97,7 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
                     .toList(),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

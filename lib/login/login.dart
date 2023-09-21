@@ -11,7 +11,8 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/auth_post.dart';
+import 'package:freeu/ViewModel/Profile/Getprofile.dart';
+import 'package:freeu/ViewModel/auth_post.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -449,6 +450,7 @@ class _LoginState extends State<Login> {
                                             ResponseStatus.SUCCESS) {
                                           print("api response is ${resp.data}");
                                           Utils.showToast("Signin successful");
+                                          GetProfile().GetProfileAPI();
                                           Future.delayed(Duration(seconds: 2),
                                               () async {
                                             final SharedPreferences prefs =
@@ -461,8 +463,10 @@ class _LoginState extends State<Login> {
                                             Map<String, dynamic> res =
                                                 resp.data;
                                             print(res);
-                                            await prefs.setString('token', res["token"]);
-                                            await prefs.setString('name', res["data"]["name"]);
+                                            await prefs.setString(
+                                                'token', res["token"]);
+                                            await prefs.setString(
+                                                'name', res["data"]["name"]);
                                             myusername = res["data"]["name"];
                                             token = res["token"];
 

@@ -6,7 +6,7 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/Sovereigndetaisbonds.dart';
+import 'package:freeu/ViewModel/Sovereigndetaisbonds.dart';
 import 'package:get/get.dart';
 
 class SovereignDetails extends StatefulWidget {

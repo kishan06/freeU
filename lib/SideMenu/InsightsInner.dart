@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 
 class InsightsInner extends StatefulWidget {
-  const InsightsInner({super.key});
+  InsightsInner(
+      {super.key,
+      this.postDate,
+      this.postDescription,
+      this.postTitle,
+      this.image});
+
+  String? postDate;
+  String? postDescription;
+  String? postTitle;
+  String? image;
 
   @override
   State<InsightsInner> createState() => _InsightsInnerState();
@@ -33,7 +44,7 @@ class _InsightsInnerState extends State<InsightsInner> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Retail banks wake up to digital',
+                    widget.postTitle ?? "",
                     style: TextStyle(
                         color: Color(0xff000000),
                         fontSize: 25.sp,
@@ -70,7 +81,7 @@ class _InsightsInnerState extends State<InsightsInner> {
                   width: 5.w,
                 ),
                 Text(
-                  'November 11, 2022',
+                  widget.postDate ?? "",
                   style: TextStyle(fontSize: 14.sp, color: Color(0xff6B6B6B)),
                 ),
                 SizedBox(
@@ -96,69 +107,21 @@ class _InsightsInnerState extends State<InsightsInner> {
             SizedBox(
               height: 15.h,
             ),
-            Text(
-              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 16.sp,
-                color: Color(0xff000000),
-              ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            Text(
-              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 16.sp,
-                color: Color(0xff000000),
-              ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            Image.asset(
-              'assets/images/insights-inner.png',
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            Text(
-              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 16.sp,
-                color: Color(0xff000000),
-              ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            Text(
-              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 16.sp,
-                color: Color(0xff000000),
-              ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            Text(
-              'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam',
-              textAlign: TextAlign.left,
-              style: TextStyle(
-                fontSize: 16.sp,
-                color: Color(0xff000000),
-              ),
-            ),
+            Html(data: widget.postDescription ?? ""),
+            // Text(
+            //   'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.',
+            //   textAlign: TextAlign.left,
+            //   style: TextStyle(
+            //     fontSize: 16.sp,
+            //     color: Color(0xff000000),
+            //   ),
+            // ),
+
             sizedBoxHeight(15.h),
             CustomNextButton(
               ontap: () {
-                Get.back();
-                Get.to(InsightsInner());
+                // Get.back();
+                // Get.to(InsightsInner());
               },
               text: "Next",
             ),

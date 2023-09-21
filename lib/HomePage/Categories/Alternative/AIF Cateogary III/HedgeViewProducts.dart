@@ -5,7 +5,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:freeu/viewModel/HedgeService.dart';
+import 'package:freeu/ViewModel/HedgeService.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'HedgeFundDetails.dart';

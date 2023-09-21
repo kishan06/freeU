@@ -5,7 +5,7 @@ import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/HedgeFunds/
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:freeu/viewModel/GlobalfinancialFunds/Hedgefundsproducts.dart';
+import 'package:freeu/ViewModel/GlobalfinancialFunds/Hedgefundsproducts.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 

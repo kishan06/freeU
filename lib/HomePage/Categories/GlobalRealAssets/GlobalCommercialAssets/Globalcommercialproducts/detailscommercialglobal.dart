@@ -6,8 +6,8 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/DetailsGlobalCommercial.dart';
-import 'package:freeu/viewModel/Leasefinancingdetails.dart';
+import 'package:freeu/ViewModel/DetailsGlobalCommercial.dart';
+import 'package:freeu/ViewModel/Leasefinancingdetails.dart';
 import 'package:get/get.dart';
 
 class GlobalCommercialDetails extends StatefulWidget {

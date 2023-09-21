@@ -37,7 +37,7 @@ class NetworkApi {
     }
   }
 
-  Future<ResponseData> postApi(data, String url) async {
+  Future<ResponseData> postApi({data, required String url}) async {
     if (kDebugMode) {
       print("data >>> $data");
       print("api url is >>> $url");
@@ -46,19 +46,64 @@ class NetworkApi {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     // ignore: unused_local_variable
     String? token = prefs.getString('token').toString();
+    try {
+      response = await dio.post(url,
+          data: data,
+          options: Options(headers: {
+            'Authorization': 'Bearer $token',
+          }));
+    } on Exception catch (_) {
+      return ResponseData<dynamic>(
+          'Opps something went wrong', ResponseStatus.FAILED);
+    }
 
-    response = await dio.post(
-      url,
-      data: data,
-    );
-    // print("succ");
-    print(response);
+    // if (kDebugMode) {
+    //   print(response);
+    // }
+
+    // print("response in post $response");
+
+    if (response.statusCode == 200) {
+      // print(response.data);
+
+      return ResponseData<dynamic>("success", ResponseStatus.SUCCESS,
+          data: response.data);
+    } else {
+      try {
+        return ResponseData<dynamic>(
+            response.data['message'].toString(), ResponseStatus.FAILED);
+      } catch (_) {
+        return ResponseData<dynamic>(
+            response.statusMessage!, ResponseStatus.FAILED);
+      }
+    }
+  }
+
+  Future<ResponseData> postFileUploadApi({data, required String url}) async {
+    if (kDebugMode) {
+      print("data >>> $data");
+      print("api url is >>> $url");
+    }
+    Response response;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    // ignore: unused_local_variable
+    String? token = prefs.getString('token').toString();
+    try {
+      response = await dio.post(url,
+          data: data,
+          options: Options(headers: {
+            'Authorization': 'Bearer $token',
+          }));
+    } on Exception catch (_) {
+      return ResponseData<dynamic>(
+          'Opps something went wrong', ResponseStatus.FAILED);
+    }
 
     if (kDebugMode) {
       print(response);
     }
 
-    print("resp in post $response");
+    print("response in post $response");
 
     if (response.statusCode == 200) {
       // print(response.data);

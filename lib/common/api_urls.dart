@@ -16,7 +16,6 @@ class ApiUrls {
   static const PeerProductsModel = "${baseUrl}peer-to-peer-lending-data";
   static const PeerDetailsModel = "${baseUrl}peer-to-peer-lending-single-data";
 
-
   static const VentureDebt = "${baseUrl}venture-debt-data";
   static const VentureDebtDetails = "${baseUrl}venture-debt-single-data";
 
@@ -30,52 +29,66 @@ class ApiUrls {
   static const HedgeDetails = "${baseUrl}hedge-fund-single-data";
 
   static const Cleangreen = "${baseUrl}clean-and-green-assets-data";
-  static const Cleangreendetails = "${baseUrl}clean-and-green-assets-single-data";
+  static const Cleangreendetails =
+      "${baseUrl}clean-and-green-assets-single-data";
 
   static const SecuredDebt = "${baseUrl}securitized-debt-instrument-data";
-  static const SecuredDebtDetails = "${baseUrl}securitized-debt-instrument-single-data";
+  static const SecuredDebtDetails =
+      "${baseUrl}securitized-debt-instrument-single-data";
 
   static const Highyield = "${baseUrl}high-yield-finance-data";
   static const HighyieldDetails = "${baseUrl}high-yield-finance-single-data";
 
   static const PrivateEquity = "${baseUrl}private-equity-fund-data";
-  static const PrivateEquityDetails = "${baseUrl}private-equity-fund-single-data";
+  static const PrivateEquityDetails =
+      "${baseUrl}private-equity-fund-single-data";
 
   static const Debtfund = "${baseUrl}debt-fund-data";
   static const DebtfundDetails = "${baseUrl}debt-fund-single-data";
 
   static const PrivateRealEstate = "${baseUrl}private-real-estate-fund-data";
-  static const PrivateRealEstateDetails = "${baseUrl}private-real-estate-fund-single-data";
+  static const PrivateRealEstateDetails =
+      "${baseUrl}private-real-estate-fund-single-data";
 
   static const Categoriesmainlist = "${baseUrl}category/list";
 
   static const Postcontactus = "${baseUrl}contact-us-form";
 
-  static const PrivateInvestmentPublic = "${baseUrl}private-investment-in-public-equity-fund-data";
-  static const PrivateInvestPublicDetails = "${baseUrl}private-investment-in-public-equity-fund-single-data";
+  static const PrivateInvestmentPublic =
+      "${baseUrl}private-investment-in-public-equity-fund-data";
+  static const PrivateInvestPublicDetails =
+      "${baseUrl}private-investment-in-public-equity-fund-single-data";
 
-  static const IndianIndustrialrealproducts = "${baseUrl}indian-industrial-all-data";
+  static const IndianIndustrialrealproducts =
+      "${baseUrl}indian-industrial-all-data";
   static const IndianIndustrialDetails = "${baseUrl}real-estate-single-data";
 
-  static const IndianResidentialrealproducts = "${baseUrl}indian-residential-all-data";
+  static const IndianResidentialrealproducts =
+      "${baseUrl}indian-residential-all-data";
   static const IndianResidentialDetails = "${baseUrl}real-estate-single-data";
 
-  static const IndianCommercialrealproducts = "${baseUrl}indian-commercial-all-data";
+  static const IndianCommercialrealproducts =
+      "${baseUrl}indian-commercial-all-data";
   static const IndianCommercialDetails = "${baseUrl}real-estate-single-data";
 
-  static const Globalresidentialrealproducts = "${baseUrl}global-residential-all-data";
+  static const Globalresidentialrealproducts =
+      "${baseUrl}global-residential-all-data";
   static const GlobalresidentialDetails = "${baseUrl}real-estate-single-data";
 
-  static const Globalcommercialrealproducts = "${baseUrl}global-commercial-all-data";
+  static const Globalcommercialrealproducts =
+      "${baseUrl}global-commercial-all-data";
   static const GlobalcommercialDetails = "${baseUrl}real-estate-single-data";
 
-  static const Globalindustrialrealproducts = "${baseUrl}global-industrial-all-data";
+  static const Globalindustrialrealproducts =
+      "${baseUrl}global-industrial-all-data";
   static const GlobalindustrialDetails = "${baseUrl}real-estate-single-data";
 
-  static const Sovereignbondsproducts = "${baseUrl}sovereign-government-bond-all-data";
+  static const Sovereignbondsproducts =
+      "${baseUrl}sovereign-government-bond-all-data";
   static const SovereignbondsDetails = "${baseUrl}bonds-single-data";
 
-  static const Investmentbondsproducts = "${baseUrl}investment-grade-bond-all-data";
+  static const Investmentbondsproducts =
+      "${baseUrl}investment-grade-bond-all-data";
   static const InvestmentbondsDetails = "${baseUrl}bonds-single-data";
 
   static const Highyieldsbondsproducts = "${baseUrl}high-yield-bonds-all-data";
@@ -83,12 +96,15 @@ class ApiUrls {
 
   static const MutualFundsproducts = "${baseUrl}mutual-fund-all-data";
   static const FundsSingleDetails = "${baseUrl}funds-single-data";
-  static const Venturecapitalfundproducts = "${baseUrl}venture-capital-fund-all-data";
-  static const PrivateEquityFundsproducts = "${baseUrl}private-equity-fund-all-data";
+  static const Venturecapitalfundproducts =
+      "${baseUrl}venture-capital-fund-all-data";
+  static const PrivateEquityFundsproducts =
+      "${baseUrl}private-equity-fund-all-data";
   static const HedgeFundsproducts = "${baseUrl}hedge-fund-all-data";
   static const Equitiesproducts = "${baseUrl}equities-all-data";
 
-  static const Equitiestocksdetails = "${baseUrl}equities-stock-real-estate-single-data";
+  static const Equitiestocksdetails =
+      "${baseUrl}equities-stock-real-estate-single-data";
 
   static const Etifsproducts = "${baseUrl}exchange-traded-fund-all-data";
 
@@ -98,12 +114,27 @@ class ApiUrls {
 
   static const Postprofiledetails = "${baseUrl}update-profile";
 
+  static const kyc1 = "${baseUrl}personal-information-kyc";
+  static const kyc2 = "${baseUrl}location-information-kyc";
+  static const getBlogs = "${baseUrl}blogs";
+  static const getByTags = "${baseUrl}tags";
+  static const singleBlog = "${baseUrl}single-blog";
+  static const privacyPolicy = "${baseUrl}privacy-policy-data";
+  static const termsAndConditions = "${baseUrl}terms-condition-data";
 
-
-
-
-
-  
-  
-
+//FAQs
+  static const FaqTags = "${baseUrl}faq-tags";
+  static const fractionalRealEstate =
+      "${baseUrl}fractional-real-estate/question-answer";
+  static const revenueBasedFinancing =
+      "${baseUrl}revenue-based-financing/question-answer";
+  static const PeerToPeer = "${baseUrl}peer-to-peer-lending/question-answer";
+  static const invoiceDiscountingfaq =
+      "${baseUrl}invoice-discounting/question-answer";
+  static const cleanandgreen =
+      "${baseUrl}clean-and-green-assets/question-answer";
+  static const securitizeddebt =
+      "${baseUrl}securitized-debt-instrument/question-answer";
+  static const highyieldFinance =
+      "${baseUrl}high-yield-Finance/question-answer";
 }

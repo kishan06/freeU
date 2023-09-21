@@ -128,7 +128,7 @@ class _MarketSeeMyInvestmentState extends State<MarketSeeMyInvestment> {
                       ),
                       CustomTextDropdown(
                           item: const ["1", "2", "3"],
-                          controller: residentialstatustexteditingcontroller,
+                    //      controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       SizedBox(height: 20.h),
                       Text(
@@ -144,7 +144,7 @@ class _MarketSeeMyInvestmentState extends State<MarketSeeMyInvestment> {
                       ),
                       CustomTextDropdown(
                           item: const ["1", "2", "3"],
-                          controller: residentialstatustexteditingcontroller,
+                      //    controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       SizedBox(height: 20.h),
                       Text(

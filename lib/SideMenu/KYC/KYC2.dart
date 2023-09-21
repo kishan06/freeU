@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/ExtractPath.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextDropDown.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
+import 'package:freeu/common/Other%20Commons/PhotoSelectionBottomSheet.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:get/get.dart';
+import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/ViewModel/KYC/KycApis.dart';
+import 'package:get/get.dart' hide MultipartFile, FormData;
+import 'package:path/path.dart' as path;
+import 'package:dio/dio.dart';
+import 'package:freeu/Utils/Dialogs.dart';
 
 class KYC2 extends StatefulWidget {
   const KYC2({super.key});
@@ -19,6 +27,46 @@ class _KYC2State extends State<KYC2> {
   final residentialstatustexteditingcontroller = TextEditingController();
   final addresstextEditingController = TextEditingController();
   final uploadfronttextEditingController = TextEditingController();
+  final uploadback = TextEditingController();
+  final pincode = TextEditingController();
+
+  String? documentBack;
+  String? documentFront;
+
+  List<String> fileList = [];
+
+  kyc2apicall() async {
+    fileList.add(documentFront!);
+    fileList.add(documentBack!);
+    List<MultipartFile> multipartFiles = [];
+
+    for (String file in fileList) {
+      multipartFiles.add(
+        await MultipartFile.fromFile(
+          file,
+          filename: path.basename(file),
+        ),
+      );
+    }
+    FormData formData = FormData.fromMap({
+      'files': multipartFiles,
+      'country': countrytexteditingcontroller.text,
+      'pincode': '400078',
+      'address': 'Malad',
+      'city': 'Mumbai',
+      'state_province_region': 'Maharashtra',
+      'document_type': 'PNG',
+      'document_number': '789132'
+    });
+
+    final response = await KycApis().KYC2(formData);
+    if (response.status == ResponseStatus.SUCCESS) {
+      print("sucess");
+      Get.toNamed('/kyc2');
+    } else {
+      return utils.showToast(response.message);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +151,7 @@ class _KYC2State extends State<KYC2> {
                         ),
                         CustomTextDropdown(
                             item: ["India", "Australia", "Canada"],
-                            controller: countrytexteditingcontroller,
+                            // controller: countrytexteditingcontroller,
                             showDropDown: true),
                         SizedBox(
                           height: 13.h,
@@ -120,8 +168,10 @@ class _KYC2State extends State<KYC2> {
                           height: 6.h,
                         ),
                         CustomTextFormField(
-                            hintText: "Please Enter Pincode",
-                            validatorText: "Please Enter Pincode"),
+                          hintText: "Please Enter Pincode",
+                          validatorText: "Please Enter Pincode",
+                          textEditingController: pincode,
+                        ),
                         SizedBox(height: 13.h),
                         Text(
                           "Address - Area and Street",
@@ -191,7 +241,7 @@ class _KYC2State extends State<KYC2> {
                         ),
                         CustomTextDropdown(
                             item: ["Mumbai", "Thane", "Palghar"],
-                            controller: countrytexteditingcontroller,
+                            // controller: countrytexteditingcontroller,
                             showDropDown: true),
                         SizedBox(height: 13.h),
                         Text(
@@ -207,7 +257,7 @@ class _KYC2State extends State<KYC2> {
                         ),
                         CustomTextDropdown(
                             item: ["Maharashtra", "kerala", "Punjab"],
-                            controller: countrytexteditingcontroller,
+                            //    controller: countrytexteditingcontroller,
                             showDropDown: true),
                         SizedBox(height: 20.h),
                         Text(
@@ -223,7 +273,7 @@ class _KYC2State extends State<KYC2> {
                         ),
                         CustomTextDropdown(
                             item: ["PDF", "JPEG", "PNG"],
-                            controller: countrytexteditingcontroller,
+                            // controller: countrytexteditingcontroller,
                             showDropDown: true),
                         SizedBox(height: 10.h),
                         Text(
@@ -253,6 +303,7 @@ class _KYC2State extends State<KYC2> {
                           height: 13.h,
                         ),
                         TextFormField(
+                          readOnly: true,
                           cursorColor: const Color(0xFFFFB600),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           controller: uploadfronttextEditingController,
@@ -292,7 +343,20 @@ class _KYC2State extends State<KYC2> {
                             ),
                             hintText: "",
                             suffixIcon: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  ImageUploadBottomSheet().showModal(
+                                    context,
+                                    (result) {
+                                      print("File path is $result");
+                                      documentFront = result;
+                                      var filenameresult =
+                                          extractFileName(result);
+                                      print("File name is $filenameresult");
+                                      uploadfronttextEditingController.text =
+                                          filenameresult;
+                                    },
+                                  );
+                                },
                                 icon: Icon(
                                   Icons.file_upload_outlined,
                                   color: Colors.black,
@@ -312,9 +376,10 @@ class _KYC2State extends State<KYC2> {
                           height: 13.h,
                         ),
                         TextFormField(
+                          readOnly: true,
                           cursorColor: const Color(0xFFFFB600),
                           autovalidateMode: AutovalidateMode.onUserInteraction,
-                          controller: uploadfronttextEditingController,
+                          controller: uploadback,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(10.h),
                             filled: true,
@@ -351,7 +416,19 @@ class _KYC2State extends State<KYC2> {
                             ),
                             hintText: "",
                             suffixIcon: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  ImageUploadBottomSheet().showModal(context,
+                                      (result) {
+                                    setState(() {
+                                      print("File path is $result");
+                                      documentBack = result;
+                                      var filenameresult =
+                                          extractFileName(result);
+                                      print("File name is $filenameresult");
+                                      uploadback.text = filenameresult;
+                                    });
+                                  });
+                                },
                                 icon: Icon(
                                   Icons.file_upload_outlined,
                                   color: Colors.black,
@@ -362,9 +439,8 @@ class _KYC2State extends State<KYC2> {
                         CustomNextButton(
                           text: "Continue",
                           ontap: () {
-                            setState(() {
-                              Get.toNamed('/kyc3');
-                            });
+                            kyc2apicall();
+                            // Get.toNamed('/kyc3');
                           },
                         ),
                         sizedBoxHeight(60.h)

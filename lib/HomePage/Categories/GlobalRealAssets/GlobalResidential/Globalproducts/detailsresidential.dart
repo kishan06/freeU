@@ -6,7 +6,7 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/DetailsGlobalResidential.dart';
+import 'package:freeu/ViewModel/DetailsGlobalResidential.dart';
 import 'package:get/get.dart';
 
 class GlobalResidentialDetails extends StatefulWidget {

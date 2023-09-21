@@ -5,7 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
-import 'package:freeu/SideMenu/insights.dart';
+import 'package:freeu/SideMenu/Insights.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/Utils/texts.dart';

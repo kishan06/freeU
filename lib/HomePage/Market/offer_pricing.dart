@@ -123,7 +123,7 @@ class _OfferPricingState extends State<OfferPricing> {
                       ),
                       CustomTextDropdown(
                           item: const ["1", "2", "3"],
-                          controller: residentialstatustexteditingcontroller,
+                         // controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       SizedBox(height: 20.h),
                       Text(
@@ -138,7 +138,7 @@ class _OfferPricingState extends State<OfferPricing> {
                       ),
                       CustomTextDropdown(
                           item: const ["1", "2", "3"],
-                          controller: residentialstatustexteditingcontroller,
+                        //  controller: residentialstatustexteditingcontroller,
                           showDropDown: true),
                       SizedBox(height: 20.h),
                       Text(

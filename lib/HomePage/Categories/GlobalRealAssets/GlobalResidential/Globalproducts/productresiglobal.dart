@@ -5,7 +5,7 @@ import 'package:freeu/HomePage/Categories/GlobalRealAssets/GlobalResidential/Glo
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:freeu/viewModel/GlobalResidentialreal.dart';
+import 'package:freeu/ViewModel/GlobalResidentialreal.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 

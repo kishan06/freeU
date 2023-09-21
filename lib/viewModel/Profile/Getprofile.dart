@@ -17,8 +17,11 @@ class GetProfile {
       Map<String, dynamic> responseData =
           Map<String, dynamic>.from(response.data);
       if (responseData.isNotEmpty) {
-        ProfileObj =
-            ProfileModel.fromJson(responseData);
+        ProfileObj = ProfileModel.fromJson(responseData);
+        
+        await prefs.setString(
+            'userNumber', ProfileObj?.user?.contactNumber ?? "");
+        await prefs.setString('userEmail', ProfileObj?.user?.email ?? "");
       } else {
         return ResponseData<dynamic>(
             responseData['message'], ResponseStatus.FAILED);
