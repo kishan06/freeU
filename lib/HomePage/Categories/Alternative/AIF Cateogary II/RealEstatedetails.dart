@@ -134,6 +134,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid: privaterealestdetailsobj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
@@ -233,8 +234,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privaterealestdetailsobj!.data!.registrationNumber ??
-                        "NA"),
+                    privaterealestdetailsobj!.data!.registrationNumber ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Category (I/II/III)"),
                 Divider(
@@ -278,8 +278,8 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privaterealestdetailsobj!.data!.fundManagerName ??
-                    "NA"),
+                text272424_18(
+                    privaterealestdetailsobj!.data!.fundManagerName ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Website of the fund"),
                 Divider(
@@ -288,8 +288,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privaterealestdetailsobj!.data!.websiteOfTheFund ??
-                        "NA"),
+                    privaterealestdetailsobj!.data!.websiteOfTheFund ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Manager Experience"),
                 Divider(
@@ -307,8 +306,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(
-                    privaterealestdetailsobj!.data!.sponsor ?? "NA"),
+                text272424_18(privaterealestdetailsobj!.data!.sponsor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Manager"),
                 Divider(
@@ -316,8 +314,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(
-                    privaterealestdetailsobj!.data!.manager ?? "NA"),
+                text272424_18(privaterealestdetailsobj!.data!.manager ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Trustee"),
                 Divider(
@@ -325,8 +322,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(
-                    privaterealestdetailsobj!.data!.trustee ?? "NA"),
+                text272424_18(privaterealestdetailsobj!.data!.trustee ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Auditor"),
                 Divider(
@@ -334,8 +330,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(
-                    privaterealestdetailsobj!.data!.auditor ?? "NA"),
+                text272424_18(privaterealestdetailsobj!.data!.auditor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Valuer / Tax Advisor"),
                 Divider(
@@ -344,8 +339,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privaterealestdetailsobj!.data!.valuerTaxAdvisor ??
-                        "NA"),
+                    privaterealestdetailsobj!.data!.valuerTaxAdvisor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Credit Rating"),
                 Divider(
@@ -362,8 +356,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(
-                    privaterealestdetailsobj!.data!.openDate ?? "NA"),
+                text272424_18(privaterealestdetailsobj!.data!.openDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("1st Close Date"),
                 Divider(
@@ -371,8 +364,8 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privaterealestdetailsobj!.data!.firstCloseDate ??
-                    "NA"),
+                text272424_18(
+                    privaterealestdetailsobj!.data!.firstCloseDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Final Close Date"),
                 Divider(
@@ -380,8 +373,8 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privaterealestdetailsobj!.data!.finalCloseDate ??
-                    "NA"),
+                text272424_18(
+                    privaterealestdetailsobj!.data!.finalCloseDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenure from Final Close"),
                 Divider(
@@ -400,8 +393,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privaterealestdetailsobj!.data!.commitmentPeriod ??
-                        "NA"),
+                    privaterealestdetailsobj!.data!.commitmentPeriod ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Native Currency"),
                 Divider(
@@ -409,8 +401,8 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privaterealestdetailsobj!.data!.nativeCurrency ??
-                    "NA"),
+                text272424_18(
+                    privaterealestdetailsobj!.data!.nativeCurrency ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Target Corpus"),
                 Divider(
@@ -447,8 +439,8 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privaterealestdetailsobj!.data!.intialDrawdown ??
-                    "NA"),
+                text272424_18(
+                    privaterealestdetailsobj!.data!.intialDrawdown ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Accepting Overseas investment?"),
                 Divider(
@@ -525,8 +517,8 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privaterealestdetailsobj!.data!.regionsCovered ??
-                    "NA"),
+                text272424_18(
+                    privaterealestdetailsobj!.data!.regionsCovered ?? "NA"),
                 sizedBoxHeight(20.h),
               ],
             )

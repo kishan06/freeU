@@ -204,6 +204,7 @@ Carry - 50% for Class B3 and B4''',
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid: hedgeDetailsObj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();

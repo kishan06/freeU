@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/FAQ2/FAQ2.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
@@ -14,6 +15,14 @@ class RealEstateAIFViewMore extends StatefulWidget {
 }
 
 class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
+  Future? myfuture;
+
+  @override
+  void initState() {
+    myfuture = FAQ2().Alternative2PrivateRealEstateFund();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,44 +40,76 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
         titleTxt: "",
         bottomtext: false,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
+              );
+            }
+          }
+          return _buildBody();
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
                   "Real Estate AIF",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
                       fontWeight: FontWeight.w500),
                 ),
-              ],
-            ),
-            Expanded(
-                child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  sizedBoxHeight(20.h),
-                  faqAccod0(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                ],
               ),
-            )),
-          ],
-        ),
+            ],
+          ),
+          sizedBoxHeight(20.h),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return alternative2privatereal(
+                    alternati2privaterealfundlearn!.data![index].faqQuestion ??
+                        "",
+                    alternati2privaterealfundlearn!.data![index].faqAnswer ??
+                        "",
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return sizedBoxHeight(20.h);
+                },
+                itemCount: alternati2privaterealfundlearn!.data!.length),
+          ),
+        ],
       ),
     );
   }
 
-  Widget faqAccod0() {
+  Widget alternative2privatereal(String question, String ans) {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
@@ -87,7 +128,7 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'What is Real Estate AIF?',
+          question,
           style: TextStyle(
               color: Colors.black,
               fontSize: 20.sp,
@@ -97,7 +138,6 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
         contentChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            sizedBoxHeight(20.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -115,74 +155,9 @@ class _RealEstateAIFViewMoreState extends State<RealEstateAIFViewMore> {
                 )
               ],
             ),
-            sizedBoxHeight(15.h),
+            sizedBoxHeight(16.h),
             Text(
-              "Real Estate AIF has seen big growth in India in the last few years, mainly from High-Net-Worth investors intending to grow their capital through non-traditional investment routes. AIF managers for Real Estate are constantly on the lookout for lucrative stand-alone, real estate investment opportunities that help in portfolio diversification. Through AIF Real Estate, investors can spread their investments over a wide range of real estate properties.",
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: "Poppins",
-                fontSize: 18.sp,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget faqAccod() {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.black.withOpacity(0.2)),
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5.r)),
-      child: GFAccordion(
-        showAccordion: false,
-        titleBorderRadius: BorderRadius.circular(5.r),
-        contentBorderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(5.r),
-          bottomRight: Radius.circular(5.r),
-        ),
-        margin: const EdgeInsets.all(0),
-        titlePadding: EdgeInsets.all(10.h),
-        contentPadding: EdgeInsets.all(10.w),
-        expandedTitleBackgroundColor: Colors.white,
-        contentBackgroundColor: Colors.white,
-        titleChild: Text(
-          'Benefits of Real Estate AIF',
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: 20.sp,
-              fontFamily: "Poppins",
-              fontWeight: FontWeight.w500),
-        ),
-        contentChild: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            sizedBoxHeight(20.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  color: Color(0xFF143C6D),
-                  height: 1,
-                  width: MediaQuery.of(context).size.width / 1.65,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
-                      borderRadius: BorderRadius.circular(100.r)),
-                  height: 8,
-                  width: 8,
-                )
-              ],
-            ),
-            sizedBoxHeight(15.h),
-            Text(
-              '-	Through diversification across different properties, it lowers the risk profile of real estate as an asset class.'
-              '\n-	Compared to directly investing in Real Estate, AIF funds give investors a comprehensive choice of possibilities as they are a pool of assets. '
-              '\n-	Most funds get allocated across various real estate projects in different optimum locations. '
-              '\n-	It is regulated by SEBI, and set within a fixed set of rules, making the process faster, more organized, and safer. ',
+              ans,
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",
