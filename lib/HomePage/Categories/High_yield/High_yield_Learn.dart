@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/ViewModel/FAQ/FAQ.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
+
+String z = "High Yield Fixed Income";
 
 class HighYieldLearn extends StatefulWidget {
   const HighYieldLearn({super.key});
@@ -15,6 +18,14 @@ class HighYieldLearn extends StatefulWidget {
 }
 
 class _HighYieldLearnState extends State<HighYieldLearn> {
+  Future? myfuture;
+
+  @override
+  void initState() {
+    myfuture = FAQ().highyieldFinanceApi();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,72 +43,127 @@ class _HighYieldLearnState extends State<HighYieldLearn> {
         titleTxt: "",
         bottomtext: false,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
+              );
+            }
+          }
+          return _buildBody();
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
+                  "High Yield Fixed Income",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return fracReal1(
+                    HighYieldfaq!.data![index].faqQuestion ?? "",
+                    HighYieldfaq!.data![index].faqAnswer ?? "",
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return sizedBoxHeight(20.h);
+                },
+                itemCount: HighYieldfaq!.data!.length),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget fracReal1(String question, String ans) {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.black.withOpacity(0.2)),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(5.r)),
+      child: GFAccordion(
+        showAccordion: false,
+        titleBorderRadius: BorderRadius.circular(5.r),
+        contentBorderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(5.r),
+          bottomRight: Radius.circular(5.r),
+        ),
+        margin: const EdgeInsets.all(0),
+        titlePadding: EdgeInsets.all(10.h),
+        contentPadding: EdgeInsets.all(10.w),
+        expandedTitleBackgroundColor: Colors.white,
+        contentBackgroundColor: Colors.white,
+        titleChild: Text(
+          question,
+          style: TextStyle(
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
+        ),
+        contentChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Flexible(
-                  child: Text(
-                    "High Yield Fixed Income",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
+                Container(
+                  color: Color(0xFF143C6D),
+                  height: 1,
+                  width: MediaQuery.of(context).size.width / 1.65,
                 ),
+                Container(
+                  decoration: BoxDecoration(
+                      color: Color(0xFF143C6D),
+                      borderRadius: BorderRadius.circular(100.r)),
+                  height: 8,
+                  width: 8,
+                )
               ],
             ),
-            Expanded(
-                child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  sizedBoxHeight(30.h),
-                  highyield0(),
-                  sizedBoxHeight(15.h),
-                  highyield1(),
-                  sizedBoxHeight(15.h),
-                  highyield2(),
-                  sizedBoxHeight(15.h),
-                  highyield3(),
-                  sizedBoxHeight(15.h),
-                  highyield4(),
-                  sizedBoxHeight(15.h),
-                  highyield5(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(
-                      'How does high yield fixed income differ from investment-grade fixed income? ',
-                      'High yield fixed income is issued by riskier companies with lower credit ratings, while investment-grade fixed income is issued by more creditworthy companies. High yield fixed income provides higher yields but also higher risk.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod('Types of HYFI Securities ',
-                      'High yield fixed income securities include corporate bonds, municipal bonds, and asset-backed securities, among others. In the majority of cases the underlying instrument is a Non-Convertible Debenture (NCD)'),
-                  sizedBoxHeight(15.h),
-                  faqAccod(
-                      'Is it possible for the investor to exit their investment before the maturity date?',
-                      'The investment is in the form of NCD, which can be transferred to another person provided one is able to find the buyer.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod('Who can invest in high yielding NCDs?',
-                      'Resident investors and unincorporated bodies are eligible to invest in NCDs, while NRIs may invest in NCDs if the rules of the issuing company permit them to do so. It is rare for companies in India to allow NRIs to invest in a public issue NCD.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod('How will the investor receive repayments?',
-                      'Repayment to the investor will be made directly to the bank account linked to their demat account.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod(
-                      'What is the course of action in case of default in NCD investments? ',
-                      'In such a scenario, the debenture trustee, who acts in the best interest of the debenture holders (investors), will take necessary measures to ensure that the issuer (borrower) rectifies the default and/or enforces security to recover the invested amount.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod(
-                      'Does the borrower deduct TDS on a payout in NCD investments, and what is the applicable rate?',
-                      '''Yes, TDS is applicable on the interest component of the payout, and the borrower deducts 10% TDS at the source. The deducted TDS amount will be automatically reflected in the investor's form 26AS.'''),
-                  sizedBoxHeight(15.h),
-                ],
+            sizedBoxHeight(16.h),
+            Text(
+              ans,
+              style: TextStyle(
+                color: Colors.black,
+                fontFamily: "Poppins",
+                fontSize: 18.sp,
               ),
-            )),
+            ),
           ],
         ),
       ),

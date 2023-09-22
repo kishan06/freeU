@@ -1,17 +1,20 @@
 import 'dart:io';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:freeu/Global.dart';
 import 'package:freeu/Utils/Dialogs.dart';
+import 'package:freeu/ViewModel/Profile/Getprofile.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/profile/profile.dart';
 import 'package:freeu/viewModel/Profile/Postprofile.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart' hide MultipartFile, FormData;
 import 'package:image_picker/image_picker.dart';
+import 'package:path/path.dart' as path;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class EditUser extends StatefulWidget {
@@ -67,6 +70,7 @@ class _EditUserState extends State<EditUser> {
                       onTap: () {
                         editProfileImage.getImage(ImageSource.camera);
                         Get.back();
+                        setState(() {});
                       },
                       child: Column(
                         children: [
@@ -97,6 +101,7 @@ class _EditUserState extends State<EditUser> {
                       onTap: () {
                         editProfileImage.getImage(ImageSource.gallery);
                         Get.back();
+                        setState(() {});
                       },
                       child: Column(
                         children: [
@@ -153,17 +158,33 @@ class _EditUserState extends State<EditUser> {
   }
 
   void UploadData() async {
-    Map<String, dynamic> updata = {
+    // Map<String, dynamic> updata = {
+    //   "name": nameController.text,
+    //   "contact_number": phoneController.text,
+    //   "address": addressController.text,
+    //   "email": emailController.text
+    // };
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    var imageFile = await MultipartFile.fromFile(
+      editProfileImage.profilePicPath.value,
+      filename: path.basename(editProfileImage.profilePicPath.value),
+    );
+
+    FormData formData = FormData.fromMap({
       "name": nameController.text,
       "contact_number": phoneController.text,
       "address": addressController.text,
-      "email": emailController.text
-    };
-    print(updata);
-    final data = await Profiledetails().postProfiledetails(updata);
+      "email": emailController.text,
+      'profile_image': imageFile,
+    });
+
+    print("formData is $formData");
+    final data = await Profiledetails().postProfiledetails(formData);
     if (data.status == ResponseStatus.SUCCESS) {
       utils.showToast("Profile added Successfully!");
-      print("username is $myusername");
+      await prefs.setString('name', nameController.text);
+      myusername = nameController.text;
       Get.back(result: true);
     } else {
       return utils.showToast(data.message);
@@ -207,23 +228,46 @@ class _EditUserState extends State<EditUser> {
                         clipBehavior: Clip.none,
                         alignment: Alignment.center,
                         children: [
-                          Obx(
-                            () => ClipOval(
-                              child: SizedBox.fromSize(
-                                  size: Size.fromRadius(60.r),
-                                  child: editProfileImage
-                                              .profilePicPath.value !=
-                                          ''
-                                      ? Image(
-                                          image: FileImage(File(editProfileImage
-                                              .profilePicPath.value)),
-                                          fit: BoxFit.cover,
-                                          width: 200.w,
-                                          height: 200.h,
-                                        )
-                                      : Image.asset('assets/images/user.png')),
-                            ),
-                          ),
+                          editProfileImage.profilePicPath.value != ''
+                              ? Obx(
+                                  () => ClipOval(
+                                    child: SizedBox.fromSize(
+                                        size: Size.fromRadius(60.r),
+                                        child: editProfileImage
+                                                    .profilePicPath.value !=
+                                                ''
+                                            ? Image(
+                                                image: FileImage(File(
+                                                    editProfileImage
+                                                        .profilePicPath.value)),
+                                                fit: BoxFit.cover,
+                                                width: 200.w,
+                                                height: 200.h,
+                                              )
+                                            : Image.asset(
+                                                'assets/images/user.png')),
+                                  ),
+                                )
+                              : ClipOval(
+                                  child: SizedBox.fromSize(
+                                      size: Size.fromRadius(60.r),
+                                      child:
+                                          ProfileObj?.user?.profileImage != ''
+                                              ? ClipOval(
+                                                  child: SizedBox.fromSize(
+                                                    size: Size.fromRadius(25.r),
+                                                    child: CircleAvatar(
+                                                      backgroundImage:
+                                                          NetworkImage(ProfileObj!
+                                                              .user!
+                                                              .profileImage!),
+                                                      radius: 25.r,
+                                                    ),
+                                                  ),
+                                                )
+                                              : Image.asset(
+                                                  'assets/images/user.png')),
+                                ),
                           Positioned(
                             bottom: 0,
                             right: 0,

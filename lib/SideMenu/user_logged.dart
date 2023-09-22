@@ -136,6 +136,7 @@ class _UserState extends State<User> {
     myfuture = GetProfile().GetProfileAPI();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -201,6 +202,7 @@ class _UserState extends State<User> {
                             ProfileObj!.user!.contactNumber ?? "NA",
                         "email": ProfileObj!.user!.email ?? "NA",
                         "address": ProfileObj!.user!.address ?? "NA",
+                        "profile_image": ProfileObj?.user?.profileImage ?? ""
                       });
                       print("result $result");
                       if (result) {
@@ -242,13 +244,16 @@ class _UserState extends State<User> {
                     ClipOval(
                       child: SizedBox.fromSize(
                           size: Size.fromRadius(60.r),
-                          child: editProfileImage.profilePicPath.value != ''
-                              ? Image(
-                                  image: FileImage(File(
-                                      editProfileImage.profilePicPath.value)),
-                                  fit: BoxFit.cover,
-                                  width: 200.w,
-                                  height: 200.h,
+                          child: ProfileObj?.user?.profileImage != ''
+                              ? ClipOval(
+                                  child: SizedBox.fromSize(
+                                    size: Size.fromRadius(25.r),
+                                    child: CircleAvatar(
+                                      backgroundImage: NetworkImage(
+                                          ProfileObj!.user!.profileImage!),
+                                      radius: 25.r,
+                                    ),
+                                  ),
                                 )
                               : Image.asset('assets/images/user.png')),
                     ),
@@ -707,5 +712,4 @@ class _UserState extends State<User> {
   //     });
   //   });
   // }
-
 }

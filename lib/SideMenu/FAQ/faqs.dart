@@ -91,72 +91,95 @@ class _FAQsState extends State<FAQs> {
         Expanded(
           child: SingleChildScrollView(
             padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                sizedBoxHeight(20.h),
-                OpenContainerWrappers(
-                  openBuild: const Fractional1(),
-                  closeBuild: catTitle('Fractional Real Estate',
-                      'assets/newImages/cat2.png', AppColors.blueL_006796),
-                ),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
-                // sizedBoxHeight(15.h),
-                OpenContainerWrappers(
-                    openBuild: const PeerFAQ(),
-                    closeBuild: catTitle('Peer to Peer Lending',
-                        'assets/newImages/cat3.png', AppColors.greenL_089435)),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            child: ListView.separated(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemBuilder: (_, index) {
+                  return Column(
+                    children: [
+                      sizedBoxHeight(20.h),
+                      OpenContainerWrappers(
+                        openBuild: const Fractional1(),
+                        closeBuild: catTitle(
+                            generalfaq?.data?[index].tagName ?? "",
+                            generalfaq?.data?[index].tagImage ?? "",
+                            AppColors.blueL_006796),
+                      ),
+                      Divider(
+                          color: Colors.black.withOpacity(0.8), height: 40.h)
+                    ],
+                  );
+                },
+                separatorBuilder: (_, index) {
+                  return sizedBoxHeight(10.h);
+                },
+                itemCount: generalfaq!.data!.length),
+            // child: Column(
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
+            //     sizedBoxHeight(20.h),
+            //     OpenContainerWrappers(
+            //       openBuild: const Fractional1(),
+            //       closeBuild: catTitle('Fractional Real Estate',
+            //           'assets/newImages/cat2.png', AppColors.blueL_006796),
+            //     ),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            //     // sizedBoxHeight(15.h),
+            //     OpenContainerWrappers(
+            //         openBuild: const PeerFAQ(),
+            //         closeBuild: catTitle('Peer to Peer Lending',
+            //             'assets/newImages/cat3.png', AppColors.greenL_089435)),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
 
-                OpenContainerWrappers(
-                    openBuild: const InvoiceFAQ(),
-                    closeBuild: catTitle('Invoice discounting',
-                        'assets/newImages/cat4.png', AppColors.purpleL_474E88)),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            //     OpenContainerWrappers(
+            //         openBuild: const InvoiceFAQ(),
+            //         closeBuild: catTitle('Invoice discounting',
+            //             'assets/newImages/cat4.png', AppColors.purpleL_474E88)),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
 
-                OpenContainerWrappers(
-                    openBuild: const AlternativeFAQ(),
-                    closeBuild: catTitle('Alternative Investment Fund',
-                        'assets/newImages/cat1.png', AppColors.redL_BE0F02)),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            //     OpenContainerWrappers(
+            //         openBuild: const AlternativeFAQ(),
+            //         closeBuild: catTitle('Alternative Investment Fund',
+            //             'assets/newImages/cat1.png', AppColors.redL_BE0F02)),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
 
-                OpenContainerWrappers(
-                    openBuild: const CleanGreenFAQ(),
-                    closeBuild: catTitle('Clean and Green Assets',
-                        'assets/newImages/cat7.png', AppColors.redL_BE0F02)),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            //     OpenContainerWrappers(
+            //         openBuild: const CleanGreenFAQ(),
+            //         closeBuild: catTitle('Clean and Green Assets',
+            //             'assets/newImages/cat7.png', AppColors.redL_BE0F02)),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
 
-                OpenContainerWrappers(
-                    openBuild: const SecuritizedFAQ(),
-                    closeBuild: catTitle('Securitized Debt Instrument',
-                        'assets/newImages/cat9.png', AppColors.greenL_089435)),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
-                OpenContainerWrappers(
-                    openBuild: const RevenueFAQ(),
-                    closeBuild: catTitle('Revenue Based Financing',
-                        'assets/newImages/cat5.png', AppColors.brownL_973926)),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
-                OpenContainerWrappers(
-                    openBuild: const HighYeldFAQ(),
-                    closeBuild: catTitle(
-                        'High Yield Finance',
-                        'assets/newImages/cat10.png',
-                        AppColors.purpleL_474E88)),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
-                OpenContainerWrappers(
-                    openBuild: const LeasingFAQ(),
-                    closeBuild: catTitle('Asset backed leasing',
-                        'assets/newImages/cat6.png', AppColors.pinkL_E6088B)),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
-                OpenContainerWrappers(
-                    openBuild: const VentureDebtFAQ(),
-                    closeBuild: catTitle('Venture Debt',
-                        'assets/newImages/cat8.png', AppColors.blueL_006796)),
-                Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
-                sizedBoxHeight(15.h),
-              ],
-            ),
+            //     OpenContainerWrappers(
+            //         openBuild: const SecuritizedFAQ(),
+            //         closeBuild: catTitle('Securitized Debt Instrument',
+            //             'assets/newImages/cat9.png', AppColors.greenL_089435)),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            //     OpenContainerWrappers(
+            //         openBuild: const RevenueFAQ(),
+            //         closeBuild: catTitle('Revenue Based Financing',
+            //             'assets/newImages/cat5.png', AppColors.brownL_973926)),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            //     OpenContainerWrappers(
+            //         openBuild: const HighYeldFAQ(),
+            //         closeBuild: catTitle(
+            //             'High Yield Finance',
+            //             'assets/newImages/cat10.png',
+            //             AppColors.purpleL_474E88)),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            //     OpenContainerWrappers(
+            //         openBuild: const LeasingFAQ(),
+            //         closeBuild: catTitle('Asset backed leasing',
+            //             'assets/newImages/cat6.png', AppColors.pinkL_E6088B)),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            //     OpenContainerWrappers(
+            //         openBuild: const VentureDebtFAQ(),
+            //         closeBuild: catTitle('Venture Debt',
+            //             'assets/newImages/cat8.png', AppColors.blueL_006796)),
+            //     Divider(color: Colors.black.withOpacity(0.8), height: 40.h),
+            //     sizedBoxHeight(15.h),
+            //   ],
+            // ),
           ),
         ),
       ],
@@ -171,7 +194,7 @@ class _FAQsState extends State<FAQs> {
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset(
+          Image.network(
             image,
             height: 45.h,
             width: 45.h,

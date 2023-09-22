@@ -249,7 +249,14 @@ class _InsightsState extends State<Insights> {
                             ),
                           ),
                           sizedBoxHeight(6.h),
-                          //  Image.network(blogs!.data![number].blogImage!.trim()),
+                          SizedBox(
+                            width: double.infinity,
+                            //height: 100.h,
+                            child: Image.network(
+                              blogs!.data![number].blogImage!.trim(),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
                           SizedBox(
                             height: 8.h,
                           ),
@@ -318,7 +325,8 @@ class _InsightsState extends State<Insights> {
                                     blogs!.data![number].blogDescription,
                                 postTitle: blogs!.data![number].blogTitle,
                                 image: blogs!.data![number].blogImage!.trim(),
-                              ))
+                                minsToRead: blogs!.data![number].minutesToRead,
+                              )),
                         ],
                       ),
                     ),

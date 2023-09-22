@@ -16,6 +16,7 @@ class LeaseBasedLearn extends StatefulWidget {
 }
 
 class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
+
   Future? myfuture;
 
   @override
@@ -23,6 +24,7 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
     myfuture = FAQ2().Leasebased();
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
