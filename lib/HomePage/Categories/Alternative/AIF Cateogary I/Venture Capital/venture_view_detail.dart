@@ -112,6 +112,7 @@ class _VentureViewDetailsState extends State<VentureViewDetails> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
+            productid: ventureCapitalDetailsObj?.data?.productsId.toString(),
             ontap: () {
               if (controllerEntryPoint.logedIn!) {
                 investNow();

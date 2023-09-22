@@ -153,6 +153,7 @@ class _ProductsDetailsState extends State<ProductsDetails> {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid: privateequitydetailsobj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
@@ -183,10 +184,10 @@ class _ProductsDetailsState extends State<ProductsDetails> {
               }
             }
             return
-            //  privateequitydetailsobj!.data.
-            // ?
-            // _buildNoDataBody() :
-            _buildBody(
+                //  privateequitydetailsobj!.data.
+                // ?
+                // _buildNoDataBody() :
+                _buildBody(
               context,
             );
           },
@@ -323,7 +324,8 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateequitydetailsobj!.data!.fundManagerExperience ?? "NA"),
+                    privateequitydetailsobj!.data!.fundManagerExperience ??
+                        "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Sponsor"),
                 Divider(
@@ -501,7 +503,8 @@ class _ProductsDetailsState extends State<ProductsDetails> {
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateequitydetailsobj!.data!.hurdleRate ?? "NA"),
+                text272424_18(
+                    privateequitydetailsobj!.data!.hurdleRate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Other Expenses"),
                 Divider(

@@ -42,17 +42,19 @@ class _HighyieldbondsmainState extends State<Highyieldbondsmain> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 16),
+              padding: const EdgeInsets.only(left: 16, right: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Text(
-                    "Corporate Bonds - High Yield",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        color: const Color(0XFFFFFFFF),
-                        fontWeight: FontWeight.w500),
+                  Flexible(
+                    child: Text(
+                      "Corporate Bonds - High Yield",
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontSize: 25.sp,
+                          color: const Color(0XFFFFFFFF),
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
                 ],
               ),

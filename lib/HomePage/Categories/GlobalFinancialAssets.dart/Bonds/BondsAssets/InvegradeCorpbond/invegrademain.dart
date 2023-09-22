@@ -42,7 +42,7 @@ class _InvestmentGradeMainState extends State<InvestmentGradeMain> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 16),
+              padding: const EdgeInsets.only(left: 16, right: 16),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [

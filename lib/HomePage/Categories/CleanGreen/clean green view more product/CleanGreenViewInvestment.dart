@@ -100,6 +100,7 @@ class _CleanGreenViewInvestmentState extends State<CleanGreenViewInvestment> {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid: cleangreenDetailssobj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();

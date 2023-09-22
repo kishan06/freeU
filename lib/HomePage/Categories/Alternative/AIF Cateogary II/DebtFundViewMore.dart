@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/FAQ2/FAQ2.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/components/accordion/gf_accordion.dart';
 
@@ -14,6 +15,14 @@ class DebtFundViewMore extends StatefulWidget {
 }
 
 class _DebtFundViewMoreState extends State<DebtFundViewMore> {
+  Future? myfuture;
+
+  @override
+  void initState() {
+    myfuture = FAQ2().Alternative2DebtFund();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,44 +40,74 @@ class _DebtFundViewMoreState extends State<DebtFundViewMore> {
         titleTxt: "",
         bottomtext: false,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
+              );
+            }
+          }
+          return _buildBody();
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
                   "Debt Fund",
                   style: TextStyle(
                       fontFamily: "Poppins",
                       fontSize: 25.sp,
                       fontWeight: FontWeight.w500),
                 ),
-              ],
-            ),
-            Expanded(
-                child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  sizedBoxHeight(20.h),
-                  faqAccod0(),
-                  sizedBoxHeight(15.h),
-                  faqAccod(),
-                  sizedBoxHeight(15.h),
-                ],
               ),
-            )),
-          ],
-        ),
+            ],
+          ),
+          sizedBoxHeight(20.h),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return alternative2debt(
+                    alternati2debtfunds!.data![index].faqQuestion ?? "",
+                    alternati2debtfunds!.data![index].faqAnswer ?? "",
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return sizedBoxHeight(20.h);
+                },
+                itemCount: alternati2debtfunds!.data!.length),
+          ),
+        ],
       ),
     );
   }
 
-  Widget faqAccod0() {
+  Widget alternative2debt(String question, String ans) {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
@@ -87,7 +126,7 @@ class _DebtFundViewMoreState extends State<DebtFundViewMore> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'What is Debt Fund?',
+          question,
           style: TextStyle(
               color: Colors.black,
               fontSize: 20.sp,
@@ -97,7 +136,6 @@ class _DebtFundViewMoreState extends State<DebtFundViewMore> {
         contentChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            sizedBoxHeight(20.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -115,71 +153,9 @@ class _DebtFundViewMoreState extends State<DebtFundViewMore> {
                 )
               ],
             ),
-            sizedBoxHeight(15.h),
+            sizedBoxHeight(16.h),
             Text(
-              "As the name suggests, Debt Funds invest in debt instruments of a company (both listed or unlisted). Therefore, if you are an investor, your money will be used in different company bonds, debentures, and other money market instruments. This is a relatively stable investment avenue, where risks are lower. But there are ways in which it can be a high risk because, essentially companies with a low credit score have high yield debt securities. This is the reason Debt Funds investors are mainly interested in companies that have a high growth potential, but without adequate capital. As per SEBI regulations, since AIF is mainly privately pooled investments, Debt Fund investments cannot be used for giving out loans.",
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: "Poppins",
-                fontSize: 18.sp,
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget faqAccod() {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.black.withOpacity(0.2)),
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5.r)),
-      child: GFAccordion(
-        showAccordion: false,
-        titleBorderRadius: BorderRadius.circular(5.r),
-        contentBorderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(5.r),
-          bottomRight: Radius.circular(5.r),
-        ),
-        margin: const EdgeInsets.all(0),
-        titlePadding: EdgeInsets.all(10.h),
-        contentPadding: EdgeInsets.all(10.w),
-        expandedTitleBackgroundColor: Colors.white,
-        contentBackgroundColor: Colors.white,
-        titleChild: Text(
-          'What are the benefits of a Debt Fund?',
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: 20.sp,
-              fontFamily: "Poppins",
-              fontWeight: FontWeight.w500),
-        ),
-        contentChild: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            sizedBoxHeight(20.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  color: Color(0xFF143C6D),
-                  height: 1,
-                  width: MediaQuery.of(context).size.width / 1.65,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Color(0xFF143C6D),
-                      borderRadius: BorderRadius.circular(100.r)),
-                  height: 8,
-                  width: 8,
-                )
-              ],
-            ),
-            sizedBoxHeight(15.h),
-            Text(
-              "Debt funds do not fluctuate with the market as much because these are essentially bonds that are loans. Debt funds are less volatile. The debt prices do not fluctuate much because essentially debt funds are loans. For example, if a loan of Rs 1000 is given and the interest rate us fixed at 8%. So the investors will continue to get the 8% interest, and even get bac the RS 1000 when the maturity term ends. Therefore, it is a relatively stable income. ",
+              ans,
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",
