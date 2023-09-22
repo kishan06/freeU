@@ -133,6 +133,7 @@ Variable Fee - 1% to 1.5%''',
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid: privateinvepubdetailssobj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
@@ -250,8 +251,8 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateinvepubdetailssobj!.data!.fundStructure ??
-                    "NA"),
+                text272424_18(
+                    privateinvepubdetailssobj!.data!.fundStructure ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Strategy"),
                 Divider(
@@ -278,8 +279,7 @@ Variable Fee - 1% to 1.5%''',
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateinvepubdetailssobj!.data!.fundManagerName ??
-                        "NA"),
+                    privateinvepubdetailssobj!.data!.fundManagerName ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Website of the fund"),
                 Divider(
@@ -288,8 +288,7 @@ Variable Fee - 1% to 1.5%''',
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateinvepubdetailssobj!.data!.websiteOfTheFund ??
-                        "NA"),
+                    privateinvepubdetailssobj!.data!.websiteOfTheFund ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fund Manager Experience"),
                 Divider(
@@ -307,8 +306,7 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(
-                    privateinvepubdetailssobj!.data!.sponsor ?? "NA"),
+                text272424_18(privateinvepubdetailssobj!.data!.sponsor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Manager"),
                 Divider(
@@ -316,8 +314,7 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(
-                    privateinvepubdetailssobj!.data!.manager ?? "NA"),
+                text272424_18(privateinvepubdetailssobj!.data!.manager ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Trustee"),
                 Divider(
@@ -325,8 +322,7 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(
-                    privateinvepubdetailssobj!.data!.trustee ?? "NA"),
+                text272424_18(privateinvepubdetailssobj!.data!.trustee ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Auditor"),
                 Divider(
@@ -334,8 +330,7 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(
-                    privateinvepubdetailssobj!.data!.auditor ?? "NA"),
+                text272424_18(privateinvepubdetailssobj!.data!.auditor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Valuer / Tax Advisor"),
                 Divider(
@@ -344,8 +339,7 @@ Variable Fee - 1% to 1.5%''',
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateinvepubdetailssobj!.data!.valuerTaxAdvisor ??
-                        "NA"),
+                    privateinvepubdetailssobj!.data!.valuerTaxAdvisor ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Credit Rating"),
                 Divider(
@@ -371,8 +365,8 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateinvepubdetailssobj!.data!.firstCloseDate ??
-                    "NA"),
+                text272424_18(
+                    privateinvepubdetailssobj!.data!.firstCloseDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Final Close Date"),
                 Divider(
@@ -380,8 +374,8 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateinvepubdetailssobj!.data!.finalCloseDate ??
-                    "NA"),
+                text272424_18(
+                    privateinvepubdetailssobj!.data!.finalCloseDate ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenure from Final Close"),
                 Divider(
@@ -400,8 +394,7 @@ Variable Fee - 1% to 1.5%''',
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                    privateinvepubdetailssobj!.data!.commitmentPeriod ??
-                        "NA"),
+                    privateinvepubdetailssobj!.data!.commitmentPeriod ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Native Currency"),
                 Divider(
@@ -409,8 +402,8 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateinvepubdetailssobj!.data!.nativeCurrency ??
-                    "NA"),
+                text272424_18(
+                    privateinvepubdetailssobj!.data!.nativeCurrency ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Target Corpus"),
                 Divider(
@@ -447,8 +440,8 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateinvepubdetailssobj!.data!.intialDrawdown ??
-                    "NA"),
+                text272424_18(
+                    privateinvepubdetailssobj!.data!.intialDrawdown ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Accepting Overseas investment?"),
                 Divider(
@@ -507,8 +500,8 @@ Variable Fee - 1% to 1.5%''',
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
-                text272424_18(privateinvepubdetailssobj!.data!.otherExpenses ??
-                    "NA"),
+                text272424_18(
+                    privateinvepubdetailssobj!.data!.otherExpenses ?? "NA"),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Focused Sector"),
                 Divider(

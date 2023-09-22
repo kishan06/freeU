@@ -147,6 +147,7 @@ class _FractionalRealEstate2State extends State<FractionalRealEstate2> {
               ),
             ],
           ),
+          sizedBoxHeight(20.h),
           Expanded(
             child: ListView.separated(
                 itemBuilder: (context, index) {

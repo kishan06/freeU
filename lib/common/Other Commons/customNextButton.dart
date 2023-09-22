@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/viewModel/Investnow/PostInvestnow.dart';
 
 class CustomNextButton extends StatelessWidget {
   const CustomNextButton({
@@ -9,11 +11,25 @@ class CustomNextButton extends StatelessWidget {
     this.ontap,
     required this.text,
     this.colorchange = false,
+    this.productid,
   }) : super(key: key);
 
   final bool colorchange;
   final GestureTapCallback? ontap;
   final String text;
+  final String? productid;
+
+    void UploadData() async {
+      Map<String, dynamic> updata = {
+        "product_id": productid.toString()
+      };
+      final data =
+          await Investnow().postInvestnow(updata);
+          print("updata is $updata");
+      if (data.status == ResponseStatus.SUCCESS) {
+        print(productid);
+      }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +50,8 @@ class CustomNextButton extends StatelessWidget {
         ),
         onPressed: () {
           ontap!();
+          // productid;
+          UploadData();
         },
         child: Text(
           text,

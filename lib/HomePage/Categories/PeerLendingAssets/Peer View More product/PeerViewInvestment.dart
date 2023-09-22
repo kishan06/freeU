@@ -95,6 +95,7 @@ class _PeerViewInvestmentState extends State<PeerViewInvestment> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
+            productid: peerDetailsObj?.data?.productsId.toString(),
             ontap: () {
               if (controllerEntryPoint.logedIn!) {
                 investNow();

@@ -4,6 +4,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/FAQ2/FAQ2.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
@@ -16,7 +17,15 @@ class LeaseBasedLearn extends StatefulWidget {
 
 class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
 
-  
+  Future? myfuture;
+
+  @override
+  void initState() {
+    myfuture = FAQ2().Leasebased();
+    super.initState();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,89 +43,81 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
         titleTxt: "",
         bottomtext: false,
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Flexible(
-                  child: Text(
-                    "Lease based Financing",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
                 ),
-              ],
-            ),
-            Expanded(
-                child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  sizedBoxHeight(30.h),
-                  leasebase0(),
-                  sizedBoxHeight(15.h),
-                  leasebase1(),
-                  sizedBoxHeight(15.h),
-                  leasebase2(),
-                  sizedBoxHeight(15.h),
-                  leasebase3(),
-                  sizedBoxHeight(15.h),
-                  leasebase4(),
-                  sizedBoxHeight(15.h),
-                  leasebase5(),
-                  sizedBoxHeight(15.h),
-                  faqAccod('How does lease-based financing work? ',
-                      'In a lease-based financing arrangement, the leasing company purchases the asset and leases it to the company in exchange for regular lease payments. The lease payments typically include a finance charge that covers the cost of the asset plus interest, and the lease term is usually shorter than the expected useful life of the asset.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod(
-                      'How does lease-based financing differ from traditional financing? ',
-                      'Lease-based financing is distinct from traditional financing as the company leases the asset instead of owning it. It requires less upfront capital and provides greater equipment flexibility. However, it can be more expensive overall due to finance charges and interest payments.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod('Who provides lease-based financing? ',
-                      'Lease-based financing can be provided by banks, leasing companies, and other financial institutions.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod(
-                      'What types of assets can be leased through lease-based financing? ',
-                      'Almost any type of asset can be leased through lease-based financing, including equipment, machinery, vehicles, and real estate.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod('Is lease-based financing a secured investment?',
-                      'Lease-based financing is considered secure as it is backed by assets as collateral.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod(
-                      'Is ownership of the asset preserved in lease-based financing?',
-                      'Yes. the lessor (person leasing) will transfer all risk and rewards associated with ownership of the asset to the lessee (borrower) but without transferring the asset’s ownership.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod(
-                      'Is there a default risk with lease-backed financing?',
-                      'In the event that a company fails to repay a lease rental investment, the investor may have the right to take legal action to recover the outstanding amount. While there is no 100% guarantee, most platforms have safeguards in place for reclaiming the asset and for releasing the same.'),
-                  sizedBoxHeight(15.h),
-                  faqAccod(
-                      'Taxation (Add this above existing info given within) ',
-                      '''The rentals earned from lease-based financing investments are taxable under the head “Income from Other Sources". The applicable tax rate depends on the investor's income tax slab. '''),
-                  sizedBoxHeight(15.h),
-                ],
-              ),
-            )),
-          ],
-        ),
+              );
+            }
+          }
+          return _buildBody();
+        },
       ),
     );
   }
 
-  Widget leasebase0() {
+  Widget _buildBody() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
+                  "Lease based Financing",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
+                ),
+              ),
+            ],
+          ),
+          sizedBoxHeight(20.h),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return leasebase(
+                    leasebasefinance!.data![index].faqQuestion ?? "",
+                    leasebasefinance!.data![index].faqAnswer ?? "",
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return sizedBoxHeight(20.h);
+                },
+                itemCount: leasebasefinance!.data!.length),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget leasebase(String question, String ans) {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
           color: Colors.white,
           borderRadius: BorderRadius.circular(5.r)),
       child: GFAccordion(
+        showAccordion: false,
         titleBorderRadius: BorderRadius.circular(5.r),
         contentBorderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(5.r),
@@ -128,7 +129,7 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
         expandedTitleBackgroundColor: Colors.white,
         contentBackgroundColor: Colors.white,
         titleChild: Text(
-          'What is lease-based financing?',
+          question,
           style: TextStyle(
               color: Colors.black,
               fontSize: 20.sp,
@@ -142,44 +143,26 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: AppColors.pinkL_E6088B,
+                  color: Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: AppColors.pinkL_E6088B,
+                      color: Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
                 )
               ],
             ),
-            sizedBoxHeight(15.h),
+            sizedBoxHeight(16.h),
             Text(
-              "Lease-based financing, also known as leasing, is a type of financing that allows individuals or businesses to acquire the use of an asset (such as a car, equipment, or property) without purchasing it outright.",
+              ans,
               style: TextStyle(
                 color: Colors.black,
-                fontSize: 18.sp,
                 fontFamily: "Poppins",
-              ),
-            ),
-            sizedBoxHeight(10.h),
-            Text(
-              "It is a contractual agreement where the owner of the asset grants the other party the right to use the asset in return for periodic payments. The owner of the asset is known as the Lessor, the user of the asset is known as Lessee and the rent paid is known as Lease rentals.",
-              style: TextStyle(
-                color: Colors.black,
                 fontSize: 18.sp,
-                fontFamily: "Poppins",
-              ),
-            ),
-            sizedBoxHeight(10.h),
-            Text(
-              "At the end of the lease term, the lessee typically has the option to purchase the asset, renew the lease, or return the asset to the lessor. The terms and conditions of a lease-based financing agreement can vary depending on the type of asset being leased, the duration of the lease, and other factors.",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 18.sp,
-                fontFamily: "Poppins",
               ),
             ),
           ],
@@ -188,6 +171,7 @@ class _LeaseBasedLearnState extends State<LeaseBasedLearn> {
     );
   }
 
+//bullet points method
   Widget leasebase1() {
     List bulletPoints = [
       {
@@ -746,67 +730,6 @@ As per the Supreme Court pronouncement, only the lessor is the legal owner and i
           ),
         ),
       ],
-    );
-  }
-
-  Widget faqAccod(String heading, String content) {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.black.withOpacity(0.2)),
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5.r)),
-      child: GFAccordion(
-        titleBorderRadius: BorderRadius.circular(5.r),
-        contentBorderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(5.r),
-          bottomRight: Radius.circular(5.r),
-        ),
-        margin: const EdgeInsets.all(0),
-        titlePadding: EdgeInsets.all(10.h),
-        contentPadding: EdgeInsets.all(10.w),
-        expandedTitleBackgroundColor: Colors.white,
-        contentBackgroundColor: Colors.white,
-        titleChild: Text(
-          heading,
-          style: TextStyle(
-              color: Colors.black,
-              fontSize: 20.sp,
-              fontFamily: "Poppins",
-              fontWeight: FontWeight.w500),
-        ),
-        contentChild: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            sizedBoxHeight(20.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  color: const Color(0xFF143C6D),
-                  height: 1,
-                  width: MediaQuery.of(context).size.width / 1.65,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: const Color(0xFF143C6D),
-                      borderRadius: BorderRadius.circular(100.r)),
-                  height: 8,
-                  width: 8,
-                )
-              ],
-            ),
-            sizedBoxHeight(15.h),
-            Text(
-              content,
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: "Poppins",
-                fontSize: 18.sp,
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
