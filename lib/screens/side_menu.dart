@@ -20,7 +20,6 @@ class SideBar extends StatefulWidget {
 
   @override
   State<SideBar> createState() => _SideBarState();
-
 }
 
 class _SideBarState extends State<SideBar> {
@@ -29,7 +28,7 @@ class _SideBarState extends State<SideBar> {
 
   final controllerEntryPoint = Get.put(EntryPointController());
 
-  Future<void> _logoutstate() async{
+  Future<void> _logoutstate() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove('token');
     await prefs.remove('name');
@@ -47,159 +46,330 @@ class _SideBarState extends State<SideBar> {
     {"imagePath": "assets/logos/side10.png", "text": "Contact Us"},
     {"imagePath": "assets/logos/side11.png", "text": "Logout"},
   ];
+
+  Future? myfuture;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    myfuture = GetProfile().GetProfileAPI();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Container(
-          width: 300.w,
-          height: double.infinity,
-          decoration: const BoxDecoration(color: AppColors.blue143C6D
+        body: FutureBuilder(
+      future: myfuture,
+      builder: (ctx, snapshot) {
+        if (snapshot.data == null) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [Center(child: CircularProgressIndicator())],
+          );
+        }
+        if (snapshot.connectionState == ConnectionState.done) {
+          if (snapshot.hasError) {
+            return Center(
+              child: Text(
+                '${snapshot.error} occured',
+                style: TextStyle(fontSize: 18.spMin),
               ),
-          child: DefaultTextStyle(
-            style: const TextStyle(color: Colors.white),
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(16.w, 10.h, 45.w, 10.h),
-              child: Column(
-                children: [
-                  sizedBoxHeight(60.h),
-                  InkWell(onTap: () {
-                  }, child: GetBuilder<EntryPointController>(builder: (_) {
-                    return controllerEntryPoint.logedIn!
-                        ? InkWell(
-                            onTap: () async {
-                            final result = await  Get.toNamed("/userlogged");
-                            print("result is $result");
-                            if (result) {
-                              setState(() {
-                                
-                              });
-                            }
-                            },
-                            child: Row(
-                              children: [
-                                editProfileImage.profilePicPath.value != ''
-                                    ? ClipOval(
-                                        child: SizedBox.fromSize(
-                                          size: Size.fromRadius(25.r),
-                                          child: Image(
-                                            image: FileImage(File(
-                                                editProfileImage
-                                                    .profilePicPath.value)),
-                                            fit: BoxFit.cover,
-                                            width: 50.w,
-                                            height: 50.h,
+            );
+          }
+        }
+        return _buildBody();
+      },
+    )
+        // SafeArea(
+        //   child: Container(
+        //     width: 300.w,
+        //     height: double.infinity,
+        //     decoration: const BoxDecoration(color: AppColors.blue143C6D),
+        //     child: DefaultTextStyle(
+        //       style: const TextStyle(color: Colors.white),
+        //       child: Padding(
+        //         padding: EdgeInsets.fromLTRB(16.w, 10.h, 45.w, 10.h),
+        //         child: Column(
+        //           children: [
+        //             sizedBoxHeight(60.h),
+        //             InkWell(
+        //                 onTap: () {},
+        //                 child: GetBuilder<EntryPointController>(builder: (_) {
+        //                   return controllerEntryPoint.logedIn!
+        //                       ? InkWell(
+        //                           onTap: () async {
+        //                             final result =
+        //                                 await Get.toNamed("/userlogged");
+        //                             print("result is $result");
+        //                             if (result) {
+        //                               setState(() {});
+        //                             }
+        //                           },
+        //                           child: Row(
+        //                             children: [
+        //                               ProfileObj?.user?.profileImage != ''
+        //                                   ? ClipOval(
+        //                                       child: SizedBox.fromSize(
+        //                                         size: Size.fromRadius(25.r),
+        //                                         child: CircleAvatar(
+        //                                           backgroundImage: NetworkImage(
+        //                                               ProfileObj!
+        //                                                   .user!.profileImage!),
+        //                                           radius: 25.r,
+        //                                         ),
+        //                                       ),
+        //                                     )
+        //                                   : Container(
+        //                                       height: 50.w,
+        //                                       width: 50.w,
+        //                                       child: ClipRRect(
+        //                                         borderRadius:
+        //                                             BorderRadius.circular(100),
+        //                                         child: Image.asset(
+        //                                           'assets/images/profie.png',
+        //                                           fit: BoxFit.fill,
+        //                                         ),
+        //                                       ),
+        //                                     ),
+        //                               sizedBoxWidth(15.w),
+        //                               Column(
+        //                                 crossAxisAlignment:
+        //                                     CrossAxisAlignment.start,
+        //                                 children: [
+        //                                   text16White(
+        //                                     nameValue == null ||
+        //                                             nameValue!.isEmpty
+        //                                         ? myusername!
+        //                                         : '$nameValue',
+        //                                   ),
+        //                                   text14White("Investor")
+        //                                 ],
+        //                               ),
+        //                               Spacer(),
+        //                               Icon(
+        //                                 Icons.arrow_forward_ios_outlined,
+        //                                 size: 20.w,
+        //                                 color: AppColors.white,
+        //                               )
+        //                             ],
+        //                           ),
+        //                         )
+        //                       : InkWell(
+        //                           onTap: () {
+        //                             Get.toNamed("/login");
+        //                           },
+        //                           child: Row(
+        //                             children: [
+        //                               editProfileImage.profilePicPath.value != ''
+        //                                   ? ClipOval(
+        //                                       child: SizedBox.fromSize(
+        //                                         size: Size.fromRadius(25.r),
+        //                                         child: Image(
+        //                                           image: FileImage(File(
+        //                                               editProfileImage
+        //                                                   .profilePicPath.value)),
+        //                                           fit: BoxFit.cover,
+        //                                           width: 50.w,
+        //                                           height: 50.h,
+        //                                         ),
+        //                                       ),
+        //                                     )
+        //                                   : Container(
+        //                                       height: 50.w,
+        //                                       width: 50.w,
+        //                                       child: ClipRRect(
+        //                                         borderRadius:
+        //                                             BorderRadius.circular(100),
+        //                                         child: Image.asset(
+        //                                           'assets/images/profie.png',
+        //                                           fit: BoxFit.fill,
+        //                                         ),
+        //                                       ),
+        //                                     ),
+        //                               sizedBoxWidth(15.w),
+        //                               Column(
+        //                                 crossAxisAlignment:
+        //                                     CrossAxisAlignment.start,
+        //                                 children: [
+        //                                   text16White(
+        //                                     nameValue == null ||
+        //                                             nameValue!.isEmpty
+        //                                         ? 'Guest'
+        //                                         : '$nameValue $lastNameValue',
+        //                                   ),
+        //                                   text14White("Sign In/Sign up")
+        //                                 ],
+        //                               ),
+        //                               Spacer(),
+        //                               Icon(
+        //                                 Icons.arrow_forward_ios_outlined,
+        //                                 size: 20.w,
+        //                                 color: AppColors.white,
+        //                               )
+        //                             ],
+        //                           ),
+        //                         );
+        //                 })),
+        //             ListView.builder(
+        //               shrinkWrap: true,
+        //               itemCount: sideBarData.length,
+        //               itemBuilder: (_, index) {
+        //                 return sideBarTile(
+        //                   image: sideBarData[index]["imagePath"],
+        //                   text: sideBarData[index]["text"],
+        //                   onTap: () {
+        //                     navigateTo(index, context);
+        //                   },
+        //                 );
+        //               },
+        //             ),
+        //           ],
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ),
+        );
+  }
+
+  Widget _buildBody() {
+    return SafeArea(
+      child: Container(
+        width: 300.w,
+        height: double.infinity,
+        decoration: const BoxDecoration(color: AppColors.blue143C6D),
+        child: DefaultTextStyle(
+          style: const TextStyle(color: Colors.white),
+          child: Padding(
+            padding: EdgeInsets.fromLTRB(16.w, 10.h, 45.w, 10.h),
+            child: Column(
+              children: [
+                sizedBoxHeight(60.h),
+                InkWell(
+                    onTap: () {},
+                    child: GetBuilder<EntryPointController>(builder: (_) {
+                      return controllerEntryPoint.logedIn!
+                          ? InkWell(
+                              onTap: () async {
+                                final result = await Get.toNamed("/userlogged");
+                                print("result is $result");
+                                if (result) {
+                                  setState(() {});
+                                }
+                              },
+                              child: Row(
+                                children: [
+                                  ProfileObj?.user?.profileImage != ''
+                                      ? ClipOval(
+                                          child: SizedBox.fromSize(
+                                            size: Size.fromRadius(25.r),
+                                            child: CircleAvatar(
+                                              backgroundImage: NetworkImage(
+                                                  ProfileObj!
+                                                      .user!.profileImage!),
+                                              radius: 25.r,
+                                            ),
+                                          ),
+                                        )
+                                      : Container(
+                                          height: 50.w,
+                                          width: 50.w,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(100),
+                                            child: Image.asset(
+                                              'assets/images/profie.png',
+                                              fit: BoxFit.fill,
+                                            ),
                                           ),
                                         ),
-                                      )
-                                    : Container(
-                                        height: 50.w,
-                                        width: 50.w,
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                          child: Image.asset(
-                                            'assets/images/profie.png',
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
+                                  sizedBoxWidth(15.w),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      text16White(
+                                        nameValue == null || nameValue!.isEmpty
+                                            ? myusername!
+                                            : '$nameValue',
                                       ),
-
-                                sizedBoxWidth(15.w),
-
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    text16White(
-                                      nameValue == null || nameValue!.isEmpty
-                                          ? myusername!
-                                          : '$nameValue',
-                                    ),
-                                    text14White("Investor")
-                                  ],
-                                ),
-
-                                Spacer(),
-
-                                Icon(
-                                  Icons.arrow_forward_ios_outlined,
-                                  size: 20.w,
-                                  color: AppColors.white,
-                                )
-
-                              ],
-                            ),
-                          )
-                        : InkWell(
-                            onTap: () {
-                              Get.toNamed("/login");
-
-                            },
-                            child: Row(
-                              children: [
-                                editProfileImage.profilePicPath.value != ''
-                                    ? ClipOval(
-                                        child: SizedBox.fromSize(
-                                          size: Size.fromRadius(25.r),
-                                          child: Image(
-                                            image: FileImage(File(
-                                                editProfileImage
-                                                    .profilePicPath.value)),
-                                            fit: BoxFit.cover,
-                                            width: 50.w,
-                                            height: 50.h,
-                                          ),
-                                        ),
-                                      )
-                                    : Container(
-                                        height: 50.w,
-                                        width: 50.w,
-                                        child:   ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                          child: Image.asset(
-                                            'assets/images/profie.png',
-                                            fit: BoxFit.fill,
-                                          ),
-                                        ),
+                                      text14White("Investor")
+                                    ],
+                                  ),
+                                  Spacer(),
+                                  Icon(
+                                    Icons.arrow_forward_ios_outlined,
+                                    size: 20.w,
+                                    color: AppColors.white,
+                                  )
+                                ],
+                              ),
+                            )
+                          : InkWell(
+                              onTap: () {
+                                Get.toNamed("/login");
+                              },
+                              child: Row(
+                                children: [
+                                  ClipOval(
+                                    child: SizedBox.fromSize(
+                                        size: Size.fromRadius(60.r),
+                                        child: ProfileObj?.user?.profileImage !=
+                                                ''
+                                            ? ClipOval(
+                                                child: SizedBox.fromSize(
+                                                  size: Size.fromRadius(25.r),
+                                                  child: CircleAvatar(
+                                                    backgroundImage:
+                                                        NetworkImage(ProfileObj!
+                                                            .user!
+                                                            .profileImage!),
+                                                    radius: 25.r,
+                                                  ),
+                                                ),
+                                              )
+                                            : Image.asset(
+                                                'assets/images/user.png')),
+                                  ),
+                                  sizedBoxWidth(15.w),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      text16White(
+                                        nameValue == null || nameValue!.isEmpty
+                                            ? 'Guest'
+                                            : '$nameValue $lastNameValue',
                                       ),
-                                sizedBoxWidth(15.w),
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    text16White(
-                                      nameValue == null || nameValue!.isEmpty
-                                          ? 'Guest'
-                                          : '$nameValue $lastNameValue',
-                                    ),
-                                    text14White("Sign In/Sign up")
-                                  ],
-                                ),
-                                Spacer(),
-                                Icon(
-                                  Icons.arrow_forward_ios_outlined,
-                                  size: 20.w,
-                                  color: AppColors.white,
-                                )
-                              ],
-                            ),
-                          );
-                  })),
-                  ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: sideBarData.length,
-                    itemBuilder: (_, index) {
-                      return sideBarTile(
-                        image: sideBarData[index]["imagePath"],
-                        text: sideBarData[index]["text"],
-                        onTap: () {
-                          navigateTo(index, context);
-                        },
-                      );
-                    },
-                  ),
-                ],
-              ),
+                                      text14White("Sign In/Sign up")
+                                    ],
+                                  ),
+                                  Spacer(),
+                                  Icon(
+                                    Icons.arrow_forward_ios_outlined,
+                                    size: 20.w,
+                                    color: AppColors.white,
+                                  )
+                                ],
+                              ),
+                            );
+                    })),
+                ListView.builder(
+                  shrinkWrap: true,
+                  itemCount: sideBarData.length,
+                  itemBuilder: (_, index) {
+                    return sideBarTile(
+                      image: sideBarData[index]["imagePath"],
+                      text: sideBarData[index]["text"],
+                      onTap: () {
+                        navigateTo(index, context);
+                      },
+                    );
+                  },
+                ),
+              ],
             ),
           ),
         ),
@@ -318,18 +488,18 @@ Future<dynamic> logoutDailog(BuildContext context) {
                   child: CustomNextButton(
                     text: "Log out",
                     ontap: () async {
-                          SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.remove('token');
-    await prefs.remove('name');
-    
-          Get.offAll(() => Login());
-          print(myusername!);
+                      SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      await prefs.remove('token');
+                      await prefs.remove('name');
+
+                      Get.offAll(() => Login());
+                      print(myusername!);
 
                       // final SharedPreferences prefs =
                       //     await SharedPreferences.getInstance();
 
                       // await prefs.setBool('LogedIn', false);
-
 
                       // Get.offAll(Login());
                     },
@@ -390,9 +560,9 @@ Future<dynamic> logoutDailog(BuildContext context) {
 }
 
 class sideBarTile extends StatelessWidget {
- final String image;
- final String text;
- final void Function()? onTap;
+  final String image;
+  final String text;
+  final void Function()? onTap;
 
   sideBarTile({
     required this.image,

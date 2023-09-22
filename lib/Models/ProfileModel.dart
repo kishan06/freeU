@@ -22,6 +22,7 @@ class ProfileModel {
 class User {
   int? id;
   String? name;
+  String? profileImage;
   String? firstName;
   String? lastName;
   String? email;
@@ -41,6 +42,7 @@ class User {
   User(
       {this.id,
       this.name,
+      this.profileImage,
       this.firstName,
       this.lastName,
       this.email,
@@ -60,6 +62,7 @@ class User {
   User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
+    profileImage = json['profile_image'];
     firstName = json['first_name'];
     lastName = json['last_name'];
     email = json['email'];
@@ -81,6 +84,7 @@ class User {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['name'] = this.name;
+    data['profile_image'] = this.profileImage;
     data['first_name'] = this.firstName;
     data['last_name'] = this.lastName;
     data['email'] = this.email;

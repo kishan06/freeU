@@ -33,13 +33,15 @@ class Data {
   String? blogTitle;
   String? blogDescription;
   String? date;
+  String? minutesToRead;
 
   Data(
       {this.id,
       this.blogImage,
       this.blogTitle,
       this.blogDescription,
-      this.date});
+      this.date,
+      this.minutesToRead});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -47,6 +49,7 @@ class Data {
     blogTitle = json['blog_title'];
     blogDescription = json['blog_description'];
     date = json['date'];
+    minutesToRead = json['minutes_to_read'];
   }
 
   Map<String, dynamic> toJson() {
@@ -56,6 +59,7 @@ class Data {
     data['blog_title'] = this.blogTitle;
     data['blog_description'] = this.blogDescription;
     data['date'] = this.date;
+    data['minutes_to_read'] = this.minutesToRead;
     return data;
   }
 }

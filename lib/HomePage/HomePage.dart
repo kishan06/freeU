@@ -1,7 +1,13 @@
+import 'dart:async';
+import 'dart:math';
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/Models/Insights/BlogsModel.dart';
+import 'package:freeu/ViewModel/Blogs/BlogsApis.dart';
+import 'package:freeu/ViewModel/Profile/Getprofile.dart';
 import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
@@ -15,6 +21,7 @@ import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
 import '../controllers/entry_point_controller.dart';
 import 'Categories/CategoriesMain.dart';
+import 'package:async/src/future_group.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -126,7 +133,8 @@ class _HomePageState extends State<HomePage> {
   final CarouselController carouselController = CarouselController();
   final RxInt categoryIndex = 0.obs;
   final ScrollController scrollController = ScrollController();
-
+  FutureGroup futureGroup = FutureGroup();
+  StreamController<BlogsModel> BlogsControllerDummy = StreamController();
   @override
   void initState() {
     super.initState();
@@ -134,6 +142,13 @@ class _HomePageState extends State<HomePage> {
       int index = (scrollController.offset / 170.w).round();
       categoryIndex.value = index;
     });
+    var updata = {"search": null, "tag_id": null};
+
+    futureGroup.add(BlogApis()
+        .BlogSearchAndFilter(updata, streamController: BlogsControllerDummy));
+
+    futureGroup.add(GetProfile().GetProfileAPI());
+    futureGroup.close();
   }
 
   @override
@@ -174,170 +189,199 @@ class _HomePageState extends State<HomePage> {
         automaticallyImplyLeading: false,
         titleSpacing: 0,
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.only(left: 16.0, right: 16),
-          child: Column(
-            children: [
-              SizedBox(
-                height: 15.h,
-              ),
-              CarouselSlider.builder(
-                carouselController: CarouselController(),
-                itemCount: 5,
-                itemBuilder: (context, index, realIndex) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
-                    child: Container(
-                      height: 159.h,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: AppColors.blue143C6D,
-                          borderRadius: BorderRadius.circular(15.h),
-                          image: const DecorationImage(
-                              image: AssetImage(
-                                  "assets/newImages/Group 51336.png"),
-                              fit: BoxFit.fill)),
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 10.w, vertical: 20.h),
-                        child: Column(
-                          children: [
-                            SvgPicture.asset(
-                              "assets/newImages/quotes-svgrepo-com.svg",
-                              width: 24.w,
-                              height: 15.h,
-                            ),
-                            const Spacer(),
-                            text16White(content[index]['text'],
-                                textAlign: TextAlign.center),
-                            const Spacer(),
-                          ],
-                        ),
-                      ),
-                    ),
-                  );
-                },
-                options: CarouselOptions(
-                    autoPlay: true,
+      body: FutureBuilder(
+        future: futureGroup.future,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
+              );
+            }
+          }
+          return _buildBody();
+        },
+      ),
+    );
+  }
+
+  Widget _buildBody() {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.only(left: 16.0, right: 16),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 15.h,
+            ),
+            CarouselSlider.builder(
+              carouselController: CarouselController(),
+              itemCount: 5,
+              itemBuilder: (context, index, realIndex) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Container(
                     height: 159.h,
-                    autoPlayAnimationDuration: const Duration(seconds: 3),
-                    viewportFraction: 1,
-                    onPageChanged: (index, reason) {
-                      setState(() {
-                        sliderPage.value = index;
-                      });
-                    }),
-              ),
-              sizedBoxHeight(12.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  5,
-                  (index) => GestureDetector(
-                    onTap: () => carouselController.animateToPage(index),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: AppColors.blue143C6D,
-                          borderRadius: BorderRadius.circular(25.r)),
-                      width: 12.w,
-                      height: sliderPage.value == index ? 3.h : 2.h,
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 3.0,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: AppColors.blue143C6D,
+                        borderRadius: BorderRadius.circular(15.h),
+                        image: const DecorationImage(
+                            image:
+                                AssetImage("assets/newImages/Group 51336.png"),
+                            fit: BoxFit.fill)),
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 10.w, vertical: 20.h),
+                      child: Column(
+                        children: [
+                          SvgPicture.asset(
+                            "assets/newImages/quotes-svgrepo-com.svg",
+                            width: 24.w,
+                            height: 15.h,
+                          ),
+                          const Spacer(),
+                          text16White(content[index]['text'],
+                              textAlign: TextAlign.center),
+                          const Spacer(),
+                        ],
                       ),
                     ),
                   ),
-                ),
-              ),
-              SizedBox(
-                height: 15.h,
-              ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      text20Black("Top Picks"),
-                      InkWell(
-                          onTap: () {
-                            // Get.toNamed("/EntryPoint",
-                            //     arguments: 1, preventDuplicates: false);
-                          },
-                          child: text14Grey272424("View more"))
-                    ],
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  SingleChildScrollView(
-                    scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: List.generate(topPickData.length, (index) {
-                        return topPickCard(
-                          text1: topPickData[index]["text1"],
-                          imagePath: topPickData[index]["imageUrl"],
-                          title: topPickData[index]["title"],
-                          add: topPickData[index]["add"],
-                        );
-                      }),
+                );
+              },
+              options: CarouselOptions(
+                  autoPlay: true,
+                  height: 159.h,
+                  autoPlayAnimationDuration: const Duration(seconds: 3),
+                  viewportFraction: 1,
+                  onPageChanged: (index, reason) {
+                    setState(() {
+                      sliderPage.value = index;
+                    });
+                  }),
+            ),
+            sizedBoxHeight(12.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: List.generate(
+                5,
+                (index) => GestureDetector(
+                  onTap: () => carouselController.animateToPage(index),
+                  child: Container(
+                    decoration: BoxDecoration(
+                        color: AppColors.blue143C6D,
+                        borderRadius: BorderRadius.circular(25.r)),
+                    width: 12.w,
+                    height: sliderPage.value == index ? 3.h : 2.h,
+                    margin: const EdgeInsets.symmetric(
+                      horizontal: 3.0,
                     ),
-                  )
-                ],
-              ),
-              SizedBox(
-                height: 20.h,
-              ),
-              // twoText("Categories", "View more", onTap: () {
-              //   Get.toNamed("/EntryPoint",
-              //       arguments: 1, preventDuplicates: false);
-              // }),
-              // sizedBoxHeight(10.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  catContainer(0),
-                  catContainer(1),
-                ],
-              ),
-              sizedBoxHeight(15.h),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  catContainer(2),
-                  catContainer(3),
-                ],
-              ),
-              sizedBoxHeight(15.h),
-              OpenContainerWrappers(
-                closeBuild: twoText(
-                  "Knowledge center",
-                  "View more",
+                  ),
                 ),
-                openBuild: const Insights(),
               ),
-              SizedBox(
-                height: 10.h,
+            ),
+            SizedBox(
+              height: 15.h,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    text20Black("Top Picks"),
+                    InkWell(
+                        onTap: () {
+                          // Get.toNamed("/EntryPoint",
+                          //     arguments: 1, preventDuplicates: false);
+                        },
+                        child: text14Grey272424("View more"))
+                  ],
+                ),
+                SizedBox(
+                  height: 10.h,
+                ),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: List.generate(topPickData.length, (index) {
+                      return topPickCard(
+                        text1: topPickData[index]["text1"],
+                        imagePath: topPickData[index]["imageUrl"],
+                        title: topPickData[index]["title"],
+                        add: topPickData[index]["add"],
+                      );
+                    }),
+                  ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: 20.h,
+            ),
+            // twoText("Categories", "View more", onTap: () {
+            //   Get.toNamed("/EntryPoint",
+            //       arguments: 1, preventDuplicates: false);
+            // }),
+            // sizedBoxHeight(10.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                catContainer(0),
+                catContainer(1),
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                catContainer(2),
+                catContainer(3),
+              ],
+            ),
+            sizedBoxHeight(15.h),
+            OpenContainerWrappers(
+              closeBuild: twoText(
+                "Knowledge center",
+                "View more",
               ),
-              ListView.separated(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (_, index) {
-                    return tileCard(KnowledgeData[index]["imagePath"]);
-                  },
-                  separatorBuilder: (_, index) {
-                    return sizedBoxHeight(10.h);
-                  },
-                  itemCount: KnowledgeData.length),
-              sizedBoxHeight(20.h)
-            ],
-          ),
+              openBuild: const Insights(),
+            ),
+            SizedBox(
+              height: 10.h,
+            ),
+            ListView.separated(
+              shrinkWrap: true,
+              physics: const NeverScrollableScrollPhysics(),
+              itemBuilder: (_, index) {
+                return tileCard(blogs!.data![index].blogImage!, index);
+              },
+              separatorBuilder: (_, index) {
+                return sizedBoxHeight(10.h);
+              },
+              itemCount: blogs != null && blogs?.data != null
+                  ? min(blogs!.data!.length, 3)
+                  : 0,
+            ),
+            sizedBoxHeight(20.h)
+          ],
         ),
       ),
     );
   }
 
-  Widget tileCard(String path) {
+  Widget tileCard(String path, int index) {
     return Container(
       decoration: BoxDecoration(
           color: Color(0xFFFFFFFF),
@@ -361,9 +405,9 @@ class _HomePageState extends State<HomePage> {
                   child: SizedBox(
                     height: 70.h,
                     width: 90.w,
-                    child: Image.asset(
+                    child: Image.network(
                       path,
-                      fit: BoxFit.fill,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -380,8 +424,10 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Retail banks wake up to digital",
+                        blogs?.data?[index].blogTitle ?? "",
                         style: blackStyle14(),
+                        maxLines: 3, // Adjust the number of lines as needed
+                        overflow: TextOverflow.ellipsis,
                       ),
                       Row(
                         children: [
@@ -393,7 +439,7 @@ class _HomePageState extends State<HomePage> {
                             width: 5,
                           ),
                           Text(
-                            "October 17 , 2022",
+                            blogs?.data?[index].date ?? "",
                             style: blackStyle12(),
                           ),
                         ],
@@ -404,7 +450,13 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          openBuild: InsightsInner()),
+          openBuild: InsightsInner(
+            postDate: blogs?.data?[index].date,
+            postDescription: blogs!.data![index].blogDescription,
+            postTitle: blogs!.data![index].blogTitle,
+            image: blogs!.data![index].blogImage!.trim(),
+            minsToRead: blogs!.data![index].minutesToRead,
+          )),
     );
   }
 

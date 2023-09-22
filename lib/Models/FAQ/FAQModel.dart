@@ -24,13 +24,15 @@ class FAQModel {
 class Data {
   int? id;
   String? tagName;
+  String? tagImage;
   List<Faq>? faq;
 
-  Data({this.id, this.tagName, this.faq});
+  Data({this.id, this.tagName, this.tagImage, this.faq});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     tagName = json['tag_name'];
+    tagImage = json['tag_image'];
     if (json['faq'] != null) {
       faq = <Faq>[];
       json['faq'].forEach((v) {
@@ -43,6 +45,7 @@ class Data {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['tag_name'] = this.tagName;
+    data['tag_image'] = this.tagImage;
     if (this.faq != null) {
       data['faq'] = this.faq!.map((v) => v.toJson()).toList();
     }
