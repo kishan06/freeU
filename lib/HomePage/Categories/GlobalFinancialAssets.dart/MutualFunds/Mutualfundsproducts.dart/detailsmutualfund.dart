@@ -87,6 +87,7 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid: MutualFundsdetailsObj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();

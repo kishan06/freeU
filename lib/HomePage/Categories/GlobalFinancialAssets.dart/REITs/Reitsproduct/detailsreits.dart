@@ -16,8 +16,7 @@ class REITsDetails extends StatefulWidget {
   REITsDetails(
       {super.key,
       // required this.pageIndex
-      required this.slug
-      });
+      required this.slug});
 
   @override
   State<REITsDetails> createState() => _REITsDetailsState();
@@ -88,6 +87,7 @@ class _REITsDetailsState extends State<REITsDetails> {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid: ReitsdetailsObj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
@@ -97,8 +97,7 @@ class _REITsDetailsState extends State<REITsDetails> {
               },
               text: 'Invest now'),
         ),
-        body: 
-        FutureBuilder(
+        body: FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
@@ -122,8 +121,7 @@ class _REITsDetailsState extends State<REITsDetails> {
               context,
             );
           },
-        )
-        );
+        ));
   }
 
   Widget _buildBody(context) {
@@ -181,8 +179,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.name ?? "NA",
-               
+                  ReitsdetailsObj!.data!.name ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Ticker"),
@@ -192,8 +189,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.ticker ?? "NA",
-             
+                  ReitsdetailsObj!.data!.ticker ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Exchange"),
@@ -203,8 +199,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.exchange ?? "NA",
-                
+                  ReitsdetailsObj!.data!.exchange ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("About REIT"),
@@ -214,8 +209,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.about ?? "NA",
-
+                  ReitsdetailsObj!.data!.about ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Provider"),
@@ -225,8 +219,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.provider ?? "NA",
-                
+                  ReitsdetailsObj!.data!.provider ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Category"),
@@ -236,8 +229,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.category ?? "NA",
-                 
+                  ReitsdetailsObj!.data!.category ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Expense Ratio"),
@@ -247,8 +239,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.expenseRatio ?? "NA",
-                 
+                  ReitsdetailsObj!.data!.expenseRatio ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Dividend Yield"),
@@ -258,8 +249,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.dividendYield ?? "NA",
-                
+                  ReitsdetailsObj!.data!.dividendYield ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Beta"),
@@ -269,8 +259,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.beta ?? "NA",
-                
+                  ReitsdetailsObj!.data!.beta ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Returns"),
@@ -282,8 +271,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.year1Return ?? "NA",
-                
+                  ReitsdetailsObj!.data!.year1Return ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("6 Month Return"),
@@ -293,8 +281,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.month6Return ?? "NA",
-                
+                  ReitsdetailsObj!.data!.month6Return ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("1 Year Return"),
@@ -304,8 +291,7 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.year1Return ?? "NA",
-                
+                  ReitsdetailsObj!.data!.year1Return ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("3 Year Return"),
@@ -315,13 +301,11 @@ class _REITsDetailsState extends State<REITsDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                   ReitsdetailsObj!.data!.year3Return ?? "NA",
-                
+                  ReitsdetailsObj!.data!.year3Return ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
               ],
             )
-
           ],
         ),
       ),
