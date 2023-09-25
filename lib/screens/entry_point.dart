@@ -58,6 +58,8 @@ class _EntryPointState extends State<EntryPoint>
 
     scaleAnimation = Tween<double>(begin: 1, end: 0.8).animate(CurvedAnimation(
         parent: _animationController, curve: Curves.fastOutSlowIn));
+
+    GetProfile().GetProfileAPI();
   }
 
   @override
