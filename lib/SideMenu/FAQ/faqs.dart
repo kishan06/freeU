@@ -99,7 +99,10 @@ class _FAQsState extends State<FAQs> {
                     children: [
                       sizedBoxHeight(20.h),
                       OpenContainerWrappers(
-                        openBuild: const Fractional1(),
+                        openBuild: Fractional1(
+                          title: generalfaq?.data?[index].tagName,
+                          faqslist: generalfaq?.data?[index].faq,
+                        ),
                         closeBuild: catTitle(
                             generalfaq?.data?[index].tagName ?? "",
                             generalfaq?.data?[index].tagImage ?? "",
@@ -113,7 +116,7 @@ class _FAQsState extends State<FAQs> {
                 separatorBuilder: (_, index) {
                   return sizedBoxHeight(10.h);
                 },
-                itemCount: generalfaq!.data!.length),
+                itemCount: 8),
             // child: Column(
             //   mainAxisAlignment: MainAxisAlignment.start,
             //   crossAxisAlignment: CrossAxisAlignment.start,
