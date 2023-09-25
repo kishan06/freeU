@@ -16,8 +16,7 @@ class ResidentialDetails extends StatefulWidget {
   ResidentialDetails(
       {super.key,
       // required this.pageIndex
-      required this.slug
-      });
+      required this.slug});
 
   @override
   State<ResidentialDetails> createState() => _ResidentialDetailsState();
@@ -26,11 +25,12 @@ class ResidentialDetails extends StatefulWidget {
 class _ResidentialDetailsState extends State<ResidentialDetails> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
-   late Future myfuture;
+  late Future myfuture;
 
   @override
   void initState() {
-     myfuture = IndianResidentialDetails().IndianResidentialDetailsAPI(widget.slug);
+    myfuture =
+        IndianResidentialDetails().IndianResidentialDetailsAPI(widget.slug);
     super.initState();
   }
 
@@ -88,6 +88,8 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid:
+                  IndianResidentialdetailsobj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
@@ -97,8 +99,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
               },
               text: 'Invest now'),
         ),
-        body:
-        FutureBuilder(
+        body: FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
@@ -122,8 +123,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
               context,
             );
           },
-        )
-        );
+        ));
   }
 
   Widget _buildBody(context) {
@@ -158,7 +158,8 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                         children: [
                           sizedBoxHeight(10.h),
                           Text(
-                            IndianResidentialdetailsobj!.data!.propertyName ?? "",
+                            IndianResidentialdetailsobj!.data!.propertyName ??
+                                "",
                             style: TextStyle(
                                 fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
@@ -181,7 +182,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.propertyName ?? "NA",
+                  IndianResidentialdetailsobj!.data!.propertyName ?? "NA",
                   // leasefinancingdetailsobj!.data!.assetClass ?? "",
                 ),
                 sizedBoxHeight(20.h),
@@ -192,7 +193,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.propertyLocation ?? "NA",
+                  IndianResidentialdetailsobj!.data!.propertyLocation ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Project Type"),
@@ -202,8 +203,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.projectType ?? "NA",
-
+                  IndianResidentialdetailsobj!.data!.projectType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Current Status"),
@@ -213,8 +213,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.currentStatus ?? "NA",
-
+                  IndianResidentialdetailsobj!.data!.currentStatus ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Price per Sqft"),
@@ -224,8 +223,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.pricePerSqFt ?? "NA",
-
+                  IndianResidentialdetailsobj!.data!.pricePerSqFt ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Price Range"),
@@ -235,7 +233,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.priceRange ?? "NA",
+                  IndianResidentialdetailsobj!.data!.priceRange ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("RERA ID"),
@@ -245,7 +243,8 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.projectCodeOrReraId ?? "NA",
+                  IndianResidentialdetailsobj!.data!.projectCodeOrReraId ??
+                      "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Built Up Area"),
@@ -255,7 +254,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.builtUpArea ?? "NA",
+                  IndianResidentialdetailsobj!.data!.builtUpArea ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Carpet Area"),
@@ -265,7 +264,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.carpetArea ?? "NA",
+                  IndianResidentialdetailsobj!.data!.carpetArea ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Construction Status"),
@@ -275,7 +274,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.constructionStatus ?? "NA",
+                  IndianResidentialdetailsobj!.data!.constructionStatus ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Launch date"),
@@ -285,7 +284,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.launchDate ?? "NA",
+                  IndianResidentialdetailsobj!.data!.launchDate ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Completed In"),
@@ -295,7 +294,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.completedIn ?? "NA",
+                  IndianResidentialdetailsobj!.data!.completedIn ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Total Units"),
@@ -305,7 +304,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.totalUnits ?? "NA",
+                  IndianResidentialdetailsobj!.data!.totalUnits ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Unit Type (No. of BHK'S)"),
@@ -315,7 +314,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.unitType ?? "NA",
+                  IndianResidentialdetailsobj!.data!.unitType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("No of Restrooms"),
@@ -325,7 +324,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.noOfRestrooms ?? "NA",
+                  IndianResidentialdetailsobj!.data!.noOfRestrooms ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("No of Floors"),
@@ -335,7 +334,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.noOfFloors ?? "NA",
+                  IndianResidentialdetailsobj!.data!.noOfFloors ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Furnished Status"),
@@ -345,7 +344,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.furnishedStatus ?? "NA",
+                  IndianResidentialdetailsobj!.data!.furnishedStatus ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Commencement Certificate"),
@@ -355,7 +354,8 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.commencementCertificate ?? "NA",
+                  IndianResidentialdetailsobj!.data!.commencementCertificate ??
+                      "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Occupancy Certificate"),
@@ -365,7 +365,8 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.occupancyCertificate ?? "NA",
+                  IndianResidentialdetailsobj!.data!.occupancyCertificate ??
+                      "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Total Towers"),
@@ -375,7 +376,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.totalTowers ?? "NA",
+                  IndianResidentialdetailsobj!.data!.totalTowers ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Builder Details"),
@@ -385,7 +386,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.builderDetails ?? "NA",
+                  IndianResidentialdetailsobj!.data!.builderDetails ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Nearby Landmarks"),
@@ -395,7 +396,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.landmarks ?? "NA",
+                  IndianResidentialdetailsobj!.data!.landmarks ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Amenities"),
@@ -405,7 +406,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.amenities ?? "NA",     
+                  IndianResidentialdetailsobj!.data!.amenities ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Elevators"),
@@ -415,7 +416,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.elevators ?? "NA",     
+                  IndianResidentialdetailsobj!.data!.elevators ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Car Parking"),
@@ -425,7 +426,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.carParking ?? "NA",     
+                  IndianResidentialdetailsobj!.data!.carParking ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fire Safety Measures"),
@@ -435,7 +436,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.fireSafetyMeasures ?? "NA",     
+                  IndianResidentialdetailsobj!.data!.fireSafetyMeasures ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Water Facility"),
@@ -445,7 +446,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.waterFacility ?? "NA",     
+                  IndianResidentialdetailsobj!.data!.waterFacility ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Price is Negotiable?"),
@@ -455,7 +456,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.priceNegotiable ?? "NA",     
+                  IndianResidentialdetailsobj!.data!.priceNegotiable ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Remarks"),
@@ -465,7 +466,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianResidentialdetailsobj!.data!.remarks ?? "NA",     
+                  IndianResidentialdetailsobj!.data!.remarks ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 // textA4856_20500("Documents"),

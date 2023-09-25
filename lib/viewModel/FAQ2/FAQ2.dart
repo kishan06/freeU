@@ -19,9 +19,15 @@ import 'package:freeu/Models/FAQ2/GlobalInvestmentGradeLearnNodel.dart';
 import 'package:freeu/Models/FAQ2/GlobalMutualfundsLearnModel.dart';
 import 'package:freeu/Models/FAQ2/GlobalPrivateFundsLearnModel.dart';
 import 'package:freeu/Models/FAQ2/Alternative1VenturecapitalLearnModel.dart';
+import 'package:freeu/Models/FAQ2/GlobalRealLearnAssets.dart/GlobalCommercialLearnModel.dart';
+import 'package:freeu/Models/FAQ2/GlobalRealLearnAssets.dart/GlobalIndustrialLearnModel.dart';
+import 'package:freeu/Models/FAQ2/GlobalRealLearnAssets.dart/GlobalResidentialLearnModel.dart';
 import 'package:freeu/Models/FAQ2/GlobalSovereignBondsLearnModel.dart';
 import 'package:freeu/Models/FAQ2/GlobalVentureCapitalLearnModel.dart';
 import 'package:freeu/Models/FAQ2/GlobalhedgefundsleranModel.dart';
+import 'package:freeu/Models/FAQ2/InidianRealLearnAssets/IndianCommercialLearnModel.dart';
+import 'package:freeu/Models/FAQ2/InidianRealLearnAssets/IndianindustrialLearnModel.dart';
+import 'package:freeu/Models/FAQ2/InidianRealLearnAssets/IndinaResidentialLearnModel.dart';
 import 'package:freeu/Models/FAQ2/LeasebasefinanceModel.dart';
 import 'package:freeu/Models/FAQ2/ReitslearnModel.dart';
 import 'package:freeu/Models/FAQ2/VentureDebtLearnModel.dart';
@@ -55,10 +61,12 @@ Alternative3PrivaPubEquiLearnModel? alternati3privapubequilearn;
 GlobalSovereignBondsLearnModel? globalsovereignlearn;
 GlobalInvestmentGradeLearnModel? globalinvestmentbondslearn;
 GlobalHighyieldLearnModel? globalhighyieldlearn;
-
-
-
-
+IndianResidentialLearnModel? indianresident;
+IndianCommercialLearnModel? indiancommercial;
+IndianIndustrialLearnModel? indianindustrial;
+GlobalResidentialLearnModel? globalresident;
+GlobalCommerciallLearnModel? globalcommercial;
+GlobalIndustrialLearnModel? globalindustrial;
 
 
 
@@ -298,6 +306,66 @@ class FAQ2 {
     if (response.status == ResponseStatus.SUCCESS) {
       globalhighyieldlearn =
           GlobalHighyieldLearnModel.fromJson(response.data);
+    }
+    return response;
+  }
+
+     Future<ResponseData<dynamic>> IndianResidentialLearn() async {
+    final response =
+        await NetworkApi().getApi(ApiUrls.Indianresidentlearn);
+    if (response.status == ResponseStatus.SUCCESS) {
+      indianresident =
+          IndianResidentialLearnModel.fromJson(response.data);
+    }
+    return response;
+  }
+  
+     Future<ResponseData<dynamic>> IndianCommercialLearn() async {
+    final response =
+        await NetworkApi().getApi(ApiUrls.Indiancommerciallearn);
+    if (response.status == ResponseStatus.SUCCESS) {
+      indiancommercial =
+          IndianCommercialLearnModel.fromJson(response.data);
+    }
+    return response;
+  }
+
+  Future<ResponseData<dynamic>> IndianIndustrialLearn() async {
+    final response =
+        await NetworkApi().getApi(ApiUrls.Indianindustriallearn);
+    if (response.status == ResponseStatus.SUCCESS) {
+      indianindustrial =
+          IndianIndustrialLearnModel.fromJson(response.data);
+    }
+    return response;
+  }
+
+    Future<ResponseData<dynamic>> GlobalResidentialLearn() async {
+    final response =
+        await NetworkApi().getApi(ApiUrls.Globalresidentlearn);
+    if (response.status == ResponseStatus.SUCCESS) {
+      globalresident =
+          GlobalResidentialLearnModel.fromJson(response.data);
+    }
+    return response;
+  }
+
+   Future<ResponseData<dynamic>> GlobalCommercialLearn() async {
+    final response =
+        await NetworkApi().getApi(ApiUrls.Globalcommerciallearn);
+    if (response.status == ResponseStatus.SUCCESS) {
+      globalcommercial =
+          GlobalCommerciallLearnModel.fromJson(response.data);
+    }
+    return response;
+  }
+
+  Future<ResponseData<dynamic>> GlobalIndustrialLearn() async {
+    final response =
+        await NetworkApi().getApi(ApiUrls.Globalindustriallearn);
+    if (response.status == ResponseStatus.SUCCESS) {
+      globalindustrial =
+          GlobalIndustrialLearnModel.fromJson(response.data);
     }
     return response;
   }

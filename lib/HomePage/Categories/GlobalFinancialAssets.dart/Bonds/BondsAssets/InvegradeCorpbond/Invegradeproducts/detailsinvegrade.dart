@@ -112,6 +112,7 @@ class _InvegradeDetailsState extends State<InvegradeDetails> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
+            productid: InvestmentbondsdetailsObj?.data?.productsId.toString(),
             ontap: () {
               if (controllerEntryPoint.logedIn!) {
                 investNow();

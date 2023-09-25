@@ -11,9 +11,7 @@ import 'package:get/get.dart';
 
 class SovereignDetails extends StatefulWidget {
   final String slug;
-  SovereignDetails({super.key, 
-  required this.slug
-  });
+  SovereignDetails({super.key, required this.slug});
 
   @override
   State<SovereignDetails> createState() => _SovereignDetailsState();
@@ -114,6 +112,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
       bottomNavigationBar: Padding(
         padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
         child: CustomNextButton(
+            productid: SovereignbondsdetailsObj?.data?.productsId.toString(),
             ontap: () {
               if (controllerEntryPoint.logedIn!) {
                 investNow();
@@ -123,8 +122,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
             },
             text: 'Invest now'),
       ),
-      body:
-      FutureBuilder(
+      body: FutureBuilder(
         future: myfuture,
         builder: (ctx, snapshot) {
           if (snapshot.data == null) {
@@ -149,7 +147,6 @@ class _SovereignDetailsState extends State<SovereignDetails> {
           );
         },
       ),
-  
     );
   }
 
@@ -209,7 +206,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.issuer ?? "NA",
+                  SovereignbondsdetailsObj!.data!.issuer ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Bond Type"),
@@ -219,8 +216,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.bondType ?? "NA",
-
+                  SovereignbondsdetailsObj!.data!.bondType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("About Issuer"),
@@ -230,8 +226,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.aboutIssuer ?? "NA",
-
+                  SovereignbondsdetailsObj!.data!.aboutIssuer ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Industry"),
@@ -241,7 +236,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.industry ?? "NA",
+                  SovereignbondsdetailsObj!.data!.industry ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Country of risk"),
@@ -251,17 +246,18 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.countryOfRisk ?? "NA",
+                  SovereignbondsdetailsObj!.data!.countryOfRisk ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                 textA4856_20500("Country of Incorporation"),
+                textA4856_20500("Country of Incorporation"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.countryOfIncorporation ?? "NA",
+                  SovereignbondsdetailsObj!.data!.countryOfIncorporation ??
+                      "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("ISIN"),
@@ -271,7 +267,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.isin ?? "NA",
+                  SovereignbondsdetailsObj!.data!.isin ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Bond Type/Maturity Date"),
@@ -281,9 +277,10 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.bondTypeOrMaturityDate ?? "NA",
+                  SovereignbondsdetailsObj!.data!.bondTypeOrMaturityDate ??
+                      "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Call Date"),
                 Divider(
                   height: 25.h,
@@ -291,9 +288,9 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.callDate ?? "NA",
+                  SovereignbondsdetailsObj!.data!.callDate ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Coupon"),
                 Divider(
                   height: 25.h,
@@ -301,9 +298,9 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.coupon ?? "NA",
+                  SovereignbondsdetailsObj!.data!.coupon ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Indicative Yield (p.a.) (Mid)"),
                 Divider(
                   height: 25.h,
@@ -311,9 +308,9 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.indicativeYieldPaMid ?? "NA",
+                  SovereignbondsdetailsObj!.data!.indicativeYieldPaMid ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Indicative Price (USD) (Mid) "),
                 Divider(
                   height: 25.h,
@@ -321,7 +318,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.indicativePriceUsMid ?? "NA",
+                  SovereignbondsdetailsObj!.data!.indicativePriceUsMid ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Minimum Investment (USD)"),
@@ -331,7 +328,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.minimumInvestment ?? "NA",
+                  SovereignbondsdetailsObj!.data!.minimumInvestment ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Yield to Worst p.a. (ask)"),
@@ -341,9 +338,9 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.yieldToWorstPaAsk ?? "NA",
+                  SovereignbondsdetailsObj!.data!.yieldToWorstPaAsk ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Yield to Worst p.a. (bid)"),
                 Divider(
                   height: 25.h,
@@ -351,9 +348,9 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.yieldToWorstPaBid ?? "NA",
+                  SovereignbondsdetailsObj!.data!.yieldToWorstPaBid ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Price (Ask)"),
                 Divider(
                   height: 25.h,
@@ -361,9 +358,9 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.priceAsk ?? "NA",
+                  SovereignbondsdetailsObj!.data!.priceAsk ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Price (Bid)"),
                 Divider(
                   height: 25.h,
@@ -371,7 +368,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.priceBid ?? "NA",
+                  SovereignbondsdetailsObj!.data!.priceBid ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Accrued Interest"),
@@ -381,19 +378,19 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.accruedInterest ?? "NA",
+                  SovereignbondsdetailsObj!.data!.accruedInterest ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
-                 textA4856_20500("Yield To Call"),
+                textA4856_20500("Yield To Call"),
                 Divider(
                   height: 25.h,
                   thickness: 1.h,
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.yieldToCall ?? "NA",
+                  SovereignbondsdetailsObj!.data!.yieldToCall ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Duration (Years)"),
                 Divider(
                   height: 25.h,
@@ -401,9 +398,9 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.duration ?? "NA",
+                  SovereignbondsdetailsObj!.data!.duration ?? "NA",
                 ),
-                sizedBoxHeight(20.h), 
+                sizedBoxHeight(20.h),
                 textA4856_20500("Amount Outstanding (USD)"),
                 Divider(
                   height: 25.h,
@@ -411,7 +408,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.amountOutstanding ?? "NA",
+                  SovereignbondsdetailsObj!.data!.amountOutstanding ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Collateral Type"),
@@ -421,7 +418,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.collateralType ?? "NA",
+                  SovereignbondsdetailsObj!.data!.collateralType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Credit Rating"),
@@ -431,7 +428,7 @@ class _SovereignDetailsState extends State<SovereignDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                SovereignbondsdetailsObj!.data!.creditRating ?? "NA",
+                  SovereignbondsdetailsObj!.data!.creditRating ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
               ],

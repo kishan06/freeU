@@ -17,8 +17,7 @@ class CommercialDetails extends StatefulWidget {
   CommercialDetails(
       {super.key,
       // required this.pageIndex
-      required this.slug
-      });
+      required this.slug});
 
   @override
   State<CommercialDetails> createState() => _CommercialDetailsState();
@@ -31,7 +30,8 @@ class _CommercialDetailsState extends State<CommercialDetails> {
 
   @override
   void initState() {
-    myfuture = IndianCommercialDetails().IndianCommercialDetailsAPI(widget.slug);
+    myfuture =
+        IndianCommercialDetails().IndianCommercialDetailsAPI(widget.slug);
     super.initState();
   }
 
@@ -89,6 +89,8 @@ class _CommercialDetailsState extends State<CommercialDetails> {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid:
+                  IndianCommercialdetailsobj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
@@ -98,8 +100,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
               },
               text: 'Invest now'),
         ),
-        body: 
-        FutureBuilder(
+        body: FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
@@ -123,8 +124,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
               context,
             );
           },
-        )
-        );
+        ));
   }
 
   Widget _buildBody(context) {
@@ -159,7 +159,8 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                         children: [
                           sizedBoxHeight(10.h),
                           Text(
-                            IndianCommercialdetailsobj!.data!.propertyName ?? "",
+                            IndianCommercialdetailsobj!.data!.propertyName ??
+                                "",
                             style: TextStyle(
                                 fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
@@ -182,7 +183,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.propertyName ?? "NA",
+                  IndianCommercialdetailsobj!.data!.propertyName ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Property Location"),
@@ -192,7 +193,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.propertyLocation ?? "NA",
+                  IndianCommercialdetailsobj!.data!.propertyLocation ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Transaction Type"),
@@ -202,7 +203,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.transactionType ?? "NA",
+                  IndianCommercialdetailsobj!.data!.transactionType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Property Type"),
@@ -212,7 +213,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.projectType ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.projectType ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Property Code"),
@@ -222,7 +223,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.projectCodeOrReraId ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.projectCodeOrReraId ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Total Price"),
@@ -232,7 +233,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.totalPrice ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.totalPrice ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Price per sq ft"),
@@ -242,7 +243,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.pricePerSqFt ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.pricePerSqFt ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Booking Amount"),
@@ -252,7 +253,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.bookingAmount ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.bookingAmount ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Built Up Area"),
@@ -262,7 +263,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.builtUpArea ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.builtUpArea ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Carpet Area"),
@@ -272,7 +273,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.carpetArea ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.carpetArea ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Construction Status"),
@@ -282,7 +283,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.constructionStatus ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.constructionStatus ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Water availability"),
@@ -292,7 +293,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.waterFacility ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.waterFacility ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Fire Safety Measures"),
@@ -302,7 +303,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.fireSafetyMeasures ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.fireSafetyMeasures ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Status of Electricity"),
@@ -312,7 +313,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.electricityStatus ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.electricityStatus ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Occupancy certificate"),
@@ -322,7 +323,8 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.occupancyCertificate ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.occupancyCertificate ??
+                      "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Commencent Certificate"),
@@ -332,7 +334,8 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.commencementCertificate ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.commencementCertificate ??
+                      "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Maintenance Fees"),
@@ -342,7 +345,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.maintenanceFees ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.maintenanceFees ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Elevators"),
@@ -352,7 +355,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.elevators ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.elevators ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Age of construction"),
@@ -362,7 +365,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.constructionAge ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.constructionAge ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Price is Negotiable?"),
@@ -372,7 +375,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.priceNegotiable ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.priceNegotiable ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Nearest Railway/Metro Station"),
@@ -382,7 +385,9 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.nearestRailwayMetroStation ?? "NA",     
+                  IndianCommercialdetailsobj!
+                          .data!.nearestRailwayMetroStation ??
+                      "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Pre-Leased"),
@@ -392,7 +397,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.preLeased ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.preLeased ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Tenant Details, if any"),
@@ -402,7 +407,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.tenantDetails ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.tenantDetails ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Facilities/Features"),
@@ -412,7 +417,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.facilitiesFeatures ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.facilitiesFeatures ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Remarks"),
@@ -422,7 +427,7 @@ class _CommercialDetailsState extends State<CommercialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                IndianCommercialdetailsobj!.data!.remarks ?? "NA",     
+                  IndianCommercialdetailsobj!.data!.remarks ?? "NA",
                 ),
                 sizedBoxHeight(20.h),
                 // textA4856_20500("Documents"),
