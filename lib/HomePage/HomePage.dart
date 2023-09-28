@@ -136,6 +136,7 @@ class _HomePageState extends State<HomePage> {
   final ScrollController scrollController = ScrollController();
   FutureGroup futureGroup = FutureGroup();
   StreamController<BlogsModel> BlogsControllerDummy = StreamController();
+
   @override
   void initState() {
     super.initState();
@@ -148,9 +149,13 @@ class _HomePageState extends State<HomePage> {
     futureGroup.add(BlogApis()
         .BlogSearchAndFilter(updata, streamController: BlogsControllerDummy));
 
-    futureGroup.add(GetProfile().GetProfileAPI());
 
     futureGroup.add(TopPicksApi().TopPicksAPI());
+
+    controllerEntryPoint.logedIn!
+        ? futureGroup.add(GetProfile().GetProfileAPI())
+        : null;
+
     futureGroup.close();
   }
 

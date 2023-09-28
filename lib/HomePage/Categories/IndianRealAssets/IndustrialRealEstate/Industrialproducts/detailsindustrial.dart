@@ -88,6 +88,8 @@ class _IndustrialDetailsState extends State<IndustrialDetails> {
         bottomNavigationBar: Padding(
           padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
           child: CustomNextButton(
+              productid:
+                  IndianIndustrialdetailsobj?.data?.productsId.toString(),
               ontap: () {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
@@ -297,7 +299,8 @@ class _IndustrialDetailsState extends State<IndustrialDetails> {
                   color: Colors.grey.shade400,
                 ),
                 text272424_18(
-                  IndianIndustrialdetailsobj!.data!.occupancyCertificate ?? "NA",
+                  IndianIndustrialdetailsobj!.data!.occupancyCertificate ??
+                      "NA",
                 ),
                 sizedBoxHeight(20.h),
                 textA4856_20500("Commencent Certificate"),

@@ -171,6 +171,7 @@ class ApiUrls {
   static const Alternative2PrivateRealEstLearn =
       "${baseUrl}private-real-estate-fund/question-answer";
   static const Alternative3hedgefunds = "${baseUrl}hedge-fund/question-answer";
+
   static const Alternative3privatinvepublicequifunds =
       "${baseUrl}private-investment-in-public-quity-fund/question-answer";
   static const Globalsovereignbonds =
@@ -179,6 +180,26 @@ class ApiUrls {
       "${baseUrl}corporate-bond-investment-grade/question-answer";
   static const Globalhighyieldlearnmore =
       "${baseUrl}corporate-bond-high-yield/question-answer";
+
+  static const Alternative3privatinvepublicequifunds = "${baseUrl}private-investment-in-public-quity-fund/question-answer";
+  static const Globalsovereignbonds = "${baseUrl}sovereign-goverment-bond/question-answer";
+  static const Globalinvestmentgrade = "${baseUrl}corporate-bond-investment-grade/question-answer";
+  static const Globalhighyieldlearnmore = "${baseUrl}corporate-bond-high-yield/question-answer";
+  static const Indianresidentlearn = "${baseUrl}indian-residential-estate/question-answer";
+  static const Indiancommerciallearn = "${baseUrl}indian-commercial-estate/question-answer";
+  static const Indianindustriallearn = "${baseUrl}indian-industrial-estate/question-answer";
+  static const Globalresidentlearn = "${baseUrl}global-residential-estate/question-answer";
+  static const Globalcommerciallearn = "${baseUrl}global-commercial-estate/question-answer";
+  static const Globalindustriallearn = "${baseUrl}global-industrial-estate/question-answer";
+
+
+
+
+
+
+
+
+
 
 // Post Invest now
 
