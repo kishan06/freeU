@@ -326,7 +326,7 @@ class _HomePageState extends State<HomePage> {
                               toppick?.data?[index].fileName ??
                               "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png",
                           title: toppick?.data?[index].productName ?? "",
-                          add: "Banyan Park,\nMumbai");
+                          add: "Banyan Park,Mumbai");
                     }),
                   ),
                 )
@@ -506,6 +506,7 @@ class _HomePageState extends State<HomePage> {
       child: Container(
           width: 241.w,
           // color: AppColors.white,
+          // height: 238.h,
           decoration: BoxDecoration(
             border: Border.all(
               width: 0.5.w,
@@ -517,11 +518,13 @@ class _HomePageState extends State<HomePage> {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   text1,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style:
                       TextStyle(fontWeight: FontWeight.w500, fontSize: 14.sp),
                 ),
@@ -530,7 +533,7 @@ class _HomePageState extends State<HomePage> {
 
                 Container(
                   width: double.infinity,
-                  height: 100.h,
+                  height: 120.h,
                   decoration: BoxDecoration(
                       image: DecorationImage(
                           image: NetworkImage(imagePath), fit: BoxFit.fill)),
@@ -539,7 +542,15 @@ class _HomePageState extends State<HomePage> {
                 // Spacer(),
                 sizedBoxHeight(10.h),
 
-                text14Black(title),
+                Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: AppColors.black,
+                  ),
+                ),
 
                 // Spacer(),
                 sizedBoxHeight(5.h),
@@ -558,6 +569,10 @@ class _HomePageState extends State<HomePage> {
                     sizedBoxWidth(5.w),
                     Expanded(child: text13Grey707070(add))
                   ],
+                ),
+
+                SizedBox(
+                  height: 10.h,
                 )
               ],
             ),
