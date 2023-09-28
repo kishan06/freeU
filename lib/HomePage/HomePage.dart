@@ -531,12 +531,15 @@ class _HomePageState extends State<HomePage> {
 
                 sizedBoxHeight(10.h),
 
-                Container(
-                  width: double.infinity,
-                  height: 120.h,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: NetworkImage(imagePath), fit: BoxFit.fill)),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: Container(
+                    width: double.infinity,
+                    height: 120.h,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(imagePath), fit: BoxFit.fill)),
+                  ),
                 ),
 
                 // Spacer(),
