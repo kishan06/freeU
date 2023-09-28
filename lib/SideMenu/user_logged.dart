@@ -7,6 +7,7 @@ import 'package:freeu/Global.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/profile/profile.dart';
 import 'package:freeu/ViewModel/Profile/Getprofile.dart';
 import 'package:get/get.dart';
@@ -27,6 +28,8 @@ class _UserState extends State<User> {
   Future<File> saveFilePermanently(String imagePath) async {
     return File(imagePath).copy(imagePath);
   }
+
+  final controllerEntryPoint = Get.put(EntryPointController());
 
   // builduploadprofile() {
   //   return showModalBottomSheet(
@@ -141,31 +144,33 @@ class _UserState extends State<User> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        body: FutureBuilder(
-          future: myfuture,
-          builder: (ctx, snapshot) {
-            if (snapshot.data == null) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Center(child: CircularProgressIndicator())],
-              );
-            }
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(
-                    '${snapshot.error} occured',
-                    style: TextStyle(fontSize: 18.spMin),
-                  ),
-                );
-              }
-            }
-            return _buildBody(
-              context,
-            );
-          },
-        ));
+        body: controllerEntryPoint.logedIn!
+            ? FutureBuilder(
+                future: myfuture,
+                builder: (ctx, snapshot) {
+                  if (snapshot.data == null) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [Center(child: CircularProgressIndicator())],
+                    );
+                  }
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text(
+                          '${snapshot.error} occured',
+                          style: TextStyle(fontSize: 18.spMin),
+                        ),
+                      );
+                    }
+                  }
+                  return _buildBody(
+                    context,
+                  );
+                },
+              )
+            : _buildBody(context));
   }
 
   Widget _buildBody(context) {

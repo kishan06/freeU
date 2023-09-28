@@ -151,6 +151,7 @@ class _MyAppState extends State<MyApp> {
     token = prefs.getString('token');
     myusername = prefs.getString('name');
     print(onBoardDone);
+    print("token is $token");
     setState(() {});
   }
 
