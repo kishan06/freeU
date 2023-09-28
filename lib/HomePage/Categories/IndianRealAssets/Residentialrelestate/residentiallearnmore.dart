@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/FAQ2/FAQ2.dart';
 import 'package:get/get.dart';
 import 'package:getwidget/getwidget.dart';
 
@@ -87,6 +88,14 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
     },
   ];
 
+    Future? myfuture;
+
+  @override
+  void initState() {
+    myfuture = FAQ2().IndianResidentialLearn();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,111 +112,116 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
           },
         ),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Flexible(
-                  child: Text(
-                    "Residential Real Estate",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
+      body: 
+      FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
                 ),
-              ],
-            ),
-            Expanded(
-                child: ListView.separated(
-                    itemBuilder: (context, index) {
-                      if (index == 5) {
-                        return faqAccod4();
-                      } else if (index == 6) {
-                        return faqAccod5();
-                      } else {
-                        return faqAccod1(AlternativeData[index]["question"],
-                            AlternativeData[index]["ans"]);
-                      }
-                    },
-                    separatorBuilder: (context, index) {
-                      return sizedBoxHeight(20.h);
-                    },
-                    itemCount: AlternativeData.length)),
-          ],
-        ),
+              );
+            }
+          }
+          return _buildBody();
+        },
       ),
+      // Padding(
+      //   padding: EdgeInsets.symmetric(horizontal: 16.w),
+      //   child: Column(
+      //     mainAxisAlignment: MainAxisAlignment.start,
+      //     crossAxisAlignment: CrossAxisAlignment.start,
+      //     children: [
+      //       Row(
+      //         mainAxisAlignment: MainAxisAlignment.start,
+      //         crossAxisAlignment: CrossAxisAlignment.start,
+      //         children: [
+      //           Flexible(
+      //             child: Text(
+      //               "Residential Real Estate",
+      //               style: TextStyle(
+      //                   fontFamily: "Poppins",
+      //                   fontSize: 25.sp,
+      //                   fontWeight: FontWeight.w500),
+      //             ),
+      //           ),
+      //         ],
+      //       ),
+      //       Expanded(
+      //           child: ListView.separated(
+      //               itemBuilder: (context, index) {
+      //                 if (index == 5) {
+      //                   return faqAccod4();
+      //                 } else if (index == 6) {
+      //                   return faqAccod5();
+      //                 } else {
+      //                   return faqAccod1(AlternativeData[index]["question"],
+      //                       AlternativeData[index]["ans"]);
+      //                 }
+      //               },
+      //               separatorBuilder: (context, index) {
+      //                 return sizedBoxHeight(20.h);
+      //               },
+      //               itemCount: AlternativeData.length)),
+      //     ],
+      //   ),
+      // ),
     );
   }
 
-  Widget faqAccod({bool? expandAccod}) {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.black.withOpacity(0.2)),
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5.r)),
-      child: GFAccordion(
-        showAccordion: expandAccod ?? false,
-        titleBorderRadius: BorderRadius.circular(5.r),
-        contentBorderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(5.r),
-          bottomRight: Radius.circular(5.r),
-        ),
-        margin: const EdgeInsets.all(0),
-        titlePadding: EdgeInsets.all(10.h),
-        contentPadding: EdgeInsets.all(10.w),
-        expandedTitleBackgroundColor: Colors.white,
-        contentBackgroundColor: Colors.white,
-        titleChild: Text(
-          'What are Bonds?',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18.sp,
-            fontFamily: "Poppins",
-          ),
-        ),
-        contentChild: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  color: Colors.brown,
-                  height: 1,
-                  width: MediaQuery.of(context).size.width / 1.65,
+
+  Widget _buildBody() {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 16.w),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Flexible(
+                child: Text(
+                  "Residential Real Estate",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
                 ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.brown,
-                      borderRadius: BorderRadius.circular(100.r)),
-                  height: 8,
-                  width: 8,
-                )
-              ],
-            ),
-            sizedBoxHeight(15.h),
-            Text(
-              "Bonds is a type of investment fund that is registered with the Securities and Exchange Board of India (SEBI). They are privately pooled investment vehicles generally set y high-net-worth individuals, Indian or foreign, as per a defined investment policy. Bonds are distinctly different from traditional investment vehicles like mutual funds, or ETFs, and invest in non-traditional avenues such as venture capital, private equity, hedge funds, managed futures, etc, to make a profit, or benefit investors. Bonds provide an opportunity for investors to participate in alternative Investments and diversify their portfolios, while also offering fund managers greater flexibility in their investment strategies.",
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: "Poppins",
-                fontSize: 16.sp,
               ),
-            ),
-          ],
-        ),
+            ],
+          ),
+          sizedBoxHeight(20.h),
+          Expanded(
+            child: ListView.separated(
+                itemBuilder: (context, index) {
+                  return indianresidentlearn(
+                    indianresident!.data![index].faqQuestion ?? "",
+                    indianresident!.data![index].faqAnswer ?? "",
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return sizedBoxHeight(20.h);
+                },
+                itemCount: indianresident!.data!.length),
+          ),
+        ],
       ),
     );
   }
 
-  Widget faqAccod1(String question, String ans) {
+  Widget indianresidentlearn(String question, String ans) {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(color: Colors.black.withOpacity(0.2)),
@@ -228,10 +242,10 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
         titleChild: Text(
           question,
           style: TextStyle(
-            color: Colors.black,
-            fontSize: 18.sp,
-            fontFamily: "Poppins",
-          ),
+              color: Colors.black,
+              fontSize: 20.sp,
+              fontFamily: "Poppins",
+              fontWeight: FontWeight.w500),
         ),
         contentChild: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -240,26 +254,26 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Container(
-                  color: Colors.brown,
+                  color: Color(0xFF143C6D),
                   height: 1,
                   width: MediaQuery.of(context).size.width / 1.65,
                 ),
                 Container(
                   decoration: BoxDecoration(
-                      color: Colors.brown,
+                      color: Color(0xFF143C6D),
                       borderRadius: BorderRadius.circular(100.r)),
                   height: 8,
                   width: 8,
                 )
               ],
             ),
-            sizedBoxHeight(15.h),
+            sizedBoxHeight(16.h),
             Text(
               ans,
               style: TextStyle(
                 color: Colors.black,
                 fontFamily: "Poppins",
-                fontSize: 16.sp,
+                fontSize: 18.sp,
               ),
             ),
           ],
@@ -268,245 +282,4 @@ For HNIs who are looking to diversify their portfolios and increase long-term re
     );
   }
 
-  Widget faqAccod4() {
-    return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.black.withOpacity(0.2)),
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5.r)),
-      child: GFAccordion(
-        showAccordion: false,
-        titleBorderRadius: BorderRadius.circular(5.r),
-        contentBorderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(5.r),
-          bottomRight: Radius.circular(5.r),
-        ),
-        margin: const EdgeInsets.all(0),
-        titlePadding: EdgeInsets.all(10.h),
-        contentPadding: EdgeInsets.all(10.w),
-        expandedTitleBackgroundColor: Colors.white,
-        contentBackgroundColor: Colors.white,
-        titleChild: Text(
-          'What are the benefits of investing through an Bonds?',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18.sp,
-            fontFamily: "Poppins",
-          ),
-        ),
-        contentChild: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  color: Colors.brown,
-                  height: 1,
-                  width: MediaQuery.of(context).size.width / 1.65,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.brown,
-                      borderRadius: BorderRadius.circular(100.r)),
-                  height: 8,
-                  width: 8,
-                )
-              ],
-            ),
-            sizedBoxHeight(15.h),
-            Text.rich(
-              TextSpan(children: [
-                TextSpan(
-                    text: "> Regulations are in place:",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600)),
-                TextSpan(
-                    text:
-                        " Bonds is \n   regulated under SEBI Bonds \n   Regulations. As per SEBI, if \n   investors pool funds to invest \n   collectively, they can only do it \n   through Bonds. They cannot invest \n   through LLP, Private Limited \n   Companies, etc.\n",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500)),
-                TextSpan(
-                    text: "> Higher Returns:",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600)),
-                TextSpan(
-                    text:
-                        " Bonds give investors \n   exposure to alternate securities \n   and provide higher returns as \n   compared to traditional \n   investments. Therefore, by \n   investing in Bonds, investors improve \n   the overall performance of their \n   portfolios and help achieve long-\n   term capital appreciation.\n",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500)),
-                TextSpan(
-                    text: "> Low Volatility:",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600)),
-                TextSpan(
-                    text:
-                        " Bonds investments, \n   unlike traditional investments, are \n   not dependent on the ups and \n   downs of the market and hence \n   less volatile as compared to \n   traditional equity investments.\n",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500)),
-                TextSpan(
-                    text: "> Diversification:",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600)),
-                TextSpan(
-                    text:
-                        " Bonds gives vast \n   scope for diversification due to its \n   flexibility. Fund managers have the \n   scope to adopt multiple \n   investment options and market \n   strategies. This, in turn, helps in \n   the diversification of a portfolio.\n",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500)),
-                TextSpan(
-                    text: "> Better Negotiation with Bonds:",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600)),
-                TextSpan(
-                    text:
-                        " Bonds \n   deals with pooled funds that are \n   invested in good-sized amounts, \n   and hence provide better \n   negotiating powers to the \n   investors. In traditional \n   investments, investors only get \n   minimal ownership.\n",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500)),
-                TextSpan(
-                    text: "> Professional Guidance:",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w600)),
-                TextSpan(
-                    text: " Money is \n   managed by expert professionals",
-                    style: TextStyle(
-                        fontSize: 18.sp,
-                        color: Colors.black,
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500)),
-              ]),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget faqAccod5() {
-    List bulletPoints = [
-      "Although Bonds is not correlated with conventional investments, these funds are also subject to higher volatility. Sometimes it does happen that if an Bonds idea does not work in the market, the funds suffer heavy losses.",
-      "The liquidity crisis is also another downside of Bonds investments. Even after the lock-in is over, sometimes you cannot withdraw your investment completely. ",
-      "Significant credit defaults on debt papers are also a possibility.",
-      "The expense ratios are also very high in Bonds . High taxation rates, especially on the Category III Bonds may reduce the returns you receive from the fund.",
-    ];
-    return Container(
-      decoration: BoxDecoration(
-          border: Border.all(color: Colors.black.withOpacity(0.2)),
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5.r)),
-      child: GFAccordion(
-        showAccordion: false,
-        titleBorderRadius: BorderRadius.circular(5.r),
-        contentBorderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(5.r),
-          bottomRight: Radius.circular(5.r),
-        ),
-        margin: const EdgeInsets.all(0),
-        titlePadding: EdgeInsets.all(10.h),
-        contentPadding: EdgeInsets.all(10.w),
-        expandedTitleBackgroundColor: Colors.white,
-        contentBackgroundColor: Colors.white,
-        titleChild: Text(
-          'Downsides of Bonds Investment',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 18.sp,
-            fontFamily: "Poppins",
-          ),
-        ),
-        contentChild: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(
-                  color: Colors.brown,
-                  height: 1,
-                  width: MediaQuery.of(context).size.width / 1.65,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.brown,
-                      borderRadius: BorderRadius.circular(100.r)),
-                  height: 8,
-                  width: 8,
-                )
-              ],
-            ),
-            sizedBoxHeight(15.h),
-            Text(
-              "",
-              style: TextStyle(
-                color: Colors.black,
-                fontFamily: "Poppins",
-                fontSize: 16.sp,
-              ),
-            ),
-            ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: bulletPoints.length,
-                itemBuilder: (context, index) {
-                  return bulletText(bulletPoints[index]);
-                }),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget bulletText(String text) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          "> ",
-          style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w600),
-        ),
-        Expanded(
-          child: Text(
-            text,
-            style: TextStyle(
-              color: Colors.black,
-              fontFamily: "Poppins",
-              fontSize: 18.sp,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
 }

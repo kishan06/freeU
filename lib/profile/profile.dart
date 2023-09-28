@@ -68,7 +68,7 @@ class ProfileImageController extends GetxController {
       if (croppedImg != null) {
         // profilPic = croppedImg.path;
         profilePicPath.value = croppedImg.path;
-        ProfileObj?.user?.profileImage = profilePicPath.value;
+
         // Get.back();
         // fileNameFromPath.value = extractFileName(croppedImg.path);
       }

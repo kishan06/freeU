@@ -171,6 +171,18 @@ class ApiUrls {
   static const Globalsovereignbonds = "${baseUrl}sovereign-goverment-bond/question-answer";
   static const Globalinvestmentgrade = "${baseUrl}corporate-bond-investment-grade/question-answer";
   static const Globalhighyieldlearnmore = "${baseUrl}corporate-bond-high-yield/question-answer";
+  static const Indianresidentlearn = "${baseUrl}indian-residential-estate/question-answer";
+  static const Indiancommerciallearn = "${baseUrl}indian-commercial-estate/question-answer";
+  static const Indianindustriallearn = "${baseUrl}indian-industrial-estate/question-answer";
+  static const Globalresidentlearn = "${baseUrl}global-residential-estate/question-answer";
+  static const Globalcommerciallearn = "${baseUrl}global-commercial-estate/question-answer";
+  static const Globalindustriallearn = "${baseUrl}global-industrial-estate/question-answer";
+
+
+
+
+
+
 
 
 
