@@ -123,6 +123,7 @@ class _SplashsliderState extends State<Splashslider> {
                           ),
                           onTap: () {
                             Get.toNamed('/EntryPoint', arguments: 0);
+                           // Get.toNamed("/login");
                             showDialog(
                               barrierDismissible: false,
                               context: context,

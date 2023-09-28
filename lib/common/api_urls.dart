@@ -138,35 +138,49 @@ class ApiUrls {
   static const highyieldFinance =
       "${baseUrl}high-yield-Finance/question-answer";
 
-
-
-
-
-
-
-  //FAQ2     
+  //FAQ2
   static const Alternative3 = "${baseUrl}aif-III/question-answer";
   static const Alternative2 = "${baseUrl}aif-II/question-answer";
   static const Alternative1 = "${baseUrl}aif-I/question-answer";
-  static const Leasebasedfinancing = "${baseUrl}lease-based-financing/question-answer";
+  static const Leasebasedfinancing =
+      "${baseUrl}lease-based-financing/question-answer";
   static const Reitslearnmore = "${baseUrl}reit/question-answer";
   static const Globalhedgefunds = "${baseUrl}global-hedge-fund/question-answer";
-  static const Globalprivatefunds = "${baseUrl}global-private-equity-fund/question-answer";
-  static const Alternative1venturecapifunds = "${baseUrl}venture-capital-fund/question-answer";
+  static const Globalprivatefunds =
+      "${baseUrl}global-private-equity-fund/question-answer";
+  static const Alternative1venturecapifunds =
+      "${baseUrl}venture-capital-fund/question-answer";
   static const Globaletfsslearnmore = "${baseUrl}etf/question-answer";
   static const Globalequitieslearnmore = "${baseUrl}equities/question-answer";
   static const Globalmutualfunds = "${baseUrl}mutual-funds/question-answer";
-  static const Globalbondslearn = "${baseUrl}internatonal-bonds/question-answer";
-  static const AlternativeInvestmain = "${baseUrl}alternative-investment-fund/question-answer";
+  static const Globalbondslearn =
+      "${baseUrl}internatonal-bonds/question-answer";
+  static const AlternativeInvestmain =
+      "${baseUrl}alternative-investment-fund/question-answer";
   static const Venturedebtlearn = "${baseUrl}venture-debt/question-answer";
-  static const Alternative1Infrastructurefund = "${baseUrl}infrastructure-fund/question-answer";
+  static const Alternative1Infrastructurefund =
+      "${baseUrl}infrastructure-fund/question-answer";
   static const Alternative1Angelfund = "${baseUrl}angel-fund/question-answer";
-  static const Globalventurecapitalfunds = "${baseUrl}global-venture-capital-fund/question-answer";
-  static const Alternative2PrivateEquityfund = "${baseUrl}private-equity-fund/question-answer";
+  static const Globalventurecapitalfunds =
+      "${baseUrl}global-venture-capital-fund/question-answer";
+  static const Alternative2PrivateEquityfund =
+      "${baseUrl}private-equity-fund/question-answer";
   static const Alternative2Debtfund = "${baseUrl}debt-fund/question-answer";
-  static const Alternative2Funddistressed = "${baseUrl}fund-for-distressed-asset/question-answer";
-  static const Alternative2PrivateRealEstLearn = "${baseUrl}private-real-estate-fund/question-answer";
+  static const Alternative2Funddistressed =
+      "${baseUrl}fund-for-distressed-asset/question-answer";
+  static const Alternative2PrivateRealEstLearn =
+      "${baseUrl}private-real-estate-fund/question-answer";
   static const Alternative3hedgefunds = "${baseUrl}hedge-fund/question-answer";
+
+  static const Alternative3privatinvepublicequifunds =
+      "${baseUrl}private-investment-in-public-quity-fund/question-answer";
+  static const Globalsovereignbonds =
+      "${baseUrl}sovereign-goverment-bond/question-answer";
+  static const Globalinvestmentgrade =
+      "${baseUrl}corporate-bond-investment-grade/question-answer";
+  static const Globalhighyieldlearnmore =
+      "${baseUrl}corporate-bond-high-yield/question-answer";
+
   static const Alternative3privatinvepublicequifunds = "${baseUrl}private-investment-in-public-quity-fund/question-answer";
   static const Globalsovereignbonds = "${baseUrl}sovereign-goverment-bond/question-answer";
   static const Globalinvestmentgrade = "${baseUrl}corporate-bond-investment-grade/question-answer";
@@ -187,9 +201,10 @@ class ApiUrls {
 
 
 
-
 // Post Invest now
 
   static const Postinvestnow = "${baseUrl}invest-now";
 
+  //Top Picks
+  static const toppicks = "${baseUrl}top-pick-products";
 }

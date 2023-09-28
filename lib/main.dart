@@ -166,7 +166,7 @@ class _MyAppState extends State<MyApp> {
               debugShowCheckedModeBanner: false,
               title: 'FreeU',
               initialRoute: onBoardDone ?? false ? '/EntryPoint' : '/',
-              theme: ThemeData(
+              theme: ThemeData( 
                 scaffoldBackgroundColor: AppColors.white,
                 fontFamily: "Poppins",
               ),

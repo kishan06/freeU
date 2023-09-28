@@ -8,6 +8,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Models/Insights/BlogsModel.dart';
 import 'package:freeu/ViewModel/Blogs/BlogsApis.dart';
 import 'package:freeu/ViewModel/Profile/Getprofile.dart';
+import 'package:freeu/ViewModel/TopPicks/TopPicks.dart';
 import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
@@ -148,9 +149,13 @@ class _HomePageState extends State<HomePage> {
     futureGroup.add(BlogApis()
         .BlogSearchAndFilter(updata, streamController: BlogsControllerDummy));
 
+
+    futureGroup.add(TopPicksApi().TopPicksAPI());
+
     controllerEntryPoint.logedIn!
         ? futureGroup.add(GetProfile().GetProfileAPI())
         : null;
+
     futureGroup.close();
   }
 
@@ -318,13 +323,15 @@ class _HomePageState extends State<HomePage> {
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    children: List.generate(topPickData.length, (index) {
+                    children: List.generate(toppick!.data!.length, (index) {
                       return topPickCard(
-                        text1: topPickData[index]["text1"],
-                        imagePath: topPickData[index]["imageUrl"],
-                        title: topPickData[index]["title"],
-                        add: topPickData[index]["add"],
-                      );
+                          text1: toppick?.data?[index].categoryName ?? "",
+                          imagePath: toppick?.data?[index].propertyImage ??
+                              toppick?.data?[index].companyLogo ??
+                              toppick?.data?[index].fileName ??
+                              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png",
+                          title: toppick?.data?[index].productName ?? "",
+                          add: "Banyan Park,Mumbai");
                     }),
                   ),
                 )
@@ -504,6 +511,7 @@ class _HomePageState extends State<HomePage> {
       child: Container(
           width: 241.w,
           // color: AppColors.white,
+          // height: 238.h,
           decoration: BoxDecoration(
             border: Border.all(
               width: 0.5.w,
@@ -515,29 +523,42 @@ class _HomePageState extends State<HomePage> {
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 5.h),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   text1,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style:
                       TextStyle(fontWeight: FontWeight.w500, fontSize: 14.sp),
                 ),
 
                 sizedBoxHeight(10.h),
 
-                Container(
-                  width: double.infinity,
-                  height: 100.h,
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage(imagePath), fit: BoxFit.fill)),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: Container(
+                    width: double.infinity,
+                    height: 120.h,
+                    decoration: BoxDecoration(
+                        image: DecorationImage(
+                            image: NetworkImage(imagePath), fit: BoxFit.fill)),
+                  ),
                 ),
 
                 // Spacer(),
                 sizedBoxHeight(10.h),
 
-                text14Black(title),
+                Text(
+                  title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 14.sp,
+                    color: AppColors.black,
+                  ),
+                ),
 
                 // Spacer(),
                 sizedBoxHeight(5.h),
@@ -556,6 +577,10 @@ class _HomePageState extends State<HomePage> {
                     sizedBoxWidth(5.w),
                     Expanded(child: text13Grey707070(add))
                   ],
+                ),
+
+                SizedBox(
+                  height: 10.h,
                 )
               ],
             ),
