@@ -181,6 +181,7 @@ class ApiUrls {
   static const Globalhighyieldlearnmore =
       "${baseUrl}corporate-bond-high-yield/question-answer";
 
+
   static const Indianresidentlearn =
       "${baseUrl}indian-residential-estate/question-answer";
   static const Indiancommerciallearn =
@@ -193,6 +194,7 @@ class ApiUrls {
       "${baseUrl}global-commercial-estate/question-answer";
   static const Globalindustriallearn =
       "${baseUrl}global-industrial-estate/question-answer";
+
 
 // Post Invest now
 
