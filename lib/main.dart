@@ -63,7 +63,7 @@ import 'package:freeu/HomePage/Categories/Lease_based_Categories/Lease_based_pro
 import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
-import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
+import 'package:freeu/HomePage/Investments/CurrentInvestmentDetailed.dart';
 import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
 import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
 import 'package:freeu/Notification.dart';
