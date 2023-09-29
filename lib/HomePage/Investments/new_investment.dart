@@ -1,10 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:freeu/HomePage/Investments/CurrentInvestment.dart';
+import 'package:freeu/HomePage/Investments/CurrentInvestmentDetailed.dart';
 import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
+import 'package:freeu/HomePage/Investments/RedeemInvestmentDetailed.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/ViewModel/Investment/Investment.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/simple_accotion.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
@@ -13,6 +17,7 @@ import 'investment_transfer.dart';
 import 'investment_watchlist.dart';
 import 'pending_request.dart';
 import 'product_action.dart';
+import 'package:async/src/future_group.dart';
 
 class NewInvestment extends StatefulWidget {
   const NewInvestment({super.key});
@@ -22,6 +27,17 @@ class NewInvestment extends StatefulWidget {
 }
 
 class _NewInvestmentState extends State<NewInvestment> {
+  FutureGroup futureGroup = FutureGroup();
+  @override
+  void initState() {
+    futureGroup.add(Investment().InvestmentSummaryAPI());
+    futureGroup.add(Investment().CurrentInvestmentAPI());
+    futureGroup.add(Investment().RedeemInvestmentAPI());
+
+    futureGroup.close();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -86,11 +102,33 @@ class _NewInvestmentState extends State<NewInvestment> {
             ),
           ),
         ),
-        body: TabBarView(
-          children: [
-            Tab1(),
-            Tab2(),
-          ],
+        body: FutureBuilder(
+          future: futureGroup.future,
+          builder: (ctx, snapshot) {
+            if (snapshot.data == null) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [Center(child: CircularProgressIndicator())],
+              );
+            }
+            if (snapshot.connectionState == ConnectionState.done) {
+              if (snapshot.hasError) {
+                return Center(
+                  child: Text(
+                    '${snapshot.error} occured',
+                    style: TextStyle(fontSize: 18.spMin),
+                  ),
+                );
+              }
+            }
+            return TabBarView(
+              children: [
+                Tab1(),
+                Tab2(),
+              ],
+            );
+          },
         ),
       ),
     );
@@ -124,11 +162,14 @@ class _NewInvestmentState extends State<NewInvestment> {
               ),
               child: Column(
                 children: [
-                  twoNHalfTxt('Total Investment \nTill Date', '₹26,700,000'),
+                  twoNHalfTxt('Total Investment \nTill Date',
+                      investmentSummary?.data?.totalInvestmentTillDate ?? ""),
                   sizedBoxHeight(15.h),
-                  twoNHalfTxt('Active \nInvestment', '₹16,200,000'),
+                  twoNHalfTxt('Active \nInvestment',
+                      investmentSummary?.data?.activeInvestment ?? ""),
                   sizedBoxHeight(15.h),
-                  twoNHalfTxt('Investments \nreedemed', '₹10,500,000'),
+                  twoNHalfTxt('Investments \nreedemed',
+                      investmentSummary?.data?.reedemedInvestment ?? ""),
                 ],
               ),
             ),
@@ -143,22 +184,53 @@ class _NewInvestmentState extends State<NewInvestment> {
             sizedBoxHeight(25.h),
             threeTxt("Product", "Amount", "Action"),
             sizedBoxHeight(20.h),
-            productContainer('Navy Technology\nNCD', '₹7,00,000'),
-            sizedBoxHeight(12.h),
-            productContainer('Prestige Tech\nPlatina - Banglore', '₹2,50,000'),
-            sizedBoxHeight(20.h),
-            twoTxt(
-              'Investment Redeemed',
-              'View All',
-              CurrentInvestment(),
+            ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: currentsummary
+                              ?.data?.currentInvestment?.productDetails !=
+                          null &&
+                      currentsummary?.data?.currentInvestment?.productDetails !=
+                          null
+                  ? min(
+                      currentsummary!
+                          .data!.currentInvestment!.productDetails!.length,
+                      3)
+                  : 0,
+              itemBuilder: (context, index) {
+                return productContainer(
+                    currentsummary!.data!.currentInvestment!
+                        .productDetails![index].productName,
+                    currentsummary!.data!.currentInvestment!
+                        .productDetails![index].amount);
+              },
             ),
+            twoTxt(
+                'Investment Redeemed', 'View All', RedeemInvestmentDetailed()),
             sizedBoxHeight(12.h),
             threeTxt("Product", "Amount", "Action"),
             sizedBoxHeight(12.h),
-            productContainer('Fixed Term Plan\n(3 Months)', '₹5,00,000'),
-            sizedBoxHeight(12.h),
-            productContainer('Indiabulls Dual\nAdvantage', '₹10,00,000'),
-            sizedBoxHeight(80.h),
+            ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              shrinkWrap: true,
+              itemCount: redeemsummary
+                              ?.data?.reedemedInvestment?.productDetails !=
+                          null &&
+                      redeemsummary?.data?.reedemedInvestment?.productDetails !=
+                          null
+                  ? min(
+                      redeemsummary!
+                          .data!.reedemedInvestment!.productDetails!.length,
+                      3)
+                  : 0,
+              itemBuilder: (context, index) {
+                return productContainer(
+                    redeemsummary!.data!.reedemedInvestment!
+                        .productDetails![index].productName,
+                    redeemsummary!.data!.reedemedInvestment!
+                        .productDetails![index].amount);
+              },
+            ),
           ],
         ),
       ),
@@ -355,73 +427,83 @@ class _NewInvestmentState extends State<NewInvestment> {
   }
 
   Widget productContainer(txt1, txt2) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        color: Color(0xffffffff),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0x48B9B9BE),
-            blurRadius: 20.0,
-            spreadRadius: 0,
-          )
-        ],
-      ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 15, top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SvgPicture.asset("assets/images/investmentmyre (2).svg"),
-              ],
-            ),
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            color: Color(0xffffffff),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x48B9B9BE),
+                blurRadius: 20.0,
+                spreadRadius: 0,
+              )
+            ],
           ),
-          SizedBox(
-            height: 8.h,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15, top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SvgPicture.asset("assets/images/investmentmyre (2).svg"),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8.h,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 150.w,
+                      child: Text(
+                        txt1,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      txt2,
+                      style: TextStyle(fontSize: 18.sp),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: GestureDetector(
+                          onTap: () {
+                            Get.to(
+                              ProductAction(
+                                pageIndex: 0,
+                              ),
+                            );
+                          },
+                          child: Icon(
+                            Icons.remove_red_eye_outlined,
+                            size: 30.h,
+                            color: Colors.black.withOpacity(0.8),
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 16.h,
+              )
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  txt1,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 18.sp,
-                  ),
-                ),
-                Text(
-                  txt2,
-                  style: TextStyle(fontSize: 18.sp),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: GestureDetector(
-                      onTap: () {
-                        Get.to(
-                          ProductAction(
-                            pageIndex: 0,
-                          ),
-                        );
-                      },
-                      child: Icon(
-                        Icons.remove_red_eye_outlined,
-                        size: 30.h,
-                        color: Colors.black.withOpacity(0.8),
-                      )),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 16.h,
-          )
-        ],
-      ),
+        ),
+        sizedBoxHeight(12.h),
+      ],
     );
   }
 
