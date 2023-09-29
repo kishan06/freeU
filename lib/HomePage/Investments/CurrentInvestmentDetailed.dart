@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Investments/product_action.dart';
+import 'package:freeu/ViewModel/Investment/Investment.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
-
 
 class CurrentInvestment extends StatefulWidget {
   const CurrentInvestment({super.key});
@@ -99,19 +99,19 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                       ],
                     ),
                     sizedBoxHeight(20.h),
-                    productContainer(
-                        'Prestige Tech\nPlatina - Banglore', '₹2,50,000'),
-                    sizedBoxHeight(20.h),
-                    productContainer('Navy Technology\nNCD', '₹7,00,000'),
-                    sizedBoxHeight(20.h),
-                    productContainer(
-                        'Prestige Tech\nPlatina - Banglore', '₹2,50,000'),
-                    sizedBoxHeight(20.h),
-                    productContainer('Navy Technology\nNCD', '₹7,00,000'),
-                    sizedBoxHeight(20.h),
-                    productContainer(
-                        'Prestige Tech\nPlatina - Banglore', '₹2,50,000'),
-                    sizedBoxHeight(20.h),
+                    ListView.builder(
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: currentsummary!
+                          .data!.currentInvestment!.productDetails!.length,
+                      itemBuilder: (context, index) {
+                        return productContainer(
+                            currentsummary!.data!.currentInvestment!
+                                .productDetails![index].productName,
+                            currentsummary!.data!.currentInvestment!
+                                .productDetails![index].amount);
+                      },
+                    ),
                     SizedBox(
                       height: 10.h,
                     ),
@@ -142,7 +142,9 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                                 TextStyle(color: Colors.white, fontSize: 14.sp),
                           ),
                           Text(
-                            '₹16,200,000',
+                            currentsummary!
+                                    .data!.currentInvestment!.totalInvestment ??
+                                "",
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.w600,
@@ -163,69 +165,83 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
   }
 
   Widget productContainer(txt1, txt2) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(15)),
-        color: Color(0xffffffff),
-        boxShadow: [
-          BoxShadow(
-            color: Color(0x48B9B9BE),
-            blurRadius: 20.0,
-            spreadRadius: 0,
-          )
-        ],
-      ),
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 15, top: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                SvgPicture.asset("assets/images/investmentmyre (2).svg"),
-              ],
-            ),
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            color: Color(0xffffffff),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x48B9B9BE),
+                blurRadius: 20.0,
+                spreadRadius: 0,
+              )
+            ],
           ),
-          SizedBox(
-            height: 8.h,
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15, top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SvgPicture.asset("assets/images/investmentmyre (2).svg"),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8.h,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 150.w,
+                      child: Text(
+                        txt1,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      txt2,
+                      style: TextStyle(fontSize: 18.sp),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: GestureDetector(
+                          onTap: () {
+                            Get.to(
+                              ProductAction(
+                                pageIndex: 0,
+                              ),
+                            );
+                          },
+                          child: Icon(
+                            Icons.remove_red_eye_outlined,
+                            size: 30.h,
+                            color: Colors.black.withOpacity(0.8),
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 16.h,
+              )
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  txt1,
-                  style: TextStyle(
-                    fontWeight: FontWeight.w300,
-                    fontSize: 18.sp,
-                  ),
-                ),
-                Text(
-                  txt2,
-                  style: TextStyle(fontSize: 18.sp),
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 20.w),
-                  child: GestureDetector(
-                      onTap: () {
-                        Get.to(ProductAction(pageIndex: 0));
-                      },
-                      child: Icon(
-                        Icons.remove_red_eye_outlined,
-                        size: 30.h,
-                        color: Colors.black.withOpacity(0.8),
-                      )),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(
-            height: 16.h,
-          )
-        ],
-      ),
+        ),
+        sizedBoxHeight(12.h),
+      ],
     );
   }
 }
