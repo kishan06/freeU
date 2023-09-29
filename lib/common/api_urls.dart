@@ -203,4 +203,11 @@ class ApiUrls {
 
   //Top Picks
   static const toppicks = "${baseUrl}top-pick-products";
+
+
+  //Chat get  and post api
+    static const chatgetapi = "${baseUrl}get-chat";
+
+  static const Postchatmessage = "${baseUrl}send-user-msg";
+
 }
