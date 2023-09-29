@@ -203,10 +203,18 @@ class ApiUrls {
   //Top Picks
   static const toppicks = "${baseUrl}top-pick-products";
 
+
+
+  //Chat get  and post api
+    static const chatgetapi = "${baseUrl}get-chat";
+
+  static const Postchatmessage = "${baseUrl}send-user-msg";
+
   //investments
 
   static const investmentSummary = "${baseUrl}investment-summary";
   static const redeeminvestmetDetails = "${baseUrl}reedemed-investment-details";
   static const currentInvestmentDetails =
       "${baseUrl}current-investment-details";
+
 }
