@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'package:dio/dio.dart';
 // import 'package:dio/dio.dart' as prefix;
 import 'package:flutter/material.dart';
@@ -17,8 +18,12 @@ import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/viewModel/Chat/getchat.dart';
 import 'package:freeu/Utils/Dialogs.dart';
 import 'package:freeu/viewModel/Chat/postchatmessage.dart';
-import 'package:get/get.dart' hide MultipartFile, FormData;
+import 'package:get/get.dart' as GetX hide MultipartFile, FormData;
+import 'package:image_gallery_saver/image_gallery_saver.dart';
+import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as path;
+import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../controllers/network_api.dart';
@@ -162,6 +167,43 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   //   }
   // }
 
+  ///method that is running fine
+
+  // void UploadData() async {
+  //   try {
+  //     List<MultipartFile> multipartFiles = [];
+
+  //     // Check if attachimage is not null before adding it to fileList
+  //     if (attachimage != null) {
+  //       fileList.add(attachimage!);
+
+  //       for (String file in fileList) {
+  //         multipartFiles.add(
+  //           await MultipartFile.fromFile(
+  //             file,
+  //             filename: path.basename(file),
+  //           ),
+  //         );
+  //       }
+  //     }
+
+  //     Map<String, dynamic> updata = {
+  //       "message": messageController.text,
+  //       "user_file": multipartFiles.isNotEmpty ? multipartFiles : null,
+  //     };
+
+  //     final data = await Chatmessage().postChatmessage(updata);
+
+  //     if (data.status == ResponseStatus.SUCCESS) {
+  //       utils.showToast(data.message);
+  //     } else {
+  //       utils.showToast(data.message);
+  //     }
+  //   } catch (e) {
+  //     print("Error uploading data: $e");
+  //   }
+  // }
+
   void UploadData() async {
     try {
       List<MultipartFile> multipartFiles = [];
@@ -180,12 +222,12 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
         }
       }
 
-      Map<String, dynamic> updata = {
+      FormData formData = FormData.fromMap({
         "message": messageController.text,
         "user_file": multipartFiles.isNotEmpty ? multipartFiles : null,
-      };
+      });
 
-      final data = await Chatmessage().postChatmessage(updata);
+      final data = await Chatmessage().postChatmessage(formData);
 
       if (data.status == ResponseStatus.SUCCESS) {
         utils.showToast(data.message);
@@ -196,6 +238,61 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
       print("Error uploading data: $e");
     }
   }
+
+//download function
+
+  // Future<void> downloadImage(image) async {
+  //   final Dio dio = Dio();
+  //   final appDir = await getApplicationDocumentsDirectory();
+  //   final File file = File('${appDir.path}/downloaded_image.png');
+
+  //   try {
+  //     await dio.download(ApiUrls.Getimage + "/${image}", file.path);
+
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(
+  //         content: Text('Image downloaded successfully'),
+  //       ),
+  //     );
+  //   } catch (e) {
+  //     ScaffoldMessenger.of(context).showSnackBar(
+  //       SnackBar(
+  //         content: Text('Failed to download image'),
+  //       ),
+  //     );
+  //   }
+  // }
+
+Future<void> downloadImage(String image) async {
+  final Dio dio = Dio();
+  final appDir = await getApplicationDocumentsDirectory();
+  final File file = File('${appDir.path}/downloaded_image.png');
+
+  try {
+    await dio.download(ApiUrls.Getimage + "/${image}", file.path);
+    print("url is ${ApiUrls.Getimage + "/${image}"}");
+
+    // Save image to gallery
+    await ImageGallerySaver.saveFile(file.path);
+
+        // Open the downloaded image
+    OpenFile.open(file.path);
+
+
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Image downloaded and saved to gallery successfully'),
+      ),
+    );
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Failed to download or save image'),
+      ),
+    );
+  }
+}
 
   @override
   void initState() {
@@ -258,7 +355,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
     //     () => myController.jumpTo(myController.position.maxScrollExtent));
     return GestureDetector(
       onTap: () {
-        Get.focusScope?.unfocus();
+        // Get.focusScope?.unfocus();
       },
       child: Scaffold(
         resizeToAvoidBottomInset: false,
@@ -432,68 +529,162 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                         ),
                       ),
                     )
-                  : Padding(
-                      padding: EdgeInsets.only(
-                          right: 14.w, top: 10.h, bottom: 10.h, left: 60.w),
-                      child: Align(
-                        alignment: Alignment.topRight,
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Flexible(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(20.r),
-                                    bottomLeft: Radius.circular(20.r),
-                                    topRight: Radius.circular(20.r),
-                                  ),
-                                  color: const Color(0xff002A5B),
-                                ),
-                                padding: EdgeInsets.all(16.h),
-                                child: Text(
-                                  chatmessagessobj!.data?[index].message ?? "",
-                                  // messages[index].messageContent,
-                                  style: TextStyle(
-                                      fontSize: 18.sp, color: Colors.white),
-                                ),
-                              ),
-                            ),
-                            SizedBox(width: 10.w),
-                            SizedBox(
-                              height: 55.h,
-                              child: ProfileObj?.user?.profileImage != ''
-                                  ? ClipOval(
-                                      child: SizedBox.fromSize(
-                                        size: Size.fromRadius(25.r),
-                                        child: CircleAvatar(
-                                          backgroundImage: NetworkImage(
-                                              ProfileObj!.user!.profileImage!),
-                                          radius: 25.r,
-                                        ),
+                  : chatmessagessobj!.data?[index].file != null
+                      ? Padding(
+                          // Image message layout
+                          padding: EdgeInsets.only(
+                            right: 14.w,
+                            top: 10.h,
+                            bottom: 10.h,
+                            left: 60.w,
+                          ),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Flexible(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20.r),
+                                        bottomLeft: Radius.circular(20.r),
+                                        topRight: Radius.circular(20.r),
                                       ),
-                                    )
-                                  : Container(
-                                      height: 50.w,
-                                      width: 50.w,
-                                      child: ClipRRect(
-                                        borderRadius:
-                                            BorderRadius.circular(100.r),
-                                        child:
-                                            Image.asset('assets/images/1.jpg'),
-                                      ),
+                                      color: const Color(0xff002A5B),
                                     ),
-                              // ClipRRect(
-                              //   borderRadius: BorderRadius.circular(100.r),
-                              //   child: Image.asset('assets/images/1.jpg'),
-                              // ),
+                                    padding: EdgeInsets.all(16.h),
+                                    child: Row(
+                                      children: [
+                                        IconButton(
+                                          onPressed: () {
+                                            downloadImage(chatmessagessobj!
+                                                    .data?[index].file ??
+                                                "");
+                                            // _downloadAndDisplayImage(chatmessagessobj!
+                                            //         .data?[index].file ??
+                                            //     "");
+                                          },
+                                          icon: Icon(
+                                            Icons.downloading_rounded,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        sizedBoxWidth(2.w),
+                                        Text(
+                                          "Download file",
+                                          // messages[index].messageContent,
+                                          style: TextStyle(
+                                              fontSize: 18.sp,
+                                              color: AppColors.white),
+                                        ),
+                                      ],
+                                    ),
+
+                                    // Image.network(
+                                    //   chatmessagessobj!.data?[index].file ?? "",
+                                    //   width: 100.w, // Adjust this as per your design
+                                    //   height: 100.h, // Adjust this as per your design
+                                    //   fit: BoxFit.cover,
+                                    // ),
+                                  ),
+                                ),
+                                SizedBox(width: 10.w),
+                                SizedBox(
+                                  height: 55.h,
+                                  child: ProfileObj?.user?.profileImage != ''
+                                      ? ClipOval(
+                                          child: SizedBox.fromSize(
+                                            size: Size.fromRadius(25.r),
+                                            child: CircleAvatar(
+                                              backgroundImage: NetworkImage(
+                                                ProfileObj!.user!.profileImage!,
+                                              ),
+                                              radius: 25.r,
+                                            ),
+                                          ),
+                                        )
+                                      : Container(
+                                          height: 50.w,
+                                          width: 50.w,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(100.r),
+                                            child: Image.asset(
+                                                'assets/images/1.jpg'),
+                                          ),
+                                        ),
+                                ),
+                              ],
                             ),
-                          ],
-                        ),
-                      ),
-                    );
+                          ),
+                        )
+                      : Padding(
+                          padding: EdgeInsets.only(
+                              right: 14.w, top: 10.h, bottom: 10.h, left: 60.w),
+                          child: Align(
+                            alignment: Alignment.topRight,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Flexible(
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(20.r),
+                                        bottomLeft: Radius.circular(20.r),
+                                        topRight: Radius.circular(20.r),
+                                      ),
+                                      color: const Color(0xff002A5B),
+                                    ),
+                                    padding: EdgeInsets.all(16.h),
+                                    child: Text(
+                                      chatmessagessobj!.data?[index].message ??
+                                          "",
+                                      // messages[index].messageContent,
+                                      style: TextStyle(
+                                          fontSize: 18.sp, color: Colors.white),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(width: 10.w),
+                                SizedBox(
+                                  height: 55.h,
+                                  child: ProfileObj?.user?.profileImage != ''
+                                      ? ClipOval(
+                                          child: SizedBox.fromSize(
+                                            size: Size.fromRadius(25.r),
+                                            child: CircleAvatar(
+                                              backgroundImage: NetworkImage(
+                                                  ProfileObj!
+                                                      .user!.profileImage!),
+                                              radius: 25.r,
+                                            ),
+                                          ),
+                                        )
+                                      : Container(
+                                          height: 50.w,
+                                          width: 50.w,
+                                          child: ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(100.r),
+                                            child: Image.asset(
+                                                'assets/images/1.jpg'),
+                                          ),
+                                        ),
+                                  // ClipRRect(
+                                  //   borderRadius: BorderRadius.circular(100.r),
+                                  //   child: Image.asset('assets/images/1.jpg'),
+                                  // ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
             },
           ),
         ),
