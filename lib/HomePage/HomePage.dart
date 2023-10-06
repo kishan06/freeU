@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:another_flushbar/flushbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -20,6 +21,7 @@ import 'package:freeu/common/Categories%20Common%20Files/categoryCard.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../controllers/entry_point_controller.dart';
 import 'Categories/CategoriesMain.dart';
 import 'package:async/src/future_group.dart';
@@ -157,6 +159,32 @@ class _HomePageState extends State<HomePage> {
         : null;
 
     futureGroup.close();
+     Future.delayed(Duration(seconds: 2), () {
+        requestPermissions();
+  });
+
+  }
+
+     void requestPermissions() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.storage,
+    ].request();
+
+    if (statuses[Permission.storage] == PermissionStatus.granted) {
+      // Permissions granted, proceed with your operations
+    } else {
+      // Permissions denied, handle accordingly
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     content: Text('Permission denied. Unable to download image.'),
+      //   ),
+      // );
+
+       await Flushbar(
+        message: "Permission denied. Unable to download image.",
+        duration: Duration(seconds: 3),
+      ).show(context);
+    }
   }
 
   @override

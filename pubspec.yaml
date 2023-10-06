@@ -71,6 +71,9 @@ dependencies:
   flutter_launcher_icons: ^0.13.1
   dotted_border: ^2.0.0+3
   flutter_html: ^3.0.0-beta.2
+  image_gallery_saver: ^2.0.3
+  open_file: ^3.3.2
+  permission_handler: ^11.0.1
 
 
   

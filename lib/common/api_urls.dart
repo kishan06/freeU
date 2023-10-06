@@ -217,4 +217,7 @@ class ApiUrls {
   static const currentInvestmentDetails =
       "${baseUrl}current-investment-details";
 
+//grt image from api
+  static const Getimage = "${baseUrl}get-file";
+
 }
