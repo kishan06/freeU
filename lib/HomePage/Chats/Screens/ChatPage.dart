@@ -19,7 +19,6 @@ class ChatPage extends StatefulWidget {
 }
 
 class _ChatPageState extends State<ChatPage> {
-  final GlobalKey<ScaffoldState> _key = GlobalKey();
   List<ChatUsers> chatUsers = [
     ChatUsers(
       name: "Freeu Support",
@@ -84,7 +83,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _key,
+      // key: _key,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: AppColors.white,
