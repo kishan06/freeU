@@ -74,6 +74,13 @@ import 'package:freeu/SideMenu/KYC/KYC1.dart';
 import 'package:freeu/SideMenu/KYC/KYC2.dart';
 import 'package:freeu/SideMenu/KYC/KYC3.dart';
 import 'package:freeu/SideMenu/KYC/KYC4.dart';
+import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/companykyc.dart';
+import 'package:freeu/SideMenu/KYC/KYC_v2/kycmainpage.dart';
+import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/hufkyc.dart';
+import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/individualkyc.dart';
+import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/nrikyc.dart';
+import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/otherkyc.dart';
+import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/partnershipkyc.dart';
 import 'package:freeu/SideMenu/PrivacyPolicy.dart';
 import 'package:freeu/SideMenu/TermsAndCondition.dart';
 import 'package:freeu/SideMenu/FAQ/faqs.dart';
@@ -166,7 +173,7 @@ class _MyAppState extends State<MyApp> {
               debugShowCheckedModeBanner: false,
               title: 'FreeU',
               initialRoute: onBoardDone ?? false ? '/EntryPoint' : '/',
-              theme: ThemeData( 
+              theme: ThemeData(
                 scaffoldBackgroundColor: AppColors.white,
                 fontFamily: "Poppins",
               ),
@@ -511,6 +518,22 @@ class _MyAppState extends State<MyApp> {
                     name: '/globalindustrialproducts',
                     page: () => const GlobalIndustrialproductstab()),
                 GetPage(name: '/edituser', page: () => const EditUser()),
+
+                //kyc_v2
+                GetPage(name: '/kycmainpage', page: () => const Kycmainpage()),
+                GetPage(
+                    name: '/companykycpage',
+                    page: () =>  Companykycpage()),
+                GetPage(
+                    name: '/partnershipkycpage',
+                    page: () =>  Partnershipkycpage()),
+                GetPage(
+                    name: '/otherkycpage', page: () =>  Otherkycpage()),
+                GetPage(
+                    name: '/individualkycpage',
+                    page: () =>  Individualkycpage()),
+                GetPage(name: '/hufkycpage', page: () => HUFkycpage()),
+                GetPage(name: '/nrikycpage', page: () =>  NRIkycpage()),
               ],
             ),
             designSize: const Size(390, 844),

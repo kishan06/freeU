@@ -33,7 +33,7 @@ class ImageUploadBottomSheet {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Profile Photo',
+                  'Select Image',
                   style: TextStyle(
                       color: const Color(0xff444444),
                       fontSize: 22.sp,
