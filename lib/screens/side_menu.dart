@@ -370,7 +370,7 @@ void navigateTo(int index, BuildContext context) {
   switch (index) {
     case 0:
       {
-        Get.toNamed("/kyc1");
+        Get.toNamed("/kycmainpage");
       }
       break;
 
