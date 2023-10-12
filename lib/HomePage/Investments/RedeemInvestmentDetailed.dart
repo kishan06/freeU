@@ -98,7 +98,11 @@ class _RedeemInvestmentDetailedState extends State<RedeemInvestmentDetailed> {
                             redeemsummary!.data!.reedemedInvestment!
                                 .productDetails![index].productName,
                             redeemsummary!.data!.reedemedInvestment!
-                                .productDetails![index].amount);
+                                .productDetails![index].amount,
+                            redeemsummary!.data!.reedemedInvestment!
+                                .productDetails![index].categories,
+                            redeemsummary!.data!.reedemedInvestment!
+                                .productDetails![index].routeId);
                       },
                     ),
                     SizedBox(
@@ -153,7 +157,12 @@ class _RedeemInvestmentDetailedState extends State<RedeemInvestmentDetailed> {
     );
   }
 
-  Widget productContainer(txt1, txt2) {
+  Widget productContainer(
+    txt1,
+    txt2,
+    categories,
+    routeId,
+  ) {
     return Column(
       children: [
         Container(
@@ -211,6 +220,8 @@ class _RedeemInvestmentDetailedState extends State<RedeemInvestmentDetailed> {
                             Get.to(
                               ProductAction(
                                 pageIndex: 0,
+                                categories: "", // TODO: add categories name
+                                routeId: "",
                               ),
                             );
                           },

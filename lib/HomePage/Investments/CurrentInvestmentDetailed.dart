@@ -109,7 +109,11 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                             currentsummary!.data!.currentInvestment!
                                 .productDetails![index].productName,
                             currentsummary!.data!.currentInvestment!
-                                .productDetails![index].amount);
+                                .productDetails![index].amount,
+                            currentsummary!.data!.currentInvestment!
+                                .productDetails![index].categories,
+                            currentsummary!.data!.currentInvestment!
+                                .productDetails![index].routeId);
                       },
                     ),
                     SizedBox(
@@ -164,7 +168,12 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
     );
   }
 
-  Widget productContainer(txt1, txt2) {
+  Widget productContainer(
+    txt1,
+    txt2,
+    categories,
+    routeId,
+  ) {
     return Column(
       children: [
         Container(
@@ -221,7 +230,10 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                           onTap: () {
                             Get.to(
                               ProductAction(
+                                // TODO: add categories name
                                 pageIndex: 0,
+                                categories: categories,
+                                routeId: routeId,
                               ),
                             );
                           },

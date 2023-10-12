@@ -70,13 +70,14 @@ class CurrentInvestment {
 class ProductDetails {
   String? companyLogo;
   String? customId;
+  String? categories;
   String? productName;
   String? routeId;
   String? totalInvestmentAmount;
   String? amount;
 
   ProductDetails(
-      {this.companyLogo,
+      {this.companyLogo,this.categories,
       this.customId,
       this.productName,
       this.routeId,
@@ -86,6 +87,7 @@ class ProductDetails {
   ProductDetails.fromJson(Map<String, dynamic> json) {
     companyLogo = json['company_logo'];
     customId = json['custom_id'];
+    categories = json["categories"];
     productName = json['product_name'];
     routeId = json['route_id'];
     totalInvestmentAmount = json['total_investment_amount'];
@@ -96,6 +98,7 @@ class ProductDetails {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['company_logo'] = this.companyLogo;
     data['custom_id'] = this.customId;
+    data['categories'] = this.categories;
     data['product_name'] = this.productName;
     data['route_id'] = this.routeId;
     data['total_investment_amount'] = this.totalInvestmentAmount;

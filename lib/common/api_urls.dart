@@ -181,7 +181,6 @@ class ApiUrls {
   static const Globalhighyieldlearnmore =
       "${baseUrl}corporate-bond-high-yield/question-answer";
 
-
   static const Indianresidentlearn =
       "${baseUrl}indian-residential-estate/question-answer";
   static const Indiancommerciallearn =
@@ -195,7 +194,6 @@ class ApiUrls {
   static const Globalindustriallearn =
       "${baseUrl}global-industrial-estate/question-answer";
 
-
 // Post Invest now
 
   static const Postinvestnow = "${baseUrl}invest-now";
@@ -203,10 +201,8 @@ class ApiUrls {
   //Top Picks
   static const toppicks = "${baseUrl}top-pick-products";
 
-
-
   //Chat get  and post api
-    static const chatgetapi = "${baseUrl}get-chat";
+  static const chatgetapi = "${baseUrl}get-chat";
 
   static const Postchatmessage = "${baseUrl}send-user-msg";
 
@@ -216,9 +212,11 @@ class ApiUrls {
   static const redeeminvestmetDetails = "${baseUrl}reedemed-investment-details";
   static const currentInvestmentDetails =
       "${baseUrl}current-investment-details";
+  static const investmentDetails = "${baseUrl}investment-details-advanced";
 
 //grt image from api
   static const Getimage = "${baseUrl}get-file";
+
 
   //kyc_v2
   static const Postcompanykyc = "${baseUrl}company-kyc-create";

@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:freeu/Global.dart';
 import 'package:freeu/Utils/Dialogs.dart';
+import 'package:freeu/Utils/helper.dart';
 import 'package:freeu/ViewModel/Profile/Getprofile.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
@@ -27,6 +28,7 @@ class EditUser extends StatefulWidget {
 class _EditUserState extends State<EditUser> {
   final ProfileImageController editProfileImage =
       Get.put(ProfileImageController());
+
   final args = Get.arguments;
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   Future<File> saveFilePermanently(String imagePath) async {
@@ -164,12 +166,20 @@ class _EditUserState extends State<EditUser> {
     //   "address": addressController.text,
     //   "email": emailController.text
     // };
-    SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    var imageFile = await MultipartFile.fromFile(
-      editProfileImage.profilePicPath.value,
-      filename: path.basename(editProfileImage.profilePicPath.value),
-    );
+    utils.loader();
+    var imageFile;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    if (editProfileImage.profilePicPath.value.isNotEmpty) {
+      imageFile = await MultipartFile.fromFile(
+        editProfileImage.profilePicPath.value,
+        filename: path.basename(editProfileImage.profilePicPath.value),
+      );
+    } else {
+      imageFile = await Helper.networkImageToMultipartFile(
+        ProfileObj!.user!.profileImage!,
+      );
+    }
 
     FormData formData = FormData.fromMap({
       "name": nameController.text,
@@ -185,8 +195,10 @@ class _EditUserState extends State<EditUser> {
       utils.showToast("Profile added Successfully!");
       await prefs.setString('name', nameController.text);
       myusername = nameController.text;
+      Get.back();
       Get.back(result: true);
     } else {
+      Get.back();
       return utils.showToast(data.message);
     }
   }
@@ -228,46 +240,50 @@ class _EditUserState extends State<EditUser> {
                         clipBehavior: Clip.none,
                         alignment: Alignment.center,
                         children: [
-                          editProfileImage.profilePicPath.value != ''
-                              ? Obx(
-                                  () => ClipOval(
+                          Obx(
+                            () => editProfileImage.profilePicPath.value != ''
+                                ? ClipOval(
+                                    child: SizedBox.fromSize(
+                                      size: Size.fromRadius(60.r),
+                                      child: editProfileImage
+                                                  .profilePicPath.value !=
+                                              ''
+                                          ? Image(
+                                              image: FileImage(
+                                                File(
+                                                  editProfileImage
+                                                      .profilePicPath.value,
+                                                ),
+                                              ),
+                                              fit: BoxFit.cover,
+                                              width: 200.w,
+                                              height: 200.h,
+                                            )
+                                          : Image.asset(
+                                              'assets/images/user.png'),
+                                    ),
+                                  )
+                                : ClipOval(
                                     child: SizedBox.fromSize(
                                         size: Size.fromRadius(60.r),
-                                        child: editProfileImage
-                                                    .profilePicPath.value !=
+                                        child: ProfileObj?.user?.profileImage !=
                                                 ''
-                                            ? Image(
-                                                image: FileImage(File(
-                                                    editProfileImage
-                                                        .profilePicPath.value)),
-                                                fit: BoxFit.cover,
-                                                width: 200.w,
-                                                height: 200.h,
+                                            ? ClipOval(
+                                                child: SizedBox.fromSize(
+                                                  size: Size.fromRadius(25.r),
+                                                  child: CircleAvatar(
+                                                    backgroundImage:
+                                                        NetworkImage(ProfileObj!
+                                                            .user!
+                                                            .profileImage!),
+                                                    radius: 25.r,
+                                                  ),
+                                                ),
                                               )
                                             : Image.asset(
                                                 'assets/images/user.png')),
                                   ),
-                                )
-                              : ClipOval(
-                                  child: SizedBox.fromSize(
-                                      size: Size.fromRadius(60.r),
-                                      child:
-                                          ProfileObj?.user?.profileImage != ''
-                                              ? ClipOval(
-                                                  child: SizedBox.fromSize(
-                                                    size: Size.fromRadius(25.r),
-                                                    child: CircleAvatar(
-                                                      backgroundImage:
-                                                          NetworkImage(ProfileObj!
-                                                              .user!
-                                                              .profileImage!),
-                                                      radius: 25.r,
-                                                    ),
-                                                  ),
-                                                )
-                                              : Image.asset(
-                                                  'assets/images/user.png')),
-                                ),
+                          ),
                           Positioned(
                             bottom: 0,
                             right: 0,
@@ -518,6 +534,7 @@ class _EditUserState extends State<EditUser> {
                     text: 'Update',
                     ontap: (() {
                       // _submit();
+
                       final isValid = _form.currentState?.validate();
                       if (isValid!) {
                         UploadData();

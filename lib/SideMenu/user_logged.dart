@@ -142,35 +142,41 @@ class _UserState extends State<User> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.white,
-        body: controllerEntryPoint.logedIn!
-            ? FutureBuilder(
-                future: myfuture,
-                builder: (ctx, snapshot) {
-                  if (snapshot.data == null) {
-                    return Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [Center(child: CircularProgressIndicator())],
-                    );
-                  }
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    if (snapshot.hasError) {
-                      return Center(
-                        child: Text(
-                          '${snapshot.error} occured',
-                          style: TextStyle(fontSize: 18.spMin),
-                        ),
+    return WillPopScope(
+      onWillPop: () async {
+        Get.back(result: true);
+        return false;
+      },
+      child: Scaffold(
+          backgroundColor: Colors.white,
+          body: controllerEntryPoint.logedIn!
+              ? FutureBuilder(
+                  future: myfuture,
+                  builder: (ctx, snapshot) {
+                    if (snapshot.data == null) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [Center(child: CircularProgressIndicator())],
                       );
                     }
-                  }
-                  return _buildBody(
-                    context,
-                  );
-                },
-              )
-            : _buildBody(context));
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text(
+                            '${snapshot.error} occured',
+                            style: TextStyle(fontSize: 18.spMin),
+                          ),
+                        );
+                      }
+                    }
+                    return _buildBody(
+                      context,
+                    );
+                  },
+                )
+              : _buildBody(context)),
+    );
   }
 
   Widget _buildBody(context) {

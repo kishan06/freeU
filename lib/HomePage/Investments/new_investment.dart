@@ -201,8 +201,12 @@ class _NewInvestmentState extends State<NewInvestment> {
                 return productContainer(
                     currentsummary!.data!.currentInvestment!
                         .productDetails![index].productName,
+                    currentsummary!
+                        .data!.currentInvestment!.productDetails![index].amount,
                     currentsummary!.data!.currentInvestment!
-                        .productDetails![index].amount);
+                        .productDetails![index].categories,
+                    currentsummary!.data!.currentInvestment!
+                        .productDetails![index].routeId);
               },
             ),
             twoTxt(
@@ -228,7 +232,11 @@ class _NewInvestmentState extends State<NewInvestment> {
                     redeemsummary!.data!.reedemedInvestment!
                         .productDetails![index].productName,
                     redeemsummary!.data!.reedemedInvestment!
-                        .productDetails![index].amount);
+                        .productDetails![index].amount,
+                    redeemsummary!.data!.reedemedInvestment!
+                        .productDetails![index].categories,
+                    redeemsummary!.data!.reedemedInvestment!
+                        .productDetails![index].routeId);
               },
             ),
           ],
@@ -426,7 +434,7 @@ class _NewInvestmentState extends State<NewInvestment> {
     );
   }
 
-  Widget productContainer(txt1, txt2) {
+  Widget productContainer(txt1, txt2, categorieName, routeId) {
     return Column(
       children: [
         Container(
@@ -484,6 +492,8 @@ class _NewInvestmentState extends State<NewInvestment> {
                             Get.to(
                               ProductAction(
                                 pageIndex: 0,
+                                categories: categorieName,
+                                routeId: routeId,
                               ),
                             );
                           },
