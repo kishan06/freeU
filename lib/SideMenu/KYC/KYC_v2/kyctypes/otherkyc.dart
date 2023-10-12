@@ -107,6 +107,7 @@ class _OtherkycpageState extends State<Otherkycpage> {
   List<String> fileList = [];
 
   otherapicall() async {
+    utils.loader();
     fileList.add(proofidentitypanimage!);
     fileList.add(addressprofimage!);
     fileList.add(certificateregistrationimage!);
@@ -157,6 +158,7 @@ class _OtherkycpageState extends State<Otherkycpage> {
     final data = await KycV2Apis().Otherkycdetails(formdata);
     print(formdata);
     if (data.status == ResponseStatus.SUCCESS) {
+      Get.back();
       print(data.message);
       // Timer(const Duration(seconds: 2), () => Get.back());
               Timer(const Duration(seconds: 2),
@@ -164,6 +166,7 @@ class _OtherkycpageState extends State<Otherkycpage> {
       print("other kyc completed");
       return utils.showToast(data.message);
     } else {
+      Get.back();
       return utils.showToast(data.message);
     }
     // }

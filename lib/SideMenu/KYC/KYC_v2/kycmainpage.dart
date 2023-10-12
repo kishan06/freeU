@@ -63,8 +63,9 @@ class _KycmainpageState extends State<Kycmainpage> {
         return Text('Unknown KYC Type');
     }
   }
+
   bool? showAppbar;
-  
+
   // Widget _getFilledForm(String? kycType, BuildContext context) {
   //   switch (kycType) {
   //     case 'Company':
@@ -128,7 +129,6 @@ class _KycmainpageState extends State<Kycmainpage> {
 
   final controllerEntryPoint = Get.put(EntryPointController());
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -137,68 +137,60 @@ class _KycmainpageState extends State<Kycmainpage> {
           titleTxt: "",
           bottomtext: false,
         ),
-        body: 
-        controllerEntryPoint.logedIn!
-         ?
-
-          FutureBuilder(
-  future: Kycstatus().Getkycstatus(),
-  builder: (ctx, snapshot) {
-    if (snapshot.data == null) {
-      return Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [Center(child: CircularProgressIndicator())],
-      );
-    }
-    if (snapshot.connectionState == ConnectionState.done) {
-      if (snapshot.hasError) {
-        return Center(
-          child: Text(
-            '${snapshot.error} occured',
-            style: TextStyle(fontSize: 18.spMin),
-          ),
-        );
-      }
-    }
-    if (getkycstatusobj!.data!.status == 'Rejected') {
-      print("kyc is rejected : ${getkycstatusobj!.data!.status}");
-      return _getFilledForm(getkycstatusobj!.data!.kycType);
-    } else if (getkycstatusobj!.data!.status! == "New") {
-      print("KYC Type is not empty: ${getkycstatusobj!.data!.kycType}");
-      return _buildDataBody();
-    } else if (getkycstatusobj!.data!.status == 'Approved') {
-      return _buildDataBody();
-    } else if (getkycstatusobj!.data!.status == 'No KYC Found')
-     {  
-      print("KYC Type is empty");
-      return _buildBody(context);
-    }
-    else {
-        return Center(
-          child: Text(
-            'Unknown status: ${getkycstatusobj!.data!.status}',
-            style: TextStyle(fontSize: 18.sp),
-          ),
-        );
-    }
-  },
-)
-:
-Center(
+        body: controllerEntryPoint.logedIn!
+            ? FutureBuilder(
+                future: Kycstatus().Getkycstatus(),
+                builder: (ctx, snapshot) {
+                  if (snapshot.data == null) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [Center(child: CircularProgressIndicator())],
+                    );
+                  }
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text(
+                          '${snapshot.error} occured',
+                          style: TextStyle(fontSize: 18.spMin),
+                        ),
+                      );
+                    }
+                  }
+                  if (getkycstatusobj!.data!.status == 'Rejected') {
+                    print("kyc is rejected : ${getkycstatusobj!.data!.status}");
+                    return _getFilledForm(getkycstatusobj!.data!.kycType);
+                  } else if (getkycstatusobj!.data!.status! == "New") {
+                    print(
+                        "KYC Type is not empty: ${getkycstatusobj!.data!.kycType}");
+                    return _buildDataBody();
+                  } else if (getkycstatusobj!.data!.status == 'Approved') {
+                    return _buildDataBody();
+                  } else if (getkycstatusobj!.data!.status == 'No KYC Found') {
+                    print("KYC Type is empty");
+                    return _buildBody(context);
+                  } else {
+                    return Center(
+                      child: Text(
+                        'Unknown status: ${getkycstatusobj!.data!.status}',
+                        style: TextStyle(fontSize: 18.sp),
+                      ),
+                    );
+                  }
+                },
+              )
+            : Center(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [text20Black("Login to continue")],
                 ),
-              )
-
-
-        );
+              ));
   }
 
   Widget _buildBody(context) {
-    return     SingleChildScrollView(
+    return SingleChildScrollView(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -298,7 +290,7 @@ Center(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 250.w,
+                      width: 260.w,
                       child: Center(
                         child: Text.rich(TextSpan(children: [
                           TextSpan(
@@ -350,7 +342,7 @@ Center(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     SizedBox(
-                      width: 250.w,
+                      width: 260.w,
                       child: Center(
                         child: Text.rich(TextSpan(children: [
                           TextSpan(

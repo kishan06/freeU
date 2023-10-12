@@ -98,6 +98,7 @@ class _IndividualkycpageState extends State<Individualkycpage> {
   List<String> fileList = [];
 
   individualapicall() async {
+    utils.loader();
     fileList.add(proofaddressimage!);
 
     fileList.add(photographimage!);
@@ -140,6 +141,7 @@ class _IndividualkycpageState extends State<Individualkycpage> {
     });
     final data = await KycV2Apis().Individualkycdetails(formdata);
     if (data.status == ResponseStatus.SUCCESS) {
+      Get.back();
       print(formdata);
       print(data.message);
         Timer(const Duration(seconds: 2),
@@ -147,6 +149,7 @@ class _IndividualkycpageState extends State<Individualkycpage> {
       print("individual kyc completed");
       return utils.showToast(data.message);
     } else {
+      Get.back();
       return utils.showToast(data.message);
     }
     // }
