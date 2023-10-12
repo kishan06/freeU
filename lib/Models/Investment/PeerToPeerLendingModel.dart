@@ -147,7 +147,7 @@ class Data {
   String? netExpectedValueAtMaturity;
   String? netAssetValue;
   String? amountWithdrawn;
-  String? statementReports;
+  List<String>? statementReports;
   int? status;
   String? createdAt;
   String? updatedAt;
@@ -207,7 +207,7 @@ class Data {
     netExpectedValueAtMaturity = json['net_expected_value_at_maturity'];
     netAssetValue = json['net_asset_value'];
     amountWithdrawn = json['amount_withdrawn'];
-    statementReports = json['statement_reports'];
+    statementReports = json['statement_reports'].cast<String>();
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

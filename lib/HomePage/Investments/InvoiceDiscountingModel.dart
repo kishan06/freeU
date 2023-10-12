@@ -135,7 +135,7 @@ class Data {
   int? maturityDate;
   String? nextRepaymentAmount;
   String? expectedIrr;
-  String? repaymentSchedule;
+  List<String>? repaymentSchedule;
   int? status;
   String? createdAt;
   String? updatedAt;
@@ -171,7 +171,7 @@ class Data {
     maturityDate = json['maturity_date'];
     nextRepaymentAmount = json['next_repayment_amount'];
     expectedIrr = json['expected_irr'];
-    repaymentSchedule = json['repayment_schedule'];
+    repaymentSchedule = json['repayment_schedule'].cast<String>();
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
