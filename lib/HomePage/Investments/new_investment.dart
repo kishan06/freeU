@@ -206,7 +206,8 @@ class _NewInvestmentState extends State<NewInvestment> {
                     currentsummary!.data!.currentInvestment!
                         .productDetails![index].categories,
                     currentsummary!.data!.currentInvestment!
-                        .productDetails![index].routeId);
+                        .productDetails![index].routeId,
+                    "Current investment");
               },
             ),
             twoTxt(
@@ -236,7 +237,8 @@ class _NewInvestmentState extends State<NewInvestment> {
                     redeemsummary!.data!.reedemedInvestment!
                         .productDetails![index].categories,
                     redeemsummary!.data!.reedemedInvestment!
-                        .productDetails![index].routeId);
+                        .productDetails![index].routeId,
+                    "Investment Redeemed");
               },
             ),
           ],
@@ -434,7 +436,13 @@ class _NewInvestmentState extends State<NewInvestment> {
     );
   }
 
-  Widget productContainer(txt1, txt2, categorieName, routeId) {
+  Widget productContainer(
+    txt1,
+    txt2,
+    categorieName,
+    routeId,
+    investmentText,
+  ) {
     return Column(
       children: [
         Container(
@@ -489,13 +497,15 @@ class _NewInvestmentState extends State<NewInvestment> {
                       padding: EdgeInsets.symmetric(horizontal: 20.w),
                       child: GestureDetector(
                           onTap: () {
-                            Get.to(
-                              ProductAction(
-                                pageIndex: 0,
-                                categories: categorieName,
-                                routeId: routeId,
-                              ),
-                            );
+                            if (investmentText == "Current investment") {
+                              Get.to(
+                                ProductAction(
+                                  pageIndex: 0,
+                                  categories: categorieName,
+                                  routeId: routeId,
+                                ),
+                              );
+                            }
                           },
                           child: Icon(
                             Icons.remove_red_eye_outlined,

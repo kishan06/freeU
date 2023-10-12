@@ -217,13 +217,13 @@ class _RedeemInvestmentDetailedState extends State<RedeemInvestmentDetailed> {
                       padding: EdgeInsets.symmetric(horizontal: 20.w),
                       child: GestureDetector(
                           onTap: () {
-                            Get.to(
-                              ProductAction(
-                                pageIndex: 0,
-                                categories: "", // TODO: add categories name
-                                routeId: "",
-                              ),
-                            );
+                            // Get.to(
+                            //   ProductAction(
+                            //     pageIndex: 0,
+                            //     categories: "", // TODO: add categories name
+                            //     routeId: "",
+                            //   ),
+                            // );
                           },
                           child: Icon(
                             Icons.remove_red_eye_outlined,

@@ -135,7 +135,7 @@ class Data {
   String? targetReturnInPct;
   String? absoluteReturnTillDate;
   String? absoluteReturnTillDateInPct;
-  String? statementReports;
+  List<String>? statementReports;
   int? status;
   String? createdAt;
   String? updatedAt;
@@ -171,7 +171,7 @@ class Data {
     targetReturnInPct = json['target_return_in_pct'];
     absoluteReturnTillDate = json['absolute_return_till_date'];
     absoluteReturnTillDateInPct = json['absolute_return_till_date_in_pct'];
-    statementReports = json['statement_reports'];
+    statementReports = json['statement_reports'].cast<String>();
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

@@ -140,7 +140,7 @@ class Data {
   String? currentValuation;
   String? currentNav;
   String? noOfUnitsHeld;
-  String? statementReports;
+  List<String>? statementReports;
   int? status;
   String? createdAt;
   String? updatedAt;
@@ -186,7 +186,7 @@ class Data {
     currentValuation = json['current_valuation'];
     currentNav = json['current_nav'];
     noOfUnitsHeld = json['no_of_units_held'];
-    statementReports = json['statement_reports'];
+    statementReports = json['statement_reports'].cast<String>();
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
