@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:developer';
+import 'dart:io';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -57,10 +59,6 @@ class _HUFkycpageState extends State<HUFkycpage> {
 
   String? listmembersimage;
 
-  String? pancardimage;
-
-  String? coparcenrsaadharpassportimage;
-
   String? proofadressimage;
 
   String? bankstatementimage;
@@ -107,16 +105,20 @@ class _HUFkycpageState extends State<HUFkycpage> {
     });
   }
 
+  List<Widget> stepsInColumn = [];
+  final List<TextEditingController> tecInstructionList = [];
+  final List<File?> imageInstructionList = [];
+
+  List<Widget> coparcenaadhapass = [];
+  final List<TextEditingController> copacontollerList = [];
+  final List<File?> imagecopaaadhapaaList = [];
+
   List<String> fileList = [];
 
   hufapicall() async {
     fileList.add(deeddeclarationimage!);
 
     fileList.add(listmembersimage!);
-
-    fileList.add(pancardimage!);
-
-    fileList.add(coparcenrsaadharpassportimage!);
 
     fileList.add(proofadressimage!);
 
@@ -130,6 +132,25 @@ class _HUFkycpageState extends State<HUFkycpage> {
 
     List<MultipartFile> multipartFiles = [];
 
+    List<MultipartFile> panCardImagesList = [];
+
+    List<MultipartFile> coparcenrsaddharpassImagesList = [];
+
+    for (var file in imageInstructionList.where((file) => file != null)) {
+      
+      panCardImagesList.add( await MultipartFile.fromFile(
+          file!.path,
+          filename: path.basename(file.path),
+        ),);
+    }
+
+    for (var file in imagecopaaadhapaaList.where((file) => file != null)) {
+      coparcenrsaddharpassImagesList.add(await MultipartFile.fromFile(
+          file!.path,
+          filename: path.basename(file.path),
+        ),);
+    }
+
     for (String file in fileList) {
       multipartFiles.add(
         await MultipartFile.fromFile(
@@ -139,9 +160,6 @@ class _HUFkycpageState extends State<HUFkycpage> {
       );
     }
 
-    // final isValid = _form.currentState?.validate();
-    // if (isValid!) {
-    // Map<String, dynamic> updata = {
     FormData formdata = FormData.fromMap({
       "name": namecontroller.text,
       "mobile_number": mobileNumber.text,
@@ -152,15 +170,24 @@ class _HUFkycpageState extends State<HUFkycpage> {
       "gross_annual_income": grossannualincome.text,
       "deed_of_declaration": multipartFiles[0],
       "list_of_all_members": multipartFiles[1],
-      "pan_card": multipartFiles[2],
-      "coparcenrs_aadhar_passport": multipartFiles[3],
-      "proof_of_address": multipartFiles[4],
-      "bank_statement": multipartFiles[5],
-      "passport_size_photo": multipartFiles[6],
-      "copy_of_cml": multipartFiles[7],
-      "cancelled_cheque": multipartFiles[8],
+      "pan_card[]":
+          panCardImagesList,
+      "coparcenrs_aadhar_passport[]":
+          coparcenrsaddharpassImagesList,
+      "proof_of_address":
+          multipartFiles[2],
+      "bank_statement":
+          multipartFiles[3],
+      "passport_size_photo":
+          multipartFiles[4],
+      "copy_of_cml":
+          multipartFiles[5],
+      "cancelled_cheque":
+          multipartFiles[6],
     });
+    log(formdata.fields.toString());
     final data = await KycV2Apis().Hufkycdetails(formdata);
+
     print(formdata);
     if (data.status == ResponseStatus.SUCCESS) {
       print(data.message);
@@ -171,26 +198,30 @@ class _HUFkycpageState extends State<HUFkycpage> {
     } else {
       return utils.showToast(data.message);
     }
-    // }
   }
 
   @override
   Widget build(BuildContext context) {
+    if (stepsInColumn.isEmpty) {
+      tecInstructionList.add(TextEditingController());
+      imageInstructionList.add(null);
+      stepsInColumn.add(pancardformfield(0));
+    }
+
+    if (coparcenaadhapass.isEmpty) {
+      copacontollerList.add(TextEditingController());
+      imagecopaaadhapaaList.add(null);
+      coparcenaadhapass.add(pancardformfield(0));
+    }
+
     return Scaffold(
       backgroundColor: Color(0xFFFFFFFF),
       appBar: widget.showAppbar ?? true
-      ? 
-       CustomSignupAppBar(
+          ? CustomSignupAppBar(
               titleTxt: "",
               bottomtext: false,
             )
-            : null,
-
-          // ? AppBar()
-          // : CustomSignupAppBar(
-          //     titleTxt: "",
-          //     bottomtext: false,
-          //   ),
+          : null,
       body: SingleChildScrollView(
         padding: EdgeInsets.symmetric(horizontal: 16.w),
         child: Form(
@@ -553,70 +584,74 @@ class _HUFkycpageState extends State<HUFkycpage> {
               SizedBox(
                 height: 13.h,
               ),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please add image";
-                  }
-                  return null;
-                },
-                readOnly: true,
-                cursorColor: const Color(0xFFFFB600),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                controller: pancardController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.h),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+
+              Column(
+                children: [
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: stepsInColumn.length,
+                    // pancardrowlist.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          // pancardrowlist[index],
+                          pancardformfield(index),
+
+                          sizedBoxHeight(10.h)
+                        ],
+                      );
+                    },
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      stepsInColumn.length > 1
+                          ? InkWell(
+                              onTap: () {
+                                setState(() {
+                                  tecInstructionList.removeLast();
+                                  imageInstructionList.removeLast();
+                                  stepsInColumn.removeLast();
+                                });
+                              },
+                              child: Text(
+                                "Remove",
+                                style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xff000000),
+                                ),
+                              ),
+                            )
+                          : SizedBox(),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            tecInstructionList.add(TextEditingController());
+                            imageInstructionList.add(null);
+                            stepsInColumn.add(pancardformfield(0));
+                            print(tecInstructionList.length);
+                            print(imageInstructionList.length);
+                          });
+                        },
+                        child: Text(
+                          "Add more",
+                          style: TextStyle(
+                            fontSize: 20.sp,
+                            fontFamily: 'Poppins',
+                            color: Color(0xff000000),
+                          ),
+                        ),
+                      )
+                    ],
                   ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Color(0x80000000),
-                    fontSize: 14.sp,
-                    fontFamily: 'Poppins',
-                  ),
-                  hintText: "",
-                  suffixIcon: IconButton(
-                      onPressed: () {
-                        ImageUploadBottomSheet().showModal(
-                          context,
-                          (result) {
-                            print("File path is $result");
-                            pancardimage = result;
-                            var filenameresult = extractFileName(result);
-                            print("File name is $filenameresult");
-                            pancardController.text = filenameresult;
-                          },
-                        );
-                      },
-                      icon: Icon(
-                        Icons.file_upload_outlined,
-                        color: Colors.black,
-                      )),
-                ),
+                ],
               ),
-              SizedBox(height: 10.h),
+              // ),
+
+              sizedBoxHeight(10.h),
               Text(
                 "Coparcenrs aadhar passport",
-                // ignore: prefer_const_constructors
                 style: TextStyle(
                     fontSize: 20.sp,
                     fontFamily: 'Poppins',
@@ -625,66 +660,67 @@ class _HUFkycpageState extends State<HUFkycpage> {
               SizedBox(
                 height: 13.h,
               ),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please add image";
-                  }
-                  return null;
-                },
-                readOnly: true,
-                cursorColor: const Color(0xFFFFB600),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                controller: coparcenrsaadharpassportController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.h),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              Column(
+                children: [
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: coparcenaadhapass.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          copaaadharpassportformfield(index),
+
+                          sizedBoxHeight(10.h)
+                        ],
+                      );
+                    },
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Color(0x80000000),
-                    fontSize: 14.sp,
-                    fontFamily: 'Poppins',
-                  ),
-                  hintText: "",
-                  suffixIcon: IconButton(
-                      onPressed: () {
-                        ImageUploadBottomSheet().showModal(context, (result) {
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      coparcenaadhapass.length > 1
+                          ? InkWell(
+                              onTap: () {
+                                setState(() {
+                                  copacontollerList.removeLast();
+                                  imagecopaaadhapaaList.removeLast();
+                                  coparcenaadhapass.removeLast();
+                                });
+                              },
+                              child: Text(
+                                "Remove",
+                                style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xff000000),
+                                ),
+                              ),
+                            )
+                          : SizedBox(),
+                      InkWell(
+                        onTap: () {
                           setState(() {
-                            print("File path is $result");
-                            coparcenrsaadharpassportimage = result;
-                            var filenameresult = extractFileName(result);
-                            print("File name is $filenameresult");
-                            coparcenrsaadharpassportController.text =
-                                filenameresult;
+                            copacontollerList.add(TextEditingController());
+                            imagecopaaadhapaaList.add(null);
+                            coparcenaadhapass.add(pancardformfield(0));
+                            print(copacontollerList.length);
+                            print(imagecopaaadhapaaList.length);
                           });
-                        });
-                      },
-                      icon: Icon(
-                        Icons.file_upload_outlined,
-                        color: Colors.black,
-                      )),
-                ),
+                        },
+                        child: Text(
+                          "Add more",
+                          style: TextStyle(
+                            fontSize: 20.sp,
+                            fontFamily: 'Poppins',
+                            color: Color(0xff000000),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
+
               sizedBoxHeight(10.h),
               Text(
                 "Proof of address",
@@ -1062,6 +1098,144 @@ class _HUFkycpageState extends State<HUFkycpage> {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  Widget pancardformfield(int index) {
+    return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "Please add image";
+        }
+        return null;
+      },
+      readOnly: true,
+      cursorColor: const Color(0xFFFFB600),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      controller: tecInstructionList[index],
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(10.h),
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        hintStyle: TextStyle(
+          color: Color(0x80000000),
+          fontSize: 14.sp,
+          fontFamily: 'Poppins',
+        ),
+        hintText: "",
+        suffixIcon: IconButton(
+            onPressed: () {
+              ImageUploadBottomSheet().showModal(
+                context,
+                (result) {
+                  // print("File path is $result");
+                  // imageInstructionList[index] = result;
+                  // var filenameresult = extractFileName(result);
+                  // print("File name is $filenameresult");
+                  // tecInstructionList[index].text = filenameresult;
+                  print("File path is $result");
+                  var file = File(result); // Convert the path to a File object
+                  imageInstructionList[index] = file;
+                  var filenameresult = extractFileName(result);
+                  print("File name is $filenameresult");
+                  tecInstructionList[index].text = filenameresult;
+                },
+              );
+            },
+            icon: Icon(
+              Icons.file_upload_outlined,
+              color: Colors.black,
+            )),
+      ),
+    );
+  }
+
+  Widget copaaadharpassportformfield(int index) {
+    return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "Please add image";
+        }
+        return null;
+      },
+      readOnly: true,
+      cursorColor: const Color(0xFFFFB600),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      controller: copacontollerList[index],
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(10.h),
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        hintStyle: TextStyle(
+          color: Color(0x80000000),
+          fontSize: 14.sp,
+          fontFamily: 'Poppins',
+        ),
+        hintText: "",
+        suffixIcon: IconButton(
+            onPressed: () {
+              ImageUploadBottomSheet().showModal(
+                context,
+                (result) {
+                  // print("File path is $result");
+                  // imageInstructionList[index] = result;
+                  // var filenameresult = extractFileName(result);
+                  // print("File name is $filenameresult");
+                  // tecInstructionList[index].text = filenameresult;
+                  print("File path is $result");
+                  var file = File(result); // Convert the path to a File object
+                  imagecopaaadhapaaList[index] = file;
+                  var filenameresult = extractFileName(result);
+                  print("File name is $filenameresult");
+                  copacontollerList[index].text = filenameresult;
+                },
+              );
+            },
+            icon: Icon(
+              Icons.file_upload_outlined,
+              color: Colors.black,
+            )),
       ),
     );
   }

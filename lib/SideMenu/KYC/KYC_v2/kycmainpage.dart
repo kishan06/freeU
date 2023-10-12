@@ -7,10 +7,13 @@ import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/nrikyc.dart';
 import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/otherkyc.dart';
 import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/partnershipkyc.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/viewModel/KYC_v2/Getkycstaus.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 class Kycmainpage extends StatefulWidget {
@@ -123,6 +126,9 @@ class _KycmainpageState extends State<Kycmainpage> {
   //   }
   // }
 
+  final controllerEntryPoint = Get.put(EntryPointController());
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,6 +138,9 @@ class _KycmainpageState extends State<Kycmainpage> {
           bottomtext: false,
         ),
         body: 
+        controllerEntryPoint.logedIn!
+         ?
+
           FutureBuilder(
   future: Kycstatus().Getkycstatus(),
   builder: (ctx, snapshot) {
@@ -175,12 +184,21 @@ class _KycmainpageState extends State<Kycmainpage> {
     }
   },
 )
+:
+Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [text20Black("Login to continue")],
+                ),
+              )
+
 
         );
   }
 
   Widget _buildBody(context) {
-    return SingleChildScrollView(
+    return     SingleChildScrollView(
       padding: EdgeInsets.symmetric(horizontal: 16.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
