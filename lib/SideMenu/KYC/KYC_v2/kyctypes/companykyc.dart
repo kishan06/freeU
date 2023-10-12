@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:developer';
+import 'dart:io';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -39,13 +41,13 @@ class _CompanykycpageState extends State<Companykycpage> {
   final certificateincorprationController = TextEditingController();
   final tanallotmentController = TextEditingController();
   final listdirectorsController = TextEditingController();
-  final pancardcopyController = TextEditingController();
-  final aadharcardcopyController = TextEditingController();
+  // final pancardcopyController = TextEditingController();
+  // final aadharcardcopyController = TextEditingController();
   final proofofaddressController = TextEditingController();
   final latestincometaxreturnController = TextEditingController();
   final copyofcmlController = TextEditingController();
   final copyofauditedbalancesheetControllwer = TextEditingController();
-  final passportauthorizedsignController = TextEditingController();
+  // final passportauthorizedsignController = TextEditingController();
   final truecopyform32Controller = TextEditingController();
   final truecopyform18Controller = TextEditingController();
   final cancelledchequeController = TextEditingController();
@@ -57,13 +59,13 @@ class _CompanykycpageState extends State<Companykycpage> {
   String? certificateincorpimage;
   String? tanallotmentimage;
   String? listdirectorssignimage;
-  String? pancardcopyimage;
-  String? aadharcardcopyimage;
+  // String? pancardcopyimage;
+  // String? aadharcardcopyimage;
   String? proofofadreesscompanyimage;
   String? latestincometaxreturnimage;
   String? copyofcmlimage;
   String? copyofbalancesheetimage;
-  String? passportphotosignaturesimage;
+  // String? passportphotosignaturesimage;
   String? truecopyform32image;
   String? truecopyform18image;
   String? cancelledchequeimage;
@@ -104,26 +106,72 @@ class _CompanykycpageState extends State<Companykycpage> {
     });
   }
 
+  List<Widget> pancardcolumn = [];
+  final List<TextEditingController> pancontollerList = [];
+  final List<File?> imagepansignList = [];
+
+  List<Widget> aadharsigncolumn = [];
+   final List<TextEditingController> aadharsigncontollerList = [];
+  final List<File?> imageaadhasignList = [];
+
+    List<Widget> passportphotocolumn = [];
+  final List<TextEditingController> passportphotocontollerList = [];
+  final List<File?> imagepassportphotoList = [];
+
+
   List<String> fileList = [];
 
   companyapicall() async {
+    utils.loader();    
     fileList.add(memoassociationimage!);
     fileList.add(companypanimage!);
     fileList.add(certificateincorpimage!);
     fileList.add(tanallotmentimage!);
     fileList.add(listdirectorssignimage!);
-    fileList.add(pancardcopyimage!);
-    fileList.add(aadharcardcopyimage!);
+    // fileList.add(pancardcopyimage!);
+    // fileList.add(aadharcardcopyimage!);
     fileList.add(proofofadreesscompanyimage!);
     fileList.add(latestincometaxreturnimage!);
     fileList.add(copyofcmlimage!);
     fileList.add(copyofbalancesheetimage!);
-    fileList.add(passportphotosignaturesimage!);
+    // fileList.add(passportphotosignaturesimage!);
     fileList.add(truecopyform32image!);
     fileList.add(truecopyform18image!);
     fileList.add(cancelledchequeimage!);
 
     List<MultipartFile> multipartFiles = [];
+
+    List<MultipartFile> panCardsignImagesList = [];
+
+    List<MultipartFile> addharsignImagesList = [];
+
+    List<MultipartFile> passportphotosignImagesList = [];
+
+
+      for (var file in imagepansignList.where((file) => file != null)) {
+      
+      panCardsignImagesList.add( await MultipartFile.fromFile(
+          file!.path,
+          filename: path.basename(file.path),
+        ),);
+    }
+
+      for (var file in imageaadhasignList.where((file) => file != null)) {
+      addharsignImagesList.add(await MultipartFile.fromFile(
+          file!.path,
+          filename: path.basename(file.path),
+        ),);
+    }  
+
+    for(var file in imagepassportphotoList.where((file) => file != null)){
+      passportphotosignImagesList.add(await MultipartFile.fromFile(
+        file!.path,
+        filename:  path.basename(file.path),
+      ),);
+    }
+
+
+
 
     for (String file in fileList) {
       multipartFiles.add(
@@ -150,27 +198,30 @@ class _CompanykycpageState extends State<Companykycpage> {
       "certificate_of_incorporation": multipartFiles[2],
       "tan_allotment_letter": multipartFiles[3],
       "List_of_directors_or_authorized_signatories": multipartFiles[4],
-      "pan_card_copy_of_authorized_signatory": multipartFiles[5],
-      "aadhar_card_copy_of_authorized_signatory": multipartFiles[6],
-      "proof_of_address_of_the_company": multipartFiles[7],
+      "pan_card_copy_of_authorized_signatory[]": panCardsignImagesList,
+      "aadhar_card_copy_of_authorized_signatory[]": addharsignImagesList,
+      "proof_of_address_of_the_company": multipartFiles[5],
       "latest_income_tax_return_of_the_company_Of_last_2_years":
-          multipartFiles[8],
-      "copy_of_cml": multipartFiles[9],
-      "copy_of_audited_balance_sheet_for_the_last_2_f_y": multipartFiles[10],
-      "passport_photo_all_authorized_signatories_or_directors":
-          multipartFiles[11],
+          multipartFiles[6],
+      "copy_of_cml": multipartFiles[7],
+      "copy_of_audited_balance_sheet_for_the_last_2_f_y": multipartFiles[8],
+      "passport_photo_all_authorized_signatories_or_directors[]":
+          passportphotosignImagesList,
       "true_copy_form_32_or_dir_12_alongwith_roc_fee_payment":
-          multipartFiles[12],
+          multipartFiles[9],
       "true_copy_form_no_18_or_inc_22_alongwith_roc_fee_payment":
-          multipartFiles[13],
-      "cancelled_cheque": multipartFiles[14],
+          multipartFiles[10],
+      "cancelled_cheque": multipartFiles[11],
     });
+    log(formdata.fields.toString());
     final data = await KycV2Apis().Companykycdetails(formdata);
     if (data.status == ResponseStatus.SUCCESS) {
+      Get.back();
         Timer(const Duration(seconds: 2),
             () => Get.offAllNamed('/EntryPoint', arguments: 0));
       return utils.showToast(data.message);
     } else {
+      Get.back();
       return utils.showToast(data.message);
     }
   }
@@ -263,6 +314,24 @@ class _CompanykycpageState extends State<Companykycpage> {
 
   @override
   Widget build(BuildContext context) {
+        if (pancardcolumn.isEmpty) {
+      pancontollerList.add(TextEditingController());
+      imagepansignList.add(null);
+      pancardcolumn.add(pancardformfield(0));
+    }
+
+        if (aadharsigncolumn.isEmpty) {
+      aadharsigncontollerList.add(TextEditingController());
+      imageaadhasignList.add(null);
+      aadharsigncolumn.add(pancardformfield(0));
+    }
+
+        if (passportphotocolumn.isEmpty) {
+      passportphotocontollerList.add(TextEditingController());
+      imagepassportphotoList.add(null);
+      passportphotocolumn.add(pancardformfield(0));
+    }
+
     return Scaffold(
       backgroundColor: Color(0xFFFFFFFF),
       appBar: widget.showAppbar ?? true ?
@@ -851,65 +920,131 @@ class _CompanykycpageState extends State<Companykycpage> {
               SizedBox(
                 height: 13.h,
               ),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please add image";
-                  }
-                  return null;
-                },
-                readOnly: true,
-                cursorColor: const Color(0xFFFFB600),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                controller: pancardcopyController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.h),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+
+              // TextFormField(
+              //   validator: (value) {
+              //     if (value == null || value.isEmpty) {
+              //       return "Please add image";
+              //     }
+              //     return null;
+              //   },
+              //   readOnly: true,
+              //   cursorColor: const Color(0xFFFFB600),
+              //   autovalidateMode: AutovalidateMode.onUserInteraction,
+              //   controller: pancardcopyController,
+              //   decoration: InputDecoration(
+              //     contentPadding: EdgeInsets.all(10.h),
+              //     filled: true,
+              //     fillColor: Colors.white,
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              //     ),
+              //     enabledBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              //     ),
+              //     focusedBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              //     ),
+              //     errorBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: const BorderSide(color: Colors.red, width: 1),
+              //     ),
+              //     focusedErrorBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: const BorderSide(color: Colors.red, width: 1),
+              //     ),
+              //     hintStyle: TextStyle(
+              //       color: Color(0x80000000),
+              //       fontSize: 14.sp,
+              //       fontFamily: 'Poppins',
+              //     ),
+              //     hintText: "",
+              //     suffixIcon: IconButton(
+              //         onPressed: () {
+              //           ImageUploadBottomSheet().showModal(context, (result) {
+              //             setState(() {
+              //               print("File path is $result");
+              //               pancardcopyimage = result;
+              //               var filenameresult = extractFileName(result);
+              //               print("File name is $filenameresult");
+              //               pancardcopyController.text = filenameresult;
+              //             });
+              //           });
+              //         },
+              //         icon: Icon(
+              //           Icons.file_upload_outlined,
+              //           color: Colors.black,
+              //         )),
+              //   ),
+              // ),
+
+              
+              Column(
+                children: [
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: pancardcolumn.length,
+                    // pancardrowlist.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          // pancardrowlist[index],
+                          pancardformfield(index),
+
+                          sizedBoxHeight(10.h)
+                        ],
+                      );
+                    },
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Color(0x80000000),
-                    fontSize: 14.sp,
-                    fontFamily: 'Poppins',
-                  ),
-                  hintText: "",
-                  suffixIcon: IconButton(
-                      onPressed: () {
-                        ImageUploadBottomSheet().showModal(context, (result) {
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      pancardcolumn.length > 1
+                          ? InkWell(
+                              onTap: () {
+                                setState(() {
+                                  pancontollerList.removeLast();
+                                  imagepansignList.removeLast();
+                                  pancardcolumn.removeLast();
+                                });
+                              },
+                              child: Text(
+                                "Remove",
+                                style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xff000000),
+                                ),
+                              ),
+                            )
+                          : SizedBox(),
+                      InkWell(
+                        onTap: () {
                           setState(() {
-                            print("File path is $result");
-                            pancardcopyimage = result;
-                            var filenameresult = extractFileName(result);
-                            print("File name is $filenameresult");
-                            pancardcopyController.text = filenameresult;
+                            pancontollerList.add(TextEditingController());
+                            imagepansignList.add(null);
+                            pancardcolumn.add(pancardformfield(0));
+                            print(pancontollerList.length);
+                            print(imagepansignList.length);
                           });
-                        });
-                      },
-                      icon: Icon(
-                        Icons.file_upload_outlined,
-                        color: Colors.black,
-                      )),
-                ),
+                        },
+                        child: Text(
+                          "Add more",
+                          style: TextStyle(
+                            fontSize: 20.sp,
+                            fontFamily: 'Poppins',
+                            color: Color(0xff000000),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
+
               sizedBoxHeight(10.h),
               Text(
                 "Aadhar card copy of authorized signatory",
@@ -922,65 +1057,129 @@ class _CompanykycpageState extends State<Companykycpage> {
               SizedBox(
                 height: 13.h,
               ),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please add image";
-                  }
-                  return null;
-                },
-                readOnly: true,
-                cursorColor: const Color(0xFFFFB600),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                controller: aadharcardcopyController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.h),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              // TextFormField(
+              //   validator: (value) {
+              //     if (value == null || value.isEmpty) {
+              //       return "Please add image";
+              //     }
+              //     return null;
+              //   },
+              //   readOnly: true,
+              //   cursorColor: const Color(0xFFFFB600),
+              //   autovalidateMode: AutovalidateMode.onUserInteraction,
+              //   controller: aadharcardcopyController,
+              //   decoration: InputDecoration(
+              //     contentPadding: EdgeInsets.all(10.h),
+              //     filled: true,
+              //     fillColor: Colors.white,
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              //     ),
+              //     enabledBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              //     ),
+              //     focusedBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              //     ),
+              //     errorBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: const BorderSide(color: Colors.red, width: 1),
+              //     ),
+              //     focusedErrorBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: const BorderSide(color: Colors.red, width: 1),
+              //     ),
+              //     hintStyle: TextStyle(
+              //       color: Color(0x80000000),
+              //       fontSize: 14.sp,
+              //       fontFamily: 'Poppins',
+              //     ),
+              //     hintText: "",
+              //     suffixIcon: IconButton(
+              //         onPressed: () {
+              //           ImageUploadBottomSheet().showModal(context, (result) {
+              //             setState(() {
+              //               print("File path is $result");
+              //               aadharcardcopyimage = result;
+              //               var filenameresult = extractFileName(result);
+              //               print("File name is $filenameresult");
+              //               aadharcardcopyController.text = filenameresult;
+              //             });
+              //           });
+              //         },
+              //         icon: Icon(
+              //           Icons.file_upload_outlined,
+              //           color: Colors.black,
+              //         )),
+              //   ),
+              // ),
+
+                Column(
+                children: [
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: aadharsigncolumn.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          adharcardformfield(index),
+
+                          sizedBoxHeight(10.h)
+                        ],
+                      );
+                    },
                   ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Color(0x80000000),
-                    fontSize: 14.sp,
-                    fontFamily: 'Poppins',
-                  ),
-                  hintText: "",
-                  suffixIcon: IconButton(
-                      onPressed: () {
-                        ImageUploadBottomSheet().showModal(context, (result) {
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      aadharsigncolumn.length > 1
+                          ? InkWell(
+                              onTap: () {
+                                setState(() {
+                                  aadharsigncontollerList.removeLast();
+                                  imageaadhasignList.removeLast();
+                                  aadharsigncolumn.removeLast();
+                                });
+                              },
+                              child: Text(
+                                "Remove",
+                                style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xff000000),
+                                ),
+                              ),
+                            )
+                          : SizedBox(),
+                      InkWell(
+                        onTap: () {
                           setState(() {
-                            print("File path is $result");
-                            aadharcardcopyimage = result;
-                            var filenameresult = extractFileName(result);
-                            print("File name is $filenameresult");
-                            aadharcardcopyController.text = filenameresult;
+                            aadharsigncontollerList.add(TextEditingController());
+                            imageaadhasignList.add(null);
+                            aadharsigncolumn.add(pancardformfield(0));
+                            print(aadharsigncontollerList.length);
+                            print(imageaadhasignList.length);
                           });
-                        });
-                      },
-                      icon: Icon(
-                        Icons.file_upload_outlined,
-                        color: Colors.black,
-                      )),
-                ),
+                        },
+                        child: Text(
+                          "Add more",
+                          style: TextStyle(
+                            fontSize: 20.sp,
+                            fontFamily: 'Poppins',
+                            color: Color(0xff000000),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
+
+
+
               sizedBoxHeight(10.h),
               Text(
                 "Proof of address of the company",
@@ -1322,80 +1521,129 @@ class _CompanykycpageState extends State<Companykycpage> {
               SizedBox(
                 height: 13.h,
               ),
-              TextFormField(
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please add image";
-                  }
-                  return null;
-                },
-                readOnly: true,
-                cursorColor: const Color(0xFFFFB600),
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                controller: passportauthorizedsignController,
-                decoration: InputDecoration(
-                  contentPadding: EdgeInsets.all(10.h),
-                  filled: true,
-                  fillColor: Colors.white,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
-                  ),
-                  errorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  focusedErrorBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.r),
-                    borderSide: const BorderSide(color: Colors.red, width: 1),
-                  ),
-                  hintStyle: TextStyle(
-                    color: Color(0x80000000),
-                    fontSize: 14.sp,
-                    fontFamily: 'Poppins',
-                  ),
-                  hintText: "",
-                  suffixIcon: IconButton(
-                      onPressed: () {
-                        ImageUploadBottomSheet().showModal(context, (result) {
-                          setState(() {
-                            print("File path is $result");
-                            passportphotosignaturesimage = result;
-                            var filenameresult = extractFileName(result);
-                            print("File name is $filenameresult");
-                            passportauthorizedsignController.text =
-                                filenameresult;
-                          });
-                        });
-                      },
-                      icon: Icon(
-                        Icons.file_upload_outlined,
-                        color: Colors.black,
-                      )),
-                ),
-              ),
-              // CustomimageContainer(
-              //   textEditingController: passportauthorizedsignController,
-              //   onSuffixIconTap: () {
-              //     ImageUploadBottomSheet().showModal(context, (result) {
-              //       setState(() {
-              //         print("File path is $result");
-              //         passportphotosignaturesimage = result;
-              //         var filenameresult = extractFileName(result);
-              //         print("File name is $filenameresult");
-              //         passportauthorizedsignController.text = filenameresult;
-              //       });
-              //     });
+              // TextFormField(
+              //   validator: (value) {
+              //     if (value == null || value.isEmpty) {
+              //       return "Please add image";
+              //     }
+              //     return null;
               //   },
+              //   readOnly: true,
+              //   cursorColor: const Color(0xFFFFB600),
+              //   autovalidateMode: AutovalidateMode.onUserInteraction,
+              //   controller: passportauthorizedsignController,
+              //   decoration: InputDecoration(
+              //     contentPadding: EdgeInsets.all(10.h),
+              //     filled: true,
+              //     fillColor: Colors.white,
+              //     border: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              //     ),
+              //     enabledBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              //     ),
+              //     focusedBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+              //     ),
+              //     errorBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: const BorderSide(color: Colors.red, width: 1),
+              //     ),
+              //     focusedErrorBorder: OutlineInputBorder(
+              //       borderRadius: BorderRadius.circular(10.r),
+              //       borderSide: const BorderSide(color: Colors.red, width: 1),
+              //     ),
+              //     hintStyle: TextStyle(
+              //       color: Color(0x80000000),
+              //       fontSize: 14.sp,
+              //       fontFamily: 'Poppins',
+              //     ),
+              //     hintText: "",
+              //     suffixIcon: IconButton(
+              //         onPressed: () {
+              //           ImageUploadBottomSheet().showModal(context, (result) {
+              //             setState(() {
+              //               print("File path is $result");
+              //               passportphotosignaturesimage = result;
+              //               var filenameresult = extractFileName(result);
+              //               print("File name is $filenameresult");
+              //               passportauthorizedsignController.text =
+              //                   filenameresult;
+              //             });
+              //           });
+              //         },
+              //         icon: Icon(
+              //           Icons.file_upload_outlined,
+              //           color: Colors.black,
+              //         )),
+              //   ),
               // ),
+
+               Column(
+                children: [
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: passportphotocolumn.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          passportsignformfield(index),
+
+                          sizedBoxHeight(10.h)
+                        ],
+                      );
+                    },
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      passportphotocolumn.length > 1
+                          ? InkWell(
+                              onTap: () {
+                                setState(() {
+                                  passportphotocontollerList.removeLast();
+                                  imagepassportphotoList.removeLast();
+                                  passportphotocolumn.removeLast();
+                                });
+                              },
+                              child: Text(
+                                "Remove",
+                                style: TextStyle(
+                                  fontSize: 20.sp,
+                                  fontFamily: 'Poppins',
+                                  color: Color(0xff000000),
+                                ),
+                              ),
+                            )
+                          : SizedBox(),
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            passportphotocontollerList.add(TextEditingController());
+                            imagepassportphotoList.add(null);
+                            passportphotocolumn.add(pancardformfield(0));
+                            print(passportphotocontollerList.length);
+                            print(imagepassportphotoList.length);
+                          });
+                        },
+                        child: Text(
+                          "Add more",
+                          style: TextStyle(
+                            fontSize: 20.sp,
+                            fontFamily: 'Poppins',
+                            color: Color(0xff000000),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ],
+              ),
+
+
               sizedBoxHeight(10.h),
               Text(
                 "True copy form 32 or dir 12 alongwith roc fee payment",
@@ -1693,4 +1941,214 @@ class _CompanykycpageState extends State<Companykycpage> {
       ),
     );
   }
+
+  
+  Widget pancardformfield(int index) {
+    return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "Please add image";
+        }
+        return null;
+      },
+      readOnly: true,
+      cursorColor: const Color(0xFFFFB600),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      controller: pancontollerList[index],
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(10.h),
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        hintStyle: TextStyle(
+          color: Color(0x80000000),
+          fontSize: 14.sp,
+          fontFamily: 'Poppins',
+        ),
+        hintText: "",
+        suffixIcon: IconButton(
+            onPressed: () {
+              ImageUploadBottomSheet().showModal(
+                context,
+                (result) {
+                  // print("File path is $result");
+                  // imageInstructionList[index] = result;
+                  // var filenameresult = extractFileName(result);
+                  // print("File name is $filenameresult");
+                  // tecInstructionList[index].text = filenameresult;
+                  print("File path is $result");
+                  var file = File(result); // Convert the path to a File object
+                  imagepansignList[index] = file;
+                  var filenameresult = extractFileName(result);
+                  print("File name is $filenameresult");
+                  pancontollerList[index].text = filenameresult;
+                },
+              );
+            },
+            icon: Icon(
+              Icons.file_upload_outlined,
+              color: Colors.black,
+            )),
+      ),
+    );
+  }
+
+  
+  Widget adharcardformfield(int index) {
+    return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "Please add image";
+        }
+        return null;
+      },
+      readOnly: true,
+      cursorColor: const Color(0xFFFFB600),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      controller: aadharsigncontollerList[index],
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(10.h),
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        hintStyle: TextStyle(
+          color: Color(0x80000000),
+          fontSize: 14.sp,
+          fontFamily: 'Poppins',
+        ),
+        hintText: "",
+        suffixIcon: IconButton(
+            onPressed: () {
+              ImageUploadBottomSheet().showModal(
+                context,
+                (result) {
+                  // print("File path is $result");
+                  // imageInstructionList[index] = result;
+                  // var filenameresult = extractFileName(result);
+                  // print("File name is $filenameresult");
+                  // tecInstructionList[index].text = filenameresult;
+                  print("File path is $result");
+                  var file = File(result); // Convert the path to a File object
+                  imageaadhasignList[index] = file;
+                  var filenameresult = extractFileName(result);
+                  print("File name is $filenameresult");
+                  aadharsigncontollerList[index].text = filenameresult;
+                },
+              );
+            },
+            icon: Icon(
+              Icons.file_upload_outlined,
+              color: Colors.black,
+            )),
+      ),
+    );
+  }
+
+    Widget passportsignformfield(int index) {
+    return TextFormField(
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return "Please add image";
+        }
+        return null;
+      },
+      readOnly: true,
+      cursorColor: const Color(0xFFFFB600),
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      controller: passportphotocontollerList[index],
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.all(10.h),
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10.r),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
+        ),
+        hintStyle: TextStyle(
+          color: Color(0x80000000),
+          fontSize: 14.sp,
+          fontFamily: 'Poppins',
+        ),
+        hintText: "",
+        suffixIcon: IconButton(
+            onPressed: () {
+              ImageUploadBottomSheet().showModal(
+                context,
+                (result) {
+                  // print("File path is $result");
+                  // imageInstructionList[index] = result;
+                  // var filenameresult = extractFileName(result);
+                  // print("File name is $filenameresult");
+                  // tecInstructionList[index].text = filenameresult;
+                  print("File path is $result");
+                  var file = File(result); // Convert the path to a File object
+                  imagepassportphotoList[index] = file;
+                  var filenameresult = extractFileName(result);
+                  print("File name is $filenameresult");
+                  passportphotocontollerList[index].text = filenameresult;
+                },
+              );
+            },
+            icon: Icon(
+              Icons.file_upload_outlined,
+              color: Colors.black,
+            )),
+      ),
+    );
+  }
+
 }

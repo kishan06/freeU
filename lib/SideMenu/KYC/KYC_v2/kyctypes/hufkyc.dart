@@ -116,6 +116,7 @@ class _HUFkycpageState extends State<HUFkycpage> {
   List<String> fileList = [];
 
   hufapicall() async {
+    utils.loader();
     fileList.add(deeddeclarationimage!);
 
     fileList.add(listmembersimage!);
@@ -190,12 +191,14 @@ class _HUFkycpageState extends State<HUFkycpage> {
 
     print(formdata);
     if (data.status == ResponseStatus.SUCCESS) {
+      Get.back();
       print(data.message);
       Timer(const Duration(seconds: 2),
           () => Get.offAllNamed('/EntryPoint', arguments: 0));
       print("huf kyc completed");
       return utils.showToast(data.message);
     } else {
+      Get.back();
       return utils.showToast(data.message);
     }
   }

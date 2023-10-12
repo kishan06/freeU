@@ -122,6 +122,7 @@ class _NRIkycpageState extends State<NRIkycpage> {
   List<String> fileList = [];
 
   nriapicall() async {
+    utils.loader();
     fileList.add(passportimage!);
 
     fileList.add(piociimage!);
@@ -184,12 +185,14 @@ class _NRIkycpageState extends State<NRIkycpage> {
     final data = await KycV2Apis().Nrikycdetails(formdata);
     print(formdata);
     if (data.status == ResponseStatus.SUCCESS) {
+      Get.back();
       print(data.message);
         Timer(const Duration(seconds: 2),
             () => Get.offAllNamed('/EntryPoint', arguments: 0));
       print("nri kyc completed");
       return utils.showToast(data.message);
     } else {
+      Get.back();
       return utils.showToast(data.message);
     }
     // }
