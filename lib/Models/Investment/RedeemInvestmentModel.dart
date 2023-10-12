@@ -71,6 +71,7 @@ class ProductDetails {
   String? companyLogo;
   String? customId;
   String? productName;
+  String? categories;
   String? routeId;
   String? totalInvestmentAmount;
   String? amount;
@@ -79,6 +80,7 @@ class ProductDetails {
       {this.companyLogo,
       this.customId,
       this.productName,
+      this.categories,
       this.routeId,
       this.totalInvestmentAmount,
       this.amount});
@@ -87,6 +89,7 @@ class ProductDetails {
     companyLogo = json['company_logo'];
     customId = json['custom_id'];
     productName = json['product_name'];
+    categories = json['categories'];
     routeId = json['route_id'];
     totalInvestmentAmount = json['total_investment_amount'];
     amount = json['amount'];
@@ -100,6 +103,7 @@ class ProductDetails {
     data['route_id'] = this.routeId;
     data['total_investment_amount'] = this.totalInvestmentAmount;
     data['amount'] = this.amount;
+    data['categories'] = this.categories;
     return data;
   }
 }

@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Global.dart';
@@ -51,7 +50,6 @@ class _SideBarState extends State<SideBar> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     myfuture = GetProfile().GetProfileAPI();
   }
@@ -256,9 +254,11 @@ class _SideBarState extends State<SideBar> {
                           ? InkWell(
                               onTap: () async {
                                 final result = await Get.toNamed("/userlogged");
-                                print("result is $result");
+                                //print("result is $result");
                                 if (result) {
-                                  setState(() {});
+                                  GetProfile()
+                                      .GetProfileAPI()
+                                      .then((value) => setState(() {}));
                                 }
                               },
                               child: Row(
