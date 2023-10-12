@@ -151,7 +151,6 @@ class _HomePageState extends State<HomePage> {
     futureGroup.add(BlogApis()
         .BlogSearchAndFilter(updata, streamController: BlogsControllerDummy));
 
-
     futureGroup.add(TopPicksApi().TopPicksAPI());
 
     controllerEntryPoint.logedIn!
@@ -159,13 +158,12 @@ class _HomePageState extends State<HomePage> {
         : null;
 
     futureGroup.close();
-     Future.delayed(Duration(seconds: 2), () {
-        requestPermissions();
-  });
-
+    Future.delayed(Duration(seconds: 2), () {
+      requestPermissions();
+    });
   }
 
-     void requestPermissions() async {
+  void requestPermissions() async {
     Map<Permission, PermissionStatus> statuses = await [
       Permission.storage,
     ].request();
@@ -180,7 +178,7 @@ class _HomePageState extends State<HomePage> {
       //   ),
       // );
 
-       await Flushbar(
+      await Flushbar(
         message: "Permission denied. Unable to download image.",
         duration: Duration(seconds: 3),
       ).show(context);
@@ -500,7 +498,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget catContainer(index) {
     return SizedBox(
-      height: 133.h,
+      height: 137.h,
       width: MediaQuery.of(context).size.width / 2 - 32,
       child: InkWell(
         child: categoryCard(

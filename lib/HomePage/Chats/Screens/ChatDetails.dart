@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 // import 'package:dio/dio.dart' as prefix;
 import 'package:flutter/material.dart';
+import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/Models/Chat/ChatModel.dart';
@@ -39,61 +40,13 @@ class ChatDetailPage extends StatefulWidget {
 
 class _ChatDetailPageState extends State<ChatDetailPage> {
   int chatItems = 5;
-  // List<Dat> message = chatmessagessobj.data;
-
-  // List<ChatMessage> messages =
-  //  [
-  //   ChatMessage(messageContent: "Hello, Will", messageType: "receiver"),
-  //   ChatMessage(messageContent: "How have you been?", messageType: "receiver"),
-  //   ChatMessage(
-  //       messageContent: "Hey Kriss, I am doing fine dude. wbu?",
-  //       messageType: "sender"),
-  //   ChatMessage(messageContent: "ehhhh, doing OK.", messageType: "receiver"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "receiver"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "receiver"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "receiver"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "receiver"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(messageContent: "Hello", messageType: "sender"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "sender"),
-  //   ChatMessage(messageContent: "Hello", messageType: "receiver"),
-  //   ChatMessage(
-  //       messageContent: "Is there any thing wrong?", messageType: "receiver"),
-  //   ChatMessage(
-  //       messageContent:
-  //           "Lorem ipsum dolor sit amet,consectetuer adipiscing elit",
-  //       messageType: "receiver"),
-  //   ChatMessage(messageContent: "...........", messageType: "sender"),
-  // ];
 
   ScrollController myController = ScrollController();
 
   @override
   void dispose() {
     myController.dispose();
-    timer.cancel();
+    // timer.cancel();
     // topGainerLoserController.close();
     super.dispose();
   }
@@ -104,105 +57,6 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   List<String> fileList = [];
 
   late Timer timer;
-
-  // void UploadData() async {
-  //   fileList.add(attachimage!);
-  //   List<MultipartFile> multipartFiles = [];
-  //   for (String file in fileList) {
-  //     multipartFiles.add(
-  //       await MultipartFile.fromFile(
-  //         file,
-  //         filename: path.basename(file),
-  //       ),
-  //     );
-  //   }
-  //   Map<String, dynamic> updata = {
-  //     "message":
-  //         //  null,
-  //         messageController.text,
-  //     "user_file": null
-  //     //  multipartFiles,
-  //   };
-  //   final data = await Chatmessage().postChatmessage(updata);
-  //   if (data.status == ResponseStatus.SUCCESS) {
-  //     return utils.showToast(data.message);
-  //   } else {
-  //     return utils.showToast(data.message);
-  //   }
-  //   // }
-  // }
-
-  // void UploadData() async {
-  //   try {
-  //     List<MultipartFile> multipartFiles = [];
-
-  //     // Check if attachimage is not null before adding it to fileList
-  //     if (attachimage != null) {
-  //       fileList.add(attachimage!);
-
-  //       for (String file in fileList) {
-  //         multipartFiles.add(
-  //           await MultipartFile.fromFile(
-  //             file,
-  //             filename: path.basename(file),
-  //           ),
-  //         );
-  //       }
-  //     }
-
-  //     Map<String, dynamic> updata = {
-  //       "message": messageController.text,
-  //       "user_file": multipartFiles,
-  //     };
-
-  //     final data = await Chatmessage().postChatmessage(updata);
-
-  //     if (data.status == ResponseStatus.SUCCESS) {
-  //       utils.showToast(data.message);
-  //     } else {
-  //       utils.showToast(data.message);
-  //     }
-  //   } catch (e) {
-  //     print("Error uploading data: $e");
-  //   }
-  // }
-
-  ///method that is running fine
-
-  // void UploadData() async {
-  //   try {
-  //     List<MultipartFile> multipartFiles = [];
-
-  //     // Check if attachimage is not null before adding it to fileList
-  //     if (attachimage != null) {
-  //       fileList.add(attachimage!);
-
-  //       for (String file in fileList) {
-  //         multipartFiles.add(
-  //           await MultipartFile.fromFile(
-  //             file,
-  //             filename: path.basename(file),
-  //           ),
-  //         );
-  //       }
-  //     }
-
-  //     Map<String, dynamic> updata = {
-  //       "message": messageController.text,
-  //       "user_file": multipartFiles.isNotEmpty ? multipartFiles : null,
-  //     };
-
-  //     final data = await Chatmessage().postChatmessage(updata);
-
-  //     if (data.status == ResponseStatus.SUCCESS) {
-  //       utils.showToast(data.message);
-  //     } else {
-  //       utils.showToast(data.message);
-  //     }
-  //   } catch (e) {
-  //     print("Error uploading data: $e");
-  //   }
-  // }
 
   void UploadData() async {
     try {
@@ -230,7 +84,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
       final data = await Chatmessage().postChatmessage(formData);
 
       if (data.status == ResponseStatus.SUCCESS) {
-        utils.showToast(data.message);
+        //utils.showToast(data.message);
       } else {
         utils.showToast(data.message);
       }
@@ -239,61 +93,37 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
     }
   }
 
-//download function
+  Future<void> downloadImage(String image) async {
+    final Dio dio = Dio();
+    final appDir = await getApplicationDocumentsDirectory();
+    final String fileName = image.split('/').last;
+    ;
+    final File file = File('${appDir.path}/$fileName');
+    try {
+      await dio.download(image, file.path);
+      //print("url is ${ApiUrls.Getimage + "/${image}"}");
 
-  // Future<void> downloadImage(image) async {
-  //   final Dio dio = Dio();
-  //   final appDir = await getApplicationDocumentsDirectory();
-  //   final File file = File('${appDir.path}/downloaded_image.png');
+      // // Save image to gallery
+      await ImageGallerySaver.saveFile(file.path);
 
-  //   try {
-  //     await dio.download(ApiUrls.Getimage + "/${image}", file.path);
+      // // Open the downloaded image
+      // OpenFile.open(file.path);
 
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(
-  //         content: Text('Image downloaded successfully'),
-  //       ),
-  //     );
-  //   } catch (e) {
-  //     ScaffoldMessenger.of(context).showSnackBar(
-  //       SnackBar(
-  //         content: Text('Failed to download image'),
-  //       ),
-  //     );
-  //   }
-  // }
-
-Future<void> downloadImage(String image) async {
-  final Dio dio = Dio();
-  final appDir = await getApplicationDocumentsDirectory();
-  final File file = File('${appDir.path}/downloaded_image.png');
-
-  try {
-    await dio.download(ApiUrls.Getimage + "/${image}", file.path);
-    print("url is ${ApiUrls.Getimage + "/${image}"}");
-
-    // Save image to gallery
-    await ImageGallerySaver.saveFile(file.path);
-
-        // Open the downloaded image
-    OpenFile.open(file.path);
-
-
-
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Image downloaded and saved to gallery successfully'),
-      ),
-    );
-  } catch (e) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Failed to download or save image'),
-      ),
-    );
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Image downloaded and saved to gallery successfully'),
+        ),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text('Failed to download or save image'),
+        ),
+      );
+    }
   }
-}
 
+  Future? myfuture;
   @override
   void initState() {
     super.initState();
@@ -303,398 +133,349 @@ Future<void> downloadImage(String image) async {
         setState(() {});
       });
     }
-    // Timer.periodic(Duration(seconds: 2), (timer) {
-    //   // top_gainer();/
-    //   setState(() {});
-    // });
   }
 
-  // StreamController<ChatGetmessagesModel> topGainerLoserController =
-  //     StreamController();
+  _scrollToEndOfList() {
+    if (myController.hasClients)
+      myController.jumpTo(
+        myController.position.maxScrollExtent,
+        // duration: Duration(milliseconds: 1),
+        // curve: Curves.easeOut,
+      );
+  }
 
-  // prefix.Dio dio = new prefix.Dio();
-
-  // Future<ResponseData> top_gainer() async {
-  //   prefix.Response response;
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-
-  //   try {
-  //     response = await dio.get(
-  //         // ApiUrls()
-  //         "https://pi.betadelivery.com/freeU_investment/api/get-chat");
-  //   } on Exception catch (_) {
-  //     return ResponseData<dynamic>(
-  //         'Oops something Went Wrong', ResponseStatus.FAILED);
-  //   }
-
-  //   if (response.statusCode == 200) {
-  //     print(response.data);
-  //     // var decodeddata = jsonDecode(response.data);
-  //     var data = ChatGetmessagesModel.fromJson(response.data);
-  //     if (!topGainerLoserController.isClosed)
-  //       topGainerLoserController.sink.add(data);
-
-  //       return ResponseData<dynamic>(
-  //         "success",
-  //         ResponseStatus.SUCCESS,
-  //       );
-  //   } else {
-  //     try {
-  //       return ResponseData<dynamic>(
-  //           response.data['message'].toString(), ResponseStatus.FAILED);
-  //     } catch (_) {
-  //       return ResponseData<dynamic>(
-  //           response.statusMessage!, ResponseStatus.FAILED);
-  //     }
-  //   }
-  // }
+  List<Data>? revDataList = [];
+  _reverseList() {
+    revDataList = chatmessagessobj!.data!.reversed.toList();
+  }
 
   @override
   Widget build(BuildContext context) {
-    // Timer(const Duration(milliseconds: 50),
-    //     () => myController.jumpTo(myController.position.maxScrollExtent));
-    return GestureDetector(
-      onTap: () {
-        // Get.focusScope?.unfocus();
-      },
-      child: Scaffold(
-        resizeToAvoidBottomInset: false,
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        elevation: 0,
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
-        appBar: AppBar(
-          elevation: 0,
-          automaticallyImplyLeading: false,
-          backgroundColor: Colors.white,
-          flexibleSpace: SafeArea(
-            child: Container(
-              padding: EdgeInsets.only(right: 6.w),
-              child: Row(
-                children: <Widget>[
-                  IconButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: const Icon(
-                      Icons.arrow_back,
-                      color: Colors.black,
-                    ),
+        flexibleSpace: SafeArea(
+          child: Container(
+            padding: EdgeInsets.only(right: 6.w),
+            child: Row(
+              children: <Widget>[
+                IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: const Icon(
+                    Icons.arrow_back,
+                    color: Colors.black,
                   ),
-                  SizedBox(
-                    width: 2.w,
-                  ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Text(
-                          // myusername!,
-                          "Support",
-                          style: TextStyle(
-                            fontSize: 22.sp,
-                          ),
-                        ),
-                        SizedBox(
-                          height: 6.h,
-                        ),
-                      ],
-                    ),
-                  ),
-                  OpenContainerWrappers(
-                    closeBuild: IconButton(
-                      onPressed: null,
-                      icon: SizedBox(
-                        width: 20.w,
-                        height: 25.h,
-                        child: SvgPicture.asset(
-                          'assets/images/notification-bell-svgrepo-com.svg',
-                          fit: BoxFit.fill,
+                ),
+                SizedBox(
+                  width: 2.w,
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        // myusername!,
+                        "Support",
+                        style: TextStyle(
+                          fontSize: 22.sp,
                         ),
                       ),
-                    ),
-                    openBuild: const NotificationPage(),
+                      SizedBox(
+                        height: 6.h,
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+                OpenContainerWrappers(
+                  closeBuild: IconButton(
+                    onPressed: null,
+                    icon: SizedBox(
+                      width: 20.w,
+                      height: 25.h,
+                      child: SvgPicture.asset(
+                        'assets/images/notification-bell-svgrepo-com.svg',
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  openBuild: const NotificationPage(),
+                ),
+              ],
             ),
           ),
         ),
-        body:
-            // StreamBuilder<ChatGetmessagesModel>(
-            //     stream: topGainerLoserController.stream,
-            //     builder: (context, snapshot) {
-            //       switch (snapshot.connectionState) {
-            //         case ConnectionState.waiting:
-            //           return Padding(
-            //             padding: EdgeInsets.only(
-            //                 bottom: MediaQuery.of(context).viewInsets.bottom),
-            //             child: Column(
-            //               mainAxisAlignment: MainAxisAlignment.center,
-            //               crossAxisAlignment: CrossAxisAlignment.center,
-            //               children: [Center(child: CircularProgressIndicator())],
-            //             ),
-            //           );
-
-            //         default:
-            //           if (snapshot.hasError) {
-            //             return Text("Error Occured");
-            //           } else {
-            //             return _buildBody(snapshot.data!);
-            //           }
-            //       }
-            //     })
-
-            FutureBuilder(
-          future: GetChat().GetChatAPI(),
-          builder: (ctx, snapshot) {
-            if (snapshot.data == null) {
-              return Padding(
-                padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom),
-                child: Column(
+      ),
+      body: KeyboardVisibilityBuilder(
+        builder: (BuildContext, bool isKeyboardVisible) {
+          return FutureBuilder(
+            future: GetChat().GetChatAPI(),
+            builder: (ctx, snapshot) {
+              if (snapshot.data == null) {
+                return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [Center(child: CircularProgressIndicator())],
-                ),
-              );
-            }
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(
-                    '${snapshot.error} occured',
-                    style: TextStyle(fontSize: 18.spMin),
-                  ),
                 );
               }
-            }
-            print(snapshot.data);
-            return _buildBody();
-          },
-        ),
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text(
+                      '${snapshot.error} occured',
+                      style: TextStyle(fontSize: 18.spMin),
+                    ),
+                  );
+                }
+              }
+              //  _scrollToEndOfList();
+              //  _reverseList();
+              return _buildBody1(screenWidth, isKeyboardVisible);
+            },
+          );
+        },
       ),
     );
   }
 
-  Widget _buildBody() {
-    return Stack(
-      children: <Widget>[
-        SizedBox(
-          height: 680.h,
-          child: ListView.builder(
-            // reverse: true,
-            controller: myController,
-            itemCount: chatmessagessobj!.data!.length,
-            padding: EdgeInsets.only(top: 10.h, bottom: 60.h),
-            physics: const BouncingScrollPhysics(),
-            itemBuilder: (context, index) {
-              return chatmessagessobj!.data?[index].by == "Admin"
-                  ? Padding(
-                      padding: EdgeInsets.only(
-                          left: 14.w, top: 10.h, bottom: 10.h, right: 90.w),
-                      child: Align(
-                        alignment: Alignment.topLeft,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                              height: 55.h,
-                              child: ClipRRect(
-                                  borderRadius: BorderRadius.circular(100.r),
-                                  child: Image.network(chatmessagessobj!
-                                          .data?[index].profileImage ??
-                                      "")
-                                  // Image.asset(
-                                  //     'assets/images/chat-icon.png'),
-                                  ),
-                            ),
-                            SizedBox(width: 10.w),
-                            Flexible(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(20.r),
-                                      topLeft: Radius.circular(20.r),
-                                      bottomRight: Radius.circular(20.r),
+  Widget _buildBody1(screenWidth, keyboardIsOpen) {
+    print("keyboard value $keyboardIsOpen");
+    return Padding(
+      padding:
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      child: Column(
+        children: <Widget>[
+          SizedBox(
+            height: keyboardIsOpen ? 315.h : 670.h,
+            child: ListView.builder(
+              reverse: true,
+              shrinkWrap: true,
+              controller: myController,
+              itemCount: chatmessagessobj!.data!.length,
+              padding: EdgeInsets.only(top: 10.h, bottom: 60.h),
+              physics: const BouncingScrollPhysics(),
+              itemBuilder: (context, index) {
+                return chatmessagessobj!.data?[index].by == "Admin"
+                    ? Padding(
+                        padding: EdgeInsets.only(
+                            left: 14.w, top: 10.h, bottom: 10.h, right: 90.w),
+                        child: Align(
+                          alignment: Alignment.topLeft,
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 55.h,
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(100.r),
+                                    child: Image.network(chatmessagessobj!
+                                            .data?[index].profileImage ??
+                                        "")
+                                    // Image.asset(
+                                    //     'assets/images/chat-icon.png'),
                                     ),
-                                    color: const Color(0xFFCFEFFF)),
-                                padding: EdgeInsets.all(16.h),
-                                child: Text(
-                                  chatmessagessobj!.data?[index].message ?? "",
-                                  // messages[index].messageContent,
-                                  style: TextStyle(fontSize: 18.sp),
+                              ),
+                              SizedBox(width: 10.w),
+                              Flexible(
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(20.r),
+                                        topLeft: Radius.circular(20.r),
+                                        bottomRight: Radius.circular(20.r),
+                                      ),
+                                      color: const Color(0xFFCFEFFF)),
+                                  padding: EdgeInsets.all(16.h),
+                                  child: Text(
+                                    chatmessagessobj!.data?[index].message ??
+                                        "",
+                                    // messages[index].messageContent,
+                                    style: TextStyle(fontSize: 18.sp),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    )
-                  : chatmessagessobj!.data?[index].file != null
-                      ? Padding(
-                          // Image message layout
-                          padding: EdgeInsets.only(
-                            right: 14.w,
-                            top: 10.h,
-                            bottom: 10.h,
-                            left: 60.w,
+                            ],
                           ),
-                          child: Align(
-                            alignment: Alignment.topRight,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(20.r),
-                                        bottomLeft: Radius.circular(20.r),
-                                        topRight: Radius.circular(20.r),
+                        ),
+                      )
+                    : chatmessagessobj!.data?[index].file != null
+                        ? Padding(
+                            // Image message layout
+                            padding: EdgeInsets.only(
+                              right: 14.w,
+                              top: 10.h,
+                              bottom: 10.h,
+                              left: 60.w,
+                            ),
+                            child: Align(
+                              alignment: Alignment.topRight,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Flexible(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20.r),
+                                          bottomLeft: Radius.circular(20.r),
+                                          topRight: Radius.circular(20.r),
+                                        ),
+                                        color: const Color(0xff002A5B),
                                       ),
-                                      color: const Color(0xff002A5B),
-                                    ),
-                                    padding: EdgeInsets.all(16.h),
-                                    child: Row(
-                                      children: [
-                                        IconButton(
-                                          onPressed: () {
-                                            downloadImage(chatmessagessobj!
-                                                    .data?[index].file ??
-                                                "");
-                                            // _downloadAndDisplayImage(chatmessagessobj!
-                                            //         .data?[index].file ??
-                                            //     "");
-                                          },
-                                          icon: Icon(
-                                            Icons.downloading_rounded,
-                                            color: Colors.white,
+                                      padding: EdgeInsets.all(16.h),
+                                      child: Row(
+                                        children: [
+                                          IconButton(
+                                            onPressed: () {
+                                              downloadImage(chatmessagessobj!
+                                                      .data?[index].file ??
+                                                  "");
+                                              // _downloadAndDisplayImage(chatmessagessobj!
+                                              //         .data?[index].file ??
+                                              //     "");
+                                            },
+                                            icon: Icon(
+                                              Icons.downloading_rounded,
+                                              color: Colors.white,
+                                            ),
                                           ),
-                                        ),
-                                        sizedBoxWidth(2.w),
-                                        Text(
-                                          "Download file",
-                                          // messages[index].messageContent,
-                                          style: TextStyle(
-                                              fontSize: 18.sp,
-                                              color: AppColors.white),
-                                        ),
-                                      ],
-                                    ),
+                                          sizedBoxWidth(2.w),
+                                          Text(
+                                            "Download file",
+                                            // messages[index].messageContent,
+                                            style: TextStyle(
+                                                fontSize: 18.sp,
+                                                color: AppColors.white),
+                                          ),
+                                        ],
+                                      ),
 
-                                    // Image.network(
-                                    //   chatmessagessobj!.data?[index].file ?? "",
-                                    //   width: 100.w, // Adjust this as per your design
-                                    //   height: 100.h, // Adjust this as per your design
-                                    //   fit: BoxFit.cover,
+                                      // Image.network(
+                                      //   chatmessagessobj!.data?[index].file ?? "",
+                                      //   width: 100.w, // Adjust this as per your design
+                                      //   height: 100.h, // Adjust this as per your design
+                                      //   fit: BoxFit.cover,
+                                      // ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 10.w),
+                                  SizedBox(
+                                    height: 55.h,
+                                    child: ProfileObj?.user?.profileImage != ''
+                                        ? ClipOval(
+                                            child: SizedBox.fromSize(
+                                              size: Size.fromRadius(25.r),
+                                              child: CircleAvatar(
+                                                backgroundImage: NetworkImage(
+                                                  ProfileObj!
+                                                      .user!.profileImage!,
+                                                ),
+                                                radius: 25.r,
+                                              ),
+                                            ),
+                                          )
+                                        : Container(
+                                            height: 50.w,
+                                            width: 50.w,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(100.r),
+                                              child: Image.asset(
+                                                  'assets/images/1.jpg'),
+                                            ),
+                                          ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          )
+                        : Padding(
+                            padding: EdgeInsets.only(
+                                right: 14.w,
+                                top: 10.h,
+                                bottom: 10.h,
+                                left: 60.w),
+                            child: Align(
+                              alignment: Alignment.topRight,
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: [
+                                  Flexible(
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(20.r),
+                                          bottomLeft: Radius.circular(20.r),
+                                          topRight: Radius.circular(20.r),
+                                        ),
+                                        color: const Color(0xff002A5B),
+                                      ),
+                                      padding: EdgeInsets.all(16.h),
+                                      child: Text(
+                                        chatmessagessobj!
+                                                .data?[index].message ??
+                                            "",
+                                        // messages[index].messageContent,
+                                        style: TextStyle(
+                                            fontSize: 18.sp,
+                                            color: Colors.white),
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(width: 10.w),
+                                  SizedBox(
+                                    height: 55.h,
+                                    child: ProfileObj?.user?.profileImage != ''
+                                        ? ClipOval(
+                                            child: SizedBox.fromSize(
+                                              size: Size.fromRadius(25.r),
+                                              child: CircleAvatar(
+                                                backgroundImage: NetworkImage(
+                                                    ProfileObj!
+                                                        .user!.profileImage!),
+                                                radius: 25.r,
+                                              ),
+                                            ),
+                                          )
+                                        : Container(
+                                            height: 50.w,
+                                            width: 50.w,
+                                            child: ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(100.r),
+                                              child: Image.asset(
+                                                  'assets/images/1.jpg'),
+                                            ),
+                                          ),
+                                    // ClipRRect(
+                                    //   borderRadius: BorderRadius.circular(100.r),
+                                    //   child: Image.asset('assets/images/1.jpg'),
                                     // ),
                                   ),
-                                ),
-                                SizedBox(width: 10.w),
-                                SizedBox(
-                                  height: 55.h,
-                                  child: ProfileObj?.user?.profileImage != ''
-                                      ? ClipOval(
-                                          child: SizedBox.fromSize(
-                                            size: Size.fromRadius(25.r),
-                                            child: CircleAvatar(
-                                              backgroundImage: NetworkImage(
-                                                ProfileObj!.user!.profileImage!,
-                                              ),
-                                              radius: 25.r,
-                                            ),
-                                          ),
-                                        )
-                                      : Container(
-                                          height: 50.w,
-                                          width: 50.w,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(100.r),
-                                            child: Image.asset(
-                                                'assets/images/1.jpg'),
-                                          ),
-                                        ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
-                          ),
-                        )
-                      : Padding(
-                          padding: EdgeInsets.only(
-                              right: 14.w, top: 10.h, bottom: 10.h, left: 60.w),
-                          child: Align(
-                            alignment: Alignment.topRight,
-                            child: Row(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              children: [
-                                Flexible(
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(20.r),
-                                        bottomLeft: Radius.circular(20.r),
-                                        topRight: Radius.circular(20.r),
-                                      ),
-                                      color: const Color(0xff002A5B),
-                                    ),
-                                    padding: EdgeInsets.all(16.h),
-                                    child: Text(
-                                      chatmessagessobj!.data?[index].message ??
-                                          "",
-                                      // messages[index].messageContent,
-                                      style: TextStyle(
-                                          fontSize: 18.sp, color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                                SizedBox(width: 10.w),
-                                SizedBox(
-                                  height: 55.h,
-                                  child: ProfileObj?.user?.profileImage != ''
-                                      ? ClipOval(
-                                          child: SizedBox.fromSize(
-                                            size: Size.fromRadius(25.r),
-                                            child: CircleAvatar(
-                                              backgroundImage: NetworkImage(
-                                                  ProfileObj!
-                                                      .user!.profileImage!),
-                                              radius: 25.r,
-                                            ),
-                                          ),
-                                        )
-                                      : Container(
-                                          height: 50.w,
-                                          width: 50.w,
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(100.r),
-                                            child: Image.asset(
-                                                'assets/images/1.jpg'),
-                                          ),
-                                        ),
-                                  // ClipRRect(
-                                  //   borderRadius: BorderRadius.circular(100.r),
-                                  //   child: Image.asset('assets/images/1.jpg'),
-                                  // ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        );
-            },
+                          );
+              },
+            ),
           ),
-        ),
-        // ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Row(
+          // ),
+          Row(
             children: <Widget>[
               sizedBoxWidth(16.w),
-              Expanded(
+              SizedBox(
+                width: screenWidth * 0.65,
                 child: TextFormField(
                   controller: messageController,
                   style: TextStyle(fontSize: 16.sp),
@@ -725,10 +506,8 @@ Future<void> downloadImage(String image) async {
                         ImageUploadBottomSheet().showModal(
                           context,
                           (result) {
-                            print("file path is $result");
                             attachimage = result;
                             var filenameresult = extractFileName(result);
-                            print("filename is $filenameresult");
                             messageController.text = filenameresult;
                           },
                         );
@@ -745,8 +524,8 @@ Future<void> downloadImage(String image) async {
                       size: 23.h,
                     ),
                   ),
-                  minLines: 1,
-                  maxLines: 1,
+                  // minLines: 1,
+                  // maxLines: 1,
                 ),
               ),
               sizedBoxWidth(12.w),
@@ -775,8 +554,11 @@ Future<void> downloadImage(String image) async {
               sizedBoxWidth(16.w),
             ],
           ),
-        ),
-      ],
+          // SizedBox(
+          //   height: 300,
+          // )
+        ],
+      ),
     );
   }
 }

@@ -216,4 +216,19 @@ class ApiUrls {
 
 //grt image from api
   static const Getimage = "${baseUrl}get-file";
+
+
+  //kyc_v2
+  static const Postcompanykyc = "${baseUrl}company-kyc-create";
+  static const Postpartnershipkyc = "${baseUrl}partner-ship-create";
+  static const Postotherkyc = "${baseUrl}others-create";
+  static const Postindividualkyc = "${baseUrl}create-individual-kyc";
+  static const Posthufkyc = "${baseUrl}create-huf-kyc";
+  static const Postnrikyc = "${baseUrl}create-nri-kyc";
+
+  //get kyc staus
+  static const Getkycstatus = "${baseUrl}get-kyc-status";
+
+
+
 }
