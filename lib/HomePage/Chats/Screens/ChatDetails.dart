@@ -46,6 +46,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   @override
   void dispose() {
     myController.dispose();
+    timer.cancel();
     // timer.cancel();
     // topGainerLoserController.close();
     super.dispose();
@@ -246,6 +247,15 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
   }
 
   Widget _buildBody1(screenWidth, keyboardIsOpen) {
+    
+    // final keyboardHeight = (EdgeInsets.fromViewPadding(
+    //             WidgetsBinding.instance.window.viewInsets,
+    //             WidgetsBinding.instance.window.devicePixelRatio)
+    //         .bottom) +
+    //     100;
+
+    // double screenHeight = MediaQuery.of(context).size.height;
+
     print("keyboard value $keyboardIsOpen");
     return Padding(
       padding:
@@ -253,7 +263,9 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
       child: Column(
         children: <Widget>[
           SizedBox(
-            height: keyboardIsOpen ? 315.h : 670.h,
+            height:
+            //  keyboardIsOpen ? screenHeight * 0.45 : screenHeight * 0.8,
+            keyboardIsOpen ? 315.h : 680.h,
             child: ListView.builder(
               reverse: true,
               shrinkWrap: true,
