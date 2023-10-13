@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:freeu/Utils/Dialogs.dart';
+import 'package:freeu/Utils/helper.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
@@ -847,41 +851,25 @@ class _ProductActionState extends State<ProductAction> {
                                                           ? alternativeInvestmentFundData[
                                                                       index] ==
                                                                   "Link Repayment Schedule"
-                                                              ? Text(
-                                                                  'Link Repayment Schedule',
-                                                                  style: TextStyle(
-                                                                      fontSize:
-                                                                          18.sp,
-                                                                      color: Colors
-                                                                          .blue,
-                                                                      decoration:
-                                                                          TextDecoration
-                                                                              .underline),
-                                                                )
+                                                              ? repaymentScheduled(
+                                                                  alternativeInvestmentFundModel!
+                                                                      .data!
+                                                                      .statementReports!)
                                                               : contentText(
                                                                   alternativeInvestmentFundData[
                                                                       index])
-                                                          : widget
-                                                                      .categories ==
+                                                          : widget.categories ==
                                                                   "Fractional Real Estate"
-                                                              ? fractionalRealEstateData[
-                                                                          index] ==
+                                                              ? fractionalRealEstateData[index] ==
                                                                       "Link Repayment Schedule"
-                                                                  ? Text(
-                                                                      'Link Repayment Schedule',
-                                                                      style: TextStyle(
-                                                                          fontSize: 18
-                                                                              .sp,
-                                                                          color: Colors
-                                                                              .blue,
-                                                                          decoration:
-                                                                              TextDecoration.underline),
-                                                                    )
+                                                                  ? repaymentScheduled(
+                                                                      fractionalRealEstateModel!
+                                                                          .data!
+                                                                          .statementReports!)
                                                                   : contentText(
                                                                       fractionalRealEstateData[
                                                                           index])
-                                                              : (widget.categories ==
-                                                                          "Peer To Peer Lending" ||
+                                                              : (widget.categories == "Peer To Peer Lending" ||
                                                                       widget.categories ==
                                                                           "Liquiloans" ||
                                                                       widget.categories ==
@@ -890,39 +878,22 @@ class _ProductActionState extends State<ProductAction> {
                                                                           "Finance Peer")
                                                                   ? peerToPeerData[index] ==
                                                                           "Link Repayment Schedule"
-                                                                      ? Text(
-                                                                          'Link Repayment Schedule',
-                                                                          style: TextStyle(
-                                                                              fontSize: 18.sp,
-                                                                              color: Colors.blue,
-                                                                              decoration: TextDecoration.underline),
-                                                                        )
-                                                                      : contentText(
-                                                                          peerToPeerData[
-                                                                              index])
+                                                                      ? repaymentScheduled(peerToPeerLendingModel!
+                                                                          .data!
+                                                                          .statementReports!)
+                                                                      : contentText(peerToPeerData[
+                                                                          index])
                                                                   : (widget.categories == "Indian Financial Assets" ||
-                                                                          widget.categories ==
-                                                                              "Invoice Discounting" ||
-                                                                          widget.categories ==
-                                                                              "Clean and green asset" ||
-                                                                          widget.categories ==
-                                                                              "Venture Debt" ||
-                                                                          widget.categories ==
-                                                                              "High Yield Finance" ||
-                                                                          widget.categories ==
-                                                                              "Securitized Debt Instrument" ||
-                                                                          widget.categories ==
-                                                                              "Lease Based Financing" ||
-                                                                          widget.categories ==
-                                                                              "Revenue Based Financing")
-                                                                      ? invoiceDiscountingData[index] ==
-                                                                              "Link Repayment Schedule"
-                                                                          ? Text(
-                                                                              'Link Repayment Schedule',
-                                                                              style: TextStyle(fontSize: 18.sp, color: Colors.blue, decoration: TextDecoration.underline),
-                                                                            )
-                                                                          : contentText(
-                                                                              invoiceDiscountingData[index])
+                                                                          widget.categories == "Invoice Discounting" ||
+                                                                          widget.categories == "Clean and green asset" ||
+                                                                          widget.categories == "Venture Debt" ||
+                                                                          widget.categories == "High Yield Finance" ||
+                                                                          widget.categories == "Securitized Debt Instrument" ||
+                                                                          widget.categories == "Lease Based Financing" ||
+                                                                          widget.categories == "Revenue Based Financing")
+                                                                      ? invoiceDiscountingData[index] == "Link Repayment Schedule"
+                                                                          ? repaymentScheduled(invoiceDiscountingModel!.data!.repaymentSchedule!)
+                                                                          : contentText(invoiceDiscountingData[index])
                                                                       : contentText(productDetails[0]['content'][widget.pageIndex][index]),
                                                       Divider(
                                                         height: 25.h,
@@ -990,6 +961,25 @@ class _ProductActionState extends State<ProductAction> {
               children: [Center(child: CircularProgressIndicator())],
             );
           }),
+    );
+  }
+
+  Widget repaymentScheduled(
+    List<String> listV,
+  ) {
+    return InkWell(
+      onTap: () {
+        for (var i in listV) {
+          Helper.downloadImage(i, context);
+        }
+      },
+      child: Text(
+        'Link Repayment Schedule',
+        style: TextStyle(
+            fontSize: 18.sp,
+            color: Colors.blue,
+            decoration: TextDecoration.underline),
+      ),
     );
   }
 

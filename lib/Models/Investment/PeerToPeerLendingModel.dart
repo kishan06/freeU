@@ -207,7 +207,8 @@ class Data {
     netExpectedValueAtMaturity = json['net_expected_value_at_maturity'];
     netAssetValue = json['net_asset_value'];
     amountWithdrawn = json['amount_withdrawn'];
-    statementReports = json['statement_reports'].cast<String>();
+    statementReports =
+        List<String>.from(json["statement_reports"].map((x) => x));
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

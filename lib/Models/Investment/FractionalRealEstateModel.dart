@@ -171,7 +171,8 @@ class Data {
     targetReturnInPct = json['target_return_in_pct'];
     absoluteReturnTillDate = json['absolute_return_till_date'];
     absoluteReturnTillDateInPct = json['absolute_return_till_date_in_pct'];
-    statementReports = json['statement_reports'].cast<String>();
+    statementReports =
+        List<String>.from(json["statement_reports"].map((x) => x));
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
