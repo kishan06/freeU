@@ -171,7 +171,8 @@ class Data {
     maturityDate = json['maturity_date'];
     nextRepaymentAmount = json['next_repayment_amount'];
     expectedIrr = json['expected_irr'];
-    repaymentSchedule = json['repayment_schedule'].cast<String>();
+    repaymentSchedule =
+        List<String>.from(json["repayment_schedule"].map((x) => x));
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];

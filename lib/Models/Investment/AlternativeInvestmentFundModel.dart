@@ -186,7 +186,8 @@ class Data {
     currentValuation = json['current_valuation'];
     currentNav = json['current_nav'];
     noOfUnitsHeld = json['no_of_units_held'];
-    statementReports = json['statement_reports'].cast<String>();
+    statementReports =
+        List<String>.from(json["statement_reports"].map((x) => x));
     status = json['status'];
     createdAt = json['created_at'];
     updatedAt = json['updated_at'];
