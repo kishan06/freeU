@@ -169,6 +169,7 @@ class _MyAppState extends State<MyApp> {
     return onBoardDone == null
         ? CircularProgressIndicator()
         : ScreenUtilInit(
+            useInheritedMediaQuery: true,
             builder: (BuildContext context, Widget? child) => GetMaterialApp(
               debugShowCheckedModeBanner: false,
               title: 'FreeU',
@@ -521,19 +522,16 @@ class _MyAppState extends State<MyApp> {
 
                 //kyc_v2
                 GetPage(name: '/kycmainpage', page: () => const Kycmainpage()),
-                GetPage(
-                    name: '/companykycpage',
-                    page: () =>  Companykycpage()),
+                GetPage(name: '/companykycpage', page: () => Companykycpage()),
                 GetPage(
                     name: '/partnershipkycpage',
-                    page: () =>  Partnershipkycpage()),
-                GetPage(
-                    name: '/otherkycpage', page: () =>  Otherkycpage()),
+                    page: () => Partnershipkycpage()),
+                GetPage(name: '/otherkycpage', page: () => Otherkycpage()),
                 GetPage(
                     name: '/individualkycpage',
-                    page: () =>  Individualkycpage()),
+                    page: () => Individualkycpage()),
                 GetPage(name: '/hufkycpage', page: () => HUFkycpage()),
-                GetPage(name: '/nrikycpage', page: () =>  NRIkycpage()),
+                GetPage(name: '/nrikycpage', page: () => NRIkycpage()),
               ],
             ),
             designSize: const Size(390, 844),

@@ -155,7 +155,95 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       backgroundColor: Colors.white,
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.only(
+            top: 15, bottom: MediaQuery.of(context).viewInsets.bottom + 15),
+        child: Row(
+          children: <Widget>[
+            sizedBoxWidth(16.w),
+            SizedBox(
+              width: screenWidth * 0.65,
+              child: TextFormField(
+                controller: messageController,
+                style: TextStyle(fontSize: 16.sp),
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.all(10.h),
+                  filled: true,
+                  fillColor: const Color(0xffF6F8FA),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide:
+                        BorderSide(color: const Color(0xffCCCCCC), width: 1.w),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide:
+                        BorderSide(color: const Color(0xffCCCCCC), width: 1.w),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10.r),
+                    borderSide:
+                        BorderSide(color: const Color(0xffCCCCCC), width: 1.w),
+                  ),
+                  hintStyle: TextStyle(color: Colors.black, fontSize: 16.sp),
+                  hintText: "Type a Message",
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      ImageUploadBottomSheet().showModal(
+                        context,
+                        (result) {
+                          attachimage = result;
+                          var filenameresult = extractFileName(result);
+                          messageController.text = filenameresult;
+                        },
+                      );
+                    },
+                    icon: Icon(
+                      Icons.attach_file,
+                      color: Colors.black,
+                      size: 23.h,
+                    ),
+                  ),
+                  prefixIcon: Icon(
+                    Icons.emoji_emotions_outlined,
+                    color: Colors.black,
+                    size: 23.h,
+                  ),
+                ),
+                // minLines: 1,
+                // maxLines: 1,
+              ),
+            ),
+            sizedBoxWidth(12.w),
+            GestureDetector(
+              // onTap: () => _chatItemsAdd(),
+              onTap: () {
+                setState(() {
+                  UploadData();
+                  messageController.clear();
+                });
+              },
+              // => UploadData(),
+
+              child: Container(
+                  width: 90.w,
+                  height: 50.h,
+                  decoration: BoxDecoration(
+                      color: Color(0xff1B8DC9),
+                      borderRadius: BorderRadius.circular(10.r)),
+                  child: Center(
+                      child: Text(
+                    'Send',
+                    style: TextStyle(color: Colors.white, fontSize: 16.sp),
+                  ))),
+            ),
+            sizedBoxWidth(16.w),
+          ],
+        ),
+      ),
       appBar: AppBar(
         elevation: 0,
         automaticallyImplyLeading: false,
@@ -214,363 +302,238 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
           ),
         ),
       ),
-      body: KeyboardVisibilityBuilder(
-        builder: (BuildContext, bool isKeyboardVisible) {
-          return FutureBuilder(
-            future: GetChat().GetChatAPI(),
-            builder: (ctx, snapshot) {
-              if (snapshot.data == null) {
-                return Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [Center(child: CircularProgressIndicator())],
-                );
-              }
-              if (snapshot.connectionState == ConnectionState.done) {
-                if (snapshot.hasError) {
-                  return Center(
-                    child: Text(
-                      '${snapshot.error} occured',
-                      style: TextStyle(fontSize: 18.spMin),
-                    ),
-                  );
-                }
-              }
-              //  _scrollToEndOfList();
-              //  _reverseList();
-              return _buildBody1(screenWidth, isKeyboardVisible);
-            },
-          );
+      body: FutureBuilder(
+        future: GetChat().GetChatAPI(),
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
+              );
+            }
+          }
+          //  _scrollToEndOfList();
+          //  _reverseList();
+          return _buildBody1(screenWidth);
         },
       ),
     );
   }
 
-  Widget _buildBody1(screenWidth, keyboardIsOpen) {
-    
-    // final keyboardHeight = (EdgeInsets.fromViewPadding(
-    //             WidgetsBinding.instance.window.viewInsets,
-    //             WidgetsBinding.instance.window.devicePixelRatio)
-    //         .bottom) +
-    //     100;
-
-    // double screenHeight = MediaQuery.of(context).size.height;
-
-    print("keyboard value $keyboardIsOpen");
-    return Padding(
-      padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
-      child: Column(
-        children: <Widget>[
-          SizedBox(
-            height:
-            //  keyboardIsOpen ? screenHeight * 0.45 : screenHeight * 0.8,
-            keyboardIsOpen ? 315.h : 680.h,
-            child: ListView.builder(
-              reverse: true,
-              shrinkWrap: true,
-              controller: myController,
-              itemCount: chatmessagessobj!.data!.length,
-              padding: EdgeInsets.only(top: 10.h, bottom: 60.h),
-              physics: const BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return chatmessagessobj!.data?[index].by == "Admin"
-                    ? Padding(
-                        padding: EdgeInsets.only(
-                            left: 14.w, top: 10.h, bottom: 10.h, right: 90.w),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 55.h,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(100.r),
-                                    child: Image.network(chatmessagessobj!
-                                            .data?[index].profileImage ??
-                                        "")
-                                    // Image.asset(
-                                    //     'assets/images/chat-icon.png'),
-                                    ),
+  Widget _buildBody1(screenWidth) {
+    return ListView.builder(
+      reverse: true,
+      shrinkWrap: true,
+      controller: myController,
+      itemCount: chatmessagessobj!.data!.length,
+      padding: EdgeInsets.only(top: 10.h, bottom: 10.h),
+      physics: const BouncingScrollPhysics(),
+      itemBuilder: (context, index) {
+        return chatmessagessobj!.data?[index].by == "Admin"
+            ? Padding(
+                padding: EdgeInsets.only(
+                    left: 14.w, top: 10.h, bottom: 10.h, right: 90.w),
+                child: Align(
+                  alignment: Alignment.topLeft,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        height: 55.h,
+                        child: ClipRRect(
+                            borderRadius: BorderRadius.circular(100.r),
+                            child: Image.network(
+                                chatmessagessobj!.data?[index].profileImage ??
+                                    "")
+                            // Image.asset(
+                            //     'assets/images/chat-icon.png'),
+                            ),
+                      ),
+                      SizedBox(width: 10.w),
+                      Flexible(
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20.r),
+                                topLeft: Radius.circular(20.r),
+                                bottomRight: Radius.circular(20.r),
                               ),
-                              SizedBox(width: 10.w),
-                              Flexible(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(20.r),
-                                        topLeft: Radius.circular(20.r),
-                                        bottomRight: Radius.circular(20.r),
-                                      ),
-                                      color: const Color(0xFFCFEFFF)),
-                                  padding: EdgeInsets.all(16.h),
-                                  child: Text(
-                                    chatmessagessobj!.data?[index].message ??
-                                        "",
-                                    // messages[index].messageContent,
-                                    style: TextStyle(fontSize: 18.sp),
-                                  ),
-                                ),
-                              ),
-                            ],
+                              color: const Color(0xFFCFEFFF)),
+                          padding: EdgeInsets.all(16.h),
+                          child: Text(
+                            chatmessagessobj!.data?[index].message ?? "",
+                            // messages[index].messageContent,
+                            style: TextStyle(fontSize: 18.sp),
                           ),
                         ),
-                      )
-                    : chatmessagessobj!.data?[index].file != null
-                        ? Padding(
-                            // Image message layout
-                            padding: EdgeInsets.only(
-                              right: 14.w,
-                              top: 10.h,
-                              bottom: 10.h,
-                              left: 60.w,
-                            ),
-                            child: Align(
-                              alignment: Alignment.topRight,
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            : chatmessagessobj!.data?[index].file != null
+                ? Padding(
+                    // Image message layout
+                    padding: EdgeInsets.only(
+                      right: 14.w,
+                      top: 10.h,
+                      bottom: 10.h,
+                      left: 60.w,
+                    ),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Flexible(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20.r),
+                                  bottomLeft: Radius.circular(20.r),
+                                  topRight: Radius.circular(20.r),
+                                ),
+                                color: const Color(0xff002A5B),
+                              ),
+                              padding: EdgeInsets.all(16.h),
                               child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
-                                  Flexible(
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(20.r),
-                                          bottomLeft: Radius.circular(20.r),
-                                          topRight: Radius.circular(20.r),
-                                        ),
-                                        color: const Color(0xff002A5B),
-                                      ),
-                                      padding: EdgeInsets.all(16.h),
-                                      child: Row(
-                                        children: [
-                                          IconButton(
-                                            onPressed: () {
-                                              downloadImage(chatmessagessobj!
-                                                      .data?[index].file ??
-                                                  "");
-                                              // _downloadAndDisplayImage(chatmessagessobj!
-                                              //         .data?[index].file ??
-                                              //     "");
-                                            },
-                                            icon: Icon(
-                                              Icons.downloading_rounded,
-                                              color: Colors.white,
-                                            ),
-                                          ),
-                                          sizedBoxWidth(2.w),
-                                          Text(
-                                            "Download file",
-                                            // messages[index].messageContent,
-                                            style: TextStyle(
-                                                fontSize: 18.sp,
-                                                color: AppColors.white),
-                                          ),
-                                        ],
-                                      ),
+                                  IconButton(
+                                    onPressed: () {
+                                      downloadImage(
+                                          chatmessagessobj!.data?[index].file ??
+                                              "");
+                                      // _downloadAndDisplayImage(chatmessagessobj!
+                                      //         .data?[index].file ??
+                                      //     "");
+                                    },
+                                    icon: Icon(
+                                      Icons.downloading_rounded,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  sizedBoxWidth(2.w),
+                                  Text(
+                                    "Download file",
+                                    // messages[index].messageContent,
+                                    style: TextStyle(
+                                        fontSize: 18.sp,
+                                        color: AppColors.white),
+                                  ),
+                                ],
+                              ),
 
-                                      // Image.network(
-                                      //   chatmessagessobj!.data?[index].file ?? "",
-                                      //   width: 100.w, // Adjust this as per your design
-                                      //   height: 100.h, // Adjust this as per your design
-                                      //   fit: BoxFit.cover,
-                                      // ),
-                                    ),
-                                  ),
-                                  SizedBox(width: 10.w),
-                                  SizedBox(
-                                    height: 55.h,
-                                    child: ProfileObj?.user?.profileImage != ''
-                                        ? ClipOval(
-                                            child: SizedBox.fromSize(
-                                              size: Size.fromRadius(25.r),
-                                              child: CircleAvatar(
-                                                backgroundImage: NetworkImage(
-                                                  ProfileObj!
-                                                      .user!.profileImage!,
-                                                ),
-                                                radius: 25.r,
-                                              ),
-                                            ),
-                                          )
-                                        : Container(
-                                            height: 50.w,
-                                            width: 50.w,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(100.r),
-                                              child: Image.asset(
-                                                  'assets/images/1.jpg'),
-                                            ),
-                                          ),
-                                  ),
-                                ],
-                              ),
+                              // Image.network(
+                              //   chatmessagessobj!.data?[index].file ?? "",
+                              //   width: 100.w, // Adjust this as per your design
+                              //   height: 100.h, // Adjust this as per your design
+                              //   fit: BoxFit.cover,
+                              // ),
                             ),
-                          )
-                        : Padding(
-                            padding: EdgeInsets.only(
-                                right: 14.w,
-                                top: 10.h,
-                                bottom: 10.h,
-                                left: 60.w),
-                            child: Align(
-                              alignment: Alignment.topRight,
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Flexible(
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(20.r),
-                                          bottomLeft: Radius.circular(20.r),
-                                          topRight: Radius.circular(20.r),
+                          ),
+                          SizedBox(width: 10.w),
+                          SizedBox(
+                            height: 55.h,
+                            child: ProfileObj?.user?.profileImage != ''
+                                ? ClipOval(
+                                    child: SizedBox.fromSize(
+                                      size: Size.fromRadius(25.r),
+                                      child: CircleAvatar(
+                                        backgroundImage: NetworkImage(
+                                          ProfileObj!.user!.profileImage!,
                                         ),
-                                        color: const Color(0xff002A5B),
-                                      ),
-                                      padding: EdgeInsets.all(16.h),
-                                      child: Text(
-                                        chatmessagessobj!
-                                                .data?[index].message ??
-                                            "",
-                                        // messages[index].messageContent,
-                                        style: TextStyle(
-                                            fontSize: 18.sp,
-                                            color: Colors.white),
+                                        radius: 25.r,
                                       ),
                                     ),
+                                  )
+                                : Container(
+                                    height: 50.w,
+                                    width: 50.w,
+                                    child: ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.circular(100.r),
+                                      child: Image.asset('assets/images/1.jpg'),
+                                    ),
                                   ),
-                                  SizedBox(width: 10.w),
-                                  SizedBox(
-                                    height: 55.h,
-                                    child: ProfileObj?.user?.profileImage != ''
-                                        ? ClipOval(
-                                            child: SizedBox.fromSize(
-                                              size: Size.fromRadius(25.r),
-                                              child: CircleAvatar(
-                                                backgroundImage: NetworkImage(
-                                                    ProfileObj!
-                                                        .user!.profileImage!),
-                                                radius: 25.r,
-                                              ),
-                                            ),
-                                          )
-                                        : Container(
-                                            height: 50.w,
-                                            width: 50.w,
-                                            child: ClipRRect(
-                                              borderRadius:
-                                                  BorderRadius.circular(100.r),
-                                              child: Image.asset(
-                                                  'assets/images/1.jpg'),
-                                            ),
-                                          ),
-                                    // ClipRRect(
-                                    //   borderRadius: BorderRadius.circular(100.r),
-                                    //   child: Image.asset('assets/images/1.jpg'),
-                                    // ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-              },
-            ),
-          ),
-          // ),
-          Row(
-            children: <Widget>[
-              sizedBoxWidth(16.w),
-              SizedBox(
-                width: screenWidth * 0.65,
-                child: TextFormField(
-                  controller: messageController,
-                  style: TextStyle(fontSize: 16.sp),
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
-                  decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(10.h),
-                    filled: true,
-                    fillColor: const Color(0xffF6F8FA),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(
-                          color: const Color(0xffCCCCCC), width: 1.w),
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(
-                          color: const Color(0xffCCCCCC), width: 1.w),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(
-                          color: const Color(0xffCCCCCC), width: 1.w),
-                    ),
-                    hintStyle: TextStyle(color: Colors.black, fontSize: 16.sp),
-                    hintText: "Type a Message",
-                    suffixIcon: IconButton(
-                      onPressed: () {
-                        ImageUploadBottomSheet().showModal(
-                          context,
-                          (result) {
-                            attachimage = result;
-                            var filenameresult = extractFileName(result);
-                            messageController.text = filenameresult;
-                          },
-                        );
-                      },
-                      icon: Icon(
-                        Icons.attach_file,
-                        color: Colors.black,
-                        size: 23.h,
+                          ),
+                        ],
                       ),
                     ),
-                    prefixIcon: Icon(
-                      Icons.emoji_emotions_outlined,
-                      color: Colors.black,
-                      size: 23.h,
+                  )
+                : Padding(
+                    padding: EdgeInsets.only(
+                        right: 14.w, top: 10.h, bottom: 10.h, left: 60.w),
+                    child: Align(
+                      alignment: Alignment.topRight,
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Flexible(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20.r),
+                                  bottomLeft: Radius.circular(20.r),
+                                  topRight: Radius.circular(20.r),
+                                ),
+                                color: const Color(0xff002A5B),
+                              ),
+                              padding: EdgeInsets.all(16.h),
+                              child: Text(
+                                chatmessagessobj!.data?[index].message ?? "",
+                                // messages[index].messageContent,
+                                style: TextStyle(
+                                    fontSize: 18.sp, color: Colors.white),
+                              ),
+                            ),
+                          ),
+                          SizedBox(width: 10.w),
+                          SizedBox(
+                            height: 55.h,
+                            child: ProfileObj?.user?.profileImage != ''
+                                ? ClipOval(
+                                    child: SizedBox.fromSize(
+                                      size: Size.fromRadius(25.r),
+                                      child: CircleAvatar(
+                                        backgroundImage: NetworkImage(
+                                            ProfileObj!.user!.profileImage!),
+                                        radius: 25.r,
+                                      ),
+                                    ),
+                                  )
+                                : Container(
+                                    height: 50.w,
+                                    width: 50.w,
+                                    child: ClipRRect(
+                                      borderRadius:
+                                          BorderRadius.circular(100.r),
+                                      child: Image.asset('assets/images/1.jpg'),
+                                    ),
+                                  ),
+                            // ClipRRect(
+                            //   borderRadius: BorderRadius.circular(100.r),
+                            //   child: Image.asset('assets/images/1.jpg'),
+                            // ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  // minLines: 1,
-                  // maxLines: 1,
-                ),
-              ),
-              sizedBoxWidth(12.w),
-              GestureDetector(
-                // onTap: () => _chatItemsAdd(),
-                onTap: () {
-                  setState(() {
-                    UploadData();
-                    messageController.clear();
-                  });
-                },
-                // => UploadData(),
-
-                child: Container(
-                    width: 90.w,
-                    height: 50.h,
-                    decoration: BoxDecoration(
-                        color: Color(0xff1B8DC9),
-                        borderRadius: BorderRadius.circular(10.r)),
-                    child: Center(
-                        child: Text(
-                      'Send',
-                      style: TextStyle(color: Colors.white, fontSize: 16.sp),
-                    ))),
-              ),
-              sizedBoxWidth(16.w),
-            ],
-          ),
-          // SizedBox(
-          //   height: 300,
-          // )
-        ],
-      ),
+                  );
+      },
     );
   }
 }
