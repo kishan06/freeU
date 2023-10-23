@@ -133,19 +133,32 @@ class _GlobalrealassetsmainState extends State<Globalrealassetsmain> {
             //   Icons.filter_alt_outlined,
             //   color: Colors.black,
             // ),
-            OpenContainerWrappers(
-              closeBuild: IconButton(
-                onPressed: null,
-                icon: SizedBox(
-                  width: 20.w,
-                  height: 25.h,
-                  child: SvgPicture.asset(
-                    'assets/images/notification-bell-svgrepo-com.svg',
-                    fit: BoxFit.fill,
-                  ),
+            // OpenContainerWrappers(
+            //   closeBuild: IconButton(
+            //     onPressed: null,
+            //     icon: SizedBox(
+            //       width: 20.w,
+            //       height: 25.h,
+            //       child: SvgPicture.asset(
+            //         'assets/images/notification-bell-svgrepo-com.svg',
+            //         fit: BoxFit.fill,
+            //       ),
+            //     ),
+            //   ),
+            //   openBuild: const NotificationPage(),
+            // ),
+
+            InkWell(
+              onTap: () {
+                Get.toNamed("/notificationpage");
+              },
+              child: Padding(
+                padding: EdgeInsets.only(right: 16.w),
+                child: SvgPicture.asset(
+                  'assets/images/notification-bell-svgrepo-com.svg',
+                  fit: BoxFit.fill,
                 ),
               ),
-              openBuild: const NotificationPage(),
             ),
           ],
         ),

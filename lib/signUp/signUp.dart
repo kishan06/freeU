@@ -254,9 +254,15 @@ class _SignUpState extends State<SignUp> {
                             ),
                             CustomTextFormField(
                                 textEditingController: nameController,
+                                texttype: TextInputType.text,
+                                inputFormatters: [
+                                  LengthLimitingTextInputFormatter(20),
+                                  FilteringTextInputFormatter.allow(
+                                      RegExp('[a-zA-Z ]')),
+                                ],
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Enter your name';
+                                    return 'Enter your full name';
                                   }
                                   return null;
                                 },
@@ -286,7 +292,7 @@ class _SignUpState extends State<SignUp> {
                               validatorText: "Email Id",
                               validator: (value) {
                                 if (value!.isEmpty) {
-                                  return 'Enter your Email address';
+                                  return 'Enter your email address';
                                 }
                                 if (!RegExp(
                                         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
@@ -321,15 +327,25 @@ class _SignUpState extends State<SignUp> {
                                 textEditingController: phonecontroller,
                                 //maxLength: 10,
                                 validator: (value) {
-                                  if (value == value.isEmpty) {
-                                    return 'Mobile number is required';
+                                  if (value.isEmpty) {
+                                    return 'Enter your mobile number';
                                   } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
                                       .hasMatch(value)) {
                                     return 'Enter valid mobile number';
                                   }
-                                  // v3 = true;
                                   return null;
                                 },
+
+                                // validator: (value) {
+                                //   if (value == value.isEmpty) {
+                                //     return 'Mobile number is required';
+                                //   } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
+                                //       .hasMatch(value)) {
+                                //     return 'Enter valid mobile number';
+                                //   }
+                                //   // v3 = true;
+                                //   return null;
+                                // },
                                 inputFormatters: [
                                   LengthLimitingTextInputFormatter(10),
                                   FilteringTextInputFormatter.allow(
@@ -371,7 +387,10 @@ class _SignUpState extends State<SignUp> {
                               controller: passwordcontroller,
                               obscureText: !_passwordVisible,
                               decoration: InputDecoration(
-                                contentPadding: EdgeInsets.all(12),
+                                // contentPadding: EdgeInsets.all(12),
+                                contentPadding: EdgeInsets.symmetric(
+                                    vertical: 10.h, horizontal: 20),
+
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(
@@ -398,6 +417,11 @@ class _SignUpState extends State<SignUp> {
                                       color: Colors.red, width: 1),
                                 ),
                                 errorMaxLines: 3,
+                                errorStyle: TextStyle(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 12.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
                                 hintStyle: TextStyle(
                                     color: Color(0x80000000),
                                     fontSize: 15.sp,
@@ -591,7 +615,7 @@ class _SignUpState extends State<SignUp> {
                               validatorText: "Confirm Password",
                               validator: (val) {
                                 if (val == null || val.isEmpty) {
-                                  return 'Password is Empty';
+                                  return 'Password is Empty';         
                                 }
                                 if (val != passwordcontroller.text) {
                                   return 'Password Not Matched';

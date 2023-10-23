@@ -21,60 +21,35 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
         titleTxt: "",
         bottomtext: false,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Padding(
-            //   padding: EdgeInsets.symmetric(horizontal: 16.w),
-            //   child: Row(
-            //     mainAxisAlignment: MainAxisAlignment.start,
-            //     children: [
-            //       Text(
-            //         "Privacy policy",
-            //         style: TextStyle(
-            //             fontFamily: "Poppins",
-            //             fontSize: 25.sp,
-            //             fontWeight: FontWeight.w500),
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            Expanded(
-                child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  FutureBuilder(
-                    future: PrivacyPolicyAndTermsAndCondition().PrivacyApi(),
-                    builder: (ctx, snapshot) {
-                      if (snapshot.data == null) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Center(child: CircularProgressIndicator())
-                          ],
-                        );
-                      }
-                      if (snapshot.connectionState == ConnectionState.done) {
-                        if (snapshot.hasError) {
-                          return Center(
-                            child: Text(
-                              '${snapshot.error} occured',
-                              style: TextStyle(fontSize: 18.spMin),
-                            ),
-                          );
-                        }
-                      }
-                      return Html(data: privacy!.data!.privacyContent);
-                    },
-                  ),
-                ],
-              ),
-            )),
-          ],
-        ),
+      body: Column(
+        children: [
+          Expanded(
+            child: FutureBuilder(
+              future: PrivacyPolicyAndTermsAndCondition().PrivacyApi(),
+              builder: (ctx, snapshot) {
+                if (snapshot.data == null) {
+                  return Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [Center(child: CircularProgressIndicator())],
+                  );
+                }
+                if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.hasError) {
+                    return Center(
+                      child: Text(
+                        '${snapshot.error} occured',
+                        style: TextStyle(fontSize: 18.spMin),
+                      ),
+                    );
+                  }
+                }
+                return SingleChildScrollView(
+                    child: Html(data: privacy!.data!.privacyContent));
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

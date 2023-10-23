@@ -1,11 +1,14 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:timer_button/timer_button.dart';
 
 class PhoneVerification extends StatefulWidget {
   const PhoneVerification({super.key});
@@ -25,6 +28,8 @@ class _PhoneVerificationState extends State<PhoneVerification> {
     super.initState();
     phoneController.text = Get.arguments;
   }
+  
+  bool _sendOTPclicked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -60,10 +65,14 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         SizedBox(height: 40.h),
-                        Text(
-                          "OTP sent to",
-                          style: blackStyle20().copyWith(
-                            color: Color(0xff000000),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "OTP sent to",
+                            textAlign: TextAlign.left,
+                            style: blackStyle20().copyWith(
+                              color: Color(0xff000000),
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -129,10 +138,13 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           },
                         ),
                         SizedBox(height: 30.h),
-                        Text(
-                          "Enter OTP",
-                          style: blackStyle20().copyWith(
-                            color: Color(0xff000000),
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            "Enter OTP",
+                            style: blackStyle20().copyWith(
+                              color: Color(0xff000000),
+                            ),
                           ),
                         ),
                         SizedBox(
@@ -198,16 +210,48 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                                   color: Color.fromARGB(159, 51, 51, 50),
                                   fontSize: 14.sp,
                                 )),
-                            TextButton(
-                              child: Text(
-                                'Resend',
-                                style: TextStyle(
-                                  color: Color(0xFF143C6D),
-                                  fontSize: 14.sp,
-                                ),
-                              ),
-                              onPressed: () {},
-                            )
+                            // !_sendOTPclicked
+                            //     ? TextButton(
+                            //         child: Text(
+                            //           'Resend',
+                            //           style: TextStyle(
+                            //             color: Color(0xFF143C6D),
+                            //             fontSize: 14.sp,
+                            //           ),
+                            //         ),
+                            //         onPressed: () {
+                            //           setState(() {
+                            //             _sendOTPclicked = true;
+                            //           });
+                            //         },
+                            //       )
+                            //     :
+                            TimerButton(
+                              disabledTextStyle: TextStyle(color: Colors.red),
+                              activeTextStyle:
+                                  TextStyle(color: AppColors.blue002A5B),
+                              buttonType: ButtonType.textButton,
+                              label: "Resend",
+                              timeOutInSeconds: 6,
+                              //mobile.text.isEmpty ?  1 : 60,
+                              onPressed: () {
+                                setState(() {
+                                  _sendOTPclicked = true;
+                                });
+                                // pincode!.clear();
+                                // Map<String, dynamic> updata2 = {
+                                //   "mob_number": num
+                                // };
+                                // SendOtp().sendotp(updata);
+                                // SendOtp().SendOtpExotel(updata2);
+                                Flushbar(
+                                  message: "Otp has been sent successfully",
+                                  duration: const Duration(seconds: 3),
+                                ).show(context);
+                              },
+                              disabledColor: Colors.white,
+                              color: Colors.white,
+                            ),
                           ],
                         ),
                         SizedBox(height: 50.h),

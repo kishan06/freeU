@@ -20,6 +20,7 @@ import 'package:freeu/viewModel/Chat/getchat.dart';
 import 'package:freeu/Utils/Dialogs.dart';
 import 'package:freeu/viewModel/Chat/postchatmessage.dart';
 import 'package:get/get.dart' as GetX hide MultipartFile, FormData;
+import 'package:get/get_core/src/get_main.dart';
 import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path/path.dart' as path;
@@ -283,19 +284,32 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                     ],
                   ),
                 ),
-                OpenContainerWrappers(
-                  closeBuild: IconButton(
-                    onPressed: null,
-                    icon: SizedBox(
-                      width: 20.w,
-                      height: 25.h,
-                      child: SvgPicture.asset(
-                        'assets/images/notification-bell-svgrepo-com.svg',
-                        fit: BoxFit.fill,
-                      ),
+                // OpenContainerWrappers(
+                //   closeBuild: IconButton(
+                //     onPressed: null,
+                //     icon: SizedBox(
+                //       width: 20.w,
+                //       height: 25.h,
+                //       child: SvgPicture.asset(
+                //         'assets/images/notification-bell-svgrepo-com.svg',
+                //         fit: BoxFit.fill,
+                //       ),
+                //     ),
+                //   ),
+                //   openBuild: const NotificationPage(),
+                // ),
+
+                InkWell(
+                  onTap: () {
+                    Get.toNamed("/notificationpage");
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 16.w),
+                    child: SvgPicture.asset(
+                      'assets/images/notification-bell-svgrepo-com.svg',
+                      fit: BoxFit.fill,
                     ),
                   ),
-                  openBuild: const NotificationPage(),
                 ),
               ],
             ),
@@ -446,7 +460,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                           SizedBox(width: 10.w),
                           SizedBox(
                             height: 55.h,
-                            child: ProfileObj?.user?.profileImage != ''
+                            child: ProfileObj?.user?.profileImage != null
                                 ? ClipOval(
                                     child: SizedBox.fromSize(
                                       size: Size.fromRadius(25.r),
@@ -504,7 +518,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                           SizedBox(width: 10.w),
                           SizedBox(
                             height: 55.h,
-                            child: ProfileObj?.user?.profileImage != ''
+                            child: ProfileObj?.user?.profileImage != null
                                 ? ClipOval(
                                     child: SizedBox.fromSize(
                                       size: Size.fromRadius(25.r),

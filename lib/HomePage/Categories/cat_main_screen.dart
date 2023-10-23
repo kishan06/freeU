@@ -70,19 +70,32 @@ class _CatMainScreenState extends State<CatMainScreen> {
             ),
             const Spacer(),
             filter(),
-            OpenContainerWrappers(
-              closeBuild: IconButton(
-                onPressed: null,
-                icon: SizedBox(
-                  width: 20.w,
-                  height: 25.h,
-                  child: SvgPicture.asset(
-                    'assets/images/notification-bell-svgrepo-com.svg',
-                    fit: BoxFit.fill,
-                  ),
+            sizedBoxWidth(6.w),
+            // OpenContainerWrappers(
+            //   closeBuild: IconButton(
+            //     onPressed: null,
+            //     icon: SizedBox(
+            //       width: 20.w,
+            //       height: 25.h,
+            //       child: SvgPicture.asset(
+            //         'assets/images/notification-bell-svgrepo-com.svg',
+            //         fit: BoxFit.fill,
+            //       ),
+            //     ),
+            //   ),
+            //   openBuild: const NotificationPage(),
+            // ),
+            InkWell(
+              onTap: () {
+                Get.toNamed("/notificationpage");
+              },
+              child: Padding(
+                padding: EdgeInsets.only(right: 16.w),
+                child: SvgPicture.asset(
+                  'assets/images/notification-bell-svgrepo-com.svg',
+                  fit: BoxFit.fill,
                 ),
               ),
-              openBuild: const NotificationPage(),
             ),
           ],
         ),
