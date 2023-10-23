@@ -255,7 +255,7 @@ class _UserState extends State<User> {
                     ClipOval(
                       child: SizedBox.fromSize(
                           size: Size.fromRadius(60.r),
-                          child: ProfileObj?.user?.profileImage != ''
+                          child: ProfileObj?.user?.profileImage != null 
                               ? ClipOval(
                                   child: SizedBox.fromSize(
                                     size: Size.fromRadius(25.r),

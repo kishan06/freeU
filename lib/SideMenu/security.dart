@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
+import 'package:get/get.dart';
 
 class Security extends StatefulWidget {
   const Security({super.key});
@@ -12,6 +15,7 @@ class Security extends StatefulWidget {
 }
 
 class _SecurityState extends State<Security> {
+  final controllerEntryPoint = Get.put(EntryPointController());
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -21,7 +25,10 @@ class _SecurityState extends State<Security> {
         bottomtext: false,
       ),
       backgroundColor: Color(0xFFFFFFFF),
-      body: Center(
+      body: 
+      GetBuilder<EntryPointController>(builder: (_){
+        return controllerEntryPoint.logedIn! ?
+           Center(
           child: Form(
               key: _form,
               child: Column(
@@ -117,7 +124,20 @@ class _SecurityState extends State<Security> {
                     ),
                   )),
                 ],
-              ))),
+              )))
+              :
+              Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [text20Black("Login to continue")],
+                ),
+              );
+
+
+
+      })
+   
     );
   }
 }

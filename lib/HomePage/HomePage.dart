@@ -6,6 +6,9 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Globalcategoriesmain.dart';
+import 'package:freeu/HomePage/Categories/GlobalRealAssets/mainglobalrealassts.dart';
+import 'package:freeu/HomePage/Categories/IndianRealAssets/mainindianrealassets.dart';
 import 'package:freeu/Models/Insights/BlogsModel.dart';
 import 'package:freeu/ViewModel/Blogs/BlogsApis.dart';
 import 'package:freeu/ViewModel/Profile/Getprofile.dart';
@@ -202,20 +205,30 @@ class _HomePageState extends State<HomePage> {
                   fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
             ),
             const Spacer(),
-            OpenContainerWrappers(
-              closeBuild: IconButton(
-                onPressed: null,
-                icon: SizedBox(
-                  width: 20.w,
-                  height: 25.h,
-                  child: SvgPicture.asset(
-                    'assets/images/notification-bell-svgrepo-com.svg',
-                    fit: BoxFit.fill,
-                  ),
+            // OpenContainerWrappers(
+            //   closeBuild: IconButton(
+            //     onPressed: null,
+            //     icon: SizedBox(
+            //       width: 20.w,
+            //       height: 25.h,
+            //       child:
+            InkWell(
+              onTap: () {
+                Get.toNamed("/notificationpage");
+              },
+              child: Padding(
+                padding: EdgeInsets.only(right: 16.w),
+                child: 
+                SvgPicture.asset(
+                  'assets/images/notification-bell-svgrepo-com.svg',
+                  fit: BoxFit.fill,
                 ),
               ),
-              openBuild: const NotificationPage(),
             ),
+            //     ),
+            //   ),
+            //   openBuild: const NotificationPage(),
+            // ),
           ],
         ),
         elevation: 0,
@@ -337,8 +350,8 @@ class _HomePageState extends State<HomePage> {
                     text20Black("Top Picks"),
                     InkWell(
                         onTap: () {
-                          // Get.toNamed("/EntryPoint",
-                          //     arguments: 1, preventDuplicates: false);
+                          Get.toNamed("/EntryPoint",
+                              arguments: 1, preventDuplicates: false);
                         },
                         child: text14Grey272424("View more"))
                   ],
@@ -511,7 +524,13 @@ class _HomePageState extends State<HomePage> {
         onTap: () {
           index == 0
               ? Get.to(() => CategoriesMain())
-              : Get.to(() => ComingSoon());
+              : index == 1
+                  ? Get.to(() => Indianrealassetsmain())
+                  : index == 2
+                      ? Get.to(() => Globalcategoriesmain())
+                      : index == 3
+                          ? Get.to(() => Globalrealassetsmain())
+                          : ComingSoon();
         },
       ),
     );

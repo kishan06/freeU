@@ -101,21 +101,33 @@ class _ChatPageState extends State<ChatPage> {
           ],
         ),
         actions: [
-          OpenContainerWrappers(
-            closeBuild: IconButton(
-              onPressed: null,
-              icon: SizedBox(
-                width: 20.w,
-                height: 25.h,
-                child: SvgPicture.asset(
-                  'assets/images/notification-bell-svgrepo-com.svg',
-                  fit: BoxFit.fill,
-                ),
+          // OpenContainerWrappers(
+          //   closeBuild: IconButton(
+          //     onPressed: null,
+          //     icon: SizedBox(
+          //       width: 20.w,
+          //       height: 25.h,
+          //       child: SvgPicture.asset(
+          //         'assets/images/notification-bell-svgrepo-com.svg',
+          //         fit: BoxFit.fill,
+          //       ),
+          //     ),
+          //   ),
+          //   openBuild: const NotificationPage(),
+          // ),
+          InkWell(
+            onTap: () {
+              Get.toNamed("/notificationpage");
+            },
+            child: Padding(
+              padding: EdgeInsets.only(right: 16.w, top: 15.5, bottom: 15.5),
+              child: SvgPicture.asset(
+                'assets/images/notification-bell-svgrepo-com.svg',
+                fit: BoxFit.fill,
               ),
             ),
-            openBuild: const NotificationPage(),
           ),
-          sizedBoxWidth(5.w)
+          // sizedBoxWidth(5.w)
         ],
         elevation: 0,
         shadowColor: Colors.black,

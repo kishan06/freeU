@@ -171,84 +171,95 @@ class _CategoriesMainState extends State<CategoriesMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: _key,
-        appBar: AppBar(
-          backgroundColor: AppColors.white,
-          title: Row(
-            children: [
-              sizedBoxWidth(10.w),
-              InkWell(
-                onTap: () {
-                  Get.back();
-                },
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Colors.black,
+      key: _key,
+      appBar: AppBar(
+        backgroundColor: AppColors.white,
+        title: Row(
+          children: [
+            sizedBoxWidth(10.w),
+            InkWell(
+              onTap: () {
+                Get.back();
+              },
+              child: Icon(
+                Icons.arrow_back,
+                color: Colors.black,
+              ),
+            ),
+            sizedBoxWidth(10.w),
+            Text(
+              'Categories',
+              softWrap: true,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
+            ),
+            const Spacer(),
+            // Icon(
+            //   Icons.filter_alt_outlined,
+            //   color: Colors.black,
+            // ),
+            // OpenContainerWrappers(
+            //   closeBuild: IconButton(
+            //     onPressed: null,
+            //     icon: SizedBox(
+            //       width: 20.w,
+            //       height: 25.h,
+            //       child: SvgPicture.asset(
+            //         'assets/images/notification-bell-svgrepo-com.svg',
+            //         fit: BoxFit.fill,
+            //       ),
+            //     ),
+            //   ),
+            //   openBuild: const NotificationPage(),
+            // ),
+
+            InkWell(
+              onTap: () {
+                Get.toNamed("/notificationpage");
+              },
+              child: Padding(
+                padding: EdgeInsets.only(right: 16.w),
+                child: SvgPicture.asset(
+                  'assets/images/notification-bell-svgrepo-com.svg',
+                  fit: BoxFit.fill,
                 ),
               ),
-              sizedBoxWidth(10.w),
-              Text(
-                'Categories',
-                softWrap: true,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 22.sp,
-                    color: Colors.black),
-              ),
-              const Spacer(),
-              // Icon(
-              //   Icons.filter_alt_outlined,
-              //   color: Colors.black,
-              // ),
-              OpenContainerWrappers(
-                closeBuild: IconButton(
-                  onPressed: null,
-                  icon: SizedBox(
-                    width: 20.w,
-                    height: 25.h,
-                    child: SvgPicture.asset(
-                      'assets/images/notification-bell-svgrepo-com.svg',
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-                openBuild: const NotificationPage(),
-              ),
-            ],
-          ),
-          elevation: 0,
-          shadowColor: Colors.black,
-          automaticallyImplyLeading: false,
-          titleSpacing: 0,
+            ),
+          ],
         ),
-        body: _buildBody(context),
-        // FutureBuilder(
-        //   future: myfuture,
-        //   builder: (ctx, snapshot) {
-        //     if (snapshot.data == null) {
-        //       return Column(
-        //         mainAxisAlignment: MainAxisAlignment.center,
-        //         crossAxisAlignment: CrossAxisAlignment.center,
-        //         children: [Center(child: CircularProgressIndicator())],
-        //       );
-        //     }
-        //     if (snapshot.connectionState == ConnectionState.done) {
-        //       if (snapshot.hasError) {
-        //         return Center(
-        //           child: Text(
-        //             '${snapshot.error} occured',
-        //             style: TextStyle(fontSize: 18.spMin),
-        //           ),
-        //         );
-        //       }
-        //     }
-        //     return _buildBody(
-        //       context,
-        //     );
-        //   },
-        // )
-        );
+        elevation: 0,
+        shadowColor: Colors.black,
+        automaticallyImplyLeading: false,
+        titleSpacing: 0,
+      ),
+      body: _buildBody(context),
+      // FutureBuilder(
+      //   future: myfuture,
+      //   builder: (ctx, snapshot) {
+      //     if (snapshot.data == null) {
+      //       return Column(
+      //         mainAxisAlignment: MainAxisAlignment.center,
+      //         crossAxisAlignment: CrossAxisAlignment.center,
+      //         children: [Center(child: CircularProgressIndicator())],
+      //       );
+      //     }
+      //     if (snapshot.connectionState == ConnectionState.done) {
+      //       if (snapshot.hasError) {
+      //         return Center(
+      //           child: Text(
+      //             '${snapshot.error} occured',
+      //             style: TextStyle(fontSize: 18.spMin),
+      //           ),
+      //         );
+      //       }
+      //     }
+      //     return _buildBody(
+      //       context,
+      //     );
+      //   },
+      // )
+    );
   }
 
   Widget _buildBody(context) {

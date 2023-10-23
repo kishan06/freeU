@@ -157,23 +157,49 @@ class _InsightsState extends State<Insights> {
                                         color: Colors.black,
                                       ),
                                       itemBuilder: (context) => tagsList,
-                                      onSelected: (value) {
-                                        setState(() {
-                                          print("selected value is $value");
-                                          searchController.text = value;
+                                      onSelected: (value) async {
+  setState(() {
+    print("selected value is $value");
+    searchController.text = value;
 
-                                          selectedIndex = tagsList.indexWhere(
-                                              (item) =>
-                                                  item is PopupMenuItem<
-                                                      String> &&
-                                                  item.value == value);
+    selectedIndex = tagsList.indexWhere(
+      (item) =>
+      item is PopupMenuItem<String> &&
+      item.value == value);
 
-                                          BlogApis().BlogSearchAndFilter({
-                                            "search": null,
-                                            "tag_id": tagsId[selectedIndex]
-                                          }, streamController: BlogsController);
-                                        });
-                                      },
+    BlogApis().BlogSearchAndFilter({
+      "search": null,
+      "tag_id": tagsId[selectedIndex]
+    }, streamController: BlogsController);
+
+    // Unfocus the text field with a short delay
+    Future.delayed(Duration(milliseconds: 100), () {
+      FocusScopeNode currentFocus = FocusScope.of(context);
+      if (!currentFocus.hasPrimaryFocus) {
+        currentFocus.unfocus();
+      }
+    });
+  });
+},
+
+//old method in which keyboard appears
+                                      // onSelected: (value) {
+                                      //   setState(() {
+                                      //     print("selected value is $value");
+                                      //     searchController.text = value;
+
+                                      //     selectedIndex = tagsList.indexWhere(
+                                      //         (item) =>
+                                      //             item is PopupMenuItem<
+                                      //                 String> &&
+                                      //             item.value == value);
+
+                                      //     BlogApis().BlogSearchAndFilter({
+                                      //       "search": null,
+                                      //       "tag_id": tagsId[selectedIndex]
+                                      //     }, streamController: BlogsController);
+                                      //   });
+                                      // },
                                     ),
                                   ),
                                   onChanged: (value) {

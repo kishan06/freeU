@@ -97,7 +97,7 @@ class _EntryPointState extends State<EntryPoint>
                         transform: Matrix4.identity()
                           ..setEntry(3, 2, 0.001)
                           ..rotateY(animation.value -
-                              30 * animation.value * pi / 180),
+                              20 * animation.value * pi / 180),
                         child: Transform.translate(
                           offset: Offset(animation.value * 300.w, 0),
                           child: Transform.scale(

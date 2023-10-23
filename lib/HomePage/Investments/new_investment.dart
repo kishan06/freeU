@@ -59,18 +59,30 @@ class _NewInvestmentState extends State<NewInvestment> {
                     color: Colors.black),
               ),
               Spacer(),
-              OpenContainerWrappers(
-                openBuild: NotificationPage(),
-                closeBuild: SizedBox(
-                  width: 20.w,
-                  height: 25.h,
+              // OpenContainerWrappers(
+              //   openBuild: NotificationPage(),
+              //   closeBuild: SizedBox(
+              //     width: 20.w,
+              //     height: 25.h,
+              //     child: SvgPicture.asset(
+              //       'assets/images/notification-bell-svgrepo-com.svg',
+              //       fit: BoxFit.fill,
+              //     ),
+              //   ),
+              // ),
+              InkWell(
+                onTap: () {
+                  Get.toNamed("/notificationpage");
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(right: 16.w),
                   child: SvgPicture.asset(
                     'assets/images/notification-bell-svgrepo-com.svg',
                     fit: BoxFit.fill,
                   ),
                 ),
               ),
-              sizedBoxWidth(16.w)
+              // sizedBoxWidth(16.w)
             ],
           ),
           elevation: 0,
@@ -78,9 +90,9 @@ class _NewInvestmentState extends State<NewInvestment> {
           automaticallyImplyLeading: false,
           titleSpacing: 0,
           bottom: PreferredSize(
-            preferredSize: Size.fromHeight(55.h),
+            preferredSize: Size.fromHeight(65.h),
             child: TabBar(
-              labelPadding: EdgeInsets.only(bottom: 5.h),
+              labelPadding: EdgeInsets.only(bottom: 10.h),
               indicatorColor: Color(0xff002A5B),
               indicatorWeight: 5.h,
               tabs: [

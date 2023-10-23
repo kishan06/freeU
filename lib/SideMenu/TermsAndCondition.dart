@@ -22,73 +22,60 @@ class _TermsAndConditionState extends State<TermsAndCondition> {
         titleTxt: "",
         bottomtext: false,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    "Terms & condition",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontSize: 25.sp,
-                        fontWeight: FontWeight.w500),
-                  ),
-                ],
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.start,
+        // crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  "Terms & condition",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 25.sp,
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 15.h,
+          ),
+          Expanded(
+            child: Padding(
+              padding: EdgeInsets.only(left: 16.w, right: 16.w),
+              child: FutureBuilder(
+                future:
+                    PrivacyPolicyAndTermsAndCondition().TermsAndConditionApi(),
+                builder: (ctx, snapshot) {
+                  if (snapshot.data == null) {
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [Center(child: CircularProgressIndicator())],
+                    );
+                  }
+                  if (snapshot.connectionState == ConnectionState.done) {
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text(
+                          '${snapshot.error} occured',
+                          style: TextStyle(fontSize: 18.spMin),
+                        ),
+                      );
+                    }
+                  }
+                  return SingleChildScrollView(
+                      child: Html(data: terms!.data!.content));
+                },
               ),
             ),
-            Expanded(
-                child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 15.h,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 16.w, right: 16.w),
-                    child: Column(
-                      children: [
-                        FutureBuilder(
-                          future: PrivacyPolicyAndTermsAndCondition()
-                              .TermsAndConditionApi(),
-                          builder: (ctx, snapshot) {
-                            if (snapshot.data == null) {
-                              return Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Center(child: CircularProgressIndicator())
-                                ],
-                              );
-                            }
-                            if (snapshot.connectionState ==
-                                ConnectionState.done) {
-                              if (snapshot.hasError) {
-                                return Center(
-                                  child: Text(
-                                    '${snapshot.error} occured',
-                                    style: TextStyle(fontSize: 18.spMin),
-                                  ),
-                                );
-                              }
-                            }
-                            return Html(data: terms!.data!.content);
-                          },
-                        ),
-                      ],
-                    ),
-                  ),
-                  sizedBoxHeight(20.h)
-                ],
-              ),
-            )),
-          ],
-        ),
+          ),
+          sizedBoxHeight(20.h),
+        ],
       ),
     );
   }

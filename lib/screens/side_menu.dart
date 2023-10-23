@@ -43,7 +43,7 @@ class _SideBarState extends State<SideBar> {
     {"imagePath": "assets/logos/side8.png", "text": "Privacy Policy"},
     {"imagePath": "assets/logos/side9.png", "text": "Terms and condition"},
     {"imagePath": "assets/logos/side10.png", "text": "Contact Us"},
-    {"imagePath": "assets/logos/side11.png", "text": "Logout"},
+    // {"imagePath": "assets/logos/side11.png", "text": "Logout"},
   ];
 
   Future? myfuture;
@@ -263,7 +263,7 @@ class _SideBarState extends State<SideBar> {
                               },
                               child: Row(
                                 children: [
-                                  ProfileObj?.user?.profileImage != ''
+                                  ProfileObj?.user?.profileImage != null 
                                       ? ClipOval(
                                           child: SizedBox.fromSize(
                                             size: Size.fromRadius(25.r),
@@ -357,6 +357,56 @@ class _SideBarState extends State<SideBar> {
                     );
                   },
                 ),
+                // sizedBoxHeight(10.h),
+                InkWell(
+                  onTap: () {},
+                  child: GetBuilder<EntryPointController>(builder: (_){
+                    return 
+                    controllerEntryPoint.logedIn!
+                      ? Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Divider(
+                              thickness: 0.25.h,
+                              color: AppColors.white,
+                            ),
+                            Row(
+                              children: [
+                                InkWell(
+                                  onTap: () {
+                                    logoutDailog(context);
+                                  },
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 1.h),
+                                    child: Row(
+                                      children: [
+                                        sizedBoxWidth(2.w),
+                                        SizedBox(
+                                          height: 30.h,
+                                          width: 30.h,
+                                          child: Image.asset(
+                                            "assets/logos/side11.png",
+                                            // height: ,
+                                            color: AppColors.white,
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          width: 15.w,
+                                        ),
+                                        text16White("Logout")
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            )
+                          ],
+                        )
+                      : SizedBox();
+                  })
+                  
+                )
               ],
             ),
           ),
@@ -422,11 +472,11 @@ void navigateTo(int index, BuildContext context) {
       }
       break;
 
-    case 9:
-      {
-        logoutDailog(context);
-      }
-      break;
+    // case 9:
+    //   {
+    //     logoutDailog(context);
+    //   }
+    //   break;
 
     default:
       {
