@@ -229,6 +229,12 @@ class ApiUrls {
   //get kyc staus
   static const Getkycstatus = "${baseUrl}get-kyc-status";
 
+// Market place 
+  static const GetSpotlightinvest = "${baseUrl}marketplace/spotlight-investment";
+  static const GetFeatuedinvest = "${baseUrl}marketplace/featured-investments";
+  static const GetNonfeatuedinvest = "${baseUrl}marketplace/non-featured-investments";
+  static const GetMarketlearnmore = "${baseUrl}marketplace/offering";
+  
 
 
 }
