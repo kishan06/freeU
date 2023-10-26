@@ -12,7 +12,11 @@ import 'package:freeu/ViewModel/Investment/Investment.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/simple_accotion.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
+import 'package:freeu/profile/profile.dart';
+import 'package:freeu/viewModel/Profile/Getprofile.dart';
 import 'package:get/get.dart';
+import 'package:getwidget/components/accordion/gf_accordion.dart';
 import 'investment_transfer.dart';
 import 'investment_watchlist.dart';
 import 'pending_request.dart';
@@ -33,6 +37,7 @@ class _NewInvestmentState extends State<NewInvestment> {
     futureGroup.add(Investment().InvestmentSummaryAPI());
     futureGroup.add(Investment().CurrentInvestmentAPI());
     futureGroup.add(Investment().RedeemInvestmentAPI());
+    futureGroup.add(GetProfile().GetProfileAPI());
 
     futureGroup.close();
     super.initState();
@@ -258,6 +263,158 @@ class _NewInvestmentState extends State<NewInvestment> {
       ),
     );
   }
+
+  final controllerEntryPoint = Get.put(EntryPointController());
+
+
+  Widget personalDetailsAccotion(String question) {
+  return 
+  GetBuilder<EntryPointController>(builder: (_){
+    return 
+    controllerEntryPoint.logedIn!
+     ?
+      Container(
+    decoration: BoxDecoration(
+        border: Border.all(color: Colors.black.withOpacity(0.2)),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5.r)),
+    child: GFAccordion(
+      showAccordion: false,
+      titleBorderRadius: BorderRadius.circular(5.r),
+      contentBorderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(5.r),
+        bottomRight: Radius.circular(5.r),
+      ),
+      margin: const EdgeInsets.all(0),
+      titlePadding: EdgeInsets.all(10.h),
+      contentPadding: EdgeInsets.all(10.w),
+      expandedTitleBackgroundColor: Colors.white,
+      contentBackgroundColor: Colors.white,
+      titleChild: Text(
+        question,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18.sp,
+        ),
+      ),
+      contentChild: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          sizedBoxHeight(15.h),
+          Column(
+            children: [
+              iconText(
+                Icons.person_outline_outlined,
+               ProfileObj!.user!.name ?? "NA"
+              ),
+              sizedBoxHeight(20.h),
+              iconText(
+                  Icons.phone_in_talk_sharp,
+               ProfileObj!.user!.contactNumber ?? "NA"
+                  
+                      ),
+              sizedBoxHeight(20.h),
+              iconText(
+                Icons.mail_outline,
+               ProfileObj!.user!.email ?? "NA"
+               
+              ),
+              sizedBoxHeight(20.h),
+              iconText(
+                Icons.location_on_outlined,
+               ProfileObj!.user!.address ?? "NA"
+                
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  )
+  :
+   Container(
+    decoration: BoxDecoration(
+        border: Border.all(color: Colors.black.withOpacity(0.2)),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(5.r)),
+    child: GFAccordion(
+      showAccordion: false,
+      titleBorderRadius: BorderRadius.circular(5.r),
+      contentBorderRadius: BorderRadius.only(
+        bottomLeft: Radius.circular(5.r),
+        bottomRight: Radius.circular(5.r),
+      ),
+      margin: const EdgeInsets.all(0),
+      titlePadding: EdgeInsets.all(10.h),
+      contentPadding: EdgeInsets.all(10.w),
+      expandedTitleBackgroundColor: Colors.white,
+      contentBackgroundColor: Colors.white,
+      titleChild: Text(
+        question,
+        style: TextStyle(
+          color: Colors.black,
+          fontSize: 18.sp,
+        ),
+      ),
+      contentChild: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          sizedBoxHeight(15.h),
+          Column(
+            children: [
+              iconText(
+                Icons.person_outline_outlined,
+                'Guest'
+                   
+              ),
+              sizedBoxHeight(20.h),
+              iconText(
+                  Icons.phone_in_talk_sharp,
+                "NA"
+                      ),
+              sizedBoxHeight(20.h),
+              iconText(
+                Icons.mail_outline,
+                "NA"
+              ),
+              sizedBoxHeight(20.h),
+              // iconText(Icons.credit_card_outlined, 'IURPS9876R'),
+              // sizedBoxHeight(20.h),
+              iconText(
+                Icons.location_on_outlined,
+                "NA"
+              ),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+
+
+  });
+ 
+}
+
+Widget iconText(icon, txt) {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Icon(
+        icon,
+        size: 24.h,
+        color: Colors.black.withOpacity(0.7),
+      ),
+      sizedBoxWidth(15.w),
+      Flexible(
+        child: Text(
+          txt,
+          style: TextStyle(fontSize: 18.sp),
+        ),
+      ),
+    ],
+  );
+}
 
   Widget Tab2() {
     return Padding(
