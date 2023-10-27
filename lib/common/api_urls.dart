@@ -235,6 +235,18 @@ class ApiUrls {
   static const GetNonfeatuedinvest = "${baseUrl}marketplace/non-featured-investments";
   static const GetMarketlearnmore = "${baseUrl}marketplace/offering";
   
+//investment marketplace dashboard
+  static const Getmarketalternatwatch = "${baseUrl}aif-investment-watchlist";
+  static const Getmarketfractioanlwatch = "${baseUrl}fre-investment-watchlist";
+  static const Getmarketotherswatch = "${baseUrl}op-investment-watchlist";
+
+  
+//investment marketplace bought dashboard
+  static const Getmarketalternatebought = "${baseUrl}aif-investment-bought";
+  static const Getmarketfractioanlbought = "${baseUrl}fre-investment-bought";
+  static const Getmarketothersbought = "${baseUrl}op-investment-bought";
+
+
 
 
 }

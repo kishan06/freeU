@@ -2,28 +2,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
-import 'package:freeu/viewModel/Investment/MarketplaceDashboard/investmentwatchlist.dart';
+import 'package:freeu/viewModel/Investment/MarketplaceDashboard/investmentbought.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:async/src/future_group.dart';
 
-class InvestmentWatchList extends StatefulWidget {
-  const InvestmentWatchList({super.key});
+class InvestmentBought extends StatefulWidget {
+  const InvestmentBought({super.key});
 
   @override
-  State<InvestmentWatchList> createState() => _InvestmentWatchListState();
+  State<InvestmentBought> createState() => _InvestmentBoughtState();
 }
 
-class _InvestmentWatchListState extends State<InvestmentWatchList> {
+class _InvestmentBoughtState extends State<InvestmentBought> {
   FutureGroup futureGroup = FutureGroup();
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    futureGroup.add(Marketinvestwatchlist().Alternativewatchlist());
-    futureGroup.add(Marketinvestwatchlist().Fractionalwatchlist());
-    futureGroup.add(Marketinvestwatchlist().Otherswatchlist());
+    futureGroup.add(Marketinvestbought().Alternativebought());
+    futureGroup.add(Marketinvestbought().Fractionalbought());
+    futureGroup.add(Marketinvestbought().Othersbought());
 
     futureGroup.close();
   }
@@ -53,7 +53,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                     ),
                   ),
                   Text(
-                    'Investment Watchlist',
+                    'Investment Bought',
                     softWrap: true,
                     textAlign: TextAlign.center,
                     style: TextStyle(
@@ -133,13 +133,13 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
   }
 
   Widget Alternativetab() {
-    return alternativewatchobj!.data!.isEmpty
+    return alternativeboughtobj!.data!.isEmpty
         ? _buildNoDataBody(context)
         : ListView.separated(
             separatorBuilder: (context, index) {
               return sizedBoxHeight(0.h);
             },
-            itemCount: alternativewatchobj!.data!.length,
+            itemCount: alternativeboughtobj!.data!.length,
             // highyieldObj!.data!.length,
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
@@ -175,7 +175,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  alternativewatchobj!
+                                  alternativeboughtobj!
                                           .data![index].nameOfTheAifFund ??
                                       "NA",
                                   style: TextStyle(
@@ -198,7 +198,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     sizedBoxWidth(5.w),
                                     Flexible(
                                       child: Text(
-                                        alternativewatchobj!.data![index]
+                                        alternativeboughtobj!.data![index]
                                                 .nameOfTheAifFund ??
                                             "NA",
                                         style: TextStyle(
@@ -225,7 +225,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      alternativewatchobj!
+                                      alternativeboughtobj!
                                           .data![index].fundCategory
                                           .toString(),
                                       style: TextStyle(
@@ -251,7 +251,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      alternativewatchobj!
+                                      alternativeboughtobj!
                                               .data![index].typeOfFund ??
                                           "NA",
                                       style: TextStyle(
@@ -277,7 +277,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      alternativewatchobj!
+                                      alternativeboughtobj!
                                               .data![index].fundStrategy ??
                                           "NA",
                                       style: TextStyle(
@@ -303,7 +303,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      alternativewatchobj!.data![index]
+                                      alternativeboughtobj!.data![index]
                                               .totalCapitalCommitment ??
                                           "NA",
                                       style: TextStyle(
@@ -329,7 +329,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      alternativewatchobj!.data![index]
+                                      alternativeboughtobj!.data![index]
                                               .uncalledCapitalCommitment ??
                                           "NA",
                                       style: TextStyle(
@@ -355,13 +355,13 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
   }
 
   Widget Fractionaltab() {
-    return fractionalwatchobj!.data!.isEmpty
+    return fractionalboughtobj!.data!.isEmpty
         ? _buildNoDataBody(context)
         : ListView.separated(
             separatorBuilder: (context, index) {
               return sizedBoxHeight(0.h);
             },
-            itemCount: fractionalwatchobj!.data!.length,
+            itemCount: fractionalboughtobj!.data!.length,
             // highyieldObj!.data!.length,
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
@@ -397,7 +397,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  fractionalwatchobj!
+                                  fractionalboughtobj!
                                           .data![index].propertyName ??
                                       "NA",
                                   style: TextStyle(
@@ -420,7 +420,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     sizedBoxWidth(5.w),
                                     Flexible(
                                       child: Text(
-                                        fractionalwatchobj!
+                                        fractionalboughtobj!
                                                 .data![index].propertyName ??
                                             "NA",
                                         style: TextStyle(
@@ -447,7 +447,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      fractionalwatchobj!
+                                      fractionalboughtobj!
                                           .data![index].propertyGrade
                                           .toString(),
                                       style: TextStyle(
@@ -473,7 +473,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      fractionalwatchobj!
+                                      fractionalboughtobj!
                                               .data![index].assetType ??
                                           "NA",
                                       style: TextStyle(
@@ -499,7 +499,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      fractionalwatchobj!.data![index]
+                                      fractionalboughtobj!.data![index]
                                               .fractionalRealEstatePlatform ??
                                           "NA",
                                       style: TextStyle(
@@ -525,7 +525,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      fractionalwatchobj!.data![index]
+                                      fractionalboughtobj!.data![index]
                                               .expectedSellingPrice ??
                                           "NA",
                                       style: TextStyle(
@@ -551,7 +551,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      fractionalwatchobj!
+                                      fractionalboughtobj!
                                           .data![index].fundCategory
                                           .toString(),
                                       style: TextStyle(
@@ -577,13 +577,13 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
   }
 
   Widget Otherstab() {
-    return otherswatchobj!.data!.isEmpty
+    return othersboughtobj!.data!.isEmpty
         ? _buildNoDataBody(context)
         : ListView.separated(
             separatorBuilder: (context, index) {
               return sizedBoxHeight(0.h);
             },
-            itemCount: otherswatchobj!.data!.length,
+            itemCount: othersboughtobj!.data!.length,
             // highyieldObj!.data!.length,
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
@@ -619,7 +619,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  otherswatchobj!.data![index].securityName ??
+                                  othersboughtobj!.data![index].securityName ??
                                       "NA",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w500,
@@ -641,7 +641,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     sizedBoxWidth(5.w),
                                     Flexible(
                                       child: Text(
-                                        otherswatchobj!
+                                        othersboughtobj!
                                                 .data![index].securityName ??
                                             "NA",
                                         style: TextStyle(
@@ -670,7 +670,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     sizedBoxWidth(5.w),
                                     Flexible(
                                       child: Text(
-                                        otherswatchobj!
+                                        othersboughtobj!
                                             .data![index].productCategory
                                             .toString(),
                                         style: TextStyle(
@@ -697,7 +697,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      otherswatchobj!
+                                      othersboughtobj!
                                               .data![index].instrumentType ??
                                           "NA",
                                       style: TextStyle(
@@ -723,7 +723,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      otherswatchobj!
+                                      othersboughtobj!
                                               .data![index].instrumentIssuer ??
                                           "NA",
                                       style: TextStyle(
@@ -749,7 +749,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      otherswatchobj!
+                                      othersboughtobj!
                                               .data![index].creditRating ??
                                           "NA",
                                       style: TextStyle(
@@ -775,7 +775,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      otherswatchobj!
+                                      othersboughtobj!
                                           .data![index].expectedSalePricePerUnit
                                           .toString(),
                                       style: TextStyle(
@@ -801,7 +801,7 @@ class _InvestmentWatchListState extends State<InvestmentWatchList> {
                                     ),
                                     sizedBoxWidth(5.w),
                                     Text(
-                                      otherswatchobj!.data![index].fundCategory
+                                      othersboughtobj!.data![index].fundCategory
                                           .toString(),
                                       style: TextStyle(
                                         fontSize: 16.sp,
