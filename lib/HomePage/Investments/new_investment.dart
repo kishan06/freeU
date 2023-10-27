@@ -4,11 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestmentDetailed.dart';
-import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
+import 'package:freeu/HomePage/Investments/investment_bought.dart';
 import 'package:freeu/HomePage/Investments/RedeemInvestmentDetailed.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/ViewModel/Investment/Investment.dart';
+import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/simple_accotion.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
@@ -425,7 +426,8 @@ Widget iconText(icon, txt) {
         children: [
           GestureDetector(
             onTap: () {
-              Get.to(InvestmentTransfer());
+              // Get.to(InvestmentTransfer());
+              Get.to(ComingSoon());
             },
             child: Container(
               margin: EdgeInsets.all(10.h),
@@ -457,7 +459,8 @@ Widget iconText(icon, txt) {
           ),
           GestureDetector(
             onTap: () {
-              Get.to(PendingRequest());
+              // Get.to(PendingRequest());
+              Get.to(ComingSoon());
             },
             child: Container(
               margin: EdgeInsets.all(10.h),
@@ -489,7 +492,8 @@ Widget iconText(icon, txt) {
           ),
           GestureDetector(
             onTap: () {
-              Get.to(PreviouslyInvestedProducts());
+              // Get.to(InvestmentBought());
+              Get.toNamed("/investbought");
             },
             child: Container(
               margin: EdgeInsets.all(10.h),
@@ -521,7 +525,8 @@ Widget iconText(icon, txt) {
           ),
           GestureDetector(
             onTap: () {
-              Get.to(InvestmentWatchList());
+              // Get.to(InvestmentWatchList());
+              Get.toNamed("/investwatchlist");
             },
             child: Container(
               margin: EdgeInsets.all(10.h),

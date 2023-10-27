@@ -64,8 +64,9 @@ import 'package:freeu/HomePage/Chats/Screens/ChatDetails.dart';
 import 'package:freeu/HomePage/Chats/Screens/ChatPage.dart';
 import 'package:freeu/HomePage/HomePage.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestmentDetailed.dart';
-import 'package:freeu/HomePage/Investments/PreviouslyInvestedProducts.dart';
+import 'package:freeu/HomePage/Investments/investment_bought.dart';
 import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
+import 'package:freeu/HomePage/Investments/investment_watchlist.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/About.dart';
 import 'package:freeu/SideMenu/ContactUs.dart';
@@ -226,9 +227,9 @@ class _MyAppState extends State<MyApp> {
                 GetPage(
                     name: '/currentinvestment',
                     page: () => const CurrentInvestment()),
-                GetPage(
-                    name: '/previouslyinvestedproducts',
-                    page: () => const PreviouslyInvestedProducts()),
+                // GetPage(
+                //     name: '/previouslyinvestedproducts',
+                //     page: () => const PreviouslyInvestedProducts()),
                 GetPage(
                     name: '/suggestedinvestedproducts',
                     page: () => const SuggestedInvestedProducts()),
@@ -532,6 +533,10 @@ class _MyAppState extends State<MyApp> {
                     page: () => Individualkycpage()),
                 GetPage(name: '/hufkycpage', page: () => HUFkycpage()),
                 GetPage(name: '/nrikycpage', page: () => NRIkycpage()),
+                GetPage(name: '/investwatchlist', page: () => InvestmentWatchList()),
+                GetPage(name: '/investbought', page: () => InvestmentBought()),
+                
+
               ],
             ),
             designSize: const Size(390, 844),
