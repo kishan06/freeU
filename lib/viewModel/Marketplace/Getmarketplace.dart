@@ -19,22 +19,18 @@ GetfractionallearnmoreModel? getfractionallearnmoreobj;
 GetalternativelearnmoreModel? getalternativelearnmoreobj;
 GetotherslearnmoreModel? getotherslearnmoreobj;
 
-
-
-
-
-
-class Marketplace{
-
+class Marketplace {
   Future<ResponseData<dynamic>> Spotlightinvest() async {
     final response = await NetworkApi().getApi(ApiUrls.GetSpotlightinvest);
     if (response.status == ResponseStatus.SUCCESS) {
       spotlightinve = SpotlightinvestmentModel.fromJson(response.data);
     }
+    print("spotlightinve is ${spotlightinve}");
+    print(response.data);
     return response;
   }
 
-   Future<ResponseData<dynamic>> Featuredinvest() async {
+  Future<ResponseData<dynamic>> Featuredinvest() async {
     final response = await NetworkApi().getApi(ApiUrls.GetFeatuedinvest);
     if (response.status == ResponseStatus.SUCCESS) {
       featuredinve = FeaturedinvestmentModel.fromJson(response.data);
@@ -42,7 +38,7 @@ class Marketplace{
     return response;
   }
 
-   Future<ResponseData<dynamic>> Nonfeaturedinvest() async {
+  Future<ResponseData<dynamic>> Nonfeaturedinvest() async {
     final response = await NetworkApi().getApi(ApiUrls.GetNonfeatuedinvest);
     if (response.status == ResponseStatus.SUCCESS) {
       nonfeaturedinve = NonfeaturedinvestmentModel.fromJson(response.data);
@@ -68,7 +64,7 @@ class Marketplace{
     return response;
   }
 
-    Future<ResponseData<dynamic>> Getfractionallearnmore(slug) async {
+  Future<ResponseData<dynamic>> Getfractionallearnmore(slug) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final response =
         await NetworkApi().getApi(ApiUrls.GetMarketlearnmore + "/${slug}");
@@ -77,7 +73,8 @@ class Marketplace{
       Map<String, dynamic> responseData =
           Map<String, dynamic>.from(response.data);
       if (responseData.isNotEmpty) {
-        getfractionallearnmoreobj = GetfractionallearnmoreModel.fromJson(responseData);
+        getfractionallearnmoreobj =
+            GetfractionallearnmoreModel.fromJson(responseData);
       } else {
         return ResponseData<dynamic>(
             responseData['message'], ResponseStatus.FAILED);
@@ -86,7 +83,7 @@ class Marketplace{
     return response;
   }
 
-   Future<ResponseData<dynamic>> Getalternativelearnmore(slug) async {
+  Future<ResponseData<dynamic>> Getalternativelearnmore(slug) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     final response =
         await NetworkApi().getApi(ApiUrls.GetMarketlearnmore + "/${slug}");
@@ -95,7 +92,8 @@ class Marketplace{
       Map<String, dynamic> responseData =
           Map<String, dynamic>.from(response.data);
       if (responseData.isNotEmpty) {
-        getalternativelearnmoreobj = GetalternativelearnmoreModel.fromJson(responseData);
+        getalternativelearnmoreobj =
+            GetalternativelearnmoreModel.fromJson(responseData);
       } else {
         return ResponseData<dynamic>(
             responseData['message'], ResponseStatus.FAILED);
@@ -121,5 +119,4 @@ class Marketplace{
     }
     return response;
   }
-
 }

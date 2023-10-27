@@ -246,7 +246,10 @@ class ApiUrls {
   static const Getmarketfractioanlbought = "${baseUrl}fre-investment-bought";
   static const Getmarketothersbought = "${baseUrl}op-investment-bought";
 
+// Notifications
+  static const getnotifications = "${baseUrl}get-all-notifications";
 
+  static const postnotifications = "${baseUrl}mark-as-read";
 
 
 }
