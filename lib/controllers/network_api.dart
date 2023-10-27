@@ -193,4 +193,41 @@ class NetworkApi {
       );
     }
   }
+
+    Future<ResponseData> postslugApi(String url) async {
+    if (kDebugMode) {
+      print("api url is >>> $url");
+    }
+    Response response;
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    // String? token = prefs.getString('token');
+    String? token = prefs.getString('token').toString();
+ print("token is $token");
+    try {
+      response = await dio.post(url,
+
+          options: controllerEntryPoint.logedIn!
+              ? Options(headers: {"authorization": "Bearer $token"})
+              : Options(headers: {
+                  "authorization":
+                      "Bearer 189|yeRLynwInflhfnVObT7dd7R0Ywv91AIlxIKXoiAv"
+                }));
+
+    } on Exception catch (_) {
+      return ResponseData<dynamic>(
+          'Oops something Went Wrong', ResponseStatus.FAILED);
+    }
+    if (response.statusCode == 200) {
+      return ResponseData<dynamic>("success", ResponseStatus.SUCCESS,
+          data: response.data);
+    } else {
+      try {
+        return ResponseData<dynamic>(
+            response.data['message'].toString(), ResponseStatus.FAILED);
+      } catch (_) {
+        return ResponseData<dynamic>(
+            response.statusMessage!, ResponseStatus.FAILED);
+      }
+    }
+  }
 }

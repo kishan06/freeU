@@ -12,6 +12,7 @@ import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/viewModel/Marketplace/Getmarketplace.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import 'featured_investment.dart';
 import 'market_see_investment.dart';
@@ -111,7 +112,20 @@ class _MarketTabState extends State<MarketTab> {
               );
             }
           }
-          return _buildBody();
+          return 
+          // featuredinve!.data![1].alternativeInvestmentFund!.isEmpty &&
+          //         featuredinve!.data![0].fractionalRealEstate!.isEmpty &&
+          //         featuredinve!.data![2].otherProducts!.isEmpty &&
+          //         nonfeaturedinve!
+          //             .data![1].alternativeInvestmentFund!.isEmpty &&
+          //         nonfeaturedinve!.data![0].fractionalRealEstate!.isEmpty &&
+          //         nonfeaturedinve!.data![2].otherProducts!.isEmpty &&
+          //         spotlightinve == null &&
+          //         spotlightinve == null
+          //     ? 
+          //     _buildNodataBody()
+              // : 
+              _buildBody();
         },
       ),
     );
@@ -132,164 +146,180 @@ class _MarketTabState extends State<MarketTab> {
               style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.w500),
             ),
             sizedBoxHeight(15.h),
-            Container(
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(15)),
-                color: Color(0xffffffff),
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0x48B9B9BE),
-                    blurRadius: 20.0,
-                    spreadRadius: 0,
-                    // offset: Offset(-20, -20,),
-                  )
-                ],
-              ),
-              child: Padding(
-                padding: EdgeInsets.symmetric(
-                  vertical: 15.h,
-                ),
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16.w),
-                      child: Row(
-                        children: [
-                          Text(
-                            // peerProductsModelObj!
-                            //     .data![index].peerToPeers!.scheme!,
-                            spotlightinve!.productName ?? "NA",
-                            style: TextStyle(
-                                fontSize: 25.sp,
-                                fontFamily: 'Poppins',
-                                color: const Color(0XFF000000),
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ],
+            spotlightinve!.productName!.isEmpty &&
+                    spotlightinve!.category!.isEmpty
+                ? Center(
+                    child: Text(
+                      "No Data Available",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Colors.black,
+                        //Color(0xFF008083),
+                        fontWeight: FontWeight.w500,
+                        fontSize: 20.sp,
                       ),
                     ),
-                    SizedBox(
-                      height: 30.h,
+                  )
+                : Container(
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                      color: Color(0xffffffff),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0x48B9B9BE),
+                          blurRadius: 20.0,
+                          spreadRadius: 0,
+                          // offset: Offset(-20, -20,),
+                        )
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      child: Row(
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 15.h,
+                      ),
+                      child: Column(
                         children: [
-                          // Image.asset(
-                          //   "assets/images/investmentproperties (1).png",
-                          //   width: 50.w,
-                          //   height: 50.w,
-                          // ),
-                          // SizedBox(
-                          //   width: 25.w,
-                          // ),
-                          Text(
-                            "Expected Sale:",
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              color: const Color(0XFF000000),
-                              fontFamily: 'Poppins',
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.w, right: 16.w),
+                            child: Row(
+                              children: [
+                                Flexible(
+                                  child: Text(
+                                    // peerProductsModelObj!
+                                    //     .data![index].peerToPeers!.scheme!,
+                                    spotlightinve!.productName ?? "NA",
+                                    style: TextStyle(
+                                        fontSize: 25.sp,
+                                        fontFamily: 'Poppins',
+                                        color: const Color(0XFF000000),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          sizedBoxWidth(8.w),
-                          Text(
-                            // viewSlider[index]['Expected Return'],
-                            spotlightinve!.expectedSale.toString(),
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.w500,
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16.w),
+                            child: Row(
+                              children: [
+                                // Image.asset(
+                                //   "assets/images/investmentproperties (1).png",
+                                //   width: 50.w,
+                                //   height: 50.w,
+                                // ),
+                                // SizedBox(
+                                //   width: 25.w,
+                                // ),
+                                Text(
+                                  "Expected Sale:",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: const Color(0XFF000000),
+                                    fontFamily: 'Poppins',
+                                  ),
+                                ),
+                                sizedBoxWidth(8.w),
+                                Text(
+                                  // viewSlider[index]['Expected Return'],
+                                  spotlightinve!.expectedSale.toString(),
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.only(left: 16.w),
+                            child: Row(
+                              children: [
+                                // Image.asset(
+                                //   "assets/images/propertiestransfer.png",
+                                //   width: 50.w,
+                                //   height: 50.h,
+                                // ),
+                                // SizedBox(
+                                //   width: 25.w,
+                                // ),
+                                Text(
+                                  "Category:",
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 18.sp,
+                                    color: const Color(0XFF000000),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w300,
+                                  ),
+                                ),
+                                sizedBoxWidth(8.w),
+                                Text(
+                                  // viewSlider[index]['Minimum Investment'],
+                                  spotlightinve!.category ?? "NA",
+                                  textDirection: TextDirection.ltr,
+                                  textAlign: TextAlign.left,
+                                  style: TextStyle(
+                                    fontSize: 20.sp,
+                                    color: const Color(0XFF000000),
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(
+                            height: 40.h,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+                            child: Container(
+                              height: 50.h,
+                              decoration: BoxDecoration(
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Color.fromARGB(255, 220, 220, 226),
+                                  )
+                                ],
+                                borderRadius: BorderRadius.circular(10.r),
+                                color: AppColors.blue143C6D,
+                              ),
+                              child: OpenContainerWrappers(
+                                openBuild: Marketplacelearnmore(
+                                    slug: spotlightinve!.slug ?? "NA"),
+
+                                // PeerViewInvestment(
+                                //     slug: peerProductsModelObj!
+                                //         .data![index].peerToPeers!.slug!),
+                                closeBuild: SizedBox(
+                                  width: double.infinity,
+                                  height: 50.h,
+                                  child: Center(
+                                      child: Text(
+                                    'View Offering',
+                                    style: TextStyle(
+                                      color: AppColors.white,
+                                      fontSize: 18.sp,
+                                    ),
+                                  )),
+                                ),
+                              ),
                             ),
                           )
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 30.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 16.w),
-                      child: Row(
-                        children: [
-                          // Image.asset(
-                          //   "assets/images/propertiestransfer.png",
-                          //   width: 50.w,
-                          //   height: 50.h,
-                          // ),
-                          // SizedBox(
-                          //   width: 25.w,
-                          // ),
-                          Text(
-                            "Category:",
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 18.sp,
-                              color: const Color(0XFF000000),
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w300,
-                            ),
-                          ),
-                          sizedBoxWidth(8.w),
-                          Text(
-                            // viewSlider[index]['Minimum Investment'],
-                            spotlightinve!.category ?? "NA",
-                            textDirection: TextDirection.ltr,
-                            textAlign: TextAlign.left,
-                            style: TextStyle(
-                              fontSize: 20.sp,
-                              color: const Color(0XFF000000),
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    SizedBox(
-                      height: 40.h,
-                    ),
-                    Padding(
-                      padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-                      child: Container(
-                        height: 50.h,
-                        decoration: BoxDecoration(
-                          boxShadow: const [
-                            BoxShadow(
-                              color: Color.fromARGB(255, 220, 220, 226),
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(10.r),
-                          color: AppColors.blue143C6D,
-                        ),
-                        child: OpenContainerWrappers(
-                          openBuild: Marketplacelearnmore(
-                              slug: spotlightinve!.slug ?? "NA"),
-
-                          // PeerViewInvestment(
-                          //     slug: peerProductsModelObj!
-                          //         .data![index].peerToPeers!.slug!),
-                          closeBuild: SizedBox(
-                            width: double.infinity,
-                            height: 50.h,
-                            child: Center(
-                                child: Text(
-                              'View Offering',
-                              style: TextStyle(
-                                color: AppColors.white,
-                                fontSize: 18.sp,
-                              ),
-                            )),
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-            ),
+                  ),
             sizedBoxHeight(15.h),
             // Text(
             //   'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
@@ -393,372 +423,396 @@ class _MarketTabState extends State<MarketTab> {
                   height: 10.h,
                 ),
 
-                Container(
-                    height: 220.h,
-                    child:
-                        // ListView.builder(
-                        //   scrollDirection: Axis.horizontal,
-                        //   itemCount: featuredinve!.data!.length,
-                        //   itemBuilder: (BuildContext context, int index) {
-                        //     var investmentData = featuredinve!.data![index];
+                featuredinve!.data![1].alternativeInvestmentFund!.isEmpty &&
+                        featuredinve!.data![0].fractionalRealEstate!.isEmpty &&
+                        featuredinve!.data![2].otherProducts!.isEmpty
+                    ? Center(
+                        child: Text(
+                          "No Data Available",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            //Color(0xFF008083),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20.sp,
+                          ),
+                        ),
+                      )
+                    : Container(
+                        height: 220.h,
+                        child:
+                            // ListView.builder(
+                            //   scrollDirection: Axis.horizontal,
+                            //   itemCount: featuredinve!.data!.length,
+                            //   itemBuilder: (BuildContext context, int index) {
+                            //     var investmentData = featuredinve!.data![index];
 
-                        //     if (investmentData.fractionalRealEstate != null) {
-                        //       var investmentDetails =
-                        //           investmentData.fractionalRealEstate![0];
-                        //       return OpenContainerWrappers(
-                        //         closeBuild: fractionalCard(
-                        //           title: investmentDetails.propertyName ?? "NA",
-                        //           text1: investmentDetails.propertyAddress ?? "NA",
-                        //           text2: investmentDetails.assetType ?? "NA",
-                        //           text3: investmentDetails
-                        //                   .fractionalRealEstatePlatform ??
-                        //               "NA",
-                        //           text4: investmentDetails.annualRentalYieldEarned ??
-                        //               "NA",
-                        //           text5:
-                        //               investmentDetails.expectedSellingPrice ?? "NA",
-                        //         ),
-                        //         openBuild: FeaturedInvestment(
-                        //           pageIndex: index,
-                        //         ),
-                        //       );
-                        //     } else if (investmentData.alternativeInvestmentFund !=
-                        //         null) {
-                        //       var investmentDetails =
-                        //           investmentData.alternativeInvestmentFund![0];
-                        //       return OpenContainerWrappers(
-                        //         closeBuild: alternativeCard(
-                        //           title: investmentDetails.nameOfTheAifFund ?? "NA",
-                        //           text1: investmentDetails.fundCategory ?? "NA",
-                        //           text2: investmentDetails.typeOfFund ?? "NA",
-                        //           text3: investmentDetails.expectedSalePerUnit
-                        //               .toString(),
-                        //           text4: investmentDetails.noOfUnitsYouWishToSell
-                        //               .toString(),
-                        //         ),
-                        //         openBuild: FeaturedInvestment(
-                        //           pageIndex: index,
-                        //         ),
-                        //       );
-                        //     } else if (investmentData.otherProducts != null) {
-                        //       var investmentDetails =
-                        //           investmentData.otherProducts![0];
-                        //       return OpenContainerWrappers(
-                        //         closeBuild: otherproductsCard(
-                        //           title: investmentDetails.securityName ?? "NA",
-                        //           text1: investmentDetails.productCategory ?? "NA",
-                        //           text2: investmentDetails.instrumentIssuer ?? "NA",
-                        //           text3: investmentDetails.noOfUnitsOfferedForSale
-                        //               .toString(),
-                        //           text4: investmentDetails.expectedSalePricePerUnit
-                        //               .toString(),
-                        //         ),
-                        //         openBuild: FeaturedInvestment(
-                        //           pageIndex: index,
-                        //         ),
-                        //       );
-                        //     } else {
-                        //       return Text("No featured investments available");
-                        //     }
-                        //   },
-                        // ),
+                            //     if (investmentData.fractionalRealEstate != null) {
+                            //       var investmentDetails =
+                            //           investmentData.fractionalRealEstate![0];
+                            //       return OpenContainerWrappers(
+                            //         closeBuild: fractionalCard(
+                            //           title: investmentDetails.propertyName ?? "NA",
+                            //           text1: investmentDetails.propertyAddress ?? "NA",
+                            //           text2: investmentDetails.assetType ?? "NA",
+                            //           text3: investmentDetails
+                            //                   .fractionalRealEstatePlatform ??
+                            //               "NA",
+                            //           text4: investmentDetails.annualRentalYieldEarned ??
+                            //               "NA",
+                            //           text5:
+                            //               investmentDetails.expectedSellingPrice ?? "NA",
+                            //         ),
+                            //         openBuild: FeaturedInvestment(
+                            //           pageIndex: index,
+                            //         ),
+                            //       );
+                            //     } else if (investmentData.alternativeInvestmentFund !=
+                            //         null) {
+                            //       var investmentDetails =
+                            //           investmentData.alternativeInvestmentFund![0];
+                            //       return OpenContainerWrappers(
+                            //         closeBuild: alternativeCard(
+                            //           title: investmentDetails.nameOfTheAifFund ?? "NA",
+                            //           text1: investmentDetails.fundCategory ?? "NA",
+                            //           text2: investmentDetails.typeOfFund ?? "NA",
+                            //           text3: investmentDetails.expectedSalePerUnit
+                            //               .toString(),
+                            //           text4: investmentDetails.noOfUnitsYouWishToSell
+                            //               .toString(),
+                            //         ),
+                            //         openBuild: FeaturedInvestment(
+                            //           pageIndex: index,
+                            //         ),
+                            //       );
+                            //     } else if (investmentData.otherProducts != null) {
+                            //       var investmentDetails =
+                            //           investmentData.otherProducts![0];
+                            //       return OpenContainerWrappers(
+                            //         closeBuild: otherproductsCard(
+                            //           title: investmentDetails.securityName ?? "NA",
+                            //           text1: investmentDetails.productCategory ?? "NA",
+                            //           text2: investmentDetails.instrumentIssuer ?? "NA",
+                            //           text3: investmentDetails.noOfUnitsOfferedForSale
+                            //               .toString(),
+                            //           text4: investmentDetails.expectedSalePricePerUnit
+                            //               .toString(),
+                            //         ),
+                            //         openBuild: FeaturedInvestment(
+                            //           pageIndex: index,
+                            //         ),
+                            //       );
+                            //     } else {
+                            //       return Text("No featured investments available");
+                            //     }
+                            //   },
+                            // ),
 
-                        //     ListView.builder(
-                        //   scrollDirection: Axis.horizontal,
-                        //   itemCount: featuredinve!.data!.length,
-                        //   itemBuilder: (BuildContext context, int index) {
-                        //     var investmentData = featuredinve!.data![index];
+                            //     ListView.builder(
+                            //   scrollDirection: Axis.horizontal,
+                            //   itemCount: featuredinve!.data!.length,
+                            //   itemBuilder: (BuildContext context, int index) {
+                            //     var investmentData = featuredinve!.data![index];
 
-                        //     if (investmentData.fractionalRealEstate != null &&
-                        //         investmentData.fractionalRealEstate!.isNotEmpty) {
-                        //       return Column(
-                        //         children: investmentData.fractionalRealEstate!
-                        //             .map((investmentDetails) {
-                        //           return OpenContainerWrappers(
-                        //               closeBuild: fractionalCard(
-                        //                 title:
-                        //                     investmentDetails.propertyName ?? "NA",
-                        //                 text1: investmentDetails.propertyAddress ??
-                        //                     "NA",
-                        //                 text2: investmentDetails.assetType ?? "NA",
-                        //                 text3: investmentDetails
-                        //                         .fractionalRealEstatePlatform ??
-                        //                     "NA",
-                        //                 text4: investmentDetails
-                        //                         .annualRentalYieldEarned ??
-                        //                     "NA",
-                        //                 text5: investmentDetails
-                        //                         .expectedSellingPrice ??
-                        //                     "NA",
-                        //               ),
-                        //               openBuild: Fractionalestatelearnmore(
-                        //                   slug: investmentDetails.slug ?? "NA")
-                        //               // FeaturedInvestment(
-                        //               //   pageIndex: index,
-                        //               // ),
-                        //               );
-                        //         }).toList(),
-                        //       );
-                        //     } else if (investmentData.alternativeInvestmentFund !=
-                        //             null &&
-                        //         investmentData
-                        //             .alternativeInvestmentFund!.isNotEmpty) {
-                        //       return Column(
-                        //         children: investmentData.alternativeInvestmentFund!
-                        //             .map((investmentDetails) {
-                        //           return OpenContainerWrappers(
-                        //               closeBuild: alternativeCard(
-                        //                 title: investmentDetails.nameOfTheAifFund ??
-                        //                     "NA",
-                        //                 text1:
-                        //                     investmentDetails.fundCategory ?? "NA",
-                        //                 text2: investmentDetails.typeOfFund ?? "NA",
-                        //                 text3: investmentDetails.expectedSalePerUnit
-                        //                     .toString(),
-                        //                 text4: investmentDetails
-                        //                     .noOfUnitsYouWishToSell
-                        //                     .toString(),
-                        //               ),
-                        //               openBuild: Alternativeinvestlearnmore(
-                        //                   slug: investmentDetails.slug ?? "NA")
-                        //               // FeaturedInvestment(
-                        //               //   pageIndex: index,
-                        //               // ),
-                        //               );
-                        //         }).toList(),
-                        //       );
-                        //     } else if (investmentData.otherProducts != null &&
-                        //         investmentData.otherProducts!.isNotEmpty) {
-                        //       return Column(
-                        //         children: investmentData.otherProducts!
-                        //             .map((investmentDetails) {
-                        //           return OpenContainerWrappers(
-                        //               closeBuild: otherproductsCard(
-                        //                 title:
-                        //                     investmentDetails.securityName ?? "NA",
-                        //                 text1: investmentDetails.productCategory ??
-                        //                     "NA",
-                        //                 text2: investmentDetails.instrumentIssuer ??
-                        //                     "NA",
-                        //                 text3: investmentDetails
-                        //                     .noOfUnitsOfferedForSale
-                        //                     .toString(),
-                        //                 text4: investmentDetails
-                        //                     .expectedSalePricePerUnit
-                        //                     .toString(),
-                        //               ),
-                        //               openBuild: Otherslearnmore(
-                        //                   slug: investmentDetails.slug ?? "NA")
-                        //               // FeaturedInvestment(
-                        //               //   pageIndex: index,
-                        //               // ),
-                        //               );
-                        //         }).toList(),
-                        //       );
-                        //     } else {
-                        //       return Text("No featured investments available");
-                        //     }
-                        //   },
-                        // ))
+                            //     if (investmentData.fractionalRealEstate != null &&
+                            //         investmentData.fractionalRealEstate!.isNotEmpty) {
+                            //       return Column(
+                            //         children: investmentData.fractionalRealEstate!
+                            //             .map((investmentDetails) {
+                            //           return OpenContainerWrappers(
+                            //               closeBuild: fractionalCard(
+                            //                 title:
+                            //                     investmentDetails.propertyName ?? "NA",
+                            //                 text1: investmentDetails.propertyAddress ??
+                            //                     "NA",
+                            //                 text2: investmentDetails.assetType ?? "NA",
+                            //                 text3: investmentDetails
+                            //                         .fractionalRealEstatePlatform ??
+                            //                     "NA",
+                            //                 text4: investmentDetails
+                            //                         .annualRentalYieldEarned ??
+                            //                     "NA",
+                            //                 text5: investmentDetails
+                            //                         .expectedSellingPrice ??
+                            //                     "NA",
+                            //               ),
+                            //               openBuild: Fractionalestatelearnmore(
+                            //                   slug: investmentDetails.slug ?? "NA")
+                            //               // FeaturedInvestment(
+                            //               //   pageIndex: index,
+                            //               // ),
+                            //               );
+                            //         }).toList(),
+                            //       );
+                            //     } else if (investmentData.alternativeInvestmentFund !=
+                            //             null &&
+                            //         investmentData
+                            //             .alternativeInvestmentFund!.isNotEmpty) {
+                            //       return Column(
+                            //         children: investmentData.alternativeInvestmentFund!
+                            //             .map((investmentDetails) {
+                            //           return OpenContainerWrappers(
+                            //               closeBuild: alternativeCard(
+                            //                 title: investmentDetails.nameOfTheAifFund ??
+                            //                     "NA",
+                            //                 text1:
+                            //                     investmentDetails.fundCategory ?? "NA",
+                            //                 text2: investmentDetails.typeOfFund ?? "NA",
+                            //                 text3: investmentDetails.expectedSalePerUnit
+                            //                     .toString(),
+                            //                 text4: investmentDetails
+                            //                     .noOfUnitsYouWishToSell
+                            //                     .toString(),
+                            //               ),
+                            //               openBuild: Alternativeinvestlearnmore(
+                            //                   slug: investmentDetails.slug ?? "NA")
+                            //               // FeaturedInvestment(
+                            //               //   pageIndex: index,
+                            //               // ),
+                            //               );
+                            //         }).toList(),
+                            //       );
+                            //     } else if (investmentData.otherProducts != null &&
+                            //         investmentData.otherProducts!.isNotEmpty) {
+                            //       return Column(
+                            //         children: investmentData.otherProducts!
+                            //             .map((investmentDetails) {
+                            //           return OpenContainerWrappers(
+                            //               closeBuild: otherproductsCard(
+                            //                 title:
+                            //                     investmentDetails.securityName ?? "NA",
+                            //                 text1: investmentDetails.productCategory ??
+                            //                     "NA",
+                            //                 text2: investmentDetails.instrumentIssuer ??
+                            //                     "NA",
+                            //                 text3: investmentDetails
+                            //                     .noOfUnitsOfferedForSale
+                            //                     .toString(),
+                            //                 text4: investmentDetails
+                            //                     .expectedSalePricePerUnit
+                            //                     .toString(),
+                            //               ),
+                            //               openBuild: Otherslearnmore(
+                            //                   slug: investmentDetails.slug ?? "NA")
+                            //               // FeaturedInvestment(
+                            //               //   pageIndex: index,
+                            //               // ),
+                            //               );
+                            //         }).toList(),
+                            //       );
+                            //     } else {
+                            //       return Text("No featured investments available");
+                            //     }
+                            //   },
+                            // ))
 
-                        //       ListView.builder(
-                        //     scrollDirection: Axis.horizontal,
-                        //     itemCount: featuredinve!.data!.length,
-                        //     itemBuilder: (BuildContext context, int index) {
-                        //       var investmentData = featuredinve!.data![index];
+                            //       ListView.builder(
+                            //     scrollDirection: Axis.horizontal,
+                            //     itemCount: featuredinve!.data!.length,
+                            //     itemBuilder: (BuildContext context, int index) {
+                            //       var investmentData = featuredinve!.data![index];
 
-                        //       if (investmentData.fractionalRealEstate != null &&
-                        //           investmentData.fractionalRealEstate!.isNotEmpty) {
-                        //         return Column(
-                        //           children: investmentData.fractionalRealEstate!
-                        //               .map((investmentDetails) {
-                        //             return OpenContainerWrappers(
-                        //                 closeBuild: fractionalCard(
-                        //                   title: investmentDetails.propertyName ?? "NA",
-                        //                   text1:
-                        //                       investmentDetails.propertyAddress ?? "NA",
-                        //                   text2: investmentDetails.assetType ?? "NA",
-                        //                   text3: investmentDetails
-                        //                           .fractionalRealEstatePlatform ??
-                        //                       "NA",
-                        //                   text4: investmentDetails
-                        //                           .annualRentalYieldEarned ??
-                        //                       "NA",
-                        //                   text5:
-                        //                       investmentDetails.expectedSellingPrice ??
-                        //                           "NA",
-                        //                 ),
-                        //                 openBuild: Fractionalestatelearnmore(
-                        //                     slug: investmentDetails.slug ?? "NA"));
-                        //           }).toList(),
-                        //         );
-                        //       } else if (investmentData.alternativeInvestmentFund !=
-                        //               null &&
-                        //           investmentData
-                        //               .alternativeInvestmentFund!.isNotEmpty) {
-                        //         return Column(
-                        //           children: investmentData.alternativeInvestmentFund!
-                        //               .map((investmentDetails) {
-                        //             return OpenContainerWrappers(
-                        //                 closeBuild: alternativeCard(
-                        //                   title: investmentDetails.nameOfTheAifFund ??
-                        //                       "NA",
-                        //                   text1: investmentDetails.fundCategory ?? "NA",
-                        //                   text2: investmentDetails.typeOfFund ?? "NA",
-                        //                   text3: investmentDetails.expectedSalePerUnit
-                        //                       .toString(),
-                        //                   text4: investmentDetails
-                        //                       .noOfUnitsYouWishToSell
-                        //                       .toString(),
-                        //                 ),
-                        //                 openBuild: Alternativeinvestlearnmore(
-                        //                     slug: investmentDetails.slug ?? "NA"));
-                        //           }).toList(),
-                        //         );
-                        //       } else if (investmentData.otherProducts != null &&
-                        //           investmentData.otherProducts!.isNotEmpty) {
-                        //         return Column(
-                        //           children: investmentData.otherProducts!
-                        //               .map((investmentDetails) {
-                        //             return OpenContainerWrappers(
-                        //                 closeBuild: otherproductsCard(
-                        //                   title: investmentDetails.securityName ?? "NA",
-                        //                   text1:
-                        //                       investmentDetails.productCategory ?? "NA",
-                        //                   text2: investmentDetails.instrumentIssuer ??
-                        //                       "NA",
-                        //                   text3: investmentDetails
-                        //                       .noOfUnitsOfferedForSale
-                        //                       .toString(),
-                        //                   text4: investmentDetails
-                        //                       .expectedSalePricePerUnit
-                        //                       .toString(),
-                        //                 ),
-                        //                 openBuild: Otherslearnmore(
-                        //                     slug: investmentDetails.slug ?? "NA"));
-                        //           }).toList(),
-                        //         );
-                        //       } else {
-                        //         return Text("No featured investments available");
-                        //       }
-                        //     },
-                        //   ),
-                        // ),
+                            //       if (investmentData.fractionalRealEstate != null &&
+                            //           investmentData.fractionalRealEstate!.isNotEmpty) {
+                            //         return Column(
+                            //           children: investmentData.fractionalRealEstate!
+                            //               .map((investmentDetails) {
+                            //             return OpenContainerWrappers(
+                            //                 closeBuild: fractionalCard(
+                            //                   title: investmentDetails.propertyName ?? "NA",
+                            //                   text1:
+                            //                       investmentDetails.propertyAddress ?? "NA",
+                            //                   text2: investmentDetails.assetType ?? "NA",
+                            //                   text3: investmentDetails
+                            //                           .fractionalRealEstatePlatform ??
+                            //                       "NA",
+                            //                   text4: investmentDetails
+                            //                           .annualRentalYieldEarned ??
+                            //                       "NA",
+                            //                   text5:
+                            //                       investmentDetails.expectedSellingPrice ??
+                            //                           "NA",
+                            //                 ),
+                            //                 openBuild: Fractionalestatelearnmore(
+                            //                     slug: investmentDetails.slug ?? "NA"));
+                            //           }).toList(),
+                            //         );
+                            //       } else if (investmentData.alternativeInvestmentFund !=
+                            //               null &&
+                            //           investmentData
+                            //               .alternativeInvestmentFund!.isNotEmpty) {
+                            //         return Column(
+                            //           children: investmentData.alternativeInvestmentFund!
+                            //               .map((investmentDetails) {
+                            //             return OpenContainerWrappers(
+                            //                 closeBuild: alternativeCard(
+                            //                   title: investmentDetails.nameOfTheAifFund ??
+                            //                       "NA",
+                            //                   text1: investmentDetails.fundCategory ?? "NA",
+                            //                   text2: investmentDetails.typeOfFund ?? "NA",
+                            //                   text3: investmentDetails.expectedSalePerUnit
+                            //                       .toString(),
+                            //                   text4: investmentDetails
+                            //                       .noOfUnitsYouWishToSell
+                            //                       .toString(),
+                            //                 ),
+                            //                 openBuild: Alternativeinvestlearnmore(
+                            //                     slug: investmentDetails.slug ?? "NA"));
+                            //           }).toList(),
+                            //         );
+                            //       } else if (investmentData.otherProducts != null &&
+                            //           investmentData.otherProducts!.isNotEmpty) {
+                            //         return Column(
+                            //           children: investmentData.otherProducts!
+                            //               .map((investmentDetails) {
+                            //             return OpenContainerWrappers(
+                            //                 closeBuild: otherproductsCard(
+                            //                   title: investmentDetails.securityName ?? "NA",
+                            //                   text1:
+                            //                       investmentDetails.productCategory ?? "NA",
+                            //                   text2: investmentDetails.instrumentIssuer ??
+                            //                       "NA",
+                            //                   text3: investmentDetails
+                            //                       .noOfUnitsOfferedForSale
+                            //                       .toString(),
+                            //                   text4: investmentDetails
+                            //                       .expectedSalePricePerUnit
+                            //                       .toString(),
+                            //                 ),
+                            //                 openBuild: Otherslearnmore(
+                            //                     slug: investmentDetails.slug ?? "NA"));
+                            //           }).toList(),
+                            //         );
+                            //       } else {
+                            //         return Text("No featured investments available");
+                            //       }
+                            //     },
+                            //   ),
+                            // ),
 
-                        ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: featuredinve!.data!.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        var investmentData = featuredinve!.data![index];
+                            ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: featuredinve!.data!.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            var investmentData = featuredinve!.data![index];
 
-                        List<Widget> investmentWidgets = [];
+                            List<Widget> investmentWidgets = [];
 
-                        if (investmentData.fractionalRealEstate != null &&
-                            investmentData.fractionalRealEstate!.isNotEmpty) {
-                          // Wrap fractional real estate cards in a Row
-                          investmentWidgets.add(
-                            Row(
-                              children: investmentData.fractionalRealEstate!
-                                  .map((investmentDetails) {
-                                return OpenContainerWrappers(
-                                  closeBuild: fractionalCard(
-                                    title:
-                                        investmentDetails.propertyName ?? "NA",
-                                    text1: investmentDetails.propertyAddress ??
-                                        "NA",
-                                    text2: investmentDetails.assetType ?? "NA",
-                                    text3: investmentDetails
-                                            .fractionalRealEstatePlatform ??
-                                        "NA",
-                                    text4: investmentDetails
-                                            .annualRentalYieldEarned ??
-                                        "NA",
-                                    text5: investmentDetails
-                                            .expectedSellingPrice ??
-                                        "NA",
-                                  ),
-                                  openBuild: Fractionalestatelearnmore(
-                                    slug: investmentDetails.slug ?? "NA",
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          );
-                        }
+                            if (investmentData.fractionalRealEstate != null &&
+                                investmentData
+                                    .fractionalRealEstate!.isNotEmpty) {
+                              // Wrap fractional real estate cards in a Row
+                              investmentWidgets.add(
+                                Row(
+                                  children: investmentData.fractionalRealEstate!
+                                      .map((investmentDetails) {
+                                    return OpenContainerWrappers(
+                                      closeBuild: fractionalCard(
+                                        title: investmentDetails.propertyName ??
+                                            "NA",
+                                        text1:
+                                            investmentDetails.propertyAddress ??
+                                                "NA",
+                                        text2:
+                                            investmentDetails.assetType ?? "NA",
+                                        text3: investmentDetails
+                                                .fractionalRealEstatePlatform ??
+                                            "NA",
+                                        text4: investmentDetails
+                                                .annualRentalYieldEarned ??
+                                            "NA",
+                                        text5: investmentDetails
+                                                .expectedSellingPrice ??
+                                            "NA",
+                                      ),
+                                      openBuild: Fractionalestatelearnmore(
+                                        slug: investmentDetails.slug ?? "NA",
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              );
+                            }
 
-                        if (investmentData.alternativeInvestmentFund != null &&
-                            investmentData
-                                .alternativeInvestmentFund!.isNotEmpty) {
-                          // Wrap alternative investment cards in a Row
-                          investmentWidgets.add(
-                            Row(
-                              children: investmentData
-                                  .alternativeInvestmentFund!
-                                  .map((investmentDetails) {
-                                return OpenContainerWrappers(
-                                  closeBuild: alternativeCard(
-                                    title: investmentDetails.nameOfTheAifFund ??
-                                        "NA",
-                                    text1:
-                                        investmentDetails.fundCategory ?? "NA",
-                                    text2: investmentDetails.typeOfFund ?? "NA",
-                                    text3: investmentDetails.expectedSalePerUnit
-                                        .toString(),
-                                    text4: investmentDetails
-                                        .noOfUnitsYouWishToSell
-                                        .toString(),
-                                  ),
-                                  openBuild: Alternativeinvestlearnmore(
-                                    slug: investmentDetails.slug ?? "NA",
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          );
-                        }
+                            if (investmentData.alternativeInvestmentFund !=
+                                    null &&
+                                investmentData
+                                    .alternativeInvestmentFund!.isNotEmpty) {
+                              // Wrap alternative investment cards in a Row
+                              investmentWidgets.add(
+                                Row(
+                                  children: investmentData
+                                      .alternativeInvestmentFund!
+                                      .map((investmentDetails) {
+                                    return OpenContainerWrappers(
+                                      closeBuild: alternativeCard(
+                                        title: investmentDetails
+                                                .nameOfTheAifFund ??
+                                            "NA",
+                                        text1: investmentDetails.fundCategory ??
+                                            "NA",
+                                        text2: investmentDetails.typeOfFund ??
+                                            "NA",
+                                        text3: investmentDetails
+                                            .expectedSalePerUnit
+                                            .toString(),
+                                        text4: investmentDetails
+                                            .noOfUnitsYouWishToSell
+                                            .toString(),
+                                      ),
+                                      openBuild: Alternativeinvestlearnmore(
+                                        slug: investmentDetails.slug ?? "NA",
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              );
+                            }
 
-                        if (investmentData.otherProducts != null &&
-                            investmentData.otherProducts!.isNotEmpty) {
-                          // Wrap other products cards in a Row
-                          investmentWidgets.add(
-                            Row(
-                              children: investmentData.otherProducts!
-                                  .map((investmentDetails) {
-                                return OpenContainerWrappers(
-                                  closeBuild: otherproductsCard(
-                                    title:
-                                        investmentDetails.securityName ?? "NA",
-                                    text1: investmentDetails.productCategory ??
-                                        "NA",
-                                    text2: investmentDetails.instrumentIssuer ??
-                                        "NA",
-                                    text3: investmentDetails
-                                        .noOfUnitsOfferedForSale
-                                        .toString(),
-                                    text4: investmentDetails
-                                        .expectedSalePricePerUnit
-                                        .toString(),
-                                  ),
-                                  openBuild: Otherslearnmore(
-                                    slug: investmentDetails.slug ?? "NA",
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          );
-                        }
+                            if (investmentData.otherProducts != null &&
+                                investmentData.otherProducts!.isNotEmpty) {
+                              // Wrap other products cards in a Row
+                              investmentWidgets.add(
+                                Row(
+                                  children: investmentData.otherProducts!
+                                      .map((investmentDetails) {
+                                    return OpenContainerWrappers(
+                                      closeBuild: otherproductsCard(
+                                        title: investmentDetails.securityName ??
+                                            "NA",
+                                        text1:
+                                            investmentDetails.productCategory ??
+                                                "NA",
+                                        text2: investmentDetails
+                                                .instrumentIssuer ??
+                                            "NA",
+                                        text3: investmentDetails
+                                            .noOfUnitsOfferedForSale
+                                            .toString(),
+                                        text4: investmentDetails
+                                            .expectedSalePricePerUnit
+                                            .toString(),
+                                      ),
+                                      openBuild: Otherslearnmore(
+                                        slug: investmentDetails.slug ?? "NA",
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              );
+                            }
 
-                        // if (investmentWidgets.isEmpty) {
-                        //   return Text("No featured investments available");
-                        // }
+                            // if (investmentWidgets.isEmpty) {
+                            //   return Text("No featured investments available");
+                            // }
 
-                        return investmentWidgets.isNotEmpty
-                            ? Column(
-                                children: investmentWidgets,
-                              )
-                            : SizedBox.shrink();
-                      },
-                    )),
+                            return investmentWidgets.isNotEmpty
+                                ? Column(
+                                    children: investmentWidgets,
+                                  )
+                                : SizedBox.shrink();
+                          },
+                        )),
 
                 // SingleChildScrollView(
                 //     scrollDirection: Axis.horizontal,
@@ -805,223 +859,271 @@ class _MarketTabState extends State<MarketTab> {
                 SizedBox(
                   height: 10.h,
                 ),
-                Container(
-                    height: 220.h,
-                    child:
-                    
+                nonfeaturedinve!.data![1].alternativeInvestmentFund!.isEmpty &&
+                        nonfeaturedinve!
+                            .data![0].fractionalRealEstate!.isEmpty &&
+                        nonfeaturedinve!.data![2].otherProducts!.isEmpty
+                    ? Center(
+                        child: Text(
+                          "No Data Available",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.black,
+                            //Color(0xFF008083),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 20.sp,
+                          ),
+                        ),
+                      )
+                    : Container(
+                        height: 220.h,
+                        child:
+
 //
 
-                        //     ListView.builder(
-                        //   scrollDirection: Axis.horizontal,
-                        //   itemCount: nonfeaturedinve!.data!.length,
-                        //   itemBuilder: (BuildContext context, int index) {
-                        //     var investmentData = nonfeaturedinve!.data![index];
+                            //     ListView.builder(
+                            //   scrollDirection: Axis.horizontal,
+                            //   itemCount: nonfeaturedinve!.data!.length,
+                            //   itemBuilder: (BuildContext context, int index) {
+                            //     var investmentData = nonfeaturedinve!.data![index];
 
-                        //     List<Widget> investmentWidgets = [];
+                            //     List<Widget> investmentWidgets = [];
 
-                        //     if (investmentData.fractionalRealEstate != null &&
-                        //         investmentData.fractionalRealEstate!.isNotEmpty) {
-                        //       investmentWidgets.addAll(investmentData
-                        //           .fractionalRealEstate!
-                        //           .map((investmentDetails) {
-                        //         return OpenContainerWrappers(
-                        //           closeBuild: fractionalCard(
-                        //             title: investmentDetails.propertyName ?? "NA",
-                        //             text1:
-                        //                 investmentDetails.propertyAddress ?? "NA",
-                        //             text2: investmentDetails.assetType ?? "NA",
-                        //             text3: investmentDetails
-                        //                     .fractionalRealEstatePlatform ??
-                        //                 "NA",
-                        //             text4:
-                        //                 investmentDetails.annualRentalYieldEarned ??
-                        //                     "NA",
-                        //             text5: investmentDetails.expectedSellingPrice ??
-                        //                 "NA",
-                        //           ),
-                        //           openBuild: Fractionalestatelearnmore(
-                        //             slug: investmentDetails.slug ?? "NA",
-                        //           ),
-                        //         );
-                        //       }).toList());
-                        //     }
+                            //     if (investmentData.fractionalRealEstate != null &&
+                            //         investmentData.fractionalRealEstate!.isNotEmpty) {
+                            //       investmentWidgets.addAll(investmentData
+                            //           .fractionalRealEstate!
+                            //           .map((investmentDetails) {
+                            //         return OpenContainerWrappers(
+                            //           closeBuild: fractionalCard(
+                            //             title: investmentDetails.propertyName ?? "NA",
+                            //             text1:
+                            //                 investmentDetails.propertyAddress ?? "NA",
+                            //             text2: investmentDetails.assetType ?? "NA",
+                            //             text3: investmentDetails
+                            //                     .fractionalRealEstatePlatform ??
+                            //                 "NA",
+                            //             text4:
+                            //                 investmentDetails.annualRentalYieldEarned ??
+                            //                     "NA",
+                            //             text5: investmentDetails.expectedSellingPrice ??
+                            //                 "NA",
+                            //           ),
+                            //           openBuild: Fractionalestatelearnmore(
+                            //             slug: investmentDetails.slug ?? "NA",
+                            //           ),
+                            //         );
+                            //       }).toList());
+                            //     }
 
-                        //     if (investmentData.alternativeInvestmentFund != null &&
-                        //         investmentData
-                        //             .alternativeInvestmentFund!.isNotEmpty) {
-                        //       investmentWidgets.addAll(investmentData
-                        //           .alternativeInvestmentFund!
-                        //           .map((investmentDetails) {
-                        //         return OpenContainerWrappers(
-                        //           closeBuild: alternativeCard(
-                        //             title:
-                        //                 investmentDetails.nameOfTheAifFund ?? "NA",
-                        //             text1: investmentDetails.fundCategory ?? "NA",
-                        //             text2: investmentDetails.typeOfFund ?? "NA",
-                        //             text3: investmentDetails.expectedSalePerUnit
-                        //                 .toString(),
-                        //             text4: investmentDetails.noOfUnitsYouWishToSell
-                        //                 .toString(),
-                        //           ),
-                        //           openBuild: Alternativeinvestlearnmore(
-                        //             slug: investmentDetails.slug ?? "NA",
-                        //           ),
-                        //         );
-                        //       }).toList());
-                        //     }
+                            //     if (investmentData.alternativeInvestmentFund != null &&
+                            //         investmentData
+                            //             .alternativeInvestmentFund!.isNotEmpty) {
+                            //       investmentWidgets.addAll(investmentData
+                            //           .alternativeInvestmentFund!
+                            //           .map((investmentDetails) {
+                            //         return OpenContainerWrappers(
+                            //           closeBuild: alternativeCard(
+                            //             title:
+                            //                 investmentDetails.nameOfTheAifFund ?? "NA",
+                            //             text1: investmentDetails.fundCategory ?? "NA",
+                            //             text2: investmentDetails.typeOfFund ?? "NA",
+                            //             text3: investmentDetails.expectedSalePerUnit
+                            //                 .toString(),
+                            //             text4: investmentDetails.noOfUnitsYouWishToSell
+                            //                 .toString(),
+                            //           ),
+                            //           openBuild: Alternativeinvestlearnmore(
+                            //             slug: investmentDetails.slug ?? "NA",
+                            //           ),
+                            //         );
+                            //       }).toList());
+                            //     }
 
-                        //     if (investmentData.otherProducts != null &&
-                        //         investmentData.otherProducts!.isNotEmpty) {
-                        //       investmentWidgets.addAll(investmentData.otherProducts!
-                        //           .map((investmentDetails) {
-                        //         return OpenContainerWrappers(
-                        //           closeBuild: otherproductsCard(
-                        //             title: investmentDetails.securityName ?? "NA",
-                        //             text1:
-                        //                 investmentDetails.productCategory ?? "NA",
-                        //             text2:
-                        //                 investmentDetails.instrumentIssuer ?? "NA",
-                        //             text3: investmentDetails.noOfUnitsOfferedForSale
-                        //                 .toString(),
-                        //             text4: investmentDetails
-                        //                 .expectedSalePricePerUnit
-                        //                 .toString(),
-                        //           ),
-                        //           openBuild: Otherslearnmore(
-                        //             slug: investmentDetails.slug ?? "NA",
-                        //           ),
-                        //         );
-                        //       }).toList());
-                        //     }
+                            //     if (investmentData.otherProducts != null &&
+                            //         investmentData.otherProducts!.isNotEmpty) {
+                            //       investmentWidgets.addAll(investmentData.otherProducts!
+                            //           .map((investmentDetails) {
+                            //         return OpenContainerWrappers(
+                            //           closeBuild: otherproductsCard(
+                            //             title: investmentDetails.securityName ?? "NA",
+                            //             text1:
+                            //                 investmentDetails.productCategory ?? "NA",
+                            //             text2:
+                            //                 investmentDetails.instrumentIssuer ?? "NA",
+                            //             text3: investmentDetails.noOfUnitsOfferedForSale
+                            //                 .toString(),
+                            //             text4: investmentDetails
+                            //                 .expectedSalePricePerUnit
+                            //                 .toString(),
+                            //           ),
+                            //           openBuild: Otherslearnmore(
+                            //             slug: investmentDetails.slug ?? "NA",
+                            //           ),
+                            //         );
+                            //       }).toList());
+                            //     }
 
-                        //     return investmentWidgets.isNotEmpty
-                        //         ? Column(
-                        //             children: investmentWidgets,
-                        //           )
-                        //         : SizedBox
-                        //             .shrink(); // If there's no data, return an empty SizedBox
-                        //   },
-                        // )  
-                        ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: nonfeaturedinve!.data!.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        var investmentData = nonfeaturedinve!.data![index];
+                            //     return investmentWidgets.isNotEmpty
+                            //         ? Column(
+                            //             children: investmentWidgets,
+                            //           )
+                            //         : SizedBox
+                            //             .shrink(); // If there's no data, return an empty SizedBox
+                            //   },
+                            // )
 
-                        List<Widget> investmentWidgets = [];
+                            ListView.builder(
+                          scrollDirection: Axis.horizontal,
+                          itemCount: nonfeaturedinve!.data!.length,
+                          itemBuilder: (BuildContext context, int index) {
+                            var investmentData = nonfeaturedinve!.data![index];
 
-                        if (investmentData.fractionalRealEstate != null &&
-                            investmentData.fractionalRealEstate!.isNotEmpty) {
-                          // Wrap fractional real estate cards in a Row
-                          investmentWidgets.add(
-                            Row(
-                              children: investmentData.fractionalRealEstate!
-                                  .map((investmentDetails) {
-                                return OpenContainerWrappers(
-                                  closeBuild: fractionalCard(
-                                    title:
-                                        investmentDetails.propertyName ?? "NA",
-                                    text1: investmentDetails.propertyAddress ??
-                                        "NA",
-                                    text2: investmentDetails.assetType ?? "NA",
-                                    text3: investmentDetails
-                                            .fractionalRealEstatePlatform ??
-                                        "NA",
-                                    text4: investmentDetails
-                                            .annualRentalYieldEarned ??
-                                        "NA",
-                                    text5: investmentDetails
-                                            .expectedSellingPrice ??
-                                        "NA",
-                                  ),
-                                  openBuild: Fractionalestatelearnmore(
-                                    slug: investmentDetails.slug ?? "NA",
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          );
-                        }
+                            List<Widget> investmentWidgets = [];
 
-                        if (investmentData.alternativeInvestmentFund != null &&
-                            investmentData
-                                .alternativeInvestmentFund!.isNotEmpty) {
-                          // Wrap alternative investment cards in a Row
-                          investmentWidgets.add(
-                            Row(
-                              children: investmentData
-                                  .alternativeInvestmentFund!
-                                  .map((investmentDetails) {
-                                return OpenContainerWrappers(
-                                  closeBuild: alternativeCard(
-                                    title: investmentDetails.nameOfTheAifFund ??
-                                        "NA",
-                                    text1:
-                                        investmentDetails.fundCategory ?? "NA",
-                                    text2: investmentDetails.typeOfFund ?? "NA",
-                                    text3: investmentDetails.expectedSalePerUnit
-                                        .toString(),
-                                    text4: investmentDetails
-                                        .noOfUnitsYouWishToSell
-                                        .toString(),
-                                  ),
-                                  openBuild: Alternativeinvestlearnmore(
-                                    slug: investmentDetails.slug ?? "NA",
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          );
-                        }
+                            if (investmentData.fractionalRealEstate != null &&
+                                investmentData
+                                    .fractionalRealEstate!.isNotEmpty) {
+                              // Wrap fractional real estate cards in a Row
+                              investmentWidgets.add(
+                                Row(
+                                  children: investmentData.fractionalRealEstate!
+                                      .map((investmentDetails) {
+                                    return OpenContainerWrappers(
+                                      closeBuild: fractionalCard(
+                                        title: investmentDetails.propertyName ??
+                                            "NA",
+                                        text1:
+                                            investmentDetails.propertyAddress ??
+                                                "NA",
+                                        text2:
+                                            investmentDetails.assetType ?? "NA",
+                                        text3: investmentDetails
+                                                .fractionalRealEstatePlatform ??
+                                            "NA",
+                                        text4: investmentDetails
+                                                .annualRentalYieldEarned ??
+                                            "NA",
+                                        text5: investmentDetails
+                                                .expectedSellingPrice ??
+                                            "NA",
+                                      ),
+                                      openBuild: Fractionalestatelearnmore(
+                                        slug: investmentDetails.slug ?? "NA",
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              );
+                            }
 
-                        if (investmentData.otherProducts != null &&
-                            investmentData.otherProducts!.isNotEmpty) {
-                          // Wrap other products cards in a Row
-                          investmentWidgets.add(
-                            Row(
-                              children: investmentData.otherProducts!
-                                  .map((investmentDetails) {
-                                return OpenContainerWrappers(
-                                  closeBuild: otherproductsCard(
-                                    title:
-                                        investmentDetails.securityName ?? "NA",
-                                    text1: investmentDetails.productCategory ??
-                                        "NA",
-                                    text2: investmentDetails.instrumentIssuer ??
-                                        "NA",
-                                    text3: investmentDetails
-                                        .noOfUnitsOfferedForSale
-                                        .toString(),
-                                    text4: investmentDetails
-                                        .expectedSalePricePerUnit
-                                        .toString(),
-                                  ),
-                                  openBuild: Otherslearnmore(
-                                    slug: investmentDetails.slug ?? "NA",
-                                  ),
-                                );
-                              }).toList(),
-                            ),
-                          );
-                        }
+                            if (investmentData.alternativeInvestmentFund !=
+                                    null &&
+                                investmentData
+                                    .alternativeInvestmentFund!.isNotEmpty) {
+                              // Wrap alternative investment cards in a Row
+                              investmentWidgets.add(
+                                Row(
+                                  children: investmentData
+                                      .alternativeInvestmentFund!
+                                      .map((investmentDetails) {
+                                    return OpenContainerWrappers(
+                                      closeBuild: alternativeCard(
+                                        title: investmentDetails
+                                                .nameOfTheAifFund ??
+                                            "NA",
+                                        text1: investmentDetails.fundCategory ??
+                                            "NA",
+                                        text2: investmentDetails.typeOfFund ??
+                                            "NA",
+                                        text3: investmentDetails
+                                            .expectedSalePerUnit
+                                            .toString(),
+                                        text4: investmentDetails
+                                            .noOfUnitsYouWishToSell
+                                            .toString(),
+                                      ),
+                                      openBuild: Alternativeinvestlearnmore(
+                                        slug: investmentDetails.slug ?? "NA",
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              );
+                            }
 
-                        // if (investmentWidgets.isEmpty) {
-                        //   return Text("No featured investments available");
-                        // }
+                            if (investmentData.otherProducts != null &&
+                                investmentData.otherProducts!.isNotEmpty) {
+                              // Wrap other products cards in a Row
+                              investmentWidgets.add(
+                                Row(
+                                  children: investmentData.otherProducts!
+                                      .map((investmentDetails) {
+                                    return OpenContainerWrappers(
+                                      closeBuild: otherproductsCard(
+                                        title: investmentDetails.securityName ??
+                                            "NA",
+                                        text1:
+                                            investmentDetails.productCategory ??
+                                                "NA",
+                                        text2: investmentDetails
+                                                .instrumentIssuer ??
+                                            "NA",
+                                        text3: investmentDetails
+                                            .noOfUnitsOfferedForSale
+                                            .toString(),
+                                        text4: investmentDetails
+                                            .expectedSalePricePerUnit
+                                            .toString(),
+                                      ),
+                                      openBuild: Otherslearnmore(
+                                        slug: investmentDetails.slug ?? "NA",
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              );
+                            }
 
-                        return investmentWidgets.isNotEmpty
-                            ? Column(
-                                children: investmentWidgets,
-                              )
-                            : SizedBox.shrink();
-                      },
-                    ))
+                            // if (investmentWidgets.isEmpty) {
+                            //   return Text("No featured investments available");
+                            // }
+
+                            return investmentWidgets.isNotEmpty
+                                ? Column(
+                                    children: investmentWidgets,
+                                  )
+                                : SizedBox.shrink();
+                          },
+                        ))
               ],
             ),
             sizedBoxHeight(80.h),
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildNodataBody() {
+    return
+        //  Scaffold(
+        //   body:
+        Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Lottie.asset('assets/logos/NoDataFoundLottie.json'),
+        Text(
+          "No Data Available",
+          style: TextStyle(
+            color: Colors.black,
+            //Color(0xFF008083),
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+          ),
+        ),
+      ],
     );
   }
 
