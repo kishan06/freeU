@@ -6,12 +6,11 @@ import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Globalcateg
 import 'package:freeu/HomePage/Categories/GlobalRealAssets/mainglobalrealassts.dart';
 import 'package:freeu/HomePage/Categories/IndianRealAssets/mainindianrealassets.dart';
 import 'package:freeu/HomePage/Categories/cat_filter.dart';
-import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
-import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/controllers/cat_controller.dart';
 import 'package:get/get.dart';
 
 class CatMainScreen extends StatefulWidget {
@@ -53,101 +52,183 @@ class _CatMainScreenState extends State<CatMainScreen> {
     },
   ];
 
+  CatController controllerCat = Get.put(CatController());
+
+  // CatController controllerset = Get.put(CatController());
+
+
+  // late Timer timer;
+  // StreamController<FilterResponse> filterlistController =
+  //   StreamController.broadcast();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // controllerset.setTrue();
+    controllerCat.setTrue();
+    
+    // timer = Timer.periodic(Duration(seconds: 2), (timer) {
+    //   Filtercategories().Postfilter(filterlistController);
+    //  });
+
+    // Filtercategories().Postfilter(filterobj);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    // filterlistController.close();
+    // timer.cancel();
+    super.dispose();
+    //   if (mounted) {
+    //   timer = Timer.periodic(Duration(seconds: 3), (timer) {
+    //     controllerset.dispose();
+    //   });
+    // }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.white,
-        title: Row(
-          children: [
-            sizedBoxWidth(50.w),
-            Text(
-              'Categories',
-              softWrap: true,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  fontFamily: 'Poppins', fontSize: 22.sp, color: Colors.black),
-            ),
-            const Spacer(),
-            filter(),
-            sizedBoxWidth(6.w),
-            // OpenContainerWrappers(
-            //   closeBuild: IconButton(
-            //     onPressed: null,
-            //     icon: SizedBox(
-            //       width: 20.w,
-            //       height: 25.h,
-            //       child: SvgPicture.asset(
-            //         'assets/images/notification-bell-svgrepo-com.svg',
-            //         fit: BoxFit.fill,
-            //       ),
-            //     ),
-            //   ),
-            //   openBuild: const NotificationPage(),
-            // ),
-            InkWell(
-              onTap: () {
-                Get.toNamed("/notificationpage");
-              },
-              child: Padding(
-                padding: EdgeInsets.only(right: 16.w),
-                child: SvgPicture.asset(
-                  'assets/images/notification-bell-svgrepo-com.svg',
-                  fit: BoxFit.fill,
+        appBar: AppBar(
+          backgroundColor: AppColors.white,
+          title: Row(
+            children: [
+              sizedBoxWidth(50.w),
+              Text(
+                'Categories',
+                softWrap: true,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontSize: 22.sp,
+                    color: Colors.black),
+              ),
+              const Spacer(),
+              filter(),
+              sizedBoxWidth(6.w),
+              // OpenContainerWrappers(
+              //   closeBuild: IconButton(
+              //     onPressed: null,
+              //     icon: SizedBox(
+              //       width: 20.w,
+              //       height: 25.h,
+              //       child: SvgPicture.asset(
+              //         'assets/images/notification-bell-svgrepo-com.svg',
+              //         fit: BoxFit.fill,
+              //       ),
+              //     ),
+              //   ),
+              //   openBuild: const NotificationPage(),
+              // ),
+              InkWell(
+                onTap: () {
+                  Get.toNamed("/notificationpage");
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(right: 16.w),
+                  child: SvgPicture.asset(
+                    'assets/images/notification-bell-svgrepo-com.svg',
+                    fit: BoxFit.fill,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
+          elevation: 0,
+          shadowColor: Colors.black,
+          automaticallyImplyLeading: false,
+          titleSpacing: 0,
         ),
-        elevation: 0,
-        shadowColor: Colors.black,
-        automaticallyImplyLeading: false,
-        titleSpacing: 0,
-      ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: Column(
-          children: [
-            catContainer(0),
-            sizedBoxHeight(15.h),
-            catContainer(1),
-            sizedBoxHeight(15.h),
-            catContainer(2),
-            sizedBoxHeight(15.h),
-            catContainer(3),
-          ],
-        ),
-      ),
-    );
+        body: _buildBody(context)
+
+        // StreamBuilder
+        // <FilterResponse>
+        // (
+        //       stream: filterlistController.stream,
+        //       builder: (context, snapshot) {
+        //         switch (snapshot.connectionState) {
+        //           case ConnectionState.waiting:
+        //             return
+        //             Column(
+        //                 mainAxisAlignment: MainAxisAlignment.center,
+        //                 crossAxisAlignment: CrossAxisAlignment.center,
+        //                 children: [Center(child: CircularProgressIndicator())],
+        //               );
+
+        //           default:
+        //             if (snapshot.hasError) {
+        //               return Text("Error Occured");
+        //             } else {
+        //               return _buildBody(context,);
+        //             }
+        //         }
+        //       }),
+
+        );
   }
 
-  Widget catContainer(index) {
-    return SizedBox(
-      height: 150.h,
-      width: double.infinity,
-      child: InkWell(
-        child: categoryCard(
-          color1: categoryData[index]["colorL"],
-          color2: categoryData[index]["colorD"],
-          bgImage: categoryData[index]["bgImage"],
-          image: categoryData[index]["imageUrl"],
-          text: categoryData[index]["title"],
+  Widget _buildBody(
+    BuildContext context,
+  ) {
+    return Padding(
+        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        child: GetBuilder<CatController>(builder: (builder) {
+          return Column(
+            children: [
+              catContainer(0, isVisible: controllerCat.indianFinancialAssets),
+              sizedBoxHeight(15.h),
+              catContainer(1, isVisible: controllerCat.indianRealAssets),
+              sizedBoxHeight(15.h),
+              catContainer(2, isVisible: controllerCat.globalFinancialAssets),
+              sizedBoxHeight(15.h),
+              catContainer(3, isVisible: controllerCat.globalRealAssets),
+
+// if (filterobj!.data!.indianFinancialAssets == true)
+// catContainer(0),
+// sizedBoxHeight(15.h),
+// if (filterobj!.data!.indianRealAssets == true)
+// catContainer(1),
+// sizedBoxHeight(15.h),
+// if (filterobj!.data!.globalFinancialAssets == true)
+// catContainer(2),
+// sizedBoxHeight(15.h),
+// if (filterobj!.data!.globalRealAssets == true)
+// catContainer(3),
+            ],
+          );
+        }));
+  }
+
+  Widget catContainer(index, {required bool isVisible}) {
+    return Visibility(
+      visible: isVisible,
+      child: SizedBox(
+        height: 150.h,
+        width: double.infinity,
+        child: InkWell(
+          child: categoryCard(
+            color1: categoryData[index]["colorL"],
+            color2: categoryData[index]["colorD"],
+            bgImage: categoryData[index]["bgImage"],
+            image: categoryData[index]["imageUrl"],
+            text: categoryData[index]["title"],
+          ),
+          onTap: () {
+            index == 0
+                ? Get.to(() => CategoriesMain())
+                //  Get.toNamed("/EntryPoint",
+                //     arguments: 1, preventDuplicates: false)
+                : index == 1
+                    ? Get.to(() => Indianrealassetsmain())
+                    : index == 2
+                        ? Get.to(() => Globalcategoriesmain())
+                        : index == 3
+                            ? Get.to(() => Globalrealassetsmain())
+                            : ComingSoon();
+          },
         ),
-        onTap: () {
-          index == 0
-              ? Get.to(() => CategoriesMain())
-              //  Get.toNamed("/EntryPoint",
-              //     arguments: 1, preventDuplicates: false)
-              : index == 1
-                  ? Get.to(() => Indianrealassetsmain())
-                  : index == 2
-                      ? Get.to(() => Globalcategoriesmain())
-                      : index == 3 ?
-                      Get.to(() => Globalrealassetsmain())
-                       :
-                      ComingSoon()
-          ;
-        },
       ),
     );
   }

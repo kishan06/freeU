@@ -251,5 +251,13 @@ class ApiUrls {
 
   static const postnotifications = "${baseUrl}mark-as-read";
 
+  // Categories filter page
+  static const Postfiltercategories = "${baseUrl}product-filter";
+
+  //market place form apis
+  static const Getform = "${baseUrl}buyer-form/merrill-patterson";
+  static const Postform = "${baseUrl}buyer-form-submit";
+
+
 
 }

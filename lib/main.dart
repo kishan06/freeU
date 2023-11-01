@@ -67,6 +67,7 @@ import 'package:freeu/HomePage/Investments/CurrentInvestmentDetailed.dart';
 import 'package:freeu/HomePage/Investments/investment_bought.dart';
 import 'package:freeu/HomePage/Investments/SuggestedInvestedProducts.dart';
 import 'package:freeu/HomePage/Investments/investment_watchlist.dart';
+import 'package:freeu/HomePage/Market/Marketnewdesign/forms/marketform.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/About.dart';
 import 'package:freeu/SideMenu/ContactUs.dart';
@@ -536,6 +537,7 @@ class _MyAppState extends State<MyApp> {
                 GetPage(name: '/investwatchlist', page: () => InvestmentWatchList()),
                 GetPage(name: '/investbought', page: () => InvestmentBought()),
                 
+                GetPage(name: '/marketplaceform', page: () => Marketform()),                
 
               ],
             ),

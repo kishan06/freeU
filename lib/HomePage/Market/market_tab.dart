@@ -10,6 +10,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/Marketplace/Formmarketplace.dart';
 import 'package:freeu/viewModel/Marketplace/Getmarketplace.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -64,6 +65,7 @@ class _MarketTabState extends State<MarketTab> {
     futureGroup.add(Marketplace().Spotlightinvest());
     futureGroup.add(Marketplace().Featuredinvest());
     futureGroup.add(Marketplace().Nonfeaturedinvest());
+    futureGroup.add(FormMarketplace().Getform());
     futureGroup.close();
   }
 
@@ -295,9 +297,23 @@ class _MarketTabState extends State<MarketTab> {
                                 color: AppColors.blue143C6D,
                               ),
                               child: OpenContainerWrappers(
-                                openBuild: Marketplacelearnmore(
-                                    slug: spotlightinve!.slug ?? "NA"),
-
+                                openBuild: 
+                                spotlightinve!.table == "other-products" 
+                                ?
+                                 Otherslearnmore(
+                                        slug: spotlightinve!.slug ?? "NA",
+                                      )
+                                      :
+                                      spotlightinve!.table == "alternative-investment-fund"
+                                      ?
+                                Marketplacelearnmore(
+                                    slug: spotlightinve!.slug ?? "NA")
+                                    : spotlightinve!.table == "fractional-real-estate"
+                                    ?
+                                    Fractionalestatelearnmore(
+                                        slug: spotlightinve!.slug ?? "NA",
+                                      )
+                                      : SizedBox(),
                                 // PeerViewInvestment(
                                 //     slug: peerProductsModelObj!
                                 //         .data![index].peerToPeers!.slug!),
