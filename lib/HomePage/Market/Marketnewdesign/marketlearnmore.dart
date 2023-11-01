@@ -36,19 +36,20 @@ class _MarketplacelearnmoreState extends State<Marketplacelearnmore> {
         titleTxt: "",
         bottomtext: false,
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-        child: CustomNextButton(
-            productid: peerDetailsObj?.data?.productsId.toString(),
-            ontap: () {
-              if (controllerEntryPoint.logedIn!) {
-                investNow();
-              } else {
-                Get.toNamed("/login");
-              }
-            },
-            text: 'Invest now'),
-      ),
+      // bottomNavigationBar: Padding(
+      //   padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+      //   child: CustomNextButton(
+      //       productid: peerDetailsObj?.data?.productsId.toString(),
+      //       ontap: () {
+      //         if (controllerEntryPoint.logedIn!) {
+      //           // investNow();
+      //           Get.toNamed("/marketplaceform");
+      //         } else {
+      //           Get.toNamed("/login");
+      //         }
+      //       },
+      //       text: 'Invest now'),
+      // ),
       body: FutureBuilder(
           future: myfuture,
           builder: (ctx, snapshot) {
@@ -262,6 +263,37 @@ class _MarketplacelearnmoreState extends State<Marketplacelearnmore> {
                 text272424_18(getmarketlearnmoreobj!.data!.expectedSalePerUnit
                     .toString()),
                 sizedBoxHeight(20.h),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0.w, 0.h, 0.w, 10.h),
+                  child: 
+                  getmarketlearnmoreobj?.invested == false
+  ? CustomNextButton(
+      productid: peerDetailsObj?.data?.productsId.toString(),
+      ontap: () {
+        if (controllerEntryPoint.logedIn!) {
+          // investNow();
+          Get.toNamed("/marketplaceform");
+        } else {
+          Get.toNamed("/login");
+        }
+      },
+      text: 'Invest now',
+    )
+  : CustomNextButton(
+      productid: peerDetailsObj?.data?.productsId.toString(),
+      ontap: () {
+        if (controllerEntryPoint.logedIn!) {
+          // investNow();
+          // Get.toNamed("/marketplaceform");
+          Get.offAllNamed('/EntryPoint', arguments: 2);
+        } else {
+          Get.toNamed("/login");
+        }
+      },
+      text: 'Show investment',
+    )
+
+                ),
               ],
             ),
           ],

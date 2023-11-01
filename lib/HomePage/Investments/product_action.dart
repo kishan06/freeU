@@ -846,15 +846,21 @@ class _ProductActionState extends State<ProductAction> {
                                                               0xff3A4856),
                                                         ),
                                                       ),
-                                                      widget.categories ==
+                                                      widget
+                                                                  .categories ==
                                                               "Alternative Investment Fund"
-                                                          ? alternativeInvestmentFundData[
-                                                                      index] ==
+                                                          ? alternativeInvestmentFundData[index] ==
                                                                   "Link Repayment Schedule"
-                                                              ? repaymentScheduled(
-                                                                  alternativeInvestmentFundModel!
-                                                                      .data!
-                                                                      .statementReports!)
+                                                              ? alternativeInvestmentFundModel!
+                                                                          .data!
+                                                                          .statementReports ==
+                                                                      null
+                                                                  ? contentText(
+                                                                          "NA")
+                                                                  : repaymentScheduled(
+                                                                      alternativeInvestmentFundModel!
+                                                                          .data!
+                                                                          .statementReports!)
                                                               : contentText(
                                                                   alternativeInvestmentFundData[
                                                                       index])
@@ -862,14 +868,20 @@ class _ProductActionState extends State<ProductAction> {
                                                                   "Fractional Real Estate"
                                                               ? fractionalRealEstateData[index] ==
                                                                       "Link Repayment Schedule"
-                                                                  ? repaymentScheduled(
-                                                                      fractionalRealEstateModel!
+                                                                  ? fractionalRealEstateModel!
+                                                                              .data!
+                                                                              .statementReports ==
+                                                                          null
+                                                                      ? contentText(
+                                                                          "NA")
+                                                                      : repaymentScheduled(fractionalRealEstateModel!
                                                                           .data!
                                                                           .statementReports!)
                                                                   : contentText(
                                                                       fractionalRealEstateData[
                                                                           index])
-                                                              : (widget.categories == "Peer To Peer Lending" ||
+                                                              : (widget.categories ==
+                                                                          "Peer To Peer Lending" ||
                                                                       widget.categories ==
                                                                           "Liquiloans" ||
                                                                       widget.categories ==
@@ -878,21 +890,19 @@ class _ProductActionState extends State<ProductAction> {
                                                                           "Finance Peer")
                                                                   ? peerToPeerData[index] ==
                                                                           "Link Repayment Schedule"
-                                                                      ? repaymentScheduled(peerToPeerLendingModel!
-                                                                          .data!
-                                                                          .statementReports!)
-                                                                      : contentText(peerToPeerData[
-                                                                          index])
-                                                                  : (widget.categories == "Indian Financial Assets" ||
-                                                                          widget.categories == "Invoice Discounting" ||
-                                                                          widget.categories == "Clean and green asset" ||
-                                                                          widget.categories == "Venture Debt" ||
-                                                                          widget.categories == "High Yield Finance" ||
-                                                                          widget.categories == "Securitized Debt Instrument" ||
-                                                                          widget.categories == "Lease Based Financing" ||
-                                                                          widget.categories == "Revenue Based Financing")
+                                                                      ? peerToPeerLendingModel!.data!.statementReports ==
+                                                                              null
+                                                                          ? contentText(
+                                                                          "NA")
+                                                                          : repaymentScheduled(
+                                                                              peerToPeerLendingModel!.data!.statementReports!)
+                                                                      : contentText(peerToPeerData[index])
+                                                                  : (widget.categories == "Indian Financial Assets" || widget.categories == "Invoice Discounting" || widget.categories == "Clean and green asset" || widget.categories == "Venture Debt" || widget.categories == "High Yield Finance" || widget.categories == "Securitized Debt Instrument" || widget.categories == "Lease Based Financing" || widget.categories == "Revenue Based Financing")
                                                                       ? invoiceDiscountingData[index] == "Link Repayment Schedule"
-                                                                          ? repaymentScheduled(invoiceDiscountingModel!.data!.repaymentSchedule!)
+                                                                          ? invoiceDiscountingModel!.data!.repaymentSchedule == null
+                                                                              ? contentText(
+                                                                          "NA")
+                                                                              : repaymentScheduled(invoiceDiscountingModel!.data!.repaymentSchedule!)
                                                                           : contentText(invoiceDiscountingData[index])
                                                                       : contentText(productDetails[0]['content'][widget.pageIndex][index]),
                                                       Divider(

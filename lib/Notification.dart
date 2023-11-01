@@ -104,7 +104,7 @@ class _NotificationPageState extends State<NotificationPage> {
         appBar: AppBar(
           backgroundColor: Color(0xFFFFFFFF),
           elevation: 0,
-          toolbarHeight: 80.h,
+          toolbarHeight: 90.h,
           leadingWidth: double.infinity,
           leading: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),

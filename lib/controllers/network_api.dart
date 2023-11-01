@@ -24,14 +24,12 @@ class NetworkApi {
 
     try {
       response = await dio.get(url,
-
           options: controllerEntryPoint.logedIn!
               ? Options(headers: {"authorization": "Bearer $token"})
               : Options(headers: {
                   "authorization":
                       "Bearer 189|yeRLynwInflhfnVObT7dd7R0Ywv91AIlxIKXoiAv"
                 }));
-
     } on Exception catch (_) {
       return ResponseData<dynamic>(
           'Oops something Went Wrong', ResponseStatus.FAILED);
@@ -63,14 +61,12 @@ class NetworkApi {
     try {
       response = await dio.post(url,
           data: data,
-
           options: controllerEntryPoint.logedIn!
               ? Options(headers: {"authorization": "Bearer $token"})
               : Options(headers: {
                   "authorization":
                       "Bearer 189|yeRLynwInflhfnVObT7dd7R0Ywv91AIlxIKXoiAv"
                 }));
-
     } on Exception catch (_) {
       return ResponseData<dynamic>(
           'Opps something went wrong', ResponseStatus.FAILED);
@@ -194,7 +190,7 @@ class NetworkApi {
     }
   }
 
-    Future<ResponseData> postslugApi(String url) async {
+  Future<ResponseData> postslugApi(String url) async {
     if (kDebugMode) {
       print("api url is >>> $url");
     }
@@ -202,17 +198,15 @@ class NetworkApi {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     // String? token = prefs.getString('token');
     String? token = prefs.getString('token').toString();
- print("token is $token");
+    print("token is $token");
     try {
       response = await dio.post(url,
-
           options: controllerEntryPoint.logedIn!
               ? Options(headers: {"authorization": "Bearer $token"})
               : Options(headers: {
                   "authorization":
                       "Bearer 189|yeRLynwInflhfnVObT7dd7R0Ywv91AIlxIKXoiAv"
                 }));
-
     } on Exception catch (_) {
       return ResponseData<dynamic>(
           'Oops something Went Wrong', ResponseStatus.FAILED);
