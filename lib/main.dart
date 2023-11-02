@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Global.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20I/VentureViewMore.dart';
@@ -136,7 +137,9 @@ import 'HomePage/Categories/revenue_based_financing/revenueproperties.dart';
 int bottomIndex = 0;
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-  runApp(MyApp());
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+  ]).then((value) => runApp(MyApp()));
 }
 
 class MyApp extends StatefulWidget {
@@ -534,11 +537,12 @@ class _MyAppState extends State<MyApp> {
                     page: () => Individualkycpage()),
                 GetPage(name: '/hufkycpage', page: () => HUFkycpage()),
                 GetPage(name: '/nrikycpage', page: () => NRIkycpage()),
-                GetPage(name: '/investwatchlist', page: () => InvestmentWatchList()),
+                GetPage(
+                    name: '/investwatchlist',
+                    page: () => InvestmentWatchList()),
                 GetPage(name: '/investbought', page: () => InvestmentBought()),
-                
-                GetPage(name: '/marketplaceform', page: () => Marketform()),                
 
+                GetPage(name: '/marketplaceform', page: () => Marketform()),
               ],
             ),
             designSize: const Size(390, 844),

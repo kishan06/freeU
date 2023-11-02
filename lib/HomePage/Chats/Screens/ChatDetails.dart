@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:dio/dio.dart';
 // import 'package:dio/dio.dart' as prefix;
 import 'package:flutter/material.dart';
-import 'package:flutter_keyboard_visibility/flutter_keyboard_visibility.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:freeu/Models/Chat/ChatModel.dart';
