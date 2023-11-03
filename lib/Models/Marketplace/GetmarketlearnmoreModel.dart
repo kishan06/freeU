@@ -41,7 +41,7 @@ class Data {
   String? currentOrLatestNav;
   int? noOfUnitsHeld;
   int? noOfUnitsYouWishToSell;
-  int? expectedSalePerUnit;
+  String? expectedSalePerUnit;
   String? status;
   String? listingStatus;
   String? createdAt;

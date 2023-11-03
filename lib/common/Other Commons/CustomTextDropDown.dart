@@ -10,6 +10,7 @@ class CustomTextDropdown extends StatefulWidget {
     this.prefix,
     this.errortext,
     this.item,
+    this.controller,
     this.outlineColor = const Color(0xFFFFB600),
     required this.showDropDown,
     this.selectedValue,
@@ -18,6 +19,7 @@ class CustomTextDropdown extends StatefulWidget {
   final String? errortext;
   final String? prefix;
   final String? hinttext;
+  final TextEditingController? controller;
   final bool showDropDown;
   final Color outlineColor;
   final List<String>? item;
@@ -59,26 +61,50 @@ class _CustomTextDropdownState extends State<CustomTextDropdown> {
                   ),
                   color: Colors.white,
                 ),
-                hint: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        widget.selectedValue ?? "",
-                        style: TextStyle(
-                          fontSize: 16.sp,
-                          color: Colors.black,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
+                hint:
+                 Row(
+  children: [
+    Expanded(
+      child: Text(
+        widget.selectedValue ?? widget.hinttext ?? "", // Use the hint text if selectedValue is null
+        style: 
+        widget.selectedValue != null ?
+
+        TextStyle(
+          fontSize: 16.sp,
+          color: Colors.black,
+        )
+        :
+        TextStyle(
+            color: Color(0x80000000), fontSize: 16.sp, fontFamily: "Poppins"),
+
+        overflow: TextOverflow.ellipsis,
+      ),
+    ),
+  ],
+),
+
+                //  Row(
+                //   children: [
+                //     Expanded(
+                //       child: Text(
+                //         widget.selectedValue ?? "",
+                //         style: TextStyle(
+                //           fontSize: 16.sp,
+                //           color: Colors.black,
+                //         ),
+                //         overflow: TextOverflow.ellipsis,
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 buttonPadding: const EdgeInsets.only(left: 0, right: 14),
                 value: widget.selectedValue,
                 onChanged: (value1) {
                   widget.onInput?.call(value1 ?? "");
                   setState(() {
                     widget.selectedValue = value1;
+                    widget.controller?.text =  value1 ?? "";
                   });
                 },
                 isExpanded: true,

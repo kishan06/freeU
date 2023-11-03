@@ -39,7 +39,7 @@ class Data {
 class CurrentInvestment {
   String? totalInvestment;
   List<ProductDetails>? productDetails;
-  double? totalInvestmentInInt;
+  String? totalInvestmentInInt;
 
   CurrentInvestment(
       {this.totalInvestment, this.productDetails, this.totalInvestmentInInt});

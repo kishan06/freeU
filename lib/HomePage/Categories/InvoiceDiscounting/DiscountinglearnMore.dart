@@ -150,14 +150,14 @@ According to the guidelines of the RBI, a lender cannot invest more than Rs. 10 
             child: ListView.separated(
                 itemBuilder: (context, index) {
                   return fracReal1(
-                    Fractionalfaq!.data![index].faqQuestion ?? "",
-                    Fractionalfaq!.data![index].faqAnswer ?? "",
+                    invoiceDiscountfaq!.data![index].faqQuestion ?? "",
+                    invoiceDiscountfaq!.data![index].faqAnswer ?? "",
                   );
                 },
                 separatorBuilder: (context, index) {
                   return sizedBoxHeight(20.h);
                 },
-                itemCount: Fractionalfaq!.data!.length),
+                itemCount: invoiceDiscountfaq!.data!.length),
           ),
         ],
       ),

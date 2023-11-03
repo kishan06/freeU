@@ -12,11 +12,12 @@ import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/viewModel/Marketplace/Formmarketplace.dart';
 import 'package:freeu/viewModel/Marketplace/Getmarketplace.dart';
+import 'package:freeu/viewModel/Marketplace/SellInvestment/sellinvestments.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import 'featured_investment.dart';
-import 'market_see_investment.dart';
+import 'SellInvestment/market_see_investment.dart';
 import 'package:async/src/future_group.dart';
 
 class MarketTab extends StatefulWidget {
@@ -66,6 +67,7 @@ class _MarketTabState extends State<MarketTab> {
     futureGroup.add(Marketplace().Featuredinvest());
     futureGroup.add(Marketplace().Nonfeaturedinvest());
     futureGroup.add(FormMarketplace().Getform());
+    futureGroup.add(Sellinvestment().GetSellform());
     futureGroup.close();
   }
 
@@ -114,19 +116,19 @@ class _MarketTabState extends State<MarketTab> {
               );
             }
           }
-          return 
-          // featuredinve!.data![1].alternativeInvestmentFund!.isEmpty &&
-          //         featuredinve!.data![0].fractionalRealEstate!.isEmpty &&
-          //         featuredinve!.data![2].otherProducts!.isEmpty &&
-          //         nonfeaturedinve!
-          //             .data![1].alternativeInvestmentFund!.isEmpty &&
-          //         nonfeaturedinve!.data![0].fractionalRealEstate!.isEmpty &&
-          //         nonfeaturedinve!.data![2].otherProducts!.isEmpty &&
-          //         spotlightinve == null &&
-          //         spotlightinve == null
-          //     ? 
-          //     _buildNodataBody()
-              // : 
+          return
+              // featuredinve!.data![1].alternativeInvestmentFund!.isEmpty &&
+              //         featuredinve!.data![0].fractionalRealEstate!.isEmpty &&
+              //         featuredinve!.data![2].otherProducts!.isEmpty &&
+              //         nonfeaturedinve!
+              //             .data![1].alternativeInvestmentFund!.isEmpty &&
+              //         nonfeaturedinve!.data![0].fractionalRealEstate!.isEmpty &&
+              //         nonfeaturedinve!.data![2].otherProducts!.isEmpty &&
+              //         spotlightinve == null &&
+              //         spotlightinve == null
+              //     ?
+              //     _buildNodataBody()
+              // :
               _buildBody();
         },
       ),
@@ -297,23 +299,22 @@ class _MarketTabState extends State<MarketTab> {
                                 color: AppColors.blue143C6D,
                               ),
                               child: OpenContainerWrappers(
-                                openBuild: 
-                                spotlightinve!.table == "other-products" 
-                                ?
-                                 Otherslearnmore(
+                                openBuild: spotlightinve!.table ==
+                                        "other-products"
+                                    ? Otherslearnmore(
                                         slug: spotlightinve!.slug ?? "NA",
                                       )
-                                      :
-                                      spotlightinve!.table == "alternative-investment-fund"
-                                      ?
-                                Marketplacelearnmore(
-                                    slug: spotlightinve!.slug ?? "NA")
-                                    : spotlightinve!.table == "fractional-real-estate"
-                                    ?
-                                    Fractionalestatelearnmore(
-                                        slug: spotlightinve!.slug ?? "NA",
-                                      )
-                                      : SizedBox(),
+                                    : spotlightinve!.table ==
+                                            "alternative-investment-fund"
+                                        ? Marketplacelearnmore(
+                                            slug: spotlightinve!.slug ?? "NA")
+                                        : spotlightinve!.table ==
+                                                "fractional-real-estate"
+                                            ? Fractionalestatelearnmore(
+                                                slug:
+                                                    spotlightinve!.slug ?? "NA",
+                                              )
+                                            : SizedBox(),
                                 // PeerViewInvestment(
                                 //     slug: peerProductsModelObj!
                                 //         .data![index].peerToPeers!.slug!),
@@ -372,54 +373,6 @@ class _MarketTabState extends State<MarketTab> {
             //   ),
             // ),
             // sizedBoxHeight(15.h),
-            // Container(
-            //   height: 180.h,
-            //   width: double.infinity,
-            //   decoration: BoxDecoration(
-            //       gradient: LinearGradient(colors: [
-            //         const Color(0xFF006796),
-            //         const Color(0xFF00344B),
-            //       ]),
-            //       // color: AppColors.blueL_006796,
-            //       borderRadius: BorderRadius.circular(15.h),
-            //       image: const DecorationImage(
-            //         alignment: Alignment.centerRight,
-            //         image: AssetImage("assets/images/marketContainer.png"),
-            //       )),
-            //   child: Padding(
-            //     padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
-            //     child: Column(
-            //       crossAxisAlignment: CrossAxisAlignment.start,
-            //       children: [
-            //         Text(
-            //           'Sell your investment with us',
-            //           style: TextStyle(fontSize: 18.sp, color: Colors.white),
-            //         ),
-            //         const Spacer(),
-            //         text16White(
-            //             'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
-            //             textAlign: TextAlign.left),
-            //         const Spacer(),
-            //         OpenContainerWrappers(
-            //             closeBuild: Container(
-            //               decoration: BoxDecoration(
-            //                   color: Colors.white,
-            //                   borderRadius: BorderRadius.circular(30.r)),
-            //               height: 35.h,
-            //               width: 210.w,
-            //               child: Center(
-            //                 child: Text(
-            //                   'Sell my investments',
-            //                   style: TextStyle(fontSize: 16.sp),
-            //                 ),
-            //               ),
-            //             ),
-            //             openBuild: const MarketSeeMyInvestment()),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // sizedBoxHeight(20.h),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -1114,6 +1067,55 @@ class _MarketTabState extends State<MarketTab> {
                         ))
               ],
             ),
+            sizedBoxHeight(15.h),
+            Container(
+              height: 180.h,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(colors: [
+                    const Color(0xFF006796),
+                    const Color(0xFF00344B),
+                  ]),
+                  // color: AppColors.blueL_006796,
+                  borderRadius: BorderRadius.circular(15.h),
+                  image: const DecorationImage(
+                    alignment: Alignment.centerRight,
+                    image: AssetImage("assets/images/marketContainer.png"),
+                  )),
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Sell your investment with us',
+                      style: TextStyle(fontSize: 18.sp, color: Colors.white),
+                    ),
+                    const Spacer(),
+                    text16White(
+                        'Lorem Ipsum is simply dummy text of the printing and typesetting industry',
+                        textAlign: TextAlign.left),
+                    const Spacer(),
+                    OpenContainerWrappers(
+                        closeBuild: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30.r)),
+                          height: 35.h,
+                          width: 210.w,
+                          child: Center(
+                            child: Text(
+                              'Sell my investments',
+                              style: TextStyle(fontSize: 16.sp),
+                            ),
+                          ),
+                        ),
+                        openBuild: const MarketSeeMyInvestment()),
+                  ],
+                ),
+              ),
+            ),
+            sizedBoxHeight(20.h),
             sizedBoxHeight(80.h),
           ],
         ),

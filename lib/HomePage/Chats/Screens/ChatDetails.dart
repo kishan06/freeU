@@ -362,16 +362,30 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
-                        height: 55.h,
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(100.r),
-                            child: Image.network(
-                                chatmessagessobj!.data?[index].profileImage ??
-                                    "")
-                            // Image.asset(
-                            //     'assets/images/chat-icon.png'),
+                          height: 55.h,
+                          // width: 55.w,
+                          child: ClipOval(
+                            child: SizedBox.fromSize(
+                              size: Size.fromRadius(25.r),
+                              child: CircleAvatar(
+                                backgroundImage: NetworkImage(chatmessagessobj!
+                                        .data?[index].profileImage ??
+                                    ""),
+                                // Image.network(
+                                //     ProfileObj!.user!.profileImage!),
+                                radius: 25.r,
+                              ),
                             ),
-                      ),
+                          )
+                          // ClipRRect(
+                          //     borderRadius: BorderRadius.circular(25.r),
+                          //     child: Image.network(chatmessagessobj!
+                          //             .data?[index].profileImage ??
+                          //         "")
+                          //     // Image.asset(
+                          //     //     'assets/images/chat-icon.png'),
+                          //     ),
+                          ),
                       SizedBox(width: 10.w),
                       Flexible(
                         child: Container(

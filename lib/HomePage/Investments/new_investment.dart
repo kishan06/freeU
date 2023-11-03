@@ -8,6 +8,7 @@ import 'package:freeu/HomePage/Investments/investment_bought.dart';
 import 'package:freeu/HomePage/Investments/RedeemInvestmentDetailed.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
+import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/ViewModel/Investment/Investment.dart';
 import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
@@ -43,6 +44,9 @@ class _NewInvestmentState extends State<NewInvestment> {
     futureGroup.close();
     super.initState();
   }
+
+
+  final controllerEntryPoint = Get.put(EntryPointController());
 
   @override
   Widget build(BuildContext context) {
@@ -120,7 +124,10 @@ class _NewInvestmentState extends State<NewInvestment> {
             ),
           ),
         ),
-        body: FutureBuilder(
+        body:
+        controllerEntryPoint.logedIn! ?
+
+         FutureBuilder(
           future: futureGroup.future,
           builder: (ctx, snapshot) {
             if (snapshot.data == null) {
@@ -147,7 +154,15 @@ class _NewInvestmentState extends State<NewInvestment> {
               ],
             );
           },
-        ),
+        )
+        : 
+        Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [text20Black("Login to continue")],
+                ),
+              )
       ),
     );
   }
@@ -264,9 +279,6 @@ class _NewInvestmentState extends State<NewInvestment> {
       ),
     );
   }
-
-  final controllerEntryPoint = Get.put(EntryPointController());
-
 
   Widget personalDetailsAccotion(String question) {
   return 
