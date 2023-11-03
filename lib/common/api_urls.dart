@@ -258,6 +258,12 @@ class ApiUrls {
   static const Getform = "${baseUrl}buyer-form/merrill-patterson";
   static const Postform = "${baseUrl}buyer-form-submit";
 
+//Sell investment
+  static const GetSellform = "${baseUrl}seller-form";
+  static const PostSellform = "${baseUrl}marketplace/seller-form";
+  static const PostSellalternativeform = "${baseUrl}marketplace/alternative-investment-fund/seller-form";
+  static const PostSellfractionalform = "${baseUrl}marketplace/fractional-real-estate/seller-form";
+  static const PostSellothersform = "${baseUrl}marketplace/other-products/seller-form";
 
 
 }

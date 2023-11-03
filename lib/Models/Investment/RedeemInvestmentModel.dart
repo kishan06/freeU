@@ -39,7 +39,7 @@ class Data {
 class ReedemedInvestment {
   String? totalInvestment;
   List<ProductDetails>? productDetails;
-  int? totalInvestmentInInt;
+  String? totalInvestmentInInt;
 
   ReedemedInvestment(
       {this.totalInvestment, this.productDetails, this.totalInvestmentInInt});

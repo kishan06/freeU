@@ -116,7 +116,7 @@ class AlternativeInvestmentFund {
   String? nameOfTheAifFund;
   String? fundCategory;
   String? typeOfFund;
-  int? expectedSalePerUnit;
+  String? expectedSalePerUnit;
   int? noOfUnitsYouWishToSell;
   String? slug;
 
@@ -153,7 +153,7 @@ class OtherProducts {
   String? securityName;
   String? productCategory;
   String? instrumentIssuer;
-  int? noOfUnitsOfferedForSale;
+  String? noOfUnitsOfferedForSale;
   int? expectedSalePricePerUnit;
   String? slug;
 

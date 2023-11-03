@@ -128,10 +128,9 @@ class _MarketformState extends State<Marketform> {
     if (data.status == ResponseStatus.SUCCESS) {
       Get.back();
       Timer(const Duration(seconds: 1),
-          () => 
-          Get.offAllNamed('/EntryPoint', arguments: 2)
+          () => Get.offAllNamed('/EntryPoint', arguments: 2)
           // Get.offAllNamed('/investwatchlist')
-          
+
           );
       print("buyer form submitted");
       return utils.showToast(data.message);
@@ -453,9 +452,7 @@ class _MarketformState extends State<Marketform> {
                         Text(
                           "Declaration",
                           style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 20.sp,
-                              color: Color(0xff303030)),
+                              fontSize: 22.sp, fontWeight: FontWeight.w500),
                         ),
                       ],
                     ),
@@ -465,6 +462,7 @@ class _MarketformState extends State<Marketform> {
                       child: Container(
                         padding: EdgeInsets.only(right: 20),
                         child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Transform.scale(
                               scale: 1.0,
@@ -472,41 +470,49 @@ class _MarketformState extends State<Marketform> {
                                 data: ThemeData(
                                   unselectedWidgetColor: Color(0xFF143C6D),
                                 ),
-                                child: Checkbox(
-                                  activeColor: const Color(0xFF143C6D),
-                                  shape: const RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(1.0))),
-                                  value: design,
-                                  onChanged: (bool? design) {
-                                    setState(() {
-                                      this.design = design!;
-                                    });
-                                  },
+                                child: SizedBox(
+                                  width: 30.w,
+                                  height: 30.h,
+                                  child: Checkbox(
+                                    activeColor: const Color(0xFF143C6D),
+                                    shape: const RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.all(
+                                            Radius.circular(1.0))),
+                                    value: design,
+                                    onChanged: (bool? design) {
+                                      setState(() {
+                                        this.design = design!;
+                                      });
+                                    },
+                                  ),
                                 ),
                               ),
                             ),
-                            GestureDetector(
-                              onTap: () => showtermsandconditions(),
-                              child: Row(
-                                children: [
-                                  Text(
-                                    "I hereby declare ",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 14.sp,
-                                    ),
-                                  ),
-                                  Text(
-                                    "that the details*",
+                            sizedBoxWidth(5.w),
+                            // GestureDetector(
+                            //   onTap: () => showtermsandconditions(),
+                            //   child:
+                            Flexible(
+                              child: Text.rich(
+                                TextSpan(children: [
+                                  TextSpan(
+                                    text:
+                                        "I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief and I undertake to inform you of any changes therein, immediately. In case any of the above information is found to be false or untrue or misleading or misrepresenting, I am aware that I may be held liable for it.",
                                     style: TextStyle(
                                       fontSize: 14.sp,
-                                      color: Color(0xff143C6D),
                                     ),
-                                  ),
-                                ],
+                                  )
+                                ]),
                               ),
+                              //  Text(
+                              //   "I hereby declare that the details furnished above are true and correct to the best of my knowledge and belief and I undertake to inform you of any changes therein, immediately. In case any of the above information is found to be false or untrue or misleading or misrepresenting, I am aware that I may be held liable for it.",
+                              //   style: TextStyle(
+                              //     color: Colors.black,
+                              //     fontSize: 14.sp,
+                              //   ),
+                              // ),
                             ),
+                            // ),
                           ],
                         ),
                       ),
@@ -515,44 +521,28 @@ class _MarketformState extends State<Marketform> {
                 ),
               ),
               sizedBoxHeight(10.h),
-              Container(
-                decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: Colors.amber,
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x48B9B9BE),
-                      blurRadius: 20.0,
-                      spreadRadius: 0,
-                      // offset: Offset(-20, -20,),
-                    )
-                  ],
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    sizedBoxHeight(5.h),
-                    Text(
-                      'Need Help?',
-                      style: TextStyle(
-                          fontFamily: 'Poppins',
-                          fontSize: 14.sp,
-                          color: Colors.black),
-                    ),
-                    sizedBoxHeight(5.h),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16.w),
-                      child: Text(
-                        'If you are experiencing any difficulties filling out the required information, we are here to help. Please reach out to us at info@freeu.in',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            fontSize: 14.sp,
-                            color: Colors.black),
-                      ),
-                    ),
-                    sizedBoxHeight(5.h),
-                  ],
-                ),
+              sizedBoxHeight(5.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Text(
+                    'Need help ?',
+                    style:
+                        TextStyle(fontSize: 22.sp, fontWeight: FontWeight.w500),
+                  ),
+                ],
+              ),
+              sizedBoxHeight(15.h),
+              Text(
+                'If you are experiencing any difficulties filling out the required information, we are here to help. Please reach out to us at',
+                style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.w500),
+              ),
+              Text(
+                'info@freeu.in',
+                style: TextStyle(
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w500,
+                    color: const Color(0xff1B8DC9)),
               ),
               SizedBox(
                 height: 30.h,

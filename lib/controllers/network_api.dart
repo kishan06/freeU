@@ -142,16 +142,18 @@ class NetworkApi {
   Future<ResponseData<dynamic>> postApiHttp(
       String token, String url, Map<String, String> body) async {
     var headers = {
-      'Authorization': 'Bearer 189|yeRLynwInflhfnVObT7dd7R0Ywv91AIlxIKXoiAv',
+      'Authorization': 'Bearer 1867|aBb92qswYsEzQa8LJayiuQw6B3Wofuj6iluUumLx',
+      // 'Authorization': 'Bearer 189|yeRLynwInflhfnVObT7dd7R0Ywv91AIlxIKXoiAv',
       // 'Cookie': 'laravel_session=eyJpdiI6ImcwS2NYNlJYam4wcU1YUXJsYWZsb2c9PSIsInZhbHVlIjoiK0hvT3c5NmZFQ0NDajYxTUFaaVluWkpYbUkwYk1JbldyTVJwZitMN05zWnliaVdBNWZjTXpyVG5UODM1MTBaMzQwUCtNc3lGak5MQWRZamh2dWIvdzIxQnNVVWQrQi9NUi9YTS9PQWgxMlZHTENUNU0zY0VVazluNEplTFFvbGgiLCJtYWMiOiJkNjA0NjA4YWJhZDkxODA0YmQ2MTViNzc1MTg4OWRiODMzMjI5OGE0ZDI3MDRhMTAzM2E1MGY4ODQyMjI1NGIxIiwidGFnIjoiIn0%3D'
     };
 
-    controllerEntryPoint.logedIn!
-        ? headers = {"authorization": "Bearer $token"}
-        : headers = {
-            "authorization":
-                "Bearer 189|yeRLynwInflhfnVObT7dd7R0Ywv91AIlxIKXoiAv"
-          };
+    // controllerEntryPoint.logedIn!
+    //     ?
+    // headers = {"authorization": "Bearer $token"};
+    // : headers = {
+    //     "authorization":
+    //         "Bearer 189|yeRLynwInflhfnVObT7dd7R0Ywv91AIlxIKXoiAv"
+    //   };
     var request = http.MultipartRequest('POST', Uri.parse(url));
 
     request.fields.addAll(body);

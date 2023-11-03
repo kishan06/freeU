@@ -469,6 +469,7 @@ class _LoginState extends State<Login> {
                                                 'name', res["data"]["name"]);
                                             myusername = res["data"]["name"];
                                             token = res["token"];
+                                            print("token is $token");
 
                                             // Map<String,dynamic> store = {
                                             //   'email' : res['email'],
