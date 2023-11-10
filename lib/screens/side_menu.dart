@@ -427,6 +427,7 @@ void navigateTo(int index, BuildContext context) {
     case 1:
       {
         Get.toNamed("/security");
+        // Get.toNamed("/pindialogpage");
       }
       break;
 

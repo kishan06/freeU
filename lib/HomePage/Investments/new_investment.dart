@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/HomePage/Investments/CurrentInvestmentDetailed.dart';
+import 'package:freeu/HomePage/Investments/Listinvestmentform/listinvestsellerform.dart';
 import 'package:freeu/HomePage/Investments/investment_bought.dart';
 import 'package:freeu/HomePage/Investments/RedeemInvestmentDetailed.dart';
 import 'package:freeu/Notification.dart';
@@ -11,6 +12,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/ViewModel/Investment/Investment.dart';
 import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/simple_accotion.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
@@ -45,7 +47,6 @@ class _NewInvestmentState extends State<NewInvestment> {
     super.initState();
   }
 
-
   final controllerEntryPoint = Get.put(EntryPointController());
 
   @override
@@ -53,117 +54,115 @@ class _NewInvestmentState extends State<NewInvestment> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        resizeToAvoidBottomInset: true,
-        appBar: AppBar(
-          backgroundColor: AppColors.white,
-          title: Row(
-            children: [
-              sizedBoxWidth(50.w),
-              Text(
-                'Your investments',
-                softWrap: true,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    fontFamily: 'Poppins',
-                    fontSize: 22.sp,
-                    color: Colors.black),
-              ),
-              Spacer(),
-              // OpenContainerWrappers(
-              //   openBuild: NotificationPage(),
-              //   closeBuild: SizedBox(
-              //     width: 20.w,
-              //     height: 25.h,
-              //     child: SvgPicture.asset(
-              //       'assets/images/notification-bell-svgrepo-com.svg',
-              //       fit: BoxFit.fill,
-              //     ),
-              //   ),
-              // ),
-              InkWell(
-                onTap: () {
-                  Get.toNamed("/notificationpage");
-                },
-                child: Padding(
-                  padding: EdgeInsets.only(right: 16.w),
-                  child: SvgPicture.asset(
-                    'assets/images/notification-bell-svgrepo-com.svg',
-                    fit: BoxFit.fill,
+          resizeToAvoidBottomInset: true,
+          appBar: AppBar(
+            backgroundColor: AppColors.white,
+            title: Row(
+              children: [
+                sizedBoxWidth(50.w),
+                Text(
+                  'Your investments',
+                  softWrap: true,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: 22.sp,
+                      color: Colors.black),
+                ),
+                Spacer(),
+                // OpenContainerWrappers(
+                //   openBuild: NotificationPage(),
+                //   closeBuild: SizedBox(
+                //     width: 20.w,
+                //     height: 25.h,
+                //     child: SvgPicture.asset(
+                //       'assets/images/notification-bell-svgrepo-com.svg',
+                //       fit: BoxFit.fill,
+                //     ),
+                //   ),
+                // ),
+                InkWell(
+                  onTap: () {
+                    Get.toNamed("/notificationpage");
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.only(right: 16.w),
+                    child: SvgPicture.asset(
+                      'assets/images/notification-bell-svgrepo-com.svg',
+                      fit: BoxFit.fill,
+                    ),
                   ),
                 ),
-              ),
-              // sizedBoxWidth(16.w)
-            ],
-          ),
-          elevation: 0,
-          shadowColor: Colors.black,
-          automaticallyImplyLeading: false,
-          titleSpacing: 0,
-          bottom: PreferredSize(
-            preferredSize: Size.fromHeight(65.h),
-            child: TabBar(
-              labelPadding: EdgeInsets.only(bottom: 10.h),
-              indicatorColor: Color(0xff002A5B),
-              indicatorWeight: 5.h,
-              tabs: [
-                Tab(
-                  child: Text(
-                    'User \nDashboard',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                  ),
-                ),
-                Tab(
-                  child: Text(
-                    'Market Place Dashboard',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Color(0xff000000), fontSize: 16.sp),
-                  ),
-                ),
+                // sizedBoxWidth(16.w)
               ],
             ),
-          ),
-        ),
-        body:
-        controllerEntryPoint.logedIn! ?
-
-         FutureBuilder(
-          future: futureGroup.future,
-          builder: (ctx, snapshot) {
-            if (snapshot.data == null) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Center(child: CircularProgressIndicator())],
-              );
-            }
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(
-                    '${snapshot.error} occured',
-                    style: TextStyle(fontSize: 18.spMin),
+            elevation: 0,
+            shadowColor: Colors.black,
+            automaticallyImplyLeading: false,
+            titleSpacing: 0,
+            bottom: PreferredSize(
+              preferredSize: Size.fromHeight(65.h),
+              child: TabBar(
+                labelPadding: EdgeInsets.only(bottom: 10.h),
+                indicatorColor: Color(0xff002A5B),
+                indicatorWeight: 5.h,
+                tabs: [
+                  Tab(
+                    child: Text(
+                      'User \nDashboard',
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                    ),
                   ),
-                );
-              }
-            }
-            return TabBarView(
-              children: [
-                Tab1(),
-                Tab2(),
-              ],
-            );
-          },
-        )
-        : 
-        Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [text20Black("Login to continue")],
-                ),
-              )
-      ),
+                  Tab(
+                    child: Text(
+                      'Market Place Dashboard',
+                      textAlign: TextAlign.center,
+                      style:
+                          TextStyle(color: Color(0xff000000), fontSize: 16.sp),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          body: controllerEntryPoint.logedIn!
+              ? FutureBuilder(
+                  future: futureGroup.future,
+                  builder: (ctx, snapshot) {
+                    if (snapshot.data == null) {
+                      return Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [Center(child: CircularProgressIndicator())],
+                      );
+                    }
+                    if (snapshot.connectionState == ConnectionState.done) {
+                      if (snapshot.hasError) {
+                        return Center(
+                          child: Text(
+                            '${snapshot.error} occured',
+                            style: TextStyle(fontSize: 18.spMin),
+                          ),
+                        );
+                      }
+                    }
+                    return TabBarView(
+                      children: [
+                        Tab1(),
+                        Tab2(),
+                      ],
+                    );
+                  },
+                )
+              : Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [text20Black("Login to continue")],
+                  ),
+                )),
     );
   }
 
@@ -215,7 +214,7 @@ class _NewInvestmentState extends State<NewInvestment> {
               CurrentInvestment(),
             ),
             sizedBoxHeight(25.h),
-            threeTxt("Product", "Amount", "Action"),
+            threeTxt("Product", "Action", "List Market"),
             sizedBoxHeight(20.h),
             ListView.builder(
               physics: NeverScrollableScrollPhysics(),
@@ -281,153 +280,122 @@ class _NewInvestmentState extends State<NewInvestment> {
   }
 
   Widget personalDetailsAccotion(String question) {
-  return 
-  GetBuilder<EntryPointController>(builder: (_){
-    return 
-    controllerEntryPoint.logedIn!
-     ?
-      Container(
-    decoration: BoxDecoration(
-        border: Border.all(color: Colors.black.withOpacity(0.2)),
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(5.r)),
-    child: GFAccordion(
-      showAccordion: false,
-      titleBorderRadius: BorderRadius.circular(5.r),
-      contentBorderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(5.r),
-        bottomRight: Radius.circular(5.r),
-      ),
-      margin: const EdgeInsets.all(0),
-      titlePadding: EdgeInsets.all(10.h),
-      contentPadding: EdgeInsets.all(10.w),
-      expandedTitleBackgroundColor: Colors.white,
-      contentBackgroundColor: Colors.white,
-      titleChild: Text(
-        question,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 18.sp,
+    return GetBuilder<EntryPointController>(builder: (_) {
+      return controllerEntryPoint.logedIn!
+          ? Container(
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black.withOpacity(0.2)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5.r)),
+              child: GFAccordion(
+                showAccordion: false,
+                titleBorderRadius: BorderRadius.circular(5.r),
+                contentBorderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(5.r),
+                  bottomRight: Radius.circular(5.r),
+                ),
+                margin: const EdgeInsets.all(0),
+                titlePadding: EdgeInsets.all(10.h),
+                contentPadding: EdgeInsets.all(10.w),
+                expandedTitleBackgroundColor: Colors.white,
+                contentBackgroundColor: Colors.white,
+                titleChild: Text(
+                  question,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18.sp,
+                  ),
+                ),
+                contentChild: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    sizedBoxHeight(15.h),
+                    Column(
+                      children: [
+                        iconText(Icons.person_outline_outlined,
+                            ProfileObj!.user!.name ?? "NA"),
+                        sizedBoxHeight(20.h),
+                        iconText(Icons.phone_in_talk_sharp,
+                            ProfileObj!.user!.contactNumber ?? "NA"),
+                        sizedBoxHeight(20.h),
+                        iconText(Icons.mail_outline,
+                            ProfileObj!.user!.email ?? "NA"),
+                        sizedBoxHeight(20.h),
+                        iconText(Icons.location_on_outlined,
+                            ProfileObj!.user!.address ?? "NA"),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            )
+          : Container(
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black.withOpacity(0.2)),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(5.r)),
+              child: GFAccordion(
+                showAccordion: false,
+                titleBorderRadius: BorderRadius.circular(5.r),
+                contentBorderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(5.r),
+                  bottomRight: Radius.circular(5.r),
+                ),
+                margin: const EdgeInsets.all(0),
+                titlePadding: EdgeInsets.all(10.h),
+                contentPadding: EdgeInsets.all(10.w),
+                expandedTitleBackgroundColor: Colors.white,
+                contentBackgroundColor: Colors.white,
+                titleChild: Text(
+                  question,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 18.sp,
+                  ),
+                ),
+                contentChild: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    sizedBoxHeight(15.h),
+                    Column(
+                      children: [
+                        iconText(Icons.person_outline_outlined, 'Guest'),
+                        sizedBoxHeight(20.h),
+                        iconText(Icons.phone_in_talk_sharp, "NA"),
+                        sizedBoxHeight(20.h),
+                        iconText(Icons.mail_outline, "NA"),
+                        sizedBoxHeight(20.h),
+                        // iconText(Icons.credit_card_outlined, 'IURPS9876R'),
+                        // sizedBoxHeight(20.h),
+                        iconText(Icons.location_on_outlined, "NA"),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            );
+    });
+  }
+
+  Widget iconText(icon, txt) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(
+          icon,
+          size: 24.h,
+          color: Colors.black.withOpacity(0.7),
         ),
-      ),
-      contentChild: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          sizedBoxHeight(15.h),
-          Column(
-            children: [
-              iconText(
-                Icons.person_outline_outlined,
-               ProfileObj!.user!.name ?? "NA"
-              ),
-              sizedBoxHeight(20.h),
-              iconText(
-                  Icons.phone_in_talk_sharp,
-               ProfileObj!.user!.contactNumber ?? "NA"
-                  
-                      ),
-              sizedBoxHeight(20.h),
-              iconText(
-                Icons.mail_outline,
-               ProfileObj!.user!.email ?? "NA"
-               
-              ),
-              sizedBoxHeight(20.h),
-              iconText(
-                Icons.location_on_outlined,
-               ProfileObj!.user!.address ?? "NA"
-                
-              ),
-            ],
+        sizedBoxWidth(15.w),
+        Flexible(
+          child: Text(
+            txt,
+            style: TextStyle(fontSize: 18.sp),
           ),
-        ],
-      ),
-    ),
-  )
-  :
-   Container(
-    decoration: BoxDecoration(
-        border: Border.all(color: Colors.black.withOpacity(0.2)),
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(5.r)),
-    child: GFAccordion(
-      showAccordion: false,
-      titleBorderRadius: BorderRadius.circular(5.r),
-      contentBorderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(5.r),
-        bottomRight: Radius.circular(5.r),
-      ),
-      margin: const EdgeInsets.all(0),
-      titlePadding: EdgeInsets.all(10.h),
-      contentPadding: EdgeInsets.all(10.w),
-      expandedTitleBackgroundColor: Colors.white,
-      contentBackgroundColor: Colors.white,
-      titleChild: Text(
-        question,
-        style: TextStyle(
-          color: Colors.black,
-          fontSize: 18.sp,
         ),
-      ),
-      contentChild: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          sizedBoxHeight(15.h),
-          Column(
-            children: [
-              iconText(
-                Icons.person_outline_outlined,
-                'Guest'
-                   
-              ),
-              sizedBoxHeight(20.h),
-              iconText(
-                  Icons.phone_in_talk_sharp,
-                "NA"
-                      ),
-              sizedBoxHeight(20.h),
-              iconText(
-                Icons.mail_outline,
-                "NA"
-              ),
-              sizedBoxHeight(20.h),
-              // iconText(Icons.credit_card_outlined, 'IURPS9876R'),
-              // sizedBoxHeight(20.h),
-              iconText(
-                Icons.location_on_outlined,
-                "NA"
-              ),
-            ],
-          ),
-        ],
-      ),
-    ),
-  );
-
-
-  });
- 
-}
-
-Widget iconText(icon, txt) {
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Icon(
-        icon,
-        size: 24.h,
-        color: Colors.black.withOpacity(0.7),
-      ),
-      sizedBoxWidth(15.w),
-      Flexible(
-        child: Text(
-          txt,
-          style: TextStyle(fontSize: 18.sp),
-        ),
-      ),
-    ],
-  );
-}
+      ],
+    );
+  }
 
   Widget Tab2() {
     return Padding(
@@ -612,12 +580,15 @@ Widget iconText(icon, txt) {
             fontSize: 18.sp,
           ),
         ),
-        Text(
-          txt3,
-          style: TextStyle(
-            fontSize: 18.sp,
+        Padding(
+          padding: EdgeInsets.only(right: 5.w),
+          child: Text(
+            txt3,
+            style: TextStyle(
+              fontSize: 18.sp,
+            ),
           ),
-        )
+        ),
       ],
     );
   }
@@ -675,12 +646,12 @@ Widget iconText(icon, txt) {
                         ),
                       ),
                     ),
-                    Text(
-                      txt2,
-                      style: TextStyle(fontSize: 18.sp),
-                    ),
+                    // Text(
+                    //   txt2,
+                    //   style: TextStyle(fontSize: 18.sp),
+                    // ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      padding: EdgeInsets.only(right: 5.w),
                       child: GestureDetector(
                           onTap: () {
                             if (investmentText == "Current investment") {
@@ -699,6 +670,36 @@ Widget iconText(icon, txt) {
                             color: Colors.black.withOpacity(0.8),
                           )),
                     ),
+                    Padding(
+                        padding: EdgeInsets.only(right: 5.w, bottom: 0.h),
+                        child: SizedBox(
+                          height: 35.h,
+                          width: 120.w,
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                elevation: 5,
+                                shadowColor: Color.fromARGB(255, 220, 220, 226),
+                                backgroundColor: AppColors.blue143C6D,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.h),
+                                ),
+                              ),
+                              onPressed: () {
+                                Get.to(() => InvestmentpageSellinvest(
+                                      slug:
+                        //                 currentsummary!.data!.currentInvestment!
+                        // .productDetails![index].routeId.toString(),
+                                       routeId,
+                                    ));
+                              },
+                              child: Text(
+                                "List investment",
+                                style: TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 11.sp,
+                                ),
+                              )),
+                        ))
                   ],
                 ),
               ),

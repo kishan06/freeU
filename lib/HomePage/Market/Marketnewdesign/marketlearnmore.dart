@@ -264,36 +264,35 @@ class _MarketplacelearnmoreState extends State<Marketplacelearnmore> {
                     .toString()),
                 sizedBoxHeight(20.h),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0.w, 0.h, 0.w, 10.h),
-                  child: 
-                  getmarketlearnmoreobj?.invested == false
-  ? CustomNextButton(
-      productid: peerDetailsObj?.data?.productsId.toString(),
-      ontap: () {
-        if (controllerEntryPoint.logedIn!) {
-          // investNow();
-          Get.toNamed("/marketplaceform");
-        } else {
-          Get.toNamed("/login");
-        }
-      },
-      text: 'Invest now',
-    )
-  : CustomNextButton(
-      productid: peerDetailsObj?.data?.productsId.toString(),
-      ontap: () {
-        if (controllerEntryPoint.logedIn!) {
-          // investNow();
-          // Get.toNamed("/marketplaceform");
-          Get.offAllNamed('/EntryPoint', arguments: 2);
-        } else {
-          Get.toNamed("/login");
-        }
-      },
-      text: 'Show investment',
-    )
-
-                ),
+                    padding: EdgeInsets.fromLTRB(0.w, 0.h, 0.w, 10.h),
+                    child: getmarketlearnmoreobj?.invested == false
+                        ? CustomNextButton(
+                            // productid:
+                            //     peerDetailsObj?.data?.productsId.toString(),
+                            ontap: () {
+                              if (controllerEntryPoint.logedIn!) {
+                                // investNow();
+                                Get.toNamed("/marketplaceform");
+                              } else {
+                                Get.toNamed("/login");
+                              }
+                            },
+                            text: 'Invest now',
+                          )
+                        : CustomNextButton(
+                            // productid:
+                            //     peerDetailsObj?.data?.productsId.toString(),
+                            ontap: () {
+                              if (controllerEntryPoint.logedIn!) {
+                                // investNow();
+                                // Get.toNamed("/marketplaceform");
+                                Get.offAllNamed('/EntryPoint', arguments: 2);
+                              } else {
+                                Get.toNamed("/login");
+                              }
+                            },
+                            text: 'Show investment',
+                          )),
               ],
             ),
           ],

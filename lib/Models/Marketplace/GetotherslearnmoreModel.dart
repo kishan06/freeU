@@ -42,7 +42,7 @@ class Data {
   int? principalRepaid;
   String? maturityDate;
   int? noOfUnitsOfferedForSale;
-  int? expectedSalePricePerUnit;
+  String? expectedSalePricePerUnit;
   String? status;
   String? listingStatus;
   String? createdAt;

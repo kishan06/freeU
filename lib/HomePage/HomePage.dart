@@ -4,25 +4,29 @@ import 'dart:math';
 import 'package:another_flushbar/flushbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/Global.dart';
 import 'package:freeu/HomePage/Categories/GlobalFinancialAssets.dart/Globalcategoriesmain.dart';
 import 'package:freeu/HomePage/Categories/GlobalRealAssets/mainglobalrealassts.dart';
 import 'package:freeu/HomePage/Categories/IndianRealAssets/mainindianrealassets.dart';
 import 'package:freeu/Models/Insights/BlogsModel.dart';
+import 'package:freeu/Utils/Dialogs.dart';
 import 'package:freeu/ViewModel/Blogs/BlogsApis.dart';
-import 'package:freeu/ViewModel/Profile/Getprofile.dart';
 import 'package:freeu/ViewModel/TopPicks/TopPicks.dart';
 import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
-import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/InsightsInner.dart';
 import 'package:freeu/SideMenu/Insights.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Categories%20Common%20Files/categoryCard.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/viewModel/Security_pin/Postpin.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 import '../controllers/entry_point_controller.dart';
@@ -141,7 +145,7 @@ class _HomePageState extends State<HomePage> {
   final ScrollController scrollController = ScrollController();
   FutureGroup futureGroup = FutureGroup();
   StreamController<BlogsModel> BlogsControllerDummy = StreamController();
-
+  TextEditingController user_pin = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -156,13 +160,15 @@ class _HomePageState extends State<HomePage> {
 
     futureGroup.add(TopPicksApi().TopPicksAPI());
 
-    controllerEntryPoint.logedIn!
-        ? futureGroup.add(GetProfile().GetProfileAPI())
-        : null;
-
     futureGroup.close();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 3), () {
       requestPermissions();
+      print("pin dialog shown is $pindialog");
+      pindialog
+          ? null
+          : controllerEntryPoint.logedIn!
+              ? buildPinAlertDialog()
+              : null;
     });
   }
 
@@ -185,6 +191,215 @@ class _HomePageState extends State<HomePage> {
         message: "Permission denied. Unable to download image.",
         duration: Duration(seconds: 3),
       ).show(context);
+    }
+  }
+
+  buildPinAlertDialog() {
+    return showGeneralDialog(
+      context: context,
+      barrierDismissible: false,
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return WillPopScope(
+          onWillPop: () => _backbuttonpressed(context),
+          child: Scaffold(
+            body: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Padding(
+                    padding: EdgeInsets.all(25),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(13),
+                    child: Text(
+                      textAlign: TextAlign.left,
+                      textDirection: TextDirection.ltr,
+                      "Welcome back",
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 25.sp),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
+                  Text("Use your 4 Digit Pin to easily log in!",
+                      style: TextStyle(
+                        fontSize: 18.sp,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: "Poppins",
+                      )),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  TextFormField(
+                    // focusNode: pinFocusNode,
+                    controller: user_pin,
+                    decoration: InputDecoration(
+                      contentPadding: EdgeInsets.all(20),
+                      hintText: 'Enter PIN',
+                      // focusedBorder: const OutlineInputBorder(
+                      //   borderRadius: BorderRadius.all(Radius.circular(5)),
+                      //   borderSide:
+                      //       BorderSide(color: Color(0xFF707070), width: 1.0),
+                      // ),
+                      // enabledBorder: const OutlineInputBorder(
+                      //   borderRadius: BorderRadius.all(Radius.circular(5)),
+                      //   borderSide:
+                      //       BorderSide(color: Color(0xFF707070), width: 1.0),
+                      // ),
+                      hintStyle: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF303030).withOpacity(0.3)),
+                      // errorBorder: const OutlineInputBorder(
+                      //   borderRadius: BorderRadius.all(Radius.circular(5)),
+                      //   borderSide: BorderSide(color: Colors.red, width: 1.0),
+                      // ),
+                      // focusedErrorBorder: const OutlineInputBorder(
+                      //   borderRadius: BorderRadius.all(Radius.circular(5)),
+                      //   borderSide: BorderSide(color: Colors.red, width: 1.0),
+                      // ),
+                      errorStyle: const TextStyle(
+                        fontSize: 16.0,
+                      ),
+
+                      // suffixIcon: GestureDetector(
+                      //   onTap: () {
+                      //     // UploadPinData();
+                      //   },
+                      //   child: Container(
+                      //     padding: EdgeInsets.only(right: 25),
+                      //     width: 10,
+                      //     height: 10,
+                      //     child: SvgPicture.asset(
+                      //       'assets/images/nextbuttonicon.svg',
+                      //     ),
+                      //   ),
+                      // ),
+                    ),
+                    maxLength: 4,
+                    keyboardType: TextInputType.number,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (val) {
+                      if (val == null || val.isEmpty) {
+                        return 'Pin is Empty';
+                      } else {
+                        return null;
+                      }
+                    },
+                  ),
+                  SizedBox(
+                    height: 22,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: SizedBox(
+                      width: double.infinity,
+                      height: 60,
+                      child: CustomNextButton(
+                        text: 'GO',
+                        ontap: () {
+                          UploadPinData();
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 22,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  Future<bool> _backbuttonpressed(BuildContext context) async {
+    bool? exitapp = await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Padding(
+          padding: EdgeInsets.all(15.w),
+          child: AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10.r)),
+            insetPadding: const EdgeInsets.symmetric(vertical: 10),
+            title: Text(
+              "Exit App",
+              style: TextStyle(
+                  fontFamily: 'Studio Pro',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.sp,
+                  color: const Color(0xff3B3F43)),
+            ),
+            content: SizedBox(
+              width: MediaQuery.of(context).size.width,
+              child: Text(
+                "Are you sure you want to Exit App?",
+                style: TextStyle(
+                    fontFamily: 'Roboto',
+                    fontSize: 16.sp,
+                    color: const Color(0xff54595F)),
+              ),
+            ),
+            actions: [
+              InkWell(
+                onTap: () {
+                  Get.back();
+                },
+                child: Text(
+                  "No",
+                  style: TextStyle(
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.sp,
+                      color: const Color(0xff000000)),
+                ),
+              ),
+              sizedBoxWidth(15.sp),
+              InkWell(
+                onTap: () {
+                  SystemNavigator.pop();
+                  Navigator.pop(context);
+                },
+                child: Text(
+                  "Yes",
+                  style: TextStyle(
+                      fontFamily: "Roboto",
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.sp,
+                      color: const Color(0xffB90101)),
+                ),
+              ),
+              sizedBoxWidth(15.sp),
+            ],
+          ),
+        );
+      },
+    );
+    return exitapp ?? false;
+  }
+
+  void UploadPinData() async {
+    utils.loader();
+    Map<String, dynamic> updata = {
+      "pin": int.parse(user_pin.text),
+    };
+    final data = await Securitypin().PostChecksecuritypin(updata);
+    if (data.status == ResponseStatus.SUCCESS) {
+      Get.back();
+      print("Pin exist");
+      pindialog = true;
+      Get.back();
+      return utils.showToast(data.message);
+    } else {
+      Get.back();
+      print("pin does not exist");
+      return utils.showToast(data.message);
     }
   }
 

@@ -1,9 +1,9 @@
-class GetSellFormModel {
+class GetLsitSellFormModel {
   Data? data;
 
-  GetSellFormModel({this.data});
+  GetLsitSellFormModel({this.data});
 
-  GetSellFormModel.fromJson(Map<String, dynamic> json) {
+  GetLsitSellFormModel.fromJson(Map<String, dynamic> json) {
     data = json['data'] != null ? new Data.fromJson(json['data']) : null;
   }
 
@@ -23,7 +23,7 @@ class Data {
   int? postalCode;
   int? contactNumber;
   String? email;
-  Null? category;
+  String? category;
 
   Data(
       {this.name,
