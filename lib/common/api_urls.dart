@@ -265,5 +265,21 @@ class ApiUrls {
   static const PostSellfractionalform = "${baseUrl}marketplace/fractional-real-estate/seller-form";
   static const PostSellothersform = "${baseUrl}marketplace/other-products/seller-form";
 
+// list investment investment page 
+  static const GetListsellform = "${baseUrl}seller-form";
+    static const PostListSellform = "${baseUrl}marketplace/seller-form";
+  static const PostListSellalternativeform = "${baseUrl}marketplace/alternative-investment-fund/seller-form";
+  static const PostListSellfractionalform = "${baseUrl}marketplace/fractional-real-estate/seller-form";
+  static const PostListSellothersform = "${baseUrl}marketplace/other-products/seller-form";
+
+// Post security pin 
+  static const PostSecuritypin = "${baseUrl}change-pin";
+
+// post login otp
+  static const postloginotp = "${baseUrl}send-otp";
+  static const postloginOtpenter = "${baseUrl}entered-otp";
+
+// Psot check security pin 
+  static const PostChecksecuritypin = "${baseUrl}check-pin";
 
 }

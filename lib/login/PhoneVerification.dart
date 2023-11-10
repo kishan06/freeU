@@ -2,13 +2,19 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/Dialogs.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
+import 'package:freeu/viewModel/Loginotp/loginotp.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:timer_button/timer_button.dart';
+
+import '../controllers/cat_controller.dart';
 
 class PhoneVerification extends StatefulWidget {
   const PhoneVerification({super.key});
@@ -22,14 +28,50 @@ class _PhoneVerificationState extends State<PhoneVerification> {
   TextEditingController phoneController = TextEditingController();
   TextEditingController pincode = TextEditingController();
   final GlobalKey<FormState> _form = GlobalKey<FormState>();
+  CatController countrollerCat = Get.put(CatController());
 
   @override
   void initState() {
     super.initState();
     phoneController.text = Get.arguments;
   }
-  
+
   bool _sendOTPclicked = false;
+
+  void Resendupload() async {
+    Map<String, String> updata = {
+      "contact_number": phoneController.text,
+    };
+    final data = await Loginotp().PostloginresendApi(updata);
+    if (data.status == ResponseStatus.SUCCESS) {
+      print("otp send");
+      _sendOTPclicked = true;
+      return utils.showToast(data.message);
+    } else {
+      print("otp does not send");
+      return utils.showToast(data.message);
+    }
+  }
+
+  void UploadotpData() async {
+    utils.loader();
+    Map<String, String> updata = {
+      "otp": pincode.text,
+    };
+    final data = await Loginotp().PostloginotpenteredApi(updata);
+    if (data.status == ResponseStatus.SUCCESS) {
+      Get.back();
+      print("otp correct");
+      Get.toNamed("/completeprofile");
+      return utils.showToast(data.message);
+    } else {
+      Get.back();
+      print("otp incorrect");
+      return utils.showToast(data.message);
+    }
+  }
+
+  final controllerEntryPoint = Get.put(EntryPointController());
 
   @override
   Widget build(BuildContext context) {
@@ -232,11 +274,19 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                                   TextStyle(color: AppColors.blue002A5B),
                               buttonType: ButtonType.textButton,
                               label: "Resend",
-                              timeOutInSeconds: 6,
+                              timeOutInSeconds: 60,
                               //mobile.text.isEmpty ?  1 : 60,
                               onPressed: () {
                                 setState(() {
-                                  _sendOTPclicked = true;
+                                  if (phoneController.text.isEmpty) {
+                                    Flushbar(
+                                      message: "Please Enter Phone Number",
+                                      duration: const Duration(seconds: 3),
+                                    ).show(context);
+                                  } else {
+                                    // _sendOTPclicked = true;
+                                    Resendupload();
+                                  }
                                 });
                                 // pincode!.clear();
                                 // Map<String, dynamic> updata2 = {
@@ -244,10 +294,11 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                                 // };
                                 // SendOtp().sendotp(updata);
                                 // SendOtp().SendOtpExotel(updata2);
-                                Flushbar(
-                                  message: "Otp has been sent successfully",
-                                  duration: const Duration(seconds: 3),
-                                ).show(context);
+
+                                // Flushbar(
+                                //   message: "Otp has been sent successfully",
+                                //   duration: const Duration(seconds: 3),
+                                // ).show(context);
                               },
                               disabledColor: Colors.white,
                               color: Colors.white,
@@ -255,20 +306,37 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                           ],
                         ),
                         SizedBox(height: 50.h),
-                        CustomNextButton(
-                          text: "Verify",
-                          ontap: () {
-                            final isValid = _form.currentState?.validate();
-                            if (isValid!) {
-                              Get.toNamed("/completeprofile");
-                            } else {
-                              Get.snackbar("Error", "Please Enter OTP",
-                                  margin: EdgeInsets.all(8),
-                                  snackStyle: SnackStyle.FLOATING,
-                                  snackPosition: SnackPosition.BOTTOM);
-                            }
-                          },
-                        )
+                        GetBuilder<EntryPointController>(builder: (
+                          controller,
+                        ) {
+                          return controllerEntryPoint.signinApi
+                              ? CircularProgressIndicator()
+                              : CustomNextButton(
+                                  text: "Verify",
+                                  ontap: () {
+                                    final isValid =
+                                        _form.currentState?.validate();
+                                    if (isValid!) {
+                                       controllerEntryPoint
+                                            .changeSigninApiBool();
+                                      // UploadotpData();
+                                      countrollerCat.verifyOtp(pincode.text,phoneController.text);
+                                    } else {
+                                      utils.showToast(
+                                          "please fill all required fields");
+                                    }
+                                    
+                                    // if (isValid!) {
+                                    //   Get.toNamed("/completeprofile");
+                                    // } else {
+                                    //   Get.snackbar("Error", "Please Enter OTP",
+                                    //       margin: EdgeInsets.all(8),
+                                    //       snackStyle: SnackStyle.FLOATING,
+                                    //       snackPosition: SnackPosition.BOTTOM);
+                                    // }
+                                  },
+                                );
+                        })
                       ],
                     ),
                   ))

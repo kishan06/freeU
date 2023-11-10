@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:freeu/HomePage/Investments/Listinvestmentform/listinvestsellerform.dart';
 import 'package:freeu/HomePage/Investments/product_action.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/ViewModel/Investment/Investment.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
@@ -80,7 +82,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                         SizedBox(),
                         SizedBox(),
                         Text(
-                          "Amount",
+                          "Action",
                           style: TextStyle(
                             fontFamily: 'Poppins',
                             fontSize: 18.sp,
@@ -89,7 +91,7 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                         Padding(
                           padding: const EdgeInsets.only(right: 10),
                           child: Text(
-                            "Action",
+                            "List Market",
                             style: TextStyle(
                               fontFamily: 'Poppins',
                               fontSize: 18.sp,
@@ -220,12 +222,12 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                         ),
                       ),
                     ),
-                    Text(
-                      txt2,
-                      style: TextStyle(fontSize: 18.sp),
-                    ),
+                    // Text(
+                    //   txt2,
+                    //   style: TextStyle(fontSize: 18.sp),
+                    // ),
                     Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      padding: EdgeInsets.only(right: 5.w),
                       child: GestureDetector(
                           onTap: () {
                             Get.to(
@@ -243,6 +245,33 @@ class _CurrentInvestmentState extends State<CurrentInvestment> {
                             color: Colors.black.withOpacity(0.8),
                           )),
                     ),
+                    Padding(
+                        padding: EdgeInsets.only(right: 5.w, bottom: 0.h),
+                        child: SizedBox(
+                          height: 35.h,
+                          width: 120.w,
+                          child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                elevation: 5,
+                                shadowColor: Color.fromARGB(255, 220, 220, 226),
+                                backgroundColor: AppColors.blue143C6D,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10.h),
+                                ),
+                              ),
+                              onPressed: () {
+                                Get.to(() => InvestmentpageSellinvest(
+                                      slug: routeId,
+                                    ));
+                              },
+                              child: Text(
+                                "List investment",
+                                style: TextStyle(
+                                  color: AppColors.white,
+                                  fontSize: 11.sp,
+                                ),
+                              )),
+                        ))
                   ],
                 ),
               ),
