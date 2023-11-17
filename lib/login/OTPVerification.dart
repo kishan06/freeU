@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/Dialogs.dart';
 import 'package:freeu/Utils/textStyle.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/controllers/cat_controller.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
@@ -25,6 +28,9 @@ class _otpVerificationState extends State<otpVerification> {
     super.initState();
     phoneController.text = Get.arguments;
   }
+
+  final controllerEntryPoint = Get.put(EntryPointController());
+  CatController countrollerCat = Get.put(CatController());
 
   @override
   Widget build(BuildContext context) {
@@ -198,13 +204,22 @@ class _otpVerificationState extends State<otpVerification> {
                               ontap: () {
                                 final isValid = _form.currentState?.validate();
                                 if (isValid!) {
-                                  Get.toNamed('/resetpassword');
-                                } else {
-                                  Get.snackbar("Error", "Please Enter OTP",
-                                      margin: EdgeInsets.all(8),
-                                      snackStyle: SnackStyle.FLOATING,
-                                      snackPosition: SnackPosition.BOTTOM);
-                                }
+                                       controllerEntryPoint
+                                            .changeSigninApiBool();
+                                      // UploadotpData();
+                                      countrollerCat.verifyforgotpasswordOtp(pincode.text,phoneController.text);
+                                    } else {
+                                      utils.showToast(
+                                          "please fill all required fields");
+                                    }
+                                // if (isValid!) {
+                                //   Get.toNamed('/resetpassword');
+                                // } else {
+                                //   Get.snackbar("Error", "Please Enter OTP",
+                                //       margin: EdgeInsets.all(8),
+                                //       snackStyle: SnackStyle.FLOATING,
+                                //       snackPosition: SnackPosition.BOTTOM);
+                                // }
                               },
                             )
                           ],

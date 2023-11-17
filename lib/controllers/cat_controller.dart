@@ -92,14 +92,14 @@ class CatController extends GetxController {
 
           // shamshad cookkie
           'freeu_session=eyJpdiI6IkYxd21QcHowNUE1ZE40NGI0NlN0UWc9PSIsInZhbHVlIjoiaXF3MjF0QUFCVTRNTGp2YVVqTnNnaGcvVk4zdVRJMitDcnd5TVNRUlovdlp6TFcxSDV6V2dSd0N5ajdkK3g1NjUrR1FVM3hiN1JVL3NZRzA1U3ZjQllIcXAxRmhmNkMyWW8wNXVLZlpueFZlZWh0K3BxRWFIQzVRdTVwRisxQnIiLCJtYWMiOiI0ZTFmZTEyYWJmZmI5NDgzYjAxN2FkZjRlNDI4NTRhOWZmMGE3YWU4MzdhNTIxMjFiYThjMDViYzg0OTU5OTU5IiwidGFnIjoiIn0%3D'
-         // 'freeu_session=eyJpdiI6IlZQYzZxeURzZCtqVklOUHRQRUVIMlE9PSIsInZhbHVlIjoiOHNCb2o2UkRkTFJPei9mYy9wUU5UK0ZQdGNzQ3AvcjB1NmRsa09pdVN0TG5Wb1hRaE9aN1NVd1BsTzQ2OC9URVVIRVZ5SHJLeXJEZG5tSHkwa0VCN25OcmpVZ3J2ZElxYVF0eXUzVlUyM2ZFOTdOS2dIWDlhZ3lwakxkaGYyMHoiLCJtYWMiOiJjN2M1NTYwNWNmYjJlOTZlOTFlZWVlMWQ3OTIzMWY2OGE1ZTMyMGNjNzMwMzY2NjQyMDAyNWQ0YWMxYTU4NWM5IiwidGFnIjoiIn0%3D'
+      // 'freeu_session=eyJpdiI6IlZQYzZxeURzZCtqVklOUHRQRUVIMlE9PSIsInZhbHVlIjoiOHNCb2o2UkRkTFJPei9mYy9wUU5UK0ZQdGNzQ3AvcjB1NmRsa09pdVN0TG5Wb1hRaE9aN1NVd1BsTzQ2OC9URVVIRVZ5SHJLeXJEZG5tSHkwa0VCN25OcmpVZ3J2ZElxYVF0eXUzVlUyM2ZFOTdOS2dIWDlhZ3lwakxkaGYyMHoiLCJtYWMiOiJjN2M1NTYwNWNmYjJlOTZlOTFlZWVlMWQ3OTIzMWY2OGE1ZTMyMGNjNzMwMzY2NjQyMDAyNWQ0YWMxYTU4NWM5IiwidGFnIjoiIn0%3D'
 
       // 'freeu_session=eyJpdiI6ImJQRkZGUi9YaHdKT2V2ZmFFZTgzYVE9PSIsInZhbHVlIjoiTHo1R2FIYVp5K201bmxiVW9BelFjL21yUHNTYVBGS05jN3gxN1MvWXZ0T1UzM3NXdTJUKzgwMGFFcTVVc0s5V2pWQmhIclRQZGNHcHJtMUJrWEc2d1BMM1dFK2FJdGdPQ0pQcUUwcnZFNDJFQ0R3aUtjMVhxeWZSaEE3MHpJeWYiLCJtYWMiOiIwYjRiNWU2YzUyMzhkYTFmOTFhYmQwOTk4NDZmYjQ2MWJmOGQ4ZTc4M2NhYzVlNzgyMGQ3Y2U4ZWVmYmQ5ODIyIiwidGFnIjoiIn0%3D'
     };
     var data = FormData.fromMap({
       'otp': Otp,
-      'contact_number' : phone,
-      });
+      'contact_number': phone,
+    });
 
     var dio = Dio();
     var response = await dio.request(
@@ -119,7 +119,7 @@ class CatController extends GetxController {
       print("yg ${resp['message']}");
       Get.back();
 
-      if (resp['token'] != null) {
+      // if (resp['token'] != null) {
         GetProfile().GetProfileAPI();
         Future.delayed(Duration(seconds: 2), () async {
           final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -139,9 +139,72 @@ class CatController extends GetxController {
           Get.toNamed("/EntryPoint", arguments: 0);
         });
         controllerEntryPoint.changeSigninApiBool();
-      } else {
-        Get.toNamed("/completeprofile");
-      }
+      // } else {
+      //   Get.toNamed("/completeprofile");
+      // }
+
+      return utils.showToast(resp['message']);
+    } else if (response.statusCode == 201) {
+      print(json.encode(response.data));
+      var resp = response.data;
+      print("yg ${resp['message']}");
+      Get.back();
+      return utils.showToast(resp['message']);
+    } else if (response.statusCode == 400) {
+      // return utils.showToast(response.statusMessage);
+      print(json.encode(response.data));
+      var resp = response.data;
+      print("yg ${resp['message']}");
+      Get.back();
+      return utils.showToast(resp['message']);
+    } else {
+      print(json.encode(response.data));
+      var resp = response.data;
+      print("yg ${resp['message']}");
+      Get.back();
+      controllerEntryPoint.changeSigninApiBool();
+      return utils.showToast(resp['message']);
+    }
+  }
+
+  verifyforgotpasswordOtp(String Otp, String phone) async {
+    utils.loader();
+    var headers = {
+      // 'Authorization': 'Bearer 12|SxRovmqg57oxLf2wfuycYh6YIh7YdVxneDsLC5uz',
+
+      'Cookie':
+          // shubham cookie
+          // 'freeu_session=eyJpdiI6IkMrZXdvRit3M0xEWDUyU1paSzIwWFE9PSIsInZhbHVlIjoiK2liMzJUV0dlRVpFSU9iZWpyZHdtS0pUU091ay85Y0pULzJiVi9hNk1INzFBVTQrSzBQNHgzcHhPRTl5Q0ZZVEo3cHpoRnV6OXhNYkg3cGdoRWtyTVNIMlB6RllwaVN1Y1BWOE9jWTQrbzBuc3F1TnNqMzBNREV6dEthSFp5dE8iLCJtYWMiOiI1NGRjMThlMGViMzZlZDQxOGEwNGFlZGJkOTI3MjRkZDQyNWMwYjlhZjQ0ZjRhZTNiZTE4YmEzNjI2MjE0OTk2IiwidGFnIjoiIn0%3D'
+
+          // shamshad cookkie
+          'freeu_session=eyJpdiI6IkYxd21QcHowNUE1ZE40NGI0NlN0UWc9PSIsInZhbHVlIjoiaXF3MjF0QUFCVTRNTGp2YVVqTnNnaGcvVk4zdVRJMitDcnd5TVNRUlovdlp6TFcxSDV6V2dSd0N5ajdkK3g1NjUrR1FVM3hiN1JVL3NZRzA1U3ZjQllIcXAxRmhmNkMyWW8wNXVLZlpueFZlZWh0K3BxRWFIQzVRdTVwRisxQnIiLCJtYWMiOiI0ZTFmZTEyYWJmZmI5NDgzYjAxN2FkZjRlNDI4NTRhOWZmMGE3YWU4MzdhNTIxMjFiYThjMDViYzg0OTU5OTU5IiwidGFnIjoiIn0%3D'
+      // 'freeu_session=eyJpdiI6IlZQYzZxeURzZCtqVklOUHRQRUVIMlE9PSIsInZhbHVlIjoiOHNCb2o2UkRkTFJPei9mYy9wUU5UK0ZQdGNzQ3AvcjB1NmRsa09pdVN0TG5Wb1hRaE9aN1NVd1BsTzQ2OC9URVVIRVZ5SHJLeXJEZG5tSHkwa0VCN25OcmpVZ3J2ZElxYVF0eXUzVlUyM2ZFOTdOS2dIWDlhZ3lwakxkaGYyMHoiLCJtYWMiOiJjN2M1NTYwNWNmYjJlOTZlOTFlZWVlMWQ3OTIzMWY2OGE1ZTMyMGNjNzMwMzY2NjQyMDAyNWQ0YWMxYTU4NWM5IiwidGFnIjoiIn0%3D'
+
+      // 'freeu_session=eyJpdiI6ImJQRkZGUi9YaHdKT2V2ZmFFZTgzYVE9PSIsInZhbHVlIjoiTHo1R2FIYVp5K201bmxiVW9BelFjL21yUHNTYVBGS05jN3gxN1MvWXZ0T1UzM3NXdTJUKzgwMGFFcTVVc0s5V2pWQmhIclRQZGNHcHJtMUJrWEc2d1BMM1dFK2FJdGdPQ0pQcUUwcnZFNDJFQ0R3aUtjMVhxeWZSaEE3MHpJeWYiLCJtYWMiOiIwYjRiNWU2YzUyMzhkYTFmOTFhYmQwOTk4NDZmYjQ2MWJmOGQ4ZTc4M2NhYzVlNzgyMGQ3Y2U4ZWVmYmQ5ODIyIiwidGFnIjoiIn0%3D'
+    };
+    var data = FormData.fromMap({
+      'otp': Otp,
+      'contact_number': phone,
+    });
+
+    var dio = Dio();
+    var response = await dio.request(
+      ApiUrls.postforgotpassOtpenter,
+      // 'https://pi.betadelivery.com/freeU_investment/api/entered-otp',
+      options: Options(
+        method: 'POST',
+        headers: headers,
+      ),
+      data: data,
+    );
+
+    if (response.statusCode == 200) {
+      print(json.encode(response.data));
+      print("response is sucess");
+      var resp = response.data;
+      print("forgot password ${resp['message']}");
+      Get.back();
+      Get.toNamed('/resetpassword', arguments: phone);
 
       return utils.showToast(resp['message']);
     } else if (response.statusCode == 201) {

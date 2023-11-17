@@ -1,7 +1,11 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/Dialogs.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/viewModel/Forgotpassword/forgotpassword.dart';
 import 'package:get/get.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -20,6 +24,14 @@ class _ResetPasswordState extends State<ResetPassword> {
   bool _isHasSymboleOrCaptital = false;
   TextEditingController passwordcontroller = TextEditingController();
   TextEditingController confirmpasscontroller = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    phoneController.text = Get.arguments;
+  }
+
   onPasswordChnage(String password) {
     setState(() {
       final numricRegex = RegExp(r'[0-9]');
@@ -34,6 +46,26 @@ class _ResetPasswordState extends State<ResetPassword> {
       _isHasSymboleOrCaptital = false;
       if (alphaRegex.hasMatch(password)) _isHasSymboleOrCaptital = true;
     });
+  }
+
+  void Uploadata() async {
+    utils.loader();
+    Map<String, String> updata = {
+      "contact_number": phoneController.text,
+      "password": passwordcontroller.text,
+      "password_confirmation": confirmpasscontroller.text
+    };
+    final data = await Forgotpasswordotp().PostforgotpasswordApi(updata);
+    if (data.status == ResponseStatus.SUCCESS) {
+      Get.back();
+      print("password matched");
+       Get.offAllNamed('/login');
+      return utils.showToast(data.message);
+    } else {
+      Get.back();
+      print("password does not matched");
+      return utils.showToast(data.message);
+    }
   }
 
   @override
@@ -387,13 +419,22 @@ class _ResetPasswordState extends State<ResetPassword> {
                           ontap: () {
                             final isValid = _form.currentState?.validate();
                             if (isValid!) {
-                              Get.toNamed('/login');
+                              Uploadata();
                             } else {
-                              Get.snackbar("Error", "Please Enter Password",
-                                  margin: EdgeInsets.all(8),
-                                  snackStyle: SnackStyle.FLOATING,
-                                  snackPosition: SnackPosition.BOTTOM);
+                              Flushbar(
+                                message: "Please enter password",
+                                duration: const Duration(seconds: 3),
+                              ).show(context);
                             }
+
+                            // if (isValid!) {
+                            //   Get.toNamed('/login');
+                            // } else {
+                            //   Get.snackbar("Error", "Please Enter Password",
+                            //       margin: EdgeInsets.all(8),
+                            //       snackStyle: SnackStyle.FLOATING,
+                            //       snackPosition: SnackPosition.BOTTOM);
+                            // }
                           },
                         ),
                       ],

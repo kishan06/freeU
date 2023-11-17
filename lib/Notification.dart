@@ -167,7 +167,12 @@ class _NotificationPageState extends State<NotificationPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [text20Black("Login to continue")],
+                  children: [GestureDetector(
+                    onTap: () {
+                                Get.toNamed("/login");
+                      
+                    },
+                    child: text20Black("Login to continue"))],
                 ),
               ));
   }

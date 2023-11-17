@@ -282,4 +282,9 @@ class ApiUrls {
 // Psot check security pin 
   static const PostChecksecuritypin = "${baseUrl}check-pin";
 
+  // forgot password
+  static const postforgotpassotp = "${baseUrl}forgot-password-1";
+  static const postforgotpassOtpenter = "${baseUrl}forgot-password-2";
+  static const postforgotpassword = "${baseUrl}forgot-password-3";
+
 }

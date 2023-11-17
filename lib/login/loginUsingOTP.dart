@@ -205,7 +205,7 @@ class _LoginUsingOTPState extends State<LoginUsingOTP> {
                           if (tecPhone.text.isEmpty) {
                             _otpSent = false;
                             Flushbar(
-                              message: "Please Enter Phone Number",
+                              message: "Please enter phone number",
                               duration: const Duration(seconds: 3),
                             ).show(context);
                           } else {
