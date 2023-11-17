@@ -70,11 +70,11 @@ class _EntryPointState extends State<EntryPoint>
      Future.delayed(Duration(seconds: 3), () {
       print("pin dialog shown is $pindialog");
 
-      pindialog
-          ? null
-          : controllerEntryPoint.logedIn!
-              ? buildPinAlertDialog()
-              : null;
+      // pindialog
+      //     ? null
+      //     : controllerEntryPoint.logedIn!
+      //         ? buildPinAlertDialog()
+      //         : null;
       
     });
   }

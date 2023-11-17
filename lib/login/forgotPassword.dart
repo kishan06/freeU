@@ -1,9 +1,13 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Utils/Dialogs.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/viewModel/Forgotpassword/forgotpassword.dart';
 import 'package:get/get.dart';
 
 class forgotPassword extends StatefulWidget {
@@ -21,6 +25,40 @@ class _forgotPasswordState extends State<forgotPassword> {
   @override
   void initState() {
     super.initState();
+  }
+
+   bool isValidPhoneNumber(String phoneNumber) {
+    final RegExp phoneNumberExpression = RegExp(r"^0{10}$");
+
+    return !phoneNumberExpression.hasMatch(phoneNumber);
+  }
+
+
+    void Uploadata() async {
+    utils.loader();
+    final isValid = _form.currentState?.validate();
+    if (isValid!) {
+      Map<String, String> updata = {
+        "contact_number": phoneController.text,
+      };
+      final data = await Forgotpasswordotp().PostforgotpassotpApi(updata);
+      if (data.status == ResponseStatus.SUCCESS) {
+        Get.back();
+        print("otp send");
+Get.toNamed('/otpverification',
+                                    arguments: phoneController.text);
+        return utils.showToast(data.message);
+      } else {
+        Get.back();
+        print("otp does not send");
+        return utils.showToast(data.message);
+      }
+    } else {
+      return Flushbar(
+        message: "Please fill all fields",
+        duration: const Duration(seconds: 3),
+      ).show(context);
+    }
   }
 
   @override
@@ -92,19 +130,21 @@ class _forgotPasswordState extends State<forgotPassword> {
                                   texttype: TextInputType.phone,
                                   textEditingController: phoneController,
                                   inputFormatters: <TextInputFormatter>[
-                                    FilteringTextInputFormatter.digitsOnly,
+                                    // FilteringTextInputFormatter.digitsOnly,
+                                    FilteringTextInputFormatter.allow(
+                                    RegExp('[0-9]')),
                                     LengthLimitingTextInputFormatter(10),
                                   ],
-                                  validator: (value) {
-                                    if (value!.isEmpty) {
-                                      return "Please Enter a Phone Number";
-                                    } else if (!RegExp(
-                                            r'^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$')
-                                        .hasMatch(value)) {
-                                      return "Please Enter a Valid Phone Number";
-                                    }
-                                    return null;
-                                  },
+                                 validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return "Please enter mobile number";
+                                } else if (value.length < 10) {
+                                  return "Please enter correct mobile number";
+                                } else if (!isValidPhoneNumber(value)) {
+                                  return 'Phone number cannot contain 10 zeros';
+                                }
+                                return null;
+                              },
                                   hintText: "Enter your Phone Number",
                                   validatorText: "Enter your Phone Number"),
                             ],
@@ -135,16 +175,24 @@ class _forgotPasswordState extends State<forgotPassword> {
                             text: "Proceed",
                             ontap: () {
                               final isValid = _form.currentState?.validate();
-                              if (isValid!) {
-                                Get.toNamed('/otpverification',
-                                    arguments: phoneController.text);
-                              } else {
-                                Get.snackbar(
-                                    "Error", "Please Enter Phone Number",
-                                    margin: EdgeInsets.all(8),
-                                    snackStyle: SnackStyle.FLOATING,
-                                    snackPosition: SnackPosition.BOTTOM);
-                              }
+                              // if (isValid!) {
+                              //   Get.toNamed('/otpverification',
+                              //       arguments: phoneController.text);
+                              // } else {
+                              //   Get.snackbar(
+                              //       "Error", "Please Enter Phone Number",
+                              //       margin: EdgeInsets.all(8),
+                              //       snackStyle: SnackStyle.FLOATING,
+                              //       snackPosition: SnackPosition.BOTTOM);
+                              // }
+                              if (phoneController.text.isEmpty) {
+                            Flushbar(
+                              message: "Please Enter Phone Number",
+                              duration: const Duration(seconds: 3),
+                            ).show(context);
+                          } else {
+                            Uploadata();
+                          }
                             },
                           )
                         ],

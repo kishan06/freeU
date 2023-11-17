@@ -58,7 +58,11 @@ class _NoInternetscreenState extends State<NoInternetscreen> {
       onWillPop: () => Future.value(false),
       child: Scaffold(
           body: Stack(children: [
-        Center(
+        Positioned(
+          top: 0,
+          left: 100,
+          right: 100,
+          bottom: 300,
           child: Container(
             height: 230.h,
             width: 230.w,
