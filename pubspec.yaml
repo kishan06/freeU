@@ -73,6 +73,8 @@ dependencies:
   open_file: ^3.3.2
   permission_handler: ^11.0.1
   timer_button: ^2.1.1
+  connectivity_plus: ^5.0.1
+  provider: ^6.1.1
 
 dev_dependencies:
   flutter_test:
