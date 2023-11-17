@@ -26,6 +26,7 @@ import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/base_manager.dart';
+import 'package:freeu/viewModel/Profile/Getprofile.dart';
 import 'package:freeu/viewModel/Security_pin/Postpin.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -159,16 +160,19 @@ class _HomePageState extends State<HomePage> {
         .BlogSearchAndFilter(updata, streamController: BlogsControllerDummy));
 
     futureGroup.add(TopPicksApi().TopPicksAPI());
+    futureGroup.add(GetProfile().GetProfileAPI());
 
     futureGroup.close();
     Future.delayed(Duration(seconds: 3), () {
       requestPermissions();
       print("pin dialog shown is $pindialog");
-      pindialog
-          ? null
-          : controllerEntryPoint.logedIn!
-              ? buildPinAlertDialog()
-              : null;
+
+      // pindialog
+      //     ? null
+      //     : controllerEntryPoint.logedIn!
+      //         ? buildPinAlertDialog()
+      //         : null;
+      
     });
   }
 
@@ -194,129 +198,139 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  buildPinAlertDialog() {
-    return showGeneralDialog(
-      context: context,
-      barrierDismissible: false,
-      pageBuilder: (context, animation, secondaryAnimation) {
-        return WillPopScope(
-          onWillPop: () => _backbuttonpressed(context),
-          child: Scaffold(
-            body: SingleChildScrollView(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Padding(
-                    padding: EdgeInsets.all(25),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(13),
-                    child: Text(
-                      textAlign: TextAlign.left,
-                      textDirection: TextDirection.ltr,
-                      "Welcome back",
-                      style: TextStyle(
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w500,
-                          fontSize: 25.sp),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 10.h,
-                  ),
-                  Text("Use your 4 Digit Pin to easily log in!",
-                      style: TextStyle(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w500,
-                        fontFamily: "Poppins",
-                      )),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  TextFormField(
-                    // focusNode: pinFocusNode,
-                    controller: user_pin,
-                    decoration: InputDecoration(
-                      contentPadding: EdgeInsets.all(20),
-                      hintText: 'Enter PIN',
-                      // focusedBorder: const OutlineInputBorder(
-                      //   borderRadius: BorderRadius.all(Radius.circular(5)),
-                      //   borderSide:
-                      //       BorderSide(color: Color(0xFF707070), width: 1.0),
-                      // ),
-                      // enabledBorder: const OutlineInputBorder(
-                      //   borderRadius: BorderRadius.all(Radius.circular(5)),
-                      //   borderSide:
-                      //       BorderSide(color: Color(0xFF707070), width: 1.0),
-                      // ),
-                      hintStyle: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF303030).withOpacity(0.3)),
-                      // errorBorder: const OutlineInputBorder(
-                      //   borderRadius: BorderRadius.all(Radius.circular(5)),
-                      //   borderSide: BorderSide(color: Colors.red, width: 1.0),
-                      // ),
-                      // focusedErrorBorder: const OutlineInputBorder(
-                      //   borderRadius: BorderRadius.all(Radius.circular(5)),
-                      //   borderSide: BorderSide(color: Colors.red, width: 1.0),
-                      // ),
-                      errorStyle: const TextStyle(
-                        fontSize: 16.0,
-                      ),
+  // buildPinAlertDialog() {
+  //   return showGeneralDialog(
+  //     context: context,
+  //     barrierDismissible: false,
+  //     pageBuilder: (context, animation, secondaryAnimation) {
+  //       return WillPopScope(
+  //         onWillPop: () => _backbuttonpressed(context),
+  //         child: Scaffold(
+  //           body: SingleChildScrollView(
+  //             child: Column(
+  //               mainAxisSize: MainAxisSize.min,
+  //               children: [
+  //                 Padding(
+  //                   padding: EdgeInsets.all(25),
+  //                 ),
+  //                 Padding(
+  //                   padding: const EdgeInsets.all(13),
+  //                   child: Text(
+  //                     textAlign: TextAlign.left,
+  //                     textDirection: TextDirection.ltr,
+  //                     "Welcome back",
+  //                     style: TextStyle(
+  //                         fontFamily: "Poppins",
+  //                         fontWeight: FontWeight.w500,
+  //                         fontSize: 25.sp),
+  //                   ),
+  //                 ),
+  //                 SizedBox(
+  //                   height: 10.h,
+  //                 ),
+  //                 Text("Use your 4 Digit Pin to easily log in!",
+  //                     style: TextStyle(
+  //                       fontSize: 18.sp,
+  //                       fontWeight: FontWeight.w500,
+  //                       fontFamily: "Poppins",
+  //                     )),
+  //                 SizedBox(
+  //                   height: 20,
+  //                 ),
+  //                 TextFormField(
+  //                   // focusNode: pinFocusNode,
+  //                   controller: user_pin,
+  //                   decoration: InputDecoration(
+  //                     contentPadding: EdgeInsets.all(20),
+  //                     hintText: 'Enter PIN',
+  //                     // focusedBorder: const OutlineInputBorder(
+  //                     //   borderRadius: BorderRadius.all(Radius.circular(5)),
+  //                     //   borderSide:
+  //                     //       BorderSide(color: Color(0xFF707070), width: 1.0),
+  //                     // ),
+  //                     // enabledBorder: const OutlineInputBorder(
+  //                     //   borderRadius: BorderRadius.all(Radius.circular(5)),
+  //                     //   borderSide:
+  //                     //       BorderSide(color: Color(0xFF707070), width: 1.0),
+  //                     // ),
+  //                     hintStyle: TextStyle(
+  //                         fontSize: 16,
+  //                         fontWeight: FontWeight.w600,
+  //                         color: Color(0xFF303030).withOpacity(0.3)),
+  //                     // errorBorder: const OutlineInputBorder(
+  //                     //   borderRadius: BorderRadius.all(Radius.circular(5)),
+  //                     //   borderSide: BorderSide(color: Colors.red, width: 1.0),
+  //                     // ),
+  //                     // focusedErrorBorder: const OutlineInputBorder(
+  //                     //   borderRadius: BorderRadius.all(Radius.circular(5)),
+  //                     //   borderSide: BorderSide(color: Colors.red, width: 1.0),
+  //                     // ),
+  //                     errorStyle: const TextStyle(
+  //                       fontSize: 16.0,
+  //                     ),
 
-                      // suffixIcon: GestureDetector(
-                      //   onTap: () {
-                      //     // UploadPinData();
-                      //   },
-                      //   child: Container(
-                      //     padding: EdgeInsets.only(right: 25),
-                      //     width: 10,
-                      //     height: 10,
-                      //     child: SvgPicture.asset(
-                      //       'assets/images/nextbuttonicon.svg',
-                      //     ),
-                      //   ),
-                      // ),
-                    ),
-                    maxLength: 4,
-                    keyboardType: TextInputType.number,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
-                    validator: (val) {
-                      if (val == null || val.isEmpty) {
-                        return 'Pin is Empty';
-                      } else {
-                        return null;
-                      }
-                    },
-                  ),
-                  SizedBox(
-                    height: 22,
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: SizedBox(
-                      width: double.infinity,
-                      height: 60,
-                      child: CustomNextButton(
-                        text: 'GO',
-                        ontap: () {
-                          UploadPinData();
-                        },
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 22,
-                  ),
-                ],
-              ),
-            ),
-          ),
-        );
-      },
-    );
-  }
+  //                     // suffixIcon: GestureDetector(
+  //                     //   onTap: () {
+  //                     //     // UploadPinData();
+  //                     //   },
+  //                     //   child: Container(
+  //                     //     padding: EdgeInsets.only(right: 25),
+  //                     //     width: 10,
+  //                     //     height: 10,
+  //                     //     child: SvgPicture.asset(
+  //                     //       'assets/images/nextbuttonicon.svg',
+  //                     //     ),
+  //                     //   ),
+  //                     // ),
+  //                   ),
+  //                   maxLength: 4,
+  //                   keyboardType: TextInputType.number,
+  //                   autovalidateMode: AutovalidateMode.onUserInteraction,
+  //                   validator: (val) {
+  //                     if (val == null || val.isEmpty) {
+  //                       return 'Pin is Empty';
+  //                     } else {
+  //                       return null;
+  //                     }
+  //                   },
+  //                 ),
+  //                 sizedBoxHeight(10.h),
+  //                 // ProfileObj!.user!.pin == "1000" 
+  //                 // ?
+  //                 // Text("First time user pin is 1000")
+  //                 // : SizedBox(),
+
+  //                   ProfileObj != null && ProfileObj!.user != null && ProfileObj!.user!.pin == "1000"
+  //               ? Text("First time user pin is 1000")
+  //               : SizedBox(),
+
+  //                 SizedBox(
+  //                   height: 22,
+  //                 ),
+  //                 Padding(
+  //                   padding: const EdgeInsets.only(left: 20, right: 20),
+  //                   child: SizedBox(
+  //                     width: double.infinity,
+  //                     height: 60,
+  //                     child: CustomNextButton(
+  //                       text: 'GO',
+  //                       ontap: () {
+  //                         UploadPinData();
+  //                       },
+  //                     ),
+  //                   ),
+  //                 ),
+  //                 SizedBox(
+  //                   height: 22,
+  //                 ),
+  //               ],
+  //             ),
+  //           ),
+  //         ),
+  //       );
+  //     },
+  //   );
+  // }
 
   Future<bool> _backbuttonpressed(BuildContext context) async {
     bool? exitapp = await showDialog(
@@ -384,24 +398,24 @@ class _HomePageState extends State<HomePage> {
     return exitapp ?? false;
   }
 
-  void UploadPinData() async {
-    utils.loader();
-    Map<String, dynamic> updata = {
-      "pin": int.parse(user_pin.text),
-    };
-    final data = await Securitypin().PostChecksecuritypin(updata);
-    if (data.status == ResponseStatus.SUCCESS) {
-      Get.back();
-      print("Pin exist");
-      pindialog = true;
-      Get.back();
-      return utils.showToast(data.message);
-    } else {
-      Get.back();
-      print("pin does not exist");
-      return utils.showToast(data.message);
-    }
-  }
+  // void UploadPinData() async {
+  //   utils.loader();
+  //   Map<String, dynamic> updata = {
+  //     "pin": int.parse(user_pin.text),
+  //   };
+  //   final data = await Securitypin().PostChecksecuritypin(updata);
+  //   if (data.status == ResponseStatus.SUCCESS) {
+  //     Get.back();
+  //     print("Pin exist");
+  //     pindialog = true;
+  //     Get.back();
+  //     return utils.showToast(data.message);
+  //   } else {
+  //     Get.back();
+  //     print("pin does not exist");
+  //     return utils.showToast(data.message);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
