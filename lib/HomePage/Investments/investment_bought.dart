@@ -685,6 +685,7 @@ class _InvestmentBoughtState extends State<InvestmentBought> {
                                 ),
                                 sizedBoxHeight(10.h),
                                 Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
                                       "Instrument type:",
@@ -696,15 +697,17 @@ class _InvestmentBoughtState extends State<InvestmentBought> {
                                       ),
                                     ),
                                     sizedBoxWidth(5.w),
-                                    Text(
-                                      othersboughtobj!
-                                              .data![index].instrumentType ??
-                                          "NA",
-                                      style: TextStyle(
-                                        fontSize: 16.sp,
-                                        color: Color(0XFF000000),
-                                        fontFamily: 'Poppins',
-                                        fontWeight: FontWeight.w500,
+                                    Flexible(
+                                      child: Text(
+                                        othersboughtobj!
+                                                .data![index].instrumentType ??
+                                            "NA",
+                                        style: TextStyle(
+                                          fontSize: 16.sp,
+                                          color: Color(0XFF000000),
+                                          fontFamily: 'Poppins',
+                                          fontWeight: FontWeight.w500,
+                                        ),
                                       ),
                                     ),
                                   ],

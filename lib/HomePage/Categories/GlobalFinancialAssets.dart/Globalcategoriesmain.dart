@@ -372,8 +372,8 @@ class _GlobalcategoriesmainState extends State<Globalcategoriesmain> {
               minInvestment: "1,00,000",
               bottomButtonTitle: "View more product",
               backgroundColor: AppColors.pinkL_E6088B,
-              learnMoreRoute: VentureDebtLearnmore(),
-              bottomButtonRoute: const VentureDebtproducts());
+              learnMoreRoute: ComingSoon(),
+              bottomButtonRoute: const ComingSoon());
         }
       case 6:
         {

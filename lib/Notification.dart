@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:freeu/Models/Notifications/Getnotification.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 // import 'package:freeu/Utils/colors.dart';
 // import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
@@ -164,15 +165,27 @@ class _NotificationPageState extends State<NotificationPage> {
                 },
               )
             : Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [GestureDetector(
-                    onTap: () {
-                                Get.toNamed("/login");
-                      
-                    },
-                    child: text20Black("Login to continue"))],
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/Notification.png",
+                        width: 270.w,
+                        height: 270.h,
+                      ),
+                      sizedBoxHeight(20.h),
+                      CustomNextButton(
+                        text: "Login to continue",
+                        ontap: () {
+                          Get.toNamed("/login");
+                        },
+                      ),
+                      sizedBoxHeight(60.h)
+                    ],
+                  ),
                 ),
               ));
   }

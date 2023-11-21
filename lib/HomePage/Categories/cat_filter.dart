@@ -1,3 +1,4 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Utils/texts.dart';
@@ -80,9 +81,18 @@ class _CatFilterState extends State<CatFilter> {
                               // Get.back();
                               // filterapicall();
                               print("selected value is $selectedValues");
+                              if (selectedValues.isEmpty) {
+                                Flushbar(
+                                  message: "Select minimum investment",
+                                  duration: Duration(seconds: 3),
+                                ).show(context);
+                              } else {
+                                controllerCat.getfilterData(
+                                    filters: selectedValues);
+                              }
 
-                              controllerCat.getfilterData(
-                                  filters: selectedValues);
+                              // controllerCat.getfilterData(
+                              //     filters: selectedValues);
                             },
                             text: 'Save'))
                   ],

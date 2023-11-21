@@ -451,7 +451,8 @@ void navigateTo(int index, BuildContext context) {
 
     case 4:
       {
-        Get.toNamed("/faqs");
+        // Get.toNamed("/faqs");
+        Get.toNamed("/newfaqs");        
       }
       break;
 
