@@ -194,11 +194,9 @@ class _SecondTabState extends State<SecondTab> {
 
   @override
   Widget build(BuildContext context) {
-    return
-  fractionalRealEstateObj!.data!.isEmpty ?
-_buildNoDataBody()
-            :
-        ListView.separated(
+    return fractionalRealEstateObj!.data!.isEmpty
+        ? _buildNoDataBody()
+        : ListView.separated(
             separatorBuilder: (context, index) {
               return sizedBoxHeight(15.h);
             },
@@ -338,7 +336,12 @@ _buildNoDataBody()
                                     ),
                                     Text(
                                       // subtext2,
-                                      contents[index]["taxirr"],
+                                      // contents[index]["taxirr"],
+                                      fractionalRealEstateObj!
+                                              .data?[index]
+                                              .fractionalRealEstate!
+                                              .expectedIrr! ??
+                                          "",
                                       //"12.7%",
                                       style: TextStyle(
                                         fontSize: 20.sp,
@@ -387,7 +390,9 @@ _buildNoDataBody()
                                               .data?[index]
                                               .fractionalRealEstate!
                                               .minimumInvestment ??
-                                          contents[index]["minimum"],
+                                          "NA"
+                                      // contents[index]["minimum"]
+                                      ,
                                       //" 1 Crore",
                                       textDirection: TextDirection.ltr,
                                       textAlign: TextAlign.left,
@@ -450,8 +455,7 @@ _buildNoDataBody()
   }
 
   Widget _buildNoDataBody() {
-    return 
-       Column(
+    return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
         const Text("No Data Found")

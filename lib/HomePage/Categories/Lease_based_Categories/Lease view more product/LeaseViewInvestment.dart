@@ -144,27 +144,39 @@ class _LeaseViewInvestmentState extends State<LeaseViewInvestment> {
                 SizedBox(
                   width: 20.h,
                 ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width - 132.w,
-                  height: 75.h,
-                  child: ListView.builder(
-                    itemCount: 1,
-                    itemBuilder: (context, index) {
-                      return Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          sizedBoxHeight(10.h),
-                          Text(
-                            leasefinancingdetailsobj!.data!.company ?? "",
-                            style: TextStyle(
-                                fontSize: 22.sp, fontWeight: FontWeight.w500),
-                          ),
-                        ],
-                      );
-                    },
+                Flexible(
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 10),
+                    child: Text(
+                      leasefinancingdetailsobj!.data!.company ?? "",
+
+                      // widget.highYieldProds.securityName,
+                      style: TextStyle(
+                          fontSize: 22.sp, fontWeight: FontWeight.w500),
+                    ),
                   ),
                 )
+                // SizedBox(
+                //   width: MediaQuery.of(context).size.width - 132.w,
+                //   height: 75.h,
+                //   child: ListView.builder(
+                //     itemCount: 1,
+                //     itemBuilder: (context, index) {
+                //       return Column(
+                //         mainAxisAlignment: MainAxisAlignment.center,
+                //         crossAxisAlignment: CrossAxisAlignment.start,
+                //         children: [
+                //           sizedBoxHeight(10.h),
+                //           Text(
+                //             leasefinancingdetailsobj!.data!.company ?? "",
+                //             style: TextStyle(
+                //                 fontSize: 22.sp, fontWeight: FontWeight.w500),
+                //           ),
+                //         ],
+                //       );
+                //     },
+                //   ),
+                // )
               ],
             ),
             sizedBoxHeight(24.h),

@@ -157,15 +157,34 @@ class _NewInvestmentState extends State<NewInvestment> {
                   },
                 )
               : Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [GestureDetector(
-                      onTap: () {
-                                Get.toNamed("/login");
-                        
-                      },
-                      child: text20Black("Login to continue"))],
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          "assets/images/investmentguest.png",
+                          width: 270.w,
+                          height: 270.h,
+                        ),
+                        sizedBoxHeight(10.h),
+                        text20Black("No investment found"),
+                        sizedBoxHeight(15.h),
+                        CustomNextButton(
+                          text: "Login to continue",
+                          ontap: () {
+                            Get.toNamed("/login");
+                          },
+                        ),
+                        sizedBoxHeight(60.h),
+                        // GestureDetector(
+                        //     onTap: () {
+                        //       Get.toNamed("/login");
+                        //     },
+                        //     child: text20Black("Login to continue"))
+                      ],
+                    ),
                   ),
                 )),
     );
@@ -692,9 +711,9 @@ class _NewInvestmentState extends State<NewInvestment> {
                               onPressed: () {
                                 Get.to(() => InvestmentpageSellinvest(
                                       slug:
-                        //                 currentsummary!.data!.currentInvestment!
-                        // .productDetails![index].routeId.toString(),
-                                       routeId,
+                                          //                 currentsummary!.data!.currentInvestment!
+                                          // .productDetails![index].routeId.toString(),
+                                          routeId,
                                     ));
                               },
                               child: Text(

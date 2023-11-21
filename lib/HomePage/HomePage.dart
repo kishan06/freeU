@@ -172,7 +172,6 @@ class _HomePageState extends State<HomePage> {
       //     : controllerEntryPoint.logedIn!
       //         ? buildPinAlertDialog()
       //         : null;
-      
     });
   }
 
@@ -295,7 +294,7 @@ class _HomePageState extends State<HomePage> {
   //                   },
   //                 ),
   //                 sizedBoxHeight(10.h),
-  //                 // ProfileObj!.user!.pin == "1000" 
+  //                 // ProfileObj!.user!.pin == "1000"
   //                 // ?
   //                 // Text("First time user pin is 1000")
   //                 // : SizedBox(),
@@ -447,8 +446,7 @@ class _HomePageState extends State<HomePage> {
               },
               child: Padding(
                 padding: EdgeInsets.only(right: 16.w),
-                child: 
-                SvgPicture.asset(
+                child: SvgPicture.asset(
                   'assets/images/notification-bell-svgrepo-com.svg',
                   fit: BoxFit.fill,
                 ),
@@ -593,13 +591,15 @@ class _HomePageState extends State<HomePage> {
                   child: Row(
                     children: List.generate(toppick!.data!.length, (index) {
                       return topPickCard(
-                          text1: toppick?.data?[index].categoryName ?? "",
-                          imagePath: toppick?.data?[index].propertyImage ??
-                              toppick?.data?[index].companyLogo ??
-                              toppick?.data?[index].fileName ??
-                              "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png",
-                          title: toppick?.data?[index].productName ?? "",
-                          add: "Banyan Park,Mumbai");
+                        text1: toppick?.data?[index].categoryName ?? "",
+                        imagePath: toppick?.data?[index].propertyImage ??
+                            toppick?.data?[index].companyLogo ??
+                            toppick?.data?[index].fileName ??
+                            "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png",
+                        title: toppick?.data?[index].productName ?? "",
+                        add: toppick!.data?[index].categoryName ?? "",
+                        // "Banyan Park,Mumbai"
+                      );
                     }),
                   ),
                 )
@@ -785,7 +785,7 @@ class _HomePageState extends State<HomePage> {
       child: Container(
           width: 241.w,
           // color: AppColors.white,
-          // height: 238.h,
+          height: 248.h,
           decoration: BoxDecoration(
             border: Border.all(
               width: 0.5.w,

@@ -8,6 +8,7 @@ import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/otherkyc.dart';
 import 'package:freeu/SideMenu/KYC/KYC_v2/kyctypes/partnershipkyc.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
@@ -181,15 +182,27 @@ class _KycmainpageState extends State<Kycmainpage> {
                 },
               )
             : Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [GestureDetector(
-                    onTap: () {
-                                Get.toNamed("/login");
-                      
-                    },
-                    child: text20Black("Login to continue"))],
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/Device.png",
+                        width: 270.w,
+                        height: 270.h,
+                      ),
+                      sizedBoxHeight(20.h),
+                      CustomNextButton(
+                        text: "Login to continue",
+                        ontap: () {
+                          Get.toNamed("/login");
+                        },
+                      ),
+                      sizedBoxHeight(60.h)
+                    ],
+                  ),
                 ),
               ));
   }

@@ -1,5 +1,7 @@
 class ApiUrls {
-  static const baseUrl = "https://pi.betadelivery.com/freeU_investment/api/";
+  static const baseUrltesting = "https://pi.betadelivery.com/freeU_investment/api/";
+  static const baseUrl = "https://staging.freeu.in/api/";
+
   static const signUp = "${baseUrl}sign-up";
   static const login = "${baseUrl}user-login";
   static const FractionalRealestate = "${baseUrl}fractional-real-estate-data";
@@ -286,5 +288,9 @@ class ApiUrls {
   static const postforgotpassotp = "${baseUrl}forgot-password-1";
   static const postforgotpassOtpenter = "${baseUrl}forgot-password-2";
   static const postforgotpassword = "${baseUrl}forgot-password-3";
+
+//faqs tag and list
+  static const getfaqsTags = "${baseUrl}tags-for-faqs";
+  static const postBlogs = "${baseUrl}faq-filter";
 
 }

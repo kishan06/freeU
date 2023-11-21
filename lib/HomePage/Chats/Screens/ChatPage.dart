@@ -6,6 +6,7 @@ import 'package:freeu/HomePage/Chats/Widgets/ConversationList.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
+import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
@@ -212,15 +213,27 @@ class _ChatPageState extends State<ChatPage> {
                 ],
               )
             : Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [GestureDetector(
-                    onTap: () {
-                                Get.toNamed("/login");
-                      
-                    },
-                    child: text20Black("Login to continue"))],
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/Chat_1.png",
+                        // "assets/images/investmentguest.png",
+                        width: 270.w,
+                        height: 270.h,
+                      ),
+                      sizedBoxHeight(15.h),
+                      CustomNextButton(
+                        text: "Login to continue",
+                        ontap: () {
+                          Get.toNamed("/login");
+                        },
+                      )
+                    ],
+                  ),
                 ),
               );
       })),

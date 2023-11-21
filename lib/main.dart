@@ -74,6 +74,7 @@ import 'package:freeu/HomePage/Market/Marketnewdesign/forms/marketform.dart';
 import 'package:freeu/Notification.dart';
 import 'package:freeu/SideMenu/About.dart';
 import 'package:freeu/SideMenu/ContactUs.dart';
+import 'package:freeu/SideMenu/FAQ/faqchanges/newfaq.dart';
 import 'package:freeu/SideMenu/HowToInvest.dart';
 import 'package:freeu/SideMenu/KYC/KYC1.dart';
 import 'package:freeu/SideMenu/KYC/KYC2.dart';
@@ -618,6 +619,8 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                     GetPage(name: '/marketplaceform', page: () => Marketform()),
                     GetPage(
                         name: '/noInternet', page: () => NoInternetscreen()),
+                    GetPage(
+                        name: '/newfaqs', page: () => NewFAQs()),                        
                   ],
                 ),
                 designSize: const Size(390, 844),

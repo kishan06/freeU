@@ -633,15 +633,29 @@ class _MarketSeeMyInvestmentState extends State<MarketSeeMyInvestment> {
                 ],
               )
             : Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [GestureDetector(
-                    onTap: () {
-                                Get.toNamed("/login");
-                      
-                    },
-                    child: text20Black("Login to continue"))],
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset(
+                        "assets/images/Group_1.png",
+                        // "assets/images/Notification.png",
+
+                        width: 270.w,
+                        // height: 270.h,
+                      ),
+                      sizedBoxHeight(30.h),
+                      CustomNextButton(
+                        text: "Login to continue",
+                        ontap: () {
+                          Get.toNamed("/login");
+                        },
+                      ),
+                      sizedBoxHeight(60.h)
+                    ],
+                  ),
                 ),
               ));
   }
