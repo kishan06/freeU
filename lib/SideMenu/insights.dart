@@ -60,190 +60,206 @@ class _InsightsState extends State<Insights> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(200.h),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              AppBar(
-                elevation: 0,
-                foregroundColor: Colors.black,
-                backgroundColor: Colors.white,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Insights',
-                      style: TextStyle(
-                          color: Color(0xff000000),
-                          fontSize: 25.sp,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'Poppins'),
-                    ),
-                    sizedBoxHeight(20.h),
-                    //here
+      
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+          appBar: PreferredSize(
+            preferredSize: Size.fromHeight(200.h),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                AppBar(
+                  elevation: 0,
+                  foregroundColor: Colors.black,
+                  backgroundColor: Colors.white,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Insights',
+                        style: TextStyle(
+                            color: Color(0xff000000),
+                            fontSize: 25.sp,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: 'Poppins'),
+                      ),
+                      sizedBoxHeight(20.h),
+                      //here
 
-                    StreamBuilder<TagsModel>(
-                        stream: TagsController.stream,
-                        builder: (context, snapshot) {
-                          switch (snapshot.connectionState) {
-                            case ConnectionState.waiting:
-                              return Center(child: Container());
+                      StreamBuilder<TagsModel>(
+                          stream: TagsController.stream,
+                          builder: (context, snapshot) {
+                            switch (snapshot.connectionState) {
+                              case ConnectionState.waiting:
+                                return Center(child: Container());
 
-                            default:
-                              if (snapshot.hasError) {
-                                return Text("Error Occured");
-                              } else {
-                                setTagList();
-                                return TextFormField(
-                                  controller: searchController,
-                                  style: TextStyle(
-                                    fontSize: 16.sp,
-                                  ),
-                                  cursorColor: const Color(0xFF1B8DC9),
-                                  autovalidateMode:
-                                      AutovalidateMode.onUserInteraction,
-                                  decoration: InputDecoration(
-                                    contentPadding: EdgeInsets.all(10.h),
-                                    filled: true,
-                                    fillColor:
-                                        Color.fromARGB(255, 233, 233, 233),
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(47.r),
-                                      borderSide: BorderSide(
-                                          color: Color(0xffFBFBFB), width: 1),
+                              default:
+                                if (snapshot.hasError) {
+                                  return Text("Error Occured");
+                                } else {
+                                  setTagList();
+                                  return TextFormField(
+                                    controller: searchController,
+                                    style: TextStyle(
+                                      fontSize: 16.sp,
                                     ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(47.r),
-                                      borderSide: BorderSide(
-                                          color: Color(0xffFBFBFB), width: 1),
-                                    ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(47.r),
-                                      borderSide: BorderSide(
-                                          color: Color(0xffFBFBFB), width: 1),
-                                    ),
-                                    errorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(47.r),
-                                      borderSide: const BorderSide(
-                                          color: Colors.red, width: 1),
-                                    ),
-                                    focusedErrorBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(47.r),
-                                      borderSide: const BorderSide(
-                                          color: Colors.red, width: 1),
-                                    ),
-                                    hintStyle: TextStyle(
-                                        color: Color(0x80000000),
-                                        fontSize: 16.sp,
-                                        fontFamily: "Poppins"),
-                                    hintText: 'Search',
-                                    prefixIcon: Icon(
-                                      Icons.search_outlined,
-                                      color: Colors.black,
-                                    ),
-                                    suffixIcon: PopupMenuButton<String>(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(20.r)),
-                                      // constraints: BoxConstraints.expand(height: 150,
-                                      // ),
-                                      icon: Icon(
-                                        Icons.keyboard_arrow_down_rounded,
+                                    cursorColor: const Color(0xFF1B8DC9),
+                                    autovalidateMode:
+                                        AutovalidateMode.onUserInteraction,
+                                    decoration: InputDecoration(
+                                      contentPadding: EdgeInsets.all(10.h),
+                                      filled: true,
+                                      fillColor:
+                                          Color.fromARGB(255, 233, 233, 233),
+                                      border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(47.r),
+                                        borderSide: BorderSide(
+                                            color: Color(0xffFBFBFB), width: 1),
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(47.r),
+                                        borderSide: BorderSide(
+                                            color: Color(0xffFBFBFB), width: 1),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(47.r),
+                                        borderSide: BorderSide(
+                                            color: Color(0xffFBFBFB), width: 1),
+                                      ),
+                                      errorBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(47.r),
+                                        borderSide: const BorderSide(
+                                            color: Colors.red, width: 1),
+                                      ),
+                                      focusedErrorBorder: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(47.r),
+                                        borderSide: const BorderSide(
+                                            color: Colors.red, width: 1),
+                                      ),
+                                      hintStyle: TextStyle(
+                                          color: Color(0x80000000),
+                                          fontSize: 16.sp,
+                                          fontFamily: "Poppins"),
+                                      hintText: 'Search',
+                                      prefixIcon: Icon(
+                                        Icons.search_outlined,
                                         color: Colors.black,
                                       ),
-                                      itemBuilder: (context) => tagsList,
-                                      onSelected: (value) async {
-  setState(() {
-    print("selected value is $value");
-    searchController.text = value;
+                                      suffixIcon: PopupMenuButton<String>(
+                                        shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20.r)),
+                                        // constraints: BoxConstraints.expand(height: 150,
+                                        // ),
+                                        icon: Icon(
+                                          Icons.keyboard_arrow_down_rounded,
+                                          color: Colors.black,
+                                        ),
+                                        itemBuilder: (context) => tagsList,
+                                        onSelected: (value) async {
+                                          setState(() {
+                                            print("selected value is $value");
+                                            searchController.text = value;
 
-    selectedIndex = tagsList.indexWhere(
-      (item) =>
-      item is PopupMenuItem<String> &&
-      item.value == value);
+                                            selectedIndex = tagsList.indexWhere(
+                                                (item) =>
+                                                    item is PopupMenuItem<
+                                                        String> &&
+                                                    item.value == value);
 
-    BlogApis().BlogSearchAndFilter({
-      "search": null,
-      "tag_id": tagsId[selectedIndex]
-    }, streamController: BlogsController);
+                                            BlogApis().BlogSearchAndFilter({
+                                              "search": null,
+                                              "tag_id": tagsId[selectedIndex]
+                                            },
+                                                streamController:
+                                                    BlogsController);
 
-    // Unfocus the text field with a short delay
-    Future.delayed(Duration(milliseconds: 100), () {
-      FocusScopeNode currentFocus = FocusScope.of(context);
-      if (!currentFocus.hasPrimaryFocus) {
-        currentFocus.unfocus();
-      }
-    });
-  });
-},
+                                            // Unfocus the text field with a short delay
+                                            Future.delayed(
+                                                Duration(milliseconds: 100),
+                                                () {
+                                              FocusScopeNode currentFocus =
+                                                  FocusScope.of(context);
+                                              if (!currentFocus
+                                                  .hasPrimaryFocus) {
+                                                currentFocus.unfocus();
+                                              }
+                                            });
+                                          });
+                                        },
 
-//old method in which keyboard appears
-                                      // onSelected: (value) {
-                                      //   setState(() {
-                                      //     print("selected value is $value");
-                                      //     searchController.text = value;
+                                        //old method in which keyboard appears
+                                        // onSelected: (value) {
+                                        //   setState(() {
+                                        //     print("selected value is $value");
+                                        //     searchController.text = value;
 
-                                      //     selectedIndex = tagsList.indexWhere(
-                                      //         (item) =>
-                                      //             item is PopupMenuItem<
-                                      //                 String> &&
-                                      //             item.value == value);
+                                        //     selectedIndex = tagsList.indexWhere(
+                                        //         (item) =>
+                                        //             item is PopupMenuItem<
+                                        //                 String> &&
+                                        //             item.value == value);
 
-                                      //     BlogApis().BlogSearchAndFilter({
-                                      //       "search": null,
-                                      //       "tag_id": tagsId[selectedIndex]
-                                      //     }, streamController: BlogsController);
-                                      //   });
-                                      // },
+                                        //     BlogApis().BlogSearchAndFilter({
+                                        //       "search": null,
+                                        //       "tag_id": tagsId[selectedIndex]
+                                        //     }, streamController: BlogsController);
+                                        //   });
+                                        // },
+                                      ),
                                     ),
-                                  ),
-                                  onChanged: (value) {
-                                    BlogApis().BlogSearchAndFilter(
-                                        {"search": value, "tag_id": null},
-                                        streamController: BlogsController);
-                                  },
-                                );
-                              }
-                          }
-                        })
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-        body: StreamBuilder<BlogsModel>(
-          stream: BlogsController.stream,
-          builder: (ctx, snapshot) {
-            if (snapshot.data == null) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Center(child: CircularProgressIndicator())],
-              );
-            }
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(
-                    '${snapshot.error} occured',
-                    style: TextStyle(fontSize: 18.spMin),
+                                    onChanged: (value) {
+                                      BlogApis().BlogSearchAndFilter(
+                                          {"search": value, "tag_id": null},
+                                          streamController: BlogsController);
+                                    },
+                                  );
+                                }
+                            }
+                          })
+                    ],
                   ),
+                ),
+              ],
+            ),
+          ),
+          body: StreamBuilder<BlogsModel>(
+            stream: BlogsController.stream,
+            builder: (ctx, snapshot) {
+              if (snapshot.data == null) {
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [Center(child: CircularProgressIndicator())],
                 );
               }
-            }
-            return blogs!.data!.isEmpty
-                ? _buildNodataBody()
-                : _buildBody(
-                    context,
+              if (snapshot.connectionState == ConnectionState.done) {
+                if (snapshot.hasError) {
+                  return Center(
+                    child: Text(
+                      '${snapshot.error} occured',
+                      style: TextStyle(fontSize: 18.spMin),
+                    ),
                   );
-          },
-        ));
+                }
+              }
+              return blogs!.data!.isEmpty
+                  ? _buildNodataBody()
+                  : _buildBody(
+                      context,
+                    );
+            },
+          )),
+    );
   }
 
   Widget _buildBody(context) {

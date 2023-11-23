@@ -117,7 +117,8 @@ class _HighyieldDetailsState extends State<HighyieldDetails> {
               if (controllerEntryPoint.logedIn!) {
                 investNow();
               } else {
-                Get.toNamed("/login");
+                // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
               }
             },
             text: 'Invest now'),

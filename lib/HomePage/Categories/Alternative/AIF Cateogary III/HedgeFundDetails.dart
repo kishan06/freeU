@@ -209,7 +209,8 @@ Carry - 50% for Class B3 and B4''',
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
                 } else {
-                  Get.toNamed("/login");
+                  // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
                 }
               },
               text: 'Invest now'),

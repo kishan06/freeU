@@ -96,7 +96,8 @@ class _GlobalCommercialDetailsState extends State<GlobalCommercialDetails> {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
                 } else {
-                  Get.toNamed("/login");
+                  // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
                 }
               },
               text: 'Invest now'),

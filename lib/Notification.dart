@@ -105,7 +105,7 @@ class _NotificationPageState extends State<NotificationPage> {
         appBar: AppBar(
           backgroundColor: Color(0xFFFFFFFF),
           elevation: 0,
-          toolbarHeight: 90.h,
+          toolbarHeight: 93.h,
           leadingWidth: double.infinity,
           leading: Padding(
             padding: EdgeInsets.symmetric(horizontal: 16.w),
@@ -180,7 +180,8 @@ class _NotificationPageState extends State<NotificationPage> {
                       CustomNextButton(
                         text: "Login to continue",
                         ontap: () {
-                          Get.toNamed("/login");
+                          // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
                         },
                       ),
                       sizedBoxHeight(60.h)
@@ -196,18 +197,19 @@ class _NotificationPageState extends State<NotificationPage> {
         padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
         child: ListView.separated(
           shrinkWrap: true,
-          itemCount: notificationobj!.data!.length ?? 0,
+          itemCount: notificationobj!.data!.length,
           // _data.length,
           itemBuilder: (BuildContext context, int index) {
-            return Dismissible(
-              background: slideRightBackground(),
-              key: UniqueKey(),
-              onDismissed: (direction) {
-                setState(() {
-                  notificationobj!.data!.removeAt(index);
-                  id = notificationobj!.data![index].id ?? "NA";
-                  UploadData();
-                });
+            return
+                //  Dismissible(
+                // background: slideRightBackground(),
+                // key: UniqueKey(),
+                // onDismissed: (direction) {
+                // setState(() {
+                //  id = notificationobj!.data![index].id ?? "NA";
+                //  notificationobj!.data!.removeAt(index);
+                //         UploadData();
+                // });
                 // setState(() {
                 // notificationobj!.data!.removeAt(index);
 
@@ -219,93 +221,99 @@ class _NotificationPageState extends State<NotificationPage> {
                 // }
 
                 // );
-              },
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // ClipRRect(
-                  //   borderRadius: BorderRadius.circular(8.24),
-                  //   child: SvgPicture.asset(
-                  //     _data[index]['image']!,
-                  //     width: 80.w,
-                  //     height: 100.h,
-                  //     fit: BoxFit.cover,
-                  //   ),
-                  // ),
+                // },
 
-                  // SizedBox(
-                  //   // width: 320.w,
-                  //   child: Column(
-                  //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  //     crossAxisAlignment: CrossAxisAlignment.start,
-                  //     children: [
-                  //       Text(
-                  //         notificationobj!.data![index].message ?? "NA",
-                  //         // _data[index]['title'] ?? "",
-                  //         style: TextStyle(
-                  //           fontSize: 16.sp,
-                  //           fontWeight: FontWeight.w500,
-                  //           color: Colors.black,
-                  //         ),
-                  //       ),
-                  //       SizedBox(
-                  //         height: 8,
-                  //       ),
-                  //       Text(
-                  //         notificationobj!.data![index].time ?? "NA",
-                  //         // _data[index]['subtitle']!,
-                  //         style: TextStyle(
-                  //           color: Color(0xFF444444),
-                  //           fontSize: 14.sp,
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
+                // child:
 
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          notificationobj!.data![index].message ?? "NA",
-                          style: TextStyle(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.black,
-                          ),
+                Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // ClipRRect(
+                //   borderRadius: BorderRadius.circular(8.24),
+                //   child: SvgPicture.asset(
+                //     _data[index]['image']!,
+                //     width: 80.w,
+                //     height: 100.h,
+                //     fit: BoxFit.cover,
+                //   ),
+                // ),
+
+                // SizedBox(
+                //   // width: 320.w,
+                //   child: Column(
+                //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                //     crossAxisAlignment: CrossAxisAlignment.start,
+                //     children: [
+                //       Text(
+                //         notificationobj!.data![index].message ?? "NA",
+                //         // _data[index]['title'] ?? "",
+                //         style: TextStyle(
+                //           fontSize: 16.sp,
+                //           fontWeight: FontWeight.w500,
+                //           color: Colors.black,
+                //         ),
+                //       ),
+                //       SizedBox(
+                //         height: 8,
+                //       ),
+                //       Text(
+                //         notificationobj!.data![index].time ?? "NA",
+                //         // _data[index]['subtitle']!,
+                //         style: TextStyle(
+                //           color: Color(0xFF444444),
+                //           fontSize: 14.sp,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+
+                Expanded(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        notificationobj!.data![index].message ?? "NA",
+                        style: TextStyle(
+                          fontSize: 16.sp,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.black,
                         ),
-                        SizedBox(
-                          height: 8,
+                      ),
+                      SizedBox(
+                        height: 8,
+                      ),
+                      Text(
+                        notificationobj!.data![index].time ?? "NA",
+                        style: TextStyle(
+                          color: Color(0xFF444444),
+                          fontSize: 14.sp,
                         ),
-                        Text(
-                          notificationobj!.data![index].time ?? "NA",
-                          style: TextStyle(
-                            color: Color(0xFF444444),
-                            fontSize: 14.sp,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
+                ),
 
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 75.h),
-                    child: InkWell(
-                      onTap: () {
-                        print("ontap pressed");
-                        // id = notificationobj!.data![index].id ?? "NA";
-                        // UploadData();
-                        setState(() {
-                          notificationobj!.data!.removeAt(index);
-                          id = notificationobj!.data![index].id ?? "NA";
-                          UploadData();
+                Padding(
+                  padding: EdgeInsets.only(bottom: 75.h),
+                  child: InkWell(
+                    onTap: () async {
+                      print("ontap pressed");
+                      // id = notificationobj!.data![index].id ?? "NA";
+                      // UploadData();
+                      setState(() {
+                        id = notificationobj!.data![index].id ?? "NA";
+                        notificationobj!.data!.removeAt(index);
+                        UploadData();
 
-                          // _data.removeAt(index);
-                        });
-                      },
+                        // _data.removeAt(index);
+                      });
+                    },
+                    child: Container(
+                      width: 25.w,
+                      height: 22.h,
                       child: SvgPicture.asset(
                         "assets/images/delete-svgrepo-com.svg",
                         width: 15,
@@ -314,9 +322,10 @@ class _NotificationPageState extends State<NotificationPage> {
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             );
+            // );
             // );
           },
           separatorBuilder: (BuildContext context, int index) {

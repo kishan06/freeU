@@ -650,7 +650,8 @@ class _MarketSeeMyInvestmentState extends State<MarketSeeMyInvestment> {
                       CustomNextButton(
                         text: "Login to continue",
                         ontap: () {
-                          Get.toNamed("/login");
+                          // Get.toNamed("/login");
+                            Get.offAllNamed("/login");
                         },
                       ),
                       sizedBoxHeight(60.h)

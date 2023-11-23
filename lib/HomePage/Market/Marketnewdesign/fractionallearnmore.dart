@@ -241,7 +241,8 @@ class _FractionalestatelearnmoreState extends State<Fractionalestatelearnmore> {
           // investNow();
           Get.toNamed("/marketplaceform");
         } else {
-          Get.toNamed("/login");
+          // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
         }
       },
       text: 'Invest now',
@@ -254,7 +255,9 @@ class _FractionalestatelearnmoreState extends State<Fractionalestatelearnmore> {
           // Get.toNamed("/marketplaceform");
           Get.offAllNamed('/EntryPoint', arguments: 2);
         } else {
-          Get.toNamed("/login");
+          // Get.toNamed("/login");
+                            Get.offAllNamed("/login");
+
         }
       },
       text: 'Show investment',

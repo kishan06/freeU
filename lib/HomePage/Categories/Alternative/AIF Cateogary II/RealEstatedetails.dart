@@ -139,7 +139,8 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
                 } else {
-                  Get.toNamed("/login");
+                  // Get.toNamed("/login");
+                  Get.offAllNamed('/login');
                 }
               },
               text: 'Invest now'),
@@ -210,7 +211,7 @@ Opportunistic co-investments with large investors in Maharashtra & NCR''',
                 Flexible(
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width - 132.w,
-                    height: 85.h,
+                    height: 90.h,
                     child: Text(
                       privaterealestdetailsobj!.data!.fundName ?? "",
                       // realdetails[0]['Company Name'][widget.pageIndex],

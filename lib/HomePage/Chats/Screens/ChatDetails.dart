@@ -86,6 +86,8 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
 
       if (data.status == ResponseStatus.SUCCESS) {
         //utils.showToast(data.message);
+        fileList.clear();
+        attachimage = null;
       } else {
         utils.showToast(data.message);
       }
@@ -207,11 +209,11 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                       size: 23.h,
                     ),
                   ),
-                  prefixIcon: Icon(
-                    Icons.emoji_emotions_outlined,
-                    color: Colors.black,
-                    size: 23.h,
-                  ),
+                  // prefixIcon: Icon(
+                  //   Icons.emoji_emotions_outlined,
+                  //   color: Colors.black,
+                  //   size: 23.h,
+                  // ),
                 ),
                 // minLines: 1,
                 // maxLines: 1,
@@ -368,9 +370,11 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                             child: SizedBox.fromSize(
                               size: Size.fromRadius(25.r),
                               child: CircleAvatar(
-                                backgroundImage: NetworkImage(chatmessagessobj!
-                                        .data?[index].profileImage ??
-                                    ""),
+                                backgroundImage:
+                                    AssetImage("assets/images/chat-icon.png"),
+                                // NetworkImage(chatmessagessobj!
+                                //         .data?[index].profileImage ??
+                                //     ""),
                                 // Image.network(
                                 //     ProfileObj!.user!.profileImage!),
                                 radius: 25.r,
@@ -491,7 +495,11 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                                     child: ClipRRect(
                                       borderRadius:
                                           BorderRadius.circular(100.r),
-                                      child: Image.asset('assets/images/1.jpg'),
+                                      child: Image.asset(
+                                        // 'assets/images/1.jpg'
+                                        'assets/images/profie.png',
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                           ),
@@ -548,7 +556,11 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                                     child: ClipRRect(
                                       borderRadius:
                                           BorderRadius.circular(100.r),
-                                      child: Image.asset('assets/images/1.jpg'),
+                                      child: Image.asset(
+                                        // 'assets/images/1.jpg'
+                                        'assets/images/profie.png',
+                                        fit: BoxFit.fill,
+                                      ),
                                     ),
                                   ),
                             // ClipRRect(

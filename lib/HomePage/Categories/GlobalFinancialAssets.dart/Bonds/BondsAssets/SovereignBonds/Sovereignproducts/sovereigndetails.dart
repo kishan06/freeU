@@ -117,7 +117,8 @@ class _SovereignDetailsState extends State<SovereignDetails> {
               if (controllerEntryPoint.logedIn!) {
                 investNow();
               } else {
-                Get.toNamed("/login");
+                // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
               }
             },
             text: 'Invest now'),

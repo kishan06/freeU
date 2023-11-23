@@ -271,263 +271,311 @@ class _LoginState extends State<Login> {
           return true;
         }
       },
-      child: Scaffold(
-        backgroundColor: Color(0xFFFFFFFF),
-        body: SafeArea(
-          child: SingleChildScrollView(
-            child: GestureDetector(
-              onTap: () => Get.focusScope!.unfocus(),
-              child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
-                child: Center(
-                  child: Form(
-                    key: _form,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Get.toNamed(
-                                  '/EntryPoint',
-                                  arguments: 0,
-                                );
-                              },
-                              child: Text(
-                                "Skip",
-                                style: TextStyle(
-                                  color: Color(0xFF143C6D),
-                                  fontSize: 14.sp,
-                                  fontFamily: 'Poppins',
+      child: GestureDetector(
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        child: Scaffold(
+          backgroundColor: Color(0xFFFFFFFF),
+          body: SafeArea(
+            child: SingleChildScrollView(
+              child: GestureDetector(
+                onTap: () => Get.focusScope!.unfocus(),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 0),
+                  child: Center(
+                    child: Form(
+                      key: _form,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Get.toNamed(
+                                    '/EntryPoint',
+                                    arguments: 0,
+                                  );
+                                },
+                                child: Text(
+                                  "Skip",
+                                  style: TextStyle(
+                                    color: Color(0xFF143C6D),
+                                    fontSize: 14.sp,
+                                    fontFamily: 'Poppins',
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        Image.asset(
-                          'assets/images/freeulogin.png',
-                          alignment: Alignment.center,
-                          width: 200.w,
-                        ),
-                        SizedBox(
-                          height: 30.h,
-                        ),
-                        Text(
-                          "Welcome to FreeU",
-                          style: TextStyle(
-                              fontFamily: "Nunito",
-                              fontSize: 28.sp,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        SizedBox(
-                          height: 5.h,
-                        ),
-                        Text(
-                          "Sign in to continue.",
-                          style: TextStyle(
-                            fontFamily: "Nunito",
-                            fontSize: 20.sp,
+                            ],
                           ),
-                        ),
-                        SizedBox(
-                          height: 50.h,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Email / Phone",
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20.sp,
-                                  color: Color(0xff303030)),
+                          Image.asset(
+                            'assets/images/freeulogin.png',
+                            alignment: Alignment.center,
+                            width: 200.w,
+                          ),
+                          SizedBox(
+                            height: 30.h,
+                          ),
+                          Text(
+                            "Welcome to FreeU",
+                            style: TextStyle(
+                                fontFamily: "Nunito",
+                                fontSize: 28.sp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          SizedBox(
+                            height: 5.h,
+                          ),
+                          Text(
+                            "Sign in to continue.",
+                            style: TextStyle(
+                              fontFamily: "Nunito",
+                              fontSize: 20.sp,
                             ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            CustomTextFormField(
-                              textEditingController: emailPhoneController,
-                              hintText: "Enter Email or Phone Number",
-                              validatorText: "Enter Email or Phone Number",
-                              validator: (value) {
-                                if (value == null || value.isEmpty) {
-                                  return "Please Enter Email or Phone Number";
-                                }
-                                return null;
-                              },
-                            )
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Get.toNamed('/loginUsingOTP');
-                              },
-                              child: Text(
-                                'Login Using OTP',
-                                style: blackStyle12().copyWith(
-                                  color: Color(0xFF143C6D),
-                                ),
+                          ),
+                          SizedBox(
+                            height: 50.h,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Email / Phone",
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20.sp,
+                                    color: Color(0xff303030)),
                               ),
-                            ),
-                          ],
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Password",
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20.sp,
-                                  color: Color(0xff303030)),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            CustomTextFormField(
-                                textEditingController: passwordcontroller,
+                              SizedBox(
+                                height: 15.h,
+                              ),
+                              CustomTextFormField(
+                                textEditingController: emailPhoneController,
+                                hintText: "Enter Email or Phone Number",
+                                validatorText: "Enter Email or Phone Number",
                                 validator: (value) {
+                                  // if (value == null || value.isEmpty) {
+                                  //   return "Please Enter Email or Phone Number";
+                                  // }
+                                  // return null;
+
+                                  // if (value == null || value.isEmpty) {
+                                  //   return "Please Enter Email or Phone Number";
+                                  // }
+
+                                  // // Check if the entered value is a valid email address
+                                  // bool isEmailValid = RegExp(
+                                  //         r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
+                                  //     .hasMatch(value);
+
+                                  // // Check if the entered value is a valid phone number
+                                  // bool isPhoneValid =
+                                  //     RegExp(r'^\d{10}$').hasMatch(value);
+
+                                  // if (!isEmailValid && !isPhoneValid) {
+                                  //   return "Please Enter Valid Email Or Phone Number";
+                                  // }
+
+                                  // return null;
+
                                   if (value == null || value.isEmpty) {
-                                    return "Please Enter Password";
+                                    return "Please Enter Email or Phone Number";
                                   }
+
+                                  // Check if the entered value is a valid email address
+                                  bool isEmailValid = RegExp(
+                                          r'^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$')
+                                      .hasMatch(value);
+
+                                  // Check if the entered value is a valid phone number
+                                  bool isPhoneValid =
+                                      RegExp(r'^\d{10}$').hasMatch(value);
+
+                                  if (!isEmailValid && !isPhoneValid) {
+                                    return "Please Enter Valid Email Or Phone Number";
+                                  }
+
+                                  if (isPhoneValid && value.length != 10) {
+                                    // Show error if phone number is not exactly 10 digits
+                                    return "Phone number should have exactly 10 digits";
+                                  }
+
                                   return null;
                                 },
-                                isInputPassword: true,
-                                hintText: "Enter Password",
-                                validatorText: "Please Enter Password")
-                          ],
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            TextButton(
-                              onPressed: () {
-                                Get.toNamed('/forgotPassword');
-                              },
-                              child: Text(
-                                'Forgot Password?',
-                                textAlign: TextAlign.end,
-                                style: blackStyle12().copyWith(
-                                  color: Color(0xFF143C6D),
+                              )
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Get.toNamed('/loginUsingOTP');
+                                },
+                                child: Text(
+                                  'Login Using OTP',
+                                  style: blackStyle12().copyWith(
+                                    color: Color(0xFF143C6D),
+                                  ),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 50.h,
-                        ),
-                        GetBuilder<EntryPointController>(
-                          builder: (
-                            controller,
-                          ) {
-                            return controllerEntryPoint.signinApi == true
-                                ? CircularProgressIndicator()
-                                : CustomNextButton(
-                                    ontap: () async {
-                                      final isValid =
-                                          _form.currentState?.validate();
-                                      if (isValid!) {
-                                        controllerEntryPoint
-                                            .changeSigninApiBool();
-                                        Map<String, String> myLoginData = {
-                                          "user": emailPhoneController.text,
-                                          "password": passwordcontroller.text,
-                                        };
-                                        LogInPost logInPost = LogInPost();
-                                        var resp = await logInPost.LogIpApi(
-                                            myLoginData);
-                                        print(resp.status);
-                                        print('Api msg : ${resp.message}');
-
-                                        if (resp.status ==
-                                            ResponseStatus.SUCCESS) {
-                                          print("api response is ${resp.data}");
-                                          Utils.showToast("Signin successful");
-                                          GetProfile().GetProfileAPI();
-                                          Future.delayed(Duration(seconds: 2),
-                                              () async {
-                                            final SharedPreferences prefs =
-                                                await SharedPreferences
-                                                    .getInstance();
-
-                                            await prefs.setBool(
-                                                'LogedIn', true);
-
-                                            Map<String, dynamic> res =
-                                                resp.data;
-                                            print(res);
-                                            await prefs.setString(
-                                                'token', res["token"]);
-                                            await prefs.setString(
-                                                'name', res["data"]["name"]);
-                                            myusername = res["data"]["name"];
-                                            token = res["token"];
-                                            print("token is $token");
-
-                                            // Map<String,dynamic> store = {
-                                            //   'email' : res['email'],
-                                            //   'name' : res['mane'],
-                                            //   'contact_number' : res['contact_number'],
-                                            // };
-
-                                            // prefs.setString("user_id", )
-                                            Get.toNamed("/EntryPoint",
-                                                arguments: 0);
-                                          });
+                            ],
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Password",
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20.sp,
+                                    color: Color(0xff303030)),
+                              ),
+                              SizedBox(
+                                height: 15.h,
+                              ),
+                              CustomTextFormField(
+                                  textEditingController: passwordcontroller,
+                                  validator: (value) {
+                                    if (value == null || value.isEmpty) {
+                                      return "Please Enter Password";
+                                    }
+                                    return null;
+                                  },
+                                  isInputPassword: true,
+                                  hintText: "Enter Password",
+                                  validatorText: "Please Enter Password")
+                            ],
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              TextButton(
+                                onPressed: () {
+                                  Get.toNamed('/forgotPassword');
+                                },
+                                child: Text(
+                                  'Forgot Password?',
+                                  textAlign: TextAlign.end,
+                                  style: blackStyle12().copyWith(
+                                    color: Color(0xFF143C6D),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 50.h,
+                          ),
+                          GetBuilder<EntryPointController>(
+                            builder: (
+                              controller,
+                            ) {
+                              return controllerEntryPoint.signinApi == true
+                                  ? CircularProgressIndicator()
+                                  : CustomNextButton(
+                                      ontap: () async {
+                                        final isValid =
+                                            _form.currentState?.validate();
+                                        if (isValid!) {
                                           controllerEntryPoint
                                               .changeSigninApiBool();
-                                        } else {
-                                          Utils.showToast(resp.message);
+                                          Map<String, String> myLoginData = {
+                                            "user": emailPhoneController.text,
+                                            "password": passwordcontroller.text,
+                                          };
+                                          LogInPost logInPost = LogInPost();
+                                          var resp = await logInPost.LogIpApi(
+                                              myLoginData);
+                                          print(resp.status);
                                           print('Api msg : ${resp.message}');
-                                          controllerEntryPoint
-                                              .changeSigninApiBool();
+
+                                          if (resp.status ==
+                                              ResponseStatus.SUCCESS) {
+                                            print(
+                                                "api response is ${resp.data}");
+                                            Utils.showToast(
+                                                "Signin successful");
+                                            GetProfile().GetProfileAPI();
+                                            Future.delayed(Duration(seconds: 2),
+                                                () async {
+                                              final SharedPreferences prefs =
+                                                  await SharedPreferences
+                                                      .getInstance();
+
+                                              await prefs.setBool(
+                                                  'LogedIn', true);
+
+                                              Map<String, dynamic> res =
+                                                  resp.data;
+                                              print(res);
+                                              await prefs.setString(
+                                                  'token', res["token"]);
+                                              await prefs.setString(
+                                                  'name', res["data"]["name"]);
+                                              myusername = res["data"]["name"];
+                                              token = res["token"];
+                                              print("token is $token");
+
+                                              // Map<String,dynamic> store = {
+                                              //   'email' : res['email'],
+                                              //   'name' : res['mane'],
+                                              //   'contact_number' : res['contact_number'],
+                                              // };
+
+                                              // prefs.setString("user_id", )
+                                              Get.toNamed("/EntryPoint",
+                                                  arguments: 0);
+                                            });
+                                            controllerEntryPoint
+                                                .changeSigninApiBool();
+                                          } else {
+                                            Utils.showToast(resp.message);
+                                            print('Api msg : ${resp.message}');
+                                            controllerEntryPoint
+                                                .changeSigninApiBool();
+                                          }
+                                        } else {
+                                          Get.snackbar("Error",
+                                              "Please Enter Login Credentials",
+                                              margin: EdgeInsets.all(8),
+                                              snackStyle: SnackStyle.FLOATING,
+                                              snackPosition:
+                                                  SnackPosition.BOTTOM);
                                         }
-                                      } else {
-                                        Get.snackbar("Error",
-                                            "Please Enter Login Credentials",
-                                            margin: EdgeInsets.all(8),
-                                            snackStyle: SnackStyle.FLOATING,
-                                            snackPosition:
-                                                SnackPosition.BOTTOM);
-                                      }
-                                    },
-                                    text: 'Sign In',
-                                  );
-                          },
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              "Don't have an account?",
-                              style: blackStyle14().copyWith(
-                                color: Color(0x9F333332),
-                              ),
-                            ),
-                            GestureDetector(
-                              onTap: () {
-                                Get.toNamed('/signup');
-                              },
-                              child: Text(
-                                'Create account',
+                                      },
+                                      text: 'Sign In',
+                                    );
+                            },
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(
+                                "Don't have an account?",
                                 style: blackStyle14().copyWith(
-                                  color: Color(0xFF143C6D),
+                                  color: Color(0x9F333332),
                                 ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                              GestureDetector(
+                                onTap: () {
+                                  Get.toNamed('/signup');
+                                },
+                                child: Text(
+                                  'Create account',
+                                  style: blackStyle14().copyWith(
+                                    color: Color(0xFF143C6D),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

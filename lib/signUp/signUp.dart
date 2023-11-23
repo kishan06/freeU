@@ -615,7 +615,7 @@ class _SignUpState extends State<SignUp> {
                               validatorText: "Confirm Password",
                               validator: (val) {
                                 if (val == null || val.isEmpty) {
-                                  return 'Password is Empty';         
+                                  return 'Password is Empty';
                                 }
                                 if (val != passwordcontroller.text) {
                                   return 'Password Not Matched';

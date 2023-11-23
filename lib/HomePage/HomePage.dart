@@ -785,7 +785,7 @@ class _HomePageState extends State<HomePage> {
       child: Container(
           width: 241.w,
           // color: AppColors.white,
-          height: 248.h,
+          height: 250.h,
           decoration: BoxDecoration(
             border: Border.all(
               width: 0.5.w,

@@ -92,7 +92,8 @@ class _MutualFundDetailsState extends State<MutualFundDetails> {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
                 } else {
-                  Get.toNamed("/login");
+                  // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
                 }
               },
               text: 'Invest now'),

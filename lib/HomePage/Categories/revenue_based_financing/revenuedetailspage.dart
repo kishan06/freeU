@@ -125,7 +125,8 @@ class _RevenueDetailsState extends State<RevenueDetails> {
               if (controllerEntryPoint.logedIn!) {
                 investNow();
               } else {
-                Get.toNamed("/login");
+                // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
               }
             },
             text: 'Invest now'),

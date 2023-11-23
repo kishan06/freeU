@@ -57,15 +57,15 @@ class _InsightsInnerState extends State<InsightsInner> {
           ],
         ),
       ),
-      bottomNavigationBar: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 0.h, 16.w, 20.h),
-        child: CustomNextButton(
-          text: 'View Categories',
-          ontap: () {
-            Get.toNamed("/altenativecategories");
-          },
-        ),
-      ),
+      // bottomNavigationBar: Padding(
+      //   padding: EdgeInsets.fromLTRB(16.w, 0.h, 16.w, 20.h),
+      //   child: CustomNextButton(
+      //     text: 'View Categories',
+      //     ontap: () {
+      //       Get.toNamed("/altenativecategories");
+      //     },
+      //   ),
+      // ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         padding: EdgeInsets.symmetric(horizontal: 16.w),
