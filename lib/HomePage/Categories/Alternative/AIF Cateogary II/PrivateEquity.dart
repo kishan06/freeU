@@ -94,7 +94,8 @@ class _PrvateEquityState extends State<PrvateEquity> {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Get.toNamed(widget.ontapNamed);
+                      // Get.toNamed(widget.ontapNamed);
+                      Navigator.pushNamed(context, widget.ontapNamed);
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
@@ -220,7 +221,10 @@ class _PrvateEquityState extends State<PrvateEquity> {
                       ),
                       onPressed: () {
                         // Get.toNamed("/privateequityfunddeals");
-                        Get.toNamed(widget.viewMoreProdcut);
+
+                        Navigator.pushNamed(context, widget.viewMoreProdcut);
+                        // Get.toNamed(widget.viewMoreProdcut);
+                        print("button tapped");
                       },
                       child: Text(
                         "View more product",
