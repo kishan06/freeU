@@ -139,36 +139,36 @@ class _ChatPageState extends State<ChatPage> {
         return controllerEntryPoint.logedIn!
             ? Column(
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(left: 16.w, right: 16.w),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search Chats",
-                        hintStyle: TextStyle(
-                            color: Colors.grey.shade600, fontSize: 16.sp),
-                        prefixIcon: Icon(
-                          Icons.search,
-                          color: Colors.black,
-                          size: 20.sp,
-                        ),
-                        filled: true,
-                        fillColor: Colors.white,
-                        contentPadding: EdgeInsets.all(10.h),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.sp),
-                          borderSide: BorderSide(
-                            color: Colors.grey.shade400,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10.sp),
-                          borderSide: BorderSide(
-                            color: Colors.grey.shade400,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: EdgeInsets.only(left: 16.w, right: 16.w),
+                  //   child: TextField(
+                  //     decoration: InputDecoration(
+                  //       hintText: "Search Chats",
+                  //       hintStyle: TextStyle(
+                  //           color: Colors.grey.shade600, fontSize: 16.sp),
+                  //       prefixIcon: Icon(
+                  //         Icons.search,
+                  //         color: Colors.black,
+                  //         size: 20.sp,
+                  //       ),
+                  //       filled: true,
+                  //       fillColor: Colors.white,
+                  //       contentPadding: EdgeInsets.all(10.h),
+                  //       enabledBorder: OutlineInputBorder(
+                  //         borderRadius: BorderRadius.circular(10.sp),
+                  //         borderSide: BorderSide(
+                  //           color: Colors.grey.shade400,
+                  //         ),
+                  //       ),
+                  //       focusedBorder: OutlineInputBorder(
+                  //         borderRadius: BorderRadius.circular(10.sp),
+                  //         borderSide: BorderSide(
+                  //           color: Colors.grey.shade400,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
                   Expanded(
                     child: SingleChildScrollView(
                       physics: const BouncingScrollPhysics(),
@@ -229,7 +229,8 @@ class _ChatPageState extends State<ChatPage> {
                       CustomNextButton(
                         text: "Login to continue",
                         ontap: () {
-                          Get.toNamed("/login");
+                          // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
                         },
                       )
                     ],

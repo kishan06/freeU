@@ -127,7 +127,8 @@ class _FeaturedInvestmentState extends State<FeaturedInvestment> {
               if (controllerEntryPoint.logedIn!) {
                 Get.to(() => const OfferPricing());
               } else {
-                Get.toNamed("/login");
+                // Get.toNamed("/login");
+                Get.offAllNamed("/login");              
               }
             },
             text: 'Make an offer'),

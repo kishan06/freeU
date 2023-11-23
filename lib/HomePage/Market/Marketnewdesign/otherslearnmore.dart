@@ -318,7 +318,8 @@ class _OtherslearnmoreState extends State<Otherslearnmore> {
           // investNow();
           Get.toNamed("/marketplaceform");
         } else {
-          Get.toNamed("/login");
+          // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
         }
       },
       text: 'Invest now',
@@ -331,7 +332,9 @@ class _OtherslearnmoreState extends State<Otherslearnmore> {
           // Get.toNamed("/marketplaceform");
           Get.offAllNamed('/EntryPoint', arguments: 2);
         } else {
-          Get.toNamed("/login");
+          // Get.toNamed("/login");
+                            Get.offAllNamed("/login");
+
         }
       },
       text: 'Show investment',

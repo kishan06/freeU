@@ -31,7 +31,8 @@ class _FullyFundedBankState extends State<FullyFundedBank> {
               if (controllerEntryPoint.logedIn!) {
                 investNow();
               } else {
-                Get.toNamed("/login");
+                // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
               }
             },
             text: 'Invest now'),

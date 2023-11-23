@@ -223,7 +223,8 @@ class _SecurityState extends State<Security> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [GestureDetector(
                       onTap: () {
-                                Get.toNamed("/login");
+                                // Get.toNamed("/login");
+                            Get.offAllNamed("/login");
                         
                       },
                       child: text20Black("Login to continue"))],

@@ -311,7 +311,8 @@ class _SideBarState extends State<SideBar> {
                             )
                           : InkWell(
                               onTap: () {
-                                Get.toNamed("/login");
+                                // Get.toNamed("/login");
+                            Get.offAllNamed("/login");
                               },
                               child: Row(
                                 children: [

@@ -92,7 +92,8 @@ class _ETFsDetailsState extends State<ETFsDetails> {
                 if (controllerEntryPoint.logedIn!) {
                   investNow();
                 } else {
-                  Get.toNamed("/login");
+                  // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
                 }
               },
               text: 'Invest now'),

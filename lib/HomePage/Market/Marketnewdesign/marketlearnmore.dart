@@ -274,7 +274,8 @@ class _MarketplacelearnmoreState extends State<Marketplacelearnmore> {
                                 // investNow();
                                 Get.toNamed("/marketplaceform");
                               } else {
-                                Get.toNamed("/login");
+                                // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
                               }
                             },
                             text: 'Invest now',
@@ -288,7 +289,8 @@ class _MarketplacelearnmoreState extends State<Marketplacelearnmore> {
                                 // Get.toNamed("/marketplaceform");
                                 Get.offAllNamed('/EntryPoint', arguments: 2);
                               } else {
-                                Get.toNamed("/login");
+                                // Get.toNamed("/login");
+                            Get.offAllNamed("/login");
                               }
                             },
                             text: 'Show investment',

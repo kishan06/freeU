@@ -31,7 +31,8 @@ class _HighYieldProperties2State extends State<HighYieldProperties2> {
               if (controllerEntryPoint.logedIn!) {
                 investNow();
               } else {
-                Get.toNamed("/login");
+                // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
               }
             },
             text: 'Invest now'),

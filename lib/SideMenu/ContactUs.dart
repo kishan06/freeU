@@ -211,14 +211,19 @@ class _ContactUsState extends State<ContactUs> {
                       CustomTextFormField(
                           texttype: TextInputType.phone,
                           validator: (value) {
-                            if (value == value.isEmpty) {
+                            if (value.isEmpty) {
                               return 'Mobile number is required';
-                            } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
-                                .hasMatch(value)) {
-                              return 'Enter valid mobile number';
                             }
-                            // v3 = true;
                             return null;
+
+                            // if (value == value.isEmpty) {
+                            //   return 'Mobile number is required';
+                            // } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
+                            //     .hasMatch(value)) {
+                            //   return 'Enter valid mobile number';
+                            // }
+                            // // v3 = true;
+                            // return null;
                           },
                           inputFormatters: [
                             LengthLimitingTextInputFormatter(10),

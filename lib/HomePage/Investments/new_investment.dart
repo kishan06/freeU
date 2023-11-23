@@ -174,7 +174,8 @@ class _NewInvestmentState extends State<NewInvestment> {
                         CustomNextButton(
                           text: "Login to continue",
                           ontap: () {
-                            Get.toNamed("/login");
+                            // Get.toNamed("/login");
+                            Get.offAllNamed("/login");
                           },
                         ),
                         sizedBoxHeight(60.h),
