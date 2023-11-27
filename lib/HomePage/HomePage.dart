@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
 
     futureGroup.close();
     Future.delayed(Duration(seconds: 3), () {
-      requestPermissions();
+      // requestPermissions();
       print("pin dialog shown is $pindialog");
 
       // pindialog

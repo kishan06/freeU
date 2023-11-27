@@ -63,6 +63,8 @@ class Data {
   String? location;
   String? country;
   String? remarks;
+  List<Photos>? photos;
+  List<Documents>? documents;
 
   Data(
       {this.id,
@@ -110,7 +112,9 @@ class Data {
       this.constructionAge,
       this.location,
       this.country,
-      this.remarks});
+      this.remarks,
+      this.photos,
+      this.documents});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
@@ -159,6 +163,38 @@ class Data {
     location = json['location'];
     country = json['country'];
     remarks = json['remarks'];
+  if (json['photos'] != null) {
+    photos = <Photos>[];
+    if (json['photos'] is List) {
+      for (var photo in json['photos']) {
+        if (photo != null) {
+          photos!.add(Photos.fromJson(photo));
+        } else {
+          // Handle the case where a photo is null
+          photos!.add(Photos(data: null));
+        }
+      }
+    } else {
+      // Handle the case where 'photos' is not a List
+      // You may choose to throw an exception, set it to null, or handle it differently based on your requirement.
+    }
+  }
+     if (json['documents'] != null) {
+      documents = <Documents>[];
+      if (json['documents'] is List) {
+        for (var document in json['documents']) {
+          if (document != null) {
+            documents!.add(Documents.fromJson(document));
+          } else {
+            // Handle the case where a document is null
+            documents!.add(Documents(data: null));
+          }
+        }
+      } else {
+        // Handle the case where 'documents' is not a List
+        // You may choose to throw an exception, set it to null, or handle it differently based on your requirement.
+      }
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -209,6 +245,44 @@ class Data {
     data['location'] = this.location;
     data['country'] = this.country;
     data['remarks'] = this.remarks;
+   if (this.photos != null) {
+      data['photos'] = this.photos!.map((v) => v.toJson()).toList();
+    }
+    if (this.documents != null) {
+      data['documents'] = this.documents;
+    }
+    return data;
+  }
+}
+
+class Photos {
+  String? data;
+
+  Photos({this.data});
+
+  Photos.fromJson(Map<String, dynamic> json) {
+    data = json['data'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['data'] = this.data;
+    return data;
+  }
+}
+
+class Documents {
+  String? data;
+
+  Documents({this.data});
+
+  Documents.fromJson(Map<String, dynamic> json) {
+    data = json['data'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['data'] = this.data;
     return data;
   }
 }

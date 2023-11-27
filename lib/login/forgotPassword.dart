@@ -102,7 +102,7 @@ Get.toNamed('/otpverification',
                         height: 20.h,
                       ),
                       Text(
-                        "We will send a verification email to the email address on your account in order to reset your password",
+                        "Please enter your registered phone number to receive otp",
                         style: TextStyle(
                           fontSize: 18.sp,
                           color: Color(0xFF272424),

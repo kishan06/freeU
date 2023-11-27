@@ -24,14 +24,39 @@ class FractionalRealEstateModel {
 class Data {
   int? id;
   int? status;
+  int? topPick;
+  String? commissionType;
+  String? rate;
+  String? commission;
+  String? description;
+  Null? presentation;
+  Null? factSheet;
   String? createdAt;
   FractionalRealEstate? fractionalRealEstate;
 
-  Data({this.id, this.status, this.createdAt, this.fractionalRealEstate});
+  Data(
+      {this.id,
+      this.status,
+      this.topPick,
+      this.commissionType,
+      this.rate,
+      this.commission,
+      this.description,
+      this.presentation,
+      this.factSheet,
+      this.createdAt,
+      this.fractionalRealEstate});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     status = json['status'];
+    topPick = json['top_pick'];
+    commissionType = json['commission_type'];
+    rate = json['rate'];
+    commission = json['commission'];
+    description = json['description'];
+    presentation = json['presentation'];
+    factSheet = json['fact_sheet'];
     createdAt = json['created_at'];
     fractionalRealEstate = json['fractional_real_estate'] != null
         ? new FractionalRealEstate.fromJson(json['fractional_real_estate'])
@@ -42,6 +67,13 @@ class Data {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
     data['status'] = this.status;
+    data['top_pick'] = this.topPick;
+    data['commission_type'] = this.commissionType;
+    data['rate'] = this.rate;
+    data['commission'] = this.commission;
+    data['description'] = this.description;
+    data['presentation'] = this.presentation;
+    data['fact_sheet'] = this.factSheet;
     data['created_at'] = this.createdAt;
     if (this.fractionalRealEstate != null) {
       data['fractional_real_estate'] = this.fractionalRealEstate!.toJson();
@@ -54,6 +86,7 @@ class FractionalRealEstate {
   int? id;
   int? productsId;
   int? companiesId;
+  String? propertyImage;
   String? slug;
   String? propertyNameAndLocation;
   String? propertyDescription;
@@ -75,12 +108,13 @@ class FractionalRealEstate {
   String? performanceFees;
   String? hurdleRate;
   String? minimumInvestmentInInt;
-  Companies? companies;
+  Null? companies;
 
   FractionalRealEstate(
       {this.id,
       this.productsId,
       this.companiesId,
+      this.propertyImage,
       this.slug,
       this.propertyNameAndLocation,
       this.propertyDescription,
@@ -108,6 +142,7 @@ class FractionalRealEstate {
     id = json['id'];
     productsId = json['products_id'];
     companiesId = json['companies_id'];
+    propertyImage = json['property_image'];
     slug = json['slug'];
     propertyNameAndLocation = json['property_name_and_location'];
     propertyDescription = json['property_description'];
@@ -129,9 +164,7 @@ class FractionalRealEstate {
     performanceFees = json['performance_fees'];
     hurdleRate = json['hurdle_rate'];
     minimumInvestmentInInt = json['minimum_investment_in_int'];
-    companies = json['companies'] != null
-        ? new Companies.fromJson(json['companies'])
-        : null;
+    companies = json['companies'];
   }
 
   Map<String, dynamic> toJson() {
@@ -139,6 +172,7 @@ class FractionalRealEstate {
     data['id'] = this.id;
     data['products_id'] = this.productsId;
     data['companies_id'] = this.companiesId;
+    data['property_image'] = this.propertyImage;
     data['slug'] = this.slug;
     data['property_name_and_location'] = this.propertyNameAndLocation;
     data['property_description'] = this.propertyDescription;
@@ -160,34 +194,7 @@ class FractionalRealEstate {
     data['performance_fees'] = this.performanceFees;
     data['hurdle_rate'] = this.hurdleRate;
     data['minimum_investment_in_int'] = this.minimumInvestmentInInt;
-    if (this.companies != null) {
-      data['companies'] = this.companies!.toJson();
-    }
-    return data;
-  }
-}
-
-class Companies {
-  int? id;
-  String? companyName;
-  String? companyLogo;
-  int? status;
-
-  Companies({this.id, this.companyName, this.companyLogo, this.status});
-
-  Companies.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    companyName = json['company_name'];
-    companyLogo = json['company_logo'];
-    status = json['status'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['company_name'] = this.companyName;
-    data['company_logo'] = this.companyLogo;
-    data['status'] = this.status;
+    data['companies'] = this.companies;
     return data;
   }
 }

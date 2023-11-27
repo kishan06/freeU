@@ -169,262 +169,295 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return 
-    debtfundObj!.data!.isEmpty ?
-    _buildNoDataBody(context):
-
-    ListView.separated(
-      // physics: NeverScrollableScrollPhysics(),
-      itemCount: debtfundObj!.data!.length,
-      separatorBuilder: (context, index) {
-        return sizedBoxHeight(20.h);
-      },
-      shrinkWrap: true,
-      itemBuilder: (context, index) {
-        return SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(top: 20),
-            child: Padding(
-              padding: EdgeInsets.all(5.w),
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
-                  color: Color(0xffffffff),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Color(0x48B9B9BE),
-                      blurRadius: 10.0,
-                      spreadRadius: 3.0,
-                      // offset: Offset(10, 10, 10, 10),
-                    )
-                  ],
-                ),
+    return debtfundObj!.data!.isEmpty
+        ? _buildNoDataBody(context)
+        : ListView.separated(
+            // physics: NeverScrollableScrollPhysics(),
+            itemCount: debtfundObj!.data!.length,
+            separatorBuilder: (context, index) {
+              return sizedBoxHeight(20.h);
+            },
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return SingleChildScrollView(
                 child: Padding(
-                  padding:
-                      const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/alternative (6).png",
-                            width: 68,
-                            height: 38,
-                          ),
-                          SizedBox(
-                            width: 20.h,
-                          ),
-                          Flexible(
-                            child: Text(
-                              debtfundObj!.data?[index]
-                                      .alternativeInvestmentFund!.fundName ??
-                                  "",
-                              // title,
-                              // "HDFC AMC Select AIF FOF - 1",
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  fontFamily: 'Poppins',
-                                  color: Color(0XFF000000),
-                                  fontWeight: FontWeight.w500),
-                            ),
+                  padding: const EdgeInsets.only(top: 20),
+                  child: Padding(
+                    padding: EdgeInsets.all(5.w),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                        color: Color(0xffffffff),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x48B9B9BE),
+                            blurRadius: 10.0,
+                            spreadRadius: 3.0,
+                            // offset: Offset(10, 10, 10, 10),
                           )
                         ],
                       ),
-                      Divider(
-                        thickness: 1,
-                        color: Color(0XFF6D6D6D29),
-                      ),
-                      SizedBox(height: 17.5.h),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            "assets/images/investment (1).png",
-                            width: 25.w,
-                            height: 25.h,
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          SizedBox(
-                            width: 100.w,
-                            child: Text(
-                              "Targeted IRR ",
-                              style: TextStyle(
-                                fontSize: 17.sp,
-                                fontFamily: 'Poppins',
-                                color: Color(0XFF000000),
-                              ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 22.0, right: 22, top: 20),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Container(
+                              width: 250.h,
+                              height: 150.h,
+                              decoration: BoxDecoration(
+                                  // color: AppColors.black,
+                                  image:
+                                  debtfundObj?.data?[index]!.alternativeInvestmentFund?.companies != null &&
+                                   debtfundObj
+                                              ?.data?[index]
+                                              .alternativeInvestmentFund
+                                              ?.companies
+                                              ?.companyLogo !=
+                                          null
+                                      ? DecorationImage(
+                                          image: NetworkImage(
+                                            debtfundObj!
+                                                .data![index]
+                                                .alternativeInvestmentFund!
+                                                .companies!
+                                                .companyLogo!,
+                                          ),
+                                        )
+                                      : DecorationImage(
+                                          image:
+                                         NetworkImage(
+                                                  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png") 
+                                          //  AssetImage(
+                                          //     "assets/images/alternative (6).png")
+                                              )),
                             ),
-                          ),
-                          Text(
-                            ":",
-                            style: TextStyle(
-                              fontSize: 17.sp,
-                              fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
+                            sizedBoxHeight(20.h),
+                            Row(
+                              children: [
+                                // Image.asset(
+                                //   "assets/images/alternative (6).png",
+                                //   width: 68,
+                                //   height: 38,
+                                // ),
+                                SizedBox(
+                                  width: 20.w,
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    debtfundObj!
+                                            .data?[index]
+                                            .alternativeInvestmentFund!
+                                            .fundName ??
+                                        "",
+                                    // title,
+                                    // "HDFC AMC Select AIF FOF - 1",
+                                    style: TextStyle(
+                                        fontSize: 22,
+                                        fontFamily: 'Poppins',
+                                        color: Color(0XFF000000),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                )
+                              ],
                             ),
-                          ),
-                          SizedBox(
-                            width: 8.w,
-                          ),
-                          Flexible(
-                            child: Text(
-                              debtfundObj!.data?[index]
-                                      .alternativeInvestmentFund!.targetIrr ??
-                                  "NA",
+                            Divider(
+                              thickness: 1,
+                              color: Color(0XFF6D6D6D29),
+                            ),
+                            SizedBox(height: 17.5.h),
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  "assets/images/investment (1).png",
+                                  width: 25.w,
+                                  height: 25.h,
+                                ),
+                                SizedBox(
+                                  width: 15.w,
+                                ),
+                                SizedBox(
+                                  width: 100.w,
+                                  child: Text(
+                                    "Targeted IRR ",
+                                    style: TextStyle(
+                                      fontSize: 17.sp,
+                                      fontFamily: 'Poppins',
+                                      color: Color(0XFF000000),
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  ":",
+                                  style: TextStyle(
+                                    fontSize: 17.sp,
+                                    fontFamily: 'Poppins',
+                                    color: Color(0XFF000000),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 8.w,
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    debtfundObj!
+                                            .data?[index]
+                                            .alternativeInvestmentFund!
+                                            .targetIrr ??
+                                        "NA",
 
-                              // "12.7%",
-                              style: TextStyle(
-                                  fontSize: 20.sp,
-                                  fontFamily: 'Poppins',
-                                  color: Color(0XFF000000),
-                                  fontWeight: FontWeight.w500),
+                                    // "12.7%",
+                                    style: TextStyle(
+                                        fontSize: 20.sp,
+                                        fontFamily: 'Poppins',
+                                        color: Color(0XFF000000),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 31.h,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            "assets/images/back-in-time (1).png",
-                            width: 25.w,
-                            height: 25.h,
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          SizedBox(
-                            width: 120.w,
-                            child: Text(
-                              "Commitment period ",
-                              style: TextStyle(
-                                fontSize: 17.sp,
-                                fontFamily: 'Poppins',
-                                color: Color(0XFF000000),
-                              ),
+                            SizedBox(
+                              height: 31.h,
                             ),
-                          ),
-                          Text(
-                            ":",
-                            style: TextStyle(
-                              fontSize: 17.sp,
-                              fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 8.w,
-                          ),
-                          Flexible(
-                            child: Text(
-                              debtfundObj!
-                                      .data?[index]
-                                      .alternativeInvestmentFund!
-                                      .commitmentPeriod ??
-                                  "NA",
+                            Row(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(
+                                  "assets/images/back-in-time (1).png",
+                                  width: 25.w,
+                                  height: 25.h,
+                                ),
+                                SizedBox(
+                                  width: 15.w,
+                                ),
+                                SizedBox(
+                                  width: 120.w,
+                                  child: Text(
+                                    "Commitment period ",
+                                    style: TextStyle(
+                                      fontSize: 17.sp,
+                                      fontFamily: 'Poppins',
+                                      color: Color(0XFF000000),
+                                    ),
+                                  ),
+                                ),
+                                Text(
+                                  ":",
+                                  style: TextStyle(
+                                    fontSize: 17.sp,
+                                    fontFamily: 'Poppins',
+                                    color: Color(0XFF000000),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 8.w,
+                                ),
+                                Flexible(
+                                  child: Text(
+                                    debtfundObj!
+                                            .data?[index]
+                                            .alternativeInvestmentFund!
+                                            .commitmentPeriod ??
+                                        "NA",
 
-                              // "5 Years",
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontFamily: 'Poppins',
-                                  color: Color(0XFF000000),
-                                  fontWeight: FontWeight.w500),
+                                    // "5 Years",
+                                    style: TextStyle(
+                                        fontSize: 18.sp,
+                                        fontFamily: 'Poppins',
+                                        color: Color(0XFF000000),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 31.h,
-                      ),
-                      Row(
-                        children: [
-                          Image.asset(
-                            "assets/images/transfer.png",
-                            width: 25.w,
-                            height: 25.h,
-                          ),
-                          SizedBox(
-                            width: 15.w,
-                          ),
-                          Text(
-                            "Capital Commitment :",
-                            style: TextStyle(
-                              fontSize: 17.sp,
-                              fontFamily: 'Poppins',
-                              color: Color(0XFF000000),
+                            SizedBox(
+                              height: 31.h,
                             ),
-                          ),
-                          SizedBox(
-                            width: 8.w,
-                          ),
-                          Text(
-                            "12.7%",
-                            // debtfundObj!.data?[index].alternativeInvestmentFund!.c ?? "",
+                            Row(
+                              children: [
+                                Image.asset(
+                                  "assets/images/transfer.png",
+                                  width: 25.w,
+                                  height: 25.h,
+                                ),
+                                SizedBox(
+                                  width: 15.w,
+                                ),
+                                Text(
+                                  "Capital Commitment :",
+                                  style: TextStyle(
+                                    fontSize: 17.sp,
+                                    fontFamily: 'Poppins',
+                                    color: Color(0XFF000000),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 8.w,
+                                ),
+                                Text(
+                                  "12.7%",
+                                  // debtfundObj!.data?[index].alternativeInvestmentFund!.c ?? "",
 
-                            style: TextStyle(
-                                fontSize: 18.sp,
-                                fontFamily: 'Poppins',
-                                color: Color(0XFF000000),
-                                fontWeight: FontWeight.w500),
-                          ),
-                        ],
+                                  style: TextStyle(
+                                      fontSize: 18.sp,
+                                      fontFamily: 'Poppins',
+                                      color: Color(0XFF000000),
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                            sizedBoxHeight(15.h),
+                            // /
+                            OpenContainerWrappers(
+                                openBuild: ProductsDetailsDebtFund(
+                                  slug: debtfundObj!.data?[index]
+                                          .alternativeInvestmentFund!.slug ??
+                                      "",
+                                  // pageIndex: pageIndex
+                                ),
+                                // _productsData[index]['View investment Route'],
+                                closeBuild: Container(
+                                  decoration: BoxDecoration(
+                                      color: AppColors.blue002A5B,
+                                      borderRadius:
+                                          BorderRadius.circular(10.r)),
+                                  height: 50.h,
+                                  width: double.infinity,
+                                  child: Center(
+                                      child: Text(
+                                    'View Details',
+                                    style: TextStyle(
+                                        fontSize: 18.sp, color: Colors.white),
+                                  )),
+                                )),
+                            SizedBox(
+                              height: 20.h,
+                            )
+                          ],
+                        ),
                       ),
-                      sizedBoxHeight(15.h),
-                      // /
-                      OpenContainerWrappers(
-                          openBuild: ProductsDetailsDebtFund(
-                            slug: debtfundObj!.data?[index]
-                                    .alternativeInvestmentFund!.slug ??
-                                "",
-                            // pageIndex: pageIndex
-                          ),
-                          // _productsData[index]['View investment Route'],
-                          closeBuild: Container(
-                            decoration: BoxDecoration(
-                                color: AppColors.blue002A5B,
-                                borderRadius: BorderRadius.circular(10.r)),
-                            height: 50.h,
-                            width: double.infinity,
-                            child: Center(
-                                child: Text(
-                              'View Details',
-                              style: TextStyle(
-                                  fontSize: 18.sp, color: Colors.white),
-                            )),
-                          )),
-                      SizedBox(
-                        height: 20.h,
-                      )
-                    ],
+                    ),
                   ),
                 ),
-              ),
-            ),
-          ),
-        );
+              );
 
-        // card(
-        //     title: _productsData[index]["Company Name"], index: index);
-      },
-    );
+              // card(
+              //     title: _productsData[index]["Company Name"], index: index);
+            },
+          );
   }
 
-  
-  Widget _buildNoDataBody(context){
-  return Column(
+  Widget _buildNoDataBody(context) {
+    return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
         const Text("No Data Found")
       ],
     );
-}
+  }
 
   // Widget card({required String title, required int index}) {
   //   return SingleChildScrollView(

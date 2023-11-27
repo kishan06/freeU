@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:freeu/Global.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20I/VentureViewMore.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/FundDistressed/productsfunddistressed.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20III/PrivateViewproducts.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AlternativeCategories.dart';
 import 'package:freeu/HomePage/Categories/Alternative/Debtfundpage.dart';
@@ -620,7 +621,10 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                     GetPage(
                         name: '/noInternet', page: () => NoInternetscreen()),
                     GetPage(
-                        name: '/newfaqs', page: () => NewFAQs()),                        
+                        name: '/newfaqs', page: () => NewFAQs()),    
+                    GetPage(
+                        name: '/distressedfundproducts', page: () => DistressedFundMoreProduct()), 
+                                            
                   ],
                 ),
                 designSize: const Size(390, 844),
