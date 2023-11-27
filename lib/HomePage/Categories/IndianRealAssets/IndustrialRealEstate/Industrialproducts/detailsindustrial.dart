@@ -1,6 +1,9 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
@@ -26,6 +29,8 @@ class _IndustrialDetailsState extends State<IndustrialDetails> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   late Future myfuture;
+  var sliderPage = 0.obs;
+  final CarouselController carouselController = CarouselController();
 
   @override
   void initState() {
@@ -95,7 +100,7 @@ class _IndustrialDetailsState extends State<IndustrialDetails> {
                   investNow();
                 } else {
                   // Get.toNamed("/login");
-                          Get.offAllNamed('/login');
+                  Get.offAllNamed('/login');
                 }
               },
               text: 'Invest now'),
@@ -173,6 +178,71 @@ class _IndustrialDetailsState extends State<IndustrialDetails> {
               ],
             ),
             sizedBoxHeight(24.h),
+            // CarouselSlider.builder(
+            //   carouselController: carouselController,
+            //   itemCount: IndianIndustrialdetailsobj!.data?.photos?.length ?? 0,
+            //   itemBuilder: (context, index, realIndex) {
+            //     String? photoUrl =
+            //         IndianIndustrialdetailsobj!.data?.photos?[index].data;
+
+            //     return Padding(
+            //       padding: EdgeInsets.symmetric(horizontal: 16.0),
+            //       child: Container(
+            //         height: 159.0,
+            //         width: double.infinity,
+            //         decoration: BoxDecoration(
+            //           borderRadius: BorderRadius.circular(15.0),
+            //           image: DecorationImage(
+            //             image: NetworkImage(photoUrl ?? ''),
+            //             fit: BoxFit.fill,
+            //           ),
+            //         ),
+            //       ),
+            //     );
+            //   },
+            //   options: CarouselOptions(
+            //     autoPlay: true,
+            //     height: 159.0,
+            //     autoPlayAnimationDuration: const Duration(seconds: 3),
+            //     viewportFraction: 1,
+            //     onPageChanged: (index, reason) {
+            //       setState(() {
+            //         sliderPage.value = index;
+            //       });
+            //     },
+            //   ),
+            // ),
+            // sizedBoxHeight(12.h),
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.center,
+            //   children: List.generate(
+            //     IndianIndustrialdetailsobj!.data?.photos?.length ?? 0,
+            //     (index) => GestureDetector(
+            //       onTap: () => carouselController.animateToPage(index),
+            //       child: Container(
+            //         decoration: BoxDecoration(
+            //             color: sliderPage.value == index
+            //                 ? AppColors.blue143C6D
+            //                 : Colors
+            //                     .grey, // Change the color based on the current page
+            //             borderRadius: BorderRadius.circular(25.r),
+            //             // border: Border.all(
+            //             //   color: Colors.grey,
+            //             // )
+            //             ),
+            //         width: 12.w,
+            //         height: sliderPage.value == index ? 3.h : 2.h,
+            //         margin: const EdgeInsets.symmetric(
+            //           horizontal: 3.0,
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+
+            buildCarousel(),
+
+            sizedBoxHeight(5.h),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
@@ -437,6 +507,74 @@ class _IndustrialDetailsState extends State<IndustrialDetails> {
         ),
       ),
     );
+  }
+
+  Widget buildCarousel() {
+    if (IndianIndustrialdetailsobj!.data?.photos?.isNotEmpty ?? false) {
+      return Column(
+        children: [
+          CarouselSlider.builder(
+            carouselController: carouselController,
+            itemCount: IndianIndustrialdetailsobj!.data?.photos?.length ?? 0,
+            itemBuilder: (context, index, realIndex) {
+              String? photoUrl =
+                  IndianIndustrialdetailsobj!.data?.photos?[index].data;
+
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0),
+                child: Container(
+                  height: 159.0,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15.0),
+                    image: DecorationImage(
+                      image: NetworkImage(photoUrl ?? ''),
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                ),
+              );
+            },
+            options: CarouselOptions(
+              autoPlay: true,
+              height: 159.0,
+              autoPlayAnimationDuration: const Duration(seconds: 3),
+              viewportFraction: 1,
+              onPageChanged: (index, reason) {
+                setState(() {
+                  sliderPage.value = index;
+                });
+              },
+            ),
+          ),
+          sizedBoxHeight(12.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: List.generate(
+              IndianIndustrialdetailsobj!.data?.photos?.length ?? 0,
+              (index) => GestureDetector(
+                onTap: () => carouselController.animateToPage(index),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: sliderPage.value == index
+                        ? AppColors.blue143C6D
+                        : Colors.grey,
+                    borderRadius: BorderRadius.circular(25.r),
+                  ),
+                  width: 12.w,
+                  height: sliderPage.value == index ? 3.h : 2.h,
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 3.0,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      );
+    } else {
+      return SizedBox(height: 0.h);
+    }
   }
 
   void investNow() {

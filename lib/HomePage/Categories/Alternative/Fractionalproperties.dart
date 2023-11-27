@@ -222,11 +222,48 @@ class _SecondTabState extends State<SecondTab> {
                       padding: EdgeInsets.only(top: 15.h, bottom: 15.h),
                       child: Column(
                         children: [
-                          Image.asset(
-                            // image,
-                            "assets/images/fractional.png",
+                          // fractionalRealEstateObj!
+                          //                 .data![index]
+                          //                 .fractionalRealEstate!
+                          //                 .propertyImage !=
+                          //             null &&
+                          //         fractionalRealEstateObj!
+                          //                 .data![index]
+                          //                 .fractionalRealEstate!
+                          //                 .propertyImage ==
+                          //             null
+                          //     ? Image.network(fractionalRealEstateObj!
+                          //         .data![index]
+                          //         .fractionalRealEstate!
+                          //         .propertyImage!)
+                          //     : Image.asset(
+                          //         // image,
+                          //         "assets/images/fractional.png",
+                          //         width: 358,
+                          //         height: 162,
+                          //       ),
+                          Container(
                             width: 358,
-                            height: 162,
+                            height: 360.h,
+                            child: fractionalRealEstateObj?.data?[index]
+                                        .fractionalRealEstate?.propertyImage !=
+                                    null
+                                ? Image.network(
+                                    fractionalRealEstateObj!.data![index]
+                                        .fractionalRealEstate!.propertyImage!,
+                                    fit: BoxFit.cover,
+                                    errorBuilder: (context, error, stackTrace) {
+                                      // Handle errors, e.g., display a default image
+                                      return Image.asset(
+                                        "assets/images/fractional.png",
+                                        fit: BoxFit.cover,
+                                      );
+                                    },
+                                  )
+                                : Image.asset(
+                                    "assets/images/fractional.png",
+                                    fit: BoxFit.cover,
+                                  ),
                           ),
                           SizedBox(
                             height: 25.h,

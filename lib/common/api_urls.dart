@@ -293,4 +293,11 @@ class ApiUrls {
   static const getfaqsTags = "${baseUrl}tags-for-faqs";
   static const postBlogs = "${baseUrl}faq-filter";
 
+// alternative1
+  static const infrastructurefund = "${baseUrl}infrastructure-data";
+  static const funddistressedasset = "${baseUrl}fund-for-distressed-asset-data";
+
+  static const getdetaisinfrastructurefund = "${baseUrl}infrastructure-single-data";
+  static const getdetailsfunddistressed = "${baseUrl}fund-for-distressed-asset-single-data";
+
 }

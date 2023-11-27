@@ -1,26 +1,29 @@
 import 'package:buttons_tabbar/buttons_tabbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/FundDistressed/detailsfunddistressed.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/common/Other%20Commons/page_animation.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/viewModel/Alternative/Alternative1/Getalternative1.dart';
+import 'package:freeu/viewModel/Alternative/Alternative2/Getalternative2.dart';
 import 'package:freeu/viewModel/AngelFundService.dart';
 import 'package:lottie/lottie.dart';
-import 'AngelFundViewDetails.dart';
 
-class AngelFundMoreProduct extends StatefulWidget {
-  const AngelFundMoreProduct({super.key});
+class DistressedFundMoreProduct extends StatefulWidget {
+  const DistressedFundMoreProduct({super.key});
 
   @override
-  State<AngelFundMoreProduct> createState() => _AngelFundMoreProductState();
+  State<DistressedFundMoreProduct> createState() =>
+      _DistressedFundMoreProductState();
 }
 
-class _AngelFundMoreProductState extends State<AngelFundMoreProduct> {
+class _DistressedFundMoreProductState extends State<DistressedFundMoreProduct> {
   late Future myfuture;
   @override
   void initState() {
-    myfuture = AngelFund().AngelFundAPI();
+    myfuture = Alternative2().Distressedfund();
     super.initState();
   }
 
@@ -69,7 +72,7 @@ class _AngelFundMoreProductState extends State<AngelFundMoreProduct> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "Angel Fund",
+                "Fund for Distressed Asset",
                 style: TextStyle(
                     fontFamily: "Poppins",
                     fontSize: 25.sp,
@@ -152,7 +155,7 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return angelFundObj!.data!.isEmpty
+    return funddistressedobj!.data!.isEmpty
         ? _buildNoDataBody(context)
         : ListView.separated(
             itemBuilder: (BuildContext context, int index) {
@@ -190,21 +193,22 @@ class SecondTab extends StatelessWidget {
                                   decoration: BoxDecoration(
                                       // color: AppColors.black,
                                       image: 
-                                      angelFundObj?.data?[index].alternativeInvestmentFund?.companies != null &&
+                                      funddistressedobj?.data?[index].alternativeInvestmentFund?.companies != null &&
                                       
-                                      angelFundObj
-                                                  ?.data?[index]
-                                                  .alternativeInvestmentFund
-                                                  ?.companies
-                                                  ?.companyLogo !=
+                                      funddistressedobj!
+                                                  .data![index]
+                                                  .alternativeInvestmentFund!
+                                                  .companies!
+                                                  .companyLogo !=
                                               null
                                           ? DecorationImage(
                                               image: NetworkImage(
-                                                angelFundObj!
-                                                    .data![index]
-                                                    .alternativeInvestmentFund!
-                                                    .companies!
-                                                    .companyLogo!,
+                                                funddistressedobj!
+                                                        .data![index]
+                                                        .alternativeInvestmentFund!
+                                                        .companies!
+                                                        .companyLogo ??
+                                                    "",
                                               ),
                                             )
                                           : DecorationImage(
@@ -215,7 +219,6 @@ class SecondTab extends StatelessWidget {
                                               //     "assets/images/alternative (6).png")
                                                   )),
                                 ),
-                                sizedBoxHeight(20.h),
                                 Row(
                                   children: [
                                     // Image.asset(
@@ -224,11 +227,11 @@ class SecondTab extends StatelessWidget {
                                     //   height: 38,
                                     // ),
                                     SizedBox(
-                                      width: 20.w,
+                                      width: 20.h,
                                     ),
                                     Flexible(
                                       child: Text(
-                                        angelFundObj!
+                                        funddistressedobj!
                                                 .data![index]
                                                 .alternativeInvestmentFund!
                                                 .fundName ??
@@ -270,7 +273,7 @@ class SecondTab extends StatelessWidget {
                                     ),
                                     Text(
                                       // "",
-                                      angelFundObj!
+                                      funddistressedobj!
                                               .data![index]
                                               .alternativeInvestmentFund!
                                               .targetIrr ??
@@ -298,7 +301,7 @@ class SecondTab extends StatelessWidget {
                                       width: 15.w,
                                     ),
                                     SizedBox(
-                                      width: 115.w,
+                                      width: 117.w,
                                       child: Text(
                                         "Commitment period",
                                         style: TextStyle(
@@ -320,7 +323,7 @@ class SecondTab extends StatelessWidget {
                                       width: 8.w,
                                     ),
                                     Text(
-                                      angelFundObj!
+                                      funddistressedobj!
                                               .data![index]
                                               .alternativeInvestmentFund!
                                               .commitmentPeriod ??
@@ -349,7 +352,7 @@ class SecondTab extends StatelessWidget {
                                       width: 15.w,
                                     ),
                                     SizedBox(
-                                      width: 115.w,
+                                      width: 117.w,
                                       child: Text(
                                         "Capital Commitment",
                                         style: TextStyle(
@@ -371,12 +374,12 @@ class SecondTab extends StatelessWidget {
                                       width: 8.w,
                                     ),
                                     Text(
-                                      "25 Lakh",
-                                      // angelFundObj!
-                                      //         .data![index]
-                                      //         .alternativeInvestmentFund!
-                                      //         .commitmentPeriod ??
-                                      //     "NA",
+                                      // "25 Lakh",
+                                      funddistressedobj!
+                                              .data![index]
+                                              .alternativeInvestmentFund!
+                                              .minimumCapitalCommitment ??
+                                          "NA",
                                       style: TextStyle(
                                           fontSize: 18.sp,
                                           fontFamily: 'Poppins',
@@ -389,8 +392,8 @@ class SecondTab extends StatelessWidget {
                                   height: 20.h,
                                 ),
                                 OpenContainerWrappers(
-                                  openBuild: AngelFundViewDetails(
-                                      slug: angelFundObj!.data![index]
+                                  openBuild: FundDistressedViewDetails(
+                                      slug: funddistressedobj!.data![index]
                                           .alternativeInvestmentFund!.slug!),
                                   closeBuild: Container(
                                     decoration: BoxDecoration(
@@ -425,7 +428,7 @@ class SecondTab extends StatelessWidget {
               );
             },
             separatorBuilder: (BuildContext context, int index) => Divider(),
-            itemCount: angelFundObj!.data!.length,
+            itemCount: funddistressedobj!.data!.length,
           );
   }
 

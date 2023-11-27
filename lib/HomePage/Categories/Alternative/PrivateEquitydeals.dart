@@ -217,15 +217,48 @@ _buildNoDataBody(context)
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                       Container(
+                                  width: 250.h,
+                                  height: 150.h,
+                                  decoration: BoxDecoration(
+                                      // color: AppColors.black,
+                                      image: 
+                                      
+                                      privateequityObj
+                                                  ?.data[index]
+                                                  .alternativeInvestmentFund
+                                                  .companies
+                                                  ?.companyLogo !=
+                                              null  
+                                              &&
+                                              privateequityObj!.data[index].alternativeInvestmentFund.companies == null 
+                                          ? DecorationImage(
+                                              image: NetworkImage(
+                                                // ignore: null_check_always_fails
+                                                privateequityObj!
+                                                    .data[index]
+                                                    .alternativeInvestmentFund.companies!
+                                                    .companyLogo!,
+                                              ),
+                                            )
+                                          : DecorationImage(
+                                              image: 
+                                              NetworkImage(
+                                                  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png")
+                                              // AssetImage(
+                                              //     "assets/images/alternative (6).png")
+                                                  )),
+                                ),
+                                sizedBoxHeight(20.h),
                       Row(
                         children: [
-                          Image.asset(
-                            "assets/images/alternative (6).png",
-                            width: 68,
-                            height: 38,
-                          ),
+                          // Image.asset(
+                          //   "assets/images/alternative (6).png",
+                          //   width: 68,
+                          //   height: 38,
+                          // ),
                           SizedBox(
-                            width: 20.h,
+                            width: 20.w,
                           ),
                           Flexible(
                             child: Text(

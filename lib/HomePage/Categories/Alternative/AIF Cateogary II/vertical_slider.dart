@@ -41,7 +41,7 @@ class _VerticalSliderState extends State<VerticalSlider> {
       "SIH": "More than 6 Years",
       "color": AppColors.blue002A5B,
       "ontap": '/funddistressedassetsviewmore',
-      "viewMoreProdcut": '/comingsoon',
+      "viewMoreProdcut": '/distressedfundproducts',
     },
     {
       "title": "04. Private Real Estate Fund",

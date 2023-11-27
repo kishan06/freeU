@@ -200,567 +200,570 @@ class _SignUpState extends State<SignUp> {
         );
         return Future.value(false);
       },
-      child: Scaffold(
-        appBar: CustomSignupAppBar(
-          titleTxt: "",
-          bottomtext: false,
-        ),
-        backgroundColor: Colors.white,
-        body: GestureDetector(
-          onTap: () => Get.focusScope!.unfocus(),
-          child: Column(children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text(
-                    "Sign up",
-                    style: TextStyle(
-                        fontFamily: "Poppins",
-                        fontWeight: FontWeight.w500,
-                        fontSize: 25.sp),
-                  ),
-                ],
+      child: GestureDetector(
+         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+        child: Scaffold(
+          appBar: CustomSignupAppBar(
+            titleTxt: "",
+            bottomtext: false,
+          ),
+          backgroundColor: Colors.white,
+          body: GestureDetector(
+            onTap: () => Get.focusScope!.unfocus(),
+            child: Column(children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Sign up",
+                      style: TextStyle(
+                          fontFamily: "Poppins",
+                          fontWeight: FontWeight.w500,
+                          fontSize: 25.sp),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Expanded(
-                child: SingleChildScrollView(
-              padding: EdgeInsets.symmetric(horizontal: 16.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Form(
-                    key: _form,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(
-                          height: 35.h,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Enter your full name",
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20.sp,
-                                  color: Color(0xff303030)),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            CustomTextFormField(
-                                textEditingController: nameController,
-                                texttype: TextInputType.text,
-                                inputFormatters: [
-                                  LengthLimitingTextInputFormatter(20),
-                                  FilteringTextInputFormatter.allow(
-                                      RegExp('[a-zA-Z ]')),
-                                ],
+              Expanded(
+                  child: SingleChildScrollView(
+                padding: EdgeInsets.symmetric(horizontal: 16.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Form(
+                      key: _form,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            height: 35.h,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Enter your full name*",
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20.sp,
+                                    color: Color(0xff303030)),
+                              ),
+                              SizedBox(
+                                height: 15.h,
+                              ),
+                              CustomTextFormField(
+                                  textEditingController: fullNameController,
+                                  texttype: TextInputType.text,
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(20),
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp('[a-zA-Z ]')),
+                                  ],
+                                  validator: (value) {
+                                    if (value!.isEmpty) {
+                                      return 'Enter your full name';
+                                    }
+                                    return null;
+                                  },
+                                  hintText: "Full Name*",
+                                  validatorText: "Full Name"),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 25.h,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Enter your email address*",
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20.sp,
+                                    color: Color(0xff303030)),
+                              ),
+                              SizedBox(
+                                height: 15.h,
+                              ),
+                              CustomTextFormField(
+                                textEditingController: emailidcontroller,
+                                hintText: "Email Id*",
+                                validatorText: "Email Id",
                                 validator: (value) {
                                   if (value!.isEmpty) {
-                                    return 'Enter your full name';
+                                    return 'Enter your email address';
                                   }
-                                  return null;
-                                },
-                                hintText: "Full Name*",
-                                validatorText: "Full Name"),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 25.h,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Enter your email address",
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20.sp,
-                                  color: Color(0xff303030)),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            CustomTextFormField(
-                              textEditingController: emailController,
-                              hintText: "Email Id*",
-                              validatorText: "Email Id",
-                              validator: (value) {
-                                if (value!.isEmpty) {
-                                  return 'Enter your email address';
-                                }
-                                if (!RegExp(
-                                        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                    .hasMatch(value)) {
-                                  return 'Enter a Valid Email address';
-                                }
-                                return null;
-                              },
-                              inputFormatters: [
-                                LengthLimitingTextInputFormatter(50),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Enter your phone number",
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20.sp,
-                                  color: Color(0xff303030)),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            CustomTextFormField(
-                                textEditingController: phonecontroller,
-                                //maxLength: 10,
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return 'Enter your mobile number';
-                                  } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
+                                  if (!RegExp(
+                                          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
                                       .hasMatch(value)) {
-                                    return 'Enter valid mobile number';
+                                    return 'Enter a Valid Email address';
                                   }
                                   return null;
                                 },
-
-                                // validator: (value) {
-                                //   if (value == value.isEmpty) {
-                                //     return 'Mobile number is required';
-                                //   } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
-                                //       .hasMatch(value)) {
-                                //     return 'Enter valid mobile number';
-                                //   }
-                                //   // v3 = true;
-                                //   return null;
-                                // },
                                 inputFormatters: [
-                                  LengthLimitingTextInputFormatter(10),
-                                  FilteringTextInputFormatter.allow(
-                                      RegExp('[0-9]')),
+                                  LengthLimitingTextInputFormatter(50),
                                 ],
-                                texttype: TextInputType.phone,
-                                hintText: "Phone Number*",
-                                validatorText: "Phone Number"),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Enter your password",
-                              // ignore: prefer_const_constructors
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20.sp,
-                                  color: Color(0xff303030)),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            TextFormField(
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
-                              onChanged: (value) => onPasswordChnage(value),
-                              cursorColor: Colors.grey,
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w400,
                               ),
-                              keyboardType: TextInputType.text,
-                              controller: passwordcontroller,
-                              obscureText: !_passwordVisible,
-                              decoration: InputDecoration(
-                                // contentPadding: EdgeInsets.all(12),
-                                contentPadding: EdgeInsets.symmetric(
-                                    vertical: 10.h, horizontal: 20),
-
-                                border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                      color: Color(0xFF707070), width: 1),
-                                ),
-                                enabledBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                      color: Color(0xFF707070), width: 1),
-                                ),
-                                focusedBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(
-                                      color: Color(0xFF707070), width: 1),
-                                ),
-                                errorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                      color: Colors.red, width: 1),
-                                ),
-                                focusedErrorBorder: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(10),
-                                  borderSide: const BorderSide(
-                                      color: Colors.red, width: 1),
-                                ),
-                                errorMaxLines: 3,
-                                errorStyle: TextStyle(
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Enter your phone number*",
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20.sp,
+                                    color: Color(0xff303030)),
+                              ),
+                              SizedBox(
+                                height: 15.h,
+                              ),
+                              CustomTextFormField(
+                                  textEditingController: phonecontroller,
+                                  //maxLength: 10,
+                                  validator: (value) {
+                                    if (value.isEmpty) {
+                                      return 'Enter your mobile number';
+                                    } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
+                                        .hasMatch(value)) {
+                                      return 'Enter valid mobile number';
+                                    }
+                                    return null;
+                                  },
+      
+                                  // validator: (value) {
+                                  //   if (value == value.isEmpty) {
+                                  //     return 'Mobile number is required';
+                                  //   } else if (!RegExp(r'(^(?:[+0]9)?[0-9]{10}$)')
+                                  //       .hasMatch(value)) {
+                                  //     return 'Enter valid mobile number';
+                                  //   }
+                                  //   // v3 = true;
+                                  //   return null;
+                                  // },
+                                  inputFormatters: [
+                                    LengthLimitingTextInputFormatter(10),
+                                    FilteringTextInputFormatter.allow(
+                                        RegExp('[0-9]')),
+                                  ],
+                                  texttype: TextInputType.phone,
+                                  hintText: "Phone Number*",
+                                  validatorText: "Phone Number"),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Enter your password*",
+                                // ignore: prefer_const_constructors
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20.sp,
+                                    color: Color(0xff303030)),
+                              ),
+                              SizedBox(
+                                height: 15.h,
+                              ),
+                              TextFormField(
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                onChanged: (value) => onPasswordChnage(value),
+                                cursorColor: Colors.grey,
+                                style: TextStyle(
                                   fontFamily: 'Poppins',
-                                  fontSize: 12.sp,
+                                  fontSize: 16.sp,
                                   fontWeight: FontWeight.w400,
                                 ),
-                                hintStyle: TextStyle(
-                                    color: Color(0x80000000),
-                                    fontSize: 15.sp,
-                                    fontFamily: "Poppins"),
-                                fillColor: Colors.white,
-                                filled: true,
-                                hintText: 'Enter your password',
-                                suffixIcon: GestureDetector(
-                                  onTap: () => setState(() =>
-                                      _passwordVisible = !_passwordVisible),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      _passwordVisible
-                                          ? Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 20.0),
-                                                  child: Icon(
-                                                    Icons
-                                                        .remove_red_eye_outlined,
-                                                    color: Color(0xFF959595),
+                                keyboardType: TextInputType.text,
+                                controller: passwordcontroller,
+                                obscureText: !_passwordVisible,
+                                decoration: InputDecoration(
+                                  // contentPadding: EdgeInsets.all(12),
+                                  contentPadding: EdgeInsets.symmetric(
+                                      vertical: 10.h, horizontal: 20),
+      
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF707070), width: 1),
+                                  ),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF707070), width: 1),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: BorderSide(
+                                        color: Color(0xFF707070), width: 1),
+                                  ),
+                                  errorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                        color: Colors.red, width: 1),
+                                  ),
+                                  focusedErrorBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                        color: Colors.red, width: 1),
+                                  ),
+                                  errorMaxLines: 3,
+                                  errorStyle: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12.sp,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                  hintStyle: TextStyle(
+                                      color: Color(0x80000000),
+                                      fontSize: 15.sp,
+                                      fontFamily: "Poppins"),
+                                  fillColor: Colors.white,
+                                  filled: true,
+                                  hintText: 'Enter your password',
+                                  suffixIcon: GestureDetector(
+                                    onTap: () => setState(() =>
+                                        _passwordVisible = !_passwordVisible),
+                                    child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        _passwordVisible
+                                            ? Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        right: 20.0),
+                                                    child: Icon(
+                                                      Icons
+                                                          .remove_red_eye_outlined,
+                                                      color: Color(0xFF959595),
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            )
-                                          : Column(
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.center,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 20.0),
-                                                  child: SvgPicture.asset(
-                                                    "assets/images/eye-closed-svgrepo-com.svg",
-                                                    color: Color(0XFF959595),
+                                                ],
+                                              )
+                                            : Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Padding(
+                                                    padding: EdgeInsets.only(
+                                                        right: 20.0),
+                                                    child: SvgPicture.asset(
+                                                      "assets/images/eye-closed-svgrepo-com.svg",
+                                                      color: Color(0XFF959595),
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                    ],
+                                                ],
+                                              ),
+                                      ],
+                                    ),
                                   ),
                                 ),
+                                validator: (val) {
+                                  if (val!.isEmpty) {
+                                    return 'Password is Empty';
+                                  }
+                                  if (!RegExp(
+                                          r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
+                                      .hasMatch(val)) {
+                                    return 'Enter valid password';
+                                  } else {
+                                    return null;
+                                  }
+                                },
                               ),
-                              validator: (val) {
-                                if (val!.isEmpty) {
-                                  return 'Password is Empty';
-                                }
-                                if (!RegExp(
-                                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$')
-                                    .hasMatch(val)) {
-                                  return 'Enter valid password';
-                                } else {
+                            ],
+                          ),
+                          SizedBox(
+                            height: 20.h,
+                          ),
+                          Row(
+                            children: [
+                              AnimatedContainer(
+                                duration: const Duration(
+                                  milliseconds: 500,
+                                ),
+                                width: 20.w,
+                                height: 20.h,
+                                child: _isPasswordEightCar
+                                    ? Icon(
+                                        Icons.check,
+                                        color: Color(0xff143C6D),
+                                        size: 15,
+                                      )
+                                    : Text(
+                                        '  X',
+                                        style: TextStyle(color: Colors.red),
+                                      ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  'Has at least 8 characters',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 14.sp,
+                                      color: _isPasswordEightCar
+                                          ? Color(0xff143C6D)
+                                          : Colors.black),
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10.h,
+                          ),
+                          Row(
+                            children: [
+                              AnimatedContainer(
+                                duration: const Duration(
+                                  milliseconds: 500,
+                                ),
+                                width: 20,
+                                height: 20,
+                                child: _isHasSymboleOrCaptital
+                                    ? const Icon(
+                                        Icons.check,
+                                        color: Color(0xff143C6D),
+                                        size: 15,
+                                      )
+                                    : const Text(
+                                        '  X',
+                                        style: TextStyle(color: Colors.red),
+                                      ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  'Has at least 1 uppercase letter and symbol',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 14.sp,
+                                      color: _isHasSymboleOrCaptital
+                                          ? Color(0xff143C6D)
+                                          : Colors.black),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              AnimatedContainer(
+                                duration: const Duration(
+                                  milliseconds: 500,
+                                ),
+                                width: 20,
+                                height: 20,
+                                child: _isHasOneNumber
+                                    ? Icon(
+                                        Icons.check,
+                                        color: Color(0xff143C6D),
+                                        size: 15,
+                                      )
+                                    : const Text(
+                                        '  X',
+                                        style: TextStyle(color: Colors.red),
+                                      ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 10),
+                                child: Text(
+                                  'Has a number',
+                                  style: TextStyle(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 14.sp,
+                                      color: _isHasOneNumber
+                                          ? Color(0xff143C6D)
+                                          : Colors.black),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 25,
+                          ),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Enter your password*",
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20.sp,
+                                    color: Color(0xff303030)),
+                              ),
+                              SizedBox(
+                                height: 15.h,
+                              ),
+                              CustomTextFormField(
+                                isInputPassword: true,
+                                textEditingController: confirmpasscontroller,
+                                hintText: "Confirm Password",
+                                validatorText: "Confirm Password",
+                                validator: (val) {
+                                  if (val == null || val.isEmpty) {
+                                    return 'Password is Empty';
+                                  }
+                                  if (val != passwordcontroller.text) {
+                                    return 'Password Not Matched';
+                                  }
                                   return null;
-                                }
-                              },
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        Row(
-                          children: [
-                            AnimatedContainer(
-                              duration: const Duration(
-                                milliseconds: 500,
+                                },
                               ),
-                              width: 20.w,
-                              height: 20.h,
-                              child: _isPasswordEightCar
-                                  ? Icon(
-                                      Icons.check,
-                                      color: Color(0xff143C6D),
-                                      size: 15,
-                                    )
-                                  : Text(
-                                      '  X',
-                                      style: TextStyle(color: Colors.red),
-                                    ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text(
-                                'Has at least 8 characters',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 14.sp,
-                                    color: _isPasswordEightCar
-                                        ? Color(0xff143C6D)
-                                        : Colors.black),
-                              ),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 10.h,
-                        ),
-                        Row(
-                          children: [
-                            AnimatedContainer(
-                              duration: const Duration(
-                                milliseconds: 500,
-                              ),
-                              width: 20,
-                              height: 20,
-                              child: _isHasSymboleOrCaptital
-                                  ? const Icon(
-                                      Icons.check,
-                                      color: Color(0xff143C6D),
-                                      size: 15,
-                                    )
-                                  : const Text(
-                                      '  X',
-                                      style: TextStyle(color: Colors.red),
-                                    ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text(
-                                'Has at least 1 uppercase letter and symbol',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 14.sp,
-                                    color: _isHasSymboleOrCaptital
-                                        ? Color(0xff143C6D)
-                                        : Colors.black),
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 10,
-                        ),
-                        Row(
-                          children: [
-                            AnimatedContainer(
-                              duration: const Duration(
-                                milliseconds: 500,
-                              ),
-                              width: 20,
-                              height: 20,
-                              child: _isHasOneNumber
-                                  ? Icon(
-                                      Icons.check,
-                                      color: Color(0xff143C6D),
-                                      size: 15,
-                                    )
-                                  : const Text(
-                                      '  X',
-                                      style: TextStyle(color: Colors.red),
-                                    ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Text(
-                                'Has a number',
-                                style: TextStyle(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 14.sp,
-                                    color: _isHasOneNumber
-                                        ? Color(0xff143C6D)
-                                        : Colors.black),
-                              ),
-                            )
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 25,
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Enter your password",
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 20.sp,
-                                  color: Color(0xff303030)),
-                            ),
-                            SizedBox(
-                              height: 15.h,
-                            ),
-                            CustomTextFormField(
-                              isInputPassword: true,
-                              textEditingController: confirmpasscontroller,
-                              hintText: "Confirm Password",
-                              validatorText: "Confirm Password",
-                              validator: (val) {
-                                if (val == null || val.isEmpty) {
-                                  return 'Password is Empty';
-                                }
-                                if (val != passwordcontroller.text) {
-                                  return 'Password Not Matched';
-                                }
-                                return null;
-                              },
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 0, right: 10),
-                          child: Container(
-                            padding: EdgeInsets.only(right: 20),
-                            child: Row(
-                              children: [
-                                Transform.scale(
-                                  scale: 1.0,
-                                  child: Theme(
-                                    data: ThemeData(
-                                      unselectedWidgetColor: Color(0xFF143C6D),
-                                    ),
-                                    child: Checkbox(
-                                      activeColor: const Color(0xFF143C6D),
-                                      shape: const RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.all(
-                                              Radius.circular(1.0))),
-                                      value: design,
-                                      onChanged: (bool? design) {
-                                        setState(() {
-                                          this.design = design!;
-                                        });
-                                      },
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 0, right: 10),
+                            child: Container(
+                              padding: EdgeInsets.only(right: 20),
+                              child: Row(
+                                children: [
+                                  Transform.scale(
+                                    scale: 1.0,
+                                    child: Theme(
+                                      data: ThemeData(
+                                        unselectedWidgetColor: Color(0xFF143C6D),
+                                      ),
+                                      child: Checkbox(
+                                        activeColor: const Color(0xFF143C6D),
+                                        shape: const RoundedRectangleBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(1.0))),
+                                        value: design,
+                                        onChanged: (bool? design) {
+                                          setState(() {
+                                            this.design = design!;
+                                          });
+                                        },
+                                      ),
                                     ),
                                   ),
-                                ),
-                                GestureDetector(
-                                  onTap: () => showtermsandconditions(),
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "I accept the ",
-                                        style: TextStyle(
-                                          color: Colors.black,
-                                          fontSize: 14.sp,
+                                  GestureDetector(
+                                    onTap: () => showtermsandconditions(),
+                                    child: Row(
+                                      children: [
+                                        Text(
+                                          "I accept the ",
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 14.sp,
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        "Terms & Conditions*",
-                                        style: TextStyle(
-                                          fontSize: 14.sp,
-                                          color: Color(0xff143C6D),
+                                        Text(
+                                          "Terms & Conditions*",
+                                          style: TextStyle(
+                                            fontSize: 14.sp,
+                                            color: Color(0xff143C6D),
+                                          ),
                                         ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Visibility(
-                    visible: isSignupBtnVisible,
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: GetBuilder<EntryPointController>(
-                            builder: (controller) {
-                              return entryPointController.createAccApi == true
-                                  ? Center(child: CircularProgressIndicator())
-                                  : CustomNextButton(
-                                      text: "Sign up",
-                                      ontap: () async {
-                                        final isValid =
-                                            _form.currentState?.validate();
-                                        if (isValid == false) {
-                                          Get.snackbar("Error",
-                                              "Please Enter All Required Fields",
-                                              margin: EdgeInsets.all(8),
-                                              snackStyle: SnackStyle.FLOATING,
-                                              snackPosition:
-                                                  SnackPosition.BOTTOM);
-                                        } else if (design != true) {
-                                          Get.snackbar("Error",
-                                              "Please Accept Terms & Conditions",
-                                              margin: EdgeInsets.all(8),
-                                              snackStyle: SnackStyle.FLOATING,
-                                              snackPosition:
-                                                  SnackPosition.BOTTOM);
-                                        } else if (isValid == true &&
-                                            design == true) {
-                                          entryPointController
-                                              .changecreateAccApiBool();
-                                          Map<String, String> myData = {
-                                            "name": nameController.text,
-                                            "email": emailController.text,
-                                            "contact_number":
-                                                phonecontroller.text,
-                                            "password": passwordcontroller.text,
-                                            "password_confirmation":
-                                                confirmpasscontroller.text
-                                          };
-                                          SignUpPost signUpPost = SignUpPost();
-                                          var resp = await signUpPost
-                                              .signUpApi(myData);
-
-                                          entryPointController
-                                              .changecreateAccApiBool();
-                                          if (resp.status ==
-                                              ResponseStatus.SUCCESS) {
-                                            Utils.showToast(
-                                                "Account created successfully");
-                                            Future.delayed(Duration(seconds: 2),
-                                                () {
-                                              Get.toNamed("/login");
-                                            });
-                                          } else {
-                                            Utils.showToast(resp.message);
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    Visibility(
+                      visible: isSignupBtnVisible,
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: Padding(
+                            padding: const EdgeInsets.only(left: 20, right: 20),
+                            child: GetBuilder<EntryPointController>(
+                              builder: (controller) {
+                                return entryPointController.createAccApi == true
+                                    ? Center(child: CircularProgressIndicator())
+                                    : CustomNextButton(
+                                        text: "Sign up",
+                                        ontap: () async {
+                                          final isValid =
+                                              _form.currentState?.validate();
+                                          if (isValid == false) {
+                                            Get.snackbar("Error",
+                                                "Please Enter All Required Fields",
+                                                margin: EdgeInsets.all(8),
+                                                snackStyle: SnackStyle.FLOATING,
+                                                snackPosition:
+                                                    SnackPosition.BOTTOM);
+                                          } else if (design != true) {
+                                            Get.snackbar("Error",
+                                                "Please Accept Terms & Conditions",
+                                                margin: EdgeInsets.all(8),
+                                                snackStyle: SnackStyle.FLOATING,
+                                                snackPosition:
+                                                    SnackPosition.BOTTOM);
+                                          } else if (isValid == true &&
+                                              design == true) {
+                                            entryPointController
+                                                .changecreateAccApiBool();
+                                            Map<String, String> myData = {
+                                              "name": fullNameController.text,
+                                              "email": emailidcontroller.text,
+                                              "contact_number":
+                                                  phonecontroller.text,
+                                              "password": passwordcontroller.text,
+                                              "password_confirmation":
+                                                  confirmpasscontroller.text
+                                            };
+                                            SignUpPost signUpPost = SignUpPost();
+                                            var resp = await signUpPost
+                                                .signUpApi(myData);
+      
+                                            entryPointController
+                                                .changecreateAccApiBool();
+                                            if (resp.status ==
+                                                ResponseStatus.SUCCESS) {
+                                              Utils.showToast(
+                                                  "Account created successfully");
+                                              Future.delayed(Duration(seconds: 2),
+                                                  () {
+                                                Get.toNamed("/login");
+                                              });
+                                            } else {
+                                              Utils.showToast(resp.message);
+                                            }
                                           }
-                                        }
-                                      },
-                                    );
-                            },
-                          )),
+                                        },
+                                      );
+                              },
+                            )),
+                      ),
                     ),
-                  ),
-                  Visibility(
-                      visible: isSignupBtnLoaderVisible,
-                      child: const Center(child: CircularProgressIndicator())),
-                  const SizedBox(
-                    height: 40,
-                  ),
-                ],
-              ),
-            )),
-          ]),
+                    Visibility(
+                        visible: isSignupBtnLoaderVisible,
+                        child: const Center(child: CircularProgressIndicator())),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                  ],
+                ),
+              )),
+            ]),
+          ),
         ),
       ),
     );

@@ -152,254 +152,288 @@ class SecondTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return
-    ventureCapitalObj!.data!.isEmpty ?
-    _buildNoDataBody(context)
-    :
-     ListView.separated(
-      itemBuilder: (BuildContext context, int index) {
-        return Column(
-          children: [
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Padding(
-                padding: EdgeInsets.all(5.w),
-                child: Container(
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                    color: Color(0xffffffff),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color(0x48B9B9BE),
-                        blurRadius: 10.0,
-                        spreadRadius: 3.0,
-                        // offset: Offset(10, 10, 10, 10),
-                      )
-                    ],
-                  ),
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 22.0, right: 22, top: 20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(
-                              "assets/images/alternative (6).png",
-                              width: 68,
-                              height: 38,
-                            ),
-                            SizedBox(
-                              width: 20.h,
-                            ),
-                            Flexible(
-                              child: Text(
-                                ventureCapitalObj!.data![index]
-                                        .alternativeInvestmentFund!.fundName ??
-                                    "",
-                                style: TextStyle(
-                                    fontSize: 22,
-                                    fontFamily: 'Poppins',
-                                    color: Color(0XFF000000),
-                                    fontWeight: FontWeight.w500),
-                              ),
+    return ventureCapitalObj!.data!.isEmpty
+        ? _buildNoDataBody(context)
+        : ListView.separated(
+            itemBuilder: (BuildContext context, int index) {
+              return Column(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(top: 20),
+                    child: Padding(
+                      padding: EdgeInsets.all(5.w),
+                      child: Container(
+                        decoration: const BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                          color: Color(0xffffffff),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x48B9B9BE),
+                              blurRadius: 10.0,
+                              spreadRadius: 3.0,
+                              // offset: Offset(10, 10, 10, 10),
                             )
                           ],
                         ),
-                        const Divider(
-                          thickness: 1,
-                          color: Color(0XFF6D6D6D29),
-                        ),
-                        SizedBox(height: 17.5.h),
-                        Row(
-                          children: [
-                            Image.asset(
-                              "assets/images/investment (1).png",
-                              width: 25.w,
-                              height: 25.h,
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            Text(
-                              "Targeted IRR :",
-                              style: TextStyle(
-                                fontSize: 17.sp,
-                                fontFamily: 'Poppins',
-                                color: const Color(0XFF000000),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 22.0, right: 22, top: 20),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Container(
+                                width: 250.w,
+                                height: 150.h,
+                                decoration: BoxDecoration(
+                                    // color: AppColors.black,
+                                    image: 
+                                      ventureCapitalObj?.data?[index].alternativeInvestmentFund?.companies != null &&
+                                    
+                                    ventureCapitalObj
+                                                ?.data?[index]
+                                                .alternativeInvestmentFund
+                                                ?.companies
+                                                ?.companyLogo !=
+                                            null
+                                        ? DecorationImage(
+                                            image: NetworkImage(
+                                              ventureCapitalObj!
+                                                  .data![index]
+                                                  .alternativeInvestmentFund!
+                                                  .companies!
+                                                  .companyLogo!,
+                                            ),
+                                          )
+                                        : DecorationImage(
+                                            image: 
+                                            NetworkImage(
+                                                  "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/310px-Placeholder_view_vector.svg.png")
+                                            // AssetImage(
+                                            //     "assets/images/alternative (6).png")
+                                                )),
                               ),
-                            ),
-                            SizedBox(
-                              width: 10.w,
-                            ),
-                            Text(
-                              ventureCapitalObj!.data![index]
-                                      .alternativeInvestmentFund!.targetIrr ??
-                                  "NA",
-                              // "",
-                              style: TextStyle(
-                                  fontSize: 20.sp,
-                                  fontFamily: 'Poppins',
-                                  color: const Color(0XFF000000),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 31.h,
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              "assets/images/back-in-time (1).png",
-                              width: 25.w,
-                              height: 25.h,
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            SizedBox(
-                              width: 115.w,
-                              child: Text(
-                                "Commitment period",
-                                style: TextStyle(
-                                  fontSize: 17.sp,
-                                  fontFamily: 'Poppins',
-                                  color: const Color(0XFF000000),
+                              sizedBoxHeight(20.h),
+                              Row(
+                                children: [
+                                  // Image.asset(
+                                  //   "assets/images/alternative (6).png",
+                                  //   width: 68,
+                                  //   height: 38,
+                                  // ),
+                                  SizedBox(
+                                    width: 20.w,
+                                  ),
+                                  Flexible(
+                                    child: Text(
+                                      ventureCapitalObj!
+                                              .data![index]
+                                              .alternativeInvestmentFund!
+                                              .fundName ??
+                                          "",
+                                      style: TextStyle(
+                                          fontSize: 22,
+                                          fontFamily: 'Poppins',
+                                          color: Color(0XFF000000),
+                                          fontWeight: FontWeight.w500),
+                                    ),
+                                  )
+                                ],
+                              ),
+                              const Divider(
+                                thickness: 1,
+                                color: Color(0XFF6D6D6D29),
+                              ),
+                              SizedBox(height: 17.5.h),
+                              Row(
+                                children: [
+                                  Image.asset(
+                                    "assets/images/investment (1).png",
+                                    width: 25.w,
+                                    height: 25.h,
+                                  ),
+                                  SizedBox(
+                                    width: 15.w,
+                                  ),
+                                  Text(
+                                    "Targeted IRR :",
+                                    style: TextStyle(
+                                      fontSize: 17.sp,
+                                      fontFamily: 'Poppins',
+                                      color: const Color(0XFF000000),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10.w,
+                                  ),
+                                  Text(
+                                    ventureCapitalObj!
+                                            .data![index]
+                                            .alternativeInvestmentFund!
+                                            .targetIrr ??
+                                        "NA",
+                                    // "",
+                                    style: TextStyle(
+                                        fontSize: 20.sp,
+                                        fontFamily: 'Poppins',
+                                        color: const Color(0XFF000000),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 31.h,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    "assets/images/back-in-time (1).png",
+                                    width: 25.w,
+                                    height: 25.h,
+                                  ),
+                                  SizedBox(
+                                    width: 15.w,
+                                  ),
+                                  SizedBox(
+                                    width: 115.w,
+                                    child: Text(
+                                      "Commitment period",
+                                      style: TextStyle(
+                                        fontSize: 17.sp,
+                                        fontFamily: 'Poppins',
+                                        color: const Color(0XFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    " :",
+                                    style: TextStyle(
+                                      fontSize: 17.sp,
+                                      fontFamily: 'Poppins',
+                                      color: const Color(0XFF000000),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 8.w,
+                                  ),
+                                  Text(
+                                    // "5 Years",
+                                    ventureCapitalObj!
+                                            .data![index]
+                                            .alternativeInvestmentFund!
+                                            .commitmentPeriod ??
+                                        "NA",
+                                    style: TextStyle(
+                                        fontSize: 18.sp,
+                                        fontFamily: 'Poppins',
+                                        color: const Color(0XFF000000),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 31.h,
+                              ),
+                              Row(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Image.asset(
+                                    "assets/images/transfer.png",
+                                    width: 25.w,
+                                    height: 25.h,
+                                  ),
+                                  SizedBox(
+                                    width: 15.w,
+                                  ),
+                                  SizedBox(
+                                    width: 115.w,
+                                    child: Text(
+                                      "Capital Commitment ",
+                                      style: TextStyle(
+                                        fontSize: 17.sp,
+                                        fontFamily: 'Poppins',
+                                        color: const Color(0XFF000000),
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    " :",
+                                    style: TextStyle(
+                                      fontSize: 17.sp,
+                                      fontFamily: 'Poppins',
+                                      color: const Color(0XFF000000),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 8.w,
+                                  ),
+                                  Text(
+                                    // ventureCapitalObj!
+                                    //         .data![index]
+                                    //         .alternativeInvestmentFund!
+                                    //         .ca ??
+                                    //     "NA",
+                                    "1 Crore",
+                                    style: TextStyle(
+                                        fontSize: 18.sp,
+                                        fontFamily: 'Poppins',
+                                        color: const Color(0XFF000000),
+                                        fontWeight: FontWeight.w500),
+                                  ),
+                                ],
+                              ),
+                              SizedBox(
+                                height: 20.h,
+                              ),
+                              OpenContainerWrappers(
+                                openBuild: VentureViewDetails(
+                                    slug: ventureCapitalObj!.data![index]
+                                        .alternativeInvestmentFund!.slug!),
+                                closeBuild: Container(
+                                  decoration: BoxDecoration(
+                                      color: AppColors.blue002A5B,
+                                      borderRadius:
+                                          BorderRadius.circular(10.r)),
+                                  width: double.infinity,
+                                  height: 50.h,
+                                  child: Center(
+                                      child: Text(
+                                    'View Details',
+                                    style: TextStyle(
+                                      color: AppColors.white,
+                                      fontSize: 18.sp,
+                                    ),
+                                  )),
                                 ),
                               ),
-                            ),
-                            Text(
-                              " :",
-                              style: TextStyle(
-                                fontSize: 17.sp,
-                                fontFamily: 'Poppins',
-                                color: const Color(0XFF000000),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 8.w,
-                            ),
-                            Text(
-                              // "5 Years",
-                              ventureCapitalObj!
-                                      .data![index]
-                                      .alternativeInvestmentFund!
-                                      .commitmentPeriod ??
-                                  "NA",
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontFamily: 'Poppins',
-                                  color: const Color(0XFF000000),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 31.h,
-                        ),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Image.asset(
-                              "assets/images/transfer.png",
-                              width: 25.w,
-                              height: 25.h,
-                            ),
-                            SizedBox(
-                              width: 15.w,
-                            ),
-                            SizedBox(
-                              width: 115.w,
-                              child: Text(
-                                "Capital Commitment ",
-                                style: TextStyle(
-                                  fontSize: 17.sp,
-                                  fontFamily: 'Poppins',
-                                  color: const Color(0XFF000000),
-                                ),
-                              ),
-                            ),
-                            Text(
-                              " :",
-                              style: TextStyle(
-                                fontSize: 17.sp,
-                                fontFamily: 'Poppins',
-                                color: const Color(0XFF000000),
-                              ),
-                            ),
-                            SizedBox(
-                              width: 8.w,
-                            ),
-                            Text(
-                              // ventureCapitalObj!
-                              //         .data![index]
-                              //         .alternativeInvestmentFund!
-                              //         .ca ??
-                              //     "NA",
-                              "1 Crore",
-                              style: TextStyle(
-                                  fontSize: 18.sp,
-                                  fontFamily: 'Poppins',
-                                  color: const Color(0XFF000000),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ],
-                        ),
-                        SizedBox(
-                          height: 20.h,
-                        ),
-                        OpenContainerWrappers(
-                          openBuild: VentureViewDetails(
-                              slug: ventureCapitalObj!.data![index]
-                                  .alternativeInvestmentFund!.slug!),
-                          closeBuild: Container(
-                            decoration: BoxDecoration(
-                                color: AppColors.blue002A5B,
-                                borderRadius: BorderRadius.circular(10.r)),
-                            width: double.infinity,
-                            height: 50.h,
-                            child: Center(
-                                child: Text(
-                              'View Details',
-                              style: TextStyle(
-                                color: AppColors.white,
-                                fontSize: 18.sp,
-                              ),
-                            )),
+                              sizedBoxHeight(20.h)
+                            ],
                           ),
                         ),
-                        sizedBoxHeight(20.h)
-                      ],
+                      ),
                     ),
                   ),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 30.h,
-            ),
-            sizedBoxHeight(10.h),
-          ],
-        );
-      },
-      separatorBuilder: (BuildContext context, int index) => Divider(),
-      itemCount: ventureCapitalObj!.data!.length,
-    );
+                  // SizedBox(
+                  //   height: 30.h,
+                  // ),
+                  // sizedBoxHeight(10.h),
+                ],
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) => Divider(),
+            itemCount: ventureCapitalObj!.data!.length,
+          );
   }
 
-  
-  Widget _buildNoDataBody(context){
-  return Column(
+  Widget _buildNoDataBody(context) {
+    return Column(
       children: [
         Lottie.asset('assets/logos/NoDataFoundLottie.json'),
         const Text("No Data Found")
       ],
     );
-}
+  }
 }
 
 class ThirdTab extends StatelessWidget {

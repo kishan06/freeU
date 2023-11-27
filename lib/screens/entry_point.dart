@@ -1,4 +1,6 @@
 import 'dart:math';
+import 'package:another_flushbar/flushbar.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,6 +21,7 @@ import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/screens/side_menu.dart';
 import 'package:freeu/viewModel/Security_pin/Postpin.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../HomePage/Investments/new_investment.dart';
 
 var selectedIndex = 0;
@@ -67,8 +70,9 @@ class _EntryPointState extends State<EntryPoint>
 
     GetProfile().GetProfileAPI();
 
-     Future.delayed(Duration(seconds: 3), () {
+     Future.delayed(Duration(seconds: 4), () {
       print("pin dialog shown is $pindialog");
+      requestPermissions();
 
       // pindialog
       //     ? null
@@ -85,6 +89,41 @@ class _EntryPointState extends State<EntryPoint>
     super.dispose();
   }
 
+ static Future<bool> requestP() async {
+    bool permissionStatus;
+    final deviceInfo = await DeviceInfoPlugin().androidInfo;
+    if (deviceInfo.version.sdkInt! > 32) {
+      permissionStatus = await Permission.photos.request().isGranted;
+    } else {
+      permissionStatus = await Permission.storage.request().isGranted;
+    }
+    return permissionStatus;
+  }
+
+  void requestPermissions() async {
+    bool permissionStatus = await requestP();
+    // Map<Permission, PermissionStatus> statuses = await [
+    //   Permission.storage,
+    //   Permission.photos
+    // ].request();
+
+    if (permissionStatus) {
+      print("Permission Granted");
+      // Permissions granted, proceed with your operations
+    } else {
+      // Permissions denied, handle accordingly
+      // ScaffoldMessenger.of(context).showSnackBar(
+      //   SnackBar(
+      //     content: Text('Permission denied. Unable to download image.'),
+      //   ),
+      // );
+
+      await Flushbar(
+        message: "Permission denied. Unable to download image.",
+        duration: Duration(seconds: 3),
+      ).show(context);
+    }
+  }
   
   buildPinAlertDialog() {
     return showGeneralDialog(

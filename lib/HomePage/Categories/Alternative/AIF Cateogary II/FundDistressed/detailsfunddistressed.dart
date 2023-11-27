@@ -1,83 +1,103 @@
-import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
-import 'package:freeu/viewModel/DetailsIndiResidential.dart';
+import 'package:freeu/viewModel/Alternative/Alternative1/Getalternative1.dart';
+import 'package:freeu/viewModel/Alternative/Alternative2/Getalternative2.dart';
+import 'package:freeu/viewModel/AngelFundDetailsService.dart';
 import 'package:get/get.dart';
 
-class ResidentialDetails extends StatefulWidget {
-  // final int pageIndex;
+class FundDistressedViewDetails extends StatefulWidget {
   final String slug;
-
-  ResidentialDetails(
-      {super.key,
-      // required this.pageIndex
-      required this.slug});
+  FundDistressedViewDetails({super.key, required this.slug});
 
   @override
-  State<ResidentialDetails> createState() => _ResidentialDetailsState();
+  State<FundDistressedViewDetails> createState() =>
+      _FundDistressedViewDetailsState();
 }
 
-class _ResidentialDetailsState extends State<ResidentialDetails> {
+class _FundDistressedViewDetailsState extends State<FundDistressedViewDetails> {
   final controllerEntryPoint = Get.put(EntryPointController());
 
   late Future myfuture;
-  var sliderPage = 0.obs;
-  final CarouselController carouselController = CarouselController();
 
   @override
   void initState() {
-    myfuture =
-        IndianResidentialDetails().IndianResidentialDetailsAPI(widget.slug);
+    myfuture = Alternative2().FundDistressedDetailsAPI(widget.slug);
     super.initState();
   }
 
   List productDetails = [
     {
-      "Company Name": [
-        'Evert Fleet',
-        'Omega Seiki',
-      ],
+      "Company Name": ['Piper Serica Angel Fund'],
       "header": [
-        'Asset Class',
-        'Underlying Asset',
-        'Sector',
-        'Mobility Platform',
-        'Total Deal Size',
-        'Minimum Investment',
-        'Tenure',
-        'Payout Frequency',
-        'Pre-tax Return',
+        'Registration No.',
+        'Fund Category (I/II/III)',
+        'Fund Structure (Open/Closed)',
+        'Fund Strategy',
+        'Fund Domicile',
+        'Fund Manager Name',
+        'Website of the fund',
+        'Fund Manager Experience',
+        'Sponsor',
+        'Manager',
+        'Trustee',
+        'Auditor',
+        'Valuer / Tax Advisor',
+        'Credit Rating (if any)',
+        'Open Date',
+        '1st Close Date',
+        'Final Close Date',
+        'Tenure from Final Close',
+        'Commitment Period',
+        'Native Currency',
+        'Target Corpus',
+        'Investment Manager Contribution',
+        'Minimum Capital Commitment',
+        'Initial Drawdown',
+        'Accepting Overseas investment?',
+        'Target IRR (%)',
+        'Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee',
+        'Hurdle Rate',
+        'Other Expenses',
+        'Focused Sectors (Industries in which they are investing)',
       ],
       "content": [
         [
-          'Asset Backed Leasing',
-          'Cars',
-          'Urban Mobility',
-          'Uber',
-          '5,04,00,000',
-          '1,00,000',
-          '36 M',
-          'Monthly',
-          '17.50%',
-        ],
-        [
-          'Leasing',
-          'Three Wheelers',
-          'Urban Mobility',
-          'Yatra',
-          '2,10,00,000',
-          '70,000',
-          '36 M',
-          'Monthly',
-          '21.50%',
+          'IN/AIF1/21-22/1028',
+          'I',
+          'Closed',
+          '1. Invest only in start ups that have exponential growth business model 2.Business should not require constant infusion of capital to support growth 3.Tech has to be the core driver of business. Invest in bits and not atoms 4. Invest in founders first. Business models pivot  5. Invest along with other active investors who actively provide mentorship and guidance to young founders  6. Stay invested for as long as possible in successful start ups. Water the roses and cut the weeds 7.Reduce the impact of high mortality by building a portfolio of 30 to 40 companies',
+          'India',
+          'N/A',
+          'https://www.piperserica.com/	',
+          'https://www.piperserica.com/	',
+          'Piper Serica',
+          'Piper Serica Advisors',
+          'Piper Serica Advisors',
+          'N/A',
+          'N/A',
+          'N/A',
+          'N/A',
+          'N/A',
+          '########',
+          'N/A',
+          '10 Years',
+          'Rupees',
+          '100 Cr',
+          'Minimum 2.5% or INR 50 lakhs whichever is lower',
+          'Minimum commitment of Rs. 25 lakh to be invested over 3 years.',
+          '40%',
+          'N/A',
+          'N/A',
+          'Management Fee - 2% upto 1 Cr of aggregate capital commitment, otherwise 1.5% Performance Fee - 20% for Unit A & B holders (plus taxes & levies as applicable)',
+          'N/A',
+          'N/A',
+          'Tech based Start-Up',
         ],
       ]
     },
@@ -86,50 +106,50 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: const CustomSignupAppBar(
-          titleTxt: "",
-          bottomtext: false,
-        ),
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
-          child: CustomNextButton(
-              productid:
-                  IndianResidentialdetailsobj?.data?.productsId.toString(),
-              ontap: () {
-                if (controllerEntryPoint.logedIn!) {
-                  investNow();
-                } else {
-                  // Get.toNamed("/login");
-                  Get.offAllNamed('/login');
-                }
-              },
-              text: 'Invest now'),
-        ),
-        body: FutureBuilder(
-          future: myfuture,
-          builder: (ctx, snapshot) {
-            if (snapshot.data == null) {
-              return Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [Center(child: CircularProgressIndicator())],
+      appBar: const CustomSignupAppBar(
+        titleTxt: "",
+        bottomtext: false,
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.fromLTRB(16.w, 5.h, 16.w, 10.h),
+        child: CustomNextButton(
+            productid: detailsfunddistessedobj?.data?.productsId.toString(),
+            ontap: () {
+              if (controllerEntryPoint.logedIn!) {
+                investNow();
+              } else {
+                // Get.toNamed("/login");
+                Get.offAllNamed('/login');
+              }
+            },
+            text: 'Invest now'),
+      ),
+      body: FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
               );
             }
-            if (snapshot.connectionState == ConnectionState.done) {
-              if (snapshot.hasError) {
-                return Center(
-                  child: Text(
-                    '${snapshot.error} occured',
-                    style: TextStyle(fontSize: 18.spMin),
-                  ),
-                );
-              }
-            }
-            return _buildBody(
-              context,
-            );
-          },
-        ));
+          }
+          return _buildBody(
+            context,
+          );
+        },
+      ),
+    );
   }
 
   Widget _buildBody(context) {
@@ -154,7 +174,7 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width - 138.w,
-                  height: 75.h,
+                  height: 70.h,
                   child: ListView.builder(
                     itemCount: 1,
                     itemBuilder: (context, index) {
@@ -162,10 +182,8 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          sizedBoxHeight(10.h),
                           Text(
-                            IndianResidentialdetailsobj!.data!.propertyName ??
-                                "",
+                            detailsfunddistessedobj!.data!.fundName ?? "",
                             style: TextStyle(
                                 fontSize: 22.sp, fontWeight: FontWeight.w500),
                           ),
@@ -177,391 +195,326 @@ class _ResidentialDetailsState extends State<ResidentialDetails> {
               ],
             ),
             sizedBoxHeight(24.h),
-            buildCarousel(),
-            sizedBoxHeight(5.h),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                textA4856_20500("Property Name"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.propertyName ?? "NA",
-                  // leasefinancingdetailsobj!.data!.assetClass ?? "",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Property Location"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.propertyLocation ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Project Type"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.projectType ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Current Status"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.currentStatus ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Price per Sqft"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.pricePerSqFt ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Price Range"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.priceRange ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("RERA ID"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.projectCodeOrReraId ??
-                      "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Built Up Area"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.builtUpArea ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Carpet Area"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.carpetArea ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Construction Status"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.constructionStatus ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Launch date"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.launchDate ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Completed In"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.completedIn ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Total Units"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.totalUnits ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Unit Type (No. of BHK'S)"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.unitType ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("No of Restrooms"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.noOfRestrooms ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("No of Floors"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.noOfFloors ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Furnished Status"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.furnishedStatus ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Commencement Certificate"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.commencementCertificate ??
-                      "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Occupancy Certificate"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.occupancyCertificate ??
-                      "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Total Towers"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.totalTowers ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Builder Details"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.builderDetails ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Nearby Landmarks"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.landmarks ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Amenities"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.amenities ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Elevators"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.elevators ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Car Parking"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.carParking ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Fire Safety Measures"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.fireSafetyMeasures ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Water Facility"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.waterFacility ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Price is Negotiable?"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.priceNegotiable ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                textA4856_20500("Remarks"),
-                Divider(
-                  height: 25.h,
-                  thickness: 1.h,
-                  color: Colors.grey.shade400,
-                ),
-                text272424_18(
-                  IndianResidentialdetailsobj!.data!.remarks ?? "NA",
-                ),
-                sizedBoxHeight(20.h),
-                // textA4856_20500("Documents"),
+                // textA4856_20500("Registration No."),
                 // Divider(
                 //   height: 25.h,
                 //   thickness: 1.h,
                 //   color: Colors.grey.shade400,
                 // ),
                 // text272424_18(
-                //   // leasefinancingdetailsobj!.data!.preTaxReturn ?? "",
-                // "NA"
+                //   detailsinfrastructureobj!.data!. ?? "N/A",
                 // ),
                 // sizedBoxHeight(20.h),
+                textA4856_20500("Fund Category (I/II/III)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.fundCategory ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Structure (Open/Closed)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.fundStructure ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Strategy"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.fundStrategy ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Domicile"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.fundDomicile ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Manager Name"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.fundManagerName ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Website of the fund"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.websiteOfTheFund ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Fund Manager Experience"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.fundManagerExperience ??
+                      "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Sponsor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.sponsor ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Manager"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.manager ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Trustee"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.trustee ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Auditor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.auditor ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Valuer / Tax Advisor"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.valuerTaxAdvisor ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Credit Rating (if any)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.creditRating ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Open Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.openDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("1st Close Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.firstCloseDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Final Close Date"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.finalCloseDate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Tenure from Final Close"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.tenureFromFinalClose ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Commitment Period"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.commitmentPeriod ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Native Currency"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.nativeCurrency ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Target Corpus"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.targetCorpus ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Investment Manager Contribution"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!
+                          .data!.investmentManagerContribution ??
+                      "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Minimum Capital Commitment"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.minimumCapitalCommitment ??
+                      "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Initial Drawdown"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.intialDrawdown ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Accepting Overseas investment?"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.acceptingOverseasInvestment ??
+                      "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Target IRR (%)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  //this should contain target_irr
+                  detailsfunddistessedobj!.data!.targetIrr ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500(
+                    "Management Fees and Carry  - Set Up Fee  - Management Fee  - Performance Fee"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.managementFeesAndCarry ??
+                      "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Hurdle Rate"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.hurdleRate ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500("Other Expenses"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.otherExpenses ?? "N/A",
+                ),
+                sizedBoxHeight(20.h),
+                textA4856_20500(
+                    "Focused Sectors (Industries in which they are investing)"),
+                Divider(
+                  height: 25.h,
+                  thickness: 1.h,
+                  color: Colors.grey.shade400,
+                ),
+                text272424_18(
+                  detailsfunddistessedobj!.data!.focusedSectorsIndustries ??
+                      "N/A",
+                ),
+                sizedBoxHeight(28.h)
               ],
-            )
+            ),
           ],
         ),
       ),
     );
-  }
-
-  Widget buildCarousel() {
-    if (IndianResidentialdetailsobj!.data?.photos?.isNotEmpty ?? false) {
-      return Column(
-        children: [
-          CarouselSlider.builder(
-            carouselController: carouselController,
-            itemCount: IndianResidentialdetailsobj!.data?.photos?.length ?? 0,
-            itemBuilder: (context, index, realIndex) {
-              String? photoUrl =
-                  IndianResidentialdetailsobj!.data?.photos?[index].data;
-
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0),
-                child: Container(
-                  height: 159.0,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15.0),
-                    image: DecorationImage(
-                      image: NetworkImage(photoUrl ?? ''),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                ),
-              );
-            },
-            options: CarouselOptions(
-              autoPlay: true,
-              height: 159.0,
-              autoPlayAnimationDuration: const Duration(seconds: 3),
-              viewportFraction: 1,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  sliderPage.value = index;
-                });
-              },
-            ),
-          ),
-          sizedBoxHeight(12.h),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(
-              IndianResidentialdetailsobj!.data?.photos?.length ?? 0,
-              (index) => GestureDetector(
-                onTap: () => carouselController.animateToPage(index),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: sliderPage.value == index
-                        ? AppColors.blue143C6D
-                        : Colors.grey,
-                    borderRadius: BorderRadius.circular(25.r),
-                  ),
-                  width: 12.w,
-                  height: sliderPage.value == index ? 3.h : 2.h,
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 3.0,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ],
-      );
-    } else {
-      return SizedBox(height: 0.h);
-    }
   }
 
   void investNow() {
