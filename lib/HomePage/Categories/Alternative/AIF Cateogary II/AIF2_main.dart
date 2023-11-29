@@ -192,7 +192,7 @@ class _AIF2MainState extends State<AIF2Main> {
                           height: 50.h,
                           child: Center(
                             child: Text(
-                              "View Cateogries",
+                              "View Categories",
                               style: TextStyle(
                                 color: const Color(0XFF000000),
                                 fontSize: 18.sp,

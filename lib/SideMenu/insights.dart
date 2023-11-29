@@ -60,7 +60,6 @@ class _InsightsState extends State<Insights> {
 
   @override
   Widget build(BuildContext context) {
-      
     return GestureDetector(
       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
@@ -111,112 +110,185 @@ class _InsightsState extends State<Insights> {
                                     autovalidateMode:
                                         AutovalidateMode.onUserInteraction,
                                     decoration: InputDecoration(
-                                      contentPadding: EdgeInsets.all(10.h),
-                                      filled: true,
-                                      fillColor:
-                                          Color.fromARGB(255, 233, 233, 233),
-                                      border: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(47.r),
-                                        borderSide: BorderSide(
-                                            color: Color(0xffFBFBFB), width: 1),
-                                      ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(47.r),
-                                        borderSide: BorderSide(
-                                            color: Color(0xffFBFBFB), width: 1),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(47.r),
-                                        borderSide: BorderSide(
-                                            color: Color(0xffFBFBFB), width: 1),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(47.r),
-                                        borderSide: const BorderSide(
-                                            color: Colors.red, width: 1),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(47.r),
-                                        borderSide: const BorderSide(
-                                            color: Colors.red, width: 1),
-                                      ),
-                                      hintStyle: TextStyle(
-                                          color: Color(0x80000000),
-                                          fontSize: 16.sp,
-                                          fontFamily: "Poppins"),
-                                      hintText: 'Search',
-                                      prefixIcon: Icon(
-                                        Icons.search_outlined,
-                                        color: Colors.black,
-                                      ),
-                                      suffixIcon: PopupMenuButton<String>(
-                                        shape: RoundedRectangleBorder(
-                                            borderRadius:
-                                                BorderRadius.circular(20.r)),
-                                        // constraints: BoxConstraints.expand(height: 150,
-                                        // ),
-                                        icon: Icon(
-                                          Icons.keyboard_arrow_down_rounded,
+                                        contentPadding: EdgeInsets.all(10.h),
+                                        filled: true,
+                                        fillColor:
+                                            Color.fromARGB(255, 233, 233, 233),
+                                        border: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(47.r),
+                                          borderSide: BorderSide(
+                                              color: Color(0xffFBFBFB),
+                                              width: 1),
+                                        ),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(47.r),
+                                          borderSide: BorderSide(
+                                              color: Color(0xffFBFBFB),
+                                              width: 1),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(47.r),
+                                          borderSide: BorderSide(
+                                              color: Color(0xffFBFBFB),
+                                              width: 1),
+                                        ),
+                                        errorBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(47.r),
+                                          borderSide: const BorderSide(
+                                              color: Colors.red, width: 1),
+                                        ),
+                                        focusedErrorBorder: OutlineInputBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(47.r),
+                                          borderSide: const BorderSide(
+                                              color: Colors.red, width: 1),
+                                        ),
+                                        hintStyle: TextStyle(
+                                            color: Color(0x80000000),
+                                            fontSize: 16.sp,
+                                            fontFamily: "Poppins"),
+                                        hintText: 'Search',
+                                        prefixIcon: Icon(
+                                          Icons.search_outlined,
                                           color: Colors.black,
                                         ),
-                                        itemBuilder: (context) => tagsList,
-                                        onSelected: (value) async {
-                                          setState(() {
-                                            print("selected value is $value");
-                                            searchController.text = value;
+                                        suffixIcon: PopupMenuButton<String>(
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20.r),
+                                          ),
+                                          icon: Icon(
+                                            Icons.keyboard_arrow_down_rounded,
+                                            color: Colors.black,
+                                          ),
+                                          itemBuilder: (context) {
+                                            // Add an option for "All Blogs" at the beginning of the list
+                                            List<PopupMenuItem<String>> items =
+                                                [
+                                              PopupMenuItem<String>(
+                                                value: "All Blogs",
+                                                child: Text("All Blogs"),
+                                              ),
+                                              ...tagsList
+                                                  .whereType<
+                                                      PopupMenuItem<String>>()
+                                                  .toList(), // Filter to include only PopupMenuItem<String>
+                                            ];
+                                            return items;
+                                          },
+                                          onSelected: (value) async {
+                                            setState(() {
+                                              print("selected value is $value");
+                                              searchController.text = value;
 
-                                            selectedIndex = tagsList.indexWhere(
-                                                (item) =>
-                                                    item is PopupMenuItem<
-                                                        String> &&
-                                                    item.value == value);
+                                              if (value == "All Blogs") {
+                                                // Handle the case when "All Blogs" is selected
+                                                BlogApis().BlogSearchAndFilter(
+                                                    "O",
+                                                    streamController:
+                                                        BlogsController);
+                                              } else {
+                                                selectedIndex =
+                                                    tagsList.indexWhere(
+                                                  (item) =>
+                                                      item is PopupMenuItem<
+                                                          String> &&
+                                                      item.value == value,
+                                                );
 
-                                            BlogApis().BlogSearchAndFilter({
-                                              "search": null,
-                                              "tag_id": tagsId[selectedIndex]
-                                            },
-                                                streamController:
-                                                    BlogsController);
-
-                                            // Unfocus the text field with a short delay
-                                            Future.delayed(
-                                                Duration(milliseconds: 100),
-                                                () {
-                                              FocusScopeNode currentFocus =
-                                                  FocusScope.of(context);
-                                              if (!currentFocus
-                                                  .hasPrimaryFocus) {
-                                                currentFocus.unfocus();
+                                                BlogApis().BlogSearchAndFilter(
+                                                  {
+                                                    "search": null,
+                                                    "tag_id":
+                                                        tagsId[selectedIndex],
+                                                  },
+                                                  streamController:
+                                                      BlogsController,
+                                                );
                                               }
+
+                                              // Unfocus the text field with a short delay
+                                              Future.delayed(
+                                                  Duration(milliseconds: 100),
+                                                  () {
+                                                FocusScopeNode currentFocus =
+                                                    FocusScope.of(context);
+                                                if (!currentFocus
+                                                    .hasPrimaryFocus) {
+                                                  currentFocus.unfocus();
+                                                }
+                                              });
                                             });
-                                          });
-                                        },
+                                          },
+                                        )
 
-                                        //old method in which keyboard appears
-                                        // onSelected: (value) {
-                                        //   setState(() {
-                                        //     print("selected value is $value");
-                                        //     searchController.text = value;
+                                        // PopupMenuButton<String>(
+                                        //   shape: RoundedRectangleBorder(
+                                        //       borderRadius:
+                                        //           BorderRadius.circular(20.r)),
+                                        //   // constraints: BoxConstraints.expand(height: 150,
+                                        //   // ),
+                                        //   icon: Icon(
+                                        //     Icons.keyboard_arrow_down_rounded,
+                                        //     color: Colors.black,
+                                        //   ),
+                                        //   itemBuilder: (context) => tagsList,
+                                        //   onSelected: (value) async {
+                                        //     setState(() {
+                                        //       print("selected value is $value");
+                                        //       searchController.text = value;
 
-                                        //     selectedIndex = tagsList.indexWhere(
-                                        //         (item) =>
-                                        //             item is PopupMenuItem<
-                                        //                 String> &&
-                                        //             item.value == value);
+                                        //       selectedIndex = tagsList.indexWhere(
+                                        //           (item) =>
+                                        //               item is PopupMenuItem<
+                                        //                   String> &&
+                                        //               item.value == value);
 
-                                        //     BlogApis().BlogSearchAndFilter({
-                                        //       "search": null,
-                                        //       "tag_id": tagsId[selectedIndex]
-                                        //     }, streamController: BlogsController);
-                                        //   });
-                                        // },
-                                      ),
-                                    ),
+                                        //       BlogApis().BlogSearchAndFilter({
+                                        //         "search": null,
+                                        //         "tag_id": tagsId[selectedIndex]
+                                        //       },
+                                        //           streamController:
+                                        //               BlogsController);
+
+                                        //       // Unfocus the text field with a short delay
+                                        //       Future.delayed(
+                                        //           Duration(milliseconds: 100),
+                                        //           () {
+                                        //         FocusScopeNode currentFocus =
+                                        //             FocusScope.of(context);
+                                        //         if (!currentFocus
+                                        //             .hasPrimaryFocus) {
+                                        //           currentFocus.unfocus();
+                                        //         }
+                                        //       });
+                                        //     });
+                                        //   },
+
+                                        //   //old method in which keyboard appears
+                                        //   // onSelected: (value) {
+                                        //   //   setState(() {
+                                        //   //     print("selected value is $value");
+                                        //   //     searchController.text = value;
+
+                                        //   //     selectedIndex = tagsList.indexWhere(
+                                        //   //         (item) =>
+                                        //   //             item is PopupMenuItem<
+                                        //   //                 String> &&
+                                        //   //             item.value == value);
+
+                                        //   //     BlogApis().BlogSearchAndFilter({
+                                        //   //       "search": null,
+                                        //   //       "tag_id": tagsId[selectedIndex]
+                                        //   //     }, streamController: BlogsController);
+                                        //   //   });
+                                        //   // },
+                                        // ),
+                                        ),
                                     onChanged: (value) {
                                       BlogApis().BlogSearchAndFilter(
                                           {"search": value, "tag_id": null},

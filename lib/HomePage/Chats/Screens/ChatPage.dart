@@ -24,7 +24,7 @@ class _ChatPageState extends State<ChatPage> {
     ChatUsers(
       name: "Freeu Support",
       messageText: "You can talk with us",
-      imageURL: "assets/images/1.jpg",
+      imageURL: "assets/images/chat-icon.png",
       time: "",
     ),
     // ChatUsers(
@@ -93,7 +93,7 @@ class _ChatPageState extends State<ChatPage> {
             sizedBoxWidth(45.w),
             sizedBoxWidth(5.w),
             Text(
-              'Chats',
+              'Chat',
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(

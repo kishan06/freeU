@@ -257,7 +257,7 @@ class ApiUrls {
   static const Postfiltercategories = "${baseUrl}product-filter";
 
   //market place form apis
-  static const Getform = "${baseUrl}buyer-form/merrill-patterson";
+  static const Getform = "${baseUrl}buyer-form";
   static const Postform = "${baseUrl}buyer-form-submit";
 
 //Sell investment

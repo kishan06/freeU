@@ -206,21 +206,32 @@ class _NewFAQsState extends State<NewFAQs> {
                 ? _buildNodataBody()
                 : SingleChildScrollView(
                     padding:
-                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 20.h),
-                    child: ListView.separated(
-                        shrinkWrap: true,
-                        physics: const NeverScrollableScrollPhysics(),
-                        itemBuilder: (_, index) {
-                          return _buildBody(
-                            faqlistqa!.data![index].faqQuestion,
-                            faqlistqa!.data![index].faqAnswer,
-                            // notCollapsedList[index]
-                          );
-                        },
-                        separatorBuilder: (_, index) {
-                          return sizedBoxHeight(10.h);
-                        },
-                        itemCount: faqlistqa!.data!.length ?? 0),
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 0.h),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        text20Blackw600(faqlistqa!.tag ?? "NA"),
+                        sizedBoxHeight(15.h),
+                        ListView.separated(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemBuilder: (_, index) {
+                              return Column(
+                                children: [
+                                  _buildBody(
+                                    faqlistqa!.data![index].faqQuestion,
+                                    faqlistqa!.data![index].faqAnswer,
+                                    // notCollapsedList[index]
+                                  ),
+                                ],
+                              );
+                            },
+                            separatorBuilder: (_, index) {
+                              return sizedBoxHeight(10.h);
+                            },
+                            itemCount: faqlistqa!.data!.length ?? 0),
+                      ],
+                    ),
                   );
             // _buildBody(
             //   faqlistqa!.data![index].faqQuestion,

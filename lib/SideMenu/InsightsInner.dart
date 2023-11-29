@@ -82,6 +82,15 @@ class _InsightsInnerState extends State<InsightsInner> {
                   fontFamily: 'Poppins'),
             ),
             sizedBoxHeight(14.h),
+            SizedBox(
+                            width: double.infinity,
+                            //height: 100.h,
+                            child: Image.network(
+                              widget.image ?? "",
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                          sizedBoxHeight(14.h),
             Row(
               children: [
                 Icon(
