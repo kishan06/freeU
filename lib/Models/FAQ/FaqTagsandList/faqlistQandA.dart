@@ -1,11 +1,13 @@
 class FaqlistModel {
   String? status;
+  String? tag;
   List<Data>? data;
 
-  FaqlistModel({this.status, this.data});
+  FaqlistModel({this.status, this.tag, this.data});
 
   FaqlistModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
+    tag = json['tag'];
     if (json['data'] != null) {
       data = <Data>[];
       json['data'].forEach((v) {
@@ -17,6 +19,7 @@ class FaqlistModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['status'] = this.status;
+    data['tag'] = this.tag;
     if (this.data != null) {
       data['data'] = this.data!.map((v) => v.toJson()).toList();
     }

@@ -3,6 +3,7 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freeu/Forgotpinpindialog/forgotpin.dart';
 import 'package:freeu/Global.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20I/VentureViewMore.dart';
 import 'package:freeu/HomePage/Categories/Alternative/AIF%20Cateogary%20II/FundDistressed/productsfunddistressed.dart';
@@ -617,13 +618,15 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                     GetPage(
                         name: '/investbought', page: () => InvestmentBought()),
 
-                    GetPage(name: '/marketplaceform', page: () => Marketform()),
+                    // GetPage(name: '/marketplaceform', page: () => Marketform()),
                     GetPage(
                         name: '/noInternet', page: () => NoInternetscreen()),
                     GetPage(
                         name: '/newfaqs', page: () => NewFAQs()),    
                     GetPage(
-                        name: '/distressedfundproducts', page: () => DistressedFundMoreProduct()), 
+                        name: '/distressedfundproducts', page: () => DistressedFundMoreProduct()),
+                        //  GetPage(
+                        // name: '/forgotpinPindialog', page: () => ForgotpinPindialog()) 
                                             
                   ],
                 ),

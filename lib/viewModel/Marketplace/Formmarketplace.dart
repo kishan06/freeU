@@ -2,17 +2,36 @@ import 'package:freeu/Models/Marketplace/Form/formmodel.dart';
 import 'package:freeu/common/api_urls.dart';
 import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/controllers/network_api.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 GetFormmodel? formobj;
 
 class FormMarketplace {
-  Future<ResponseData<dynamic>> Getform() async {
-    final response = await NetworkApi().getApi(ApiUrls.Getform);
+  // Future<ResponseData<dynamic>> Getform() async {
+  //   final response = await NetworkApi().getApi(ApiUrls.Getform);
+  //   if (response.status == ResponseStatus.SUCCESS) {
+  //     formobj = GetFormmodel.fromJson(response.data);
+  //   }
+  //   print("getform is ${formobj}");
+  //   print(response.data);
+  //   return response;
+  // }
+
+  Future<ResponseData<dynamic>> Getform(slug) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    final response =
+        await NetworkApi().getApi(ApiUrls.Getform + "/${slug}");
+
     if (response.status == ResponseStatus.SUCCESS) {
-      formobj = GetFormmodel.fromJson(response.data);
+      Map<String, dynamic> responseData =
+          Map<String, dynamic>.from(response.data);
+      if (responseData.isNotEmpty) {
+        formobj = GetFormmodel.fromJson(responseData);
+      } else {
+        return ResponseData<dynamic>(
+            responseData['message'], ResponseStatus.FAILED);
+      }
     }
-    print("getform is ${formobj}");
-    print(response.data);
     return response;
   }
 

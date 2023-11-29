@@ -16,7 +16,8 @@ import 'package:freeu/viewModel/Marketplace/Formmarketplace.dart';
 import 'package:get/get.dart';
 
 class Marketform extends StatefulWidget {
-  const Marketform({super.key});
+  final String slug;
+  const Marketform({super.key,required this.slug});
 
   @override
   State<Marketform> createState() => _MarketformState();
@@ -66,23 +67,23 @@ class _MarketformState extends State<Marketform> {
     }
   }
 
-  // Future? myfuture;
+  Future? myfuture;
 
   @override
   void initState() {
-    // myfuture = FormMarketplace().Getform();
-    setControllerValues();
+    myfuture = FormMarketplace().Getform(widget.slug);
+    // setControllerValues();
     _volume = 0;
     super.initState();
   }
 
-  setControllerValues() {
-    fullNameController.text = formobj!.data!.user!.name ?? "";
-    phonecontroller.text = formobj!.data!.user!.contactNumber ?? "";
-    emailidcontroller.text = formobj!.data!.user!.email ?? "";
-    idcontroller.text = formobj!.data!.id.toString();
-    tablecontroller.text = formobj!.data!.table ?? "";
-  }
+  // setControllerValues() {
+  //   fullNameController.text = formobj!.data!.user!.name ?? "";
+  //   phonecontroller.text = formobj!.data!.user!.contactNumber ?? "";
+  //   emailidcontroller.text = formobj!.data!.user!.email ?? "";
+  //   idcontroller.text = formobj!.data!.id.toString();
+  //   tablecontroller.text = formobj!.data!.table ?? "";
+  // }
 
   int? _volume;
 
@@ -149,30 +150,38 @@ class _MarketformState extends State<Marketform> {
         bottomtext: false,
       ),
       backgroundColor: Colors.white,
-      body: _buildBody(context),
-      // FutureBuilder(
-      //   future: myfuture,
-      //   builder: (ctx, snapshot) {
-      //     if (snapshot.data == null) {
-      //       return Column(
-      //         mainAxisAlignment: MainAxisAlignment.center,
-      //         crossAxisAlignment: CrossAxisAlignment.center,
-      //         children: [Center(child: CircularProgressIndicator())],
-      //       );
-      //     }
-      //     if (snapshot.connectionState == ConnectionState.done) {
-      //       if (snapshot.hasError) {
-      //         return Center(
-      //           child: Text(
-      //             '${snapshot.error} occured',
-      //             style: TextStyle(fontSize: 18.spMin),
-      //           ),
-      //         );
-      //       }
-      //     }
-      //     return _buildBody(context);
-      //   },
-      // ),
+      body: 
+      // _buildBody(context),
+      FutureBuilder(
+        future: myfuture,
+        builder: (ctx, snapshot) {
+          if (snapshot.data == null) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [Center(child: CircularProgressIndicator())],
+            );
+          }
+          if (snapshot.connectionState == ConnectionState.done) {
+            if (snapshot.hasError) {
+              return Center(
+                child: Text(
+                  '${snapshot.error} occured',
+                  style: TextStyle(fontSize: 18.spMin),
+                ),
+              );
+            } else if (snapshot.hasData) {
+              fullNameController.text = formobj!.data!.user!.name ?? "";
+              phonecontroller.text = formobj!.data!.user!.contactNumber ?? "";
+              emailidcontroller.text = formobj!.data!.user!.email ?? "";
+              idcontroller.text = formobj!.data!.id.toString();
+              tablecontroller.text = formobj!.data!.table ?? "";
+            }
+            
+          }
+          return _buildBody(context);
+        },
+      ),
     );
   }
 

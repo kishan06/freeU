@@ -21,6 +21,17 @@ Widget text20Black(String text) {
   );
 }
 
+Widget text20Blackw600(String text) {
+  return Text(
+    text,
+    style: TextStyle(
+      fontSize: 20.sp,
+      color: AppColors.black,
+      fontWeight: FontWeight.w600
+    ),
+  );
+}
+
 Widget text18Grey(String text) {
   return Text(
     text,

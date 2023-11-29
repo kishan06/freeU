@@ -79,7 +79,7 @@ class _EntryPointState extends State<EntryPoint>
       //     : controllerEntryPoint.logedIn!
       //         ? buildPinAlertDialog()
       //         : null;
-      
+
     });
   }
 
@@ -124,7 +124,7 @@ class _EntryPointState extends State<EntryPoint>
       ).show(context);
     }
   }
-  
+
   buildPinAlertDialog() {
     return showGeneralDialog(
       context: context,
@@ -222,14 +222,16 @@ class _EntryPointState extends State<EntryPoint>
                     },
                   ),
                   sizedBoxHeight(10.h),
-                  // ProfileObj!.user!.pin == "1000" 
+                  // ProfileObj!.user!.pin == "1000"
                   // ?
                   // Text("First time user pin is 1000")
                   // : SizedBox(),
 
-                    ProfileObj != null && ProfileObj!.user != null && ProfileObj!.user!.pin == "1000"
-                ? Text("First time user pin is 1000")
-                : SizedBox(),
+                  ProfileObj != null &&
+                          ProfileObj!.user != null &&
+                          ProfileObj!.user!.pin == "1000"
+                      ? Text("First time user pin is 1000")
+                      : SizedBox(),
 
                   SizedBox(
                     height: 22,
@@ -248,7 +250,26 @@ class _EntryPointState extends State<EntryPoint>
                     ),
                   ),
                   SizedBox(
-                    height: 22,
+                    height: 22.h,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10),
+                    child: Align(
+                      alignment: Alignment.centerRight,
+                      child: GestureDetector(
+                        onTap: () {
+                          // Get.toNamed("/forgotpinPindialog");
+                        },
+                        child: Text(
+                          "Forgot PIN?",
+                          style: TextStyle(
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w500,
+                            fontFamily: "Poppins",
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -277,7 +298,7 @@ class _EntryPointState extends State<EntryPoint>
       return utils.showToast(data.message);
     }
   }
-
+  
 
   // late SMI
   // late

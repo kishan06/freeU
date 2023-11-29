@@ -35,7 +35,7 @@ class _SideBarState extends State<SideBar> {
 
   List sideBarData = [
     {"imagePath": "assets/logos/side1.png", "text": "KYC"},
-    // {"imagePath": "assets/logos/side2.png", "text": "Security"},
+    {"imagePath": "assets/logos/side2.png", "text": "Security"},
     {"imagePath": "assets/logos/side3.png", "text": "How to Invest"},
     {"imagePath": "assets/logos/side5.png", "text": "About FreeU"},
     {"imagePath": "assets/logos/side6.png", "text": "Our Insights"},
@@ -425,51 +425,51 @@ void navigateTo(int index, BuildContext context) {
       }
       break;
 
-    // case 1:
-    //   {
-    //     Get.toNamed("/security");
-    //     // Get.toNamed("/pindialogpage");
-    //   }
-    //   break;
-
     case 1:
       {
-        Get.toNamed("/howtoinvest");
+        Get.toNamed("/security");
+        // Get.toNamed("/pindialogpage");
       }
       break;
 
     case 2:
       {
-        Get.toNamed("/about");
+        Get.toNamed("/howtoinvest");
       }
       break;
 
     case 3:
       {
-        Get.toNamed("/insights");
+        Get.toNamed("/about");
       }
       break;
 
     case 4:
+      {
+        Get.toNamed("/insights");
+      }
+      break;
+
+    case 5:
       {
         // Get.toNamed("/faqs");
         Get.toNamed("/newfaqs");        
       }
       break;
 
-    case 5:
+    case 6:
       {
         Get.toNamed("/privacypolicy");
       }
       break;
 
-    case 6:
+    case 7:
       {
         Get.toNamed("/termsandconditions");
       }
       break;
 
-    case 7:
+    case 8:
       {
         Get.toNamed("/contactus");
       }

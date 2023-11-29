@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:freeu/HomePage/Market/Marketnewdesign/forms/marketform.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
@@ -272,7 +273,9 @@ class _MarketplacelearnmoreState extends State<Marketplacelearnmore> {
                             ontap: () {
                               if (controllerEntryPoint.logedIn!) {
                                 // investNow();
-                                Get.toNamed("/marketplaceform");
+                                // Get.toNamed("/marketplaceform");
+                               Get.to(() => Marketform(slug: getmarketlearnmoreobj!.data!.slug ?? ""));
+
                               } else {
                                 // Get.toNamed("/login");
                           Get.offAllNamed('/login');

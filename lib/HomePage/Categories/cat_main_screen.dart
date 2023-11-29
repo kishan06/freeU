@@ -56,7 +56,6 @@ class _CatMainScreenState extends State<CatMainScreen> {
 
   // CatController controllerset = Get.put(CatController());
 
-
   // late Timer timer;
   // StreamController<FilterResponse> filterlistController =
   //   StreamController.broadcast();
@@ -67,7 +66,6 @@ class _CatMainScreenState extends State<CatMainScreen> {
     super.initState();
     // controllerset.setTrue();
     controllerCat.setTrue();
-    
     // timer = Timer.periodic(Duration(seconds: 2), (timer) {
     //   Filtercategories().Postfilter(filterlistController);
     //  });
@@ -172,33 +170,35 @@ class _CatMainScreenState extends State<CatMainScreen> {
   Widget _buildBody(
     BuildContext context,
   ) {
-    return Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
-        child: GetBuilder<CatController>(builder: (builder) {
-          return Column(
-            children: [
-              catContainer(0, isVisible: controllerCat.indianFinancialAssets),
-              sizedBoxHeight(15.h),
-              catContainer(1, isVisible: controllerCat.indianRealAssets),
-              sizedBoxHeight(15.h),
-              catContainer(2, isVisible: controllerCat.globalFinancialAssets),
-              sizedBoxHeight(15.h),
-              catContainer(3, isVisible: controllerCat.globalRealAssets),
+    return SingleChildScrollView(
+      child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 16.w),
+          child: GetBuilder<CatController>(builder: (builder) {
+            return Column(
+              children: [
+                catContainer(0, isVisible: controllerCat.indianFinancialAssets),
+                sizedBoxHeight(15.h),
+                catContainer(1, isVisible: controllerCat.indianRealAssets),
+                sizedBoxHeight(15.h),
+                catContainer(2, isVisible: controllerCat.globalFinancialAssets),
+                sizedBoxHeight(15.h),
+                catContainer(3, isVisible: controllerCat.globalRealAssets),
 
-// if (filterobj!.data!.indianFinancialAssets == true)
-// catContainer(0),
-// sizedBoxHeight(15.h),
-// if (filterobj!.data!.indianRealAssets == true)
-// catContainer(1),
-// sizedBoxHeight(15.h),
-// if (filterobj!.data!.globalFinancialAssets == true)
-// catContainer(2),
-// sizedBoxHeight(15.h),
-// if (filterobj!.data!.globalRealAssets == true)
-// catContainer(3),
-            ],
-          );
-        }));
+                // if (filterobj!.data!.indianFinancialAssets == true)
+                // catContainer(0),
+                // sizedBoxHeight(15.h),
+                // if (filterobj!.data!.indianRealAssets == true)
+                // catContainer(1),
+                // sizedBoxHeight(15.h),
+                // if (filterobj!.data!.globalFinancialAssets == true)
+                // catContainer(2),
+                // sizedBoxHeight(15.h),
+                // if (filterobj!.data!.globalRealAssets == true)
+                // catContainer(3),
+              ],
+            );
+          })),
+    );
   }
 
   Widget catContainer(index, {required bool isVisible}) {

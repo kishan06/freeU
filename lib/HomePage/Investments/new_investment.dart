@@ -699,7 +699,7 @@ class _NewInvestmentState extends State<NewInvestment> {
                         padding: EdgeInsets.only(right: 5.w, bottom: 0.h),
                         child: SizedBox(
                           height: 35.h,
-                          width: 120.w,
+                          width: 130.w,
                           child: ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                 elevation: 5,
