@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1071090468837",
+    "project_id": "freeu-b3dfe",
+    "storage_bucket": "freeu-b3dfe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1071090468837:android:2f0183471a95e67b31110c",
+        "android_client_info": {
+          "package_name": "com.example.freeu"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbcwvhJObqCzglNskCvWLUdSUgDgSvYOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

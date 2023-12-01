@@ -309,33 +309,34 @@ class _PhoneVerificationState extends State<PhoneVerification> {
                         GetBuilder<EntryPointController>(builder: (
                           controller,
                         ) {
-                          return controllerEntryPoint.signinApi
-                              ? CircularProgressIndicator()
-                              : CustomNextButton(
-                                  text: "Verify",
-                                  ontap: () {
-                                    final isValid =
-                                        _form.currentState?.validate();
-                                    if (isValid!) {
-                                       controllerEntryPoint
-                                            .changeSigninApiBool();
-                                      // UploadotpData();
-                                      countrollerCat.verifyOtp(pincode.text,phoneController.text);
-                                    } else {
-                                      utils.showToast(
-                                          "please fill all required fields");
-                                    }
-                                    
-                                    // if (isValid!) {
-                                    //   Get.toNamed("/completeprofile");
-                                    // } else {
-                                    //   Get.snackbar("Error", "Please Enter OTP",
-                                    //       margin: EdgeInsets.all(8),
-                                    //       snackStyle: SnackStyle.FLOATING,
-                                    //       snackPosition: SnackPosition.BOTTOM);
-                                    // }
-                                  },
-                                );
+                          return
+                              // controllerEntryPoint.signinApi
+                              //     ? CircularProgressIndicator()
+                              //     :
+                              CustomNextButton(
+                            text: "Verify",
+                            ontap: () {
+                              final isValid = _form.currentState?.validate();
+                              if (isValid!) {
+                                controllerEntryPoint.changeSigninApiBool();
+                                // UploadotpData();
+                                countrollerCat.verifyOtp(
+                                    pincode.text, phoneController.text);
+                              } else {
+                                utils.showToast(
+                                    "please fill all required fields");
+                              }
+
+                              // if (isValid!) {
+                              //   Get.toNamed("/completeprofile");
+                              // } else {
+                              //   Get.snackbar("Error", "Please Enter OTP",
+                              //       margin: EdgeInsets.all(8),
+                              //       snackStyle: SnackStyle.FLOATING,
+                              //       snackPosition: SnackPosition.BOTTOM);
+                              // }
+                            },
+                          );
                         })
                       ],
                     ),

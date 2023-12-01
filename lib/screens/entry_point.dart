@@ -22,6 +22,7 @@ import 'package:freeu/screens/side_menu.dart';
 import 'package:freeu/viewModel/Security_pin/Postpin.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../HomePage/Investments/new_investment.dart';
 
 var selectedIndex = 0;
@@ -50,12 +51,14 @@ class _EntryPointState extends State<EntryPoint>
     const ChatPage(),
     const MarketTab(),
   ];
+  bool shouldShowPermissionDialog = true;
 
   @override
   void initState() {
     super.initState();
     controllerEntryPoint.checkLogin();
     selectedIndex = Get.arguments ?? 0;
+    controllerEntryPoint.isMainScreen = false;
     _animationController = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 200))
       ..addListener(() {
@@ -70,16 +73,19 @@ class _EntryPointState extends State<EntryPoint>
 
     GetProfile().GetProfileAPI();
 
-     Future.delayed(Duration(seconds: 4), () {
+    Future.delayed(Duration(seconds: 4), () {
       print("pin dialog shown is $pindialog");
-      requestPermissions();
+      print("storage dialog shown is $storagedialog");
+
+     storagedialog 
+     ? null
+     : requestPermissions();
 
       // pindialog
       //     ? null
       //     : controllerEntryPoint.logedIn!
       //         ? buildPinAlertDialog()
       //         : null;
-
     });
   }
 
@@ -100,30 +106,74 @@ class _EntryPointState extends State<EntryPoint>
     return permissionStatus;
   }
 
-  void requestPermissions() async {
-    bool permissionStatus = await requestP();
-    // Map<Permission, PermissionStatus> statuses = await [
-    //   Permission.storage,
-    //   Permission.photos
-    // ].request();
+  // void requestPermissions() async {
+  //   bool permissionStatus = await requestP();
+  //   // Map<Permission, PermissionStatus> statuses = await [
+  //   //   Permission.storage,
+  //   //   Permission.photos
+  //   // ].request();
 
-    if (permissionStatus) {
-      print("Permission Granted");
-      // Permissions granted, proceed with your operations
-    } else {
-      // Permissions denied, handle accordingly
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   SnackBar(
-      //     content: Text('Permission denied. Unable to download image.'),
-      //   ),
-      // );
+  //   if (permissionStatus) {
+  //     print("Permission Granted");
+  //     // Permissions granted, proceed with your operations
+  //   } else {
+  //     // Permissions denied, handle accordingly
+  //     // ScaffoldMessenger.of(context).showSnackBar(
+  //     //   SnackBar(
+  //     //     content: Text('Permission denied. Unable to download image.'),
+  //     //   ),
+  //     // );
 
-      await Flushbar(
-        message: "Permission denied. Unable to download image.",
-        duration: Duration(seconds: 3),
-      ).show(context);
+  //     await Flushbar(
+  //       message: "Permission denied. Unable to download image.",
+  //       duration: Duration(seconds: 3),
+  //     ).show(context);
+  //   }
+  // }
+
+// new dialog where dennied message is not shown again and again
+
+    void requestPermissions() async {
+    if (shouldShowPermissionDialog) {
+      bool permissionStatus = await requestP();
+
+      if (permissionStatus) {
+        print("Permission Granted");
+        // Permissions granted, proceed with your operations
+      } else {
+        // Permissions denied, handle accordingly
+        bool permissionDeniedMessageShown =
+            await getPermissionDeniedMessageShownFlag();
+
+        if (!permissionDeniedMessageShown) {
+          await showPermissionDeniedMessage();
+          await savePermissionDeniedMessageShownFlag();
+        }
+        storagedialog = true;
+      }
+
+      // Update the flag so that the dialog won't be shown repeatedly
+      shouldShowPermissionDialog = false;
     }
   }
+
+  Future<void> showPermissionDeniedMessage() async {
+    await Flushbar(
+      message: "Permission denied. Unable to download image.",
+      duration: Duration(seconds: 3),
+    ).show(context);
+  }
+
+  Future<void> savePermissionDeniedMessageShownFlag() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.setBool('permissionDeniedMessageShown', true);
+  }
+
+  Future<bool> getPermissionDeniedMessageShownFlag() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    return prefs.getBool('permissionDeniedMessageShown') ?? false;
+  }
+
 
   buildPinAlertDialog() {
     return showGeneralDialog(
@@ -298,7 +348,6 @@ class _EntryPointState extends State<EntryPoint>
       return utils.showToast(data.message);
     }
   }
-  
 
   // late SMI
   // late

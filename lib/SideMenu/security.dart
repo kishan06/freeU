@@ -6,6 +6,7 @@ import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/CustomTextFormField.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/signupAppbar.dart';
+import 'package:freeu/common/Other%20Commons/sized_box.dart';
 import 'package:freeu/controllers/base_manager.dart';
 import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/viewModel/Security_pin/Postpin.dart';
@@ -218,18 +219,30 @@ class _SecurityState extends State<Security> {
                         ],
                       )))
               : Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [GestureDetector(
-                      onTap: () {
-                                // Get.toNamed("/login");
-                            Get.offAllNamed("/login");
-                        
-                      },
-                      child: text20Black("Login to continue"))],
+                    children: [
+                      Image.asset(
+                        "assets/images/Security On-pana.png",
+                        width: 270.w,
+                        height: 270.h,
+                      ),
+                      sizedBoxHeight(20.h),
+                      CustomNextButton(
+                        text: "Login to continue",
+                        ontap: () {
+                          // Get.toNamed("/login");
+                          Get.offAllNamed('/login');
+                        },
+                      ),
+                      sizedBoxHeight(60.h)
+                    ],
                   ),
-                );
+                ),
+              );
         }));
   }
 }

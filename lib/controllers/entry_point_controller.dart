@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class EntryPointController extends GetxController {
   bool? _logedIn;
   bool? get logedIn => _logedIn;
+  bool isMainScreen = true;
 
   bool? _isLoading = true;
   bool? get isLoading => _isLoading;
