@@ -286,7 +286,7 @@ class _NewInvestmentState extends State<NewInvestment> {
                       3)
                   : 0,
               itemBuilder: (context, index) {
-                return productContainer(
+                return redeemedproductContainer(
                     redeemsummary!.data!.reedemedInvestment!
                         .productDetails![index].productName,
                     redeemsummary!.data!.reedemedInvestment!
@@ -725,6 +725,128 @@ class _NewInvestmentState extends State<NewInvestment> {
                                 ),
                               )),
                         ))
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 16.h,
+              )
+            ],
+          ),
+        ),
+        sizedBoxHeight(12.h),
+      ],
+    );
+  }
+
+  Widget redeemedproductContainer(
+    txt1,
+    txt2,
+    categorieName,
+    routeId,
+    investmentText,
+  ) {
+    return Column(
+      children: [
+        Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+            color: Color(0xffffffff),
+            boxShadow: [
+              BoxShadow(
+                color: Color(0x48B9B9BE),
+                blurRadius: 20.0,
+                spreadRadius: 0,
+              )
+            ],
+          ),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15, top: 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SvgPicture.asset("assets/images/investmentmyre (2).svg"),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 8.h,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      width: 150.w,
+                      child: Text(
+                        txt1,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      txt2,
+                      style: TextStyle(fontSize: 18.sp),
+                    ),
+                    sizedBoxWidth(3.w),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      child: GestureDetector(
+                          onTap: () {
+                            if (investmentText == "Investment Redeemed") {
+                              Get.to(
+                                ProductAction(
+                                  pageIndex: 0,
+                                  categories: categorieName,
+                                  routeId: routeId,
+                                ),
+                              );
+                            }
+                          },
+                          child: Icon(
+                            Icons.remove_red_eye_outlined,
+                            size: 30.h,
+                            color: Colors.black.withOpacity(0.8),
+                          )),
+                    ),
+                    // Padding(
+                    //     padding: EdgeInsets.only(right: 5.w, bottom: 0.h),
+                    //     child: SizedBox(
+                    //       height: 35.h,
+                    //       width: 130.w,
+                    //       child: ElevatedButton(
+                    //           style: ElevatedButton.styleFrom(
+                    //             elevation: 5,
+                    //             shadowColor: Color.fromARGB(255, 220, 220, 226),
+                    //             backgroundColor: AppColors.blue143C6D,
+                    //             shape: RoundedRectangleBorder(
+                    //               borderRadius: BorderRadius.circular(10.h),
+                    //             ),
+                    //           ),
+                    //           onPressed: () {
+                    //             Get.to(() => InvestmentpageSellinvest(
+                    //                   slug:
+                    //                       //                 currentsummary!.data!.currentInvestment!
+                    //                       // .productDetails![index].routeId.toString(),
+                    //                       routeId,
+                    //                 ));
+                    //           },
+                    //           child: Text(
+                    //             "List investment",
+                    //             style: TextStyle(
+                    //               color: AppColors.white,
+                    //               fontSize: 11.sp,
+                    //             ),
+                    //           )),
+                    //     ))
                   ],
                 ),
               ),

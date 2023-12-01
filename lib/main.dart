@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -101,6 +102,7 @@ import 'package:freeu/SideMenu/user_logged.dart';
 import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/nointernet.dart';
 import 'package:freeu/common/Categories%20Common%20Files/coming_soon.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:freeu/login/OTPVerification.dart';
 import 'package:freeu/login/PhoneVerification.dart';
 import 'package:freeu/login/forgotPassword.dart';
@@ -142,10 +144,19 @@ import 'HomePage/Categories/SecuredDebt/Securitizedproperties.dart';
 import 'HomePage/Categories/Venture debt/VentureProduct/ViewMoreProdcutVenture.dart';
 import 'HomePage/Categories/revenue_based_financing/revenueproperties.dart';
 import 'package:freeu/Utils/Dialogs.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 int bottomIndex = 0;
-void main() {
+Future <void> main() async {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+      PlatformDispatcher.instance.onError = (error, stack) {
+      FirebaseCrashlytics.instance.recordError(error, stack, fatal: true);
+      return true;
+    };
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
   ]).then((value) => runApp(MyApp()));
@@ -162,15 +173,18 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   var _connectionStatus = ConnectivityResult.values.toString();
   late StreamSubscription<ConnectivityResult> subscription;
   Connectivity connectivity = new Connectivity();
+  EntryPointController entryPointController = Get.put(EntryPointController());
 
   bool? onBoardDone;
   @override
   void initState() {
+    entryPointController.isMainScreen = true;
     super.initState();
     checkOnboard();
     WidgetsBinding.instance.addObserver(this);
     // print("............ ...0000 ${abc!.getString("abc")}");
     connectivity = new Connectivity();
+    checkInternet();
     subscription =
         connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
       _connectionStatus = result.toString();
@@ -179,7 +193,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
           result == ConnectivityResult.mobile) {
         setState(() {
           _connectionStatus = result.toString();
-          Get.back();
+          entryPointController.isMainScreen
+              ? onBoardDone ?? false
+                  ? Get.toNamed("/EntryPoint")
+                  : Get.toNamed("/")
+              : Get.back();
         });
       } else {
         setState(() {
@@ -190,6 +208,25 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
         });
       }
     });
+  }
+
+  Future<void> checkInternet() async {
+    final connectivityResult = await (Connectivity().checkConnectivity());
+
+    if (connectivityResult == ConnectivityResult.wifi ||
+        connectivityResult == ConnectivityResult.mobile) {
+      setState(() {
+        _connectionStatus = connectivityResult.toString();
+      });
+    } else {
+      setState(() {
+        _connectionStatus = connectivityResult.toString();
+        print(_connectionStatus.toString());
+        //     Get.toNamed("/noInternet");
+
+        //  Navigator.pushReplacementNamed(context, "/noInternet");
+      });
+    }
   }
 
   void dispose() {
@@ -238,7 +275,11 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                     GetMaterialApp(
                   debugShowCheckedModeBanner: false,
                   title: 'FreeU',
-                  initialRoute: onBoardDone ?? false ? '/EntryPoint' : '/',
+                  initialRoute: _connectionStatus == "ConnectivityResult.none"
+                      ? "/noInternet"
+                      : onBoardDone ?? false
+                          ? '/EntryPoint'
+                          : '/',
                   theme: ThemeData(
                     scaffoldBackgroundColor: AppColors.white,
                     fontFamily: "Poppins",
@@ -621,13 +662,12 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
                     // GetPage(name: '/marketplaceform', page: () => Marketform()),
                     GetPage(
                         name: '/noInternet', page: () => NoInternetscreen()),
+                    GetPage(name: '/newfaqs', page: () => NewFAQs()),
                     GetPage(
-                        name: '/newfaqs', page: () => NewFAQs()),    
-                    GetPage(
-                        name: '/distressedfundproducts', page: () => DistressedFundMoreProduct()),
-                        //  GetPage(
-                        // name: '/forgotpinPindialog', page: () => ForgotpinPindialog()) 
-                                            
+                        name: '/distressedfundproducts',
+                        page: () => DistressedFundMoreProduct()),
+                    //  GetPage(
+                    // name: '/forgotpinPindialog', page: () => ForgotpinPindialog())
                   ],
                 ),
                 designSize: const Size(390, 844),

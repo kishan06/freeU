@@ -479,6 +479,7 @@ class _LoginState extends State<Login> {
                                         final isValid =
                                             _form.currentState?.validate();
                                         if (isValid!) {
+                                          FocusManager.instance.primaryFocus?.unfocus();
                                           controllerEntryPoint
                                               .changeSigninApiBool();
                                           Map<String, String> myLoginData = {
@@ -514,12 +515,17 @@ class _LoginState extends State<Login> {
                                                   'token', res["token"]);
                                               await prefs.setString(
                                                   'name', res["data"]["name"]);
-                                              await prefs.setString('contact_number', res["data"]["contact_number"]);
+                                              await prefs.setString(
+                                                  'contact_number',
+                                                  res["data"]
+                                                      ["contact_number"]);
                                               myusername = res["data"]["name"];
                                               token = res["token"];
-                                              phonenumber = res["data"]["contact_number"];
+                                              phonenumber =
+                                                  res["data"]["contact_number"];
                                               print("token is $token");
-                                              print("phone number is $phonenumber");
+                                              print(
+                                                  "phone number is $phonenumber");
 
                                               // Map<String,dynamic> store = {
                                               //   'email' : res['email'],

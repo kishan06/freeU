@@ -6,6 +6,7 @@ import 'package:freeu/Utils/colors.dart';
 import 'package:freeu/Utils/texts.dart';
 import 'package:freeu/common/Other%20Commons/customNextButton.dart';
 import 'package:freeu/common/Other%20Commons/sized_box.dart';
+import 'package:freeu/controllers/entry_point_controller.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,9 +21,11 @@ class _SplashsliderState extends State<Splashslider> {
   int currentIndex = 0;
   late PageController _controller;
   DateTime timebackPressed = DateTime.now();
+  EntryPointController entryPointController = Get.put(EntryPointController());
   @override
   void initState() {
     _controller = PageController(initialPage: 0);
+    entryPointController.isMainScreen = false;
     super.initState();
   }
 
@@ -123,7 +126,7 @@ class _SplashsliderState extends State<Splashslider> {
                           ),
                           onTap: () {
                             Get.toNamed('/EntryPoint', arguments: 0);
-                           // Get.toNamed("/login");
+                            // Get.toNamed("/login");
                             showDialog(
                               barrierDismissible: false,
                               context: context,
