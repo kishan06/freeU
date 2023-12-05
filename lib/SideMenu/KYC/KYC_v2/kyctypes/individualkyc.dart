@@ -96,8 +96,32 @@ class _IndividualkycpageState extends State<Individualkycpage> {
   //   });
   // }
 
+  // void _presentDatePicker() {
+  //   DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+
+  //   showDatePicker(
+  //     context: context,
+  //     initialDate: yesterday,
+  //     firstDate: DateTime(1922),
+  //     lastDate: yesterday,
+  //   ).then((pickedDate) {
+  //     if (pickedDate == null) {
+  //       return setState(() {
+  //         datecontroller.text = '';
+  //       });
+  //     }
+  //     setState(() {
+  //       _selectedDate = pickedDate;
+  //       datecontroller.text =
+  //           "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString()}";
+  //     });
+  //   });
+  // }
+
   void _presentDatePicker() {
     DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+    DateTime eighteenYearsAgo =
+        DateTime.now().subtract(Duration(days: 365 * 18));
 
     showDatePicker(
       context: context,
@@ -110,11 +134,33 @@ class _IndividualkycpageState extends State<Individualkycpage> {
           datecontroller.text = '';
         });
       }
-      setState(() {
-        _selectedDate = pickedDate;
-        datecontroller.text =
-            "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString()}";
-      });
+
+      if (pickedDate.isBefore(eighteenYearsAgo)) {
+        setState(() {
+          _selectedDate = pickedDate;
+          datecontroller.text =
+              "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString().padLeft(2, '0')}";
+        });
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text("Age Restriction"),
+              content: Text(
+                  "Sorry, you must be above 18 years age"),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
+      }
     });
   }
 
@@ -170,9 +216,12 @@ class _IndividualkycpageState extends State<Individualkycpage> {
       Timer(const Duration(seconds: 2),
           () => Get.offAllNamed('/EntryPoint', arguments: 0));
       print("individual kyc completed");
+      print(data.message);
+      print("data is ${data.data}");
       return utils.showToast(data.message);
     } else {
       Get.back();
+      print("individual kyc not completed");
       return utils.showToast(data.message);
     }
     // }
@@ -181,7 +230,7 @@ class _IndividualkycpageState extends State<Individualkycpage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         backgroundColor: Color(0xFFFFFFFF),
         appBar: widget.showAppbar ?? true
@@ -283,7 +332,6 @@ class _IndividualkycpageState extends State<Individualkycpage> {
                     //   return "Enter correct email id";
                     // }
                     // return null;
-    
                     if (value!.isEmpty) {
                       return 'Enter your email address';
                     }
@@ -353,7 +401,6 @@ class _IndividualkycpageState extends State<Individualkycpage> {
                   textEditingController: datecontroller,
                   ontap: () => _presentDatePicker(),
                 ),
-    
                 SizedBox(height: 20.h),
                 Text(
                   "Occupation",
@@ -366,22 +413,20 @@ class _IndividualkycpageState extends State<Individualkycpage> {
                   height: 6.h,
                 ),
                 CustomTextFormField(
-                  texttype: TextInputType.text,
-                  hintText: "Please Enter Occupation",
-                  validatorText: "Please Enter Occupation",
-                  textEditingController: occupationcontroller,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Enter valid occupation";
-                    }
-                    return null;
-                  },
-                  inputFormatters: [
-                                    LengthLimitingTextInputFormatter(20),
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp('[a-zA-Z ]')),
-                   ]
-                ),
+                    texttype: TextInputType.text,
+                    hintText: "Please Enter Occupation",
+                    validatorText: "Please Enter Occupation",
+                    textEditingController: occupationcontroller,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Enter valid occupation";
+                      }
+                      return null;
+                    },
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(20),
+                      FilteringTextInputFormatter.allow(RegExp('[a-zA-Z ]')),
+                    ]),
                 sizedBoxHeight(20.h),
                 Text(
                   "Father Name",
@@ -517,15 +562,18 @@ class _IndividualkycpageState extends State<Individualkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -589,15 +637,18 @@ class _IndividualkycpageState extends State<Individualkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -660,15 +711,18 @@ class _IndividualkycpageState extends State<Individualkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -732,15 +786,18 @@ class _IndividualkycpageState extends State<Individualkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -803,15 +860,18 @@ class _IndividualkycpageState extends State<Individualkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -850,16 +910,16 @@ class _IndividualkycpageState extends State<Individualkycpage> {
                   text: "Save",
                   ontap: () {
                     // final isValid = _form.currentState?.validate();
-    
+
                     // if(isValid! &&
                     //     datecontroller!.isNotEmpty &&
                     //     datecontroller != null){
                     // otherapicall();
-    
+
                     //     }
                     //      else {
                     //   // return utils.showToast("Please fill all fields");
-    
+
                     //   Flushbar(
                     //     message: "Please fill all fields",
                     //     duration: const Duration(seconds: 1),
