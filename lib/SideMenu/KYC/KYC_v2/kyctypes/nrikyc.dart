@@ -121,27 +121,52 @@ class _NRIkycpageState extends State<NRIkycpage> {
   //   });
   // }
 
-  void _presentDatePicker() {
-  DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+//
 
-  showDatePicker(
-    context: context,
-    initialDate: yesterday,
-    firstDate: DateTime(1922),
-    lastDate: yesterday,
-  ).then((pickedDate) {
-    if (pickedDate == null) {
-      return setState(() {
-        datecontroller.text = '';
-      });
-    }
-    setState(() {
-      _selectedDate = pickedDate;
-      datecontroller.text =
-          "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString()}";
+  void _presentDatePicker() {
+    DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+    DateTime eighteenYearsAgo =
+        DateTime.now().subtract(Duration(days: 365 * 18));
+
+    showDatePicker(
+      context: context,
+      initialDate: yesterday,
+      firstDate: DateTime(1922),
+      lastDate: yesterday,
+    ).then((pickedDate) {
+      if (pickedDate == null) {
+        return setState(() {
+          datecontroller.text = '';
+        });
+      }
+
+      if (pickedDate.isBefore(eighteenYearsAgo)) {
+        setState(() {
+          _selectedDate = pickedDate;
+          datecontroller.text =
+              "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString().padLeft(2, '0')}";
+        });
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text("Age Restriction"),
+              content: Text("Sorry, you must be above 18 years age"),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
+      }
     });
-  });
-}
+  }
 
   List<String> fileList = [];
 
@@ -211,9 +236,11 @@ class _NRIkycpageState extends State<NRIkycpage> {
     if (data.status == ResponseStatus.SUCCESS) {
       Get.back();
       print(data.message);
-        Timer(const Duration(seconds: 2),
-            () => Get.offAllNamed('/EntryPoint', arguments: 0));
+      Timer(const Duration(seconds: 2),
+          () => Get.offAllNamed('/EntryPoint', arguments: 0));
       print("nri kyc completed");
+      print("data is ${data.message}");
+      print("data ${data.data}");
       return utils.showToast(data.message);
     } else {
       Get.back();
@@ -225,15 +252,15 @@ class _NRIkycpageState extends State<NRIkycpage> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
       child: Scaffold(
         backgroundColor: Color(0xFFFFFFFF),
-        appBar: widget.showAppbar ?? true ?
-        CustomSignupAppBar(
-          titleTxt: "",
-          bottomtext: false,
-        ) 
-        : null,
+        appBar: widget.showAppbar ?? true
+            ? CustomSignupAppBar(
+                titleTxt: "",
+                bottomtext: false,
+              )
+            : null,
         body: SingleChildScrollView(
           padding: EdgeInsets.symmetric(horizontal: 16.w),
           child: Form(
@@ -270,11 +297,10 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     }
                     return null;
                   },
-                    inputFormatters: [
-                                    LengthLimitingTextInputFormatter(20),
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp('[a-zA-Z ]')),
-                                  ],
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(20),
+                    FilteringTextInputFormatter.allow(RegExp('[a-zA-Z ]')),
+                  ],
                 ),
                 sizedBoxHeight(20.h),
                 Text(
@@ -294,8 +320,7 @@ class _NRIkycpageState extends State<NRIkycpage> {
                   textEditingController: mobileNumber,
                   inputFormatters: [
                     LengthLimitingTextInputFormatter(10),
-                    FilteringTextInputFormatter.allow(
-                                        RegExp('[0-9]')),
+                    FilteringTextInputFormatter.allow(RegExp('[0-9]')),
                   ],
                   validator: (value) {
                     if (value == null || value.isEmpty || value.length != 10) {
@@ -330,14 +355,14 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     // }
                     // return null;
                     if (value!.isEmpty) {
-                                    return 'Enter your email address';
-                                  }
-                                  if (!RegExp(
-                                          r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
-                                      .hasMatch(value)) {
-                                    return 'Enter a valid email address';
-                                  }
-                                  return null;
+                      return 'Enter your email address';
+                    }
+                    if (!RegExp(
+                            r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
+                        .hasMatch(value)) {
+                      return 'Enter a valid email address';
+                    }
+                    return null;
                   },
                   onInput: (p0) {
                     onEmailChange(p0);
@@ -386,18 +411,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                 //     ),
                 //   ),
                 // ),
-                 CustomDateTextFormField(
-                  hintText: "Please Select Date Of Birth", 
+                CustomDateTextFormField(
+                  hintText: "Please Select Date Of Birth",
                   validatorText: "Please Select Date Of Birth",
                   validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return "Please select date of birth";
-                  }
-                  return null;
-                },
-                textEditingController: datecontroller,
-                   ontap: () =>  _presentDatePicker(),
-                   ),
+                    if (value == null || value.isEmpty) {
+                      return "Please select date of birth";
+                    }
+                    return null;
+                  },
+                  textEditingController: datecontroller,
+                  ontap: () => _presentDatePicker(),
+                ),
                 SizedBox(height: 20.h),
                 Text(
                   "Occupation",
@@ -410,22 +435,20 @@ class _NRIkycpageState extends State<NRIkycpage> {
                   height: 6.h,
                 ),
                 CustomTextFormField(
-                  texttype: TextInputType.text,
-                  hintText: "Please Enter Occupation",
-                  validatorText: "Please Enter Occupation",
-                  textEditingController: occupationcontroller,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Enter valid occupation";
-                    }
-                    return null;
-                  },
-                  inputFormatters: [
-                                    LengthLimitingTextInputFormatter(20),
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp('[a-zA-Z ]')),
-                   ]
-                ),
+                    texttype: TextInputType.text,
+                    hintText: "Please Enter Occupation",
+                    validatorText: "Please Enter Occupation",
+                    textEditingController: occupationcontroller,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Enter valid occupation";
+                      }
+                      return null;
+                    },
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(20),
+                      FilteringTextInputFormatter.allow(RegExp('[a-zA-Z ]')),
+                    ]),
                 sizedBoxHeight(20.h),
                 Text(
                   "Place of Birth",
@@ -448,11 +471,10 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     }
                     return null;
                   },
-                   inputFormatters: [
-                                    LengthLimitingTextInputFormatter(20),
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp('[a-zA-Z ]')),
-                                  ],
+                  inputFormatters: [
+                    LengthLimitingTextInputFormatter(20),
+                    FilteringTextInputFormatter.allow(RegExp('[a-zA-Z ]')),
+                  ],
                 ),
                 sizedBoxHeight(20.h),
                 Text(
@@ -508,15 +530,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -580,15 +605,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -651,15 +679,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -723,15 +754,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -794,15 +828,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -865,15 +902,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -897,7 +937,8 @@ class _NRIkycpageState extends State<NRIkycpage> {
                               proofaddressforeignimage = result;
                               var filenameresult = extractFileName(result);
                               print("File name is $filenameresult");
-                              proofaddressforeignController.text = filenameresult;
+                              proofaddressforeignController.text =
+                                  filenameresult;
                             });
                           });
                         },
@@ -936,15 +977,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1007,15 +1051,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1078,15 +1125,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1149,15 +1199,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1220,15 +1273,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1291,15 +1347,18 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1345,16 +1404,14 @@ class _NRIkycpageState extends State<NRIkycpage> {
                     //   nriapicall();
                     // } else {
                     //   // return utils.showToast("Please fill all fields");
-    
+
                     //   Flushbar(
                     //     message: "Please fill all fields",
                     //     duration: const Duration(seconds: 1),
                     //   ).show(context);
                     // }
                     final isValid = _form.currentState?.validate();
-                    if (isValid != null &&
-                        isValid                      
-                        ) {
+                    if (isValid != null && isValid) {
                       nriapicall();
                     } else {
                       Flushbar(

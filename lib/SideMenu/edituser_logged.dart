@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:freeu/Global.dart';
@@ -345,6 +346,11 @@ class _EditUserState extends State<EditUser> {
                           // v1 = true;
                           return null;
                         },
+                        inputFormatters: [
+                          LengthLimitingTextInputFormatter(20),
+                          FilteringTextInputFormatter.allow(
+                              RegExp('[a-zA-Z ]')),
+                        ],
                         textEditingController: nameController,
                         hintText: 'Enter First Name',
                         validatorText: 'Enter First Name'),
@@ -550,7 +556,6 @@ class _EditUserState extends State<EditUser> {
                       text: 'Update',
                       ontap: (() {
                         // _submit();
-    
                         final isValid = _form.currentState?.validate();
                         if (isValid!) {
                           UploadData();

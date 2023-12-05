@@ -119,8 +119,32 @@ class _OtherkycpageState extends State<Otherkycpage> {
   //   });
   // }
 
+  // void _presentDatePicker() {
+  //   DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+
+  //   showDatePicker(
+  //     context: context,
+  //     initialDate: yesterday,
+  //     firstDate: DateTime(1922),
+  //     lastDate: yesterday,
+  //   ).then((pickedDate) {
+  //     if (pickedDate == null) {
+  //       return setState(() {
+  //         datecontroller.text = '';
+  //       });
+  //     }
+  //     setState(() {
+  //       _selectedDate = pickedDate;
+  //       datecontroller.text =
+  //           "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString()}";
+  //     });
+  //   });
+  // }
+
   void _presentDatePicker() {
     DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+    DateTime eighteenYearsAgo =
+        DateTime.now().subtract(Duration(days: 365 * 18));
 
     showDatePicker(
       context: context,
@@ -133,11 +157,32 @@ class _OtherkycpageState extends State<Otherkycpage> {
           datecontroller.text = '';
         });
       }
-      setState(() {
-        _selectedDate = pickedDate;
-        datecontroller.text =
-            "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString()}";
-      });
+
+      if (pickedDate.isBefore(eighteenYearsAgo)) {
+        setState(() {
+          _selectedDate = pickedDate;
+          datecontroller.text =
+              "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString().padLeft(2, '0')}";
+        });
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text("Age Restriction"),
+              content: Text("Sorry, you must be above 18 years age"),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
+      }
     });
   }
 
@@ -233,6 +278,7 @@ class _OtherkycpageState extends State<Otherkycpage> {
       Timer(const Duration(seconds: 2),
           () => Get.offAllNamed('/EntryPoint', arguments: 0));
       print("other kyc completed");
+      print("data ${data.data}");
       return utils.showToast(data.message);
     } else {
       Get.back();
@@ -421,7 +467,7 @@ class _OtherkycpageState extends State<Otherkycpage> {
                 //     ),
                 //   ),
                 // ),
-    
+
                 CustomDateTextFormField(
                   hintText: "Please Select Date Of Birth",
                   validatorText: "Please Select Date Of Birth",
@@ -434,7 +480,6 @@ class _OtherkycpageState extends State<Otherkycpage> {
                   textEditingController: datecontroller,
                   ontap: () => _presentDatePicker(),
                 ),
-    
                 SizedBox(height: 20.h),
                 Text(
                   "Occupation",
@@ -447,22 +492,20 @@ class _OtherkycpageState extends State<Otherkycpage> {
                   height: 6.h,
                 ),
                 CustomTextFormField(
-                  texttype: TextInputType.text,
-                  hintText: "Please Enter Occupation",
-                  validatorText: "Please Enter Occupation",
-                  textEditingController: occupationcontroller,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return "Enter valid occupation";
-                    }
-                    return null;
-                  },
-                   inputFormatters: [
-                                    LengthLimitingTextInputFormatter(20),
-                                    FilteringTextInputFormatter.allow(
-                                        RegExp('[a-zA-Z ]')),
-                   ]
-                ),
+                    texttype: TextInputType.text,
+                    hintText: "Please Enter Occupation",
+                    validatorText: "Please Enter Occupation",
+                    textEditingController: occupationcontroller,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return "Enter valid occupation";
+                      }
+                      return null;
+                    },
+                    inputFormatters: [
+                      LengthLimitingTextInputFormatter(20),
+                      FilteringTextInputFormatter.allow(RegExp('[a-zA-Z ]')),
+                    ]),
                 sizedBoxHeight(20.h),
                 Text(
                   "Place of Birth",
@@ -544,15 +587,18 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -616,15 +662,18 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -687,15 +736,18 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -760,15 +812,18 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -792,7 +847,8 @@ class _OtherkycpageState extends State<Otherkycpage> {
                               listauthorisedsignimage = result;
                               var filenameresult = extractFileName(result);
                               print("File name is $filenameresult");
-                              listauthorisedsignController.text = filenameresult;
+                              listauthorisedsignController.text =
+                                  filenameresult;
                             });
                           });
                         },
@@ -814,7 +870,7 @@ class _OtherkycpageState extends State<Otherkycpage> {
                 SizedBox(
                   height: 13.h,
                 ),
-    
+
                 Column(
                   children: [
                     ListView.builder(
@@ -855,7 +911,8 @@ class _OtherkycpageState extends State<Otherkycpage> {
                         InkWell(
                           onTap: () {
                             setState(() {
-                              panCardAuthorizedList.add(TextEditingController());
+                              panCardAuthorizedList
+                                  .add(TextEditingController());
                               panCardAuthorizedFileList.add(null);
                               panCardAuthorizedWidget.add(pancardformfield(0));
                             });
@@ -873,7 +930,7 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     ),
                   ],
                 ),
-    
+
                 sizedBoxHeight(10.h),
                 Text(
                   "Aadhar card copy of authorized signatory",
@@ -928,7 +985,8 @@ class _OtherkycpageState extends State<Otherkycpage> {
                               aadharCardAuthorizedList
                                   .add(TextEditingController());
                               aadharCardAuthorizedFileList.add(null);
-                              aadharCardAuthorizedWidget.add(pancardformfield(0));
+                              aadharCardAuthorizedWidget
+                                  .add(pancardformfield(0));
                             });
                           },
                           child: Text(
@@ -973,15 +1031,18 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1016,7 +1077,7 @@ class _OtherkycpageState extends State<Otherkycpage> {
                   ),
                 ),
                 sizedBoxHeight(10.h),
-    
+
                 Text(
                   "Cml copy",
                   // ignore: prefer_const_constructors
@@ -1045,15 +1106,18 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1116,15 +1180,18 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1148,7 +1215,8 @@ class _OtherkycpageState extends State<Otherkycpage> {
                               latestincometaxretirnimage = result;
                               var filenameresult = extractFileName(result);
                               print("File name is $filenameresult");
-                              latestincomereturnController.text = filenameresult;
+                              latestincomereturnController.text =
+                                  filenameresult;
                             });
                           });
                         },
@@ -1159,7 +1227,7 @@ class _OtherkycpageState extends State<Otherkycpage> {
                   ),
                 ),
                 sizedBoxHeight(10.h),
-    
+
                 Text(
                   "Copy of audited balance sheet for last",
                   // ignore: prefer_const_constructors
@@ -1188,15 +1256,18 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
-                      borderSide: BorderSide(color: Color(0xffCCCCCC), width: 1),
+                      borderSide:
+                          BorderSide(color: Color(0xffCCCCCC), width: 1),
                     ),
                     errorBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10.r),
@@ -1297,9 +1368,11 @@ class _OtherkycpageState extends State<Otherkycpage> {
                         InkWell(
                           onTap: () {
                             setState(() {
-                              passportAuthorizedList.add(TextEditingController());
+                              passportAuthorizedList
+                                  .add(TextEditingController());
                               passportAuthorizedFileList.add(null);
-                              passportAuthorizedWidget.add(passportformfield(0));
+                              passportAuthorizedWidget
+                                  .add(passportformfield(0));
                             });
                           },
                           child: Text(
@@ -1315,27 +1388,27 @@ class _OtherkycpageState extends State<Otherkycpage> {
                     ),
                   ],
                 ),
-    
+
                 SizedBox(height: 40.h),
                 CustomNextButton(
                   text: "Save",
                   ontap: () {
-    //                   final isValid = _form.currentState?.validate();
-    // if(isValid! &&
-    //                       datecontroller!.isNotEmpty &&
-    //                       datecontroller != null){
-    //                   otherapicall();
-    
-    //                       }
-    //                       else {
-    //                     // return utils.showToast("Please fill all fields");
-    
-    //                     Flushbar(
-    //                       message: "Please fill all fields",
-    //                       duration: const Duration(seconds: 1),
-    //                     ).show(context);
-    //                   }
-    
+                    //                   final isValid = _form.currentState?.validate();
+                    // if(isValid! &&
+                    //                       datecontroller!.isNotEmpty &&
+                    //                       datecontroller != null){
+                    //                   otherapicall();
+
+                    //                       }
+                    //                       else {
+                    //                     // return utils.showToast("Please fill all fields");
+
+                    //                     Flushbar(
+                    //                       message: "Please fill all fields",
+                    //                       duration: const Duration(seconds: 1),
+                    //                     ).show(context);
+                    //                   }
+
                     final isValid = _form.currentState?.validate();
                     if (isValid != null && isValid) {
                       otherapicall();

@@ -82,8 +82,32 @@ class _PartnershipkycpageState extends State<Partnershipkycpage> {
     });
   }
 
+  // void _presentDatePicker() {
+  //   DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+
+  //   showDatePicker(
+  //     context: context,
+  //     initialDate: yesterday,
+  //     firstDate: DateTime(1922),
+  //     lastDate: yesterday,
+  //   ).then((pickedDate) {
+  //     if (pickedDate == null) {
+  //       return setState(() {
+  //         datecontroller.text = '';
+  //       });
+  //     }
+  //     setState(() {
+  //       _selectedDate = pickedDate;
+  //       datecontroller.text =
+  //           "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString()}";
+  //     });
+  //   });
+  // }
+
   void _presentDatePicker() {
     DateTime yesterday = DateTime.now().subtract(Duration(days: 1));
+    DateTime eighteenYearsAgo =
+        DateTime.now().subtract(Duration(days: 365 * 18));
 
     showDatePicker(
       context: context,
@@ -96,11 +120,32 @@ class _PartnershipkycpageState extends State<Partnershipkycpage> {
           datecontroller.text = '';
         });
       }
-      setState(() {
-        _selectedDate = pickedDate;
-        datecontroller.text =
-            "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString()}";
-      });
+
+      if (pickedDate.isBefore(eighteenYearsAgo)) {
+        setState(() {
+          _selectedDate = pickedDate;
+          datecontroller.text =
+              "${_selectedDate!.year.toString().padLeft(2, '0')}-${_selectedDate!.month.toString().padLeft(2, '0')}-${_selectedDate!.day.toString().padLeft(2, '0')}";
+        });
+      } else {
+        showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: Text("Age Restriction"),
+              content: Text("Sorry, you must be above 18 years age"),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
+      }
     });
   }
 
@@ -234,6 +279,8 @@ class _PartnershipkycpageState extends State<Partnershipkycpage> {
       Timer(const Duration(seconds: 2),
           () => Get.offAllNamed('/EntryPoint', arguments: 0));
       print("partnershio kyc completed");
+      print("data is ${data.message}");
+      print("data ${data.data}");
       return utils.showToast(data.message);
     } else {
       Get.back();
